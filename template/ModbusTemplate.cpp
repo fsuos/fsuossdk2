@@ -38,7 +38,7 @@ void {{ Project.Name }}::RunCheckThreshold()
    {% if t.Bool is defined and t.Bool == True %} 
    CheckThresholdBool({{ t.Level }}, "{{ t.SignalId }}", "{{ t.SignalId }}", "{{ t.SignalName }}", "{{ t.SignalDesc }}", {{ t.Value }}, {% if t.SignalIndex is defined %}{{t.SignalIndex}}{% else %}signal_index_++{% endif %});
    {% else %}
-   CheckThreshold({{ t.Key }},"{{ t.Name }}", {{ t.Value }}, {% if t.SignalIndex is defined %}{{t.SignalIndex}}{% else %}signal_index_++{% endif %});
+   CheckThreshold("{{ t.Key }}","{{ t.Name }}", {{ t.Value }}, {% if t.SignalIndex is defined %}{{t.SignalIndex}}{% else %}signal_index_++{% endif %});
    {% endif %}
    {% endfor %}
 }

@@ -30,6 +30,7 @@ private:
 	DTSD3366D_R3_366,
         DTSD3366D_END
     };
+    int cmd_result_ = -1;
 };
 
 PLUMA_INHERIT_PROVIDER(DTSD3366D, SMDSPDevice);

@@ -33,7 +33,7 @@ void DTSD3366D::RunCheckThreshold()
 {
  
    CheckThresholdBool(1, "0777001", "0777001", "停单告警", "停单告警", (cData.r3_7[0]>>2)&0x1, 1);
-   CheckThreshold(voltage,"电压", ((float)cData.r3_7[0])/100, signal_index_++);
+   CheckThreshold("voltage","电压", ((float)cData.r3_7[0])/100, signal_index_++);
 }
 
 bool DTSD3366D::RefreshStatus()
