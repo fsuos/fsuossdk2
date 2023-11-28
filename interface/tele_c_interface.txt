@@ -1,0 +1,195 @@
+
+#define TELE_C_SOI 0x7E7C6B5A
+
+#define LOGIN 101
+#define LOGIN_BACK 102
+#define LOGOUT 103
+#define LOGOUT_BACK 104
+
+#define SET_DYN_ACCELSC_MODE 401
+#define DYN_ACCELSC_MODE_ACK 402
+
+#define SET_POINT 1001
+#define SET_POINT_ACK 1002
+
+#define HEART_BEAT 1201
+#define HEART_BEAT_ACK 1202
+
+#define RT_HUMID 4997
+#define RT_TEMPERATURE 4998
+#define RT_CAMERA  4999
+//Our msg start from 5000
+#define RT_LIEBERT 5000
+#define RT_IMEM12  5001
+#define RT_BMA24   5002
+#define RT_BMA32   5003
+
+#define RT_FRESHAIR 5007
+#define RT_LIEBERT_UPS 5008
+
+//#define RT_M810G_AC 5009
+//#define RT_M810G_RC 5010
+//#define RT_M810G_DC 5011
+
+#define RT_LIEBERT_PEX 5012
+#define RT_ACCESS4000X 5013
+#define RT_AEG_MS10M 5014
+#define RT_AEG_MS10SE 5015
+#define RT_AMF25 5016
+#define RT_DOOR 5017
+#define RT_POWERMETER 5018
+#define RT_K200 5019
+#define RT_PMAC600B 5020
+#define RT_UG40 5021
+
+//#define RT_PSM15A_AC 5022
+//#define RT_PSM15A_DC 5023
+//#define RT_PSM15A_RC 5024
+
+/* defines in seperate file
+#define RT_SMU06C_AC  5215
+#define RT_SMU06C_DC 5216
+#define RT_SMU06C_RC 5217*/
+
+#define RT_PMAC600A 5202
+#define RT_SUNRISE   5203
+#define RT_DATAMATE3000 5204
+
+//#define RT_ZXDU58_B121V21_AC  5205
+//#define RT_ZXDU58_B121V21_DC 5206
+//#define RT_ZXDU58_B121V21_RC 5207
+
+#define RT_MEC10 5208
+#define RT_CANATAL 5209
+#define RT_DETALUPS 5210
+
+#define RT_MET05 5211
+#define RT_POWER302A 5212
+
+//#define RT_PSM6 5214
+//#define RT_DK04 5218
+
+//#define RT_CUC0609H_AC 5219
+//#define RT_CUC0609H_RC 5220
+//#define RT_CUC0609H_DC 5221
+
+//#define RT_DK04C 5222
+
+//#define RT_M520S_AC 5223
+//#define RT_M520S_RC 5224
+//#define RT_M520S_DC 5225
+
+//#define RT_M500F_AC 5226
+//#define RT_M500F_RC 5227
+//#define RT_M500F_DC 5228
+
+//#define RT_CUC21VB 5229
+
+//#define RT_CUC01H 5230
+
+//#define RT_CMS200 5231
+//#define RT_NXR  5232
+//#define RT_UL33  5233
+//#define RT_ITA   5234
+//#define RT_HIPULSEU  5235
+//#define RT_ADAPTPM150 5236
+
+
+//#define RT_ZXDU58_B121V22_AC  5237
+//#define RT_ZXDU58_B121V22_DC 5238
+//#define RT_ZXDU58_B121V22_RC 5239
+
+
+//#define RT_M522S_AC 5240
+//#define RT_M522S_RC 5241
+//#define RT_M522S_DC 5242
+
+//#define RT_PSMA9_AC 5243
+//#define RT_PSMA9_RC 5244
+//#define RT_PSMA9_DC 5245
+
+//#define RT_ZXDU58_S301_AC 5246
+//#define RT_ZXDU58_S301_DC 5247
+//#define RT_ZXDU58_S301_RC 5248
+
+//#define RT_DELTANT 5249
+//#define RT_DELTANHNT 5250
+//#define RT_DELTAHIFT 5251
+//#define RT_DES7310   5252
+//#define RT_DK09      5253
+
+//#define RT_ZXDU68_T601V41_AC 5254
+//#define RT_ZXDU68_T601V41_DC 5255
+//#define RT_ZXDU68_T601V41_RC 5256
+
+//#define RT_ZXDU300_500_AC 5257
+//#define RT_ZXDU300_500_DC 5258
+//#define RT_ZXDU300_500_RC 5259
+//#define RT_MARS16         5230
+//#define RT_UPS500         5231
+//#define RT_PDU8000        5232
+//#define RT_UH11           5233
+//#define RT_MEC2X          5234
+
+//#define RT_ZXDU400_600 5259
+//#define RT_DL_645      5260
+//#define RT_CMPLUS      5261
+//#define RT_GU320B      5262
+//#define RT_SCA         5263
+//#define RT_HAT400      5264
+//#define RT_ECM2000     5265
+//#define RT_SAC3000     5266
+//#define RT_MULTIINSTRUMENT    5267
+//#define RT_ZXDU3000         	5268
+//#define RT_EX8_33				5269
+//#define RT_ACREL_PZ			5270
+//#define RT_AL_175NT           5271
+//#define RT_SA_SU				5272
+
+//#define RT_ZXDU88_S402V5_AC 5270
+//#define RT_ZXDU88_S402V5_DC 5271
+//#define RT_ZXDU88_S402V5_RC 5272
+//#define RT_VTU_MODEL  5273
+//#define RT_PMAC625    5274
+//#define RT_HAT500     5275
+//#define RT_EA86       5276
+//#define RT_PD510      5277
+//#define RT_EAGLE600   5278
+
+
+//#define RT_MCS1800_AC 5279
+//#define RT_MCS1800_RC 5280
+//#define RT_MCS1800_DC 5281
+
+//#define RT_DACTS704D  5282
+//#define RT_GU320A     5283
+//#define RT_DELTAROOMCOOL_DXA 5284
+//#define RT_DELTAROOMCOOL_CW  5285
+//#define RT_PSTC980  5286
+//#define RT_ECM2000  5287
+//#define RT_BWDK326  5288
+//#define RT_SPM33  5289
+//#define RT_TC2_0  5290
+//#define RT_PM550  5291
+//#define RT_PA194I  5292
+//#define RT_PA194U  5293
+//#define RT_PD194E  5294
+//#define RT_ACREL_AEM86  5295
+//#define RT_TEMPERATUREHUMIDTRANSMITTER 5296
+//#define RT_SICAM 5297
+//#define RT_M816 5298
+//#define RT_CPHP2200 5299
+//#define RT_PSTCN980 5300
+//#define RT_CPM3310 5301
+//#define RT_DKD46 5302
+//#define RT_AFM20 5303
+//#define RT_MET05_8_A 5304
+//#define RT_SDC 5305
+//#define RT_MP20 5306
+//#define RT_MP10 5307
+//#define RT_DCC48_500 5308
+//#define RT_MG85 5309
+//#define RT_EM3000 5310
+//#define RT_FC102 5311
+//#define RT_DKD46 5312
+//#define RT_APM150 5313

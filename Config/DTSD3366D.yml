@@ -1,0 +1,48 @@
+Project:
+  Name : DTSD3366D
+  RT_ID : 5156
+  File : "测试.pdf"
+InitSetting :
+  - Name : ct
+    Type : int
+  - Name : has_a
+    Type : int
+Sample : 
+  - Cmd : 3
+    Offset : 7
+    Len : 4
+    Data : 
+      - Name : A相电压
+      - Name : B相电压
+        Offset : 3
+  - Cmd : 3
+    Offset : 0x16E
+    Len : 44
+Threshold :
+  - Bool : True
+    Level : 1
+    SignalId : "0777001"
+    SignalName : "停单告警"
+    SignalDesc : "停单告警"
+    Value : (cData.r3_7[0]>>2)&0x1
+    SignalIndex : 1
+  - Bool : False
+    Key : voltage
+    Name : 电压
+    Value : ((float)cData.r3_7[0])/100
+Value :
+  - Name : Ua
+    Value : cData.r3_7[0]
+  - Name : Ub
+    Value : cData.r3_7[1]
+AO :
+  - SignalId : 1234567
+    Desc : 测试1
+  - SignalId : 1234568
+    Desc : 测试2
+DO :
+  - SignalId : 1234567
+    Desc : 测试3
+  - SignalId : 1234568
+    Desc : 测试4
+
