@@ -10,6 +10,6 @@ if [ ! -e Drivers/SP$1 ];then
 mkdir Drivers/SP$1
 fi
 j2 --customize customization.py template/sp.project Config/$1.yml -o Drivers/SP$1/SP$1.project
-j2 --customize customization-cmake.py template/SPCMakeLists.txt Config/$1.yml -o Drivers/SP$1/CMakeLists.txt
+j2 --customize customization.py template/SPCMakeLists.txt Config/$1.yml -o Drivers/SP$1/CMakeLists.txt
 j2 --customize customization.py template/helper.php Config/$1.yml -o DeviceWeb/application/helpers/device/${1,,}.php
 j2 --customize customization.py template/view.php Config/$1.yml -o DeviceWeb/application/views/portal/DevicePage/${1,,}.php
