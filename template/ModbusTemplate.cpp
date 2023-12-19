@@ -21,26 +21,29 @@
 
 bool {{ Project.Name }}::InitSetting(const Json::Value &settingRoot)
 {
-	cData.data_id = data_id_;
-	if(settingRoot["appSetting"] != Json::nullValue && settingRoot["appSetting"].type() == Json::objectValue) {
-		{% for s in InitSetting %}
-        	if(settingRoot["appSetting"]["{{ s.Name }}"] != Json::nullValue) {
-            		{{s.Name}}_ = {% if s.Type == "int" %}atoi({%else%}atof({%endif%}settingRoot["appSetting"]["{{ s.Name }}"].asString().c_str());
-        	}
-		{% endfor %}
-	}
-	return UniDataDevice<{{ Project.Name }}_Data_t, SPModbus, RT_{{ Project.Name }}>::InitSetting(settingRoot);
+    cData.data_id = data_id_;
+    if(settingRoot["appSetting"] != Json::nullValue && settingRoot["appSetting"].type() == Json::objectValue) {
+    {% for s in InitSetting %}
+        if(settingRoot["appSetting"]["{{ s.Name }}"] != Json::nullValue) {
+            {{s.Name}}_ = {% if s.Type == "int" %}atoi({%else%}atof({%endif%}settingRoot["appSetting"]["{{ s.Name }}"].asString().c_str());
+        }
+    {% endfor %}
+    }
+    return UniDataDevice<{{ Project.Name }}_Data_t, SPModbus, RT_{{ Project.Name }}>::InitSetting(settingRoot);
 }
 
 void {{ Project.Name }}::RunCheckThreshold()
 {
-   {% for t in Threshold %}
-   {% if t.Bool is defined and t.Bool == True %} 
-   CheckThresholdBool({{ t.Level }}, "{{ t.SignalId }}", "{{ t.SignalId }}", "{{ t.SignalName }}", "{{ t.SignalDesc }}", {{ t.Value }}, {% if t.SignalIndex is defined %}{{t.SignalIndex}}{% else %}signal_index_++{% endif %});
-   {% else %}
-   CheckThreshold("{{ t.Key }}","{{ t.Name }}", {{ t.Value }}, {% if t.SignalIndex is defined %}{{t.SignalIndex}}{% else %}signal_index_++{% endif %});
-   {% endif %}
-   {% endfor %}
+    {% for t in Threshold %}
+    {% if t.Bool is defined and t.Bool == True %} 
+    CheckThresholdBool({{ t.Level }}, "{{ t.SignalId }}", "{{ t.SignalId }}", "{{ t.SignalName }}", "{{ t.SignalDesc }}", {{ t.Value }}, {% if t.SignalIndex is defined %}{{t.SignalIndex}}{% else %}signal_index_++{% endif %});
+    {% else %}
+    CheckThreshold("{{ t.Key }}","{{ t.Name }}", {{ t.Value }}, {% if t.SignalIndex is defined %}{{t.SignalIndex}}{% else %}signal_index_++{% endif %});
+    {% endif %}
+    {% endfor %}
+    {% if RunCheckThreshold is defined %}
+    {{ RunCheckThreshold }}
+    {% endif %}
 }
 
 bool {{ Project.Name }}::RefreshStatus()

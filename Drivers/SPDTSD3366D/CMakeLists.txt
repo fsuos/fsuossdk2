@@ -27,8 +27,8 @@ set(WORKSPACE_PATH "${CMAKE_CURRENT_LIST_DIR}/../..")
 
 
 
+#{{{{ User Code 1
 # Place your code here
-
 IF(${CMAKE_SYSTEM_PROCESSOR} STREQUAL "Arm")
     include_directories(/data/crosscompile/rootfs-dev2/usr/include)
     set(CL_OUTPUT_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/../../cmake-build-Arm-Debug/output)
@@ -78,10 +78,18 @@ ELSEIF(${CMAKE_SYSTEM_PROCESSOR} STREQUAL "ArmIG2000")
             add_definitions(
     -DSMDDEVICE
 )
-
+ELSEIF(${CMAKE_SYSTEM_PROCESSOR} STREQUAL "ArmEISU")
+    set(CL_OUTPUT_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/../../cmake-build-Arm-EISU-Debug/output)
+    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CL_OUTPUT_DIRECTORY})
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CL_OUTPUT_DIRECTORY})
+    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CL_OUTPUT_DIRECTORY})
+            add_definitions(
+    -DSMDDEVICE
+)
 ELSE()
     include_directories(${WORKSPACE_PATH}/devroot/usr/include    ${WORKSPACE_PATH}/devroot/usr/include/bsoncxx/v_noabi    ${WORKSPACE_PATH}/devroot/usr/include/mongocxx/v_noabi)
 ENDIF()
+#}}}}
 
 include_directories(
     .
@@ -133,12 +141,16 @@ endif(WIN32)
 
 
 
+#{{{{ User Code 2
+# Place your code here
+#}}}}
+
 add_library(SPDTSD3366D SHARED ${RC_SRCS} ${CXX_SRCS} ${C_SRCS})
 target_link_libraries(SPDTSD3366D ${LINK_OPTIONS})
 
 
-
+#{{{{ User Code 3
 # Place your code here
 set_target_properties(SPDTSD3366D PROPERTIES PREFIX "")
 set_target_properties(SPDTSD3366D PROPERTIES OUTPUT_NAME "dtsd3366d")
-
+#}}}}

@@ -17,23 +17,26 @@ DTSD3366D::~DTSD3366D()
 
 bool DTSD3366D::InitSetting(const Json::Value &settingRoot)
 {
-	cData.data_id = data_id_;
-	if(settingRoot["appSetting"] != Json::nullValue && settingRoot["appSetting"].type() == Json::objectValue) {
-        	if(settingRoot["appSetting"]["ct"] != Json::nullValue) {
-            		ct_ = atoi(settingRoot["appSetting"]["ct"].asString().c_str());
-        	}
-        	if(settingRoot["appSetting"]["has_a"] != Json::nullValue) {
-            		has_a_ = atoi(settingRoot["appSetting"]["has_a"].asString().c_str());
-        	}
-	}
-	return UniDataDevice<DTSD3366D_Data_t, SPModbus, RT_DTSD3366D>::InitSetting(settingRoot);
+    cData.data_id = data_id_;
+    if(settingRoot["appSetting"] != Json::nullValue && settingRoot["appSetting"].type() == Json::objectValue) {
+        if(settingRoot["appSetting"]["ct"] != Json::nullValue) {
+            ct_ = atoi(settingRoot["appSetting"]["ct"].asString().c_str());
+        }
+        if(settingRoot["appSetting"]["has_a"] != Json::nullValue) {
+            has_a_ = atoi(settingRoot["appSetting"]["has_a"].asString().c_str());
+        }
+    }
+    return UniDataDevice<DTSD3366D_Data_t, SPModbus, RT_DTSD3366D>::InitSetting(settingRoot);
 }
 
 void DTSD3366D::RunCheckThreshold()
 {
  
-   CheckThresholdBool(1, "0777001", "0777001", "停单告警", "停单告警", (cData.r3_7[0]>>2)&0x1, 1);
-   CheckThreshold("voltage","电压", ((float)cData.r3_7[0])/100, signal_index_++);
+    CheckThresholdBool(1, "0777001", "0777001", "停单告警", "停单告警", (cData.r3_7[0]>>2)&0x1, 1);
+    CheckThreshold("voltage","电压", ((float)cData.r3_7[0])/100, signal_index_++);
+    if ( 1 == 1) {
+    }
+
 }
 
 bool DTSD3366D::RefreshStatus()
