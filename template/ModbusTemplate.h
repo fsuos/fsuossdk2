@@ -22,6 +22,7 @@ public:
     float Get_Value(uint32_t data_id, const std::string& var_name) const;
     int DeviceIoControl(int ioControlCode, const void* inBuffer, int inBufferSize, void* outBuffer, int outBufferSize, int& bytesReturned) override;
 private:
+    {% if InitSetting is defined %}
     {% for s in InitSetting %}
     {% if s.Type == "int" %}
     int {{s.Name}}_;
@@ -29,6 +30,7 @@ private:
     float {{s.Name}}_;
     {% endif %}
     {% endfor %}
+    {% endif %}
     enum {{ Project.Name }}_Status {
         {{ Project.Name }}_IDLE = 10,
 	{% for sc in Sample %}

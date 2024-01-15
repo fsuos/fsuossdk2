@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 BuildDriver () {
     if [ ! -d $1 ]; then
 	mkdir $1

@@ -126,7 +126,7 @@ link_directories(
 
 # Define the CXX sources
 set ( CXX_SRCS
-    ${CMAKE_CURRENT_LIST_DIR}/../../Projects/<< Project.Name >>.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/../../SMDSPProcessor/<< Project.Name >>.cpp
 )
 
 set_source_files_properties(

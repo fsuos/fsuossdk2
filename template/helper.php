@@ -20,7 +20,11 @@ function Get_{{ Project.Name|lower }}_RtData($memData, &$dataArray, $extraPara =
         $v = unpack("S*" , substr($memData , $offset, 2*{{ sc.Len }}));
 	    {% if sc.Data is defined %}
 	    {% for d in sc.Data %}
-	$dataArray["{{ d.Name }}"] = number_format($v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}], 2);    
+	    {% if d.Value is defined %}
+    $dataArray["{{ d.Name }}"] = {{ d.Value }};
+	    {% else %}
+    $dataArray["{{ d.Name }}"] = number_format($v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}]{% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %}, 2){% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
+	    {% endif %}
 	    {% endfor %}
 	    {% endif %}
 	$offset += {{ 2*sc.Len }};

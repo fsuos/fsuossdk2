@@ -16,9 +16,9 @@
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="src">
-    <File Name="../../Projects/{{ Project.Name }}_interface.h"/>
-    <File Name="../../Projects/{{ Project.Name }}.h"/>
-    <File Name="../../Projects/{{ Project.Name }}.cpp"/>
+    <File Name="../../SMDSPProcessor/{{ Project.Name }}_interface.h"/>
+    <File Name="../../SMDSPProcessor/{{ Project.Name }}.h"/>
+    <File Name="../../SMDSPProcessor/{{ Project.Name }}.cpp"/>
   </VirtualDirectory>
   <Settings Type="Dynamic Library">
     <GlobalSettings>

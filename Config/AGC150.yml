@@ -1,0 +1,167 @@
+Project:
+  Name : AGC150
+  RT_ID : 5156
+  File : "agc-150-modbus-tables-4189341212-中文.xlsx"
+Sample : 
+  - Cmd : 4
+    Offset : 501
+    Len : 27
+    Data : 
+      - Name : 发电机电压L1-L2
+        Unit : V
+      - Name : 发电机电压L2-L3
+        Unit : V
+      - Name : 发电机电压L3-L1
+        Unit : V
+      - Name : 发电机电压L1-N
+        Unit : V
+      - Name : 发电机电压L2-N
+        Unit : V
+      - Name : 发电机电压L3-N
+        Unit : V
+      - Name : 发电机频率L1
+        Ratio : 100
+        Unit : Hz
+      - Name : 发电机频率L2
+        Ratio : 100
+        Unit : Hz
+      - Name : 发电机频率L3
+        Ratio : 100
+        Unit : Hz
+      - Name : 发电机电压相角L1-L2
+        Ratio : 10
+        Unit : 度
+      - Name : 发电机电压相角L2-L3
+        Ratio : 10
+        Unit : 度
+      - Name : 发电机电压相角L3-L1
+        Ratio : 10
+        Unit : 度
+      - Name : 发电机电流L1
+        Unit : A
+      - Name : 发电机电流L2
+        Unit : A
+      - Name : 发电机电流L3
+        Unit : A
+      - Name : 发电机功率L1
+        Unit : kW
+      - Name : 发电机功率L2
+        Unit : kW
+      - Name : 发电机功率L3
+        Unit : kW
+      - Name : 发电机功率
+        Unit : kW
+      - Name : 发电机无功功率L1
+        Unit : kVAr
+      - Name : 发电机无功功率L2
+        Unit : kVAr
+      - Name : 发电机无功功率L3
+        Unit : kVAr
+      - Name : 发电机无功功率
+        Unit : kVAr
+      - Name : 发电机视在功率L1
+        Unit : kVA
+      - Name : 发电机视在功率L2
+        Unit : kVA
+      - Name : 发电机视在功率L3
+        Unit : kVA
+      - Name : 发电机视在功率
+        Unit : kVA
+  - Cmd : 4
+    Offset : 538
+    Len : 13
+    Data : 
+      - Name : 发电机PF
+        Ratio : 100
+      - Name : 母排电压 L1-L2
+        Unit : V
+      - Name : 母排电压 L2-L3
+        Unit : V
+      - Name : 母排电压 L3-L1
+        Unit : V
+      - Name : 母排电压 L1-N
+        Unit : V
+      - Name : 母排电压 L2-N
+        Unit : V
+      - Name : 母排电压 L3-N
+        Unit : V
+      - Name : 母排频率L1
+        Ratio : 100
+        Unit : Hz
+      - Name : 母排频率L2
+        Ratio : 100
+        Unit : Hz
+      - Name : 母排频率L3
+        Ratio : 100
+        Unit : Hz
+      - Name : 母排电压 相角 L1-L2
+        Ratio : 10
+        Unit : 度
+      - Name : 母排电压 相角 L2-L3
+        Ratio : 10
+        Unit : 度
+      - Name : 母排电压 相角 L3-L1
+        Ratio : 10
+        Unit : 度
+  - Cmd : 4
+    Offset : 1018
+    Len : 3
+    Data : 
+      - Name : 机组运行
+        Value : '((cData.r4_1018[0] >> 6) & 0x1) ? "是" : "否"'
+      - Name : 闭锁模式
+        Value : '(cData.r4_1018[1] & 0x1) ? "是" : "否"'
+      - Name : 手动模式
+        Value : '((cData.r4_1018[1] >> 1) & 0x1) ? "是" : "否"'
+      - Name : 半自动模式
+        Value : '((cData.r4_1018[1] >> 2) & 0x1) ? "是" : "否"'
+      - Name : 自动模式
+        Value : '((cData.r4_1018[1] >> 3) & 0x1) ? "是" : "否"'
+      - Name : 测试模式
+        Value : '((cData.r4_1018[1] >> 4) & 0x1) ? "是" : "否"'
+      - Name : 通信错误
+        Value : '(cData.r4_1018[2] & 0x1) ? "是" : "否"'
+      - Name : 警告/黄色报警
+        Value : '((cData.r4_1018[2] >> 1) & 0x1) ? "是" : "否"'
+      - Name : 停机/红色报警 
+        Value : '((cData.r4_1018[2] >> 2) & 0x1) ? "是" : "否"'
+      - Name : 超速 
+        Value : '((cData.r4_1018[2] >> 3) & 0x1) ? "是" : "否"'
+      - Name : 冷却水温度1 
+        Value : '((cData.r4_1018[2] >> 4) & 0x1) ? "是" : "否"'
+      - Name : 冷却水温度2
+        Value : '((cData.r4_1018[2] >> 5) & 0x1) ? "是" : "否"'
+      - Name : 油压1
+        Value : '((cData.r4_1018[2] >> 6) & 0x1) ? "是" : "否"'
+      - Name : 油压2
+        Value : '((cData.r4_1018[2] >> 7) & 0x1) ? "是" : "否"'
+      - Name : 油温1
+        Value : '((cData.r4_1018[2] >> 8) & 0x1) ? "是" : "否"'
+      - Name : 油温2
+        Value : '((cData.r4_1018[2] >> 9) & 0x1) ? "是" : "否"'
+      - Name : 冷却水液位1
+        Value : '((cData.r4_1018[2] >> 10) & 0x1) ? "是" : "否"'
+      - Name : 冷却水液位2
+        Value : '((cData.r4_1018[2] >> 11) & 0x1) ? "是" : "否"'
+      - Name : 排气缸差温1
+        Value : '((cData.r4_1018[2] >> 12) & 0x1) ? "是" : "否"'
+      - Name : 排气缸差温2
+        Value : '((cData.r4_1018[2] >> 13) & 0x1) ? "是" : "否"'
+RunCheckThresholdCode: |
+  CheckThresholdBool(SMDController::LEVEL1, "4_1018_1_3", "05023", SIGNAME_05023, "油机不在自动模式告警", ((cData.r4_1018[1] >> 3) & 0x1) == 0, 1);
+  CheckThresholdBool(SMDController::LEVEL1, "4_1018_0_6", "05009", SIGNAME_05009, "油机启动", ((cData.r4_1018[0] >> 6) & 0x1), 1);
+  CheckThresholdBool(SMDController::LEVEL1, "4_1018_2_0", "05024", SIGNAME_05024, "通信错误", ((cData.r4_1018[2]) & 0x1), 1);
+  CheckThresholdBool(SMDController::LEVEL1, "4_1018_2_1", "05024", SIGNAME_05024, "警告/黄色报警", ((cData.r4_1018[2] >> 1) & 0x1), 2);
+  CheckThresholdBool(SMDController::LEVEL1, "4_1018_2_2", "05024", SIGNAME_05024, "警告/红色报警", ((cData.r4_1018[2] >> 2) & 0x1), 3);
+  CheckThresholdBool(SMDController::LEVEL1, "4_1018_2_3", "05001", SIGNAME_05001, "超速", ((cData.r4_1018[2] >> 3) & 0x1), 1);
+  CheckThresholdBool(SMDController::LEVEL1, "4_1018_2_4", "05013", SIGNAME_05004, "冷却水温度1", ((cData.r4_1018[2] >> 4) & 0x1), 1);
+  CheckThresholdBool(SMDController::LEVEL1, "4_1018_2_5", "05013", SIGNAME_05004, "冷却水温度2", ((cData.r4_1018[2] >> 5) & 0x1), 2);
+  CheckThresholdBool(SMDController::LEVEL1, "4_1018_2_5", "05013", SIGNAME_05010, "油压1", ((cData.r4_1018[2] >> 6) & 0x1), 1);
+  CheckThresholdBool(SMDController::LEVEL1, "4_1018_2_5", "05013", SIGNAME_05010, "油压2", ((cData.r4_1018[2] >> 7) & 0x1), 2);
+  CheckThresholdBool(SMDController::LEVEL1, "4_1018_2_5", "05013", SIGNAME_05013, "油温1", ((cData.r4_1018[2] >> 8) & 0x1), 1);
+  CheckThresholdBool(SMDController::LEVEL1, "4_1018_2_5", "05013", SIGNAME_05013, "油温2", ((cData.r4_1018[2] >> 9) & 0x1), 2);
+  CheckThresholdBool(SMDController::LEVEL1, "4_1018_2_5", "05013", SIGNAME_05015, "冷却水液位1", ((cData.r4_1018[2] >> 10) & 0x1), 1);
+  CheckThresholdBool(SMDController::LEVEL1, "4_1018_2_5", "05013", SIGNAME_05015, "冷却水液位2", ((cData.r4_1018[2] >> 11) & 0x1), 2);
+  CheckThresholdBool(SMDController::LEVEL1, "4_1018_2_5", "05024", SIGNAME_05024, "排气缸差温1", ((cData.r4_1018[2] >> 12) & 0x1), 4);
+  CheckThresholdBool(SMDController::LEVEL1, "4_1018_2_5", "05024", SIGNAME_05024, "排气缸差温2", ((cData.r4_1018[2] >> 13) & 0x1), 5);
+

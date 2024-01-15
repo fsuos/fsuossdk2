@@ -1,3 +1,4 @@
+#include "common_define.h"
 #include "{{ Project.Name }}.h"
 #include "UniDataDevice.cpp"
 
@@ -22,6 +23,7 @@
 bool {{ Project.Name }}::InitSetting(const Json::Value &settingRoot)
 {
     cData.data_id = data_id_;
+    {% if InitSetting is defined %}
     if(settingRoot["appSetting"] != Json::nullValue && settingRoot["appSetting"].type() == Json::objectValue) {
     {% for s in InitSetting %}
         if(settingRoot["appSetting"]["{{ s.Name }}"] != Json::nullValue) {
@@ -29,11 +31,13 @@ bool {{ Project.Name }}::InitSetting(const Json::Value &settingRoot)
         }
     {% endfor %}
     }
+    {% endif %}
     return UniDataDevice<{{ Project.Name }}_Data_t, SPModbus, RT_{{ Project.Name }}>::InitSetting(settingRoot);
 }
 
 void {{ Project.Name }}::RunCheckThreshold()
 {
+    {% if Threshold is defined %}
     {% for t in Threshold %}
     {% if t.Bool is defined and t.Bool == True %} 
     CheckThresholdBool({{ t.Level }}, "{{ t.SignalId }}", "{{ t.SignalId }}", "{{ t.SignalName }}", "{{ t.SignalDesc }}", {{ t.Value }}, {% if t.SignalIndex is defined %}{{t.SignalIndex}}{% else %}signal_index_++{% endif %});
@@ -41,8 +45,9 @@ void {{ Project.Name }}::RunCheckThreshold()
     CheckThreshold("{{ t.Key }}","{{ t.Name }}", {{ t.Value }}, {% if t.SignalIndex is defined %}{{t.SignalIndex}}{% else %}signal_index_++{% endif %});
     {% endif %}
     {% endfor %}
-    {% if RunCheckThreshold is defined %}
-    {{ RunCheckThreshold }}
+    {% endif %}
+    {% if RunCheckThresholdCode is defined %}
+    {{ RunCheckThresholdCode }}
     {% endif %}
 }
 
@@ -107,7 +112,7 @@ float {{ Project.Name }}::Get_Value(uint32_t data_id, const std::string& var_nam
     if( diff.total_seconds() > 60) {
         throw std::out_of_range("数据已超时");
     }
-
+   {% if Value is defined %}
    {% for v in Value %}
    {% if loop.index == 1 %}
    if(var_name == "{{v.Name}}"){
@@ -117,6 +122,7 @@ float {{ Project.Name }}::Get_Value(uint32_t data_id, const std::string& var_nam
      return {{v.Value}};
    }
    {% endfor %}
+   {% endif %}
     throw std::out_of_range("不支持变量");
 }
 
