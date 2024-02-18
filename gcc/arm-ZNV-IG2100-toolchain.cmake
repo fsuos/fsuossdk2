@@ -2,8 +2,8 @@ SET(CMAKE_SYSTEM_NAME Linux)
 SET(CMAKE_SYSTEM_VERSION 4.1.15)
 SET(CMAKE_SYSTEM_PROCESSOR ArmZNV)
 
-SET(CMAKE_C_COMPILER   ${CMAKE_CURRENT_LIST_DIR}/gcc/ZNV-IG2100/bin/arm-jgcx419nuc-linux-gnueabi-gcc)
-SET(CMAKE_CXX_COMPILER ${CMAKE_CURRENT_LIST_DIR}/gcc/ZNV-IG2100/bin/arm-jgcx419nuc-linux-gnueabi-g++)
+SET(CMAKE_C_COMPILER   ${CMAKE_CURRENT_LIST_DIR}/ZNV-IG2100/bin/arm-jgcx419nuc-linux-gnueabi-gcc)
+SET(CMAKE_CXX_COMPILER ${CMAKE_CURRENT_LIST_DIR}/ZNV-IG2100/bin/arm-jgcx419nuc-linux-gnueabi-g++)
 
 # where is the target environment 
 

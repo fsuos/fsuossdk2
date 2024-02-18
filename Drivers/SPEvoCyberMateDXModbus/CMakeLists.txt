@@ -3,7 +3,7 @@
 cmake_minimum_required(VERSION 2.8.11)
 
 # Project name
-project(SPDTSD3366D)
+project(SPEvoCyberMateDXModbus)
 
 # This setting is useful for providing JSON file used by CodeLite for code completion
 set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
@@ -22,7 +22,7 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CL_OUTPUT_DIRECTORY})
 
 # Top project
 # Define some variables
-set(PROJECT_SPDTSD3366D_PATH "${CMAKE_CURRENT_LIST_DIR}")
+set(PROJECT_SPEvoCyberMateDXModbus_PATH "${CMAKE_CURRENT_LIST_DIR}")
 set(WORKSPACE_PATH "${CMAKE_CURRENT_LIST_DIR}/../..")
 
 
@@ -126,7 +126,7 @@ link_directories(
 
 # Define the CXX sources
 set ( CXX_SRCS
-    ${CMAKE_CURRENT_LIST_DIR}/../../SMDSPProcessor/DTSD3366D.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/../../SMDSPProcessor/EvoCyberMateDXModbus.cpp
 )
 
 set_source_files_properties(
@@ -145,12 +145,12 @@ endif(WIN32)
 # Place your code here
 #}}}}
 
-add_library(SPDTSD3366D SHARED ${RC_SRCS} ${CXX_SRCS} ${C_SRCS})
-target_link_libraries(SPDTSD3366D ${LINK_OPTIONS})
+add_library(SPEvoCyberMateDXModbus SHARED ${RC_SRCS} ${CXX_SRCS} ${C_SRCS})
+target_link_libraries(SPEvoCyberMateDXModbus ${LINK_OPTIONS})
 
 
 #{{{{ User Code 3
 # Place your code here
-set_target_properties(SPDTSD3366D PROPERTIES PREFIX "")
-set_target_properties(SPDTSD3366D PROPERTIES OUTPUT_NAME "dtsd3366d")
+set_target_properties(SPEvoCyberMateDXModbus PROPERTIES PREFIX "")
+set_target_properties(SPEvoCyberMateDXModbus PROPERTIES OUTPUT_NAME "evocybermatedxmodbus")
 #}}}}

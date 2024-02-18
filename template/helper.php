@@ -17,7 +17,20 @@ function Get_{{ Project.Name|lower }}_RtData($memData, &$dataArray, $extraPara =
 	$offset = 4;
 	{% for sc in Sample %}
             {% if sc.Cmd == 3 or sc.Cmd == 4 %}
+	    {% if sc.Type is defined %}
+        {% if sc.Type == "f" or sc.Type == "I" or sc.Type == "i" %}
+ 	    $mem = substr($memData, $offset, 2*{{ sc.Len }});
+        $newMem = '';
+        for ($i = 0; $i < strlen($mem); $i += 4) {
+            $newMem .= $mem[$i + 2] . $mem[$i + 3] . $mem[$i] . $mem[$i + 1];
+        }
+        $v = unpack("{{sc.Type}}*" , $newMem);
+        {% else %}
+        $v = unpack("{{sc.Type}}*" , substr($memData , $offset, 2*{{ sc.Len }}));
+        {% endif %}
+	    {% else %}
         $v = unpack("S*" , substr($memData , $offset, 2*{{ sc.Len }}));
+	    {% endif %}
 	    {% if sc.Data is defined %}
 	    {% for d in sc.Data %}
 	    {% if d.Value is defined %}
@@ -25,6 +38,11 @@ function Get_{{ Project.Name|lower }}_RtData($memData, &$dataArray, $extraPara =
 	    {% else %}
     $dataArray["{{ d.Name }}"] = number_format($v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}]{% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %}, 2){% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
 	    {% endif %}
+        {% if d.Alias is defined %}
+        {% for newName in d.Alias %}
+        $dataArray["{{ newName }}"] = $dataArray["{{ d.Name }}"];
+        {% endfor %}
+        {% endif %}
 	    {% endfor %}
 	    {% endif %}
 	$offset += {{ 2*sc.Len }};
@@ -32,7 +50,7 @@ function Get_{{ Project.Name|lower }}_RtData($memData, &$dataArray, $extraPara =
         $v = unpack("C*" , substr($memData , $offset, {{ sc.Len }} ));
 	    {% if sc.Data is defined %}
 	    {% for d in sc.Data %}
-	$dataArray["{{ d.Name }}"] = number_format($v[$v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}], 2);    
+	$dataArray["{{ d.Name }}"] = number_format($v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}], 2);    
 	    {% endfor %}
 	    {% endif %}
 	$offset += {{ sc.Len }};

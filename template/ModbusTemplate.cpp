@@ -35,6 +35,12 @@ bool {{ Project.Name }}::InitSetting(const Json::Value &settingRoot)
     return UniDataDevice<{{ Project.Name }}_Data_t, SPModbus, RT_{{ Project.Name }}>::InitSetting(settingRoot);
 }
 
+static void copy_to_float(uint16_t* buf, uint8_t *pFloat)
+{
+	memcpy(pFloat, buf+1, 2);
+	memcpy(pFloat+2, buf, 2);
+}
+
 void {{ Project.Name }}::RunCheckThreshold()
 {
     {% if Threshold is defined %}
@@ -78,7 +84,7 @@ bool {{ Project.Name }}::process_payload(enum tab_type type, size_t len)
 	    {% if sc.Cmd == 3 or sc.Cmd == 4 %}
             memcpy(cData.{{ "r%d_%d"%(sc.Cmd,sc.Offset) }}, tab_reg, sizeof(uint16_t)*{{  sc.Len }});
             {% elif sc.Cmd == 1 or sc.Cmd == 2 %}
-	    memcpy(cData.{{ "b%d_%d"%(sc.Cmd,sc.Offset) }}, tab_reg, sizeof(uint8_t)*{{  sc.Len }});
+	    memcpy(cData.{{ "b%d_%d"%(sc.Cmd,sc.Offset) }}, tab_bit, sizeof(uint8_t)*{{  sc.Len }});
 	    {% endif %}
 	    {% if loop.nextitem is defined %}
             state = {{ Project.Name + "_R%d_%d"%(loop.nextitem.Cmd,loop.nextitem.Offset) + ";" }}

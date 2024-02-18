@@ -1,0 +1,60 @@
+Project:
+  Name : EvoCyberMateDXModbus
+  RT_ID : 5156
+  File : "05130040-通信协议-A7-EVO-CyberMate-DX-modbus协议-中英文-2021-11-29  英维克.pdf"
+Sample : 
+  - Cmd : 3
+    Offset : 0x0100
+    Len : 40
+    Data : 
+      - Name : "1#回风温度"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 1
+      - Name : "2#回风温度"
+        Unit : "℃"
+        Ratio : 10
+      - Name : "3#回风温度"
+        Unit : "℃"
+        Ratio : 10
+      - Name : "4#回风温度"
+        Unit : "℃"
+        Ratio : 10
+      - Name : "5#回风温度"
+        Unit : "℃"
+        Ratio : 10
+      - Name : "1#出风温度"
+        Unit : "℃"
+        Ratio : 10
+      - Name : "室外温度"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 9
+      - Name : "1#回风湿度"
+        Unit : "%"
+        Ratio : 10
+        Offset : 14
+      - Name : "2#回风湿度"
+        Unit : "%"
+        Ratio : 10
+        Offset : 15
+      - Name : "3#回风湿度"
+        Unit : "%"
+        Ratio : 10
+        Offset : 16
+      - Name : "4#回风湿度"
+        Unit : "%"
+        Ratio : 10
+        Offset : 17
+      - Name : "5#回风湿度"
+        Unit : "%"
+        Ratio : 10
+        Offset : 18
+      - Name : "室外湿度"
+        Unit : "%"
+        Ratio : 10
+        Offset : 17
+      - Name : "出风湿度"
+        Unit : "%"
+        Ratio : 10
+        Offset : 18

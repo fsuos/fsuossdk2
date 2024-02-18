@@ -1,0 +1,80 @@
+Project:
+  Name : HanGuang4PDC
+  RT_ID : 5156
+  File : "4P直流4回路导轨表 说明书 20211216(2).pdf"
+Sample : 
+  - Cmd : 3
+    Offset : 0
+    Len : 12
+    Type : "f"
+    Data : 
+      - Name : "电压"
+        Unit : "V"
+        Offset : 1
+        Alias : 
+          - "电压1"
+          - ”电压2"
+          - "电压3"
+      - Name : "第1回路电流"
+        Unit : "A"
+        Offset : 3
+      - Name : "第1回路功率"
+        Unit : "kW"
+        Offset : 4
+      - Name : "第1回路电能"
+        Unit : "kWh"
+        Offset : 5
+      - Name : "第1回路电能占比"
+        Unit : "%"
+        Offset : 6
+  - Cmd : 3
+    Offset : 0xC
+    Len : 10
+    Type : "f"
+    Data : 
+      - Name : "第2回路电流"
+        Unit : "A"
+        Offset : 2
+      - Name : "第2回路功率"
+        Unit : "kW"
+        Offset : 3
+      - Name : "第2回路电能"
+        Unit : "kWh"
+        Offset : 4
+      - Name : "第2回路电能占比"
+        Unit : "%"
+        Offset : 5   
+  - Cmd : 3
+    Offset : 0x16
+    Len : 10
+    Type : "f"
+    Data : 
+      - Name : "第3回路电流"
+        Unit : "A"
+        Offset : 2
+      - Name : "第3回路功率"
+        Unit : "kW"
+        Offset : 3
+      - Name : "第3回路电能"
+        Unit : "kWh"
+        Offset : 4
+      - Name : "第3回路电能占比"
+        Unit : "%"
+        Offset : 5   
+  - Cmd : 3
+    Offset : 0x20
+    Len : 10
+    Type : "f"
+    Data : 
+      - Name : "第4回路电流"
+        Unit : "A"
+        Offset : 2
+      - Name : "第4回路功率"
+        Unit : "kW"
+        Offset : 3
+      - Name : "第4回路电能"
+        Unit : "kWh"
+        Offset : 4
+      - Name : "第4回路电能占比"
+        Unit : "%"
+        Offset : 5   

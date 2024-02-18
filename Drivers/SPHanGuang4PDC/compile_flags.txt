@@ -1,0 +1,16 @@
+-I/home/marship/PythonProjects/FsuOSSDK2/Drivers/SPHanGuang4PDC
+-I/home/marship/PythonProjects/FsuOSSDK2/Drivers
+-I/home/marship/PythonProjects/FsuOSSDK2/include
+-I/home/marship/PythonProjects/FsuOSSDK2/interface
+-I/usr/include/c++/7
+-I/usr/include/c++/7/x86_64-suse-linux
+-I/usr/include/c++/7/backward
+-I/usr/lib64/gcc/x86_64-suse-linux/7/include
+-I/usr/local/include
+-I/usr/lib64/gcc/x86_64-suse-linux/7/include-fixed
+-I/usr/x86_64-suse-linux/include
+-I/usr/include
+-DUSE_SEPERATE_DRIVER
+-std=c++14
+-target
+x86_64-suse-linux

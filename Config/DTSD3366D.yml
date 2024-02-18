@@ -1,48 +1,157 @@
 Project:
   Name : DTSD3366D
   RT_ID : 5156
-  File : "测试.pdf"
+  File : "DTSD3366D-W1 modbus通讯 协议V1.06.pdf"
 InitSetting :
   - Name : ct
     Type : int
   - Name : has_a
     Type : int
-InitSettingCode : |
-  if ( 1 == 1 ){
-    }
+# InitSettingCode : |
+#   if ( 1 == 1 ){
+#     }
 Sample : 
   - Cmd : 3
-    Offset : 7
-    Len : 4
+    Offset : 9
+    Len : 2
     Data : 
-      - Name : A相电压
-      - Name : B相电压
-        Offset : 3
+      - Name : 电压变比
+      - Name : 电流变比
   - Cmd : 3
     Offset : 0x16E
-    Len : 44
-DataCode : |
-  uint32_t a;
-Threshold :
-  - Bool : True
-    Level : 1
-    SignalId : "0777001"
-    SignalName : "停单告警"
-    SignalDesc : "停单告警"
-    Value : (cData.r3_7[0]>>2)&0x1
-    SignalIndex : 1
-  - Bool : False
-    Key : voltage
-    Name : 电压
-    Value : ((float)cData.r3_7[0])/100
-RunCheckThresholdCode: |
-    if ( 1 == 1) {
-        }
-Value :
-  - Name : Ua
-    Value : cData.r3_7[0]
-  - Name : Ub
-    Value : cData.r3_7[1]
+    Len : 12
+    Type : 'I'
+    Data :
+      - Name : A相电压
+        Unit : "V"
+        Ratio : 10000
+      - Name : B相电压
+        Unit : "V"
+        Ratio : 10000
+      - Name : C相电压
+        Unit : "V"
+        Ratio : 10000
+      - Name : A相电流
+        Unit : "A"
+        Ratio : 10000
+      - Name : B相电流
+        Unit : "A"
+        Ratio : 10000
+      - Name : C相电流
+        Unit : "A"
+        Ratio : 10000
+  - Cmd : 3
+    Offset : 0x17a
+    Len : 24
+    Type : 'i'
+    Data :
+      - Name : 瞬时总有功有功率
+        Unit : "kW"
+        Ratio : 10000
+      - Name : A相有功功率
+        Unit : "kW"
+        Ratio : 10000
+      - Name : B相有功功率
+        Unit : "kW"
+        Ratio : 10000
+      - Name : C相有功功率
+        Unit : "kW"
+        Ratio : 10000
+      - Name : 瞬时总无功有功率
+        Unit : "kvar"
+        Ratio : 10000
+      - Name : A相无功功率
+        Unit : "kvar"
+        Ratio : 10000
+      - Name : B相无功功率
+        Unit : "kvar"
+        Ratio : 10000
+      - Name : C相无功功率
+        Unit : "kvar"
+        Ratio : 10000
+      - Name : 瞬时总视在功率
+        Unit : "kVA"
+        Ratio : 10000
+      - Name : A相视在功率
+        Unit : "kVA"
+        Ratio : 10000
+      - Name : B相视在功率
+        Unit : "kVA"
+        Ratio : 10000
+      - Name : C相视在功率
+        Unit : "kVA"
+        Ratio : 10000
+  - Cmd : 3
+    Offset : 0x192
+    Len : 8
+    Type : 's'
+    Data :
+      - Name : 总功率因数字
+        Ratio : 1000
+      - Name : A相功率因数字
+        Ratio : 1000
+      - Name : B相功率因数字
+        Ratio : 1000
+      - Name : C相功率因数字
+        Ratio : 1000
+      - Name : A相相角字
+        Ratio : 10
+        Unit : '°'
+      - Name : B相相角字
+        Ratio : 10
+        Unit : '°'
+      - Name : C相相角字
+        Ratio : 10
+        Unit : '°'
+      - Name : 频率
+        Ratio : 100
+        Unit : "Hz"
+  - Cmd : 3
+    Offset : 0x1000
+    Len : 2
+    Type : 'i'
+    Data : 
+      - Name : 组合有功电能
+        Ratio : 100
+        Unit : "kWh"
+  - Cmd : 3
+    Offset : 0x1030
+    Len : 2
+    Type : 'i'
+    Data : 
+      - Name : 正向有功电能
+        Ratio : 100
+        Unit : "kWh"
+  - Cmd : 3
+    Offset : 0x1060
+    Len : 2
+    Type : 'i'
+    Data : 
+      - Name : 反向有功电能
+        Ratio : 100
+        Unit : "kWh"
+# DataCode : |
+#   uint32_t a;
+# Threshold :
+#   - Bool : True
+#     Level : 1
+#     SignalId : "0777001"
+#     SignalName : "停单告警"
+#     SignalDesc : "停单告警"
+#     Value : (cData.r3_7[0]>>2)&0x1
+#     SignalIndex : 1
+#   - Bool : False
+#     Key : voltage
+#     Name : 电压
+#     Value : ((float)cData.r3_7[0])/100
+# RunCheckThresholdCode: |
+#     if ( 1 == 1) {
+#         }
+# Value :
+#   - Name : Ua
+#     Value : cData.r3_7[0]
+#   - Name : Ub
+#     Value : cData.r3_7[1]
 AO :
   - SignalId : 1234567
     Desc : 测试1

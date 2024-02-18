@@ -1,0 +1,61 @@
+Project:
+  Name : ETPower
+  RT_ID : 5156
+  File : "数显表ET系列电流表（电压表）通讯协议V1.3（2017.07.05）.xls"
+Sample : 
+  - Cmd : 3
+    Offset : 0x500
+    Len : 24
+    Type : "f"
+    Data : 
+      - Name : "相电压U1"
+        Unit : "V"
+        Offset : 1
+      - Name : "相电压U2"
+        Unit : "V"
+        Offset : 2
+      - Name : "相电压U3"
+        Unit : "V"
+        Offset : 3
+      - Name : "三相平均相电压"
+        Unit : "V"
+        Offset : 4
+      - Name : "线电压U12"
+        Unit : "V"
+        Offset : 5
+      - Name : "线电压U23"
+        Unit : "V"
+        Offset : 6
+      - Name : "线电压U31"
+        Unit : "V"
+        Offset : 7
+      - Name : "三相平均线电压"
+        Unit : "V"
+        Offset : 8
+      - Name : "第1相电流"
+        Unit : "A"
+        Offset : 9
+      - Name : "第2相电流"
+        Unit : "A"
+        Offset : 10
+      - Name : "第3相电流"
+        Unit : "A"
+        Offset : 11
+      - Name : "三相平均电流"
+        Unit : "A"
+        Offset : 12
+InitSetting :
+  - Name : has_a
+    Type : int
+  - Name : has_b
+    Type : int
+  - Name : has_c
+    Type : int
+RunCheckThresholdCode: |
+    float fA = 0.0,fB = 0.0,fC = 0.0;
+    copy_to_float(cData.r3_1280, (uint8_t*)&fA);
+    copy_to_float(cData.r3_1280+2, (uint8_t*)&fA);
+    copy_to_float(cData.r3_1280+4, (uint8_t*)&fA);
+    CheckThresholdBool(1, "p41_44_0","321415001", "输入电源中断", "输入电源中断 UA:" + boost::lexical_cast<std::string>(fA) + " UB:" + boost::lexical_cast<std::string>(fB)
+    + " UC:" + boost::lexical_cast<std::string>(fC), (has_a_ && (fA < 120) ) || 
+                    ( has_b_ && (fB < 120 )) || ( has_c_ && (fC < 120 )), 1);

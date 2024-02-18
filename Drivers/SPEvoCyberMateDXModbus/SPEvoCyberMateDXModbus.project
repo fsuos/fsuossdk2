@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CodeLite_Project Name="SPDTSD3366D" Version="11000" InternalType="Console">
+<CodeLite_Project Name="SPEvoCyberMateDXModbus" Version="11000" InternalType="Console">
   <Plugins>
     <Plugin Name="qmake">
       <![CDATA[00010001N0005Debug000000000000]]>
@@ -16,9 +16,9 @@
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="src">
-    <File Name="../../SMDSPProcessor/DTSD3366D_interface.h"/>
-    <File Name="../../SMDSPProcessor/DTSD3366D.h"/>
-    <File Name="../../SMDSPProcessor/DTSD3366D.cpp"/>
+    <File Name="../../SMDSPProcessor/EvoCyberMateDXModbus_interface.h"/>
+    <File Name="../../SMDSPProcessor/EvoCyberMateDXModbus.h"/>
+    <File Name="../../SMDSPProcessor/EvoCyberMateDXModbus.cpp"/>
   </VirtualDirectory>
   <Settings Type="Dynamic Library">
     <GlobalSettings>

@@ -1,0 +1,53 @@
+Project:
+  Name : MediaMAV
+  RT_ID : 5157
+  File : "美的精密机房用空调机组Modbus协议-V4.3"
+Sample : 
+  - Cmd : 1
+    Offset : 0
+    Len : 114
+    Data : 
+      - Name : "内风机"
+        Offset : 48
+      - Name : "压缩机1"
+        Offset : 49
+  - Cmd : 3
+    Offset : 0
+    Len : 61
+    Data : 
+      - Name : "温度设点"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 1
+      - Name : "湿度设点"
+        Unit : "％"
+        Ratio : 10
+        Offset : 3
+      - Name : "环境温度"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 49
+      - Name : "环境湿度"
+        Unit : "%"
+        Ratio : 10
+        Offset : 50   
+      - Name : "出风温度"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 51
+  - Cmd : 3
+    Offset : 62
+    Len : 6
+    Data : 
+      - Name : "风机运行时间"
+        Unit : "H"
+        Offset : 1
+      - Name : "压缩机1运行时间"
+        Unit : "H"
+        Offset : 2
+  - Cmd : 3
+    Offset : 168
+    Len : 1
+    Data :
+      - Name : "机组状态"
+        Offset : 1
