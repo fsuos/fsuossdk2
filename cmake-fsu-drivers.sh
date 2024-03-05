@@ -31,8 +31,8 @@ BuildDriver () {
       cd $PACK_PATH$4;./pack.sh $DSTFILE;cd -
     fi
 }
-#BuildDriver "cmake-build-Arm-A7-Debug" "gcc/arm-303X-toolchain.cmake" $1
-#BuildDriver "cmake-build-Arm-NUC-Debug" "gcc/arm-NUC-toolchain.cmake" $1
+BuildDriver "cmake-build-Arm-A7-Debug" "gcc/arm-303X-toolchain.cmake" $1 "SMD303X"
+#BuildDriver "cmake-build-Arm-NUC-Debug" "gcc/arm-NUC-toolchain.cmake" $1 "SMD303MINI"
 #BuildDriver "cmake-build-Arm-A8-Debug" "gcc/arm-GFSU-toolchain.cmake" $1  "GFSU"
-BuildDriver "cmake-build-Arm-ZNV-Debug" "gcc/arm-ZNV-IG2100-toolchain.cmake" $1 "ZNVIG2100"
+#BuildDriver "cmake-build-Arm-ZNV-Debug" "gcc/arm-ZNV-IG2100-toolchain.cmake" $1 "ZNVIG2100"
 #BuildDriver "cmake-build-Arm-IG2000-Debug" "arm-ig2000-toolchain.cmake" "ZNVIG2000"

@@ -42,19 +42,20 @@ static void copy_to_float(uint16_t* buf, uint8_t *pFloat)
 }
 
 void {{ Project.Name }}::RunCheckThreshold()
-{
-    {% if Threshold is defined %}
-    {% for t in Threshold %}
-    {% if t.Bool is defined and t.Bool == True %} 
-    CheckThresholdBool({{ t.Level }}, "{{ t.SignalId }}", "{{ t.SignalId }}", "{{ t.SignalName }}", "{{ t.SignalDesc }}", {{ t.Value }}, {% if t.SignalIndex is defined %}{{t.SignalIndex}}{% else %}signal_index_++{% endif %});
-    {% else %}
-    CheckThreshold("{{ t.Key }}","{{ t.Name }}", {{ t.Value }}, {% if t.SignalIndex is defined %}{{t.SignalIndex}}{% else %}signal_index_++{% endif %});
-    {% endif %}
-    {% endfor %}
-    {% endif %}
-    {% if RunCheckThresholdCode is defined %}
-    {{ RunCheckThresholdCode }}
-    {% endif %}
+{    
+    switch(b_mode_)
+    {
+        case 1://联通
+        {
+            {% if RunCheckThresholdCodeUnicom is defined %}{{ RunCheckThresholdCodeUnicom }}{% endif %}
+            break;
+        }
+        case 2://电信
+        {
+             {% if RunCheckThresholdCodeTelecom is defined %}{{ RunCheckThresholdCodeTelecom }}{% endif %}
+            break;
+        }
+    }
 }
 
 bool {{ Project.Name }}::RefreshStatus()

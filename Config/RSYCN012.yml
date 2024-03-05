@@ -1,0 +1,15 @@
+Project:
+  Name : RSYCN012
+  RT_ID : 5156
+  File : "RS-YC-N01-2压差变送器用户手册.pdf"
+  BaudRate : 4800
+Sample : 
+  - Cmd : 3
+    Offset : 0
+    Len : 1
+    Type : "S"
+    Data : 
+      - Name : "压差"
+        Unit : "Pa"
+        Offset : 1
+        Ratio : 10

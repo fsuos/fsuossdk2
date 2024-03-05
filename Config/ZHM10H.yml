@@ -1,0 +1,74 @@
+Project:
+  Name : ZHM10H
+  RT_ID : 5156
+  File : "8007000045_ZHM10H监控通信协议(Modbus)（240V开关电源）.doc"
+Sample : 
+  - Cmd : 3
+    Offset : 0x130
+    Len : 19
+    Type : "S"
+    Data : 
+      - Name : "A相电流"
+        Unit : "A"
+        Offset : 1
+        Ratio : 100
+      - Name : "B相电流"
+        Unit : "A"
+        Offset : 2
+        Ratio : 100
+      - Name : "C相电流"
+        Unit : "A"
+        Offset : 3
+        Ratio : 100
+      - Name : "平均电流"
+        Unit : "A"
+        Offset : 4
+        Ratio : 100
+      - Name : "A相电压"
+        Unit : "V"
+        Offset : 7
+        Ratio : 10
+      - Name : "B相电压"
+        Unit : "V"
+        Offset : 8
+        Ratio : 10
+      - Name : "C相电压"
+        Unit : "V"
+        Offset : 9
+        Ratio : 10
+      - Name : "平均电压"
+        Unit : "V"
+        Offset : 10
+        Ratio : 10
+      - Name : "负序电流"
+        Unit : "A"
+        Offset : 11
+        Ratio : 100
+      - Name : "AB相电压"
+        Unit : "V"
+        Offset : 12
+        Ratio : 10
+      - Name : "BC相电压"
+        Unit : "V"
+        Offset : 13
+        Ratio : 10
+      - Name : "CA相电压"
+        Unit : "V"
+        Offset : 14
+        Ratio : 10
+      - Name : "平均线电压"
+        Unit : "V"
+        Offset : 15
+        Ratio : 10
+      - Name : "总有功功率"
+        Unit : "KW"
+        Offset : 17
+        Ratio : 10
+      - Name : "总无功功率"
+        Unit : "KVAR"
+        Offset : 18
+        Ratio : 10
+      - Name : "总视在功率"
+        Unit : "KVA"
+        Offset : 19
+        Ratio : 10

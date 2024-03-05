@@ -22,9 +22,9 @@ bool UniBufferDevice<PClass, RT_TYPE>::LoadFromCache(const uint8_t *data, int da
 {   
      if(buffer_len_ != data_len){
         buffer_len_ = data_len;
-        buffer_ = std::make_unique<uint8_t[]>(buffer_len_);
+        buffer_ = std::make_shared<std::vector<uint8_t>>(buffer_len_);
     }
-    memcpy(buffer_.get(), data, data_len);
+    memcpy(buffer_->data(), data, data_len);
     this->bIsDataReady_ = true;
     this->lastTime = boost::posix_time::second_clock::local_time();
     return true;
@@ -48,13 +48,19 @@ void UniBufferDevice<PClass, RT_TYPE>::RoundDone()
     }
 
     this->lastTime = boost::posix_time::second_clock::local_time();
-    this->SendSP(RT_TYPE, buffer_.get(), buffer_len_);
+    this->SendSP(RT_TYPE, buffer_->data(), buffer_len_);
     this->Reset();
     
-    int rvSize = this->ruleValueVec.size();
-    this->CheckThresholdWork([self(this->shared_from_this()), this, rvVec(std::move(this->ruleValueVec))] {
-        this->bSaveHistory |= this->DoBatchCheckThreshold(rvVec);
-        this->SaveDeviceHistory(buffer_.get(), buffer_len_);
-    });
-    this->ruleValueVec.reserve(rvSize);
+//    int rvSize = this->ruleValueVec.size();
+//    this->CheckThresholdWork([self(this->shared_from_this()), this, rvVec(std::move(this->ruleValueVec))] {
+//        this->bSaveHistory |= this->DoBatchCheckThreshold(rvVec);
+//        this->SaveDeviceHistory(buffer_.get(), buffer_len_);
+//    });
+//    this->ruleValueVec.reserve(rvSize);    
+    
+    //int rvSize = this->ruleValueVec.size();
+    this->bSaveHistory |= this->DoBatchCheckThreshold(this->ruleValueVec);
+    this->SaveDeviceHistory(buffer_->data(), buffer_len_);
+    this->ruleValueVec.clear();
+
 }

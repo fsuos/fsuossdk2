@@ -6,12 +6,20 @@ class UniDataDevice: public PClass
 {
 public:
     UniDataDevice();
+    
+    virtual ~UniDataDevice();
+    
     virtual bool InitSetting(const Json::Value &settingRoot) override;
     bool LoadFromCache(const uint8_t *data, int data_len) override;
-    virtual void RunCheckThreshold(){} 
+    virtual void RunCheckThreshold(){}
     void RoundDone() override;
+    
+    void DoCheck(std::vector<rule_value> rvVec);
 protected:
-    CDataType cData;
+    //这个地方是如果cData没有4对齐，访问cData中的成员变量可能会出问题，cData内部在声明的时候，会注意内存的布局
+    CDataType __attribute__((__aligned__(4))) cData;
+    
+    int b_mode_ = 1;//1:联通 2:电信
 };
 
 #endif // PMBUSPOWERAC_H

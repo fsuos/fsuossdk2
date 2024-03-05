@@ -1,0 +1,176 @@
+Project:
+  Name : ITeaqUPSUR
+  RT_ID : 5156
+  File : "太行UR-(6-20KVA) Modbus协议开发指南（UPS）"
+Sample : 
+  - Cmd : 3
+    Offset : 11000
+    Len : 28
+    Type : "S"
+    Data : 
+      - Name : "A相输入电压"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "B相输入电压"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "C相输入电压"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "输入频率"
+        Unit : "Hz"
+        Offset : 4
+        Ratio : 10
+      - Name : "A相旁路电压"
+        Unit : "V"
+        Offset : 5
+        Ratio : 10
+      - Name : "B相旁路电压"
+        Unit : "V"
+        Offset : 6
+        Ratio : 10
+      - Name : "C相旁路电压"
+        Unit : "V"
+        Offset : 7
+        Ratio : 10
+      - Name : "旁路频率"
+        Unit : "Hz"
+        Offset : 8
+        Ratio : 10
+      - Name : "A相输出电压"
+        Unit : "V"
+        Offset : 9
+        Ratio : 10
+      - Name : "B相输出电压"
+        Unit : "V"
+        Offset : 10
+        Ratio : 10
+      - Name : "C相输出电压"
+        Unit : "V"
+        Offset : 11
+        Ratio : 10
+      - Name : "A相输出电流"
+        Unit : "A"
+        Offset : 12
+        Ratio : 10
+      - Name : "B相输出电流"
+        Unit : "A"
+        Offset : 13
+        Ratio : 10
+      - Name : "C相输出电流"
+        Unit : "A"
+        Offset : 14
+        Ratio : 10
+      - Name : "输出频率"
+        Unit : "Hz"
+        Offset : 15
+        Ratio : 10
+      - Name : "A相输出有功功率"
+        Unit : "kW"
+        Offset : 16
+        Ratio : 10
+      - Name : "B相输出有功功率"
+        Unit : "kW"
+        Offset : 17
+        Ratio : 10
+      - Name : "C相输出有功功率"
+        Unit : "kW"
+        Offset : 18
+        Ratio : 10
+      - Name : "A相输出视在功率"
+        Unit : "kVA"
+        Offset : 19
+        Ratio : 10
+      - Name : "B相输出视在功率"
+        Unit : "kVA"
+        Offset : 20
+        Ratio : 10
+      - Name : "C相输出视在功率"
+        Unit : "kVA"
+        Offset : 21
+        Ratio : 10
+      - Name : "A相负载率"
+        Unit : "%"
+        Offset : 22
+        Ratio : 10
+      - Name : "B相负载率"
+        Unit : "%"
+        Offset : 23
+        Ratio : 10
+      - Name : "C相负载率"
+        Unit : "%"
+        Offset : 24
+        Ratio : 10
+      - Name : "供电模式"
+        Offset : 25
+        Options : 
+          0 : 均不供电
+          1 : 旁路供电
+          2 : 主路供电
+          3 : 电池供电
+          5 : 主路ECO
+          6 : 电池ECO
+      - Name : "输入制式"
+        Offset : 26
+        Options :
+          0 : 单相
+          1 : 三相
+      - Name : "输出制式"
+        Offset : 27
+        Options : 
+          0 : 单相
+          1 : 三相
+      - Name : "机内温度"
+        Offset : 28
+        Ratio : 10
+        Unit : '℃'
+  - Cmd : 3
+    Offset : 12000
+    Len : 7
+    Type : "S"
+    Data : 
+      - Name : "电池电压"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "电池电流"
+        Unit : "A"
+        Offset : 2
+        Ratio : 10
+      - Name : "电池状态"
+        Offset : 3
+        Options :
+          2 : 休眠
+          3 : 浮充
+          4 : 均充
+          5 : 放电
+      - Name : "电池剩余容量"
+        Unit : "%"
+        Offset : 4
+      - Name : "电池后备时间"
+        Unit : "s"
+        Offset : 5
+        Value : ($v[5] << 16 + $v[6])
+      - Name : "电池温度"
+        Unit : "℃"
+        Offset : 7
+        Ratio : 10
+  - Cmd : 3
+    Offset : 41179
+    Len : 28
+RunCheckThresholdCodeTelecom : |
+    if(levelMap_["120400870010"]){
+            CheckThresholdBool(levelMap_["120400870010"] , "120400870010", "120400870010", "模块UPS模块故障告警", "模块内部故障",  (cData.r3_41179[19] >> 12) && 0x1 , 1);
+    }
+    if(levelMap_["120400350010"]){
+            CheckThresholdBool(levelMap_["120400350010"] , "120400350010", "120400350010", "UPS主机旁路运行状态告警", "旁路供电告警",  (cData.r3_41179[19] >> 13) && 0x1 , 1);
+        }
+        
+RunCheckThresholdCodeUnicom : |
+    if( 1 == 1){
+
+      }
+     

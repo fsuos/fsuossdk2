@@ -1,0 +1,46 @@
+Project:
+  Name : ITeaqCoolRow5000
+  RT_ID : 5156
+  File : "艾特网能Cool Row5000(金戈)变频 Modbus 监控协议V1.3（精密空调）.pdf"
+Sample : 
+  - Cmd : 3
+    Offset : 0
+    Len : 33
+    Type : "s"
+    Data : 
+      - Name : "回风温度测量值"
+        Unit : "℃"
+        Offset : 1
+        Ratio : 10
+      - Name : "回风湿度测量值"
+        Unit : "%"
+        Offset : 2
+        Ratio : 10
+      - Name : "送风温度1测量值"
+        Unit : "℃"
+        Offset : 3
+        Ratio : 10
+      - Name : "送风温度2测量值"
+        Unit : "℃"
+        Offset : 4
+        Ratio : 10
+      - Name : "排气压力"
+        Unit : "Bar"
+        Offset : 5
+        Ratio : 10
+      - Name : "吸气压力"
+        Unit : "Bar"
+        Offset : 6
+        Ratio : 10
+      - Name : "排气温度"
+        Unit : "℃"
+        Offset : 7
+        Ratio : 10
+      - Name : "吸气温度"
+        Unit : "℃"
+        Offset : 8
+        Ratio : 10
+      - Name : "机组运行状态"
+        Offset : 13
+        Options :
+          0 : 本地关机
