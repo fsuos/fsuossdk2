@@ -15,3 +15,6 @@ LDriver=`echo $1|awk '{ print tolower($1) }'`
 j2 --customize customization.py template/pymodbus.py Config/$1.yml -o PyDrivers/Py$1.py 
 j2 --customize customization.py template/helper.php Config/$1.yml -o DeviceWeb/application/helpers/device/$LDriver.php
 j2 --customize customization.py template/view.php Config/$1.yml -o DeviceWeb/application/views/portal/DevicePage/$LDriver.php
+# Generate AI
+export vendor=Unicom && j2 --customize customization.py template/yaml.template Config/$1.yml -o DeviceWeb/application/helpers/ini/unicom/$LDriver.yaml
+export vendor=Telecom && j2 --customize customization.py template/yaml.template Config/$1.yml -o DeviceWeb/application/helpers/ini/telecom/$LDriver.yaml

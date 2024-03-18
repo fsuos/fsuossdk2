@@ -1,0 +1,12 @@
+AI :
+  {% for sc in Sample %}
+      {% if sc.Data is defined %}
+      {% for d in sc.Data %}
+      {% if d.AI is defined %}
+      {% if d.AI[env("vendor")] is defined %}
+  "{{ d.Name }}" : "{{ d.AI[env("vendor")] }}"
+      {% endif %}
+      {% endif %}
+      {% endfor %}
+      {% endif %}
+{% endfor %}

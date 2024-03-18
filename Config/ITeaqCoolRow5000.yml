@@ -12,6 +12,7 @@ Sample :
         Unit : "℃"
         Offset : 1
         Ratio : 10
+        
       - Name : "回风湿度测量值"
         Unit : "%"
         Offset : 2
@@ -43,4 +44,35 @@ Sample :
       - Name : "机组运行状态"
         Offset : 13
         Options :
-          0 : 本地关机
+          - Key : 0
+            Value : 本地关机
+          - Key : 1
+            Value : 远程关机
+          - Key : 2
+            Value : 待机
+          - Key : 3
+            Value : 监控关机
+          - Key : 4
+            Value : 电源保护
+          - Key : 5
+            Value : 气流保护
+          - Key : 6
+            Value : 压机保护
+          - Key : 7
+            Value : 系统开机
+      - Name : "送风温度设定点"
+        Offset : 30
+        Ratio : 10
+        Unit : "℃"
+      - Name : "回风温度设定点"
+        Offset : 31
+        Ratio : 10
+        Unit : "℃"
+      - Name : "远程温度设定点"
+        Offset : 32
+        Ratio : 10
+        Unit : "℃"
+      - Name : "湿度设定点"
+        Offset : 33
+        Ratio : 10
+        Unit : "℃"

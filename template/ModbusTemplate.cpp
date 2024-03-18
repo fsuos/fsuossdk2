@@ -169,7 +169,6 @@ int {{ Project.Name }}::DeviceIoControl(int ioControlCode, const void* inBuffer,
                 }
             }
         }
-       
     }
     break;
     case 320: {
@@ -201,7 +200,7 @@ int {{ Project.Name }}::DeviceIoControl(int ioControlCode, const void* inBuffer,
         }
         break;
     }
-    return 0;
+    return UniDataDevice<{{ Project.Name }}_Data_t, SPModbus, RT_{{ Project.Name }}>::DeviceIoControl(ioControlCode, inBuffer, inBufferSize, outBuffer, outBufferSize, bytesReturned);
 }
 
 

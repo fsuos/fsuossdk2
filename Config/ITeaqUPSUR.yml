@@ -107,22 +107,32 @@ Sample :
       - Name : "供电模式"
         Offset : 25
         Options : 
-          0 : 均不供电
-          1 : 旁路供电
-          2 : 主路供电
-          3 : 电池供电
-          5 : 主路ECO
-          6 : 电池ECO
+          - Key : 0
+            Value : 均不供电
+          - Key : 1
+            Value : 旁路供电
+          - Key : 2
+            Value : 主路供电
+          - Key : 3
+            Value : 电池供电
+          - Key : 5
+            Value : 主路ECO
+          - Key : 6
+            Value : 电池ECO
       - Name : "输入制式"
         Offset : 26
         Options :
-          0 : 单相
-          1 : 三相
+          - Key : 0
+            Value : 单相
+          - Key : 1
+            Value : 三相
       - Name : "输出制式"
         Offset : 27
         Options : 
-          0 : 单相
-          1 : 三相
+          - Key : 0
+            Value : 单相
+          - Key : 1
+            Value : 三相
       - Name : "机内温度"
         Offset : 28
         Ratio : 10
@@ -143,10 +153,14 @@ Sample :
       - Name : "电池状态"
         Offset : 3
         Options :
-          2 : 休眠
-          3 : 浮充
-          4 : 均充
-          5 : 放电
+          - Key : 2
+            Value : 休眠
+          - Key : 3
+            Value : 浮充
+          - Key : 4
+            Value : 均充
+          - Key : 5
+            Value : 放电
       - Name : "电池剩余容量"
         Unit : "%"
         Offset : 4

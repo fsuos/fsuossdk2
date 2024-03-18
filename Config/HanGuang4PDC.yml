@@ -12,9 +12,9 @@ Sample :
         Unit : "V"
         Offset : 1
         Alias : 
-          - "电压1"
-          - ”电压2"
-          - "电压3"
+          - 电压1
+          - 电压2
+          - 电压3
       - Name : "第1回路电流"
         Unit : "A"
         Offset : 3

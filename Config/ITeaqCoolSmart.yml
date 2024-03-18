@@ -1,0 +1,433 @@
+Project:
+  Name : ITeaqCoolSmart
+  RT_ID : 5156
+  File : "艾特网能 Cool Smart变频（氟泵自然冷） Modbus 监控协议V0.2.pdf"
+Sample : 
+  - Cmd : 3
+    Offset : 0
+    Len : 41
+    Type : "s"
+    Data : 
+      - Name : "回风温度测量值"
+        Unit : "℃"
+        Offset : 1
+        Ratio : 10
+        AI : 
+          Unicom : "602130A00001,空调回风温度"
+          Telecom : "130800080010,精密空调回风温度"
+      - Name : "回风湿度测量值"
+        Unit : "%"
+        Offset : 2
+        Ratio : 10
+        AI : 
+          Unicom : "602130C00001,空调回风温度"
+          Telecom : "130800110010,精密空调回风湿度"
+      - Name : "送风温度测量值"
+        Unit : "℃"
+        Offset : 3
+        Ratio : 10
+      - Name : "环境温度测量值"
+        Unit : "℃"
+        Offset : 5
+        Ratio : 10
+      - Name : "排气压力"
+        Unit : "Bar"
+        Offset : 6
+        Ratio : 10
+      - Name : "吸气压力"
+        Unit : "Bar"
+        Offset : 7
+        Ratio : 10
+      - Name : "排气温度"
+        Unit : "℃"
+        Offset : 8
+        Ratio : 10
+      - Name : "吸气温度"
+        Unit : "℃"
+        Offset : 9
+        Ratio : 10
+      - Name : "高压告警"
+        AlertNormalValue : 0
+        Value : ($v[10] & 0x1)
+      - Name : "高压锁定"
+        AlertNormalValue : 0
+        Value : (($v[10] >> 1) & 0x1)  
+      - Name : "低压告警"
+        AlertNormalValue : 0
+        Value : (($v[10] >> 2) & 0x1)
+      - Name : "低压锁定"
+        AlertNormalValue : 0
+        Value : (($v[10] >> 3) & 0x1)
+      - Name : "排气高温"
+        AlertNormalValue : 0
+        Value : (($v[10] >> 4) & 0x1)
+      - Name : "排气高温锁定"
+        AlertNormalValue : 0
+        Value : (($v[10] >> 5) & 0x1)
+      - Name : "排气低过热度"
+        AlertNormalValue : 0
+        Value : (($v[10] >> 6) & 0x1)
+      - Name : "排气低过热度锁定"
+        AlertNormalValue : 0
+        Value : (($v[10] >> 7) & 0x1)
+      - Name : "回风高温"
+        AlertNormalValue : 0
+        Value : (($v[10] >> 8) & 0x1)
+        AI : 
+          Unicom : "602243203001,室内环境湿度高"
+          Telecom : "120800090010,精密空调回风湿度高告警"
+      - Name : "回风高湿"
+        AlertNormalValue : 0
+        Value : (($v[10] >> 9) & 0x1)
+        AI : 
+          Unicom : "602243003001,室内环境温度高"
+          Telecom : "120800120010,精密空调回风温度高告警"
+      - Name : "回风低湿"
+        AlertNormalValue : 0
+        Value : (($v[10] >> 10) & 0x1)
+        AI : 
+          Unicom : "602243201001,室内环境湿度低"
+          Telecom : "120800130010,精密空调回风湿度低告警"
+      - Name : "回风低温"
+        AlertNormalValue : 0
+        Value : (($v[10] >> 11) & 0x1)
+        AI : 
+          Unicom : "602243001001,室内环境温度低"
+          Telecom : "120800100010,精密空调回风温度低告警"
+      - Name : "送风高温"
+        AlertNormalValue : 0
+        Value : (($v[10] >> 12) & 0x1)
+      - Name : "送风低温"
+        AlertNormalValue : 0
+        Value : (($v[10] >> 13) & 0x1)
+      - Name : "回温故障"
+        AlertNormalValue : 0
+        Value : (($v[10] >> 14) & 0x1)
+      - Name : "回湿故障"
+        AlertNormalValue : 0
+        Value : (($v[10] >> 15) & 0x1)
+      - Name : "送温故障"
+        AlertNormalValue : 0
+        Value : ($v[11] & 0x1)
+      - Name : "排温故障"
+        AlertNormalValue : 0
+        Value : (($v[11] >> 1) & 0x1)  
+      - Name : "风机故障"
+        AlertNormalValue : 0
+        Value : (($v[11] >> 2) & 0x1)
+      - Name : "地板溢水"
+        AlertNormalValue : 0
+        Value : (($v[11] >> 3) & 0x1)
+      - Name : "远程关机"
+        AlertNormalValue : 0
+        Value : (($v[11] >> 4) & 0x1)
+        AI : 
+          Unicom : "602433001001,远程关机故障"
+          Telecom : "140800300010,精密空调远程关机"
+      - Name : "电源丢失"
+        AlertNormalValue : 0
+        Value : (($v[11] >> 5) & 0x1)
+      - Name : "过滤网堵"
+        AlertNormalValue : 0
+        Value : (($v[11] >> 6) & 0x1)
+        AI : 
+          Unicom : "602432001001,过滤网堵塞告警"
+          Telecom : "120800260010,精密空调过滤网脏告警"
+      - Name : "烟感告警"
+        AlertNormalValue : 0
+        Value : (($v[11] >> 7) & 0x1)
+      - Name : "电源故障"
+        AlertNormalValue : 0
+        Value : (($v[11] >> 8) & 0x1)
+      - Name : "盘管冻结"
+        AlertNormalValue : 0
+        Value : (($v[11] >> 9) & 0x1)
+      - Name : "气流丢失"
+        AlertNormalValue : 0
+        Value : (($v[11] >> 10) & 0x1)
+        AI : 
+          Unicom : "602431F01001,气流丢失告警"
+          Telecom : "120800250010,精密空调气流丢失告警"
+      - Name : "加湿高水位"
+        AlertNormalValue : 0
+        Value : (($v[11] >> 11) & 0x1)
+      - Name : "加湿器故障"
+        AlertNormalValue : 0
+        Value : (($v[11] >> 12) & 0x1)
+        AI : 
+          Unicom : "602432301001,加湿器故障告警"
+          Telecom : "120800230010,精密空调加湿器告警"
+      - Name : "制冷剂不足"
+        AlertNormalValue : 0
+        Value : (($v[11] >> 13) & 0x1)
+      - Name : "冷凝器需维护"
+        AlertNormalValue : 0
+        Value : (($v[11] >> 14) & 0x1)
+      - Name : "泵不可用"
+        AlertNormalValue : 0
+        Value : (($v[11] >> 15) & 0x1)
+      - Name : "泵入口压力故障"
+        AlertNormalValue : 0
+        Value : ($v[12] & 0x1)
+      - Name : "泵出口压力故障"
+        AlertNormalValue : 0
+        Value : (($v[12] >> 1) & 0x1)  
+      - Name : "泵环温故障"
+        AlertNormalValue : 0
+        Value : (($v[12] >> 2) & 0x1)
+      - Name : "泵过温报警"
+        AlertNormalValue : 0
+        Value : (($v[12] >> 3) & 0x1)
+      - Name : "泵过温锁定"
+        AlertNormalValue : 0
+        Value : (($v[12] >> 4) & 0x1)
+      - Name : "泵高扬程"
+        AlertNormalValue : 0
+        Value : (($v[12] >> 5) & 0x1)
+      - Name : "泵低扬程"
+        AlertNormalValue : 0
+        Value : (($v[12] >> 6) & 0x1)
+      - Name : "泵高扬程锁定"
+        AlertNormalValue : 0
+        Value : (($v[12] >> 7) & 0x1)
+      - Name : "泵低扬程锁定"
+        AlertNormalValue : 0
+        Value : (($v[12] >> 8) & 0x1)
+      - Name : "泵驱动故障"
+        AlertNormalValue : 0
+        Value : (($v[12] >> 9) & 0x1)
+      - Name : "泵通信故障"
+        AlertNormalValue : 0
+        Value : (($v[12] >> 10) & 0x1)
+      - Name : "冷凝压力故障"
+        AlertNormalValue : 0
+        Value : (($v[12] >> 11) & 0x1)
+      - Name : "冷凝风机过温"
+        AlertNormalValue : 0
+        Value : (($v[12] >> 12) & 0x1)
+      - Name : "冷凝风机过温锁定"
+        AlertNormalValue : 0
+        Value : (($v[12] >> 13) & 0x1)
+      - Name : "冷凝驱动故障"
+        AlertNormalValue : 0
+        Value : (($v[12] >> 14) & 0x1)
+      - Name : "冷凝通信故障"
+        AlertNormalValue : 0
+        Value : (($v[12] >> 15) & 0x1)
+      - Name : "吸气温度故障"
+        AlertNormalValue : 0
+        Value : ($v[13] & 0x1)
+      - Name : "低压传感器故障"
+        AlertNormalValue : 0
+        Value : (($v[13] >> 1) & 0x1)  
+      - Name : "机组地址重复"
+        AlertNormalValue : 0
+        Value : (($v[13] >> 2) & 0x1)
+      - Name : "从机丢失"
+        AlertNormalValue : 0
+        Value : (($v[13] >> 3) & 0x1)
+      - Name : "群控本机离线"
+        AlertNormalValue : 0
+        Value : (($v[13] >> 4) & 0x1)
+      - Name : "压机通信故障"
+        AlertNormalValue : 0
+        Value : (($v[13] >> 5) & 0x1)
+      - Name : "压机驱动故障"
+        AlertNormalValue : 0
+        Value : (($v[13] >> 6) & 0x1)
+      - Name : "压机驱动故障锁定"
+        AlertNormalValue : 0
+        Value : (($v[13] >> 7) & 0x1)
+      - Name : "压机驱动过欠压"
+        AlertNormalValue : 0
+        Value : (($v[13] >> 8) & 0x1)
+      - Name : "高压传感器故障"
+        AlertNormalValue : 0
+        Value : (($v[13] >> 9) & 0x1)
+      - Name : "高压异常"
+        AlertNormalValue : 0
+        Value : (($v[13] >> 10) & 0x1)
+      - Name : "节能卡故障"
+        AlertNormalValue : 0
+        Value : (($v[13] >> 11) & 0x1)
+      - Name : "机组运行状态"
+        Offset : 14
+        Options :
+          - Key : 0
+            Value : 本地关机
+            DI :
+              Unicom : "xxxx,xxx"
+          - Key : 1
+            Value : 机组运行
+          - Key : 2
+            Value : 待机
+          - Key : 4
+            Value : 显示关机
+          - Key : 8
+            Value : 远程关机
+          - Key : 16
+            Value : 监控关机
+      - Name : "风机转速"
+        Unit : "%"
+        Offset : 15
+      - Name : "压机转速"
+        Unit : "rps"
+        Offset : 16
+      - Name : "泵转速"
+        Unit : "%"
+        Offset : 17
+      - Name : "泵进口压力"
+        Unit : "Bar"
+        Ratio : 10
+        Offset : 18
+      - Name : "泵出口压力"
+        Unit : "Bar"
+        Ratio : 10
+        Offset : 19
+      - Name : "泵扬程"
+        Unit : "Bar"
+        Ratio : 10
+        Offset : 20
+      - Name : "冷凝器转速"
+        Unit : "%"
+        Offset : 21
+      - Name : "EEV开度"
+        Unit : "%"
+        Offset : 22
+      - Name : "吸气过热度"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 23
+      - Name : "制冷"
+        Value : ($v[25] & 0x1)
+        Options :
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+      - Name : "加热"
+        Value : (($v[25]>>1) & 0x1)
+        Options :
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+      - Name : "除湿"
+        Value : (($v[25]>>3) & 0x1)
+        Options :
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+      - Name : "加湿"
+        Value : (($v[25]>>4) & 0x1)
+        Options :
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+      - ArrayName : "节能卡温度%d测量值"
+        ArrayLength : 16
+        Unit : "℃"
+        Ratio : 10
+        Offset : 26
+  - Cmd : 3
+    Offset : 41
+    Len : 11
+    Type : "S"
+    Data :  
+      - Name : "风机运行时间"
+        Offset : 1
+        Unit : "H"
+      - Name : "加湿器运行时间"
+        Offset : 2
+        Unit : "H"
+      - Name : "加热器1运行时间"
+        Offset : 3
+        Unit : "H"
+      - Name : "压缩机1运行时间"
+        Offset : 4
+        Unit : "H"
+      - Name : "制冷泵1运行时间"
+        Offset : 5
+        Unit : "H"
+      - Name : "送风温度设定点"
+        Offset : 8
+        Ratio : 10
+        Unit : "℃"
+      - Name : "回风温度设定点"
+        Offset : 10
+        Ratio : 10
+        Unit : "℃"
+      - Name : "回风湿度设定点"
+        Offset : 11
+        Ratio : 10
+        Unit : "℃"
+RunCheckThresholdCodeTelecom : |
+    if( 1 == 1){
+    }
+
+RunCheckThresholdCodeUnicom : |
+    CheckThresholdBool(2, "r3_0_9_0", "602230E03", "压缩机排气压力高", "高压告警", (cData.r3_0[9]) & 0x1, 1);
+    CheckThresholdBool(2, "r3_0_9_1", "602230E04", "压缩机排气压力过高", "高压锁定", (cData.r3_0[9] >> 1) & 0x1, 1);
+    CheckThresholdBool(2, "r3_0_9_2", "602230D01", "压缩机吸气压力低", "低压1报警", (cData.r3_0[9] >> 2) & 0x1, 1);
+    CheckThresholdBool(2, "r3_0_9_3", "602230D02", "压缩机吸气压力过低", "低压2报警", (cData.r3_0[9] >> 3) & 0x1, 1);
+    CheckThresholdBool(2, "r3_0_9_4", "602230803", "排气温度高", "排气高温", (cData.r3_0[9] >> 4) & 0x1, 1);
+    CheckThresholdBool(2, "r3_0_9_5", "602230804", "排气温度过高", "排气高温锁定", (cData.r3_0[9] >> 5) & 0x1, 1);
+    CheckThresholdBool(2, "r3_0_9_6", "602230801", "排气温度低", "排气低过热度", (cData.r3_0[9] >> 6) & 0x1, 1);
+    CheckThresholdBool(2, "r3_0_9_7", "602230802", "排气温度过低", "排气低过热度锁定", (cData.r3_0[9] >> 7) & 0x1, 1);
+    CheckThresholdBool(2, "r3_0_9_8", "602230A03", "回风温度高", "回风高温", (cData.r3_0[9] >> 8) & 0x1, 1);
+    CheckThresholdBool(2, "r3_0_9_9", "602230C03", "回风湿度高", "回风高湿", (cData.r3_0[9] >> 9) & 0x1, 1);
+    CheckThresholdBool(2, "r3_0_9_10", "602230C01", "回风湿度低", "回风低湿", (cData.r3_0[9] >> 10) & 0x1, 1);
+    CheckThresholdBool(2, "r3_0_9_11", "602230A01", "回风温度低", "回风低温", (cData.r3_0[9] >> 11) & 0x1, 1);
+    CheckThresholdBool(2, "r3_0_9_12", "602130903", "送风温度高", "送风高温", (cData.r3_0[9] >> 12) & 0x1, 1);
+    CheckThresholdBool(2, "r3_0_9_13", "602130901", "送风温度低", "送风低温", (cData.r3_0[9] >> 13) & 0x1, 1);
+    CheckThresholdBool(2, "r3_0_9_14", "602400101", "其它故障告警", "回温故障", (cData.r3_0[9] >> 14) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_9_15", "602400101", "其它故障告警", "回湿故障", (cData.r3_0[9] >> 15) & 0x1, signal_index_++);
+    //alarm[1]
+    CheckThresholdBool(2, "r3_0_10_0", "602400101", "其它故障告警", "送温故障", (cData.r3_0[10]) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_10_1", "602400101", "其它故障告警", "排温故障", (cData.r3_0[10] >> 1) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_10_2", "602431C01", "风机故障", "风机故障", (cData.r3_0[10] >> 2) & 0x1, 1);
+    CheckThresholdBool(2, "r3_0_10_3", "602432C01", "溢水", "地板溢水", (cData.r3_0[10] >> 3) & 0x1, 1);
+    CheckThresholdBool(2, "r3_0_10_4", "602433001", "远程关机故障", "远程关机", (cData.r3_0[10] >> 4) & 0x1, 1);
+    CheckThresholdBool(2, "r3_0_10_5", "602415101", "输入电源故障告警", "电源丢失", (cData.r3_0[10] >> 5) & 0x1, 1);
+    CheckThresholdBool(2, "r3_0_10_6", "602432001", "过滤网堵塞", "过滤网堵", (cData.r3_0[10] >> 6) & 0x1, 1);
+    CheckThresholdBool(2, "r3_0_10_7", "602400101", "其它故障告警", "烟感告警", (cData.r3_0[10] >> 7) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_10_8", "602415101", "输入电源故障告警", "电源故障", (cData.r3_0[10] >> 8) & 0x1, 2);
+    CheckThresholdBool(2, "r3_0_10_9", "602400101", "其它故障告警", "盘管冻结", (cData.r3_0[10] >> 9) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_10_10", "602431F01", "气流丢失告警", "气流丢失", (cData.r3_0[10] >> 10) & 0x1, 1);	
+    CheckThresholdBool(2, "r3_0_10_11", "602400101", "其它故障告警", "加湿高水位", (cData.r3_0[10] >> 11) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_10_12", "602432301", "加湿器故障告警", "加湿器故障", (cData.r3_0[10] >> 12) & 0x1, 1);
+    CheckThresholdBool(2, "r3_0_10_13", "602400101", "其它故障告警", "制冷剂不足", (cData.r3_0[10] >> 13) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_10_14", "602400101", "其它故障告警", "冷凝器需维护", (cData.r3_0[10] >> 14) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_10_15", "602400101", "其它故障告警", "泵不可用", (cData.r3_0[10] >> 15) & 0x1, signal_index_++);
+    //alarm[2]
+    CheckThresholdBool(2, "r3_0_11_0", "602400101", "其它故障告警", "泵入口压力故障", (cData.r3_0[11]) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_1", "602400101", "其它故障告警", "泵出口压力故障", (cData.r3_0[11] >> 1) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_2", "602400101", "其它故障告警", "泵环温故障", (cData.r3_0[11] >> 2) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_3", "602400101", "其它故障告警", "泵过温报警", (cData.r3_0[11] >> 3) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_4", "602400101", "其它故障告警", "泵过温锁定", (cData.r3_0[11] >> 4) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_5", "602400101", "其它故障告警", "泵高扬程", (cData.r3_0[11] >> 5) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_6", "602400101", "其它故障告警", "泵低扬程", (cData.r3_0[11] >> 6) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_7", "602400101", "其它故障告警", "泵高扬程锁定", (cData.r3_0[11] >> 7) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_8", "602400101", "其它故障告警", "泵低扬程锁定", (cData.r3_0[11] >> 8) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_9", "602400101", "其它故障告警", "泵驱动故障", (cData.r3_0[11] >> 9) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_10", "602400201", "通信故障告警", "泵通信故障", (cData.r3_0[11] >> 10) & 0x1, 1);	
+    CheckThresholdBool(2, "r3_0_11_11", "602400101", "其它故障告警", "冷凝压力故障", (cData.r3_0[11] >> 11) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_12", "602400101", "其它故障告警", "冷凝风机过温", (cData.r3_0[11] >> 12) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_13", "602400101", "其它故障告警", "冷凝风机过温锁定", (cData.r3_0[11] >> 13) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_14", "602400101", "其它故障告警", "冷凝驱动故障", (cData.r3_0[11] >> 14) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_15", "602400201", "通信故障告警", "冷凝通信故障", (cData.r3_0[11] >> 15) & 0x1, 2);
+    //alarm[3]
+    CheckThresholdBool(2, "r3_0_11_16", "602400101", "其它故障告警", "吸气温度故障", (cData.r3_0[12]) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_17", "602400101", "其它故障告警", "低压传感器故障", (cData.r3_0[12] >> 1) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_18", "602400101", "其它故障告警", "机组地址重复", (cData.r3_0[12] >> 2) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_19", "602400101", "其它故障告警", "从机丢失", (cData.r3_0[12] >> 3) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_20", "602400101", "其它故障告警", "群控本机离线", (cData.r3_0[12] >> 4) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_21", "602400201", "通信故障告警", "压机通信故障", (cData.r3_0[12] >> 5) & 0x1, 3);
+    CheckThresholdBool(2, "r3_0_11_22", "602400101", "其它故障告警", "压机驱动故障", (cData.r3_0[12] >> 6) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_23", "602400101", "其它故障告警", "压机驱动故障锁定", (cData.r3_0[12] >> 7) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_24", "602400101", "其它故障告警", "压机驱动过欠压", (cData.r3_0[12] >> 8) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_25", "602400101", "其它故障告警", "高压传感器故障", (cData.r3_0[12] >> 9) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_26", "602400101", "其它故障告警", "高压异常", (cData.r3_0[12] >> 10) & 0x1, signal_index_++);	
+    CheckThresholdBool(2, "r3_0_11_27", "602400101", "其它故障告警", "节能卡故障", (cData.r3_0[12] >> 11) & 0x1, signal_index_++);

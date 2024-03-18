@@ -1,0 +1,392 @@
+Project:
+  Name : MediaMAVB
+  RT_ID : 5157
+  File : "美的MAV小型机房精密空调机组Modbus监控协议V1.5（适用于MAV-B机型）默认用本协议.pdf"
+Sample : 
+  - Cmd : 3
+    Offset : 2100
+    Len : 20
+    Data : 
+      - Name : "火灾告警"
+        Value : (($v[1]&0x1))
+        AlertNormalValue : 0
+      - Name : "烟雾传感器告警"
+        Value : (( ($v[1]) >> 1) &0x1)
+        AlertNormalValue : 0
+      - Name : "地板溢水告警"
+        Value : (( ($v[1]) >> 2) &0x1)
+        AlertNormalValue : 0
+      - Name : "气流丢失报警"
+        Value : (( ($v[1]) >> 3) &0x1)
+        AlertNormalValue : 0
+      - Name : "过滤网脏堵告警"
+        Value : (( ($v[1]) >> 7) &0x1)
+        AlertNormalValue : 0
+      - Name : "室外机被盗告警"
+        Value : (( ($v[1]) >> 9) &0x1)
+        AlertNormalValue : 0
+      - Name : "回风高温报警"
+        Value : (($v[2]&0x1))
+        AlertNormalValue : 0
+      - Name : "回风低温报警"
+        Value : (( ($v[2]) >> 1) &0x1)
+        AlertNormalValue : 0
+      - Name : "回风高湿报警"
+        Value : (( ($v[2]) >> 2) &0x1)
+        AlertNormalValue : 0
+      - Name : "回风低湿报警"
+        Value : (( ($v[3]) >> 3) &0x1)
+        AlertNormalValue : 0
+      - Name : "回风温度探头故障"
+        Value : (($v[3]&0x1))
+        AlertNormalValue : 0
+      - Name : "回风湿度探头故障"
+        Value : (( ($v[3]) >> 2) &0x1)
+        AlertNormalValue : 0
+      - Name : "蒸发器温度传感器故障"
+        Value : (( ($v[3]) >> 12) &0x1)
+        AlertNormalValue : 0
+      - Name : "电加热1高温报警"
+        Value : (( ($v[3]) >> 14) &0x1)
+        AlertNormalValue : 0
+      - Name : "电加热 2 高温报警"
+        Value : (( ($v[3]) >> 15) &0x1)
+        AlertNormalValue : 0
+      - Name : "压缩机防冻结保护告警"
+        Value : (($v[5]&0x1))
+        AlertNormalValue : 0
+      - Name : "EEV驱动告警"
+        Value : (( ($v[5]) >> 2) &0x1)
+        AlertNormalValue : 0
+      - Name : "EEV驱动锁定告警"
+        Value : (( ($v[5]) >> 3) &0x1)
+        AlertNormalValue : 0
+      - Name : "压缩机高压开关告警"
+        Value : (( ($v[6]) >> 4) &0x1)
+        AlertNormalValue : 0
+      - Name : "压缩机高压开关锁定告警"
+        Value : (( ($v[6]) >> 5) &0x1)
+        AlertNormalValue : 0
+      - Name : "压缩机低压开关告警"
+        Value : (( ($v[6]) >> 6) &0x1)
+        AlertNormalValue : 0
+      - Name : "压缩机低压开关锁定告警"
+        Value : (( ($v[6]) >> 7) &0x1)
+        AlertNormalValue : 0
+      - Name : "压缩机排气高温告警"
+        Value : (( ($v[6]) >> 8) &0x1)
+        AlertNormalValue : 0
+      - Name : "压缩机排气高温锁定告警"
+        Value : (( ($v[6]) >> 9) &0x1)
+        AlertNormalValue : 0
+      - Name : "压缩机电流过高报警"
+        Value : (( ($v[7]) >> 4) &0x1)
+        AlertNormalValue : 0
+      - Name : "压缩机排气压力传感器故障"
+        Value : (( ($v[7]) >> 6) &0x1)
+        AlertNormalValue : 0
+      - Name : "压缩机排气温度传感器故障"
+        Value : (( ($v[7]) >> 7) &0x1)
+        AlertNormalValue : 0
+      - Name : "压缩机吸气温度传感器故障"
+        Value : (( ($v[7]) >> 9) &0x1)
+        AlertNormalValue : 0
+      - Name : "压缩机过流锁定告警"
+        Value : (( ($v[7]) >> 11) &0x1)
+        AlertNormalValue : 0
+      - Name : "EEV低过热度告警"
+        Value : (( ($v[7]) >> 14) &0x1)
+        AlertNormalValue : 0
+      - Name : "EEV低过热度锁定告警"
+        Value : (( ($v[7]) >> 15) &0x1)
+        AlertNormalValue : 0
+      - Name : "室内风机驱动告警"
+        Value : (( ($v[12])) &0x1)
+        AlertNormalValue : 0
+      - Name : "室内风机驱动锁定告警"
+        Value : (( ($v[13])) &0x1)
+        AlertNormalValue : 0
+      - Name : "室内风机通信中断告警"
+        Value : (( ($v[14])) &0x1)
+        AlertNormalValue : 0
+      - Name : "室外风机驱动告警"
+        Value : (( ($v[15])) &0x1)
+        AlertNormalValue : 0
+      - Name : "电源欠压告警"
+        Value : (( ($v[16])) &0x1)
+        AlertNormalValue : 0
+      - Name : "电源过压告警"
+        Value : (( ($v[16]>>1)) &0x1)
+        AlertNormalValue : 0
+      - Name : "相序故障"
+        Value : (( ($v[16]>>12)) &0x1)
+        AlertNormalValue : 0
+      - Name : "电源缺相告警"
+        Value : (( ($v[16]>>13)) &0x1)
+        AlertNormalValue : 0
+      - Name : "过滤网运行超时告警"
+        Value : (( ($v[17])) &0x1)
+        AlertNormalValue : 0
+      - Name : "电加热1运行超时告警"
+        Value : (( ($v[17]>>1)) &0x1)
+        AlertNormalValue : 0
+      - Name : "压缩机运行超时告警"
+        Value : (( ($v[17]>>3)) &0x1)
+        AlertNormalValue : 0
+      - Name : "加湿器运行超时告警"
+        Value : (( ($v[17]>>4)) &0x1)
+        AlertNormalValue : 0
+      - Name : "外风机1运行超时告警"
+        Value : (( ($v[17]>>5)) &0x1)
+        AlertNormalValue : 0
+      - Name : "电加热2运行超时告警"
+        Value : (( ($v[17]>>7)) &0x1)
+        AlertNormalValue : 0
+      - Name : "室内风机运行超时告警"
+        Value : (( ($v[18])) &0x1)
+        AlertNormalValue : 0
+      - Name : "电极加湿器报警"
+        Value : (( ($v[19]>>5)) &0x1)
+        AlertNormalValue : 0
+      - Name : "空调关机告警"
+        Value : (( ($v[19]>>6)) &0x1)
+        AlertNormalValue : 0
+      - Name : "群组机组数目不匹配告警"
+        Value : (( ($v[19]>>9)) &0x1)
+        AlertNormalValue : 0
+      - Name : "群控组网失败告警"
+        Value : (( ($v[19]>>10)) &0x1)
+        AlertNormalValue : 0
+      - Name : "室内机时钟异常"
+        Value : (( ($v[20])) &0x1)
+        AlertNormalValue : 0
+      - Name : "室内机EEPROM故障"
+        Value : (( ($v[20]>>1)) &0x1)
+        AlertNormalValue : 0
+      - Name : "室外机通信中断告警"
+        Value : (( ($v[20]>>5)) &0x1)
+        AlertNormalValue : 0
+      - Name : "电压采集芯片通信故障"
+        Value : (( ($v[20]>>9)) &0x1)
+        AlertNormalValue : 0
+  - Cmd : 3
+    Offset : 2130
+    Len : 1
+    Data : 
+      - Name : "存在告警"
+        Value : (($v[1]&0x1))
+        AlertNormalValue : 0
+      - Name : "系统开关状态"
+        Value : '((($v[1])>>6) & 0x1) ? "开机" : "关机"'
+  - Cmd : 3
+    Offset : 2132
+    Len : 1
+    Data : 
+      - Name : "远程停机"
+        Value : '((($v[1])>>7) & 0x1) ? "是" : "否"'
+      - Name : "群控待机"
+        Value : '((($v[1])>>9) & 0x1) ? "是" : "否"'
+      - Name : "手动控制中"
+        Value : '((($v[1])>>11) & 0x1) ? "是" : "否"'
+  - Cmd : 3
+    Offset : 2133
+    Len : 1
+    Data : 
+      - Name : "制冷模式"
+        Value : '((($v[1])>>0) & 0x1) ? "是" : "否"'
+      - Name : "制热模式"
+        Value : '((($v[1])>>1) & 0x1) ? "是" : "否"'
+      - Name : "送风模式"
+        Value : '((($v[1])>>2) & 0x1) ? "是" : "否"'
+      - Name : "加湿模式"
+        Value : '((($v[1])>>3) & 0x1) ? "是" : "否"'
+      - Name : "除湿模式"
+        Value : '((($v[1])>>4) & 0x1) ? "是" : "否"'
+      - Name : "除湿低温限制"
+        Value : '((($v[1])>>5) & 0x1) ? "是" : "否"'
+      - Name : "除湿温度补偿"
+        Value : '((($v[1])>>6) & 0x1) ? "是" : "否"'
+      - Name : "送风温度限制"
+        Value : '((($v[1])>>7) & 0x1) ? "是" : "否"'
+  - Cmd : 3
+    Offset : 2139
+    Len : 1
+    Data : 
+      - Name : "电加热1"
+        Value : '((($v[1])>>0) & 0x1) ? "开启" : "关闭"'
+      - Name : "电加热2"
+        Value : '((($v[1])>>1) & 0x1) ? "开启" : "关闭"'
+      - Name : "电磁旁通阀"
+        Value : '((($v[1])>>2) & 0x1) ? "开启" : "关闭"'
+      - Name : "液路电磁阀"
+        Value : '((($v[1])>>3) & 0x1) ? "开启" : "关闭"'
+      - Name : "远程报警输出"
+        Value : ((($v[1]) >> 4) &0x1)
+        AlertNormalValue : 0
+      - Name : "室外机控制"
+        Value : '((($v[1])>>9) & 0x1) ? "开启" : "关闭"'
+      - Name : "反相输出"
+        Value : '((($v[1])>>10) & 0x1) ? "开启" : "关闭"'
+  - Cmd : 3
+    Offset : 2145
+    Len : 3
+    Data : 
+      - Name : "制冷输出"
+        Value : '((($v[1])>>8) & 0xFF)."%"'
+      - Name : "制热输出"
+        Value : '((($v[1])) & 0xFF)."%"'
+      - Name : "除湿输出"
+        Value : '((($v[2])>>8) & 0xFF)."%"'
+      - Name : "加湿输出"
+        Value : '((($v[2])) & 0xFF)."%"'
+      - Name : "内风机输出"
+        Value : '((($v[3])) & 0xFF)."%"'
+  - Cmd : 3
+    Offset : 2152
+    Len : 4
+    Data : 
+      - Name : "回风温度"
+        Ratio : 10
+        Unit : ℃
+        Offset : 1
+      - Name : "回风湿度"
+        Ratio : 10
+        Unit : '%'
+        Offset : 2
+      - Name : "送风温度"
+        Ratio : 10
+        Unit : ℃
+        Offset : 3
+      - Name : "送风湿度"
+        Ratio : 10
+        Unit : '%'
+        Offset : 4
+  - Cmd : 3
+    Offset : 2166
+    Len : 4
+    Data : 
+      - Name : "蒸发器盘管温度"
+        Ratio : 10
+        Unit : ℃
+        Offset : 1
+  - Cmd : 3
+    Offset : 2180
+    Len : 4
+    Data : 
+      - Name : "室外风机输出"
+        Unit : '%'
+        Offset : 1
+  - Cmd : 3
+    Offset : 2182
+    Len : 4
+    Data : 
+      - Name : "室内风机反馈转速"
+        Unit : rpm
+        Offset : 1
+  - Cmd : 3
+    Offset : 2217
+    Len : 3
+    Data : 
+      - Name : "室内机电源电压 A"
+        Unit : V
+        Offset : 1
+      - Name : "室内机电源电压 B"
+        Unit : V
+        Offset : 2
+      - Name : "室内机电源电压 C"
+        Unit : V
+        Offset : 3
+  - Cmd : 3
+    Offset : 2500
+    Len : 1
+    Data : 
+      - Name : "压缩机油加热带"
+        Value : '((($v[1])>>0) & 0x1) ? "开启" : "关闭"'
+      - Name : "高压开关状态"
+        Value : '((($v[1])>>1) & 0x1) ? "断开" : "闭合"'
+      - Name : "低压开关状态"
+        Value : '((($v[1])>>2) & 0x1) ? "断开" : "闭合"'
+  - Cmd : 3
+    Offset : 2502
+    Len : 1
+    Data : 
+      - Name : "压缩机状态"
+        Value : '($v[1]) ? "开" : "关"'
+  - Cmd : 3
+    Offset : 2505
+    Len : 3
+    Data : 
+      - Name : "排气温度"
+        Ratio : 10
+        Unit : ℃
+        Offset : 1
+      - Name : "吸气温度"
+        Ratio : 10
+        Unit : ℃
+        Offset : 2
+      - Name : "排气压力"
+        Ratio : 100
+        Unit : MPa
+        Offset : 3
+  - Cmd : 3
+    Offset : 2510
+    Len : 1
+    Data : 
+      - Name : "排气过热度"
+        Ratio : 10
+        Unit : ℃
+        Offset : 1
+  - Cmd : 3
+    Offset : 2512
+    Len : 1
+    Data : 
+      - Name : "吸气过热度"
+        Ratio : 10
+        Unit : ℃
+        Offset : 1
+  - Cmd : 3
+    Offset : 2515
+    Len : 2
+    Data : 
+      - Name : "压缩机电流"
+        Ratio : 10
+        Unit : A
+        Offset : 1
+      - Name : "电子膨胀阀开度"
+        Ratio : 10
+        Unit : Step
+        Offset : 2
+  - Cmd : 3
+    Offset : 2540
+    Len : 2
+    Data : 
+      - Name : "室外风机1反馈转速"
+        Unit : rpm
+        Offset : 1
+  - Cmd : 3
+    Offset : 2600
+    Len : 2
+    Data : 
+      - Name : "室外风机2反馈转速"
+        Unit : rpm
+        Offset : 1
+  - Cmd : 3
+    Offset : 2974
+    Len : 2
+    Data : 
+      - Name : "总耗电量"
+        Value : (($v[1] + $v[2]<<16)/100)."kWh"
+  - Cmd : 3
+    Offset : 3000
+    Len : 3
+    Data : 
+      - Name : "开关机设置"
+        Value : '((($v[1])) & 0x1) ? "开机" : "关机"'
+      - Name : "设定温度"
+        Ratio : 10
+        Unit : ℃
+        Offset : 2
+      - Name : "设定湿度"
+        Ratio : 10
+        Unit : '%'
+        Offset : 3

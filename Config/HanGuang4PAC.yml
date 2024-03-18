@@ -1,0 +1,241 @@
+Project:
+  Name : HanGuang4PAC
+  RT_ID : 5156
+  File : "PD866EZ 交流多回路智能电能表说明书(铁塔三相四回路)202212A版 20221222.pdf"
+Sample : 
+  - Cmd : 3
+    Offset : 2
+    Len : 36
+    Type : "f"
+    Data : 
+      - Name : "第1回路A相电压"
+        Unit : "V"
+        Offset : 1
+      - Name : "第1回路B相电压"
+        Unit : "V"
+        Offset : 2
+      - Name : "第1回路C相电压"
+        Unit : "V"
+        Offset : 3
+      - Name : "第1回路AB线电压"
+        Unit : "V"
+        Offset : 4
+      - Name : "第1回路BC线电压"
+        Unit : "V"
+        Offset : 5
+      - Name : "第1回路CA线电压"
+        Unit : "V"
+        Offset : 6
+      - Name : "第1回路A相电流"
+        Unit : "A"
+        Offset : 7
+      - Name : "第1回路B相电流"
+        Unit : "A"
+        Offset : 8
+      - Name : "第1回路C相电流"
+        Unit : "A"
+        Offset : 9
+      - Name : "第1回路频率"
+        Unit : "Hz"
+        Offset : 10
+      - Name : "第1回路A相有功功率"
+        Unit : "kW"
+        Offset : 11
+      - Name : "第1回路B相有功功率"
+        Unit : "kW"
+        Offset : 12
+      - Name : "第1回路C相有功功率"
+        Unit : "kW"
+        Offset : 13
+      - Name : "第1回路总有功功率"
+        Unit : "kW"
+        Offset : 14
+      - Name : "第1回路A相有功电能"
+        Unit : "kWh"
+        Offset : 15
+      - Name : "第1回路B相有功电能"
+        Unit : "kWh"
+        Offset : 16
+      - Name : "第1回路C相有功电能"
+        Unit : "kWh"
+        Offset : 17
+      - Name : "第1回路总有功电能"
+        Unit : "kWh"
+        Offset : 18
+  - Cmd : 3
+    Offset : 0x28
+    Len : 36
+    Type : "f"
+    Data : 
+      - Name : "第2回路A相电压"
+        Unit : "V"
+        Offset : 1
+      - Name : "第2回路B相电压"
+        Unit : "V"
+        Offset : 2
+      - Name : "第2回路C相电压"
+        Unit : "V"
+        Offset : 3
+      - Name : "第2回路AB线电压"
+        Unit : "V"
+        Offset : 4
+      - Name : "第2回路BC线电压"
+        Unit : "V"
+        Offset : 5
+      - Name : "第2回路CA线电压"
+        Unit : "V"
+        Offset : 6
+      - Name : "第2回路A相电流"
+        Unit : "A"
+        Offset : 7
+      - Name : "第2回路B相电流"
+        Unit : "A"
+        Offset : 8
+      - Name : "第2回路C相电流"
+        Unit : "A"
+        Offset : 9
+      - Name : "第2回路频率"
+        Unit : "Hz"
+        Offset : 10
+      - Name : "第2回路A相有功功率"
+        Unit : "kW"
+        Offset : 11
+      - Name : "第2回路B相有功功率"
+        Unit : "kW"
+        Offset : 12
+      - Name : "第2回路C相有功功率"
+        Unit : "kW"
+        Offset : 13
+      - Name : "第2回路总有功功率"
+        Unit : "kW"
+        Offset : 14
+      - Name : "第2回路A相有功电能"
+        Unit : "kWh"
+        Offset : 15
+      - Name : "第2回路B相有功电能"
+        Unit : "kWh"
+        Offset : 16
+      - Name : "第2回路C相有功电能"
+        Unit : "kWh"
+        Offset : 17
+      - Name : "第2回路总有功电能"
+        Unit : "kWh"
+        Offset : 18
+  - Cmd : 3
+    Offset : 0x4E
+    Len : 36
+    Type : "f"
+    Data : 
+      - Name : "第3回路A相电压"
+        Unit : "V"
+        Offset : 1
+      - Name : "第3回路B相电压"
+        Unit : "V"
+        Offset : 2
+      - Name : "第3回路C相电压"
+        Unit : "V"
+        Offset : 3
+      - Name : "第3回路AB线电压"
+        Unit : "V"
+        Offset : 4
+      - Name : "第3回路BC线电压"
+        Unit : "V"
+        Offset : 5
+      - Name : "第3回路CA线电压"
+        Unit : "V"
+        Offset : 6
+      - Name : "第3回路A相电流"
+        Unit : "A"
+        Offset : 7
+      - Name : "第3回路B相电流"
+        Unit : "A"
+        Offset : 8
+      - Name : "第3回路C相电流"
+        Unit : "A"
+        Offset : 9
+      - Name : "第3回路频率"
+        Unit : "Hz"
+        Offset : 10
+      - Name : "第3回路A相有功功率"
+        Unit : "kW"
+        Offset : 11
+      - Name : "第3回路B相有功功率"
+        Unit : "kW"
+        Offset : 12
+      - Name : "第3回路C相有功功率"
+        Unit : "kW"
+        Offset : 13
+      - Name : "第3回路总有功功率"
+        Unit : "kW"
+        Offset : 14
+      - Name : "第3回路A相有功电能"
+        Unit : "kWh"
+        Offset : 15
+      - Name : "第3回路B相有功电能"
+        Unit : "kWh"
+        Offset : 16
+      - Name : "第3回路C相有功电能"
+        Unit : "kWh"
+        Offset : 17
+      - Name : "第3回路总有功电能"
+        Unit : "kWh"
+        Offset : 18
+  - Cmd : 3
+    Offset : 0x74
+    Len : 36
+    Type : "f"
+    Data : 
+      - Name : "第4回路A相电压"
+        Unit : "V"
+        Offset : 1
+      - Name : "第4回路B相电压"
+        Unit : "V"
+        Offset : 2
+      - Name : "第4回路C相电压"
+        Unit : "V"
+        Offset : 3
+      - Name : "第4回路AB线电压"
+        Unit : "V"
+        Offset : 4
+      - Name : "第4回路BC线电压"
+        Unit : "V"
+        Offset : 5
+      - Name : "第4回路CA线电压"
+        Unit : "V"
+        Offset : 6
+      - Name : "第4回路A相电流"
+        Unit : "A"
+        Offset : 7
+      - Name : "第4回路B相电流"
+        Unit : "A"
+        Offset : 8
+      - Name : "第4回路C相电流"
+        Unit : "A"
+        Offset : 9
+      - Name : "第4回路频率"
+        Unit : "Hz"
+        Offset : 10
+      - Name : "第4回路A相有功功率"
+        Unit : "kW"
+        Offset : 11
+      - Name : "第4回路B相有功功率"
+        Unit : "kW"
+        Offset : 12
+      - Name : "第4回路C相有功功率"
+        Unit : "kW"
+        Offset : 13
+      - Name : "第4回路总有功功率"
+        Unit : "kW"
+        Offset : 14
+      - Name : "第4回路A相有功电能"
+        Unit : "kWh"
+        Offset : 15
+      - Name : "第4回路B相有功电能"
+        Unit : "kWh"
+        Offset : 16
+      - Name : "第4回路C相有功电能"
+        Unit : "kWh"
+        Offset : 17
+      - Name : "第4回路总有功电能"
+        Unit : "kWh"
+        Offset : 18
