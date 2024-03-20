@@ -39,6 +39,7 @@ private:
         {{ Project.Name }}_END
     };
     int cmd_result_ = -1;
+    uint8_t last_data_ = -1;
 };
 
 PLUMA_INHERIT_PROVIDER({{ Project.Name }}, SMDSPDevice);

@@ -11,6 +11,9 @@
     {% else %}
     baud_rate_ = 9600;
     {% endif %}
+    {% if Project.StopBits is defined %}
+    stop_bit_size_ = {{ Project.StopBits }};
+    {% endif %}
     addr_ = 1;
     //save_interval_ = 600;
 }
@@ -105,6 +108,9 @@ bool {{ Project.Name }}::process_payload(enum tab_type type, size_t len)
             {% endif %}
       }
       {% endfor %}
+      {% if SET_RET_CODE is defined %}
+      {{ SET_RET_CODE }}
+      {% endif %}
    }
    return true;
 }
@@ -140,33 +146,17 @@ int {{ Project.Name }}::DeviceIoControl(int ioControlCode, const void* inBuffer,
     switch(ioControlCode) {
 	case 310:{
 	  //SET_AODATA
-          std::string aoStr((char*)inBuffer, inBufferSize);
-          Json::Value setting;//
-          Json::Reader reader;//解析
-          if(!reader.parse(aoStr, setting)) {
-            return -1;
-          }
-          for(auto it = setting.begin(); it != setting.end(); it++) {
-            if((*it)["signal_id"] != Json::nullValue && (*it)["signal_id"].type()  != Json::nullValue) {
-                if((*it)["signal_id"].asString() != "") {
-                    SetAOAlarmRule((*it)["signal_id"].asString(), (*it));
-		    {% if AO is defined %}
-                    {% for ao in AO %}    
-                    {% if loop.index == 1 %}
-		    if((*it)["signal_id"].asString() == "{{ ao.SignalId }}"){
-                    {% else %}
-		    else if((*it)["signal_id"].asString() == "{{ ao.SignalId }}"){
-		    {% endif %}
-                      //{{ao.Desc}}
-		      {% if ao.SetValue is defined and ao.SetValue == True %}
-		      if(setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
-		      }
-		      {% endif %}
-                      SetAOReportSetting("{{ ao.SignalId }}", setting);
-                    }
-		    {% endfor %}
-		    {% endif %}
-                }
+        std::string aoStr((char*)inBuffer, inBufferSize);
+        Json::Value setting;//
+        Json::Reader reader;//解析
+        if(!reader.parse(aoStr, setting)) {
+          return -1;
+        }
+        if(setting["signal_id"] != Json::nullValue && setting["signal_id"].type()  != Json::nullValue) {
+            if(setting["signal_id"].asString() != "") {
+                {% if SET_AO_CODE is defined %}
+                {{ SET_AO_CODE }}
+                {% endif %}
             }
         }
     }
@@ -176,18 +166,19 @@ int {{ Project.Name }}::DeviceIoControl(int ioControlCode, const void* inBuffer,
         cmd_result_ = -1;
         OpenPort();
         //320是SET_DO
-        std::string doId((char*)inBuffer, inBufferSize);
-        {% if DO is defined %}
-        {% for do in DO %}    
-	{% if loop.index == 1 %}
-	if(doId == "{{ do.SignalId }}"){
-	{% else %}
-	else if(doId == "{{ do.SignalId }}"){
-	{% endif %}
-	//{{do.Desc}}
-	}
-	{% endfor %}
-	{% endif %}
+        std::string aoStr((char*)inBuffer, inBufferSize);
+        Json::Value setting;//
+        Json::Reader reader;//解析
+        if(!reader.parse(aoStr, setting)) {
+          return -1;
+        }
+        if(setting["signal_id"] != Json::nullValue && setting["signal_id"].type()  != Json::nullValue) {
+            if(setting["signal_id"].asString() != "") {
+                {% if SET_DO_CODE is defined %}
+                {{ SET_DO_CODE }}
+                {% endif %}
+            }
+        }
         break;
     }
 

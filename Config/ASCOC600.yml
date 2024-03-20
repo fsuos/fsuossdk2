@@ -1,0 +1,121 @@
+Project:
+  Name : ASCOC600
+  RT_ID : 5156
+  File : "C600控制器通讯协议-ATS.pdf"
+  StopBits : 2
+Sample : 
+  - Cmd : 3
+    Offset : 0
+    Len : 27
+    Data : 
+      - Name : "SI位置"
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 分闸
+          - Key : 1
+            Value : 合闸
+      - Name : "SII位置"
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 分闸
+          - Key : 1
+            Value : 合闸
+      - Name : "SIUab/SIUan"
+        Unit : "V"
+        Offset : 3
+      - Name : "SIUbc/SIUbn"
+        Unit : "V"
+        Offset : 4
+      - Name : "SIUca/SIUcn"
+        Unit : "V"
+        Offset : 5
+      - Name : "SIIUab/SIIUan"
+        Unit : "V"
+        Offset : 6
+      - Name : "SIIUbc/SIIUbn"
+        Unit : "V"
+        Offset : 7
+      - Name : "SIIUca/SIIUcn"
+        Unit : "V"
+        Offset : 8
+      - Name : "SI电压状态"
+        Offset : 9
+        AlarmNormalValue : 1
+      - Name : "SIO电压状态"
+        Offset : 10
+        AlarmNormalValue : 1
+      - Name : "SI欠压阈值"
+        Unit : "V"
+        Offset : 11
+      - Name : "SI过压阈值"
+        Unit : "V"
+        Offset : 12
+      - Name : "SII欠压阈值"
+        Unit : "V"
+        Offset : 13
+      - Name : "SII过压阈值"
+        Unit : "V"
+        Offset : 14
+      - Name : "转换延迟"
+        Offset : 15
+      - Name : "双分停留时间"
+        Offset : 16
+      - Name : "返回延迟"
+        Offset : 17
+      - Name : "手自动模式"
+        Offset : 22
+        Options : 
+          - Key : 0
+            Value : "自动"
+          - Key : 1
+            Value : "手动"
+      - Name : "消防状态"
+        Offset : 23
+        Options : 
+          - Key : 0
+            Value : "解除"
+          - Key : 1
+            Value : "发生"
+      - Name : "工作模式"
+        Offset : 24
+        Options : 
+          - Key : 0
+            Value : "自投自复"
+          - Key : 1
+            Value : "自投不自复"
+          - Key : 2
+            Value : "互为备用"
+      - Name : "转换次数"
+        Offset : 25
+      - Name : "最后一次报警/转换信息"
+        Offset : 26
+        Options : 
+          - Key : 0
+            Value : "正常"
+          - Key : 1
+            Value : "火线零线接反"
+          - Key : 2
+            Value : "转换超时"
+          - Key : 3
+            Value : "双合闸"
+          - Key : 4
+            Value : "频繁操作"
+          - Key : 5
+            Value : "分闸失败"
+      - Name : "当前报警状态"
+        Offset : 27
+        Options : 
+          - Key : 0
+            Value : "正常"
+          - Key : 1
+            Value : "火线零线接反"
+          - Key : 2
+            Value : "转换超时"
+          - Key : 3
+            Value : "双合闸"
+          - Key : 4
+            Value : "频繁操作"
+          - Key : 5
+            Value : "分闸失败"

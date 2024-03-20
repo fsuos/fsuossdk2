@@ -1,0 +1,503 @@
+Project:
+  Name : EVOU4XrowCW
+  RT_ID : 5156
+  File : "冷冻水列间空调通信协议.pdf"
+Sample : 
+  - Cmd : 3
+    Offset : 0x0100
+    Len : 42
+    Data : 
+      - Name : "1#回风温度"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 1
+      - Name : "2#回风温度"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 2
+      - Name : "3#回风温度"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 3
+      - Name : "1#出风温度"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 6
+      - Name : "2#出风温度"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 7
+      - Name : "3#出风温度"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 8
+      - Name : "1#盘管进水温度"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 10
+      - Name : "1#盘管出水温度"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 11
+      - Name : "1#回风湿度"
+        Unit : "%"
+        Ratio : 10
+        Offset : 14
+      - Name : "出风湿度"
+        Unit : "%"
+        Ratio : 10
+        Offset : 15
+      - Name : "滤网前后压差"
+        Unit : "Pa"
+        Ratio : 10
+        Offset : 21
+      - Name : "水流量"
+        Unit : "L/min"
+        Ratio : 10
+        Offset : 39
+      - Name : "冷热通道压差"
+        Unit : "Pa"
+        Ratio : 10
+        Offset : 40
+      - Name : "制冷量"
+        Unit : "kW"
+        Ratio : 10
+        Offset : 41
+      - Name : "服务器温度"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 42
+  - Cmd : 3
+    Offset : 0x012A
+    Len : 18
+    Data :   
+      - ArrayName : "%d#外扩温度"
+        ArrayLength : 18
+        Unit : "℃"
+        Ratio : 10
+        Offset : 1
+  - Cmd : 3
+    Offset : 0x013C
+    Len : 18
+    Data :   
+      - ArrayName : "%d#外扩湿度"
+        ArrayLength : 18
+        Unit : "%"
+        Ratio : 10
+        Offset : 1
+  - Cmd : 3
+    Offset : 0x0152
+    Len : 3
+    Data : 
+      - Name : "1#供水压力"
+        Unit : "kPa"
+        Offset : 1
+      - Name : "1#回水压力"
+        Unit : "kPa"
+        Offset : 3
+  - Cmd : 3
+    Offset : 0x0200
+    Len : 58
+    Data : 
+      - Name : "内风机"
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启 
+      - Name : "1#电加热"
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+      - Name : "2#电加热"
+        Offset : 5
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启 
+      - Name : "加湿器"
+        Offset : 7
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启 
+      - Name : "1#水阀"
+        Unit : "%"
+        Ratio : 10
+        Offset : 10
+      - Name : "2#水阀"
+        Unit : "%"
+        Ratio : 10
+        Offset : 11
+      - Name : "系统开关机状态"
+        Offset : 21
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启 
+      - Name : "内风机转速"
+        Unit : "%"
+        Ratio : 10
+        Offset : 25
+      - Name : "制冷模式"
+        Offset : 26
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启 
+      - Name : "加热模式"
+        Offset : 27
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启 
+      - Name : "除湿模式"
+        Offset : 28
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启 
+      - Name : "加湿模式"
+        Offset : 29
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启 
+      - Name : "送风风阀"
+        Offset : 30
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启 
+      - Name : "1#风机反馈转速"
+        Unit : "%"
+        Ratio : 10
+        Offset : 55
+      - Name : "2#风机反馈转速"
+        Unit : "%"
+        Ratio : 10
+        Offset : 56
+      - Name : "3#风机反馈转速"
+        Unit : "%"
+        Ratio : 10
+        Offset : 57
+      - Name : "4#风机反馈转速"
+        Unit : "%"
+        Ratio : 10
+        Offset : 58
+  - Cmd : 3
+    Offset : 0x0300
+    Len : 9
+    Data : 
+      - Name : "温度设定点"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 1
+      - Name : "温度灵敏度"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 2
+      - Name : "回风湿度设定点"
+        Unit : "%"
+        Ratio : 10
+        Offset : 3
+      - Name : "湿度灵敏度"
+        Unit : "%"
+        Ratio : 10
+        Offset : 4
+      - Name : "高温告警点"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 5
+      - Name : "低温告警点"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 6
+      - Name : "高湿告警点"
+        Unit : "%"
+        Ratio : 10
+        Offset : 7
+      - Name : "低湿告警点"
+        Unit : "%"
+        Ratio : 10
+        Offset : 8
+      - Name : "压差设定点"
+        Unit : "Pa"
+        Ratio : 10
+        Offset : 9
+  - Cmd : 3
+    Offset : 0x0316
+    Len : 7
+    Data : 
+      - Name : "回风温度设定点"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 1
+      - Name : "出风温度设定点"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 2
+      - Name : "风机回风温度设定点"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 3
+      - Name : "风机出风温度设定点"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 4
+      - Name : "风机温度灵敏度"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 5
+      - Name : "风机温差设定点"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 6
+      - Name : "出风湿度设定点"
+        Unit : "%"
+        Ratio : 10
+        Offset : 7
+  - Cmd : 3
+    Offset : 0x0402
+    Len : 1
+    Data : 
+      - Name : "监控开关机"
+        Options : 
+          - Key : 0
+            Value : 关机
+          - Key : 1
+            Value : 开机 
+  - Cmd : 3
+    Offset : 0x0500
+    Len : 41
+    Data : 
+      - Name : 回风高温告警
+        Offset : 1
+        AlertNormalValue : 0
+      - Name : 回风低温告警
+        Offset : 2
+        AlertNormalValue : 0      
+      - Name : 回风高湿告警
+        Offset : 3
+        AlertNormalValue : 0
+      - Name : 回风低湿告警
+        Offset : 4
+        AlertNormalValue : 0  
+      - Name : 1#回风温感故障
+        Offset : 5
+        AlertNormalValue : 0
+      - Name : 2#回风温感故障
+        Offset : 6
+        AlertNormalValue : 0  
+      - Name : 3#回风温感故障
+        Offset : 7
+        AlertNormalValue : 0
+      - Name : 1#出风温感故障
+        Offset : 8
+        AlertNormalValue : 0  
+      - Name : 2#出风温感故障
+        Offset : 9
+        AlertNormalValue : 0
+      - Name : 3#出风温感故障
+        Offset : 10
+        AlertNormalValue : 0  
+      - Name : 回风湿感故障
+        Offset : 11
+        AlertNormalValue : 0
+      - Name : 压差传感器故障
+        Offset : 12
+        AlertNormalValue : 0  
+      - Name : 1#内风机故障
+        Offset : 13
+        AlertNormalValue : 0
+      - Name : 2#内风机故障
+        Offset : 14
+        AlertNormalValue : 0  
+      - Name : 3#内风机故障
+        Offset : 15
+        AlertNormalValue : 0
+      - Name : 4#内风机故障
+        Offset : 16
+        AlertNormalValue : 0  
+      - Name : 5#内风机故障
+        Offset : 17
+        AlertNormalValue : 0
+      - Name : 6#内风机故障
+        Offset : 18
+        AlertNormalValue : 0  
+      - Name : 1#电源故障
+        Offset : 19
+        AlertNormalValue : 0
+      - Name : 2#电源故障
+        Offset : 20
+        AlertNormalValue : 0  
+      - Name : 1#水阀故障
+        Offset : 21
+        AlertNormalValue : 0
+      - Name : 2#水阀故障
+        Offset : 22
+        AlertNormalValue : 0  
+      - Name : 气流丢失告警
+        Offset : 23
+        AlertNormalValue : 0
+      - Name : 滤网堵塞告警
+        Offset : 24
+        AlertNormalValue : 0  
+      - Name : 进水温度异常
+        Offset : 25
+        AlertNormalValue : 0
+      - Name : 主机丢失告警
+        Offset : 26
+        AlertNormalValue : 0 
+      - Name : 电极加湿电流过小
+        Offset : 27
+        AlertNormalValue : 0
+      - Name : 电极加湿电流过大
+        Offset : 28
+        AlertNormalValue : 0  
+      - Name : 电极加湿水位过高
+        Offset : 29
+        AlertNormalValue : 0
+      - Name : 地板溢水
+        Offset : 30
+        AlertNormalValue : 0  
+      - Name : 电源电压过高
+        Offset : 31
+        AlertNormalValue : 0
+      - Name : 电源电压过低
+        Offset : 32
+        AlertNormalValue : 0  
+      - Name : 电源缺相告警
+        Offset : 33
+        AlertNormalValue : 0
+      - Name : 电源逆相告警
+        Offset : 34
+        AlertNormalValue : 0  
+      - Name : 电源频率异常
+        Offset : 35
+        AlertNormalValue : 0
+      - Name : 冷凝水位过高
+        Offset : 36
+        AlertNormalValue : 0 
+      - Name : 加湿桶维护时间到
+        Offset : 37
+        AlertNormalValue : 0
+      - Name : 滤网维护时间到
+        Offset : 38
+        AlertNormalValue : 0  
+      - Name : 加热器维护时间到
+        Offset : 39
+        AlertNormalValue : 0
+      - Name : 内风机维护时间到
+        Offset : 40
+        AlertNormalValue : 0  
+      - Name : 水阀维护时间到
+        Offset : 41
+        AlertNormalValue : 0  
+  - Cmd : 3
+    Offset : 0x0564
+    Len : 41
+    Data : 
+      - Name : 水流量过低
+        Offset : 1
+        AlertNormalValue : 0
+      - Name : 7#风机故障
+        Offset : 4
+        AlertNormalValue : 0
+      - Name : 异常掉电
+        Offset : 5
+        AlertNormalValue : 0
+      - Name : 水阀开度过大
+        Offset : 6
+        AlertNormalValue : 0
+      - Name : 出风高温告警
+        Offset : 7
+        AlertNormalValue : 0
+      - Name : 出风低温告警
+        Offset : 8
+        AlertNormalValue : 0
+      - Name : 8#风机故障
+        Offset : 9
+        AlertNormalValue : 0
+      - Name : 通道压差传感器故障
+        Offset : 10
+        AlertNormalValue : 0
+      - Name : 冷凝水泵故障
+        Offset : 20
+        AlertNormalValue : 0
+      - Name : 出风湿感故障
+        Offset : 29
+        AlertNormalValue : 0
+      - Name : 冷热通道低压
+        Offset : 32
+        AlertNormalValue : 0
+      - Name : 冷热通道高压
+        Offset : 33
+        AlertNormalValue : 0
+      - Name : 空调关机告警
+        Offset : 86
+        AlertNormalValue : 0
+      - Name : 9#风机故障
+        Offset : 87
+        AlertNormalValue : 0
+      - Name : 1#断路器状态
+        Offset : 88
+        AlertNormalValue : 0
+      - Name : 2#断路器状态
+        Offset : 89
+        AlertNormalValue : 0
+      - Name : 1#断路器断开告警
+        Offset : 90
+        AlertNormalValue : 0
+      - Name : 2#断路器断开告警
+        Offset : 91
+        AlertNormalValue : 0
+      - Name : 1#断路器跳闸告警
+        Offset : 92
+        AlertNormalValue : 0
+      - Name : 2#断路器跳闸告警
+        Offset : 93
+        AlertNormalValue : 0
+      - Name : 10#风机故障
+        Offset : 95
+        AlertNormalValue : 0
+      - Name : 11#风机故障
+        Offset : 96
+        AlertNormalValue : 0
+      - Name : 12#风机故障
+        Offset : 97
+        AlertNormalValue : 0
+      - Name : 13#风机故障
+        Offset : 98
+        AlertNormalValue : 0
+      - Name : 14#风机故障
+        Offset : 99
+        AlertNormalValue : 0
+      - Name : 15#风机故障
+        Offset : 100
+        AlertNormalValue : 0
+      - Name : 16#风机故障
+        Offset : 101
+        AlertNormalValue : 0
+      - Name : 扩展板通信故障
+        Offset : 102
+        AlertNormalValue : 0
+      - Name : 1#进水压力失效
+        Offset : 110
+        AlertNormalValue : 0
+      - Name : 1#出水压力失效
+        Offset : 112
+        AlertNormalValue : 0
+      

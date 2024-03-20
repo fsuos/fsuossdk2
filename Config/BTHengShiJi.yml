@@ -1,0 +1,181 @@
+Project:
+  Name : BTHengShiJi
+  RT_ID : 5156
+  File : "恒湿机通讯协议（DW单）.doc"
+Sample : 
+  - Cmd : 3
+    Offset : 0
+    Len : 29
+    Data : 
+      - Name : "加湿设定值"
+        Unit : "%"
+        Offset : 1
+      - Name : "除湿设定值"
+        Unit : "%"
+        Offset : 2
+      - Name : "设定运行模式"
+        Offset : 8
+        Options : 
+          - Key : 0
+            Value : 自动
+          - Key : 1
+            Value : 手动 
+          - Key : 2
+            Value : 智能 
+      - Name : "设定风机状态"
+        Offset : 9
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 低速 
+          - Key : 2
+            Value : 中速 
+          - Key : 3
+            Value : 高速 
+      - Name : "设定开关状态"
+        Offset : 10
+        Options : 
+          - Key : 0
+            Value : 关机
+          - Key : 1
+            Value : 开机 
+      - Name : "设定进水方式"
+        Offset : 19
+        Options : 
+          - Key : 0
+            Value : 手动
+          - Key : 1
+            Value : 自动 
+      - Name : "设定加湿回差"
+        Unit : ”%"
+        Offset : 21
+      - Name : "设定除湿回差"
+        Unit : "%"
+        Offset : 22
+      - Name : "湿度上限设定值"
+        Unit : "%"
+        Offset : 23
+      - Name : "湿度下限设定值"
+        Unit : "%"
+        Offset : 24
+      - Name : "温度上限设定值"
+        Unit : "℃"
+        Offset : 25
+      - Name : "温度下限设定值"
+        Unit : "℃"
+        Offset : 26
+      - Name : "设定排水"
+        Offset : 29
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启 
+  - Cmd : 4
+    Offset : 0
+    Len : 13
+    Data : 
+      - Name : "回风湿度"
+        Unit : "%"
+        Offset : 1
+      - Name : "回风温度"
+        Unit : "℃"
+        Offset : 2
+      - Name : "水箱状态"
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 空
+          - Key : 1
+            Value : 一格
+          - Key : 2
+            Value : 满格 
+          - Key : 3
+            Value : 漏水
+      - Name : "运行模式"
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 自动
+          - Key : 1
+            Value : 手动 
+          - Key : 2
+            Value : 智能 
+      - Name : "风机状态"
+        Offset : 5
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 低速 
+          - Key : 2
+            Value : 中速 
+          - Key : 3
+            Value : 高速 
+      - Name : "加湿缺水提示"
+        Value : ($v[6] & 0x1)
+        AlarmNormalValue : 0
+      - Name : "除湿水满提示"
+        Value : ( (($v[6])>>1) & 0x1)
+        AlarmNormalValue : 0
+      - Name : "压缩机低压报警"
+        Value : ( (($v[6])>>2) & 0x1)
+        AlarmNormalValue : 0
+      - Name : "压缩机高压报警"
+        Value : ( (($v[6])>>3) & 0x1)
+        AlarmNormalValue : 0
+      - Name : "高水位报警"
+        Value : ( (($v[6])>>4) & 0x1)
+        AlarmNormalValue : 0
+      - Name : "漏水报警"
+        Value : ( (($v[6])>>5) & 0x1)
+        AlarmNormalValue : 0
+      - Name : "溢水报警"
+        Value : ( (($v[6])>>6) & 0x1)
+        AlarmNormalValue : 0
+      - Name : "浮子故障"
+        Value : ( (($v[6])>>7) & 0x1)
+        AlarmNormalValue : 0
+      - Name : "主传感器通讯"
+        Value : ( (($v[6])>>8) & 0x1)
+        AlarmNormalValue : 0
+      - Name : "高温报警"
+        Value : ( (($v[6])>>9) & 0x1)
+        AlarmNormalValue : 0
+      - Name : "低温报警"
+        Value : ( (($v[6])>>10) & 0x1)
+        AlarmNormalValue : 0
+      - Name : "高湿报警"
+        Value : ( (($v[6])>>11) & 0x1)
+        AlarmNormalValue : 0
+      - Name : "低湿报警"
+        Value : ( (($v[6])>>12) & 0x1)
+        AlarmNormalValue : 0
+      - Name : "运行状态"
+        Offset : 7
+        Options : 
+          - Key : 0
+            Value : 加湿
+          - Key : 1
+            Value : 除湿 
+          - Key : 2
+            Value : "不加湿不除湿开启净化（通风）" 
+          - Key : 3
+            Value : 停机
+      - Name : "电磁阀状态"
+        Value : (($v[8])) & 0x1)
+        Options: 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 打开 
+      - Name : "排水继电器状态"
+        Value : (($v[8])>>2) & 0x1)
+        Options: 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 打开
+      - Name : "累计运行时间"
+        Offset : 13

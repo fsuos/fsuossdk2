@@ -76,3 +76,84 @@ Sample :
         Offset : 33
         Ratio : 10
         Unit : "℃"
+SET_AO_CODE: |
+  if(setting["signal_id"].asString() == "150800310010") {
+      if(setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
+          int16_t newValue = atoi(setting["SetValue"].asString().c_str())*10;
+          //送风温度
+          state = AC_Control_Code::AC_SET_TEMPERATURE;
+          cmd_result_ = -1;
+          OpenPort();
+          modbus_write_register(29, newValue);
+          if((uint32_t)outBufferSize >= sizeof(int)) {
+              *((int*)outBuffer) = 1;//通知取状态
+              bytesReturned = sizeof(int);
+          }                       
+      }
+  }else if(setting["signal_id"].asString() == "150800340010") {
+      if(setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
+          int16_t newValue = atoi(setting["SetValue"].asString().c_str())*10;
+          //湿度
+          state = AC_Control_Code::AC_SET_HUMID;
+          cmd_result_ = -1;
+          OpenPort();
+          modbus_write_register(32, newValue);
+          if((uint32_t)outBufferSize >= sizeof(int)) {
+              *((int*)outBuffer) = 1;//通知取状态
+              bytesReturned = sizeof(int);
+          }                       
+      }
+  }
+
+SET_DO_CODE : |
+  if(setting["signal_id"].asString() == "140800280010") {
+      //开机
+      state = AC_Control_Code::AC_START;
+      cmd_result_ = -1;
+      last_data_ = 0;
+      modbus_write_register(33, 0);
+      if((uint32_t)outBufferSize >= sizeof(int)) {
+          *((int*)outBuffer) = 1;//通知取状态
+          bytesReturned = sizeof(int);
+      }
+  }else if(setting["signal_id"].asString() == "140800300010") {
+      //关机
+      state = AC_Control_Code::AC_STOP;
+      cmd_result_ = -1;
+      last_data_ = 0xFF00;
+      modbus_write_register(33, 0xFF00);
+      if((uint32_t)outBufferSize >= sizeof(int)) {
+          *((int*)outBuffer) = 1;//通知取状态
+          bytesReturned = sizeof(int);
+      }
+  }
+
+SET_RET_CODE: |
+  case AC_Control_Code::AC_START: {
+        if(tab_reg[0] == 1) {
+            cmd_result_ = 1;
+        } else {
+            cmd_result_ = 3;
+        }
+        Reset();
+        return false;
+      }
+      case AC_Control_Code::AC_STOP: {
+        if(tab_reg[0] == 0) {
+            cmd_result_ = 1;
+        } else {
+            cmd_result_ = 3;
+        }
+        Reset();
+        return false;
+      } 
+      case AC_Control_Code::AC_SET_TEMPERATURE:
+      case AC_Control_Code::AC_SET_HUMID: {
+        if(tab_reg[0] == last_data_) {
+            cmd_result_ = 1;
+        } else {
+            cmd_result_ = 3;
+        }
+        Reset();
+        return false;
+      }
