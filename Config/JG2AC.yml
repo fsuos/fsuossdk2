@@ -1,0 +1,287 @@
+Project:
+  Name : JG2AC
+  RT_ID : 5156
+  File : "电能拓展板通讯协议V0.1.doc"
+Sample : 
+  - Cmd : 4
+    Offset : 0
+    Len : 78
+    Type : "f"
+    Data : 
+      - Name : "第一路电表A相有功功率"
+        Unit : "kW"
+        Ratio : 1000
+        Offset : 1
+      - Name : "第一路电表B相有功功率"
+        Unit : "kW"
+        Ratio : 1000
+        Offset : 2
+      - Name : "第一路电表C相有功功率"
+        Unit : "kW"
+        Ratio : 1000
+        Offset : 3
+      - Name : "第一路电表合相有功功率"
+        Unit : "kW"
+        Ratio : 1000
+        Offset : 4
+      - Name : "第一路电表A相无功功率"
+        Unit : "kW"
+        Ratio : 1000
+        Offset : 5
+      - Name : "第一路电表B相无功功率"
+        Unit : "kvar"
+        Ratio : 1000
+        Offset : 6
+      - Name : "第一路电表C相无功功率"
+        Unit : "kvar"
+        Ratio : 1000
+        Offset : 7
+      - Name : "第一路电表合相无功功率"
+        Unit : "kvar"
+        Ratio : 1000
+        Offset : 8
+      - Name : "第一路电表A相视在功率"
+        Unit : "kVA"
+        Ratio : 1000
+        Offset : 9
+      - Name : "第一路电表B相视在功率"
+        Unit : "kVA"
+        Ratio : 1000
+        Offset : 10
+      - Name : "第一路电表C相视在功率"
+        Unit : "kVA"
+        Ratio : 1000
+        Offset : 11
+      - Name : "第一路电表合相视在功率"
+        Unit : "kVA"
+        Ratio : 1000
+        Offset : 12
+      - Name : "第一路电表A相电压"
+        Unit : "V"
+        Offset : 13
+      - Name : "第一路电表B相电压"
+        Unit : "V"
+        Offset : 14
+      - Name : "第一路电表C相电压"
+        Unit : "V"
+        Offset : 15
+      - Name : "第一路电表A相电流"
+        Unit : "A"
+        Offset : 16
+      - Name : "第一路电表B相电流"
+        Unit : "A"
+        Offset : 17
+      - Name : "第一路电表C相电流"
+        Unit : "A"
+        Offset : 18
+      - Name : "第一路电表合相电流"
+        Unit : "A"
+        Offset : 19
+      - Name : "第一路电表A相功率因数"
+        Offset : 20
+      - Name : "第一路电表B相功率因数"
+        Offset : 21
+      - Name : "第一路电表C相功率因数"
+        Offset : 22
+      - Name : "第一路电表合相功率因数"
+        Offset : 23
+      - Name : "第一路电表频率"
+        Offset : 24
+      - Name : "第一路电表A相有功电能"
+        Unit : "kWH"
+        Offset : 25
+      - Name : "第一路电表B相有功电能"
+        Unit : "kWH"
+        Offset : 26
+      - Name : "第一路电表C相有功电能"
+        Unit : "kWH"
+        Offset : 27
+      - Name : "第一路电表合相有功电能"
+        Unit : "kWH"
+        Offset : 28
+      - Name : "第一路电表A相无功电能"
+        Unit : "kvarH"
+        Offset : 29
+      - Name : "第一路电表B相无功电能"
+        Unit : "kvarH"
+        Offset : 30
+      - Name : "第一路电表C相无功电能"
+        Unit : "kvarH"
+        Offset : 31
+      - Name : "第一路电表合相无功电能"
+        Unit : "kvarH"
+        Offset : 32
+      - Name : "第一路电表A相视在电能"
+        Unit : "kVAH"
+        Offset : 33
+      - Name : "第一路电表B相视在电能"
+        Unit : "kVAH"
+        Offset : 34
+      - Name : "第一路电表C相视在电能"
+        Unit : "kVAH"
+        Offset : 35
+      - Name : "第一路电表合相视在电能"
+        Unit : "kVAH"
+        Offset : 36
+      - Name : "第一路电表A相电流与电压夹角"
+        Offset : 37
+      - Name : "第一路电表B相电流与电压夹角"
+        Offset : 38
+      - Name : "第一路电表C相电流与电压夹角"
+        Offset : 39
+  - Cmd : 4
+    Offset : 79
+    Len : 10
+    Type : "S"
+    Data : 
+      - Name : "第一路电表A相功率方向"
+      - Name : "第一路电表B相功率方向"
+      - Name : "第一路电表C相功率方向"
+      - Name : "第一路电表合相功率方向"
+      - Name : "第一路电表停电状态"
+      - Name : "第一路电表接线方式"
+      - Name : "第一路电表外部电流互感器"
+      - Name : "第一路电表软件版本号"
+      - Name : "第一路电表硬件版本号"
+      - Name : "第一路电表产品序列号"
+  - Cmd : 4
+    Offset : 100
+    Len : 78
+    Type : "f"
+    Data : 
+      - Name : "第二路电表A相有功功率"
+        Unit : "kW"
+        Ratio : 1000
+        Offset : 1
+      - Name : "第二路电表B相有功功率"
+        Unit : "kW"
+        Ratio : 1000
+        Offset : 2
+      - Name : "第二路电表C相有功功率"
+        Unit : "kW"
+        Ratio : 1000
+        Offset : 3
+      - Name : "第二路电表合相有功功率"
+        Unit : "kW"
+        Ratio : 1000
+        Offset : 4
+      - Name : "第二路电表A相无功功率"
+        Unit : "kW"
+        Ratio : 1000
+        Offset : 5
+      - Name : "第二路电表B相无功功率"
+        Unit : "kvar"
+        Ratio : 1000
+        Offset : 6
+      - Name : "第二路电表C相无功功率"
+        Unit : "kvar"
+        Ratio : 1000
+        Offset : 7
+      - Name : "第二路电表合相无功功率"
+        Unit : "kvar"
+        Ratio : 1000
+        Offset : 8
+      - Name : "第二路电表A相视在功率"
+        Unit : "kVA"
+        Ratio : 1000
+        Offset : 9
+      - Name : "第二路电表B相视在功率"
+        Unit : "kVA"
+        Ratio : 1000
+        Offset : 10
+      - Name : "第二路电表C相视在功率"
+        Unit : "kVA"
+        Ratio : 1000
+        Offset : 11
+      - Name : "第二路电表合相视在功率"
+        Unit : "kVA"
+        Ratio : 1000
+        Offset : 12
+      - Name : "第二路电表A相电压"
+        Unit : "V"
+        Offset : 13
+      - Name : "第二路电表B相电压"
+        Unit : "V"
+        Offset : 14
+      - Name : "第二路电表C相电压"
+        Unit : "V"
+        Offset : 15
+      - Name : "第二路电表A相电流"
+        Unit : "A"
+        Offset : 16
+      - Name : "第二路电表B相电流"
+        Unit : "A"
+        Offset : 17
+      - Name : "第二路电表C相电流"
+        Unit : "A"
+        Offset : 18
+      - Name : "第二路电表合相电流"
+        Unit : "A"
+        Offset : 19
+      - Name : "第二路电表A相功率因数"
+        Offset : 20
+      - Name : "第二路电表B相功率因数"
+        Offset : 21
+      - Name : "第二路电表C相功率因数"
+        Offset : 22
+      - Name : "第二路电表合相功率因数"
+        Offset : 23
+      - Name : "第二路电表频率"
+        Offset : 24
+      - Name : "第二路电表A相有功电能"
+        Unit : "kWH"
+        Offset : 25
+      - Name : "第二路电表B相有功电能"
+        Unit : "kWH"
+        Offset : 26
+      - Name : "第二路电表C相有功电能"
+        Unit : "kWH"
+        Offset : 27
+      - Name : "第二路电表合相有功电能"
+        Unit : "kWH"
+        Offset : 28
+      - Name : "第二路电表A相无功电能"
+        Unit : "kvarH"
+        Offset : 29
+      - Name : "第二路电表B相无功电能"
+        Unit : "kvarH"
+        Offset : 30
+      - Name : "第二路电表C相无功电能"
+        Unit : "kvarH"
+        Offset : 31
+      - Name : "第二路电表合相无功电能"
+        Unit : "kvarH"
+        Offset : 32
+      - Name : "第二路电表A相视在电能"
+        Unit : "kVAH"
+        Offset : 33
+      - Name : "第二路电表B相视在电能"
+        Unit : "kVAH"
+        Offset : 34
+      - Name : "第二路电表C相视在电能"
+        Unit : "kVAH"
+        Offset : 35
+      - Name : "第二路电表合相视在电能"
+        Unit : "kVAH"
+        Offset : 36
+      - Name : "第二路电表A相电流与电压夹角"
+        Offset : 37
+      - Name : "第二路电表B相电流与电压夹角"
+        Offset : 38
+      - Name : "第二路电表C相电流与电压夹角"
+        Offset : 39
+  - Cmd : 4
+    Offset : 179
+    Len : 10
+    Type : "S"
+    Data : 
+      - Name : "第二路电表A相功率方向"
+      - Name : "第二路电表B相功率方向"
+      - Name : "第二路电表C相功率方向"
+      - Name : "第二路电表合相功率方向"
+      - Name : "第二路电表停电状态"
+      - Name : "第二路电表接线方式"
+      - Name : "第二路电表外部电流互感器"
+      - Name : "第二路电表软件版本号"
+      - Name : "第二路电表硬件版本号"
+      - Name : "第二路电表产品序列号"

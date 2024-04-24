@@ -43,7 +43,7 @@ Sample :
       - Name : "SI电压状态"
         Offset : 9
         AlarmNormalValue : 1
-      - Name : "SIO电压状态"
+      - Name : "SII电压状态"
         Offset : 10
         AlarmNormalValue : 1
       - Name : "SI欠压阈值"
@@ -119,3 +119,14 @@ Sample :
             Value : "频繁操作"
           - Key : 5
             Value : "分闸失败"
+ExtraPhpCode : |
+    $dataArray["主开关状态"] = ($dataArray["SI位置"] == "分闸") ? 1 : 0;
+    $dataArray["次开关状态"] = ($dataArray["SII位置"] == "分闸") ? 1 : 0;
+
+RunCheckThresholdCodeTelecom : |
+   if(levelMap_["121240010010"]){
+            CheckThresholdBool(levelMap_["121240010010"] , "121240010010", "121240010010", "ATS设备主用电停电告警", "ATS设备主用电停电告警",  cData.r3_0[8] == 0, 1);
+    }
+   if(levelMap_["121240050010"]){
+            CheckThresholdBool(levelMap_["121240050010"] , "121240050010", "121240050010", "ATS设备备用电停电告警", "ATS设备备用电停电告警",  cData.r3_0[9] == 0, 1);
+    }

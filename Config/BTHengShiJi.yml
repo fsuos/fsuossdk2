@@ -48,7 +48,7 @@ Sample :
           - Key : 1
             Value : 自动 
       - Name : "设定加湿回差"
-        Unit : ”%"
+        Unit : "%"
         Offset : 21
       - Name : "设定除湿回差"
         Unit : "%"
@@ -164,14 +164,14 @@ Sample :
           - Key : 3
             Value : 停机
       - Name : "电磁阀状态"
-        Value : (($v[8])) & 0x1)
+        Value : (($v[8]) & 0x1)
         Options: 
           - Key : 0
             Value : 闭合
           - Key : 1
             Value : 打开 
       - Name : "排水继电器状态"
-        Value : (($v[8])>>2) & 0x1)
+        Value : ((($v[8])>>2) & 0x1)
         Options: 
           - Key : 0
             Value : 闭合

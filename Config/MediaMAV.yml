@@ -7,10 +7,332 @@ Sample :
     Offset : 0
     Len : 114
     Data : 
+      - Name : "远程开/关机功能"
+        Offset : 1
+        Options :
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 启用
+      - Name : "允许主机控制功能"
+        Offset : 17
+        Options :
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 启用
+      - Name : "开/关机时间段设点"
+        Offset : 18
+        Options :
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 启用
+      - Name : "开/关机时间段设点"
+        Offset : 19
+        Options :
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 启用
+      - Name : "开/关机时间段设点"
+        Offset : 20
+        Options :
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 启用
+      - Name : "高温同开功能"
+        Offset : 21
+        Options :
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 启用
+      - Name : "低温同开功能"
+        Offset : 22
+        Options :
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 启用
+      - Name : "按键开/关机功能"
+        Offset : 23
+        Options :
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 启用
+      - Name : "强制制冷功能"
+        Offset : 37
+        Options :
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 启用
+      - Name : "计算机管理员复位报警"
+        Offset : 38
+        Options :
+          - Key : 0
+            Value : 复位
+          - Key : 1
+            Value : 开启
+      - Name : "计算机管理员开/关机组"
+        Offset : 39
+        Options :
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 报警
+      - Name : "制冷模式"
+        Offset : 41
+        Options :
+          - Key : 0
+            Value : 退出
+          - Key : 1
+            Value : 进入
+      - Name : "制热模式"
+        Offset : 42
+        Options :
+          - Key : 0
+            Value : 退出
+          - Key : 1
+            Value : 进入
+      - Name : "加湿模式"
+        Offset : 43
+        Options :
+          - Key : 0
+            Value : 退出
+          - Key : 1
+            Value : 进入
+      - Name : "除湿模式"
+        Offset : 44
+        Options :
+          - Key : 0
+            Value : 退出
+          - Key : 1
+            Value : 进入
+      - Name : "出风限制模式"
+        Offset : 45
+        Options :
+          - Key : 0
+            Value : 退出
+          - Key : 1
+            Value : 进入
+      - Name : "除湿限制模式"
+        Offset : 46
+        Options :
+          - Key : 0
+            Value : 退出
+          - Key : 1
+            Value : 进入
+      - Name : "除湿温度补偿模式"
+        Offset : 47
+        Options :
+          - Key : 0
+            Value : 退出
+          - Key : 1
+            Value : 进入
       - Name : "内风机"
         Offset : 48
+        Options :
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
       - Name : "压缩机1"
         Offset : 49
+        Options :
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+      - Name : "电加热 1"
+        Offset : 51
+        Options :
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+      - Name : "电加热 2"
+        Offset : 52
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+      - Name : "除湿"
+        Offset : 53
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+      - Name : "加湿"
+        Offset : 54
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+      - Name : "报警输出状态"
+        Offset : 55
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+      - Name : "远程开/关(机)"
+        Offset : 56
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+      - Name : "缺相报警"
+        Offset : 57
+        AlarmNormalValue : 0
+      - Name : "电压过低/高报警"
+        Offset : 58
+        AlarmNormalValue : 0
+      - Name : "烟感报警"
+        Offset : 59
+        AlarmNormalValue : 0
+      - Name : "火感报警"
+        Offset : 60
+        AlarmNormalValue : 0
+      - Name : "漏水报警"
+        Offset : 61
+        AlarmNormalValue : 1
+      - Name : "空气流量报警"
+        Offset : 62
+        AlarmNormalValue : 0
+      - Name : "风机过载"
+        Offset : 63
+        AlarmNormalValue : 0
+      - Name : "主控器 EEPROM 故障"
+        Offset : 64
+        AlarmNormalValue : 0
+      - Name : "压缩机 1 高压/过载"
+        Offset : 65
+        AlarmNormalValue : 0
+      - Name : "压缩机 1 低压"
+        Offset : 66
+        AlarmNormalValue : 0
+      - Name : "压缩机 2 高压/过载"
+        Offset : 67
+        AlarmNormalValue : 0
+      - Name : "压缩机 2 低压"
+        Offset : 68
+        AlarmNormalValue : 0
+      - Name : "加热器 1 过载"
+        Offset : 69
+        AlarmNormalValue : 0
+      - Name : "加热器 2 过载"
+        Offset : 70
+        AlarmNormalValue : 0
+      - Name : "压缩机 1 启动高压报警"
+        Offset : 71
+        AlarmNormalValue : 0
+      - Name : "排气温度保护 1"
+        Offset : 72
+        AlarmNormalValue : 0
+      - Name : "排气温度保护 2"
+        Offset : 73
+        AlarmNormalValue : 0
+      - Name : "加湿器报警"
+        Offset : 74
+        AlarmNormalValue : 0
+      - Name : "用户自定义报警 1"
+        Offset : 75
+        AlarmNormalValue : 0
+      - Name : "外机被盗报警"
+        Offset : 76
+        AlarmNormalValue : 0      
+      - Name : "室内高温报警"
+        Offset : 77
+        AlarmNormalValue : 0
+      - Name : "室内低温报警"
+        Offset : 78
+        AlarmNormalValue : 0
+      - Name : "高湿度报警"
+        Offset : 79
+        AlarmNormalValue : 0
+      - Name : "低湿度报警"
+        Offset : 80
+        AlarmNormalValue : 0
+      - Name : "空气过滤器脏堵报警"
+        Offset : 81
+        AlarmNormalValue : 0
+      - Name : "风机运行时间超时"
+        Offset : 82
+        AlarmNormalValue : 0
+      - Name : "加湿器运行时间超时"
+        Offset : 85
+        AlarmNormalValue : 0
+      - Name : "过滤网维护报警"
+        Offset : 86
+        AlarmNormalValue : 0
+      - Name : "室内温度探头故障"
+        Offset : 87
+        AlarmNormalValue : 0
+      - Name : "室内湿度探头故障"
+        Offset : 88
+        AlarmNormalValue : 0
+      - Name : "出风温度探头故障"
+        Offset : 89
+        AlarmNormalValue : 0
+      - Name : "排气温度探头 1 故障"
+        Offset : 90
+        AlarmNormalValue : 0
+      - Name : "排气温度探头 2 故障"
+        Offset : 91
+        AlarmNormalValue : 0
+      - Name : "蒸发器管温探头故障"
+        Offset : 92
+        AlarmNormalValue : 0
+      - Name : "压力探头 1 故障"
+        Offset : 93
+        AlarmNormalValue : 0
+      - Name : "压力探头 2 故障"
+        Offset : 94
+        AlarmNormalValue : 0
+      - Name : "盘管冻结报警"
+        Offset : 95
+        AlarmNormalValue : 0
+      - Name : "压缩机 1 电流过高报警"
+        Offset : 97
+        AlarmNormalValue : 0
+      - Name : "排气压力 1 高压报警"
+        Offset : 99
+        AlarmNormalValue : 0
+      - Name : "排气压力 2 高压报警"
+        Offset : 100
+        AlarmNormalValue : 0
+      - Name : "主机/从机 2 通信故障"
+        Offset : 106
+        AlarmNormalValue : 0
+      - Name : "主机/从机 3 通信故障"
+        Offset : 107
+        AlarmNormalValue : 0
+      - Name : "主机/从机 4 通信故障"
+        Offset : 108
+        AlarmNormalValue : 0
+      - Name : "主机/从机 5 通信故障"
+        Offset : 109
+        AlarmNormalValue : 0
+      - Name : "主机/从机 6 通信故障"
+        Offset : 110
+        AlarmNormalValue : 0
+      - Name : "主机/从机 7 通信故障"
+        Offset : 111
+        AlarmNormalValue : 0
+      - Name : "主机/从机 8 通信故障"
+        Offset : 112
+        AlarmNormalValue : 0
+      - Name : "显示屏 EEPROM 故障"
+        Offset : 114
+        AlarmNormalValue : 0
   - Cmd : 3
     Offset : 0
     Len : 61
@@ -19,10 +341,118 @@ Sample :
         Unit : "℃"
         Ratio : 10
         Offset : 1
+      - Name : "时区 温度实际设点"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 2
       - Name : "湿度设点"
         Unit : "％"
         Ratio : 10
         Offset : 3
+      - Name : "时区 湿度实际设点"
+        Unit : "％"
+        Ratio : 10
+        Offset : 4
+      - Name : "温度死区"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 5
+      - Name : "制冷偏差"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 6
+      - Name : "制热偏差"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 7
+      - Name : "加湿偏差"
+        Unit : "％"
+        Ratio : 10
+        Offset : 8
+      - Name : "除湿偏差"
+        Unit : "％"
+        Ratio : 10
+        Offset : 9
+      - Name : "温度设点最小值"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 10
+      - Name : "温度设点最大值"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 11
+      - Name : "湿度设点最小值"
+        Unit : "%"
+        Ratio : 10
+        Offset : 12
+      - Name : "湿度设点最大值"
+        Unit : "%"
+        Ratio : 10
+        Offset : 13
+      - Name : "高温同开值"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 16
+      - Name : "低温同开值"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 17
+      - Name : "室内高温报警值"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 18
+      - Name : "室内低温报警值"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 19
+      - Name : "高湿度报警值"
+        Unit : "%"
+        Ratio : 10
+        Offset : 20
+      - Name : "低湿度报警值"
+        Unit : "%"
+        Ratio : 10
+        Offset : 21
+      - Name : "高温同开回差"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 25
+      - Name : "低温同开回差"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 26
+      - Name : "第 1 时区 温度设点"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 34
+      - Name : "第 2 时区 温度设点"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 35
+      - Name : "第 3 时区 温度设点"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 36
+      - Name : "第 4 时区 温度设点"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 37
+      - Name : "第 1 时区 湿度设点"
+        Unit : "%"
+        Ratio : 10
+        Offset : 38
+      - Name : "第 2 时区 湿度设点"
+        Unit : "%"
+        Ratio : 10
+        Offset : 39
+      - Name : "第 3 时区 湿度设点"
+        Unit : "%"
+        Ratio : 10
+        Offset : 40
+      - Name : "第 4 时区 湿度设点"
+        Unit : "%"
+        Ratio : 10
+        Offset : 41
       - Name : "环境温度"
         Unit : "℃"
         Ratio : 10
@@ -35,6 +465,26 @@ Sample :
         Unit : "℃"
         Ratio : 10
         Offset : 51
+      - Name : "加湿器控制电压值"
+        Unit : "V"
+        Ratio : 10
+        Offset : 55
+      - Name : "内风机控制电压值"
+        Unit : "V"
+        Ratio : 10
+        Offset : 57
+      - Name : "外风机 1 控制电压值"
+        Unit : "V"
+        Ratio : 10
+        Offset : 58
+      - Name : "冷凝压力 1"
+        Offset : 59
+      - Name : "外风机 2 控制电压值"
+        Unit : "V"
+        Ratio : 10
+        Offset : 60
+      - Name : "冷凝压力 2"
+        Offset : 61
   - Cmd : 3
     Offset : 62
     Len : 6
@@ -49,5 +499,155 @@ Sample :
     Offset : 168
     Len : 1
     Data :
-      - Name : "机组状态"
-        Offset : 1
+      - Name : "机组关闭"
+        Value : '(($v[1] & 0x1) ? "开启" : "关闭")'
+      - Name : "远程关闭"
+        Value : '( (($v[1]>>1) & 0x1) ? "开启" : "关闭")'
+      - Name : "监控关闭"
+        Value : '( (($v[1]>>2) & 0x1) ? "开启" : "关闭")'
+      - Name : "时区关闭"
+        Value : '( (($v[1]>>3) & 0x1) ? "开启" : "关闭")'
+      - Name : "待机状态"
+        Value : '( (($v[1]>>3) & 0x1) ? "待机" : "关闭")'
+      - Name : "报警关闭"
+        Value : '( (($v[1]>>3) & 0x1) ? "关闭" : "启用")'
+  
+RunCheckThresholdCodeTelecom: |
+  {
+      float temperature = cData.r3_0[49];
+      temperature /= 10;
+      std::string subject = "当前温度:" + boost::lexical_cast<std::string>(temperature);
+      if(levelMap_["120800090010"]){
+          CheckThresholdBool(levelMap_["120800090010"] , "120800090010", "120800090010", "精密空调回风温度高告警", subject,  temperature >  valueMap_["120800090010"], 1);
+      }
+      if(levelMap_["120800100010"]){
+          CheckThresholdBool(levelMap_["120800100010"] , "120800100010", "120800100010", "精密空调回风温度低告警", subject,  temperature <  valueMap_["120800100010"], 1);
+      }
+  }
+  {
+      float humid = cData.r3_0[50];
+      humid /= 10;
+      std::string subject = "当前湿度:" + boost::lexical_cast<std::string>(humid);
+      if(levelMap_["120800120010"]){
+          CheckThresholdBool(levelMap_["120800120010"] , "120800120010", "120800120010", "精密空调回风湿度高告警", subject,  humid >  valueMap_["120800120010"], 1);
+      }
+      if(levelMap_["120800130010"]){
+          CheckThresholdBool(levelMap_["120800130010"] , "120800130010", "120800130010", "精密空调回风湿度低告警", subject,  humid <  valueMap_["120800130010"], 1);
+      }
+  }
+  //水浸报警=120800150010,精密空调水浸告警
+  if(levelMap_["120800150010"]){
+      CheckThresholdBool(levelMap_["120800150010"], "120800150010", "120800150010", "精密空调水浸告警", "水浸报警", cData.b1_0[60], 1);
+  }
+  //加湿器报警=120800230010,001#精密空调加湿器告警
+  if(levelMap_["120800230010"]){
+      CheckThresholdBool(levelMap_["120800230010"], "120800230010", "120800230010", "001#精密空调加湿器告警", "精密空调加湿器告警", cData.b1_0[73], 1);
+  }
+  //滤网堵塞报警=120800260010,001#精密空调过滤网脏告警
+  if(levelMap_["120800260010"]){
+      CheckThresholdBool(levelMap_["120800260010"], "120800260010", "120800260010", "001#精密空调过滤网脏告警", "滤网堵塞报警", cData.b1_0[85], 1);
+  }
+  //风机过载故障=120800240010,001#精密空调风机过载告警
+  if(levelMap_["120800240010"]){
+      CheckThresholdBool(levelMap_["120800240010"], "120800240010", "120800240010", "001#精密空调风机过载告警", "风机过载故障", cData.b1_0[62], 1);
+  }
+
+SET_AO_CODE: |
+  if(setting["signal_id"].asString() == "6016A2101001" || setting["signal_id"].asString() == "150800310010") {
+      if(setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
+          int16_t newValue = atoi(setting["SetValue"].asString().c_str())*10;
+          //送风温度
+          state = AC_Control_Code::AC_SET_TEMPERATURE;
+          cmd_result_ = -1;
+          OpenPort();
+          modbus_write_register(0, newValue);
+          if((uint32_t)outBufferSize >= sizeof(int)) {
+              *((int*)outBuffer) = 1;//通知取状态
+              bytesReturned = sizeof(int);
+          }                       
+      }
+  }else if(setting["signal_id"].asString() == "6016A2101001" || setting["signal_id"].asString() == "150800340010") {
+      if(setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
+          int16_t newValue = atoi(setting["SetValue"].asString().c_str())*10;
+          //湿度
+          state = AC_Control_Code::AC_SET_HUMID;
+          cmd_result_ = -1;
+          OpenPort();
+          modbus_write_register(2, newValue);
+          if((uint32_t)outBufferSize >= sizeof(int)) {
+              *((int*)outBuffer) = 1;//通知取状态
+              bytesReturned = sizeof(int);
+          }                       
+      }
+  }
+
+SET_DO_CODE : |
+    switch(b_mode_)
+    {
+        case 1://联通
+        {
+              //320是SET_DO
+            std::string doId((char*)inBuffer, inBufferSize);
+            if(doId == "601500201001" || doId == "140800280010") {
+                //开机
+                modbus_write_register(168, 0xF);
+            } else if(doId == "601500200001" || doId == "140800300010") {
+                //关机
+                modbus_write_register(168, 0xE);
+            }
+            break;
+        }
+        case 2://电信
+        {
+            std::string aoStr((char*)inBuffer, inBufferSize);
+            Json::Value setting;//
+            Json::Reader reader;//解析
+            if(!reader.parse(aoStr, setting)) {
+                return -1;
+            }
+            if(setting.type() == Json::objectValue) {
+                if(setting["signal_id"] != Json::nullValue && setting["signal_id"].type()  != Json::nullValue) {
+                    if(setting["signal_id"].asString() != "") {
+                        if(setting["signal_id"].asString() == "140800280010"){
+                              //开机
+                            modbus_write_register(168, 0xF);
+                        }else if(setting["signal_id"].asString() == "140800300010") {
+                              //关机
+                            modbus_write_register(168, 0xE);
+                        }
+                    }
+                }
+            }
+            break;
+        }
+    }
+
+SET_RET_CODE: |
+  case AC_Control_Code::AC_START: {
+        if(tab_reg[0] == 1) {
+            cmd_result_ = 1;
+        } else {
+            cmd_result_ = 3;
+        }
+        Reset();
+        return false;
+      }
+      case AC_Control_Code::AC_STOP: {
+        if(tab_reg[0] == 0) {
+            cmd_result_ = 1;
+        } else {
+            cmd_result_ = 3;
+        }
+        Reset();
+        return false;
+      } 
+      case AC_Control_Code::AC_SET_TEMPERATURE:
+      case AC_Control_Code::AC_SET_HUMID: {
+        if(tab_reg[0] == last_data_) {
+            cmd_result_ = 1;
+        } else {
+            cmd_result_ = 3;
+        }
+        Reset();
+        return false;
+      }

@@ -500,4 +500,46 @@ Sample :
       - Name : 1#出水压力失效
         Offset : 112
         AlertNormalValue : 0
-      
+ExtraPhpCode : |
+    $dataArray["空调水浸告警"] = 0;
+
+RunCheckThresholdCodeTelecom : |
+   if(levelMap_["110800540010"]){
+            float fValue = cData.r3_256[5];
+            fValue /= 10;
+            CheckThresholdBool(levelMap_["110800540010"] , "110800540010", "110800540010", "送风温度过高告警", "出风高温告警",  fValue > valueMap_["110800540010"], 1);
+    }
+    if(levelMap_["110800550010"]){
+            float fValue = cData.r3_256[5];
+            fValue /= 10;
+            CheckThresholdBool(levelMap_["110800550010"] , "110800550010", "110800550010", "送风温度过低告警", "出风低温告警",  fValue < valueMap_["110800540010"] , 1);
+    }
+    if(levelMap_["120800090010"]){
+            float fValue = cData.r3_256[0];
+            fValue /= 10;
+            CheckThresholdBool(levelMap_["120800090010"] , "120800090010", "120800090010", "精密空调回风温度高告警", "回风高温告警",  fValue > valueMap_["120800090010"] , 1);
+    }
+    if(levelMap_["120800100010"]){
+            float fValue = cData.r3_256[0];
+            fValue /= 10;
+            CheckThresholdBool(levelMap_["120800100010"] , "120800100010", "120800100010", "精密空调回风温度低告警", "回风低温告警",  fValue < valueMap_["120800100010"] , 1);
+    }
+    if(levelMap_["120800120010"]){
+            float fValue = cData.r3_256[13];
+            fValue /= 10;
+            CheckThresholdBool(levelMap_["120800120010"] , "120800120010", "120800120010", "精密空调回风湿度高告警", "回风高湿告警",  fValue > valueMap_["120800120010"] , 1);
+    }
+    if(levelMap_["120800130010"]){
+            float fValue = cData.r3_256[13];
+            fValue /= 10;
+            CheckThresholdBool(levelMap_["120800130010"] , "120800130010", "120800130010", "精密空调回风湿度低告警", "回风低湿告警",  fValue < valueMap_["120800130010"] , 1);
+    }
+    if(levelMap_["120800140010"]){
+            CheckThresholdBool(levelMap_["120800140010"] , "120800140010", "120800140010", "精密空调溢水告警", "精密空调溢水告警",  cData.r3_1280[29], 1);
+    }
+
+RunCheckThresholdCodeUnicom: |
+  if(1 == 1)
+  {
+
+  }

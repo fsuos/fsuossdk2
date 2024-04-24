@@ -1,0 +1,1808 @@
+Project:
+  Name : UnicomZYT39124
+  RT_ID : 5157
+  File : "中远通3912-4程序监控系统HMI 通信协议-交流.xls"
+Sample : 
+  - Cmd : 2
+    Offset : 0
+    Len : 6
+    Data : 
+      - Name : "1QF开关"
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "1QF开关脱扣"
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "1QF防雷器"
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "2QF开关"
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "2QF开关脱扣"
+        Offset : 5
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "2QF防雷器"
+        Offset : 6
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+  - Cmd : 2
+    Offset : 10
+    Len : 32
+    Data : 
+      - Name : "1QF交流支路1QF1L1 开关"
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "1QF交流支路1QF1L2 开关"
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "1QF交流支路1QF1L3 开关"
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "1QF交流支路1QF2L1 开关"
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "1QF交流支路1QF2L2 开关"
+        Offset : 5
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "1QF交流支路1QF2L3 开关"
+        Offset : 6
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "1QF交流支路1QF3L1 开关"
+        Offset : 7
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "1QF交流支路1QF3L2 开关"
+        Offset : 8
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "1QF交流支路1QF3L3 开关"
+        Offset : 9
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "1QF交流支路1QF4L1 开关"
+        Offset : 10
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "1QF交流支路1QF4L2 开关"
+        Offset : 11
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "1QF交流支路1QF4L3 开关"
+        Offset : 12
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "1QF交流支路1QF5 开关"
+        Offset : 13
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "1QF交流支路1QF6 开关"
+        Offset : 14
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "1QF交流支路1QF7 开关"
+        Offset : 15
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "1QF交流支路1QF8 开关"
+        Offset : 16
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "1QF交流支路1QF9 开关"
+        Offset : 17
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "1QF交流支路1QF10 开关"
+        Offset : 18
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "1QF交流支路1QF11 开关"
+        Offset : 19
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "1QF交流支路1QF12 开关"
+        Offset : 20
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "1QF交流支路1QF13 开关"
+        Offset : 21
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "1QF交流支路1QF14 开关"
+        Offset : 22
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "1QF交流支路1QF15 开关"
+        Offset : 23
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "1QF交流支路1QF16 开关"
+        Offset : 24
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "1QF交流支路1QF17 开关"
+        Offset : 25
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "1QF交流支路1QF18 开关"
+        Offset : 26
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "1QF交流支路1QF19 开关"
+        Offset : 27
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "1QF交流支路1QF20 开关"
+        Offset : 28
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "1QF交流支路1QF21 开关"
+        Offset : 29
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "1QF交流支路1QF22 开关"
+        Offset : 30
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "1QF交流支路1QF23 开关"
+        Offset : 31
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "1QF交流支路1QF24 开关"
+        Offset : 32
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+  - Cmd : 2
+    Offset : 80
+    Len : 32
+    Data : 
+      - Name : "2QF交流支路2QF1L1 开关"
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "2QF交流支路2QF1L2 开关"
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "2QF交流支路2QF1L3 开关"
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "2QF交流支路2QF2L1 开关"
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "2QF交流支路2QF2L2 开关"
+        Offset : 5
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "2QF交流支路2QF2L3 开关"
+        Offset : 6
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "2QF交流支路2QF3L1 开关"
+        Offset : 7
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "2QF交流支路2QF3L2 开关"
+        Offset : 8
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "2QF交流支路2QF3L3 开关"
+        Offset : 9
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "2QF交流支路2QF4L1 开关"
+        Offset : 10
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "2QF交流支路2QF4L2 开关"
+        Offset : 11
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "2QF交流支路2QF4L3 开关"
+        Offset : 12
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "2QF交流支路2QF5 开关"
+        Offset : 13
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "2QF交流支路2QF6 开关"
+        Offset : 14
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "2QF交流支路2QF7 开关"
+        Offset : 15
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "2QF交流支路2QF8 开关"
+        Offset : 16
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "2QF交流支路2QF9 开关"
+        Offset : 17
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "2QF交流支路2QF10 开关"
+        Offset : 18
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "2QF交流支路2QF11 开关"
+        Offset : 19
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "2QF交流支路2QF12 开关"
+        Offset : 20
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "2QF交流支路2QF13 开关"
+        Offset : 21
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "2QF交流支路2QF14 开关"
+        Offset : 22
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "2QF交流支路2QF15 开关"
+        Offset : 23
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "2QF交流支路2QF16 开关"
+        Offset : 24
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "2QF交流支路2QF17 开关"
+        Offset : 25
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "2QF交流支路2QF18 开关"
+        Offset : 26
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "2QF交流支路2QF19 开关"
+        Offset : 27
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "2QF交流支路2QF20 开关"
+        Offset : 28
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "2QF交流支路2QF21 开关"
+        Offset : 29
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "2QF交流支路2QF22 开关"
+        Offset : 30
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "2QF交流支路2QF23 开关"
+        Offset : 31
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+      - Name : "2QF交流支路2QF24 开关"
+        Offset : 32
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开 
+  - Cmd : 2
+    Offset : 130
+    Len : 8
+    Data : 
+      - Name : "交流主路过压"
+        AlarmNormalValue : 0
+        Offset : 1
+      - Name : "交流主路欠压"
+        Offset : 2
+        AlarmNormalValue : 0
+      - Name : "交流主路缺相"
+        Offset : 3
+        AlarmNormalValue : 0
+      - Name : "交流主路过流"
+        Offset : 4
+        AlarmNormalValue : 0
+      - Name : "交流支路越限"
+        Offset : 5
+        AlarmNormalValue : 0
+      - Name : "交流频率超限"
+        Offset : 6
+        AlarmNormalValue : 0
+      - Name : "站4通信异常"
+        Offset : 7
+        AlarmNormalValue : 0
+      - Name : "站5通信异常"
+        Offset : 8
+        AlarmNormalValue : 0
+  - Cmd : 3
+    Offset : 0
+    Len : 50
+    Data : 
+      - Name : 1QF主路A相电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF主路B相电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF主路C相电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF主路合相电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF主路A相电流
+        Ratio : 100
+        Unit : 'A'
+      - Name : 1QF主路B相电流
+        Ratio : 100
+        Unit : 'A'
+      - Name : 1QF主路C相电流
+        Ratio : 100
+        Unit : 'A'
+      - Name : 1QF主路合相电流
+        Ratio : 100
+        Unit : 'A'
+      - Name : 1QF主路A相有功功率
+        Ratio : 100
+        Unit : 'kW'
+      - Name : 1QF主路B相有功功率
+        Ratio : 100
+        Unit : 'kW'
+      - Name : 1QF主路C相有功功率
+        Ratio : 100
+        Unit : 'kW'
+      - Name : 1QF主路合相有功功率
+        Ratio : 100
+        Unit : 'kW'
+      - Name : 1QF主路A相无功功率
+        Ratio : 100
+        Unit : 'kVar'
+      - Name : 1QF主路B相无功功率
+        Ratio : 100
+        Unit : 'kVar'
+      - Name : 1QF主路C相无功功率
+        Ratio : 100
+        Unit : 'kVar'
+      - Name : 1QF主路合相无功功率
+        Ratio : 100
+        Unit : 'kVar'
+      - Name : 1QF主路A相视在功率
+        Ratio : 100
+        Unit : 'kVA'
+      - Name : 1QF主路B相视在功率
+        Ratio : 100
+        Unit : 'kVA'
+      - Name : 1QF主路C相视在功率
+        Ratio : 100
+        Unit : 'kVA'
+      - Name : 1QF主路合相视在功率
+        Ratio : 100
+        Unit : 'kVA'
+      - Name : 1QF主路A相功率因数
+        Ratio : 1000
+      - Name : 1QF主路B相功率因数
+        Ratio : 1000
+      - Name : 1QF主路C相功率因数
+        Ratio : 1000
+      - Name : 1QF主路合相功率因数
+        Ratio : 1000
+      - Name : 1QF主路频率
+        Ratio : 100
+      - Name : 1QF主路A相有功电量
+        Unit : "kWh"
+        Value : ($v[27] << 16 + $v[26])/100
+      - Name : 1QF主路B相有功电量
+        Unit : "kWh"
+        Value : ($v[29] << 16 + $v[28])/100
+      - Name : 1QF主路C相有功电量
+        Unit : "kWh"
+        Value : ($v[31] << 16 + $v[30])/100
+      - Name : 1QF主路合相有功电量
+        Unit : "kWh"
+        Value : ($v[33] << 16 + $v[32])/100
+      - Name : 1QF主路A相无功电量
+        Unit : "kWh"
+        Value : ($v[35] << 16 + $v[34])/100
+      - Name : 1QF主路B相无功电量
+        Unit : "kWh"
+        Value : ($v[37] << 16 + $v[36])/100
+      - Name : 1QF主路C相无功电量
+        Unit : "kWh"
+        Value : ($v[39] << 16 + $v[38])/100
+      - Name : 1QF主路合相无功电量
+        Unit : "kWh"
+        Value : ($v[41] << 16 + $v[40])/100
+      - Name : 1QF主路AB线电压
+        Ratio : 100
+        Offset : 42
+        Unit : 'V'
+      - Name : 1QF主路BC线电压
+        Ratio : 100
+        Offset : 43
+        Unit : 'V'
+      - Name : 1QF主路CA线电压
+        Ratio : 100
+        Offset : 44
+        Unit : 'V'
+      - Name : 1QF主路THD UA
+        Ratio : 100
+        Offset : 45
+        Unit : 'V'
+      - Name : 1QF主路THD UB
+        Ratio : 100
+        Offset : 46
+        Unit : 'V'
+      - Name : 1QF主路THD UC
+        Ratio : 100
+        Offset : 47
+        Unit : 'V'
+      - Name : 1QF主路THD A
+        Ratio : 100
+        Offset : 48
+        Unit : 'V'
+      - Name : 1QF主路THD B
+        Ratio : 100
+        Offset : 49
+        Unit : 'V'
+      - Name : 1QF主路THD C
+        Ratio : 100
+        Offset : 50
+        Unit : 'V'
+  - Cmd : 3
+    Offset : 60
+    Len : 50
+    Data : 
+      - Name : 2QF主路A相电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF主路B相电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF主路C相电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF主路合相电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF主路A相电流
+        Ratio : 100
+        Unit : 'A'
+      - Name : 2QF主路B相电流
+        Ratio : 100
+        Unit : 'A'
+      - Name : 2QF主路C相电流
+        Ratio : 100
+        Unit : 'A'
+      - Name : 2QF主路合相电流
+        Ratio : 100
+        Unit : 'A'
+      - Name : 2QF主路A相有功功率
+        Ratio : 100
+        Unit : 'kW'
+      - Name : 2QF主路B相有功功率
+        Ratio : 100
+        Unit : 'kW'
+      - Name : 2QF主路C相有功功率
+        Ratio : 100
+        Unit : 'kW'
+      - Name : 2QF主路合相有功功率
+        Ratio : 100
+        Unit : 'kW'
+      - Name : 2QF主路A相无功功率
+        Ratio : 100
+        Unit : 'kVar'
+      - Name : 2QF主路B相无功功率
+        Ratio : 100
+        Unit : 'kVar'
+      - Name : 2QF主路C相无功功率
+        Ratio : 100
+        Unit : 'kVar'
+      - Name : 2QF主路合相无功功率
+        Ratio : 100
+        Unit : 'kVar'
+      - Name : 2QF主路A相视在功率
+        Ratio : 100
+        Unit : 'kVA'
+      - Name : 2QF主路B相视在功率
+        Ratio : 100
+        Unit : 'kVA'
+      - Name : 2QF主路C相视在功率
+        Ratio : 100
+        Unit : 'kVA'
+      - Name : 2QF主路合相视在功率
+        Ratio : 100
+        Unit : 'kVA'
+      - Name : 2QF主路A相功率因数
+        Ratio : 1000
+      - Name : 2QF主路B相功率因数
+        Ratio : 1000
+      - Name : 2QF主路C相功率因数
+        Ratio : 1000
+      - Name : 2QF主路合相功率因数
+        Ratio : 1000
+      - Name : 2QF主路频率
+        Ratio : 100
+      - Name : 2QF主路A相有功电量
+        Unit : "kWh"
+        Value : ($v[27] << 16 + $v[26])/100
+      - Name : 2QF主路B相有功电量
+        Unit : "kWh"
+        Value : ($v[29] << 16 + $v[28])/100
+      - Name : 2QF主路C相有功电量
+        Unit : "kWh"
+        Value : ($v[31] << 16 + $v[30])/100
+      - Name : 2QF主路合相有功电量
+        Unit : "kWh"
+        Value : ($v[33] << 16 + $v[32])/100
+      - Name : 2QF主路A相无功电量
+        Unit : "kWh"
+        Value : ($v[35] << 16 + $v[34])/100
+      - Name : 2QF主路B相无功电量
+        Unit : "kWh"
+        Value : ($v[37] << 16 + $v[36])/100
+      - Name : 2QF主路C相无功电量
+        Unit : "kWh"
+        Value : ($v[39] << 16 + $v[38])/100
+      - Name : 2QF主路合相无功电量
+        Unit : "kWh"
+        Value : ($v[41] << 16 + $v[40])/100
+      - Name : 2QF主路AB线电压
+        Ratio : 100
+        Offset : 42
+        Unit : 'V'
+      - Name : 2QF主路BC线电压
+        Ratio : 100
+        Offset : 43
+        Unit : 'V'
+      - Name : 2QF主路CA线电压
+        Ratio : 100
+        Offset : 44
+        Unit : 'V'
+      - Name : 2QF主路THD UA
+        Ratio : 100
+        Offset : 45
+        Unit : 'V'
+      - Name : 2QF主路THD UB
+        Ratio : 100
+        Offset : 46
+        Unit : 'V'
+      - Name : 2QF主路THD UC
+        Ratio : 100
+        Offset : 47
+        Unit : 'V'
+      - Name : 2QF主路THD A
+        Ratio : 100
+        Offset : 48
+        Unit : 'V'
+      - Name : 2QF主路THD B
+        Ratio : 100
+        Offset : 49
+        Unit : 'V'
+      - Name : 2QF主路THD C
+        Ratio : 100
+        Offset : 50
+        Unit : 'V'
+  - Cmd : 3
+    Offset : 120
+    Len : 32
+    Data : 
+      - Name : 1QF交流支路1QF1L1 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF1L2 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF1L3 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF2L1 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF2L2 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF2L3 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF3L1 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF3L2 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF3L3 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF4L1 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF4L2 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF4L3 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF5 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF6 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF7 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF8 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF9 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF10 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF11 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF12 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF13 电压
+        Ratio : 1000
+        Unit : 'V'
+      - Name : 1QF交流支路1QF14 电压
+        Ratio : 1000
+        Unit : 'V'
+      - Name : 1QF交流支路1QF15 电压
+        Ratio : 1000
+        Unit : 'V'
+      - Name : 1QF交流支路1QF16 电压
+        Ratio : 1000
+        Unit : 'V'
+      - Name : 1QF交流支路1QF17 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF18 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF19 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF20 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF21 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF22 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF23 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF24 电压
+        Ratio : 100
+        Unit : 'V'
+  - Cmd : 3
+    Offset : 160
+    Len : 32
+    Data : 
+      - Name : 2QF交流支路2QF1L1 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF1L2 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF1L3 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF2L1 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF2L2 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF2L3 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF3L1 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF3L2 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF3L3 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF4L1 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF4L2 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF4L3 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF5 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF6 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF7 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF8 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF9 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF10 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF11 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF12 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF13 电压
+        Ratio : 1000
+        Unit : 'V'
+      - Name : 2QF交流支路2QF14 电压
+        Ratio : 1000
+        Unit : 'V'
+      - Name : 2QF交流支路2QF15 电压
+        Ratio : 1000
+        Unit : 'V'
+      - Name : 2QF交流支路2QF16 电压
+        Ratio : 1000
+        Unit : 'V'
+      - Name : 2QF交流支路2QF17 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF18 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF19 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF20 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF21 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF22 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF23 电压
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF24 电压
+        Ratio : 100
+        Unit : 'V'
+  - Cmd : 3
+    Offset : 200
+    Len : 32
+    Data : 
+      - Name : 1QF交流支路1QF1L1 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF1L2 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF1L3 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF2L1 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF2L2 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF2L3 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF3L1 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF3L2 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF3L3 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF4L1 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF4L2 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF4L3 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF5 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF6 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF7 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF8 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF9 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF10 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF11 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF12 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF13 电流
+        Ratio : 1000
+        Unit : 'V'
+      - Name : 1QF交流支路1QF14 电流
+        Ratio : 1000
+        Unit : 'V'
+      - Name : 1QF交流支路1QF15 电流
+        Ratio : 1000
+        Unit : 'V'
+      - Name : 1QF交流支路1QF16 电流
+        Ratio : 1000
+        Unit : 'V'
+      - Name : 1QF交流支路1QF17 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF18 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF19 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF20 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF21 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF22 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF23 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF24 电流
+        Ratio : 100
+        Unit : 'V'
+  - Cmd : 3
+    Offset : 240
+    Len : 32
+    Data : 
+      - Name : 2QF交流支路2QF1L1 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF1L2 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF1L3 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF2L1 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF2L2 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF2L3 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF3L1 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF3L2 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF3L3 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF4L1 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF4L2 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF4L3 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF5 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF6 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF7 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF8 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF9 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF10 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF11 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF12 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF13 电流
+        Ratio : 1000
+        Unit : 'V'
+      - Name : 2QF交流支路2QF14 电流
+        Ratio : 1000
+        Unit : 'V'
+      - Name : 2QF交流支路2QF15 电流
+        Ratio : 1000
+        Unit : 'V'
+      - Name : 2QF交流支路2QF16 电流
+        Ratio : 1000
+        Unit : 'V'
+      - Name : 2QF交流支路2QF17 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF18 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF19 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF20 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF21 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF22 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF23 电流
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF24 电流
+        Ratio : 100
+        Unit : 'V'
+  - Cmd : 3
+    Offset : 280
+    Len : 32
+    Data : 
+      - Name : 1QF交流支路1QF1L1 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF1L2 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF1L3 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF2L1 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF2L2 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF2L3 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF3L1 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF3L2 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF3L3 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF4L1 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF4L2 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF4L3 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF5 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF6 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF7 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF8 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF9 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF10 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF11 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF12 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF13 有功功率
+        Ratio : 1000
+        Unit : 'V'
+      - Name : 1QF交流支路1QF14 有功功率
+        Ratio : 1000
+        Unit : 'V'
+      - Name : 1QF交流支路1QF15 有功功率
+        Ratio : 1000
+        Unit : 'V'
+      - Name : 1QF交流支路1QF16 有功功率
+        Ratio : 1000
+        Unit : 'V'
+      - Name : 1QF交流支路1QF17 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF18 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF19 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF20 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF21 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF22 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF23 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF24 有功功率
+        Ratio : 100
+        Unit : 'V'
+  - Cmd : 3
+    Offset : 320
+    Len : 32
+    Data : 
+      - Name : 2QF交流支路2QF1L1 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF1L2 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF1L3 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF2L1 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF2L2 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF2L3 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF3L1 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF3L2 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF3L3 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF4L1 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF4L2 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF4L3 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF5 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF6 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF7 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF8 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF9 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF10 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF11 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF12 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF13 有功功率
+        Ratio : 1000
+        Unit : 'V'
+      - Name : 2QF交流支路2QF14 有功功率
+        Ratio : 1000
+        Unit : 'V'
+      - Name : 2QF交流支路2QF15 有功功率
+        Ratio : 1000
+        Unit : 'V'
+      - Name : 2QF交流支路2QF16 有功功率
+        Ratio : 1000
+        Unit : 'V'
+      - Name : 2QF交流支路2QF17 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF18 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF19 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF20 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF21 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF22 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF23 有功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF24 有功功率
+        Ratio : 100
+        Unit : 'V'
+  - Cmd : 3
+    Offset : 360
+    Len : 32
+    Data : 
+      - Name : 1QF交流支路1QF1L1 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF1L2 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF1L3 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF2L1 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF2L2 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF2L3 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF3L1 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF3L2 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF3L3 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF4L1 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF4L2 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF4L3 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF5 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF6 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF7 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF8 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF9 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF10 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF11 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF12 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF13 无功功率
+        Ratio : 1000
+        Unit : 'V'
+      - Name : 1QF交流支路1QF14 无功功率
+        Ratio : 1000
+        Unit : 'V'
+      - Name : 1QF交流支路1QF15 无功功率
+        Ratio : 1000
+        Unit : 'V'
+      - Name : 1QF交流支路1QF16 无功功率
+        Ratio : 1000
+        Unit : 'V'
+      - Name : 1QF交流支路1QF17 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF18 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF19 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF20 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF21 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF22 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF23 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 1QF交流支路1QF24 无功功率
+        Ratio : 100
+        Unit : 'V'
+  - Cmd : 3
+    Offset : 400
+    Len : 32
+    Data : 
+      - Name : 2QF交流支路2QF1L1 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF1L2 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF1L3 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF2L1 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF2L2 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF2L3 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF3L1 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF3L2 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF3L3 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF4L1 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF4L2 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF4L3 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF5 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF6 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF7 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF8 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF9 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF10 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF11 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF12 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF13 无功功率
+        Ratio : 1000
+        Unit : 'V'
+      - Name : 2QF交流支路2QF14 无功功率
+        Ratio : 1000
+        Unit : 'V'
+      - Name : 2QF交流支路2QF15 无功功率
+        Ratio : 1000
+        Unit : 'V'
+      - Name : 2QF交流支路2QF16 无功功率
+        Ratio : 1000
+        Unit : 'V'
+      - Name : 2QF交流支路2QF17 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF18 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF19 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF20 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF21 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF22 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF23 无功功率
+        Ratio : 100
+        Unit : 'V'
+      - Name : 2QF交流支路2QF24 无功功率
+        Ratio : 100
+        Unit : 'V'
+  - Cmd : 3
+    Offset : 440
+    Len : 64
+    Data : 
+      - Name : 1QF交流支路1QF1L1 电能
+        Unit : "kWh"
+        Value : ($v[2] << 16 + $v[1])/100
+      - Name : 1QF交流支路1QF1L2 电能
+        Unit : "kWh"
+        Value : ($v[4] << 16 + $v[3])/100
+      - Name : 1QF交流支路1QF1L3 电能
+        Unit : "kWh"
+        Value : ($v[6] << 16 + $v[5])/100
+      - Name : 1QF交流支路1QF2L1 电能
+        Unit : "kWh"
+        Value : ($v[8] << 16 + $v[7])/100
+      - Name : 1QF交流支路1QF2L2 电能
+        Unit : "kWh"
+        Value : ($v[10] << 16 + $v[9])/100
+      - Name : 1QF交流支路1QF2L3 电能
+        Unit : "kWh"
+        Value : ($v[12] << 16 + $v[11])/100
+      - Name : 1QF交流支路1QF3L1 电能
+        Unit : "kWh"
+        Value : ($v[14] << 16 + $v[13])/100
+      - Name : 1QF交流支路1QF3L2 电能
+        Unit : "kWh"
+        Value : ($v[16] << 16 + $v[15])/100
+      - Name : 1QF交流支路1QF3L3 电能
+        Unit : "kWh"
+        Value : ($v[18] << 16 + $v[17])/100
+      - Name : 1QF交流支路1QF4L1 电能
+        Unit : "kWh"
+        Value : ($v[20] << 16 + $v[19])/100
+      - Name : 1QF交流支路1QF4L2 电能
+        Unit : "kWh"
+        Value : ($v[22] << 16 + $v[21])/100
+      - Name : 1QF交流支路1QF4L3 电能
+        Unit : "kWh"
+        Value : ($v[24] << 16 + $v[23])/100
+      - Name : 1QF交流支路1QF5 电能
+        Unit : "kWh"
+        Value : ($v[26] << 16 + $v[25])/100
+      - Name : 1QF交流支路1QF6 电能
+        Unit : "kWh"
+        Value : ($v[28] << 16 + $v[27])/100
+      - Name : 1QF交流支路1QF7 电能
+        Unit : "kWh"
+        Value : ($v[30] << 16 + $v[29])/100
+      - Name : 1QF交流支路1QF8 电能
+        Unit : "kWh"
+        Value : ($v[32] << 16 + $v[31])/100
+      - Name : 1QF交流支路1QF9 电能
+        Unit : "kWh"
+        Value : ($v[34] << 16 + $v[33])/100
+      - Name : 1QF交流支路1QF10 电能
+        Unit : "kWh"
+        Value : ($v[36] << 16 + $v[35])/100
+      - Name : 1QF交流支路1QF11 电能
+        Unit : "kWh"
+        Value : ($v[38] << 16 + $v[37])/100
+      - Name : 1QF交流支路1QF12 电能
+        Unit : "kWh"
+        Value : ($v[40] << 16 + $v[39])/100
+      - Name : 1QF交流支路1QF13 电能
+        Unit : "kWh"
+        Value : ($v[42] << 16 + $v[41])/100
+      - Name : 1QF交流支路1QF14 电能
+        Unit : "kWh"
+        Value : ($v[44] << 16 + $v[43])/100
+      - Name : 1QF交流支路1QF15 电能
+        Unit : "kWh"
+        Value : ($v[46] << 16 + $v[45])/100
+      - Name : 1QF交流支路1QF16 电能
+        Unit : "kWh"
+        Value : ($v[48] << 16 + $v[47])/100
+      - Name : 1QF交流支路1QF17 电能
+        Unit : "kWh"
+        Value : ($v[50] << 16 + $v[49])/100
+      - Name : 1QF交流支路1QF18 电能
+        Unit : "kWh"
+        Value : ($v[52] << 16 + $v[51])/100
+      - Name : 1QF交流支路1QF19 电能
+        Unit : "kWh"
+        Value : ($v[54] << 16 + $v[53])/100
+      - Name : 1QF交流支路1QF20 电能
+        Unit : "kWh"
+        Value : ($v[56] << 16 + $v[55])/100
+      - Name : 1QF交流支路1QF21 电能
+        Unit : "kWh"
+        Value : ($v[58] << 16 + $v[57])/100
+      - Name : 1QF交流支路1QF22 电能
+        Unit : "kWh"
+        Value : ($v[60] << 16 + $v[59])/100
+      - Name : 1QF交流支路1QF23 电能
+        Unit : "kWh"
+        Value : ($v[62] << 16 + $v[61])/100
+      - Name : 1QF交流支路1QF24 电能
+        Unit : "kWh"
+        Value : ($v[64] << 16 + $v[63])/100
+  - Cmd : 3
+    Offset : 520
+    Len : 64
+    Data : 
+      - Name : 2QF交流支路2QF1L1 电能
+        Unit : "kWh"
+        Value : ($v[2] << 16 + $v[1])/100
+      - Name : 2QF交流支路2QF1L2 电能
+        Unit : "kWh"
+        Value : ($v[4] << 16 + $v[3])/100
+      - Name : 2QF交流支路2QF1L3 电能
+        Unit : "kWh"
+        Value : ($v[6] << 16 + $v[5])/100
+      - Name : 2QF交流支路2QF2L1 电能
+        Unit : "kWh"
+        Value : ($v[8] << 16 + $v[7])/100
+      - Name : 2QF交流支路2QF2L2 电能
+        Unit : "kWh"
+        Value : ($v[10] << 16 + $v[9])/100
+      - Name : 2QF交流支路2QF2L3 电能
+        Unit : "kWh"
+        Value : ($v[12] << 16 + $v[11])/100
+      - Name : 2QF交流支路2QF3L1 电能
+        Unit : "kWh"
+        Value : ($v[14] << 16 + $v[13])/100
+      - Name : 2QF交流支路2QF3L2 电能
+        Unit : "kWh"
+        Value : ($v[16] << 16 + $v[15])/100
+      - Name : 2QF交流支路2QF3L3 电能
+        Unit : "kWh"
+        Value : ($v[18] << 16 + $v[17])/100
+      - Name : 2QF交流支路2QF4L1 电能
+        Unit : "kWh"
+        Value : ($v[20] << 16 + $v[19])/100
+      - Name : 2QF交流支路2QF4L2 电能
+        Unit : "kWh"
+        Value : ($v[22] << 16 + $v[21])/100
+      - Name : 2QF交流支路2QF4L3 电能
+        Unit : "kWh"
+        Value : ($v[24] << 16 + $v[23])/100
+      - Name : 2QF交流支路2QF5 电能
+        Unit : "kWh"
+        Value : ($v[26] << 16 + $v[25])/100
+      - Name : 2QF交流支路2QF6 电能
+        Unit : "kWh"
+        Value : ($v[28] << 16 + $v[27])/100
+      - Name : 2QF交流支路2QF7 电能
+        Unit : "kWh"
+        Value : ($v[30] << 16 + $v[29])/100
+      - Name : 2QF交流支路2QF8 电能
+        Unit : "kWh"
+        Value : ($v[32] << 16 + $v[31])/100
+      - Name : 2QF交流支路2QF9 电能
+        Unit : "kWh"
+        Value : ($v[34] << 16 + $v[33])/100
+      - Name : 2QF交流支路2QF10 电能
+        Unit : "kWh"
+        Value : ($v[36] << 16 + $v[35])/100
+      - Name : 2QF交流支路2QF11 电能
+        Unit : "kWh"
+        Value : ($v[38] << 16 + $v[37])/100
+      - Name : 2QF交流支路2QF12 电能
+        Unit : "kWh"
+        Value : ($v[40] << 16 + $v[39])/100
+      - Name : 2QF交流支路2QF13 电能
+        Unit : "kWh"
+        Value : ($v[42] << 16 + $v[41])/100
+      - Name : 2QF交流支路2QF14 电能
+        Unit : "kWh"
+        Value : ($v[44] << 16 + $v[43])/100
+      - Name : 2QF交流支路2QF15 电能
+        Unit : "kWh"
+        Value : ($v[46] << 16 + $v[45])/100
+      - Name : 2QF交流支路2QF16 电能
+        Unit : "kWh"
+        Value : ($v[48] << 16 + $v[47])/100
+      - Name : 2QF交流支路2QF17 电能
+        Unit : "kWh"
+        Value : ($v[50] << 16 + $v[49])/100
+      - Name : 2QF交流支路2QF18 电能
+        Unit : "kWh"
+        Value : ($v[52] << 16 + $v[51])/100
+      - Name : 2QF交流支路2QF19 电能
+        Unit : "kWh"
+        Value : ($v[54] << 16 + $v[53])/100
+      - Name : 2QF交流支路2QF20 电能
+        Unit : "kWh"
+        Value : ($v[56] << 16 + $v[55])/100
+      - Name : 2QF交流支路2QF21 电能
+        Unit : "kWh"
+        Value : ($v[58] << 16 + $v[57])/100
+      - Name : 2QF交流支路2QF22 电能
+        Unit : "kWh"
+        Value : ($v[60] << 16 + $v[59])/100
+      - Name : 2QF交流支路2QF23 电能
+        Unit : "kWh"
+        Value : ($v[62] << 16 + $v[61])/100
+      - Name : 2QF交流支路2QF24 电能
+        Unit : "kWh"
+        Value : ($v[64] << 16 + $v[63])/100
+
+RunCheckThresholdCodeUnicom: |
+  CheckThresholdBool(LEVEL1, "406211004001", "406211004001", "输出相电压过高", "交流主路过压", cData.b2_130[0], 1);
+  CheckThresholdBool(LEVEL1, "406211002001", "406211002001", "输出相电压过低", "交流主路欠压", cData.b2_130[1], 1);
+  CheckThresholdBool(LEVEL1, "406211804001", "406211804001", "交流输出电流过高", "交流主路过流", cData.b2_130[3], 1);

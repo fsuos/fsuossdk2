@@ -1,0 +1,246 @@
+Project:
+  Name : UnicomXJSLPLC
+  RT_ID : 5156
+  File : "开发区技术改造动环动环监控点表（0405）.xls  FSU:121.2.62.162  DEV:192.168.2.228"
+BlockTemplate: 
+  ACWaterGroup : 
+    BlockLength : 56
+    BlockContent : 
+      - ArrayBlock : AC
+        ArrayStart : 1
+        ArrayEnd : 4
+      - ArrayBlock : ACStatus
+        Arraystart : 1
+        ArrayEnd : 4
+        Length : 4
+        Transform : "bits"
+      - ArrayBlock : ACTemperature
+        ArrayStart : 1
+        ArrayEnd : 4
+  ACTemperature :
+    BlockLength : 8
+    BlockType : 'f*'
+    BlockContent :
+      - Name : '%d#机组进水温度实际值'
+      - Name : '%d#机组回水温度实际值'
+  ACStatus :
+    BlockLength : 13
+    BlockType : 'C'
+    BlockContent : 
+      - Name : '%d#机组1#立管段风机运行'
+        Options : 
+          - Key : 0
+            Value : 否
+          - Key : 1
+            Value : 是
+      - Name : '%d#机组1#立管段水泵运行'
+        Options : 
+          - Key : 0
+            Value : 否
+          - Key : 1
+            Value : 是
+      - Name : '%d#机组2#立管段风机运行'
+        Options : 
+          - Key : 0
+            Value : 否
+          - Key : 1
+            Value : 是
+      - Name : '%d#机组2#立管段水泵运行'
+        Options : 
+          - Key : 0
+            Value : 否
+          - Key : 1
+            Value : 是
+      - Name : '%d#机组冷却塔1#风机运行'
+        Options : 
+          - Key : 0
+            Value : 否
+          - Key : 1
+            Value : 是
+      - Name : '%d#机组冷却塔2#风机运行'
+        Options : 
+          - Key : 0
+            Value : 否
+          - Key : 1
+            Value : 是
+      - Name : '%d#机组立管段排水阀运行'
+        Options : 
+          - Key : 0
+            Value : 否
+          - Key : 1
+            Value : 是
+      - Name : '%d#机组冷却塔水箱排水阀运行'
+        Options : 
+          - Key : 0
+            Value : 否
+          - Key : 1
+            Value : 是
+      - Name : '%d#机组冷却塔进水电动阀运行'
+        Options : 
+          - Key : 0
+            Value : 否
+          - Key : 1
+            Value : 是
+      - Name : '%d#机组冷却塔回水电动阀运行'
+        Options : 
+          - Key : 0
+            Value : 否
+          - Key : 1
+            Value : 是
+      - Name : '%d#机组1#立管补水电动阀运行'
+        Options : 
+          - Key : 0
+            Value : 否
+          - Key : 1
+            Value : 是
+      - Name : '%d#机组2#立管补水电动阀运行'
+        Options : 
+          - Key : 0
+            Value : 否
+          - Key : 1
+            Value : 是
+      - Name : '%d#机组冷却塔补水电动阀运行'
+        Options : 
+          - Key : 0
+            Value : 否
+          - Key : 1
+            Value : 是
+  AC :
+    BlockLength : 2
+    BlockType : 'S*'
+    BlockContent :
+      - Name : '%d#机组1#立管段高水位'
+        Value : (($v[1]>>0) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 否
+          - Key : 1
+            Value : 是
+      - Name : '%d#机组1#立管段低水位'
+        Value : (($v[1]>>1) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 否
+          - Key : 1
+            Value : 是
+      - Name : '%d#机组2#立管段高水位'
+        Value : (($v[1]>>2) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 否
+          - Key : 1
+            Value : 是
+      - Name : '%d#机组2#立管段低水位'
+        Value : (($v[1]>>3) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 否
+          - Key : 1
+            Value : 是
+      - Name : '%d#机组冷却塔高水位'
+        Value : (($v[1]>>4) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 否
+          - Key : 1
+            Value : 是
+      - Name : '%d#机组冷却塔低水位'
+        Value : (($v[1]>>5) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 否
+          - Key : 1
+            Value : 是
+      - Name : '%d#机组1#立管段风机故障'
+        Value : (($v[1]>>6) & 0x1)
+        AlarmNormalValue : 0
+      - Name : '%d#机组2#立管段风机故障'
+        Value : (($v[1]>>7) & 0x1)
+        AlarmNormalValue : 0
+      - Name : '%d#机组1#立管段水泵故障'
+        Value : (($v[1]>>8) & 0x1)
+        AlarmNormalValue : 0
+      - Name : '%d#机组2#立管段水泵故障'
+        Value : (($v[1]>>9) & 0x1)
+        AlarmNormalValue : 0
+      - Name : '%d#机组冷却台风机故障'
+        Value : (($v[1]>>10) & 0x1)
+        AlarmNormalValue : 0
+      - Name : '%d#机组冷却塔进水电动阀打开'
+        Value : (($v[1]>>11) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 否
+          - Key : 1
+            Value : 是
+      - Name : '%d#机组冷却塔进水电动阀关闭'
+        Value : (($v[1]>>12) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 否
+          - Key : 1
+            Value : 是
+      - Name : '%d#机组冷却塔回水电动阀打开'
+        Value : (($v[1]>>13) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 否
+          - Key : 1
+            Value : 是
+      - Name : '%d#机组冷却塔回水电动阀关闭'
+        Value : (($v[1]>>14) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 否
+          - Key : 1
+            Value : 是
+      - Name : '%d#机组手动/自动选择'
+        Value : (($v[1]>>15) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 自动
+          - Key : 1
+            Value : 手动
+Sample : 
+  - Cmd : 3
+    Offset : 0
+    Len : 30
+    Data : 
+      - ArrayBlock : ACWaterGroup
+        ArrayStart : 1
+        ArrayEnd : 4
+  - Cmd : 3
+    Offset : 30
+    Len : 30
+    Data : 
+      - ArrayBlock : ACWaterGroup
+        ArrayStart : 5
+        ArrayEnd : 8
+  - Cmd : 3
+    Offset : 60
+    Len : 30
+    Data : 
+      - ArrayBlock : ACWaterGroup
+        ArrayStart : 9
+        ArrayEnd : 12
+  - Cmd : 3
+    Offset : 90
+    Len : 30
+    Data : 
+      - ArrayBlock : ACWaterGroup
+        ArrayStart : 13
+        ArrayEnd : 16
+  - Cmd : 3
+    Offset : 120
+    Len : 30
+    Data : 
+      - ArrayBlock : ACWaterGroup
+        ArrayStart : 17
+        ArrayEnd : 20
+  - Cmd : 3
+    Offset : 150
+    Len : 30
+    Data : 
+      - ArrayBlock : ACWaterGroup
+        ArrayStart : 21
+        ArrayEnd : 24
