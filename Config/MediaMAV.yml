@@ -191,148 +191,148 @@ Sample :
             Value : 开启
       - Name : "缺相报警"
         Offset : 57
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "电压过低/高报警"
         Offset : 58
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "烟感报警"
         Offset : 59
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "火感报警"
         Offset : 60
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "漏水报警"
         Offset : 61
-        AlarmNormalValue : 1
+        AlertNormalValue : 1
       - Name : "空气流量报警"
         Offset : 62
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "风机过载"
         Offset : 63
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "主控器 EEPROM 故障"
         Offset : 64
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "压缩机 1 高压/过载"
         Offset : 65
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "压缩机 1 低压"
         Offset : 66
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "压缩机 2 高压/过载"
         Offset : 67
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "压缩机 2 低压"
         Offset : 68
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "加热器 1 过载"
         Offset : 69
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "加热器 2 过载"
         Offset : 70
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "压缩机 1 启动高压报警"
         Offset : 71
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "排气温度保护 1"
         Offset : 72
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "排气温度保护 2"
         Offset : 73
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "加湿器报警"
         Offset : 74
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "用户自定义报警 1"
         Offset : 75
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "外机被盗报警"
         Offset : 76
-        AlarmNormalValue : 0      
+        AlertNormalValue : 0      
       - Name : "室内高温报警"
         Offset : 77
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "室内低温报警"
         Offset : 78
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "高湿度报警"
         Offset : 79
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "低湿度报警"
         Offset : 80
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "空气过滤器脏堵报警"
         Offset : 81
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "风机运行时间超时"
         Offset : 82
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "加湿器运行时间超时"
         Offset : 85
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "过滤网维护报警"
         Offset : 86
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "室内温度探头故障"
         Offset : 87
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "室内湿度探头故障"
         Offset : 88
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "出风温度探头故障"
         Offset : 89
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "排气温度探头 1 故障"
         Offset : 90
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "排气温度探头 2 故障"
         Offset : 91
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "蒸发器管温探头故障"
         Offset : 92
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "压力探头 1 故障"
         Offset : 93
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "压力探头 2 故障"
         Offset : 94
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "盘管冻结报警"
         Offset : 95
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "压缩机 1 电流过高报警"
         Offset : 97
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "排气压力 1 高压报警"
         Offset : 99
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "排气压力 2 高压报警"
         Offset : 100
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "主机/从机 2 通信故障"
         Offset : 106
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "主机/从机 3 通信故障"
         Offset : 107
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "主机/从机 4 通信故障"
         Offset : 108
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "主机/从机 5 通信故障"
         Offset : 109
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "主机/从机 6 通信故障"
         Offset : 110
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "主机/从机 7 通信故障"
         Offset : 111
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "主机/从机 8 通信故障"
         Offset : 112
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : "显示屏 EEPROM 故障"
         Offset : 114
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
   - Cmd : 3
     Offset : 0
     Len : 61
@@ -537,7 +537,7 @@ RunCheckThresholdCodeTelecom: |
   }
   //水浸报警=120800150010,精密空调水浸告警
   if(levelMap_["120800150010"]){
-      CheckThresholdBool(levelMap_["120800150010"], "120800150010", "120800150010", "精密空调水浸告警", "水浸报警", cData.b1_0[60], 1);
+      CheckThresholdBool(levelMap_["120800150010"], "120800150010", "120800150010", "精密空调水浸告警", "水浸报警", cData.b1_0[60] == 0, 1);
   }
   //加湿器报警=120800230010,001#精密空调加湿器告警
   if(levelMap_["120800230010"]){

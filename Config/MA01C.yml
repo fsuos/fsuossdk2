@@ -1,0 +1,622 @@
+Project:
+  Name : MA01C
+  RT_ID : 5156
+  File : "MA01C智能电源监测系统通信协议V5.0.51.pdf"
+BlockTemplate :
+  Inline :
+    BlockLength : 60
+    BlockType : 'S'
+    BlockContent : 
+      - Name : "%s路进线-频率"
+        Unit : "Hz"
+        Value : ($v[1] << 16 + $v[2])/100
+      - Name : "%s路进线-A相电压"
+        Unit : "V"
+        Value : ($v[3] << 16 + $v[4])/100
+      - Name : "%s路进线-B相电压"
+        Unit : "V"
+        Value : ($v[5] << 16 + $v[6])/100
+      - Name : "%s路进线-C相电压"
+        Unit : "V"
+        Value : ($v[7] << 16 + $v[8])/100
+      - Name : "%s路进线-AB线电压"
+        Unit : "V"
+        Value : ($v[9] << 16 + $v[10])/100
+      - Name : "%s路进线-BC线电压"
+        Unit : "V"
+        Value : ($v[11] << 16 + $v[12])/100
+      - Name : "%s路进线-CA线电压"
+        Unit : "V"
+        Value : ($v[13] << 16 + $v[14])/100
+      - Name : "%s路进线-A相电流"
+        Unit : "A"
+        Value : ($v[15] << 16 + $v[16])/100
+      - Name : "%s路进线-B相电流"
+        Unit : "A"
+        Value : ($v[17] << 16 + $v[18])/100
+      - Name : "%s路进线-C相电流"
+        Unit : "A"
+        Value : ($v[19] << 16 + $v[20])/100
+      - Name : "%s路进线-A相有功功率"
+        Unit : "kW"
+        Value : ($v[21] << 16 + $v[22])/1000
+      - Name : "%s路进线-B相有功功率"
+        Unit : "kW"
+        Value : ($v[23] << 16 + $v[24])/1000
+      - Name : "%s路进线-C相有功功率"
+        Unit : "kW"
+        Value : ($v[25] << 16 + $v[26])/1000
+      - Name : "%s路进线-合相有功功率"
+        Unit : "kW"
+        Value : ($v[27] << 16 + $v[28])/1000
+      - Name : "%s路进线-A相无功功率"
+        Unit : "kVAR"
+        Value : ($v[29] << 16 + $v[30])/1000
+      - Name : "%s路进线-B相无功功率"
+        Unit : "kVAR"
+        Value : ($v[31] << 16 + $v[32])/1000
+      - Name : "%s路进线-C相无功功率"
+        Unit : "kVAR"
+        Value : ($v[33] << 16 + $v[34])/1000
+      - Name : "%s路进线-合相无功功率"
+        Unit : "kVAR"
+        Value : ($v[35] << 16 + $v[36])/10000
+      - Name : "%s路进线-A相功率因数"
+        Value : ($v[37] << 16 + $v[38])/10000
+      - Name : "%s路进线-B相功率因数"
+        Value : ($v[39] << 16 + $v[40])/10000
+      - Name : "%s路进线-C相功率因数"
+        Value : ($v[41] << 16 + $v[42])/10000
+      - Name : "%s路进线-合相功率因数"
+        Value : ($v[43] << 16 + $v[44])/10000
+      - Name : "%s路进线-A相有功电能"
+        Unit : "kWh"
+        Value : ($v[45] << 16 + $v[46])/10
+      - Name : "%s路进线-B相有功电能"
+        Unit : "kWh"
+        Value : ($v[47] << 16 + $v[48])/10
+      - Name : "%s路进线-C相有功电能"
+        Unit : "kWh"
+        Value : ($v[49] << 16 + $v[50])/10
+      - Name : "%s路进线-合相有功电能"
+        Unit : "kWh"
+        Value : ($v[51] << 16 + $v[52])/10
+      - Name : "%s路进线-A相电压谐波含量"
+        Unit : "%"
+        Value : ($v[53] << 16 + $v[54])/100
+      - Name : "%s路进线-B相电压谐波含量"
+        Unit : "%"
+        Value : ($v[55] << 16 + $v[56])/100
+      - Name : "%s路进线-C相电压谐波含量"
+        Unit : "%"
+        Value : ($v[57] << 16 + $v[58])/100
+      - Name : "%s路进线-A相电流谐波含量"
+        Unit : "%"
+        Value : ($v[59] << 16 + $v[60])/100
+      - Name : "%s路进线-B相电流谐波含量"
+        Unit : "%"
+        Value : ($v[61] << 16 + $v[62])/100
+      - Name : "%s路进线-C相电流谐波含量"
+        Unit : "%"
+        Value : ($v[63] << 16 + $v[64])/100
+      - Name : "%s路进线-A相电流负载比"
+        Unit : "%"
+        Value : ($v[65] << 16 + $v[66])/100
+      - Name : "%s路进线-B相电流负载比"
+        Unit : "%"
+        Value : ($v[67] << 16 + $v[68])/100
+      - Name : "%s路进线-C相电流负载比"
+        Unit : "%"
+        Value : ($v[69] << 16 + $v[70])/100
+  Feeder :
+    BlockLength : 72
+    BlockType : 'S'
+    HasIndex1 : True
+    HasIndex2 : True
+    BlockContent : 
+      - Name : "%s电压"
+        Index : index
+        Unit : "V"
+        Value : ($v[1] << 16 + $v[2])/100
+      - Name : "%s电压"
+        Index : index1
+        Unit : "V"
+        Value : ($v[3] << 16 + $v[4])/100
+      - Name : "%s电压"
+        Index : index2
+        Unit : "V"
+        Value : ($v[5] << 16 + $v[6])/100
+      - Name : "%s电流"
+        Index : index
+        Unit : "A"
+        Value : ($v[7] << 16 + $v[8])/100
+      - Name : "%s电流"
+        Index : index1
+        Unit : "A"
+        Value : ($v[9] << 16 + $v[10])/100
+      - Name : "%s电流"
+        Index : index2
+        Unit : "A"
+        Value : ($v[11] << 16 + $v[12])/100
+      - Name : "%s功率因数"
+        Index : index
+        Value : ($v[13] << 16 + $v[14])/10000
+      - Name : "%s功率因数"
+        Index : index1
+        Value : ($v[15] << 16 + $v[16])/10000
+      - Name : "%s功率因数"
+        Index : index2
+        Value : ($v[17] << 16 + $v[18])/10000
+      - Name : "%有功功率"
+        Index : index
+        Unit : "kW"
+        Value : ($v[19] << 16 + $v[20])/1000
+      - Name : "%有功功率"
+        Unit : "kW"
+        Index : index1
+        Value : ($v[21] << 16 + $v[22])/1000
+      - Name : "%有功功率"
+        Unit : "kW"
+        Index : index2
+        Value : ($v[23] << 16 + $v[24])/1000
+      - Name : "%有功电能"
+        Index : index
+        Unit : "kWh"
+        Value : ($v[25] << 16 + $v[26])/10
+      - Name : "%有功电能"
+        Unit : "kWh"
+        Index : index1
+        Value : ($v[27] << 16 + $v[28])/10
+      - Name : "%有功电能"
+        Unit : "kWh"
+        Index : index2
+        Value : ($v[29] << 16 + $v[30])/10
+      - Name : "%电流负载比"
+        Index : index
+        Unit : "%"
+        Value : ($v[31] << 16 + $v[32])/10
+      - Name : "%电流负载比"
+        Unit : "%"
+        Index : index1
+        Value : ($v[33] << 16 + $v[34])/10
+      - Name : "%电流负载比"
+        Unit : "%"
+        Index : index2
+        Value : ($v[35] << 16 + $v[36])/10
+Sample : 
+  - Cmd : 3
+    Offset : 4
+    Len : 72
+    Data : 
+      - Block : Inline
+        index : 'A'
+  - Cmd : 3
+    Offset : 74
+    Len : 72
+    Data : 
+      - Block : Inline
+        index : 'B'
+  - Cmd : 3
+    Offset : 144
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'A01'
+        index1 : 'A02'
+        index2 : 'A03'
+  - Cmd : 3
+    Offset : 180
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'A04'
+        index1 : 'A05'
+        index2 : 'A06'
+  - Cmd : 3
+    Offset : 216
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'A07'
+        index1 : 'A08'
+        index2 : 'A09'
+  - Cmd : 3
+    Offset : 252
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'A10'
+        index1 : 'A11'
+        index2 : 'A12'
+  - Cmd : 3
+    Offset : 288
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'B01'
+        index1 : 'B02'
+        index2 : 'B03'
+  - Cmd : 3
+    Offset : 324
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'B04'
+        index1 : 'B05'
+        index2 : 'B06'
+  - Cmd : 3
+    Offset : 360
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'B07'
+        index1 : 'B08'
+        index2 : 'B09'
+  - Cmd : 3
+    Offset : 396
+    Len : 36
+    Data : 
+      - Block : Feeder
+        index : 'B10'
+        index1 : 'B11'
+        index2 : 'B12'
+  - Cmd : 3
+    Offset : 432
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'A13'
+        index1 : 'A14'
+        index2 : 'A15'
+  - Cmd : 3
+    Offset : 468
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'A16'
+        index1 : 'A17'
+        index2 : 'A18'
+  - Cmd : 3
+    Offset : 504
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'A19'
+        index1 : 'A20'
+        index2 : 'A21'
+  - Cmd : 3
+    Offset : 540
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'A22'
+        index1 : 'A23'
+        index2 : 'A24'
+  - Cmd : 3
+    Offset : 576
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'B13'
+        index1 : 'B14'
+        index2 : 'B15'
+  - Cmd : 3
+    Offset : 612
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'B16'
+        index1 : 'B17'
+        index2 : 'B18'
+  - Cmd : 3
+    Offset : 648
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'B19'
+        index1 : 'B20'
+        index2 : 'B21'
+  - Cmd : 3
+    Offset : 684
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'B22'
+        index1 : 'B23'
+        index2 : 'B24'
+  - Cmd : 3
+    Offset : 720
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'A25'
+        index1 : 'A26'
+        index2 : 'A27'
+  - Cmd : 3
+    Offset : 756
+    Len : 36
+    Data : 
+      - Block : Feeder
+        index : 'A28'
+        index1 : 'A29'
+        index2 : 'A30'
+  - Cmd : 3
+    Offset : 792
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'A31'
+        index1 : 'A32'
+        index2 : 'A33'
+  - Cmd : 3
+    Offset : 828
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'A34'
+        index1 : 'A35'
+        index2 : 'A36'
+  - Cmd : 3
+    Offset : 864
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'B25'
+        index1 : 'B26'
+        index2 : 'B27'
+  - Cmd : 3
+    Offset : 900
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'B28'
+        index1 : 'B29'
+        index2 : 'B30'
+  - Cmd : 3
+    Offset : 936
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'B31'
+        index1 : 'B32'
+        index2 : 'B33'
+  - Cmd : 3
+    Offset : 972
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'B34'
+        index1 : 'B35'
+        index2 : 'B36'
+  - Cmd : 3
+    Offset : 1008
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'A37'
+        index1 : 'A38'
+        index2 : 'A39'
+  - Cmd : 3
+    Offset : 1044
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'A40'
+        index1 : 'A41'
+        index2 : 'A42'
+  - Cmd : 3
+    Offset : 1080
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'A43'
+        index1 : 'A44'
+        index2 : 'A45'
+  - Cmd : 3
+    Offset : 1116
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'A46'
+        index1 : 'A47'
+        index2 : 'A48'
+  - Cmd : 3
+    Offset : 1152
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'B37'
+        index1 : 'B38'
+        index2 : 'B39'
+  - Cmd : 3
+    Offset : 1188
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'B40'
+        index1 : 'B41'
+        index2 : 'B42'
+  - Cmd : 3
+    Offset : 1224
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'B43'
+        index1 : 'B44'
+        index2 : 'B45'
+  - Cmd : 3
+    Offset : 1260
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'B46'
+        index1 : 'B47'
+        index2 : 'B48'
+  - Cmd : 3
+    Offset : 1296
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'A49'
+        index1 : 'A50'
+        index2 : 'A51'
+  - Cmd : 3
+    Offset : 1332
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'A52'
+        index1 : 'A53'
+        index2 : 'A54'
+  - Cmd : 3
+    Offset : 1368
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'A55'
+        index1 : 'A56'
+        index2 : 'A57'
+  - Cmd : 3
+    Offset : 1404
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'A58'
+        index1 : 'A59'
+        index2 : 'A60'
+  - Cmd : 3
+    Offset : 1440
+    Len : 36
+    Data:
+      - Block : Feeder
+        index : 'B49'
+        index1 : 'B50'
+        index2 : 'B51'
+  - Cmd : 3
+    Offset : 1476
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'B52'
+        index1 : 'B53'
+        index2 : 'B54'
+  - Cmd : 3
+    Offset : 1512
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'B55'
+        index1 : 'B56'
+        index2 : 'B57'
+  - Cmd : 3
+    Offset : 1548
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'B58'
+        index1 : 'B59'
+        index2 : 'B60'
+  - Cmd : 3
+    Offset : 1584
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'A61'
+        index1 : 'A62'
+        index2 : 'A63'
+  - Cmd : 3
+    Offset : 1620
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'A64'
+        index1 : 'A65'
+        index2 : 'A66'
+  - Cmd : 3
+    Offset : 1656
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'A67'
+        index1 : 'A68'
+        index2 : 'A69'
+  - Cmd : 3
+    Offset : 1692
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'A70'
+        index1 : 'A71'
+        index2 : 'A72'
+  - Cmd : 3
+    Offset : 1728
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'B61'
+        index1 : 'B62'
+        index2 : 'B63'
+  - Cmd : 3
+    Offset : 1764
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'B64'
+        index1 : 'B65'
+        index2 : 'B66'
+  - Cmd : 3
+    Offset : 1800
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'A67'
+        index1 : 'A68'
+        index2 : 'A69'
+  - Cmd : 3
+    Offset : 1836
+    Len : 36
+    Data :
+      - Block : Feeder
+        index : 'B70'
+        index1 : 'B71'
+        index2 : 'B72'
+  - Cmd : 3
+    Offset : 1872
+    Len : 24
+    Data : 
+      - Name : "A路进线-A相视在功率"
+        Unit : "kW"
+        Value : ($v[1] << 16  + $v[2])/1000
+      - Name : "A路进线-B相视在功率"
+        Unit : "kW"
+        Value : ($v[3] << 16  + $v[4])/1000
+      - Name : "A路进线-C相视在功率"
+        Unit : "kW"
+        Value : ($v[5] << 16  + $v[6])/1000
+      - Name : "A路进线-合相视在功率"
+        Unit : "kW"
+        Value : ($v[7] << 16  + $v[8])/1000
+      - Name : "A路进线-零地电压"
+        Unit : "V"
+        Value : ($v[9] << 16  + $v[10])/100
+      - Name : "A路进线-中性电流"
+        Unit : "A"
+        Value : ($v[11] << 16  + $v[12])/100
+      - Name : "B路进线-A相视在功率"
+        Unit : "kW"
+        Value : ($v[13] << 16  + $v[14])/1000
+      - Name : "B路进线-B相视在功率"
+        Unit : "kW"
+        Value : ($v[15] << 16  + $v[16])/1000
+      - Name : "B路进线-C相视在功率"
+        Unit : "kW"
+        Value : ($v[17] << 16  + $v[18])/1000
+      - Name : "B路进线-合相视在功率"
+        Unit : "kW"
+        Value : ($v[19] << 16  + $v[20])/1000
+      - Name : "B路进线-零地电压"
+        Unit : "V"
+        Value : ($v[21] << 16  + $v[22])/100
+      - Name : "B路进线-中性电流"
+        Unit : "A"
+        Value : ($v[23] << 16  + $v[24])/100

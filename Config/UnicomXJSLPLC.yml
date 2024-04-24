@@ -4,27 +4,27 @@ Project:
   File : "开发区技术改造动环动环监控点表（0405）.xls  FSU:121.2.62.162  DEV:192.168.2.228"
 BlockTemplate: 
   ACWaterGroup : 
-    BlockLength : 56
+    BlockLength : 60
     BlockContent : 
       - ArrayBlock : AC
         ArrayStart : 1
         ArrayEnd : 4
       - ArrayBlock : ACStatus
-        Arraystart : 1
+        ArrayStart : 1
         ArrayEnd : 4
-        Length : 4
         Transform : "bits"
+        Length : 8
       - ArrayBlock : ACTemperature
         ArrayStart : 1
         ArrayEnd : 4
   ACTemperature :
     BlockLength : 8
-    BlockType : 'f*'
+    BlockType : 'f'
     BlockContent :
       - Name : '%d#机组进水温度实际值'
       - Name : '%d#机组回水温度实际值'
   ACStatus :
-    BlockLength : 13
+    BlockLength : 8
     BlockType : 'C'
     BlockContent : 
       - Name : '%d#机组1#立管段风机运行'
@@ -107,7 +107,7 @@ BlockTemplate:
             Value : 是
   AC :
     BlockLength : 2
-    BlockType : 'S*'
+    BlockType : 'S'
     BlockContent :
       - Name : '%d#机组1#立管段高水位'
         Value : (($v[1]>>0) & 0x1)
@@ -206,41 +206,35 @@ Sample :
     Offset : 0
     Len : 30
     Data : 
-      - ArrayBlock : ACWaterGroup
-        ArrayStart : 1
-        ArrayEnd : 4
+      - Block : ACWaterGroup
+        index : 0
   - Cmd : 3
     Offset : 30
     Len : 30
     Data : 
-      - ArrayBlock : ACWaterGroup
-        ArrayStart : 5
-        ArrayEnd : 8
+      - Block : ACWaterGroup
+        index : 4
   - Cmd : 3
     Offset : 60
     Len : 30
     Data : 
-      - ArrayBlock : ACWaterGroup
-        ArrayStart : 9
-        ArrayEnd : 12
+      - Block : ACWaterGroup
+        index : 8
   - Cmd : 3
     Offset : 90
     Len : 30
     Data : 
-      - ArrayBlock : ACWaterGroup
-        ArrayStart : 13
-        ArrayEnd : 16
+      - Block : ACWaterGroup
+        index : 12
   - Cmd : 3
     Offset : 120
     Len : 30
     Data : 
-      - ArrayBlock : ACWaterGroup
-        ArrayStart : 17
-        ArrayEnd : 20
+      - Block : ACWaterGroup
+        index : 16
   - Cmd : 3
     Offset : 150
     Len : 30
     Data : 
-      - ArrayBlock : ACWaterGroup
-        ArrayStart : 21
-        ArrayEnd : 24
+      - Block : ACWaterGroup
+        index : 20
