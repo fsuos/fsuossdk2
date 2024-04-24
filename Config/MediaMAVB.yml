@@ -474,3 +474,43 @@ Sample :
         Ratio : 10
         Unit : '%'
         Offset : 3
+
+RunCheckThresholdCodeTelecom: |
+  {
+      float temperature = cData.r3_2152[0];
+      temperature /= 10;
+      std::string subject = "当前温度:" + boost::lexical_cast<std::string>(temperature);
+      if(levelMap_["120800090010"]){
+          CheckThresholdBool(levelMap_["120800090010"] , "120800090010", "120800090010", "精密空调回风温度高告警", subject,  temperature >  valueMap_["120800090010"], 1);
+      }
+      if(levelMap_["120800100010"]){
+          CheckThresholdBool(levelMap_["120800100010"] , "120800100010", "120800100010", "精密空调回风温度低告警", subject,  temperature <  valueMap_["120800100010"], 1);
+      }
+  }
+  {
+      float humid = cData.r3_2152[1];
+      humid /= 10;
+      std::string subject = "当前湿度:" + boost::lexical_cast<std::string>(humid);
+      if(levelMap_["120800120010"]){
+          CheckThresholdBool(levelMap_["120800120010"] , "120800120010", "120800120010", "精密空调回风湿度高告警", subject,  humid >  valueMap_["120800120010"], 1);
+      }
+      if(levelMap_["120800130010"]){
+          CheckThresholdBool(levelMap_["120800130010"] , "120800130010", "120800130010", "精密空调回风湿度低告警", subject,  humid <  valueMap_["120800130010"], 1);
+      }
+  }
+  //水浸报警=120800150010,精密空调水浸告警
+  if(levelMap_["120800150010"]){
+      CheckThresholdBool(levelMap_["120800150010"], "120800150010", "120800150010", "精密空调水浸告警", "水浸报警", (cData.r3_2100[0]>>2) & 0x1, 1);
+  }
+  //加湿器报警=120800230010,001#精密空调加湿器告警
+  if(levelMap_["120800230010"]){
+      CheckThresholdBool(levelMap_["120800230010"], "120800230010", "120800230010", "001#精密空调加湿器告警", "精密空调加湿器告警", (cData.r3_2100[16]>>4) & 0x1, 1);
+  }
+  //滤网堵塞报警=120800260010,001#精密空调过滤网脏告警
+  if(levelMap_["120800260010"]){
+      CheckThresholdBool(levelMap_["120800260010"], "120800260010", "120800260010", "001#精密空调过滤网脏告警", "滤网堵塞报警", cData.r3_2100[16] & 0x1, 1);
+  }
+  //风机过载故障=120800240010,001#精密空调风机过载告警
+  if(levelMap_["120800240010"]){
+      CheckThresholdBool(levelMap_["120800240010"], "120800240010", "120800240010", "001#精密空调风机过载告警", "风机过载故障", (( (cData.r3_2100[11])) &0x1), 1);
+  }
