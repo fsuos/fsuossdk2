@@ -1,0 +1,103 @@
+Project:
+  Name : TMController
+  RT_ID : 5156
+  File : "TM气悬浮标准室内主控互备后台监控协议V1.1-新疆项目20240118.xlsx 121.12.50.13"
+Sample : 
+  - Cmd : 4
+    Offset : 0
+    Len : 4
+    Data : 
+      - Name : "冷却塔水盘温度(外机)"
+        Ratio : 10
+        Unit : ℃
+      - Name : "压缩机吸气温度(外机)"
+        Ratio : 10
+        Unit : ℃
+      - Name : "压缩机排气温度(外机)"
+        Ratio : 10
+        Unit : ℃
+      - Name : "冷却塔出水温度(外机)"
+        Ratio : 10
+        Unit : ℃
+  - Cmd : 4
+    Offset : 7
+    Len : 11
+    Data : 
+      - Name : "压缩机吸气口压力(外机)"
+        Ratio : 10
+        Unit : bar
+      - Name : "压缩机排气口压力(外机)"
+        Ratio : 10
+        Unit : bar
+      - Name : "冷却塔出液压力(外机)"
+        Offset : 4
+        Ratio : 10
+        Unit : bar
+      - Name : "氟泵1进口压力(外机)"
+        Offset : 5
+        Ratio : 10
+        Unit : bar
+      - Name : "氟泵2进口压力(外机)"
+        Offset : 6
+        Ratio : 10
+        Unit : bar
+      - Name : "氟泵3进口压力(外机)"
+        Offset : 7
+        Ratio : 10
+        Unit : bar
+      - Name : "氟泵4进口压力(外机)"
+        Offset : 8
+        Ratio : 10
+        Unit : bar
+      - Name : "制冷剂泄漏仪(外机)"
+        Offset : 11
+        Unit : ppm
+  - Cmd : 4
+    Offset : 21
+    Len : 10
+    Data : 
+      - Name : "压缩机转速(外机)"
+        Unit : RPM
+      - Name : "冷却阀开度(外机)"
+        Unit : %
+      - Name : "氟泵1扬程(外机)"        
+        Ratio : 10
+        Unit : bar
+      - Name : "氟泵1转速(外机)"
+        Ratio : 10
+        Unit : %
+      - Name : "氟泵2扬程(外机)"
+        Ratio : 10
+        Unit : bar
+      - Name : "氟泵2转速(外机)"
+        Ratio : 10
+        Unit : %
+      - Name : "冷凝风机转速(外机)"
+        Ratio : 10
+        Unit : %
+      - Name : "环境温度(外机)"
+        Ratio : 10
+        Unit : ℃
+      - Name : "环境湿度(外机)"
+        Ratio : 10
+        Unit : %
+      - Name : "环境湿球温度(外机)"
+        Ratio : 10
+        Unit : ℃
+  - Cmd : 4
+    Offset : 35
+    Len : 1
+    Data : 
+      - Name : "压缩机过热度(外机)"
+        Ratio : 10
+        Unit : ℃
+  - Cmd : 4
+    Offset : 35
+    Len : 1
+    Data : 
+      - Name : "系统可用(外机)"
+        Options : 
+          - Key : 0
+            Value : 系统可用
+          - Key : 1
+            Value : 系统不可用

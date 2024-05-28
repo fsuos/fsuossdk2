@@ -1,0 +1,320 @@
+
+Project:
+  Name : GreeJKF20CNNaB
+  RT_ID : 5156
+  File : "JKF20CNNaB-风冷式模块化机房空调BMS(Modbus)通讯协议V2.pdf"
+Sample : 
+  - Cmd : 3
+    Offset : 1
+    Len : 4
+    Data : 
+      - Name : "设定温度"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 1
+      - Name : "设定湿度"
+        Unit : "%"
+        Offset : 2
+      - Name : "温度精度设定"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 3
+      - Name : "湿度精度设定"
+        Unit : "%"
+        Offset : 4
+  - Cmd : 3
+    Offset : 13
+    Len : 1
+    Data : 
+      - Name : 机组开/关机设定
+        Options : 
+          - Key : 0x55
+            Value : 关闭
+          - Key : 0xAA
+            Value : 开启
+  - Cmd : 3
+    Offset : 22
+    Len : 44
+    Data :
+      - Name : 回风温度 
+        Unit : "℃"
+        Ratio : 10
+        Offset : 1
+      - Name : "回风湿度"
+        Unit : "%"
+        Offset : 2
+      - Name : 送风温度 
+        Unit : "℃"
+        Ratio : 10
+        Offset : 3
+      - Name : "送风湿度"
+        Unit : "%"
+        Offset : 4
+      - Name : "整机故障"
+        Offset : 5
+        AlertNormalValue : 0  
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 有
+      - Name : "运行状态"
+        Offset : 6
+        Options : 
+          - Key : 0
+            Value : 关机
+          - Key : 1
+            Value : 开机
+      - Name : "运行模式"
+        Offset : 7
+        Options : 
+          - Key : 0
+            Value : 关机
+          - Key : 1
+            Value : 制冷
+          - Key : 2
+            Value : 制热
+          - Key : 3
+            Value : 加湿
+          - Key : 4
+            Value : 除湿
+          - Key : 5
+            Value : 送风
+          - Key : 6
+            Value : 制冷（加湿）
+          - Key : 7
+            Value : 制冷（除湿）
+          - Key : 8
+            Value : 制热（加湿）
+          - Key : 9
+            Value : 送风（加湿）
+      - Name : "自动模式"
+        Offset : 8
+        Options : 
+          - Key : 0
+            Value : 自动
+          - Key : 1
+            Value : 手动
+      - Name : "过滤器堵塞"
+        Offset : 9
+        AlertNormalValue : 0
+      - Name : "地面有水报警"
+        Offset : 10
+        AlertNormalValue : 0
+      - Name : “冷凝水排水异常报警”
+        Offset : 11
+        AlertNormalValue : 0
+      - Name : "内风机"
+        Offset : 12
+        Options : 
+          - Key : 0
+            Value : 关机
+          - Key : 1
+            Value : 开机
+      - Name : "压缩机"
+        Offset : 13
+        Options : 
+          - Key : 0
+            Value : 关机
+          - Key : 1
+            Value : 开机
+      - Name : "电加热"
+        Offset : 14
+        Options : 
+          - Key : 0
+            Value : 关机
+          - Key : 1
+            Value : 开机
+      - Name : "加湿器"
+        Offset : 15
+        Options : 
+          - Key : 0
+            Value : 关机
+          - Key : 1
+            Value : 开机
+      - Name : "冷凝水高水位报警"
+        AlertNormalValue : 0
+        Offset : 17
+      - Name : "内风机故障"
+        AlertNormalValue : 0
+        Offset : 18
+      - Name : "压缩机故障"
+        AlertNormalValue : 0
+        Offset : 19
+      - Name : "电加热故障"
+        AlertNormalValue : 0
+        Offset : 20
+      - Name : "加湿器故障"
+        AlertNormalValue : 0
+        Offset : 21
+      - Name : "外机故障"
+        AlertNormalValue : 0
+        Offset : 22
+      - Name : "通讯心跳"
+        Offset : 24
+      - Name : "回风温度过高波动超限"
+        Offset : 27
+        AlertNormalValue : 0
+      - Name : "回风温度过低波动超限"
+        Offset : 28
+        AlertNormalValue : 0
+      - Name : "回风湿度过高波动超限"
+        Offset : 29
+        AlertNormalValue : 0
+      - Name : "回风湿度过低波动超限"
+        Offset : 30
+        AlertNormalValue : 0
+      - Name : "温度波动超限"
+        Offset : 33
+        AlertNormalValue : 0
+      - Name : "电源故障"
+        Offset : 34
+        AlertNormalValue : 0
+      - Name : "触摸屏通讯故障"
+        Offset : 35
+        AlertNormalValue : 0
+      - Name : "低风压报警"
+        Offset : 38
+        AlertNormalValue : 0
+      - Name : "压缩机高压保护"
+        Offset : 39
+        AlertNormalValue : 0
+      - Name : "压缩机低压保护"
+        Offset : 40
+        AlertNormalValue : 0
+      - Name : "内风机运行时间"
+        Unit : "小时"
+        Offset : 41
+      - Name : "压缩机运行时间"
+        Unit : "小时"
+        Offset : 42
+      - Name : "加湿器运行时间"
+        Unit : "小时"
+        Offset : 43
+      - Name : "电加热运行时间"
+        Unit : "小时"
+        Offset : 44
+RunCheckThresholdCodeTelecom: |
+  {
+      float temperature = cData.r3_22[0];
+      temperature /= 10;
+      std::string subject = "当前温度:" + boost::lexical_cast<std::string>(temperature);
+      if(levelMap_["120800090010"]){
+          CheckThresholdBool(levelMap_["120800090010"] , "120800090010", "120800090010", "精密空调回风温度高告警", subject,  temperature >  valueMap_["120800090010"], 1);
+      }
+      if(levelMap_["120800100010"]){
+          CheckThresholdBool(levelMap_["120800100010"] , "120800100010", "120800100010", "精密空调回风温度低告警", subject,  temperature <  valueMap_["120800100010"], 1);
+      }
+  }
+  {
+      float humid = cData.r3_22[1];
+      humid /= 10;
+      std::string subject = "当前湿度:" + boost::lexical_cast<std::string>(humid);
+      if(levelMap_["120800120010"]){
+          CheckThresholdBool(levelMap_["120800120010"] , "120800120010", "120800120010", "精密空调回风湿度高告警", subject,  humid >  valueMap_["120800120010"], 1);
+      }
+      if(levelMap_["120800130010"]){
+          CheckThresholdBool(levelMap_["120800130010"] , "120800130010", "120800130010", "精密空调回风湿度低告警", subject,  humid <  valueMap_["120800130010"], 1);
+      }
+  }
+  //水浸报警=120800150010,精密空调水浸告警
+  if(levelMap_["120800150010"]){
+      CheckThresholdBool(levelMap_["120800150010"], "120800150010", "120800150010", "精密空调水浸告警", "水浸报警", cData.r3_22[9], 1);
+  }
+  //加湿器报警=120800230010,001#精密空调加湿器告警
+  if(levelMap_["120800230010"]){
+      CheckThresholdBool(levelMap_["120800230010"], "120800230010", "120800230010", "001#精密空调加湿器告警", "精密空调加湿器告警", cData.r3_22[20], 1);
+  }
+  //滤网堵塞报警=120800260010,001#精密空调过滤网脏告警
+  if(levelMap_["120800260010"]){
+      CheckThresholdBool(levelMap_["120800260010"], "120800260010", "120800260010", "001#精密空调过滤网脏告警", "滤网堵塞报警", cData.r3_22[8], 1);
+  }
+  //风机过载故障=120800240010,001#精密空调风机过载告警
+  if(levelMap_["120800240010"]){
+      CheckThresholdBool(levelMap_["120800240010"], "120800240010", "120800240010", "001#精密空调风机过载告警", "风机过载故障", cData.r3_22[17], 1);
+  }
+
+SET_RET_CODE : |
+  case AC_Control_Code::AC_START: {
+        if(tab_reg[0] == 1) {
+            cmd_result_ = 1;
+        } else {
+            cmd_result_ = 3;
+        }
+        Reset();
+        return false;
+      }
+      case AC_Control_Code::AC_STOP: {
+        if(tab_reg[0] == 0) {
+            cmd_result_ = 1;
+        } else {
+            cmd_result_ = 3;
+        }
+        Reset();
+        return false;
+      } 
+      case AC_Control_Code::AC_SET_TEMPERATURE:
+      case AC_Control_Code::AC_SET_HUMID: {
+        if(tab_reg[0] == last_data_) {
+            cmd_result_ = 1;
+        } else {
+            cmd_result_ = 3;
+        }
+        Reset();
+        return false;
+      }
+      
+SET_DO_CODE : |
+  if(setting["signal_id"].asString() != "") {
+      if(setting["signal_id"].asString() == "140800280010") {
+          //开机
+          state = AC_Control_Code::AC_START;
+          cmd_result_ = -1;
+          last_data_ = 1;
+          modbus_write_register(13, 0xAA);
+          if((uint32_t)outBufferSize >= sizeof(int)) {
+              *((int*)outBuffer) = 1;//通知取状态
+              bytesReturned = sizeof(int);
+          }
+      }else if(setting["signal_id"].asString() == "140800300010") {
+          //关机
+          state = AC_Control_Code::AC_STOP;
+          cmd_result_ = -1;
+          last_data_ = 0;
+          modbus_write_register(13, 0x55);
+          if((uint32_t)outBufferSize >= sizeof(int)) {
+              *((int*)outBuffer) = 1;//通知取状态
+              bytesReturned = sizeof(int);
+          }
+      }
+  }
+
+SET_AO_CODE: |
+  if(setting["signal_id"].asString() == "150800310010") {
+      if(setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
+          int16_t newValue = atoi(setting["SetValue"].asString().c_str())*10;
+          //送风温度
+          state = AC_Control_Code::AC_SET_TEMPERATURE;
+          cmd_result_ = -1;
+          OpenPort();
+          modbus_write_register(1, newValue);
+          if((uint32_t)outBufferSize >= sizeof(int)) {
+              *((int*)outBuffer) = 1;//通知取状态
+              bytesReturned = sizeof(int);
+          }                       
+      }
+  }else if(setting["signal_id"].asString() == "150800340010") {
+      if(setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
+          int16_t newValue = atoi(setting["SetValue"].asString().c_str())*10;
+          //湿度
+          state = AC_Control_Code::AC_SET_HUMID;
+          cmd_result_ = -1;
+          OpenPort();
+          modbus_write_register(2, newValue);
+          if((uint32_t)outBufferSize >= sizeof(int)) {
+              *((int*)outBuffer) = 1;//通知取状态
+              bytesReturned = sizeof(int);
+          }                       
+      }
+  }
+        

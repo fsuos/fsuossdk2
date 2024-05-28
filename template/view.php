@@ -1,4 +1,4 @@
-
+<?php
 {% if BlockTemplate is defined %}
 {% for key,blockDef in BlockTemplate.items() %}
 function _{{ Project.Name|lower }}_{{ key }}(&$signalList, $index)
@@ -33,7 +33,7 @@ function _{{ Project.Name|lower }}_{{ key }}(&$signalList, $index)
 }
 {% endfor %}
 {% endif %}
-
+?>
 <h4>系统数据</h4>
 <?php $signalList = [];
 {% for sc in Sample %}

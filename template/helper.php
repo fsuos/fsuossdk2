@@ -7,42 +7,64 @@ function _{{ Project.Name|lower }}_ShowAlert(&$dataArray, $label, $value, $vsVal
 
 {% if BlockTemplate is defined %}
 {% for key,blockDef in BlockTemplate.items() %}
-function _{{ Project.Name|lower }}_{{ key }}(&$dataArray, $memData, $index {% if blockDef.HasIndex1 is defined  %},$index1{% endif %} {% if blockDef.HasIndex2 is defined %},$index2{% endif %})
+function _{{ Project.Name|lower }}_{{ key }}(&$dataArray, $memData, $prefix, $index {% if blockDef.HasIndex1 is defined  %},$index1{% endif %} {% if blockDef.HasIndex2 is defined %},$index2{% endif %})
 {
     $offset = 0;
     {% if blockDef.BlockType is defined %}
-    $v = unpack("{{blockDef.BlockType}}*" , $memData);
+      {% if blockDef.BlockRType is defined %}
+        {% if blockDef.BlockRType == 1 %}
+        $lMemData = '';
+        for($i=0;$i<strlen($memData);$i+=4){
+          $lMemData .= $memData[$i+2].$memData[$i+3].$memData[$i].$memData[$i+1];
+        }
+        $v = unpack("{{blockDef.BlockType}}*" , $lMemData);
+        {% elif blockDef.BlockRType == 2 %}
+        {% endif %}
+      {% endif %}
+    {% else %}
+    $v = unpack("S*" , $memData);
     {% endif %}
     {% for d in blockDef.BlockContent %}
       
       {% if d.ArrayBlock is defined %}
         {% if d.ArrayStart is defined %}
+          //这个地方
+          {% if d.Transform is defined and d.Length is defined and d.Transform == "bits" %}
+          $lMemData = substr($memData, $offset, {{ d.Length }});
+          $lOffset = 0;
+          $v = unpack('C*', $lMemData);
+          $lMemData = '';
+          for($j=1;$j<=count($v);$j++)
+          {
+              for($k = 0; $k <8; $k++)
+              {
+                $lMemData .= pack("C", ($v[$j]>>$k)&0x1);
+              }
+          }
           for($i={{d.ArrayStart}};$i<={{d.ArrayEnd}};$i++)
           {
-            $lMemData = substr($memData, $offset, {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }});
-            {% if d.Transform is defined and d.Transform == "bits" %}
-              $v = unpack('C*', $lMemData);
-              $lMemData = '';
-              for($j=1;$j<=count($v);$j++)
-              {
-                  for($k = 0; $k <8; $k++)
-                  {
-                    $lMemData .= pack("C", ($v[$j]>>$k)&0x1);
-                  }
-              }
-            {% endif %}
-            _{{ Project.Name|lower }}_{{ d.ArrayBlock }}($dataArray, $lMemData, $index + $i);
+            $tMemData = substr($lMemData, $lOffset, {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }});            
+            _{{ Project.Name|lower }}_{{ d.ArrayBlock }}($dataArray, $tMemData, $prefix, $index + $i);
+            $lOffset += {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }};
+          }
+          $offset += {{ d.Length }};
+          {% else %}
+          for($i={{d.ArrayStart}};$i<={{d.ArrayEnd}};$i++)
+          {
+            $tMemData = substr($memData, $offset, {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }});            
+            _{{ Project.Name|lower }}_{{ d.ArrayBlock }}($dataArray, $tMemData, $prefix, $index + $i);
             $offset += {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }};
           }
+          {% endif %}          
         {% endif %}
       {% elif d.Block is defined %}
       $lMemData = substr($memData, $offset, {{ BlockTemplate[d.Block]["BlockLength"] }});
-      _{{ Project.Name|lower }}_{{ d.Block }}($dataArray, $lMemData, "{{ d.index }}"{% if d.index1 is defined %},"{{d.index1}}"{% endif %}{% if d.index2 is defined %},"{{d.index2}}"{% endif %});
+      _{{ Project.Name|lower }}_{{ d.Block }}($dataArray, $lMemData, $prefix, "{{ d.index }}"{% if d.index1 is defined %},"{{d.index1}}"{% endif %}{% if d.index2 is defined %},"{{d.index2}}"{% endif %});
       {% else %}
-        $name = sprintf("{{ d.Name }}", $index);
+        $name = $prefix.sprintf("{{ d.Name }}", {% if d.Index is defined %}${{ d.Index }}{% else %}$index{% endif %});
         {% if d.Value is defined %}
           {% if d.AlertNormalValue is defined %}
-          _{{ Project.Name|lower }}_ShowAlert($dataArray, "{{ d.Name }}", {{ d.Value }}, {{ d.AlertNormalValue }});
+          _{{ Project.Name|lower }}_ShowAlert($dataArray, $name, {{ d.Value }}, {{ d.AlertNormalValue }});
           {% elif d.Options is defined %}
           
           switch({{ d.Value }}){
@@ -73,12 +95,12 @@ function _{{ Project.Name|lower }}_{{ key }}(&$dataArray, $memData, $index {% if
           _{{ Project.Name|lower }}_ShowAlert($dataArray, $name, $v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}], {{ d.AlertNormalValue }});
         {% elif d.ArrayName is defined %}
         for($i=1;$i<={{ d.ArrayLength }};$i++){
-          $name = sprintf("{{ d.ArrayName }}", $index + $i);
+          $name = $prefix.sprintf("{{ d.ArrayName }}", $index + $i);
           $kIndex = {{ d.Offset }} + $i;
           $dataArray[$name] = number_format($v[$kIndex]{% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %}, 2){% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
         }
         {% else %}
-          $dataArray["{{ d.Name }}"] = number_format($v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}]{% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %}, 2){% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
+          $dataArray[$name] = number_format($v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}]{% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %}, 2){% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
         {% endif %}
       {% endif %}
           {% if d.Alias is defined %}
@@ -105,16 +127,38 @@ function Get_{{ Project.Name|lower }}_RtData($memData, &$dataArray, $extraPara =
 	    {% for d in sc.Data %}
       {% if d.ArrayBlock is defined %}
         {% if d.ArrayStart is defined %}
+          {% if d.Transform is defined and d.Length is defined and d.Transform == "bits" %}
+          $lMemData = substr($memData, $offset, {{ d.Length }});
+          $lOffset = 0;
+          $v = unpack('C*', $lMemData);
+          $lMemData = '';
+          for($j=1;$j<=count($v);$j++)
+          {
+              for($k = 0; $k <8; $k++)
+              {
+                $lMemData .= pack("C", ($v[$j]>>$k)&0x1);
+              }
+          }
           for($i={{d.ArrayStart}};$i<={{d.ArrayEnd}};$i++)
           {
-            $lMemData = substr($memData, $offset, {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }});
-            _{{ Project.Name|lower }}_{{ d.ArrayBlock }}($dataArray, $lMemData, $i);
+            $tMemData = substr($lMemData, $lOffset, {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }});            
+            _{{ Project.Name|lower }}_{{ d.ArrayBlock }}($dataArray, $tMemData, {% if d.Prefix is defined %}"{{d.Prefix}}"{%else%}""{%endif%}, $index + $i);
+            $lOffset += {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }};
+          }
+          $offset += {{ d.Length }};
+          {% else %}
+          for($i={{d.ArrayStart}};$i<={{d.ArrayEnd}};$i++)
+          {
+            $tMemData = substr($memData, $offset, {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }});            
+            _{{ Project.Name|lower }}_{{ d.ArrayBlock }}($dataArray, $tMemData, {% if d.Prefix is defined %}"{{d.Prefix}}"{%else%}""{%endif%}, $index + $i);
             $offset += {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }};
           }
+          {% endif %}     
+
         {% endif %}
       {% elif d.Block is defined %}
       $lMemData = substr($memData, $offset, {{ BlockTemplate[d.Block]["BlockLength"] }});
-      _{{ Project.Name|lower }}_{{ d.Block }}($dataArray, $lMemData, "{{ d.index }}" {% if d.index1 is defined %},"{{d.index1}}"{% endif %}{% if d.index2 is defined %},"{{d.index2}}"{% endif %} );
+      _{{ Project.Name|lower }}_{{ d.Block }}($dataArray, $lMemData, {% if d.Prefix is defined %}"{{d.Prefix}}"{%else%}""{%endif%}, "{{ d.index }}" {% if d.index1 is defined %},"{{d.index1}}"{% endif %}{% if d.index2 is defined %},"{{d.index2}}"{% endif %} );
       $offset += {{ BlockTemplate[d.Block]["BlockLength"] }};
       {% else %}
       {% if sc.Type is defined %}
@@ -146,6 +190,9 @@ function Get_{{ Project.Name|lower }}_RtData($memData, &$dataArray, $extraPara =
         {% for item in d.Options %}
           case {{ item.Key }}:
           $dataArray["{{ d.Name }}"] = "{{ item.Value }}";
+          {% if item.IsAlert is defined and item.IsAlert %}
+          $dataArray["AlertArray"]["{{ d.Name }}"] = 1;
+          {% endif %}
             break;
         {% endfor %}
           default:

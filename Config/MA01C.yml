@@ -183,6 +183,87 @@ BlockTemplate :
         Unit : "%"
         Index : index2
         Value : ($v[35] << 16 + $v[36])/10
+  ASwitchStatus :
+    BlockLength : 2
+    BlockType : 'S'
+    BlockContent : 
+      - Name : "A%开关状态"
+        Index : index
+        Options : 
+          - Key : 0
+            Value : "正常"
+          - Key : 1
+            Value : "告警"
+            IsAlert : True
+          - Key : 2
+            Value : "空闲"
+          - Key : 3
+            Value : "分闸"
+  BSwitchStatus :
+    BlockLength : 2
+    BlockType : 'S'
+    BlockContent : 
+      - Name : "B%开关状态"
+        Index : index
+        Options : 
+          - Key : 0
+            Value : "正常"
+          - Key : 1
+            Value : "告警"
+            IsAlert : True
+          - Key : 2
+            Value : "空闲"
+          - Key : 3
+            Value : "分闸"
+  TempNode :
+    BlockLength : 2
+    BlockType : 'S'
+    BlockContent : 
+      - Name : '节点%d温度'
+        Unit : '%'
+        Ratio : 10
+  FeederSwitchAlert : 
+    BlockLength : 1
+    BlockType : 'C'
+    BlockContent :
+      - Name : '%d开关告警'
+        AlertNormalValue : 0
+  FeederCurrentHAlert : 
+    BlockLength : 1
+    BlockType : 'C'
+    BlockContent :
+      - Name : '%d电流越上线'
+        AlertNormalValue : 0
+  FeederCurrentHHAlert : 
+    BlockLength : 1
+    BlockType : 'C'
+    BlockContent :
+      - Name : '%d电流越上上线'
+        AlertNormalValue : 0
+  FeederSwitchOpenAlert : 
+    BlockLength : 1
+    BlockType : 'C'
+    BlockContent :
+      - Name : '%d开关分闸'
+        AlertNormalValue : 0
+  NodeTempAlert :
+    BlockLength : 1
+    BlockType : 'C'
+    BlockContent :
+      - Name : '节点%d温度越限'
+        AlertNormalValue : 0
+  FeederCurrentLAlert : 
+    BlockLength : 1
+    BlockType : 'C'
+    BlockContent :
+      - Name : '%电流越下限'
+        AlertNormalValue : 0
+  FeederCurrentLLAlert : 
+    BlockLength : 1
+    BlockType : 'C'
+    BlockContent :
+      - Name : '%电流越下下限'
+        AlertNormalValue : 0
 Sample : 
   - Cmd : 3
     Offset : 4
@@ -620,3 +701,703 @@ Sample :
       - Name : "B路进线-中性电流"
         Unit : "A"
         Value : ($v[23] << 16  + $v[24])/100
+  - Cmd : 3
+    Offset : 4092
+    Len : 9
+    Data :
+      - Name : A路进线旁路开关状态
+        Options : 
+          - Key : 0
+            Value : "正常"
+          - Key : 1
+            Value : "告警"
+            IsAlert : True
+          - Key : 2
+            Value : "空闲"
+      - Name : A路进线防雷器开关状态
+        Options : 
+          - Key : 0
+            Value : "正常"
+          - Key : 1
+            Value : "告警"
+            IsAlert : True
+          - Key : 2
+            Value : "空闲"
+      - Name : B路进线旁路开关状态
+        Options : 
+          - Key : 0
+            Value : "正常"
+          - Key : 1
+            Value : "告警"
+            IsAlert : True
+          - Key : 2
+            Value : "空闲"
+      - Name : B路进线防雷器开关状态
+        Options : 
+          - Key : 0
+            Value : "正常"
+          - Key : 1
+            Value : "告警"
+            IsAlert : True
+          - Key : 2
+            Value : "空闲"
+      - Name : 系统总告警状态
+        AlertNormalValue : 0
+      - Name : A路进线总开关状态
+        Options : 
+          - Key : 0
+            Value : "正常"
+          - Key : 1
+            Value : "告警"
+            IsAlert : True
+          - Key : 2
+            Value : "空闲"
+          - Key : 3
+            Value : "分闸"
+      - Name : A路进线防雷器状态
+        AlertNormalValue : 0
+      - Name : B路进线总开关状态
+        Options : 
+          - Key : 0
+            Value : "正常"
+          - Key : 1
+            Value : "告警"
+            IsAlert : True
+          - Key : 2
+            Value : "空闲"
+          - Key : 3
+            Value : "分闸"
+      - Name : B路进线防雷器状态
+        AlertNormalValue : 0
+  - Cmd : 3
+    Offset : 4101
+    Len : 24
+    Data : 
+      - ArrayBlock : ASwitchStatus
+        ArrayStart : 1
+        ArrayEnd : 24
+  - Cmd : 3
+    Offset : 4125
+    Len : 24
+    Data : 
+      - ArrayBlock : BSwitchStatus
+        ArrayStart : 1
+        ArrayEnd : 24
+  - Cmd : 3
+    Offset : 4149
+    Len : 24
+    Data : 
+      - ArrayBlock : ASwitchStatus
+        ArrayStart : 25
+        ArrayEnd : 48
+  - Cmd : 3
+    Offset : 4173
+    Len : 24
+    Data : 
+      - ArrayBlock : BSwitchStatus
+        ArrayStart : 25
+        ArrayEnd : 48
+  - Cmd : 3
+    Offset : 4198
+    Len : 24
+    Data : 
+      - ArrayBlock : ASwitchStatus
+        ArrayStart : 49
+        ArrayEnd : 72
+  - Cmd : 3
+    Offset : 4221
+    Len : 24
+    Data : 
+      - ArrayBlock : BSwitchStatus
+        ArrayStart : 49
+        ArrayEnd : 72
+  - Cmd : 3
+    Offset : 4245
+    Len : 6
+    Data :
+      - Name : 环境温度
+        Unit : '℃'
+        Ratio : 10
+      - Name : 环境湿度
+        Unit : '%'
+        Ratio : 10
+      - Name : A路进线-电压不平衡度
+        Unit : '%'
+        Ratio : 10
+      - Name : B路进线-电压不平衡度
+        Unit : '%'
+        Ratio : 10
+      - Name : A路进线-电流不平衡度
+        Unit : '%'
+        Ratio : 10
+      - Name : A路进线-电流不平衡度
+        Unit : '%'
+        Ratio : 10
+  - Cmd : 3
+    Offset : 4267
+    Len : 49
+    Data : 
+      - Name : "温湿度模块1-湿度"
+        Unit : '%'
+        Ratio : 10
+      - ArrayBlock : TempNode
+        Prefix : '温湿度模块1-'
+        ArrayStart : 1
+        ArrayEnd : 48
+  - Cmd : 3
+    Offset : 4316
+    Len : 49
+    Data : 
+      - Name : "温湿度模块2-湿度"
+        Unit : '%'
+        Ratio : 10
+      - ArrayBlock : TempNode
+        Prefix : '温湿度模块2-'
+        ArrayStart : 49
+        ArrayEnd : 96
+  - Cmd : 3
+    Offset : 4365
+    Len : 49
+    Data : 
+      - Name : "温湿度模块3-湿度"
+        Unit : '%'
+        Ratio : 10
+      - ArrayBlock : TempNode
+        Prefix : '温湿度模块3-'
+        ArrayStart : 97
+        ArrayEnd : 144
+  - Cmd : 3
+    Offset : 7424
+    Len : 27
+    Transform : "bits"
+    Data :
+      - ArrayBlock : FeederSwitchAlert
+        ArrayStart : 1
+        ArrayEnd : 24
+        Prefix : '馈线A'
+      - ArrayBlock : FeederSwitchAlert
+        ArrayStart : 1
+        ArrayEnd : 24
+        Prefix : '馈线B'
+      - ArrayBlock : FeederSwitchAlert
+        ArrayStart : 25
+        ArrayEnd : 48
+        Prefix : '馈线A'
+      - ArrayBlock : FeederSwitchAlert
+        ArrayStart : 25
+        ArrayEnd : 48
+        Prefix : '馈线B'
+      - ArrayBlock : FeederSwitchAlert
+        ArrayStart : 49
+        ArrayEnd : 72
+        Prefix : '馈线A'
+      - ArrayBlock : FeederSwitchAlert
+        ArrayStart : 49
+        ArrayEnd : 72
+        Prefix : '馈线B'
+      - ArrayBlock : FeederCurrentHAlert
+        ArrayStart : 1
+        ArrayEnd : 12
+        Prefix : '馈线A'
+      - ArrayBlock : FeederCurrentHAlert
+        ArrayStart : 1
+        ArrayEnd : 12
+        Prefix : '馈线B'
+      - ArrayBlock : FeederCurrentHAlert
+        ArrayStart : 13
+        ArrayEnd : 24
+        Prefix : '馈线A'
+      - ArrayBlock : FeederCurrentHAlert
+        ArrayStart : 13
+        ArrayEnd : 24
+        Prefix : '馈线B'
+      - ArrayBlock : FeederCurrentHAlert
+        ArrayStart : 25
+        ArrayEnd : 36
+        Prefix : '馈线A'
+      - ArrayBlock : FeederCurrentHAlert
+        ArrayStart : 35
+        ArrayEnd : 36
+        Prefix : '馈线B'
+      - ArrayBlock : FeederCurrentHAlert
+        ArrayStart : 37
+        ArrayEnd : 48
+        Prefix : '馈线A'
+      - ArrayBlock : FeederCurrentHAlert
+        ArrayStart : 37
+        ArrayEnd : 48
+        Prefix : '馈线B'
+      - ArrayBlock : FeederCurrentHAlert
+        ArrayStart : 49
+        ArrayEnd : 60
+        Prefix : '馈线A'
+      - ArrayBlock : FeederCurrentHAlert
+        ArrayStart : 49
+        ArrayEnd : 60
+        Prefix : '馈线B'
+      - ArrayBlock : FeederCurrentHAlert
+        ArrayStart : 61
+        ArrayEnd : 72
+        Prefix : '馈线A'
+      - ArrayBlock : FeederCurrentHAlert
+        ArrayStart : 61
+        ArrayEnd : 72
+        Prefix : '馈线B'
+      - ArrayBlock : FeederCurrentHHAlert
+        ArrayStart : 1
+        ArrayEnd : 12
+        Prefix : '馈线B'
+      - ArrayBlock : FeederCurrentHHAlert
+        ArrayStart : 13
+        ArrayEnd : 24
+        Prefix : '馈线A'
+      - ArrayBlock : FeederCurrentHHAlert
+        ArrayStart : 13
+        ArrayEnd : 24
+        Prefix : '馈线B'
+      - ArrayBlock : FeederCurrentHHAlert
+        ArrayStart : 25
+        ArrayEnd : 36
+        Prefix : '馈线A'
+      - ArrayBlock : FeederCurrentHHAlert
+        ArrayStart : 35
+        ArrayEnd : 36
+        Prefix : '馈线B'
+      - ArrayBlock : FeederCurrentHHAlert
+        ArrayStart : 37
+        ArrayEnd : 48
+        Prefix : '馈线A'
+      - ArrayBlock : FeederCurrentHHAlert
+        ArrayStart : 37
+        ArrayEnd : 48
+        Prefix : '馈线B'
+      - ArrayBlock : FeederCurrentHHAlert
+        ArrayStart : 49
+        ArrayEnd : 60
+        Prefix : '馈线A'
+      - ArrayBlock : FeederCurrentHHAlert
+        ArrayStart : 49
+        ArrayEnd : 60
+        Prefix : '馈线B'
+      - ArrayBlock : FeederCurrentHHAlert
+        ArrayStart : 61
+        ArrayEnd : 72
+        Prefix : '馈线A'
+      - ArrayBlock : FeederCurrentHHAlert
+        ArrayStart : 61
+        ArrayEnd : 72
+        Prefix : '馈线B'
+  - Cmd : 3
+    Offset : 0x1D1B
+    Len : 8
+    Data :
+      - Name : "A路进线总开关开关告警"
+        Value : ($v[1] & 0x1)
+        AlertNormalValue : 0    
+      - Name : "A路进线防雷器失效告警"
+        Value : (($v[1]>>1) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线总开关开关告警"
+        Value : (($v[1]>>2) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线防雷器失效告警"
+        Value : (($v[1]>>3) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "A路进线旁路开关开关告警"
+        Value : (($v[1]>>8) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "A路进线防雷器开关开关告警"
+        Value : (($v[1]>>9) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线旁路开关开关告警"
+        Value : (($v[1]>>10) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线防雷器开关开关告警"
+        Value : (($v[1]>>11) & 0x1)
+        AlertNormalValue : 0    
+
+      - Name : "A路进线A相电流越上限"
+        Value : ($v[2] & 0x1)
+        AlertNormalValue : 0    
+      - Name : "A路进线B相电流越上限"
+        Value : (($v[2]>>1) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "A路进线C相电流越上限"
+        Value : (($v[2]>>2) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线A相电流越上限"
+        Value : (($v[2]>>3) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线B相电流越上限"
+        Value : (($v[2]>>4) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线C相电流越上限"
+        Value : (($v[2]>>5) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "A路进线A相功率过载"
+        Value : (($v[2]>>9) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "A路进线B相功率过载"
+        Value : (($v[2]>>10) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "A路进线C相功率过载"
+        Value : (($v[2]>>11) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线A相功率过载"
+        Value : (($v[2]>>12) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线B相功率过载"
+        Value : (($v[2]>>13) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线C相功率过载"
+        Value : (($v[2]>>14) & 0x1)
+        AlertNormalValue : 0    
+      
+      - Name : "A路进线A相电流越上上限"
+        Value : ($v[3] & 0x1)
+        AlertNormalValue : 0    
+      - Name : "A路进线B相电流越上上限"
+        Value : (($v[3]>>1) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "A路进线C相电流越上上限"
+        Value : (($v[3]>>2) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线A相电流越上上限"
+        Value : (($v[3]>>3) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线B相电流越上上限"
+        Value : (($v[3]>>4) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线C相电流越上上限"
+        Value : (($v[3]>>5) & 0x1)
+        AlertNormalValue : 0    
+
+      - Name : "A路进线A相电压过压"
+        Value : ($v[4] & 0x1)
+        AlertNormalValue : 0    
+      - Name : "A路进线B相电压过压"
+        Value : (($v[4]>>1) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "A路进线C相电压过压"
+        Value : (($v[4]>>2) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线A相电压过压"
+        Value : (($v[4]>>3) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线B相电压过压"
+        Value : (($v[4]>>4) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线C相电压过压"
+        Value : (($v[4]>>5) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "A路进线A相电压谐波越限"
+        Value : (($v[4]>>9) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "A路进线B相电压谐波越限"
+        Value : (($v[4]>>10) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "A路进线C相电压谐波越限"
+        Value : (($v[4]>>11) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线A相电压谐波越限"
+        Value : (($v[4]>>12) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线B相电压谐波越限"
+        Value : (($v[4]>>13) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线C相电压谐波越限"
+        Value : (($v[4]>>14) & 0x1)
+        AlertNormalValue : 0   
+
+      - Name : "A路进线A相电压欠压"
+        Value : ($v[5] & 0x1)
+        AlertNormalValue : 0    
+      - Name : "A路进线B相电压欠压"
+        Value : (($v[5]>>1) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "A路进线C相电压欠压"
+        Value : (($v[5]>>2) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线A相电压欠压"
+        Value : (($v[5]>>3) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线B相电压欠压"
+        Value : (($v[5]>>4) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线C相电压欠压"
+        Value : (($v[5]>>5) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "A路进线A相电流谐波越限"
+        Value : (($v[5]>>9) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "A路进线B相电流谐波越限"
+        Value : (($v[5]>>10) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "A路进线C相电流谐波越限"
+        Value : (($v[5]>>11) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线A相电流谐波越限"
+        Value : (($v[5]>>12) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线B相电流谐波越限"
+        Value : (($v[5]>>13) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线C相电流谐波越限"
+        Value : (($v[5]>>14) & 0x1)
+        AlertNormalValue : 0     
+      
+      - Name : "A路进线A相电压缺相"
+        Value : ($v[6] & 0x1)
+        AlertNormalValue : 0    
+      - Name : "A路进线B相电压缺相"
+        Value : (($v[6]>>1) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "A路进线C相电压缺相"
+        Value : (($v[6]>>2) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线A相电压缺相"
+        Value : (($v[6]>>3) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线B相电压缺相"
+        Value : (($v[6]>>4) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线C相电压缺相"
+        Value : (($v[6]>>5) & 0x1)
+        AlertNormalValue : 0    
+
+      - Name : "A路进线电压过频"
+        Value : ($v[7] & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线电压过频"
+        Value : (($v[7]>>1) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "A路三相电压不平衡度越限"
+        Value : (($v[7]>>2) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路三相电压不平衡度越限"
+        Value : (($v[7]>>3) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "A路三相电流不平衡度越限"
+        Value : (($v[7]>>4) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路三相电流不平衡度越限"
+        Value : (($v[7]>>5) & 0x1)
+        AlertNormalValue : 0    
+      
+      - Name : "A路进线电压欠频"
+        Value : ($v[8] & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线电压欠频"
+        Value : (($v[8]]>>1) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "A路进线零地电压越限"
+        Value : (($v[8]>>2) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线零地电压越限"
+        Value : (($v[8]>>3) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "A路进线中性电流越限"
+        Value : (($v[8]>>4) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线中性电流越限"
+        Value : (($v[8]>>5) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "温湿度传感器温度越限"
+        Value : (($v[8]>>7) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "温湿度传感器湿度越限"
+        Value : (($v[8]>>10) & 0x1)
+        AlertNormalValue : 0    
+  - Cmd : 3
+    Offset : 0x1D23
+    Len : 9
+    Transform : "bits"
+    Data :
+      - ArrayBlock : FeederSwitchOpenAlert
+        ArrayStart : 1
+        ArrayEnd : 24
+        Prefix : '馈线A'
+      - ArrayBlock : FeederSwitchOpenAlert
+        ArrayStart : 1
+        ArrayEnd : 24
+        Prefix : '馈线B'
+      - ArrayBlock : FeederSwitchOpenAlert
+        ArrayStart : 25
+        ArrayEnd : 48
+        Prefix : '馈线A'
+      - ArrayBlock : FeederSwitchOpenAlert
+        ArrayStart : 25
+        ArrayEnd : 48
+        Prefix : '馈线B'
+      - ArrayBlock : FeederSwitchOpenAlert
+        ArrayStart : 49
+        ArrayEnd : 72
+        Prefix : '馈线A'
+      - ArrayBlock : FeederSwitchOpenAlert
+        ArrayStart : 49
+        ArrayEnd : 72
+        Prefix : '馈线B'
+  - Cmd : 3
+    Offset : 0x1D2C
+    Len : 1
+    Data :
+      - Name : "A路进线总开关开关分闸"
+        Value : ($v[1] & 0x1)
+        AlertNormalValue : 0    
+      - Name : "A路进线防雷器失效分闸"
+        Value : (($v[1]>>1) & 0x1)
+  - Cmd : 3
+    Offset : 0x1D2D
+    Len : 9
+    Transform : "bits"
+    Data :
+      - ArrayBlock : NodeTempAlert
+        ArrayStart : 1
+        ArrayEnd : 144
+  - Cmd : 3
+    Offset : 0x1D36
+    Len : 1
+    Data :
+      - Name : "电量模块(1#)通信故障"
+        Value : ($v[1] & 0x1)
+        AlertNormalValue : 0    
+      - Name : "电量模块(2#)通信故障"
+        Value : (($v[1]>>1) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "电量模块(3#)通信故障"
+        Value : (($v[1]>>2) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "电量模块(4#)通信故障"
+        Value : (($v[1]>>3) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "电量模块(5#)通信故障"
+        Value : (($v[1]>>4) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "电量模块(6#)通信故障"
+        Value : (($v[1]>>5) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "开关模块(11#)通信故障"
+        Value : (($v[1]>>6) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "开关模块(12#)通信故障"
+        Value : (($v[1]>>7) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "开关模块(13#)通信故障"
+        Value : (($v[1]>>8) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "开关模块(14#)通信故障"
+        Value : (($v[1]>>9) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "开关模块(15#)通信故障"
+        Value : (($v[1]>>10) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "开关模块(16#)通信故障"
+        Value : (($v[1]>>11) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "温度模块(31#)通信故障"
+        Value : (($v[1]>>12) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "温度模块(32#)通信故障"
+        Value : (($v[1]>>13) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "温度模块(33#)通信故障"
+        Value : (($v[1]>>14) & 0x1)
+        AlertNormalValue : 0    
+  - Cmd : 3
+    Offset : 0x1D38
+    Len : 9
+    Transform : "bits"
+    Data :
+      - ArrayBlock : FeederCurrentLAlert
+        ArrayStart : 1
+        ArrayEnd : 24
+        Prefix : '馈线A'
+      - ArrayBlock : FeederCurrentLAlert
+        ArrayStart : 1
+        ArrayEnd : 24
+        Prefix : '馈线B'
+      - ArrayBlock : FeederCurrentLAlert
+        ArrayStart : 25
+        ArrayEnd : 48
+        Prefix : '馈线A'
+      - ArrayBlock : FeederCurrentLAlert
+        ArrayStart : 25
+        ArrayEnd : 48
+        Prefix : '馈线B'
+      - ArrayBlock : FeederCurrentLAlert
+        ArrayStart : 49
+        ArrayEnd : 72
+        Prefix : '馈线A'
+      - ArrayBlock : FeederCurrentLAlert
+        ArrayStart : 49
+        ArrayEnd : 72
+        Prefix : '馈线B'
+  - Cmd : 3
+    Offset : 0x1D41
+    Len : 9
+    Transform : "bits"
+    Data :
+      - ArrayBlock : FeederCurrentLLAlert
+        ArrayStart : 1
+        ArrayEnd : 24
+        Prefix : '馈线A'
+      - ArrayBlock : FeederCurrentLLAlert
+        ArrayStart : 1
+        ArrayEnd : 24
+        Prefix : '馈线B'
+      - ArrayBlock : FeederCurrentLLAlert
+        ArrayStart : 25
+        ArrayEnd : 48
+        Prefix : '馈线A'
+      - ArrayBlock : FeederCurrentLLAlert
+        ArrayStart : 25
+        ArrayEnd : 48
+        Prefix : '馈线B'
+      - ArrayBlock : FeederCurrentLLAlert
+        ArrayStart : 49
+        ArrayEnd : 72
+        Prefix : '馈线A'
+      - ArrayBlock : FeederCurrentLLAlert
+        ArrayStart : 49
+        ArrayEnd : 72
+        Prefix : '馈线B'
+  - Cmd : 3
+    Offset : 0x1D4A
+    Len : 2
+    Data :
+      - Name : "A路进线A相电流越下限"
+        Value : ($v[1] & 0x1)
+        AlertNormalValue : 0    
+      - Name : "A路进线B相电流越下限"
+        Value : (($v[1]>>1) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "A路进线C相电流越下限"
+        Value : (($v[1]>>2) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线A相电流越下限"
+        Value : (($v[1]>>3) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线B相电流越下限"
+        Value : (($v[1]>>4) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线C相电流越下限"
+        Value : (($v[1]>>5) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "A路进线A相电流越下下限"
+        Value : ($v[2] & 0x1)
+        AlertNormalValue : 0    
+      - Name : "A路进线B相电流越下下限"
+        Value : (($v[2]>>1) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "A路进线C相电流越下下限"
+        Value : (($v[2]>>2) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线A相电流越下下限"
+        Value : (($v[2]>>3) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线B相电流越下下限"
+        Value : (($v[2]>>4) & 0x1)
+        AlertNormalValue : 0    
+      - Name : "B路进线C相电流越下下限"
+        Value : (($v[2]>>5) & 0x1)
+        AlertNormalValue : 0    

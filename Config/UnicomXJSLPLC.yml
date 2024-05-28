@@ -20,6 +20,7 @@ BlockTemplate:
   ACTemperature :
     BlockLength : 8
     BlockType : 'f'
+    BlockRType : 1
     BlockContent :
       - Name : '%d#机组进水温度实际值'
       - Name : '%d#机组回水温度实际值'
@@ -153,19 +154,19 @@ BlockTemplate:
             Value : 是
       - Name : '%d#机组1#立管段风机故障'
         Value : (($v[1]>>6) & 0x1)
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : '%d#机组2#立管段风机故障'
         Value : (($v[1]>>7) & 0x1)
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : '%d#机组1#立管段水泵故障'
         Value : (($v[1]>>8) & 0x1)
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : '%d#机组2#立管段水泵故障'
         Value : (($v[1]>>9) & 0x1)
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : '%d#机组冷却台风机故障'
         Value : (($v[1]>>10) & 0x1)
-        AlarmNormalValue : 0
+        AlertNormalValue : 0
       - Name : '%d#机组冷却塔进水电动阀打开'
         Value : (($v[1]>>11) & 0x1)
         Options : 

@@ -25,16 +25,22 @@ BuildDriver () {
     cd ../..
     cp DeviceWeb/application/helpers/device/$DSTFILE.php $PACK_PATH$4/application/helpers/device/
     cp DeviceWeb/application/helpers/ini/telecom/$DSTFILE.yaml $PACK_PATH$4/application/helpers/ini/telecom/
+    cp DeviceWeb/application/helpers/ini/telecom/$DSTFILE.ini $PACK_PATH$4/application/helpers/ini/telecom/
     cp DeviceWeb/application/helpers/ini/unicom/$DSTFILE.yaml $PACK_PATH$4/application/helpers/ini/unicom/
+    cp DeviceWeb/application/helpers/ini/unicom/$DSTFILE.ini $PACK_PATH$4/application/helpers/ini/unicom/
     cp DeviceWeb/application/views/portal/DevicePage/$DSTFILE.php $PACK_PATH$4/application/views/portal/DevicePage/
     if [[ $DSTFILE =~ "419"$ ]];then
       cd $PACK_PATH$4;./pack_419.sh $DSTFILE;cd -
     else
       cd $PACK_PATH$4;./pack.sh $DSTFILE;cd -
     fi
+    cd $PACK_PATH$4;./sync.sh;cd -
 }
-#BuildDriver "cmake-build-Arm-A7-Debug" "gcc/arm-303X-toolchain.cmake" $1 "SMD303X"
-#BuildDriver "cmake-build-Arm-NUC-Debug" "gcc/arm-NUC-toolchain.cmake" $1 "SMD303MINI"
+BuildDriver "cmake-build-Arm-A7-Debug" "gcc/arm-303X-toolchain.cmake" $1 "SMD303X"
+BuildDriver "cmake-build-Arm-NUC-Debug" "gcc/arm-303MINI-toolchain.cmake" $1 "SMD303MINI"
 BuildDriver "cmake-build-Arm-A8-Debug" "gcc/arm-GFSU-toolchain.cmake" $1  "GFSU"
-#BuildDriver "cmake-build-Arm-ZNV-Debug" "gcc/arm-ZNV-IG2100-toolchain.cmake" $1 "ZNVIG2100"
-#BuildDriver "cmake-build-Arm-IG2000-Debug" "arm-ig2000-toolchain.cmake" "ZNVIG2000"
+BuildDriver "cmake-build-Arm-ZNV-Debug" "gcc/arm-ZNV-IG2100-toolchain.cmake" $1 "ZNVIG2100"
+BuildDriver "cmake-build-Arm-IG2000-Debug" "gcc/arm-ig2000-toolchain.cmake" $1 "ZNVIG2000"
+BuildDriver "cmake-build-Arm-EISU-Debug" "gcc/arm-eisu-toolchain.cmake" $1 "ZNVEISU"
+BuildDriver "cmake-build-MIPS-DGM-Debug" "gcc/mips-dgm-toolchain.cmake" $1 "DGM"
+
