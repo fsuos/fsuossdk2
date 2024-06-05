@@ -1,0 +1,129 @@
+Project:
+  Name : XHB_PQA_X2
+  RT_ID : 5156
+  File : "modbus 协议说明.pdf"
+  Parity : "EnumParity::EVEN"
+Sample : 
+  - Cmd : 3
+    Offset : 8002
+    Len : 2
+    Data :
+      - Name : "CT"
+      - Name : "PT"
+  - Cmd : 3
+    Offset : 0
+    Len : 39
+    Data : 
+      - Name : "UA电压有效值"
+        Unit : "V"
+        Ratio : 10
+        Offset : 1
+      - Name : "UB电压有效值"
+        Unit : "V"
+        Ratio : 10
+        Offset : 2
+      - Name : "UC电压有效值"
+        Unit : "V"
+        Ratio : 10
+        Offset : 3
+      - Name : "AB线电压"
+        Unit : "V"
+        Ratio : 10
+        Offset : 4
+      - Name : "BC线电压"
+        Unit : "V"
+        Ratio : 10
+        Offset : 5
+      - Name : "AC线电压"
+        Unit : "V"
+        Ratio : 10
+        Offset : 6
+      - Name : "A相电流"
+        Unit : "A"
+        Value : ($v[7]*intval($dataArray["CT"]))/1000
+        Offset : 7
+      - Name : "B相电流"
+        Unit : "A"
+        Value : ($v[8]*intval($dataArray["CT"]))/1000
+        Offset : 8
+      - Name : "C相电流"
+        Unit : "A"
+        Value : ($v[9]*intval($dataArray["CT"]))/1000
+        Offset : 9
+      - Name : "IN中线电流"
+        Unit : "A"
+        Value : ($v[10]*intval($dataArray["CT"]))/1000
+        Offset : 10
+      - Name : "PA有功功率"
+        Unit : "kW"
+        Value : (( ($v[11]<<16) + $v[12])*intval($dataArray["CT"])/1000)
+      - Name : "PB有功功率"
+        Unit : "kW"
+        Value : (( ($v[13]<<16) + $v[14])*intval($dataArray["CT"])/1000)
+      - Name : "PC有功功率"
+        Unit : "kW"
+        Value : (( ($v[15]<<16) + $v[16])*intval($dataArray["CT"])/1000)
+      - Name : "P总有功功率"
+        Unit : "kW"
+        Value : (( ($v[17]<<16) + $v[18])*intval($dataArray["CT"])/1000)
+      - Name : "QA无功功率"
+        Unit : "kW"
+        Value : (( ($v[19]<<16) + $v[20])*intval($dataArray["CT"])/1000)
+      - Name : "QB无功功率"
+        Unit : "kW"
+        Value : (( ($v[21]<<16) + $v[22])*intval($dataArray["CT"])/1000)
+      - Name : "QC无功功率"
+        Unit : "kW"
+        Value : (( ($v[23]<<16) + $v[24])*intval($dataArray["CT"])/1000)
+      - Name : "Q总无功功率"
+        Unit : "kW"
+        Value : (( ($v[25]<<16) + $v[26])*intval($dataArray["CT"])/1000)
+      - Name : "SA视在功率"
+        Unit : "kW"
+        Value : (( ($v[27]<<16) + $v[28])*intval($dataArray["CT"])/1000)
+      - Name : "SB视在功率"
+        Unit : "kW"
+        Value : (( ($v[29]<<16) + $v[30])*intval($dataArray["CT"])/1000)
+      - Name : "SC视在功率"
+        Unit : "kW"
+        Value : (( ($v[31]<<16) + $v[32])*intval($dataArray["CT"])/1000)
+      - Name : "S总视在功率"
+        Unit : "kW"
+        Value : ( (($v[33]<<16) + $v[34])*intval($dataArray["CT"])/1000)
+      - Name : "A功率因素"
+        Ratio : 1000
+        Offset : 35
+      - Name : "B功率因素"
+        Ratio : 1000
+        Offset : 36
+      - Name : "C功率因素"
+        Ratio : 1000
+        Offset : 37
+      - Name : "S功率因素"
+        Ratio : 1000
+        Offset : 38
+      - Name : "频率"
+        Ratio : 100
+        Offset : 39
+  - Cmd : 3
+    Offset : 200
+    Len : 12
+    Data : 
+      - Name : "总有功电量"
+        Unit : "KWH"
+        Value : ((  ($v[1]<<16) + $v[2])*intval($dataArray["CT"])/1000)
+      - Name : "总无功电量"
+        Unit : "KWH"
+        Value : ((  ($v[3]<<16) + $v[4])*intval($dataArray["CT"])/1000)
+      - Name : "总正向有功电量"
+        Unit : "KWH"
+        Value : (( ($v[5]<<16) + $v[6])*intval($dataArray["CT"])/1000)
+      - Name : "总反向有功电量"
+        Unit : "KWH"
+        Value : (( ($v[7]<<16) + $v[8])*intval($dataArray["CT"])/1000)
+      - Name : "总正向无功电量"
+        Unit : "KWH"
+        Value : (( ($v[9]<<16) + $v[10])*intval($dataArray["CT"])/1000)
+      - Name : "总反向无功电量"
+        Unit : "KWH"
+        Value : (( ($v[11]<<16) + $v[12])*intval($dataArray["CT"])/1000)

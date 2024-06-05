@@ -124,7 +124,15 @@ function Get_{{ Project.Name|lower }}_RtData($memData, &$dataArray, $extraPara =
         $offset = 4;
 	{% for sc in Sample %}
 	    {% if sc.Data is defined %}
+        {% if sc.Type is defined %}
+          $v = unpack("{{sc.Type}}*" , substr($memData , $offset, 2*{{ sc.Len }}));
+        {% elif sc.Cmd == 3 or sc.Cmd == 4 %}
+          $v = unpack("S*" , substr($memData , $offset, 2*{{ sc.Len }}));
+        {% else %}
+          $v = unpack("C*" , substr($memData , $offset, {{ sc.Len }}));
+        {% endif %}
 	    {% for d in sc.Data %}
+      
       {% if d.ArrayBlock is defined %}
         {% if d.ArrayStart is defined %}
           {% if d.Transform is defined and d.Length is defined and d.Transform == "bits" %}
@@ -161,13 +169,7 @@ function Get_{{ Project.Name|lower }}_RtData($memData, &$dataArray, $extraPara =
       _{{ Project.Name|lower }}_{{ d.Block }}($dataArray, $lMemData, {% if d.Prefix is defined %}"{{d.Prefix}}"{%else%}""{%endif%}, "{{ d.index }}" {% if d.index1 is defined %},"{{d.index1}}"{% endif %}{% if d.index2 is defined %},"{{d.index2}}"{% endif %} );
       $offset += {{ BlockTemplate[d.Block]["BlockLength"] }};
       {% else %}
-      {% if sc.Type is defined %}
-      $v = unpack("{{sc.Type}}*" , substr($memData , $offset, 2*{{ sc.Len }}));
-    {% elif sc.Cmd == 3 or sc.Cmd == 4 %}
-      $v = unpack("S*" , substr($memData , $offset, 2*{{ sc.Len }}));
-    {% else %}
-      $v = unpack("C*" , substr($memData , $offset, {{ sc.Len }}));
-    {% endif %}
+     
 	    {% if d.Value is defined %}
         {% if d.AlertNormalValue is defined %}
         _{{ Project.Name|lower }}_ShowAlert($dataArray, "{{ d.Name }}", {{ d.Value }}, {{ d.AlertNormalValue }});
@@ -210,19 +212,21 @@ function Get_{{ Project.Name|lower }}_RtData($memData, &$dataArray, $extraPara =
 	    {% else %}
         $dataArray["{{ d.Name }}"] = number_format($v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}]{% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %}, 2){% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
 	    {% endif %}
-      {% if sc.Cmd == 3 or sc.Cmd == 4 %}
-          $offset += {{ 2*sc.Len }};
-        {% else %}
-          $offset += {{ sc.Len }};
-        {% endif %}
-      {% endif %}
+      
         {% if d.Alias is defined %}
         {% for newName in d.Alias %}
         $dataArray["{{ newName }}"] = $dataArray["{{ d.Name }}"];
         {% endfor %}
+
+      {% endif %}
         {% endif %}
 
 	    {% endfor %}
+      {% if sc.Cmd == 3 or sc.Cmd == 4 %}
+      $offset += {{ 2*sc.Len }};
+    {% else %}
+      $offset += {{ sc.Len }};
+    {% endif %}
 	    {% endif %}
         
         {% endfor %}

@@ -14,6 +14,9 @@
     {% if Project.StopBits is defined %}
     stop_bit_size_ = {{ Project.StopBits }};
     {% endif %}
+    {% if Project.Parity is defined %}
+    parity_ = {{ Project.Parity }};
+    {% endif %}
     addr_ = 1;
     //save_interval_ = 600;
 }
