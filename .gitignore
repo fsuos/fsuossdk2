@@ -1,0 +1,8 @@
+cmake-build-Arm-A7-Debug
+gcc
+cmake-build-*
+__pycache__
+DeviceWeb
+Drivers
+PyDrivers
+SMDSPProcessor

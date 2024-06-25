@@ -1,0 +1,1639 @@
+Project:
+  Name : EXM2UPS
+  RT_ID : 5156
+  File : "EXM2 UPS MODBUS通信协议标准_V100.xlsx"
+  TabView : true
+Sample : 
+  - Cmd : 3
+    Offset : 1100
+    Len : 9
+    Data : 
+      - Name : "系统A相输出有功功率"
+        Unit : "kW"
+        Ratio : 100
+        Offset : 1
+      - Name : "系统B相输出有功功率"
+        Unit : "kW"
+        Ratio : 100
+        Offset : 2
+      - Name : "系统C相输出有功功率"
+        Unit : "kW"
+        Ratio : 100
+        Offset : 3
+      - Name : "系统A相输出视在功率"
+        Unit : "kVar"
+        Ratio : 100
+        Offset : 4
+      - Name : "系统B相输出视在功率"
+        Unit : "kVar"
+        Ratio : 100
+        Offset : 5
+      - Name : "系统C相输出视在功率"
+        Unit : "kVar"
+        Ratio : 100
+        Offset : 6
+      - Name : "系统A相输出无功功率"
+        Unit : "kVA"
+        Ratio : 100
+        Offset : 7
+      - Name : "系统B相输出无功功率"
+        Unit : "kVA"
+        Ratio : 100
+        Offset : 8
+      - Name : "系统C相输出无功功率"
+        Unit : "kVA"
+        Ratio : 100
+        Offset : 9
+  - Cmd : 3
+    Offset : 1140
+    Len : 4
+    Data : 
+      - Name : "整机基本模块数"
+      - Name : "整机冗余模块数"
+      - Name : "整机授权容量"
+        Unit : "kVA"
+      - Name : "铭牌功率"
+        Unit : "kVA"
+  - Cmd : 3
+    Offset : 1200
+    Len : 6
+    Data : 
+      - Name : "A相输入电压"
+        Unit : "V"
+        Ratio : 10
+      - Name : "B相输入电压"
+        Unit : "V"
+        Ratio : 10
+      - Name : "C相输入电压"
+        Unit : "V"
+        Ratio : 10
+      - Name : "A相输出电压"
+        Unit : "V"
+        Ratio : 10
+      - Name : "B相输出电压"
+        Unit : "V"
+        Ratio : 10
+      - Name : "C相输出电压"
+        Unit : "V"
+        Ratio : 10
+  - Cmd : 3
+    Offset : 1206
+    Len : 3
+    Type : 's'
+    Data : 
+      - Name : "A相输出电流"
+        Unit : "A"
+        Ratio : 10
+      - Name : "B相输出电流"
+        Unit : "A"
+        Ratio : 10
+      - Name : "C相输出电流"
+        Unit : "A"
+        Ratio : 10
+  - Cmd : 3
+    Offset : 1209
+    Len : 2
+    Data : 
+      - Name : "电池电压"
+        Unit : "V"
+        Ratio : 10
+      - Name : "输出频率"
+        Unit : "Hz"
+        Ratio : 10
+  - Cmd : 3
+    Offset : 1240
+    Len : 3
+    Data : 
+      - Name : "AB线输入电压"
+        Unit : "V"
+        Ratio : 10
+      - Name : "BC线输入电压"
+        Unit : "V"
+        Ratio : 10
+      - Name : "CA线输入电压"
+        Unit : "V"
+        Ratio : 10
+  - Cmd : 3
+    Offset : 1243
+    Len : 3
+    Type : "s"
+    Data : 
+      - Name : "A相输入电流"
+        Unit : "A"
+        Ratio : 10
+      - Name : "B相输入电流"
+        Unit : "A"
+        Ratio : 10
+      - Name : "C相输入电流"
+        Unit : "A"
+        Ratio : 10
+  - Cmd : 3
+    Offset : 1246
+    Len : 1
+    Data : 
+      - Name : "输入频率"
+        Ratio : 100
+        Unit : 'Hz'
+  - Cmd : 3
+    Offset : 1247
+    Len : 3
+    Type : 's'
+    Data : 
+      - Name : "A相输入功率因数"
+        Ratio : 100
+      - Name : "B相输入功率因数"
+        Ratio : 100
+      - Name : "C相输入功率因数"
+        Ratio : 100
+  - Cmd : 3
+    Offset : 1250
+    Len : 22
+    Data : 
+      - Name : "A相旁路电压"
+        Ratio : 10
+        Unit : 'V'
+      - Name : "B相旁路电压"
+        Ratio : 10
+        Unit : 'V'
+      - Name : "C相旁路电压"
+        Ratio : 10
+        Unit : 'V'
+      - Name : "旁路频率"
+        Ratio : 100
+        Unit : 'Hz'
+      - Name : "AB线输出电压"
+        Unit : "V"
+        Ratio : 100
+      - Name : "BC线输出电压"
+        Unit : "V"
+        Ratio : 100
+      - Name : "CA线输出电压"
+        Unit : "V"
+        Ratio : 100
+      - Name : "AB线旁路电压"
+        Unit : "V"
+        Ratio : 100
+      - Name : "BC线旁路电压"
+        Unit : "V"
+        Ratio : 100
+      - Name : "CA线旁路电压"
+        Unit : "V"
+        Ratio : 100
+      - Name : "A相输入有功功率"
+        Unit : "kW"
+        Ratio : 100
+      - Name : "B相输入有功功率"
+        Unit : "kW"
+        Ratio : 100
+      - Name : "C相输入有功功率"
+        Unit : "kW"
+        Ratio : 100
+      - Name : "A相输入视在功率"
+        Unit : "kVar"
+        Ratio : 100
+      - Name : "B相输入视在功率"
+        Unit : "kVar"
+        Ratio : 100
+      - Name : "C相输入视在功率"
+        Unit : "kVar"
+        Ratio : 100
+      - Name : "A相输入电能"
+        Unit : "kWh"
+        Value : (($v[17]<<16) | $v[18])
+      - Name : "B相输入电能"
+        Unit : "kWh"
+        Value : (($v[19]<<16) | $v[20])
+      - Name : "C相输入电能"
+        Unit : "kWh"
+        Value : (($v[21]<<16) | $v[22])
+  - Cmd : 3
+    Offset : 1300
+    Len : 3
+    Type : 's'
+    Data : 
+      - Name : "A相输出功率因数"
+        Ratio : 100
+      - Name : "B相输出功率因数"
+        Ratio : 100
+      - Name : "C相输出功率因数"
+        Ratio : 100 
+  - Cmd : 3
+    Offset : 1303
+    Len : 24
+    Data : 
+      - Name : "A相输出峰值比"
+        Ratio : 100
+      - Name : "B相输出峰值比"
+        Ratio : 100
+      - Name : "C相输出峰值比"
+        Ratio : 100 
+      - Name : "A相输出有功功率"
+        Unit : "kW"
+        Ratio : 100
+      - Name : "B相输出有功功率"
+        Ratio : 100
+        Unit : "kW"
+      - Name : "C相输出有功功率"
+        Ratio : 100 
+        Ratio : "kW"
+      - Name : "A相输出无功功率"
+        Unit : "kVar"
+        Ratio : 100
+      - Name : "B相输出无功功率"
+        Ratio : 100
+        Unit : "kVar"
+      - Name : "C相输出无功功率"
+        Ratio : 100 
+        Ratio : "kVar"
+      - Name : "A相输出视在功率"
+        Unit : "kVA"
+        Ratio : 100
+      - Name : "B相输出视在功率"
+        Ratio : 100
+        Unit : "kVA"
+      - Name : "C相输出视在功率"
+        Ratio : 100 
+        Ratio : "kVA"
+      - Name : "A相输出负载百分比"
+        Ratio : 100
+      - Name : "B相输出负载百分比"
+        Ratio : 100
+      - Name : "C相输出负载百分比"
+        Ratio : 100 
+      - Name : "输出电能A"
+        Unit : "kWh"
+        Value : (($v[19]<<16) | $v[20])
+      - Name : "输出电能B"
+        Unit : "kWh"
+        Value : (($v[21]<<16) | $v[22])
+      - Name : "输出电能C"
+        Unit : "kWh"
+        Value : (($v[23]<<16) | $v[24])
+  - Cmd : 3
+    Offset : 1360
+    Len : 1
+    Data : 
+      - Name : "电池后备时间"
+        Unit : "分钟"
+  - Cmd : 3
+    Offset : 1361
+    Len : 4
+    Type : 's'
+    Data :   
+      - Name : "正电池电压"
+        Ratio : 100
+        Unit : "V"
+      - Name : "正电池电流"
+        Ratio : 100 
+        Unit : "A"
+      - Name : "负电池电压"
+        Unit : "V"
+        Ratio : 100
+      - Name : "负电池电流"
+        Ratio : 100 
+        Unit : "A"
+  - Cmd : 3
+    Offset : 1365
+    Len : 3
+    Data :  
+      - Name : "电池老化系数"
+        Ratio : 100
+      - Name : "电池温度"
+        Unit : "°C"
+        Ratio : 10
+      - Name : "环境温度"
+        Unit : "°C"
+        Ratio : 10
+  - CmdGroupStart : 1400
+    CmdGroupStep : 200
+    CmdGroupEnd : 4400
+    CmdGroupPrefix : "模块%d数据"
+    CmdGroupSample :
+      - Cmd : 3
+        Offset : 0
+        Len : 6
+        Data : 
+          - Name : "A相输入电压"
+            Unit : "V"
+            Ratio : 10
+          - Name : "B相输入电压"
+            Unit : "V"
+            Ratio : 10
+          - Name : "C相输入电压"
+            Unit : "V"
+            Ratio : 10
+          - Name : "A相输出电压"
+            Unit : "V"
+            Ratio : 10
+          - Name : "B相输出电压"
+            Unit : "V"
+            Ratio : 10
+          - Name : "C相输出电压"
+            Unit : "V"
+            Ratio : 10
+      - Cmd : 3
+        Offset : 6
+        Len : 3
+        Type : 's'
+        Data : 
+          - Name : "A相输出电流"
+            Unit : "A"
+            Ratio : 10
+          - Name : "B相输出电流"
+            Unit : "A"
+            Ratio : 10
+          - Name : "C相输出电流"
+            Unit : "A"
+            Ratio : 10
+      - Cmd : 3
+        Offset : 9
+        Len : 2
+        Data : 
+          - Name : "电池电压"
+            Unit : "V"
+            Ratio : 10
+          - Name : "输出频率"
+            Unit : "Hz"
+            Ratio : 10
+      - Cmd : 3
+        Offset : 40
+        Len : 3
+        Data : 
+          - Name : "AB线输入电压"
+            Unit : "V"
+            Ratio : 10
+          - Name : "BC线输入电压"
+            Unit : "V"
+            Ratio : 10
+          - Name : "CA线输入电压"
+            Unit : "V"
+            Ratio : 10
+      - Cmd : 3
+        Offset : 43
+        Len : 3
+        Type : "s"
+        Data : 
+          - Name : "A相输入电流"
+            Unit : "A"
+            Ratio : 10
+          - Name : "B相输入电流"
+            Unit : "A"
+            Ratio : 10
+          - Name : "C相输入电流"
+            Unit : "A"
+            Ratio : 10
+      - Cmd : 3
+        Offset : 46
+        Len : 1
+        Data : 
+          - Name : "输入频率"
+            Ratio : 100
+            Unit : 'Hz'
+      - Cmd : 3
+        Offset : 47
+        Len : 3
+        Type : 's'
+        Data : 
+          - Name : "A相输入功率因数"
+            Ratio : 100
+          - Name : "B相输入功率因数"
+            Ratio : 100
+          - Name : "C相输入功率因数"
+            Ratio : 100
+      - Cmd : 3
+        Offset : 50
+        Len : 22
+        Data : 
+          - Name : "A相旁路电压"
+            Ratio : 10
+            Unit : 'V'
+          - Name : "B相旁路电压"
+            Ratio : 10
+            Unit : 'V'
+          - Name : "C相旁路电压"
+            Ratio : 10
+            Unit : 'V'
+          - Name : "旁路频率"
+            Ratio : 100
+            Unit : 'Hz'
+          - Name : "AB线输出电压"
+            Unit : "V"
+            Ratio : 100
+          - Name : "BC线输出电压"
+            Unit : "V"
+            Ratio : 100
+          - Name : "CA线输出电压"
+            Unit : "V"
+            Ratio : 100
+          - Name : "AB线旁路电压"
+            Unit : "V"
+            Ratio : 100
+          - Name : "BC线旁路电压"
+            Unit : "V"
+            Ratio : 100
+          - Name : "CA线旁路电压"
+            Unit : "V"
+            Ratio : 100
+          - Name : "A相输入有功功率"
+            Unit : "kW"
+            Ratio : 100
+          - Name : "B相输入有功功率"
+            Unit : "kW"
+            Ratio : 100
+          - Name : "C相输入有功功率"
+            Unit : "kW"
+            Ratio : 100
+          - Name : "A相输入视在功率"
+            Unit : "kVar"
+            Ratio : 100
+          - Name : "B相输入视在功率"
+            Unit : "kVar"
+            Ratio : 100
+          - Name : "C相输入视在功率"
+            Unit : "kVar"
+            Ratio : 100
+          - Name : "A相输入电能"
+            Unit : "kWh"
+            Value : (($v[17]<<16) | $v[18])
+          - Name : "B相输入电能"
+            Unit : "kWh"
+            Value : (($v[19]<<16) | $v[20])
+          - Name : "C相输入电能"
+            Unit : "kWh"
+            Value : (($v[21]<<16) | $v[22])
+      - Cmd : 3
+        Offset : 100
+        Len : 3
+        Type : 's'
+        Data : 
+          - Name : "A相输出功率因数"
+            Ratio : 100
+          - Name : "B相输出功率因数"
+            Ratio : 100
+          - Name : "C相输出功率因数"
+            Ratio : 100 
+      - Cmd : 3
+        Offset : 103
+        Len : 24
+        Data : 
+          - Name : "A相输出峰值比"
+            Ratio : 100
+          - Name : "B相输出峰值比"
+            Ratio : 100
+          - Name : "C相输出峰值比"
+            Ratio : 100 
+          - Name : "A相输出有功功率"
+            Unit : "kW"
+            Ratio : 100
+          - Name : "B相输出有功功率"
+            Ratio : 100
+            Unit : "kW"
+          - Name : "C相输出有功功率"
+            Ratio : 100 
+            Ratio : "kW"
+          - Name : "A相输出无功功率"
+            Unit : "kVar"
+            Ratio : 100
+          - Name : "B相输出无功功率"
+            Ratio : 100
+            Unit : "kVar"
+          - Name : "C相输出无功功率"
+            Ratio : 100 
+            Ratio : "kVar"
+          - Name : "A相输出视在功率"
+            Unit : "kVA"
+            Ratio : 100
+          - Name : "B相输出视在功率"
+            Ratio : 100
+            Unit : "kVA"
+          - Name : "C相输出视在功率"
+            Ratio : 100 
+            Ratio : "kVA"
+          - Name : "A相输出负载百分比"
+            Ratio : 100
+          - Name : "B相输出负载百分比"
+            Ratio : 100
+          - Name : "C相输出负载百分比"
+            Ratio : 100 
+          - Name : "输出电能A"
+            Unit : "kWh"
+            Value : (($v[19]<<16) | $v[20])
+          - Name : "输出电能B"
+            Unit : "kWh"
+            Value : (($v[21]<<16) | $v[22])
+          - Name : "输出电能C"
+            Unit : "kWh"
+            Value : (($v[23]<<16) | $v[24])
+      - Cmd : 3
+        Offset : 160
+        Len : 1
+        Data : 
+          - Name : "电池后备时间"
+            Unit : "分钟"
+      - Cmd : 3
+        Offset : 161
+        Len : 4
+        Type : 's'
+        Data :   
+          - Name : "正电池电压"
+            Ratio : 100
+            Unit : "V"
+          - Name : "正电池电流"
+            Ratio : 100 
+            Unit : "A"
+          - Name : "负电池电压"
+            Unit : "V"
+            Ratio : 100
+          - Name : "负电池电流"
+            Ratio : 100 
+            Unit : "A"
+      - Cmd : 3
+        Offset : 165
+        Len : 3
+        Data :  
+          - Name : "电池老化系数"
+            Ratio : 100
+          - Name : "电池温度"
+            Unit : "°C"
+            Ratio : 10
+          - Name : "环境温度"
+            Unit : "°C"
+            Ratio : 10
+  # - CmdGroupStart : 10000
+  #   CmdGroupStep : 20
+  #   CmdGroupEnd : 11440
+  #   CmdGroupPrefix : "支路%d数据"
+  #   CmdGroupSample :
+  #     - Cmd : 3
+  #       Offset : 0
+  #       Len : 1
+  #       Type : "s"
+  #       Data :
+  #         - Name : "电流"
+  #           Ratio : 10
+  #           Unit : "A"
+  #     - Cmd : 3
+  #       Offset : 1
+  #       Len : 8
+  #       Data :
+  #         - Name : "电能"
+  #           Value : ($v[1]<<16)|$v[2]
+  #           Unit : "kwh"
+  #         - Name : "开关状态"
+  #           Offset : 3
+  #           Options :
+  #             - Key : 0
+  #               Value : 闭合
+  #             - Key : 1
+  #               Value : 断开
+  #         - Name : "有功功率"
+  #           Offset : 4
+  #           Ratio : 100
+  #           Unit : "kw"
+  #         - Name : "视在功率"
+  #           Offset : 5
+  #           Ratio : 100
+  #           Unit : "kVA"
+  #         - Name : "THDi"
+  #           Offset : 6
+  #           Ratio : 100
+  #           Unit : "%"
+  #         - Name : "额定电流"
+  #           Offset : 7
+  #           Ratio : 10
+  #           Unit : "A"
+  #         - Name : "负载率"
+  #           Offset : 8
+  #           Ratio : 100
+  #           Unit : "%"
+  #     - Cmd : 3
+  #       Offset : 9
+  #       Len : 1
+  #       Data :
+  #         - Name : "功率因数"
+  #           Ratio : 100
+  #     - Cmd : 3
+  #       Offset : 10
+  #       Len : 1
+  #       Data :
+  #         - Name : "电压"
+  #           Ratio : 100
+  #           Unit : "V"
+  # - CmdGroupStart : 12000
+  #   CmdGroupStep : 30
+  #   CmdGroupEnd : 12269
+  #   CmdGroupPrefix : ["源1A相","源1B相","源1C相","源2A相","源2B相","源2C相","源输出A相","源输出B相","源输出C相"]
+  #   CmdGroupSample :
+  #     - Cmd : 3
+  #       Offset : 0
+  #       Len : 1
+  #       Type : "s"
+  #       Data :
+  #         - Name : "电流"
+  #           Ratio : 10
+  #           Unit : "A"
+  #     - Cmd : 3
+  #       Offset : 1
+  #       Len : 8
+  #       Data :
+  #         - Name : "电能"
+  #           Value : ($v[1]<<16)|$v[2]
+  #           Unit : "kwh"
+  #         - Name : "开关状态"
+  #           Offset : 3
+  #           Options :
+  #             - Key : 0
+  #               Value : 闭合
+  #             - Key : 1
+  #               Value : 断开
+  #         - Name : "有功功率"
+  #           Offset : 4
+  #           Ratio : 100
+  #           Unit : "kw"
+  #         - Name : "视在功率"
+  #           Offset : 5
+  #           Ratio : 100
+  #           Unit : "kVA"
+  #         - Name : "THDi"
+  #           Offset : 6
+  #           Ratio : 100
+  #           Unit : "%"
+  #         - Name : "额定电流"
+  #           Offset : 7
+  #           Ratio : 10
+  #           Unit : "A"
+  #         - Name : "负载率"
+  #           Offset : 8
+  #           Ratio : 100
+  #           Unit : "%"
+  #     - Cmd : 3
+  #       Offset : 9
+  #       Len : 1
+  #       Data :
+  #         - Name : "功率因数"
+  #           Ratio : 100
+  #     - Cmd : 3
+  #       Offset : 10
+  #       Len : 4
+  #       Data :
+  #         - Name : "线电压"
+  #           Ratio : 100
+  #           Unit : "V"
+  #         - Name : "相电压"
+  #           Ratio : 100
+  #           Unit : "V"
+  #         - Name : "相频率"
+  #           Ratio : 100
+  #           Unit : "Hz"
+  #         - Name : "THDu"
+  #           Ratio : 100
+  #           Unit : "%"
+  - Cmd : 3
+    Offset : 20000
+    Len : 6
+    Data :
+      - Name : "本机架供电方式" 
+        Value : ($v[1] & 0x7)
+        Options : 
+          - Key : 0
+            Value : "UPS供电(逆变供电)"
+          - Key : 1
+            Value : "旁路供电"
+          - Key : 2
+            Value : "维修旁路供电"
+          - Key : 3
+            Value : "均不供电"
+      - Name : "电池自检状态" 
+        Value : ( ($v[1]>>3) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "不在自检"
+          - Key : 1
+            Value : "自检中"
+      - Name : "电池充电状态" 
+        Value : ( ($v[1]>>4) & 0x3)
+        Options : 
+          - Key : 0
+            Value : "非充电状态"
+          - Key : 1
+            Value : "电池浮充"
+          - Key : 2
+            Value : "电池均充"
+      - Name : "逆变器开/关机状态" 
+        Value : ( ($v[1]>>6) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "开机"
+          - Key : 1
+            Value : "关机"
+      - Name : "整流器供电状态" 
+        Value : ( ($v[1]>>7) & 0x3)
+        Options : 
+          - Key : 0
+            Value : "主路供电"
+          - Key : 1
+            Value : "电池供电"
+          - Key : 2
+            Value : "均不供电"
+      - Name : "发电机接入状态" 
+        Value : ( ($v[1]>>9) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "未接入"
+          - Key : 1
+            Value : "接入"
+      - Name : "输入空开状态" 
+        Value : ( ($v[1]>>10) & 0x3)
+        Options : 
+          - Key : 0
+            Value : "闭合"
+          - Key : 1
+            Value : "断开"
+          - Key : 2
+            Value : "不支持"
+      - Name : "维修空开状态" 
+        Value : ( ($v[1]>>12) & 0x3)
+        Options : 
+          - Key : 0
+            Value : "断开"
+          - Key : 1
+            Value : "闭合"
+          - Key : 2
+            Value : "不支持"
+      - Name : "旁路空开状态" 
+        Value : ( ($v[1]>>14) & 0x3)
+        Options : 
+          - Key : 0
+            Value : "闭合"
+          - Key : 1
+            Value : "断开"
+          - Key : 2
+            Value : "不支持"
+      - Name : "输出空开状态" 
+        Value : ( ($v[2]) & 0x3)
+        Options : 
+          - Key : 0
+            Value : "闭合"
+          - Key : 1
+            Value : "断开"
+          - Key : 2
+            Value : "不支持"
+      - Name : "整机工作模式" 
+        Value : ( ($v[2] >> 2) & 0x1F)
+        Options : 
+          - Key : 0
+            Value : "正常模式"
+          - Key : 1
+            Value : "智能并机模式"
+          - Key : 2
+            Value : "智能并机演示模式"
+          - Key : 3
+            Value : "ECO模式"
+          - Key : 4
+            Value : "智能ECO模式"
+          - Key : 5
+            Value : "智能ECO演示模式"
+          - Key : 6
+            Value : "变频器模式（接电池）"
+          - Key : 7
+            Value : "变频器模式（不接电池）"
+          - Key : 8
+            Value : "功率调节器模式"
+          - Key : 9
+            Value : "自老化模式"
+          - Key : 10
+            Value : "调测模式"
+          - Key : 11
+            Value : "动态在线模式"
+      - Name : "并机系统供电状态" 
+        Value : ( ($v[2] >> 7) & 0x7)
+        Options : 
+          - Key : 0
+            Value : "均不供电"
+          - Key : 1
+            Value : "旁路供电"
+          - Key : 2
+            Value : "主路逆变供电"
+          - Key : 3
+            Value : "电池逆变供电"
+          - Key : 4
+            Value : "维修旁路供电"
+      - Name : "外部维修空开状态" 
+        Value : ( ($v[2] >> 10) & 0x3)
+        Options : 
+          - Key : 0
+            Value : "断开"
+          - Key : 1
+            Value : "闭合"
+          - Key : 2
+            Value : "不支持"
+      - Name : "外部维修空开状态" 
+        Value : ( ($v[2] >> 12) & 0x3)
+        Options : 
+          - Key : 0
+            Value : "断开"
+          - Key : 1
+            Value : "闭合"
+          - Key : 2
+            Value : "不支持"
+      - Name : "外部维修隔离空开状态" 
+        Value : ( ($v[2] >> 14) & 0x3)
+        Options : 
+          - Key : 0
+            Value : "闭合"
+          - Key : 1
+            Value : "断开"
+          - Key : 2
+            Value : "不支持"
+      - Name : "旁路在线状态" 
+        Value : ( ($v[3]) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "不在线"
+          - Key : 1
+            Value : "在线"
+      - Name : "模块1在线状态" 
+        Value : ( ($v[3]>>1) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "不在线"
+          - Key : 1
+            Value : "在线"
+      - Name : "模块2在线状态" 
+        Value : ( ($v[3]>>2) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "不在线"
+          - Key : 1
+            Value : "在线"
+      - Name : "模块3在线状态" 
+        Value : ( ($v[3]>>3) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "不在线"
+          - Key : 1
+            Value : "在线"
+      - Name : "模块4在线状态" 
+        Value : ( ($v[3]>>4) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "不在线"
+          - Key : 1
+            Value : "在线"
+      - Name : "模块5在线状态" 
+        Value : ( ($v[3]>>5) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "不在线"
+          - Key : 1
+            Value : "在线"
+      - Name : "模块6在线状态" 
+        Value : ( ($v[3]>>6) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "不在线"
+          - Key : 1
+            Value : "在线"
+      - Name : "模块7在线状态" 
+        Value : ( ($v[3]>>7) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "不在线"
+          - Key : 1
+            Value : "在线"
+      - Name : "模块8在线状态" 
+        Value : ( ($v[3]>>8) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "不在线"
+          - Key : 1
+            Value : "在线"
+      - Name : "模块9在线状态" 
+        Value : ( ($v[3]>>9) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "不在线"
+          - Key : 1
+            Value : "在线"
+      - Name : "模块10在线状态" 
+        Value : ( ($v[3]>>10) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "不在线"
+          - Key : 1
+            Value : "在线"
+      - Name : "模块11在线状态" 
+        Value : ( ($v[3]>>11) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "不在线"
+          - Key : 1
+            Value : "在线"
+      - Name : "模块12在线状态" 
+        Value : ( ($v[3]>>12) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "不在线"
+          - Key : 1
+            Value : "在线"
+      - Name : "模块13在线状态" 
+        Value : ( ($v[3]>>13) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "不在线"
+          - Key : 1
+            Value : "在线"
+      - Name : "模块14在线状态" 
+        Value : ( ($v[3]>>14) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "不在线"
+          - Key : 1
+            Value : "在线"
+      - Name : "模块15在线状态" 
+        Value : ( ($v[3]>>15) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "不在线"
+          - Key : 1
+            Value : "在线"
+      - Name : "模块16在线状态" 
+        Value : ( ($v[4]) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "不在线"
+          - Key : 1
+            Value : "在线"
+      - Name : "模块17在线状态" 
+        Value : ( ($v[4] >> 1) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "不在线"
+          - Key : 1
+            Value : "在线"
+      - Name : "模块18在线状态" 
+        Value : ( ($v[4] >> 2) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "不在线"
+          - Key : 1
+            Value : "在线"
+      - Name : "模块19在线状态" 
+        Value : ( ($v[4] >> 3) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "不在线"
+          - Key : 1
+            Value : "在线"
+      - Name : "模块20在线状态" 
+        Value : ( ($v[4] >> 4) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "不在线"
+          - Key : 1
+            Value : "在线"
+      - Name : "模块21在线状态" 
+        Value : ( ($v[4] >> 5) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "不在线"
+          - Key : 1
+            Value : "在线"
+      - Name : "模块22在线状态" 
+        Value : ( ($v[4] >> 6) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "不在线"
+          - Key : 1
+            Value : "在线"
+      - Name : "模块23在线状态" 
+        Value : ( ($v[4] >> 7) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "不在线"
+          - Key : 1
+            Value : "在线"
+      - Name : "模块24在线状态" 
+        Value : ( ($v[4] >> 8) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "不在线"
+          - Key : 1
+            Value : "在线"
+      - Name : "模块25在线状态" 
+        Value : ( ($v[4] >> 9) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "不在线"
+          - Key : 1
+            Value : "在线"
+      - Name : "模块26在线状态" 
+        Value : ( ($v[4] >> 10) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "不在线"
+          - Key : 1
+            Value : "在线"
+      - Name : "模块27在线状态" 
+        Value : ( ($v[4] >> 11) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "不在线"
+          - Key : 1
+            Value : "在线"
+      - Name : "模块28在线状态" 
+        Value : ( ($v[4] >> 12) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "不在线"
+          - Key : 1
+            Value : "在线"
+      - Name : "模块29在线状态" 
+        Value : ( ($v[4] >> 13) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "不在线"
+          - Key : 1
+            Value : "在线"
+      - Name : "模块30在线状态" 
+        Value : ( ($v[4] >> 14) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "不在线"
+          - Key : 1
+            Value : "在线"
+      - Name : "模块31在线状态" 
+        Value : ( ($v[4] >> 15) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "不在线"
+          - Key : 1
+            Value : "在线"
+      - Name : "模块休眠" 
+        Value : ( ($v[5]) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "正常"
+          - Key : 1
+            Value : "休眠"
+      - Name : "充电器需关闭" 
+        Value : ( ($v[5] >> 1) & 0x1)
+        Options : 
+          - Key : 0
+            Value : "无充电器关闭命令"
+          - Key : 1
+            Value : "干接点要求关闭充电器"
+      - Name : "内置电池空开状态" 
+        Value : ( ($v[5] >> 2) & 0x3)
+        Options : 
+          - Key : 0
+            Value : "闭合"
+          - Key : 1
+            Value : "断开"
+          - Key : 2
+            Value : "不支持"
+      - Name : "ATS输入源状态" 
+        Value : ( ($v[5] >> 4) & 0x3)
+        Options : 
+          - Key : 0
+            Value : "ATS输入源2"
+          - Key : 1
+            Value : "ATS输入源1"
+          - Key : 2
+            Value : "非输入源配置"
+          - Key : 3
+            Value : "不支持"
+      - Name : "输入断路器状态" 
+        Value : ( ($v[5] >> 6) & 0x3)
+        Options : 
+          - Key : 0
+            Value : "断开"
+          - Key : 1
+            Value : "闭合"
+          - Key : 2
+            Value : "非输入断路器配置"
+          - Key : 3
+            Value : "不支持"
+      - Name : "BCB1状态" 
+        Value : ( ($v[5] >> 8) & 0x3)
+        Options : 
+          - Key : 0
+            Value : "闭合"
+          - Key : 1
+            Value : "断开"
+          - Key : 2
+            Value : "未接入"
+      - Name : "BCB2状态" 
+        Value : ( ($v[5] >> 10) & 0x3)
+        Options : 
+          - Key : 0
+            Value : "未接入"
+          - Key : 1
+            Value : "闭合"
+          - Key : 2
+            Value : "断开"
+      - Name : "BCB3状态" 
+        Value : ( ($v[5] >> 12) & 0x3)
+        Options : 
+          - Key : 0
+            Value : "未接入"
+          - Key : 1
+            Value : "闭合"
+          - Key : 2
+            Value : "断开"
+      - Name : "BCB4状态" 
+        Value : ( ($v[5] >> 14) & 0x3)
+        Options : 
+          - Key : 0
+            Value : "未接入"
+          - Key : 1
+            Value : "闭合"
+          - Key : 2
+            Value : "断开"
+      - Name : "禁止ECO模式" 
+        Value : ( ($v[6]) & 0x3)
+        Options : 
+          - Key : 0
+            Value : "无禁止ECO命令"
+          - Key : 1
+            Value : "干接点要求禁止ECO模式"
+          - Key : 2
+            Value : "不支持"
+      - Name : "禁止切逆变" 
+        Value : ( ($v[6] >> 2) & 0x3)
+        Options : 
+          - Key : 0
+            Value : "无禁止切逆变命令"
+          - Key : 1
+            Value : "干结点要求禁止切逆变"
+          - Key : 2
+            Value : "不支持"
+      - Name : "锂电池接入状态" 
+        Value : ( ($v[6] >> 4) & 0x3)
+        Options : 
+          - Key : 0
+            Value : "未接入"
+          - Key : 1
+            Value : "接入"
+          - Key : 2
+            Value : "不支持"
+  - Cmd : 3
+    Offset : 20100
+    Len : 7
+    Data : 
+      - Name : "设备通讯异常"
+        Value : ($v[1]&0x1)
+        AlertNormalValue : 0
+      - Name : "逆变器不同步"
+        Value : (($v[1]>>1)&0x1)
+        AlertNormalValue : 0
+      - Name : "主路电压异常"
+        Value : (($v[1]>>2)&0x1)
+        AlertNormalValue : 0
+      - Name : "整流器故障"
+        Value : (($v[1]>>3)&0x1)
+        AlertNormalValue : 0
+      - Name : "逆变器故障"
+        Value : (($v[1]>>4)&0x1)
+        AlertNormalValue : 0
+      - Name : "旁路异常"
+        Value : (($v[1]>>5)&0x1)
+        AlertNormalValue : 0
+      - Name : "电池状态"
+        Value : (($v[1]>>6)&0x7)
+        Options : 
+          - Key : 0
+            Value : "正常"
+          - Key : 1
+            Value : "电压低于下限（关机点）"
+          - Key : 2
+            Value : "电压高于上限（电压过高）"
+          - Key : 3
+            Value : "电池无"
+          - Key : 4
+            Value : "电压预告警"
+          - Key : 5
+            Value : "电池接反"
+        AlertNormalValue : 0
+      - Name : "环境过温"
+        Value : (($v[1]>>9)&0x1)
+        AlertNormalValue : 0
+      - Name : "PowerCAN通讯异常"
+        Value : (($v[1]>>10)&0x1)
+        AlertNormalValue : 0
+      - Name : "整流DSP程序错误"
+        Value : (($v[1]>>11)&0x1)
+        AlertNormalValue : 0
+      - Name : "输出禁止"
+        Value : (($v[1]>>12)&0x1)
+        AlertNormalValue : 0
+      - Name : "逆变DSP程序错误"
+        Value : (($v[1]>>13)&0x1)
+        AlertNormalValue : 0
+      - Name : "逆变FPGA程序错误"
+        Value : (($v[1]>>14)&0x1)
+        AlertNormalValue : 0
+      - Name : "旁路DSP程序错误"
+        Value : (($v[1]>>15)&0x1)
+        AlertNormalValue : 0
+      
+      - Name : "旁路FPGA程序错误"
+        Value : ($v[2]&0x1)
+        AlertNormalValue : 0
+      - Name : "机架内离散总线通讯异常"
+        Value : (($v[2]>>1)&0x1)
+        AlertNormalValue : 0
+      - Name : "机架间离散总线通讯异常"
+        Value : (($v[2]>>2)&0x1)
+        AlertNormalValue : 0
+      - Name : "LBS异常"
+        Value : (($v[2]>>3)&0x1)
+        AlertNormalValue : 0
+      - Name : "紧急关机"
+        Value : (($v[2]>>4)&0x1)
+        AlertNormalValue : 0
+      - Name : "旁路晶闸管故障"
+        Value : (($v[2]>>5)&0x1)
+        AlertNormalValue : 0
+      - Name : "旁路相序反"
+        Value : (($v[2]>>6)&0x1)
+        AlertNormalValue : 0
+      - Name : "旁路过流"
+        Value : (($v[2]>>7)&0x1)
+        AlertNormalValue : 0
+      - Name : "旁路异常关机"
+        Value : (($v[2]>>8)&0x1)
+        AlertNormalValue : 0
+      - Name : "切换次数限制"
+        Value : (($v[2]>>9)&0x1)
+        AlertNormalValue : 0
+      - Name : "ECO切换次数限制"
+        Value : (($v[2]>>10)&0x1)
+        AlertNormalValue : 0
+      - Name : "ParaPowerCAN通讯异常"
+        Value : (($v[2]>>11)&0x1)
+        AlertNormalValue : 0
+      - Name : "电池放电限流"
+        Value : (($v[2]>>12)&0x1)
+        AlertNormalValue : 0
+      - Name : "放电器故障"
+        Value : (($v[2]>>13)&0x1)
+        AlertNormalValue : 0
+      - Name : "充电器故障"
+        Value : (($v[2]>>14)&0x1)
+        AlertNormalValue : 0
+      - Name : "LBS连接线异常"
+        Value : (($v[2]>>15)&0x1)
+        AlertNormalValue : 0
+
+      - Name : "电池需维护"
+        Value : ($v[3]&0x1)
+        AlertNormalValue : 0
+      - Name : "电池过温"
+        Value : (($v[3]>>1)&0x1)
+        AlertNormalValue : 0
+      - Name : "电池接地故障"
+        Value : (($v[3]>>2)&0x1)
+        AlertNormalValue : 0
+      - Name : "主路频率异常"
+        Value : (($v[3]>>3)&0x1)
+        AlertNormalValue : 0
+      - Name : "模块过温"
+        Value : (($v[3]>>4)&0x1)
+        AlertNormalValue : 0
+      - Name : "输入变压器过温"
+        Value : (($v[3]>>5)&0x1)
+        AlertNormalValue : 0
+      - Name : "旁路柜变压器过温"
+        Value : (($v[3]>>6)&0x1)
+        AlertNormalValue : 0
+      - Name : "均充超时"
+        Value : (($v[3]>>7)&0x1)
+        AlertNormalValue : 0
+      - Name : "辅助电源掉电"
+        Value : (($v[3]>>8)&0x1)
+        AlertNormalValue : 0
+      - Name : "主路相序反"
+        Value : (($v[3]>>9)&0x1)
+        AlertNormalValue : 0
+      - Name : "整流器软启动失败"
+        Value : (($v[3]>>10)&0x1)
+        AlertNormalValue : 0
+      - Name : "用户操作错误"
+        Value : (($v[3]>>11)&0x1)
+        AlertNormalValue : 0
+      - Name : "输出过载"
+        Value : (($v[3]>>12)&0x1)
+        AlertNormalValue : 0
+      - Name : "并机系统容量过载"
+        Value : (($v[3]>>13)&0x1)
+        AlertNormalValue : 0
+      - Name : "输出过载超时"
+        Value : (($v[3]>>14)&0x1)
+        AlertNormalValue : 0
+      - Name : "负载冲击转旁路"
+        Value : (($v[3]>>15)&0x1)
+        AlertNormalValue : 0
+      
+      - Name : "并机均流异常"
+        Value : ($v[4]&0x1)
+        AlertNormalValue : 0
+      - Name : "母线异常关机"
+        Value : (($v[4]>>1)&0x1)
+        AlertNormalValue : 0
+      - Name : "邻机请求转旁路"
+        Value : (($v[4]>>2)&0x1)
+        AlertNormalValue : 0
+      - Name : "直流母线过压"
+        Value : (($v[4]>>3)&0x1)
+        AlertNormalValue : 0
+      - Name : "MonCAN通讯异常"
+        Value : (($v[4]>>4)&0x1)
+        AlertNormalValue : 0
+      - Name : "输入缺零故障"
+        Value : (($v[4]>>5)&0x1)
+        AlertNormalValue : 0
+      - Name : "逆变继电器故障"
+        Value : (($v[4]>>6)&0x1)
+        AlertNormalValue : 0
+      - Name : "主路反灌"
+        Value : (($v[4]>>7)&0x1)
+        AlertNormalValue : 0
+      - Name : "输入电流异常"
+        Value : (($v[4]>>8)&0x1)
+        AlertNormalValue : 0
+      - Name : "输出电压异常"
+        Value : (($v[4]>>9)&0x1)
+        AlertNormalValue : 0
+      - Name : "输入电流超限"
+        Value : (($v[4]>>10)&0x1)
+        AlertNormalValue : 0
+      - Name : "旁路过温"
+        Value : (($v[4]>>11)&0x1)
+        AlertNormalValue : 0
+      - Name : "邻机旁路晶闸管故障"
+        Value : (($v[4]>>12)&0x1)
+        AlertNormalValue : 0
+      - Name : "并机连接线异常"
+        Value : (($v[4]>>13)&0x1)
+        AlertNormalValue : 0
+      - Name : "充电器过温"
+        Value : (($v[4]>>14)&0x1)
+        AlertNormalValue : 0
+      - Name : "电池端口异常"
+        Value : (($v[4]>>15)&0x1)
+        AlertNormalValue : 0
+
+      - Name : "电池房环境异常"
+        Value : ($v[5]&0x1)
+        AlertNormalValue : 0
+      - Name : "风扇异常"
+        Value : (($v[5]>>1)&0x1)
+        AlertNormalValue : 0
+      - Name : "旁路接管"
+        Value : (($v[5]>>2)&0x1)
+        AlertNormalValue : 0
+      - Name : "BCB1状态异常"
+        Value : (($v[5]>>3)&0x1)
+        AlertNormalValue : 0
+      - Name : "BCB2状态异常"
+        Value : (($v[5]>>4)&0x1)
+        AlertNormalValue : 0
+      - Name : "BCB3状态异常"
+        Value : (($v[5]>>5)&0x1)
+        AlertNormalValue : 0
+      - Name : "BCB4状态异常"
+        Value : (($v[5]>>6)&0x1)
+        AlertNormalValue : 0
+      - Name : "旁路模块未授权"
+        Value : (($v[5]>>7)&0x1)
+        AlertNormalValue : 0
+      - Name : "功率模块未授权"
+        Value : (($v[5]>>8)&0x1)
+        AlertNormalValue : 0
+      - Name : "监控未授权"
+        Value : (($v[5]>>9)&0x1)
+        AlertNormalValue : 0
+      - Name : "旁路SCR风扇异常"
+        Value : (($v[5]>>10)&0x1)
+        AlertNormalValue : 0
+      - Name : "平衡电路故障"
+        Value : (($v[5]>>11)&0x1)
+        AlertNormalValue : 0
+      - Name : "平衡电路过流"
+        Value : (($v[5]>>12)&0x1)
+        AlertNormalValue : 0
+      - Name : "平衡电路过温"
+        Value : (($v[5]>>13)&0x1)
+        AlertNormalValue : 0
+      - Name : "失去冗余"
+        Value : (($v[5]>>14)&0x1)
+        AlertNormalValue : 0
+      - Name : "功率板设置不匹配"
+        Value : (($v[5]>>15)&0x1)
+        AlertNormalValue : 0
+
+      - Name : "模块未就绪"
+        Value : ($v[6]&0x1)
+        AlertNormalValue : 0
+      - Name : "上抽风风扇异常"
+        Value : (($v[6]>>1)&0x1)
+        AlertNormalValue : 0
+      - Name : "系统A相输出熔丝断"
+        Value : (($v[6]>>2)&0x1)
+        AlertNormalValue : 0
+      - Name : "系统B相输出熔丝断"
+        Value : (($v[6]>>3)&0x1)
+        AlertNormalValue : 0
+      - Name : "系统C相输出熔丝断"
+        Value : (($v[6]>>4)&0x1)
+        AlertNormalValue : 0
+      - Name : "参数配置失败"
+        Value : (($v[6]>>5)&0x1)
+        AlertNormalValue : 0
+      - Name : "旁路过流超时"
+        Value : (($v[6]>>6)&0x1)
+        AlertNormalValue : 0
+      - Name : "零地过压"
+        Value : (($v[6]>>7)&0x1)
+        AlertNormalValue : 0
+      - Name : "旁路无效"
+        Value : (($v[6]>>8)&0x1)
+        AlertNormalValue : 0
+      - Name : "功率模块未授权"
+        Value : (($v[6]>>9)&0x1)
+        AlertNormalValue : 0
+      - Name : "输出熔丝断"
+        Value : (($v[6]>>10)&0x1)
+        AlertNormalValue : 0
+      - Name : "电池自检失败"
+        Value : (($v[6]>>11)&0x1)
+        AlertNormalValue : 0
+      - Name : "分级下电1生效"
+        Value : (($v[6]>>12)&0x1)
+        AlertNormalValue : 0
+      - Name : "分级下电2生效"
+        Value : (($v[6]>>13)&0x1)
+        AlertNormalValue : 0
+      - Name : "旁路功率模块未就绪"
+        Value : (($v[6]>>14)&0x1)
+        AlertNormalValue : 0
+      - Name : "旁路控制模块未就绪"
+        Value : (($v[6]>>15)&0x1)
+        AlertNormalValue : 0
+
+      - Name : "系统主路熔丝断"
+        Value : ($v[7]&0x1)
+        AlertNormalValue : 0
+      - Name : "旁路熔丝断"
+        Value : (($v[7]>>1)&0x1)
+        AlertNormalValue : 0
+      - Name : "系统输出熔丝断"
+        Value : (($v[7]>>2)&0x1)
+        AlertNormalValue : 0
+      - Name : "维修旁路供电"
+        Value : (($v[7]>>3)&0x1)
+        AlertNormalValue : 0
+      - Name : "输出短路"
+        Value : (($v[7]>>4)&0x1)
+        AlertNormalValue : 0
+      - Name : "电池深度放电"
+        Value : (($v[7]>>5)&0x1)
+        AlertNormalValue : 0
+      - Name : "双旁路供电"
+        Value : (($v[7]>>6)&0x1)
+        AlertNormalValue : 0
+      - Name : "电池温度异常"
+        Value : (($v[7]>>7)&0x1)
+        AlertNormalValue : 0
+      - Name : "主路熔丝断"
+        Value : (($v[7]>>8)&0x1)
+        AlertNormalValue : 0
+      - Name : "放电器关闭"
+        Value : (($v[7]>>9)&0x1)
+        AlertNormalValue : 0
+      - Name : "ParaMonCAN通讯异常"
+        Value : (($v[7]>>10)&0x1)
+        AlertNormalValue : 0
+      - Name : "BMS通讯异常"
+        Value : (($v[7]>>11)&0x1)
+        AlertNormalValue : 0
+      - Name : "锂电池需脱扣"
+        Value : (($v[7]>>12)&0x1)
+        AlertNormalValue : 0
+      - Name : "电池系统异常"
+        Value : (($v[7]>>13)&0x1)
+RunCheckThresholdCodeTelecom : |
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "设备通讯异常", (cData.r3_20100[0]&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08032, SIGNAME_08032, "逆变器不同步", ((cData.r3_20100[0]>>1)&0x1), 1);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08001, SIGNAME_08001, "主路电压异常", ((cData.r3_20100[0]>>2)&0x1), 1);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08028, SIGNAME_08028, "整流器故障", ((cData.r3_20100[0]>>3)&0x1), 1);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08034, SIGNAME_08034, "逆变器故障", ((cData.r3_20100[0]>>4)&0x1), 1);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08021, SIGNAME_08021, "旁路异常", ((cData.r3_20100[0]>>5)&0x1), 1);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08042, SIGNAME_08042, "电池状态-电压低于下限（关机点）", ((cData.r3_20100[0]>>6)&0x7) == 1, 1);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "电池状态-电压高于上限（电压过高）", ((cData.r3_20100[0]>>6)&0x7) == 2, signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "电池状态-电池无", ((cData.r3_20100[0]>>6)&0x7) == 3, signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "电池状态-电压预告警", ((cData.r3_20100[0]>>6)&0x7) == 4, signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "电池状态-电池接反", ((cData.r3_20100[0]>>6)&0x7) == 5, signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "环境过温", ((cData.r3_20100[0]>>9)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "PowerCAN通讯异常", ((cData.r3_20100[0]>>10)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "整流DSP程序错误", ((cData.r3_20100[0]>>11)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08013, SIGNAME_08013, "输出禁止", ((cData.r3_20100[0]>>12)&0x1), 1);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "逆变DSP程序错误", ((cData.r3_20100[0]>>13)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "逆变FPGA程序错误", ((cData.r3_20100[0]>>14)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "旁路DSP程序错误", ((cData.r3_20100[0]>>15)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "旁路FPGA程序错误", (cData.r3_20100[1]&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "机架内离散总线通讯异常", ((cData.r3_20100[1]>>1)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "机架间离散总线通讯异常", ((cData.r3_20100[1]>>2)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "LBS异常", ((cData.r3_20100[1]>>3)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "紧急关机", ((cData.r3_20100[1]>>4)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "旁路晶闸管故障", ((cData.r3_20100[1]>>5)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "旁路相序反", ((cData.r3_20100[1]>>6)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "旁路过流", ((cData.r3_20100[1]>>7)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "旁路异常关机", ((cData.r3_20100[1]>>8)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "切换次数限制", ((cData.r3_20100[1]>>9)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "ECO切换次数限制", ((cData.r3_20100[1]>>10)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "ParaPowerCAN通讯异常", ((cData.r3_20100[1]>>11)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "电池放电限流", ((cData.r3_20100[1]>>12)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "放电器故障", ((cData.r3_20100[1]>>13)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "充电器故障", ((cData.r3_20100[1]>>14)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "LBS连接线异常", ((cData.r3_20100[1]>>15)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "电池需维护", (cData.r3_20100[2]&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "电池过温", ((cData.r3_20100[2]>>1)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "电池接地故障", ((cData.r3_20100[2]>>2)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "主路频率异常", ((cData.r3_20100[2]>>3)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "模块过温", ((cData.r3_20100[2]>>4)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "输入变压器过温", ((cData.r3_20100[2]>>5)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "旁路柜变压器过温", ((cData.r3_20100[2]>>6)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "均充超时", ((cData.r3_20100[2]>>7)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "辅助电源掉电", ((cData.r3_20100[2]>>8)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "主路相序反",  ((cData.r3_20100[2]>>9)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "整流器软启动失败", ((cData.r3_20100[2]>>10)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "用户操作错误", ((cData.r3_20100[2]>>11)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "输出过载", ((cData.r3_20100[2]>>12)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "并机系统容量过载", ((cData.r3_20100[2]>>13)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "输出过载超时", ((cData.r3_20100[2]>>14)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "负载冲击转旁路", ((cData.r3_20100[2]>>15)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "并机均流异常", (cData.r3_20100[3]&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "母线异常关机", ((cData.r3_20100[3]>>1)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "邻机请求转旁路", ((cData.r3_20100[3]>>2)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "直流母线过压", ((cData.r3_20100[3]>>3)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "MonCAN通讯异常", ((cData.r3_20100[3]>>4)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "输入缺零故障", ((cData.r3_20100[3]>>5)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "逆变继电器故障", ((cData.r3_20100[3]>>6)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "主路反灌", ((cData.r3_20100[3]>>7)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "输入电流异常", ((cData.r3_20100[3]>>8)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "输出电压异常", ((cData.r3_20100[3]>>9)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "输入电流超限", ((cData.r3_20100[3]>>10)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "旁路过温", ((cData.r3_20100[3]>>11)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "邻机旁路晶闸管故障", ((cData.r3_20100[3]>>12)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "并机连接线异常", ((cData.r3_20100[3]>>13)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "充电器过温", ((cData.r3_20100[3]>>14)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "电池端口异常", ((cData.r3_20100[3]>>15)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "电池房环境异常", (cData.r3_20100[4]&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "风扇异常", ((cData.r3_20100[4]>>1)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "旁路接管", ((cData.r3_20100[4]>>2)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "BCB1状态异常", ((cData.r3_20100[4]>>3)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "BCB2状态异常",  ((cData.r3_20100[4]>>4)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "BCB3状态异常", ((cData.r3_20100[4]>>5)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "BCB4状态异常", ((cData.r3_20100[4]>>6)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "旁路模块未授权", ((cData.r3_20100[4]>>7)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "功率模块未授权", ((cData.r3_20100[4]>>8)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "监控未授权",  ((cData.r3_20100[4]>>9)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "旁路SCR风扇异常", ((cData.r3_20100[4]>>10)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "平衡电路故障", ((cData.r3_20100[4]>>11)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "平衡电路过流", ((cData.r3_20100[4]>>12)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "平衡电路过温", ((cData.r3_20100[4]>>13)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "失去冗余", ((cData.r3_20100[4]>>14)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "功率板设置不匹配",  ((cData.r3_20100[4]>>15)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "模块未就绪", (cData.r3_20100[5]&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "上抽风风扇异常", ((cData.r3_20100[5]>>1)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "系统A相输出熔丝断",  ((cData.r3_20100[5]>>2)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "系统B相输出熔丝断", ((cData.r3_20100[5]>>3)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "系统C相输出熔丝断",  ((cData.r3_20100[5]>>4)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "参数配置失败",  ((cData.r3_20100[5]>>5)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "旁路过流超时", ((cData.r3_20100[5]>>6)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "零地过压", ((cData.r3_20100[5]>>7)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "旁路无效", ((cData.r3_20100[5]>>8)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "功率模块未授权", ((cData.r3_20100[5]>>9)&0x1), signal_index_++);
+
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "输出熔丝断", ((cData.r3_20100[5]>>10)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "电池自检失败", ((cData.r3_20100[5]>>11)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "分级下电1生效", ((cData.r3_20100[5]>>12)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "分级下电2生效", ((cData.r3_20100[5]>>13)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "旁路功率模块未就绪", ((cData.r3_20100[5]>>14)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "旁路控制模块未就绪", ((cData.r3_20100[5]>>15)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "系统主路熔丝断", (cData.r3_20100[6]&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "旁路熔丝断", ((cData.r3_20100[6]>>1)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "系统输出熔丝断", ((cData.r3_20100[6]>>2)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "维修旁路供电", ((cData.r3_20100[6]>>3)&0x1),  signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "输出短路", ((cData.r3_20100[6]>>4)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "电池深度放电", ((cData.r3_20100[6]>>5)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "双旁路供电", ((cData.r3_20100[6]>>6)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "电池温度异常", ((cData.r3_20100[6]>>7)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "主路熔丝断", ((cData.r3_20100[6]>>8)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "放电器关闭", ((cData.r3_20100[6]>>9)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "ParaMonCAN通讯异常", ((cData.r3_20100[6]>>10)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "BMS通讯异常", ((cData.r3_20100[6]>>11)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "锂电池需脱扣", ((cData.r3_20100[6]>>12)&0x1), signal_index_++);
+    CheckThresholdBool(LEVEL_1, "reg_40131_0", SIGID_08049, SIGNAME_08049, "电池系统异常", ((cData.r3_20100[6]>>13)&0x1), signal_index_++);
