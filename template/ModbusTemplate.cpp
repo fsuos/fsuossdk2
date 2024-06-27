@@ -67,18 +67,36 @@ void {{ Project.Name }}::RunCheckThreshold()
 bool {{ Project.Name }}::RefreshStatus()
 {
     SMDSPDevice::RefreshStatus();
-    {% for sc in Sample %}
-    state = {{ Project.Name + "_R%d_%d"%(sc.Cmd, sc.Offset) + ";" }}
-    {% if sc.Cmd == 3 %}
-    modbus_read_registers({{ sc.Offset }}, {{ sc.Len }});
-    {% elif sc.Cmd == 4 %}
-    modbus_read_input_registers({{ sc.Offset }}, {{ sc.Len }});
-    {% elif sc.Cmd == 1 %}
-    modbus_read_bits({{ sc.Offset }}, {{ sc.Len }});
-    {% elif sc.Cmd == 2 %}
-    modbus_read_input_bits({{ sc.Offset }}, {{ sc.Len }});
+    {% for tsc in Sample %}
+    {% if tsc.CmdGroupStart is defined %}               
+        {% for sc in tsc.CmdGroupSample %}
+        state = {{ Project.Name + "_R%d_%d_%d"%( sc.Cmd, tsc.CmdGroupStart, sc.Offset) + ";" }}
+        cmdgroup_step_ = 0;
+        {% if sc.Cmd == 3 %}
+        modbus_read_registers({{ tsc.CmdGroupStart + sc.Offset }}, {{ sc.Len }});
+        {% elif sc.Cmd == 4 %}
+        modbus_read_input_registers({{ tsc.CmdGroupStart + sc.Offset }}, {{ sc.Len }});
+        {% elif sc.Cmd == 1 %}
+        modbus_read_bits({{ tsc.CmdGroupStart + sc.Offset }}, {{ sc.Len }});
+        {% elif sc.Cmd == 2 %}
+        modbus_read_input_bits({{ tsc.CmdGroupStart + sc.Offset }}, {{ sc.Len }});
+        {% endif %}
+        {% break %}
+        {% endfor %}
+        break;
+    {% else %}
+        state = {{ Project.Name + "_R%d_%d"%(tsc.Cmd, tsc.Offset) + ";" }}
+        {% if tsc.Cmd == 3 %}
+        modbus_read_registers({{ tsc.Offset }}, {{ tsc.Len }});
+        {% elif tsc.Cmd == 4 %}
+        modbus_read_input_registers({{ tsc.Offset }}, {{ tsc.Len }});
+        {% elif tsc.Cmd == 1 %}
+        modbus_read_bits({{ tsc.Offset }}, {{ tsc.Len }});
+        {% elif tsc.Cmd == 2 %}
+        modbus_read_input_bits({{ tsc.Offset }}, {{ tsc.Len }});
+        {% endif %}
+        {% break %}
     {% endif %}
-    {% break %}
     {% endfor %}
     return true;
 }
@@ -86,30 +104,126 @@ bool {{ Project.Name }}::RefreshStatus()
 bool {{ Project.Name }}::process_payload(enum tab_type type, size_t len)
 {
     switch(state){
-    {% for sc in Sample %}
-      case {{ Project.Name + "_R%d_%d"%(sc.Cmd,sc.Offset) + ":" }}{
-	    {% if sc.Cmd == 3 or sc.Cmd == 4 %}
-            memcpy(cData.{{ "r%d_%d"%(sc.Cmd,sc.Offset) }}, tab_reg, sizeof(uint16_t)*{{  sc.Len }});
-            {% elif sc.Cmd == 1 or sc.Cmd == 2 %}
-	    memcpy(cData.{{ "b%d_%d"%(sc.Cmd,sc.Offset) }}, tab_bit, sizeof(uint8_t)*{{  sc.Len }});
-	    {% endif %}
-	    {% if loop.nextitem is defined %}
-            state = {{ Project.Name + "_R%d_%d"%(loop.nextitem.Cmd,loop.nextitem.Offset) + ";" }}
-    	    {% if loop.nextitem.Cmd == 3 %}
-            modbus_read_registers({{ loop.nextitem.Offset }}, {{ loop.nextitem.Len }});
-            {% elif loop.nextitem.Cmd == 4 %}
-            modbus_read_input_registers({{ loop.nextitem.Offset }}, {{ loop.nextitem.Len }});
-            {% elif loop.nextitem.Cmd == 1 %}
-            modbus_read_bits({{ loop.nextitem.Offset }}, {{ loop.nextitem.Len }});
-            {% elif loop.nextitem.Cmd == 2 %}
-            modbus_read_input_bits({{ loop.nextitem.Offset }}, {{ loop.nextitem.Len }});
+    {% for tsc in Sample %}
+    {% set tscNext = loop.nextitem %}
+    {% if tsc.CmdGroupStart is defined %}               
+    {% for sc in tsc.CmdGroupSample %}
+        case {{ Project.Name + "_R%d_%d_%d"%(sc.Cmd, tsc.CmdGroupStart, sc.Offset) + ":" }}{
+            //for($cgIndex = {{ tsc.CmdGroupStart }},$index = 1; $cgIndex < {{ tsc.CmdGroupEnd }}; $cgIndex+={{ tsc.CmdGroupStep}}, $index++){
+            {% if sc.Cmd == 3 or sc.Cmd == 4 %}
+                memcpy(cData.{{ "r%d_%d_%d[cmdgroup_step_]"%(sc.Cmd,tsc.CmdGroupStart,sc.Offset ) }}, tab_reg, sizeof(uint16_t)*{{ sc.Len }});
+                {% elif sc.Cmd == 1 or sc.Cmd == 2 %}
+                memcpy(cData.{{ "b%d_%d_%d[cmdgroup_step_]"%(sc.Cmd,tsc.CmdGroupStart,sc.Offset) }}, tab_bit, sizeof(uint8_t)*{{  sc.Len }});
             {% endif %}
-	    break;
+            {% if loop.nextitem is defined %}
+                state = {{ Project.Name + "_R%d_%d_%d"%(loop.nextitem.Cmd, tsc.CmdGroupStart, loop.nextitem.Offset) + ";" }}
+                {% if loop.nextitem.Cmd == 3 %}
+                modbus_read_registers({{ tsc.CmdGroupStart + loop.nextitem.Offset }} + {{ tsc.CmdGroupStep}}*cmdgroup_step_, {{ loop.nextitem.Len }});
+                {% elif loop.nextitem.Cmd == 4 %}
+                modbus_read_input_registers({{ tsc.CmdGroupStart + loop.nextitem.Offset }}+ {{ tsc.CmdGroupStep}}*cmdgroup_step_, {{ loop.nextitem.Len }});
+                {% elif loop.nextitem.Cmd == 1 %}
+                modbus_read_bits({{ tsc.CmdGroupStart + loop.nextitem.Offset }}+ {{ tsc.CmdGroupStep}}*cmdgroup_step_, {{ loop.nextitem.Len }});
+                {% elif loop.nextitem.Cmd == 2 %}
+                modbus_read_input_bits({{ tsc.CmdGroupStart + loop.nextitem.Offset }}+ {{ tsc.CmdGroupStep}}*cmdgroup_step_, {{ loop.nextitem.Len }});
+                {% endif %}
+            break;
+        }
+                {% else %}
+                cmdgroup_step_++;
+                if(cmdgroup_step_ == {{ "%d"%((tsc.CmdGroupEnd-tsc.CmdGroupStart)/tsc.CmdGroupStep) }})
+                {
+                    cmdgroup_step_ = 0;
+                    {% if tscNext is defined %}
+                        {% if tscNext.CmdGroupStart is defined %}               
+                            {% for sc in tscNext.CmdGroupSample %}
+                            state = {{ Project.Name + "_R%d_%d_%d"%(tscNext.CmdGroupStart, sc.Cmd, sc.Offset) + ";" }}
+                            cmdgroup_step_ = 0;
+                            {% if sc.Cmd == 3 %}
+                            modbus_read_registers({{ tscNext.CmdGroupStart + sc.Offset }}, {{ sc.Len }});
+                            {% elif sc.Cmd == 4 %}
+                            modbus_read_input_registers({{ tscNext.CmdGroupStart + sc.Offset }}, {{ sc.Len }});
+                            {% elif sc.Cmd == 1 %}
+                            modbus_read_bits({{ tscNext.CmdGroupStart + sc.Offset }}, {{ sc.Len }});
+                            {% elif sc.Cmd == 2 %}
+                            modbus_read_input_bits({{ tscNext.CmdGroupStart + sc.Offset }}, {{ sc.Len }});
+                            {% endif %}
+                            {% break %}
+                            {% endfor %}
+                            break;
+                        {% else %}
+                            state = {{ Project.Name + "_R%d_%d"%(tscNext.Cmd,tscNext.Offset) + ";" }}
+                            {% if tscNext.Cmd == 3 %}
+                            modbus_read_registers({{ tscNext.Offset }}, {{ tscNext.Len }});
+                            {% elif tscNext.Cmd == 4 %}
+                            modbus_read_input_registers({{ tscNext.Offset }}, {{ tscNext.Len }});
+                            {% elif tscNext.Cmd == 1 %}
+                            modbus_read_bits({{ tscNext.Offset }}, {{ tscNext.Len }});
+                            {% elif tscNext.Cmd == 2 %}
+                            modbus_read_input_bits({{ tscNext.Offset }}, {{ tscNext.Len }});
+                            {% endif %}
+                        {% endif %}
+                     {% else %}
+                        RoundDone();
+                        return false;
+                    {% endif %}
+                }else{
+                    state = {{ Project.Name + "_R%d_%d_%d"%(tsc.CmdGroupSample[0].Cmd,tsc.CmdGroupStart, tsc.CmdGroupSample[0].Offset) + ";" }}
+                    {% if tsc.CmdGroupSample[0].Cmd == 3 %}
+                    modbus_read_registers({{ tsc.CmdGroupStart + tsc.CmdGroupSample[0].Offset }}+ {{ tsc.CmdGroupStep}}*cmdgroup_step_, {{ tsc.CmdGroupSample[0].Len }});
+                    {% elif tsc.CmdGroupSample[0].Cmd == 4 %}
+                    modbus_read_input_registers({{ tsc.CmdGroupStart + tsc.CmdGroupSample[0].Offset }}+ {{ tsc.CmdGroupStep}}*cmdgroup_step_, {{ tsc.CmdGroupSample[0].Len }});
+                    {% elif tsc.CmdGroupSample[0].Cmd == 1 %}
+                    modbus_read_bits({{ tsc.CmdGroupStart + tsc.CmdGroupSample[0].Offset }}+ {{ tsc.CmdGroupStep}}*cmdgroup_step_, {{ tsc.CmdGroupSample[0].Len }});
+                    {% elif tsc.CmdGroupSample[0].Cmd == 2 %}
+                    modbus_read_input_bits({{ tsc.CmdGroupStart + tsc.CmdGroupSample[0].Offset }}+ {{ tsc.CmdGroupStep}}*cmdgroup_step_, {{ tsc.CmdGroupSample[0].Len }});
+                    {% endif %}
+                }
+        break;
+        }
+                {% endif %}
+    {% endfor %}
+    {% else %}
+      case {{ Project.Name + "_R%d_%d"%(tsc.Cmd,tsc.Offset) + ":" }}{
+	    {% if tsc.Cmd == 3 or tsc.Cmd == 4 %}
+            memcpy(cData.{{ "r%d_%d"%(tsc.Cmd,tsc.Offset) }}, tab_reg, sizeof(uint16_t)*{{  tsc.Len }});
+            {% elif tsc.Cmd == 1 or tsc.Cmd == 2 %}
+	    memcpy(cData.{{ "b%d_%d"%(tsc.Cmd,tsc.Offset) }}, tab_bit, sizeof(uint8_t)*{{  tsc.Len }});
+	    {% endif %}
+	    {% if tscNext is defined %}
+            {% if tscNext.CmdGroupStart is defined %}               
+                {% for sc in tscNext.CmdGroupSample %}
+                state = {{ Project.Name + "_R%d_%d_%d"%(sc.Cmd, tscNext.CmdGroupStart, sc.Offset) + ";" }}
+                cmdgroup_step_ = 0;
+                {% if sc.Cmd == 3 %}
+                modbus_read_registers({{ tscNext.CmdGroupStart + sc.Offset }}, {{ sc.Len }});
+                {% elif sc.Cmd == 4 %}
+                modbus_read_input_registers({{ tscNext.CmdGroupStart + sc.Offset }}, {{ sc.Len }});
+                {% elif sc.Cmd == 1 %}
+                modbus_read_bits({{ tscNext.CmdGroupStart + sc.Offset }}, {{ sc.Len }});
+                {% elif sc.Cmd == 2 %}
+                modbus_read_input_bits({{ tscNext.CmdGroupStart + sc.Offset }}, {{ sc.Len }});
+                {% endif %}
+                {% break %}
+                {% endfor %}
+            {% else %}
+                state = {{ Project.Name + "_R%d_%d"%(tscNext.Cmd,tscNext.Offset) + ";" }}
+                {% if tscNext.Cmd == 3 %}
+                modbus_read_registers({{ tscNext.Offset }}, {{ tscNext.Len }});
+                {% elif tscNext.Cmd == 4 %}
+                modbus_read_input_registers({{ tscNext.Offset }}, {{ tscNext.Len }});
+                {% elif tscNext.Cmd == 1 %}
+                modbus_read_bits({{ tscNext.Offset }}, {{ tscNext.Len }});
+                {% elif tscNext.Cmd == 2 %}
+                modbus_read_input_bits({{ tscNext.Offset }}, {{ tscNext.Len }});
+                {% endif %}
+            {% endif %}
+            break;
             {% else %}
             RoundDone();
-	    return false;
-            {% endif %}
+            return false;
+        {% endif %}
       }
+      {% endif %}
       {% endfor %}
       {% if SET_RET_CODE is defined %}
       {{ SET_RET_CODE }}

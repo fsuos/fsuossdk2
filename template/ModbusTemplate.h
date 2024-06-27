@@ -33,13 +33,20 @@ private:
     {% endif %}
     enum {{ Project.Name }}_Status {
         {{ Project.Name }}_IDLE = 10,
-	{% for sc in Sample %}
-	{{ Project.Name + "_R%d_%d"%(sc.Cmd,sc.Offset) + "," }}
+	{% for tsc in Sample %}
+    {% if tsc.CmdGroupStart is defined %}               
+        {% for sc in tsc.CmdGroupSample %}
+        {{ Project.Name + "_R%d_%d_%d"%(sc.Cmd, tsc.CmdGroupStart, sc.Offset) + "," }}
+        {% endfor %}
+    {% else %}
+	{{ Project.Name + "_R%d_%d"%(tsc.Cmd,tsc.Offset) + "," }}
+    {% endif %}
 	{% endfor %}
         {{ Project.Name }}_END
     };
     int cmd_result_ = -1;
     uint8_t last_data_ = -1;
+    int cmdgroup_step_ = 0;
 };
 
 PLUMA_INHERIT_PROVIDER({{ Project.Name }}, SMDSPDevice);
