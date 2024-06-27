@@ -37,6 +37,7 @@ BuildDriver () {
     cd $PACK_PATH$4;./sync.sh;cd -
 }
 BuildDriver "cmake-build-Arm-A7-Debug" "gcc/arm-303X-toolchain.cmake" $1 "SMD303X"
+BuildDriver "cmake-build-Arm-Loncomip-Debug" "gcc/arm-loncomip-toolchain.cmake" $1 "Loncomip"
 BuildDriver "cmake-build-Arm-NUC-Debug" "gcc/arm-303MINI-toolchain.cmake" $1 "SMD303MINI"
 BuildDriver "cmake-build-Arm-A8-Debug" "gcc/arm-GFSU-toolchain.cmake" $1  "GFSU"
 BuildDriver "cmake-build-Arm-ZNV-Debug" "gcc/arm-ZNV-IG2100-toolchain.cmake" $1 "ZNVIG2100"
