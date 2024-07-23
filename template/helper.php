@@ -125,6 +125,8 @@ function _{{ Project.Name|lower }}_{{ key }}(&$dataArray, $memData, $prefix, $in
         $v = unpack("{{blockDef.BlockType}}*" , $lMemData);
         {% elif blockDef.BlockRType == 2 %}
         {% endif %}
+      {% else %}
+      $v = unpack("{{blockDef.BlockType}}*" , $memData);
       {% endif %}
     {% else %}
     $v = unpack("S*" , $memData);
