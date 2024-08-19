@@ -51,40 +51,40 @@ $v = unpack("C*" , substr($memData , $offset, {{ sc.Len }}));
         switch({{ d.Value }}){
         {% for item in d.Options %}
           case {{ item.Key }}:
-          $dataArray[{% if scPrefix is not none %}{{scPrefix + "."}}{% endif %}"{{ d.Name }}"] = "{{ item.Value }}";
+          $dataArray[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}"{{ d.Name }}"] = "{{ item.Value }}";
             break;
         {% endfor %}
           default:
-            $dataArray[{% if scPrefix is not none %}{{scPrefix + "."}}{% endif %}"{{ d.Name }}"] = "无效值";
+            $dataArray[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}"{{ d.Name }}"] = "无效值";
             break;
         }
         {% else %}
-        $dataArray[{% if scPrefix is not none %}{{scPrefix + "."}}{% endif %}"{{ d.Name }}"] = ({{ d.Value }}){% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
+        $dataArray[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}"{{ d.Name }}"] = ({{ d.Value }}){% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
         {% endif %}
         {% elif d.Options is defined %}
         switch($v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}]){
         {% for item in d.Options %}
           case {{ item.Key }}:
-          $dataArray[{% if scPrefix is not none %}{{scPrefix + "."}}{% endif %}"{{ d.Name }}"] = "{{ item.Value }}";
+          $dataArray[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}"{{ d.Name }}"] = "{{ item.Value }}";
           {% if item.IsAlert is defined and item.IsAlert %}
           $dataArray["AlertArray"]["{{ d.Name }}"] = 1;
           {% endif %}
             break;
         {% endfor %}
           default:
-            $dataArray[{% if scPrefix is not none %}{{scPrefix + "."}}{% endif %}"{{ d.Name }}"] = "无效值";
+            $dataArray[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}"{{ d.Name }}"] = "无效值";
             break;
         }
         {% elif d.AlertNormalValue is defined %}
         _{{ Project.Name|lower }}_ShowAlert($dataArray, "{{ d.Name }}", $v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}], {{ d.AlertNormalValue }});
       {% elif d.ArrayName is defined %}
       for($i=1;$i<={{ d.ArrayLength }};$i++){
-        $name = sprintf({% if scPrefix is not none %}{{scPrefix + "."}}{% endif %}"{{ d.ArrayName }}", $i);
+        $name = sprintf("{{ d.ArrayName }}", {{ d.ArrayStart }} + $i);
         $kIndex = {{ d.Offset }} + $i;
-        $dataArray[$name] = number_format($v[$kIndex]{% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %}, 2){% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
+        $dataArray[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}$name] = number_format($v[$kIndex]{% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %}, 2){% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
       }
 	    {% else %}
-        $dataArray[{% if scPrefix is not none %}{{scPrefix + "."}}{% endif %}"{{ d.Name }}"] = number_format($v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}]{% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %}, 2){% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
+        $dataArray[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}"{{ d.Name }}"] = number_format($v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}]{% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %}, 2){% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
 	    {% endif %}
       
         {% if d.Alias is defined %}
@@ -202,7 +202,7 @@ function _{{ Project.Name|lower }}_{{ key }}(&$dataArray, $memData, $prefix, $in
           _{{ Project.Name|lower }}_ShowAlert($dataArray, $name, $v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}], {{ d.AlertNormalValue }});
         {% elif d.ArrayName is defined %}
         for($i=1;$i<={{ d.ArrayLength }};$i++){
-          $name = $prefix.sprintf("{{ d.ArrayName }}", $index + $i);
+          $name = $prefix.sprintf("{{ d.ArrayName }}", {{ d.ArrayStart }} + $i);
           $kIndex = {{ d.Offset }} + $i;
           $dataArray[$name] = number_format($v[$kIndex]{% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %}, 2){% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
         }

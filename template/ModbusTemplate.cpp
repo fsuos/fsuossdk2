@@ -83,9 +83,12 @@ bool {{ Project.Name }}::RefreshStatus()
         {% endif %}
         {% break %}
         {% endfor %}
-        break;
+        {% break %}
     {% else %}
         state = {{ Project.Name + "_R%d_%d"%(tsc.Cmd, tsc.Offset) + ";" }}
+        {% if tsc.Delay is defined %}
+        SendDelayData({{tsc.Delay}});
+        {% endif %}
         {% if tsc.Cmd == 3 %}
         modbus_read_registers({{ tsc.Offset }}, {{ tsc.Len }});
         {% elif tsc.Cmd == 4 %}
@@ -117,6 +120,9 @@ bool {{ Project.Name }}::process_payload(enum tab_type type, size_t len)
             {% endif %}
             {% if loop.nextitem is defined %}
                 state = {{ Project.Name + "_R%d_%d_%d"%(loop.nextitem.Cmd, tsc.CmdGroupStart, loop.nextitem.Offset) + ";" }}
+                {% if loop.nextitem.Delay is defined %}
+                SendDelayData({{loop.nextitem.Delay}});
+                {% endif %}
                 {% if loop.nextitem.Cmd == 3 %}
                 modbus_read_registers({{ tsc.CmdGroupStart + loop.nextitem.Offset }} + {{ tsc.CmdGroupStep}}*cmdgroup_step_, {{ loop.nextitem.Len }});
                 {% elif loop.nextitem.Cmd == 4 %}
@@ -136,7 +142,10 @@ bool {{ Project.Name }}::process_payload(enum tab_type type, size_t len)
                     {% if tscNext is defined %}
                         {% if tscNext.CmdGroupStart is defined %}               
                             {% for sc in tscNext.CmdGroupSample %}
-                            state = {{ Project.Name + "_R%d_%d_%d"%(tscNext.CmdGroupStart, sc.Cmd, sc.Offset) + ";" }}
+                            state = {{ Project.Name + "_R%d_%d_%d"%(sc.Cmd, tscNext.CmdGroupStart, sc.Offset) + ";" }}
+                            {% if sc.Delay is defined %}
+                            SendDelayData({{sc.Delay}});
+                            {% endif %}
                             cmdgroup_step_ = 0;
                             {% if sc.Cmd == 3 %}
                             modbus_read_registers({{ tscNext.CmdGroupStart + sc.Offset }}, {{ sc.Len }});
@@ -152,6 +161,9 @@ bool {{ Project.Name }}::process_payload(enum tab_type type, size_t len)
                             break;
                         {% else %}
                             state = {{ Project.Name + "_R%d_%d"%(tscNext.Cmd,tscNext.Offset) + ";" }}
+                            {% if tscNext.Delay is defined %}
+                            SendDelayData({{tscNext.Delay}});
+                            {% endif %}
                             {% if tscNext.Cmd == 3 %}
                             modbus_read_registers({{ tscNext.Offset }}, {{ tscNext.Len }});
                             {% elif tscNext.Cmd == 4 %}
@@ -167,7 +179,10 @@ bool {{ Project.Name }}::process_payload(enum tab_type type, size_t len)
                         return false;
                     {% endif %}
                 }else{
-                    state = {{ Project.Name + "_R%d_%d_%d"%(tsc.CmdGroupSample[0].Cmd,tsc.CmdGroupStart, tsc.CmdGroupSample[0].Offset) + ";" }}
+                    state = {{ Project.Name + "_R%d_%d_%d"%(tsc.CmdGroupSample[0].Cmd, tsc.CmdGroupStart, tsc.CmdGroupSample[0].Offset) + ";" }}
+                    {% if tsc.CmdGroupSample[0].Delay is defined %}
+                    SendDelayData({{tsc.CmdGroupSample[0].Delay}});
+                    {% endif %}
                     {% if tsc.CmdGroupSample[0].Cmd == 3 %}
                     modbus_read_registers({{ tsc.CmdGroupStart + tsc.CmdGroupSample[0].Offset }}+ {{ tsc.CmdGroupStep}}*cmdgroup_step_, {{ tsc.CmdGroupSample[0].Len }});
                     {% elif tsc.CmdGroupSample[0].Cmd == 4 %}
@@ -193,6 +208,9 @@ bool {{ Project.Name }}::process_payload(enum tab_type type, size_t len)
             {% if tscNext.CmdGroupStart is defined %}               
                 {% for sc in tscNext.CmdGroupSample %}
                 state = {{ Project.Name + "_R%d_%d_%d"%(sc.Cmd, tscNext.CmdGroupStart, sc.Offset) + ";" }}
+                {% if sc.Delay is defined %}
+                SendDelayData({{sc.Delay}});
+                {% endif %}
                 cmdgroup_step_ = 0;
                 {% if sc.Cmd == 3 %}
                 modbus_read_registers({{ tscNext.CmdGroupStart + sc.Offset }}, {{ sc.Len }});
@@ -207,6 +225,9 @@ bool {{ Project.Name }}::process_payload(enum tab_type type, size_t len)
                 {% endfor %}
             {% else %}
                 state = {{ Project.Name + "_R%d_%d"%(tscNext.Cmd,tscNext.Offset) + ";" }}
+                {% if tscNext.Delay is defined %}
+                SendDelayData({{tscNext.Delay}});
+                {% endif %}
                 {% if tscNext.Cmd == 3 %}
                 modbus_read_registers({{ tscNext.Offset }}, {{ tscNext.Len }});
                 {% elif tscNext.Cmd == 4 %}

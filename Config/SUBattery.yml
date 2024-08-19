@@ -1,0 +1,109 @@
+Project:
+  Name : SUBattery
+  RT_ID : 5156
+  BaudRate : 19200
+  TabView : true
+  File : "苏总电池模块: 电压 00 BE +120  01 36 +120;内阻 01e0 +120  0258 +120 温度:0302 +120  037A +120"
+Sample : 
+  - CmdGroupStart : 0
+    CmdGroupStep : 1
+    CmdGroupEnd : 1
+    CmdGroupPrefix : "汇总数据"
+    CmdGroupSample :
+      - Cmd : 4
+        Offset : 1
+        Len : 4
+        Data : 
+          - Name : "电池组总电压"
+            Unit : "V"
+            Ratio : 100
+          - Name : "电池组总电流(充电)"
+            Unit : "A"
+            Ratio : 10
+          - Name : "环境温度"
+            Unit : "°C"
+            Ratio : 10
+          - Name : "电池组总电流(放电)"
+            Unit : "A"
+            Ratio : 10
+  - CmdGroupStart : 0
+    CmdGroupStep : 1
+    CmdGroupEnd : 1
+    CmdGroupPrefix : "单体电压数据"
+    CmdGroupSample :
+      - Cmd : 4
+        Offset : 0xBE
+        Len : 120
+        Delay : 200
+        Data : 
+          - ArrayName : "%d#电池电压"
+            ArrayStart : 0
+            ArrayLength : 120
+            Offset : 0
+            Unit : "V"
+            Ratio : 1000
+      - Cmd : 4
+        Offset : 0x0136
+        Len : 72
+        Delay : 200
+        Data : 
+          - ArrayName : "%d#电池电压"
+            ArrayStart : 120
+            ArrayLength : 72
+            Offset : 0
+            Unit : "V"
+            Ratio : 1000
+  - CmdGroupStart : 0
+    CmdGroupStep : 1
+    CmdGroupEnd : 1
+    CmdGroupPrefix : "单体内阻数据"
+    CmdGroupSample :
+      - Cmd : 4
+        Offset : 0x01E0
+        Len : 120
+        Delay : 200
+        Data : 
+          - ArrayName : "%d#电池内阻"
+            ArrayStart : 0
+            Offset : 0
+            ArrayLength : 120
+            Unit : "毫欧"
+            Ratio : 1000
+      - Cmd : 4
+        Offset : 0x0258
+        Len : 72
+        Delay : 200
+        Data : 
+          - ArrayName : "%d#电池内阻"
+            ArrayStart : 120
+            Offset : 0
+            ArrayLength : 72
+            Unit : "毫欧"
+            Ratio : 1000
+  - CmdGroupStart : 0
+    CmdGroupStep : 1
+    CmdGroupEnd : 1
+    CmdGroupPrefix : "单体温度数据"
+    CmdGroupSample :
+      - Cmd : 4
+        Offset : 0x0302
+        Len : 120
+        Delay : 200
+        Data : 
+          - ArrayName : "%d#电池温度"
+            ArrayStart : 0
+            Offset : 0
+            ArrayLength : 120
+            Unit : "度"
+            Ratio : 10
+      - Cmd : 4
+        Offset : 0x037A
+        Len : 72
+        Delay : 200
+        Data : 
+          - ArrayName : "%d#电池温度"
+            ArrayStart : 120
+            Offset : 0
+            ArrayLength : 120
+            Unit : "度"
+            Ratio : 10

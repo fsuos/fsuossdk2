@@ -16,7 +16,7 @@
           {{signalList}}[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}] = sprintf("{{ d.ArrayName }}", $i);
         }
         {% else %}
-        {{signalList}}[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}] = {% if scPrefix is not none %}{{scPrefix}}.{% endif %}"{{ d.Name }}";
+        {{signalList}}[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}] = "{{ d.Name }}";
         {% endif %}
       {%endif %}
       {% endfor %}
@@ -63,7 +63,6 @@ function _{{ Project.Name|lower }}_{{ key }}(&$signalList, $index)
 <div class="tab-widget tabbable tabs-left chat-widget">
     <div class="tab-widget">
         <ul class="nav nav-tabs childTabs">
-            <li><a class="list" href="##">主要</a></li>
             <?php $signalList = [];
             $groupSignalList = [];
             {% for tsc in Sample %}
@@ -86,9 +85,6 @@ function _{{ Project.Name|lower }}_{{ key }}(&$signalList, $index)
             {% endfor %}
             ?>
         </ul>
-    </div>
-    <div class="tab-content">
-    <?php $this->load->view("portal/DevicePage/signal_ctrl_noid", array("signalList"=>$signalList, "cols"=>6)); ?>
     </div>
     {% for tsc in Sample %}
     {% if tsc.CmdGroupStart is defined %}
@@ -123,7 +119,7 @@ function _{{ Project.Name|lower }}_{{ key }}(&$signalList, $index)
       {% else %}
         {% if d.ArrayName is defined %}
         for($i=1;$i<={{ d.ArrayLength }};$i++){
-          $signalList[] = sprintf("{{ d.ArrayName }}", $i);
+          $signalList[] = sprintf("{{ d.ArrayName }}", {{ d.ArrayStart }} + $i);
         }
         {% else %}
         $signalList[] = "{{ d.Name }}";
