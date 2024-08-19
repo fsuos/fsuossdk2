@@ -1,0 +1,225 @@
+Project:
+  Name : hyltHeatexchange
+  RT_ID : 5156
+  File : " 开发区2A联通换热485通讯地址1201(华奕）(1)"
+BlockTemplate: 
+  ACWaterGroup : 
+    BlockLength : 177
+    BlockContent : 
+      - ArrayBlock : AC
+        ArrayStart : 1
+        ArrayEnd : 6
+      - ArrayBlock : ACStatus
+        ArrayStart : 1
+        ArrayEnd : 6
+  ACStatus :
+    BlockLength : 89
+    BlockType : 'i'
+    BlockContent : 
+      - Name : '%d#机组机组手动运行/自动启动'
+        Options : 
+          - Key : 0
+            Value : 手动
+          - Key : 1
+            Value : 自动
+      - Name : '%d#机组远程/本地'
+        Options : 
+          - Key : 0
+            Value : 本地
+          - Key : 1
+            Value : 远程
+      - Name : '%d#机组机组状态'
+        Options : 
+          - Key : 0
+            Value : 否
+          - Key : 1
+            Value : 是
+      - Name : '%d#机组水泵1报警'
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 报警
+      - Name : '%d#机组水泵2报警'
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 报警
+      - Name : '%d#机组水泵3报警'
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 报警
+      - Name : '%d#机组水泵4报警'
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 报警
+      - Name : '%d#机组水泵5报警'
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 报警
+      - Name : '%d#机组潜水泵1报警'
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 报警
+      - Name : '%d#机组潜水泵2报警'
+        Options : 
+          - Key : 0
+            Value : 否
+          - Key : 1
+            Value : 是
+      - Name : '%d#机组机组状态'
+        Options : 
+          - Key : 0
+            Value : 否
+          - Key : 1
+            Value : 是
+      - Name : '%d#机组立管1高限报警'
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 报警
+      - Name : '%d#机组消防联动'
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 报警
+      - Name : '%d#机组水浸检测'
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 报警
+      - Name : '%d#机组水泵1运行状态'
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运行
+      - Name : '%d#机组水泵2运行状态'
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运行
+      - Name : '%d#机组水泵3运行状态'
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运行
+      - Name : '%d#机组水泵4运行状态'
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运行
+      - Name : '%d#机组水泵5运行状态'
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运行
+      - Name : '%d#机组潜水泵1运行状态'
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运行
+      - Name : '%d#机组潜水泵2运行状态'
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运行
+      - Name : '%d#机组排水阀运行状态'
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 打开
+      - Name : '%d#机组补水阀运行状态'
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 打开
+  AC :
+    BlockLength : 88
+    BlockType : 'f'
+    BlockContent :
+      - Name : '%d#机组大水箱高液位'
+      - Name : '%d#机组大水箱低液位'
+      - Name : '%d#机组盘管1压力'
+      - Name : '%d#机组盘管2压力'
+      - Name : '%d#机组盘管3压力'
+      - Name : '%d#机组盘管4压力'
+      - Name : '%d#机组盘管5压力'
+      - Name : '%d#机组盘管1温度'
+      - Name : '%d#机组盘管2温度'
+      - Name : '%d#机组盘管3温度'
+      - Name : '%d#机组盘管4温度'
+      - Name : '%d#机组盘管5温度'
+      - Name : '%d#机组盘管2温度'
+      - Name : '%d#机组盘管3温度'
+      - Name : '%d#机组盘管4温度'
+      - Name : '%d#机组盘管5温度'
+      - Name : '%d#机组水箱1#温度'
+      - Name : '%d#机组水箱2#温度(预留1)'
+      - Name : '%d#机组电动阀1反馈'
+      - Name : '%d#机组电动阀2反馈'
+      - Name : '%d#机组电动阀3反馈'
+      - Name : '%d#机组电动阀4反馈'
+      - Name : '%d#机组电动阀5反馈'
+      - Name : '%d#机组进风1温度'
+      - Name : '%d#机组进风1湿度'
+      - Name : '%d#机组室外温度'
+      - Name : '%d#机组室外湿度'
+      - Name : '%d#机组室球温度'
+Sample : 
+  - Cmd : 3
+    Offset : 0
+    Len : 88
+    Data : 
+      - Block : ACWaterGroup
+        index : 0
+  - Cmd : 3
+    Offset : 88
+    Len : 88
+    Data : 
+      - Block : ACWaterGroup
+        index : 6
+  - Cmd : 3
+    Offset : 176
+    Len : 88
+    Data : 
+      - Block : ACWaterGroup
+        index : 12
+  - Cmd : 3
+    Offset : 264
+    Len : 88
+    Data : 
+      - Block : ACWaterGroup
+        index : 18
+  - Cmd : 3
+    Offset : 352
+    Len : 88
+    Data : 
+      - Block : ACWaterGroup
+        index : 24
+  - Cmd : 3
+    Offset : 440
+    Len : 88
+    Data : 
+      - Block : ACWaterGroup
+        index : 30
