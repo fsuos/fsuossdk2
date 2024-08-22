@@ -1,0 +1,31 @@
+Project:
+  Name : HBZS96K
+  RT_ID : 5156
+  File : "测试.pdf"
+InitSetting :
+  - Name : ct
+    Type : int
+  - Name : has_a
+    Type : int
+Sample :
+  - Cmd : 3
+    Offset : 0x000A
+    Len : 14
+    Data :
+      - Name : AC交流电压
+      - Name : A路直流电压
+      - Name : A路直流电流
+      - Name : A路直流功率
+      - Name : A路直流电能
+      - Name : A路直流电流需量
+      - Name : A路直流功率需量
+      - Name : B路直流电压
+      - Name : B路直流电流
+      - Name : B路直流功率
+      - Name : B路直流电能
+      - Name : B路直流电流需量
+      - Name : B路直流功率需量
+      - Name : 回路数
+      - Name : A路1-72路支路开关状态
+      - Name : B路1-72路支路开关状态
+

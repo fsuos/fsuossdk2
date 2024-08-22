@@ -1,0 +1,931 @@
+Project:
+  Name : Pex4S
+  RT_ID : 5156
+  File : "Pex4S  modbus协议.pdf"
+Sample : 
+  - Cmd : 3
+    Offset : 20
+    Len : 7
+    Data : 
+      - Name : 机组状态
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 运行
+          - Key : 1
+            Value : 备机 
+          - Key : 2
+            Value : 面板关机
+          - Key : 3
+            Value : 远程关机
+          - Key : 4
+            Value : 监控关机
+      - Name : 群控状态
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 单机
+          - Key : 1
+            Value : 群控模式0 
+          - Key : 2
+            Value : 群控模式1
+          - Key : 3
+            Value : 群控模式2
+          - Key : 4
+            Value : 群控模式3
+      - Name : 运行状态
+        Offset : 3
+        Options : 
+          - Key : (($v[3])&0x1)
+            Value : 制冷
+          - Key : (($v[3]>>1)&0x1)
+            Value : 加热 
+          - Key : (($v[3]>>2)&0x1)
+            Value : 加湿
+          - Key : (($v[3]>>3)&0x1)
+            Value : 除湿
+      - Name : A相电压
+        Offset : 4
+        Ratio : 10
+        Unit : "V"
+      - Name : B相电压
+        Offset : 5
+        Ratio : 10
+        Unit : "V"
+      - Name : C相电压
+        Offset : 6
+        Ratio : 10
+        Unit : "V"
+      - Name : 电源频率
+        Offset : 7
+        Ratio : 10
+        Unit : "HZ"
+  - Cmd : 3
+    Offset : 30
+    Len : 12
+    Data : 
+      - Name : 回风温度1
+        Offset : 1
+        Ratio : 10
+        Unit : "℃"  
+      - Name : 回风温度2
+        Offset : 2
+        Ratio : 10
+        Unit : "℃"  
+      - Name : 回风温度3
+        Offset : 3
+        Ratio : 10
+        Unit : "℃"  
+      - Name : 回风湿度1
+        Offset : 4
+        Ratio : 10
+        Unit : "%RH" 
+      - Name : 回风湿度2
+        Offset : 5
+        Ratio : 10
+        Unit : "%RH" 
+      - Name : 回风湿度3
+        Offset : 6
+        Ratio : 10
+        Unit : "%RH" 
+      - Name : 送风温度1（系统1）
+        Offset : 7
+        Ratio : 10
+        Unit : "℃" 
+      - Name : 送风温度2（系统1）
+        Offset : 8
+        Ratio : 10
+        Unit : "℃" 
+      - Name : 送风温度3（系统1）
+        Offset : 9
+        Ratio : 10
+        Unit : "℃" 
+      - Name : 送风湿度1（系统1）
+        Offset : 10
+        Ratio : 10
+        Unit : "%RH"
+      - Name : 送风湿度2（系统1）
+        Offset : 11
+        Ratio : 10
+        Unit : "%RH"
+      - Name : 送风湿度3（系统1）
+        Offset : 12
+        Ratio : 10
+        Unit : "%RH"
+
+  - Cmd : 3
+    Offset : 42
+    Len : 16
+    Data : 
+      - ArrayName : "远程温度%d"
+        ArrayLength : 16
+        Unit : "℃"
+        Ratio : 10
+        Offset : 1
+
+
+
+
+  - Cmd : 3
+    Offset : 58
+    Len : 16
+    Data : 
+      - ArrayName : "远程湿度%d"
+        ArrayLength : 16
+        Unit : "%RH"
+        Ratio : 10
+        Offset : 1
+
+
+  - Cmd : 3
+    Offset : 74
+    Len : 12
+    Data : 
+      - Name : A路进水温度
+        Offset : 1
+        Ratio : 10
+        Unit : "℃"
+      - Name : A路出水温度
+        Offset : 2
+        Ratio : 10
+        Unit : "℃"
+      - Name : B路进水温度
+        Offset : 3
+        Ratio : 10
+        Unit : "℃"
+      - Name : B路出水温度
+        Offset : 4
+        Ratio : 10
+        Unit : "℃"
+      - Name : A路进水压力
+        Offset : 5
+        Unit : "KPa"
+      - Name : A路出水压力
+        Offset : 6
+        Unit : "KPa"
+      - Name : B路进水压力
+        Offset : 7
+        Unit : "KPa"
+      - Name : B路出水压力
+        Offset : 8
+        Unit : "KPa"
+      - Name : A路水流量
+        Offset : 9
+        Ratio : 10
+        Unit : "m3/h"
+      - Name : B路水流量
+        Offset : 10
+        Ratio : 10
+        Unit : "m3/h"
+      - Name : 风压1
+        Offset : 11
+        Unit : "Pa"
+      - Name : 风压2
+        Offset : 12
+        Unit : "Pa"
+
+  - Cmd : 3
+    Offset : 90
+    Len : 6
+    Data : 
+      - Name : 风机1转速
+        Offset : 1
+        Unit : "%"
+      - Name : 风机2转速
+        Offset : 2
+        Unit : "%"
+      - Name : 压缩机1容量
+        Offset : 3
+        Unit : "%"
+      - Name : 压缩机2容量
+        Offset : 4
+        Unit : "%"
+      - Name : 水阀1开度
+        Offset : 5
+        Unit : "%"
+      - Name : 水阀2开度
+        Offset : 6
+        Unit : "%"
+
+  - Cmd : 3
+    Offset : 100
+    Len : 11
+    Data : 
+      - Name : 监控开关机
+        Offset : 1
+        Options : 
+          - Key : 0x10
+            Value : 开机
+          - Key : 0x1F
+            Value : 关机 
+      - Name : 回风温度设定
+        Offset : 2
+        Ratio : 10
+        Unit : "℃"  
+      - Name : 送风温度设定
+        Offset : 3
+        Ratio : 10
+        Unit : "℃"  
+      - Name : 远程温度设定
+        Offset : 4
+        Ratio : 10
+        Unit : "℃"  
+      - Name : 湿度设定
+        Offset : 5
+        Ratio : 10
+        Unit : "%RH"  
+      - Name : 温度比例带
+        Offset : 6
+        Ratio : 10
+        Unit : "℃"  
+      - Name : 湿度比例带
+        Offset : 7
+        Ratio : 10
+        Unit : "%RH"  
+      - Name : 回风湿度设定
+        Offset : 8
+        Ratio : 10
+        Unit : "%RH" 
+      - Name : 远程湿度设定
+        Offset : 10
+        Ratio : 10
+        Unit : "%RH"  
+      - Name : 风机温差设定
+        Offset : 11
+        Ratio : 10
+        Unit : "℃"  
+
+  - Cmd : 3
+    Offset : 121
+    Len : 13
+    Data : 
+      - Name : 温度控制方式
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 回风平均湿度
+          - Key : 1
+            Value : 远程最低湿度
+          - Key : 2
+            Value : 远程平均湿度
+          - Key : 3
+            Value : 远程最高湿度
+      - Name : 风机控制方式
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 回风平均温度
+          - Key : 1
+            Value : 回风最高温度
+          - Key : 2
+            Value : 回风最低温度
+          - Key : 3
+            Value : 送风平均温度
+          - Key : 4
+            Value : 送风最高温度
+          - Key : 5
+            Value : 送风最低温度
+          - Key : 6
+            Value : 远程平均温度
+          - Key : 7
+            Value : 远程最高温度
+          - Key : 8
+            Value : 远程最低温度
+          - Key : 9
+            Value : 温差
+          - Key : 10
+            Value : 风压
+      - Name : 压缩机控制方式
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 回风平均温度
+          - Key : 1
+            Value : 回风最高温度
+          - Key : 2
+            Value : 回风最低温度
+          - Key : 3
+            Value : 送风平均温度
+          - Key : 4
+            Value : 送风最高温度
+          - Key : 5
+            Value : 送风最低温度
+          - Key : 6
+            Value : 远程平均温度
+          - Key : 7
+            Value : 远程最高温度
+          - Key : 8
+            Value : 远程最低温度
+      - Name : 水阀控制方式
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 回风平均温度
+          - Key : 1
+            Value : 回风最高温度
+          - Key : 2
+            Value : 回风最低温度
+          - Key : 3
+            Value : 送风平均温度
+          - Key : 4
+            Value : 送风最高温度
+          - Key : 5
+            Value : 送风最低温度
+          - Key : 6
+            Value : 远程平均温度
+          - Key : 7
+            Value : 远程最高温度
+          - Key : 8
+            Value : 远程最低温度
+      - Name : 送风温度1（系统）
+        Offset : 5
+        Ratio : 10
+        Unit : "℃"  
+      - Name : 送风温度2（系统）
+        Offset : 6
+        Ratio : 10
+        Unit : "℃"  
+      - Name : 送风温度3（系统）
+        Offset : 7
+        Ratio : 10
+        Unit : "℃"  
+      - Name : 送风湿度1（系统）
+        Offset : 8
+        Ratio : 10
+        Unit : "%RH"  
+      - Name : 送风湿度2（系统）
+        Offset : 9
+        Ratio : 10
+        Unit : "%RH"  
+      - Name : 送风湿度3（系统）
+        Offset : 10
+        Ratio : 10
+        Unit : "%RH"  
+      - Name : 制冷剂泵1转速
+        Offset : 11
+        Unit : "%" 
+      - Name : 制冷剂泵2转速
+        Offset : 12
+        Unit : "%" 
+      - Name : 环境温度
+        Offset : 13
+        Ratio : 10
+        Unit : "℃"  
+
+
+  - Cmd : 3
+    Offset : 2
+    Len : 12
+    Data : 
+      - Name : 远程关机报警
+        Value : (($v[1]>>0) & 0x1)
+        AlertNormalValue : 0
+      - Name : 地板溢水报警
+        Value : (($v[1]>>1) & 0x1)
+        AlertNormalValue : 0
+      - Name : 烟感报警
+        Value : (($v[1]>>2) & 0x1)
+        AlertNormalValue : 0
+      - Name : 火感报警
+        Value : (($v[1]>>3) & 0x1)
+        AlertNormalValue : 0
+      - Name : 防雷器报警
+        Value : (($v[1]>>4) & 0x1)
+        AlertNormalValue : 0
+      - Name : 自定义1报警
+        Value : (($v[1]>>5) & 0x1)
+        AlertNormalValue : 0
+      - Name : 自定义2报警
+        Value : (($v[1]>>6) & 0x1)
+        AlertNormalValue : 0
+      - Name : 自定义3报警
+        Value : (($v[1]>>7) & 0x1)
+        AlertNormalValue : 0
+      - Name : 自定义4报警
+        Value : (($v[1]>>8) & 0x1)
+        AlertNormalValue : 0
+      - Name : 自定义5报警
+        Value : (($v[1]>>9) & 0x1)
+        AlertNormalValue : 0
+      - Name : 自定义6报警
+        Value : (($v[1]>>10) & 0x1)
+        AlertNormalValue : 0
+      - Name : 消防报警
+        Value : (($v[1]>>11) & 0x1)
+        AlertNormalValue : 0
+      - Name : 水盘超高水位报警
+        Value : (($v[1]>>12) & 0x1)
+        AlertNormalValue : 0
+      - Name : 注水故障报警
+        Value : (($v[1]>>13) & 0x1)
+        AlertNormalValue : 0
+      - Name : 水位开关故障报警
+        Value : (($v[1]>>14) & 0x1)
+        AlertNormalValue : 0
+      - Name : 电源丢失报警
+        Value : (($v[2]>>0) & 0x1)
+        AlertNormalValue : 0
+      - Name : 电源过压报警
+        Value : (($v[2]>>1) & 0x1)
+        AlertNormalValue : 0
+      - Name : 电源欠压报警
+        Value : (($v[2]>>2) & 0x1)
+        AlertNormalValue : 0
+      - Name : 电源频偏报警
+        Value : (($v[2]>>3) & 0x1)
+        AlertNormalValue : 0
+      - Name : 电源缺相报警
+        Value : (($v[2]>>4) & 0x1)
+        AlertNormalValue : 0
+      - Name : 电源反相报警
+        Value : (($v[2]>>5) & 0x1)
+        AlertNormalValue : 0
+      - Name : 交流断电报警
+        Value : (($v[2]>>6) & 0x1)
+        AlertNormalValue : 0
+      - Name : 直流断电报警
+        Value : (($v[2]>>7) & 0x1)
+        AlertNormalValue : 0
+      - Name : 联动地址重复报警
+        Value : (($v[2]>>8) & 0x1)
+        AlertNormalValue : 0
+      - Name : 联动从机丢失报警
+        Value : (($v[2]>>9) & 0x1)
+        AlertNormalValue : 0
+      - Name : 湿膜维护提醒
+        Value : (($v[2]>>10) & 0x1)
+        AlertNormalValue : 0
+      - Name : 风机维护提醒
+        Value : (($v[3]>>0) & 0x1)
+        AlertNormalValue : 0
+      - Name : 过滤网维护提醒
+        Value : (($v[3]>>1) & 0x1)
+        AlertNormalValue : 0
+      - Name : 电加热维护提醒
+        Value : (($v[3]>>2) & 0x1)
+        AlertNormalValue : 0
+      - Name : 加湿器维护提醒
+        Value : (($v[3]>>3) & 0x1)
+        AlertNormalValue : 0
+      - Name : 压缩机维护提醒
+        Value : (($v[3]>>4) & 0x1)
+        AlertNormalValue : 0
+      - Name : 风机故障报警
+        Value : (($v[3]>>5) & 0x1)
+        AlertNormalValue : 0
+      - Name : 电加热故障报警
+        Value : (($v[3]>>6) & 0x1)
+        AlertNormalValue : 0
+      - Name : 加湿器故障报警
+        Value : (($v[3]>>7) & 0x1)
+        AlertNormalValue : 0
+      - Name : 红外加湿高水位报警
+        Value : (($v[3]>>8) & 0x1)
+        AlertNormalValue : 0
+      - Name : 过滤网堵塞报警
+        Value : (($v[3]>>9) & 0x1)
+        AlertNormalValue : 0
+      - Name : 风阀故障报警
+        Value : (($v[3]>>10) & 0x1)
+        AlertNormalValue : 0
+      - Name : 气流丢失报警
+        Value : (($v[3]>>11) & 0x1)
+        AlertNormalValue : 0
+      - Name : 冷凝高水位报警
+        Value : (($v[3]>>12) & 0x1)
+        AlertNormalValue : 0
+      - Name : 冷凝水泵报警
+        Value : (($v[3]>>13) & 0x1)
+        AlertNormalValue : 0
+      - Name : 水阀故障报警
+        Value : (($v[3]>>14) & 0x1)
+        AlertNormalValue : 0
+      - Name : 水阀维护提醒
+        Value : (($v[3]>>15) & 0x1)
+        AlertNormalValue : 0
+      - Name : 回风高温报警
+        Value : (($v[4]>>0) & 0x1)
+        AlertNormalValue : 0
+      - Name : 回风低温报警
+        Value : (($v[4]>>1) & 0x1)
+        AlertNormalValue : 0
+      - Name : 送风高温报警
+        Value : (($v[4]>>2) & 0x1)
+        AlertNormalValue : 0
+      - Name : 送风低温报警
+        Value : (($v[4]>>3) & 0x1)
+        AlertNormalValue : 0
+      - Name : 远程高温报警
+        Value : (($v[4]>>4) & 0x1)
+        AlertNormalValue : 0
+      - Name : 远程低温报警
+        Value : (($v[4]>>5) & 0x1)
+        AlertNormalValue : 0
+      - Name : 回风高湿报警
+        Value : (($v[4]>>6) & 0x1)
+        AlertNormalValue : 0
+      - Name : 回风地湿报警
+        Value : (($v[4]>>7) & 0x1)
+        AlertNormalValue : 0
+      - Name : 送风高湿报警
+        Value : (($v[4]>>8) & 0x1)
+        AlertNormalValue : 0
+      - Name : 送风地湿报警
+        Value : (($v[4]>>9) & 0x1)
+        AlertNormalValue : 0
+      - Name : 远程高湿报警
+        Value : (($v[4]>>10) & 0x1)
+        AlertNormalValue : 0
+      - Name : 远程地湿报警
+        Value : (($v[4]>>11) & 0x1)
+        AlertNormalValue : 0
+      - Name : 回风温度传感器故障
+        Value : (($v[5]>>0) & 0x1)
+        AlertNormalValue : 0
+      - Name : 回风湿度传感器故障
+        Value : (($v[5]>>1) & 0x1)
+        AlertNormalValue : 0
+      - Name : 送风温度传感器故障
+        Value : (($v[5]>>2) & 0x1)
+        AlertNormalValue : 0
+      - Name : 送风湿度传感器故障
+        Value : (($v[5]>>3) & 0x1)
+        AlertNormalValue : 0
+      - Name : 远程温度传感器故障
+        Value : (($v[5]>>4) & 0x1)
+        AlertNormalValue : 0
+      - Name : 远程湿度传感器故障
+        Value : (($v[5]>>5) & 0x1)
+        AlertNormalValue : 0
+      - Name : 回风传感器通讯故障
+        Value : (($v[5]>>6) & 0x1)
+        AlertNormalValue : 0
+      - Name : 送风传感器通讯故障
+        Value : (($v[5]>>7) & 0x1)
+        AlertNormalValue : 0
+      - Name : 远程传感器通讯故障
+        Value : (($v[5]>>8) & 0x1)
+        AlertNormalValue : 0
+      - Name : 气流丢失传感器故障
+        Value : (($v[6]>>0) & 0x1)
+        AlertNormalValue : 0
+      - Name : 高压压力传感器故障
+        Value : (($v[6]>>1) & 0x1)
+        AlertNormalValue : 0
+      - Name : 低压压力传感器故障
+        Value : (($v[6]>>2) & 0x1)
+        AlertNormalValue : 0
+      - Name : 排气温度传感器故障
+        Value : (($v[6]>>3) & 0x1)
+        AlertNormalValue : 0
+      - Name : 吸气温度传感器故障
+        Value : (($v[6]>>4) & 0x1)
+        AlertNormalValue : 0
+      - Name : 进水温度传感器故障
+        Value : (($v[6]>>5) & 0x1)
+        AlertNormalValue : 0
+      - Name : 出水温度传感器故障
+        Value : (($v[6]>>6) & 0x1)
+        AlertNormalValue : 0
+      - Name : 风压传感器故障
+        Value : (($v[6]>>7) & 0x1)
+        AlertNormalValue : 0
+      - Name : 水压传感器故障
+        Value : (($v[6]>>8) & 0x1)
+        AlertNormalValue : 0
+      - Name : 水流量传感器故障
+        Value : (($v[6]>>9) & 0x1)
+        AlertNormalValue : 0
+      - Name : 滤网压差传感器故障
+        Value : (($v[6]>>10) & 0x1)
+        AlertNormalValue : 0
+      - Name : 低压压力传感器故障锁定
+        Value : (($v[6]>>12) & 0x1)
+        AlertNormalValue : 0
+      - Name : 高压报警
+        Value : (($v[7]>>0) & 0x1)
+        AlertNormalValue : 0
+      - Name : 高压锁定报警
+        Value : (($v[7]>>1) & 0x1)
+        AlertNormalValue : 0
+      - Name : 低压报警
+        Value : (($v[7]>>2) & 0x1)
+        AlertNormalValue : 0
+      - Name : 低压锁定报警
+        Value : (($v[7]>>3) & 0x1)
+        AlertNormalValue : 0
+      - Name : 排气高温报警
+        Value : (($v[7]>>4) & 0x1)
+        AlertNormalValue : 0
+      - Name : 排气高温锁定报警
+        Value : (($v[7]>>5) & 0x1)
+        AlertNormalValue : 0
+      - Name : 排气低温报警
+        Value : (($v[7]>>6) & 0x1)
+        AlertNormalValue : 0
+      - Name : 排气低温锁定报警
+        Value : (($v[7]>>7) & 0x1)
+        AlertNormalValue : 0
+      - Name : 排气过热度低报警
+        Value : (($v[7]>>8) & 0x1)
+        AlertNormalValue : 0
+      - Name : 排气过热度低锁定报警
+        Value : (($v[7]>>9) & 0x1)
+        AlertNormalValue : 0
+      - Name : 盘管冻结报警
+        Value : (($v[7]>>10) & 0x1)
+        AlertNormalValue : 0
+      - Name : 盘管冻结锁定报警
+        Value : (($v[7]>>11) & 0x1)
+        AlertNormalValue : 0
+      - Name : 压缩机高压异常报警
+        Value : (($v[7]>>12) & 0x1)
+        AlertNormalValue : 0
+      - Name : 压差报警
+        Value : (($v[7]>>13) & 0x1)
+        AlertNormalValue : 0
+      - Name : 压差锁定报警
+        Value : (($v[7]>>14) & 0x1)
+        AlertNormalValue : 0
+      - Name : 压缩机低压异常报警
+        Value : (($v[7]>>15) & 0x1)
+        AlertNormalValue : 0
+      - Name : 电子膨胀阀驱动通信故障
+        Value : (($v[8]>>0) & 0x1)
+        AlertNormalValue : 0
+      - Name : 电子膨胀阀驱动故障
+        Value : (($v[8]>>1) & 0x1)
+        AlertNormalValue : 0
+      - Name : 压缩机驱动通信故障
+        Value : (($v[8]>>2) & 0x1)
+        AlertNormalValue : 0
+      - Name : 压缩机驱动故障
+        Value : (($v[8]>>3) & 0x1)
+        AlertNormalValue : 0
+      - Name : 压缩机驱动故障锁定
+        Value : (($v[8]>>4) & 0x1)
+        AlertNormalValue : 0
+      - Name : 风机检测板通讯故障
+        Value : (($v[8]>>5) & 0x1)
+        AlertNormalValue : 0
+      - Name : 压缩机驱动通信锁定
+        Value : (($v[8]>>6) & 0x1)
+        AlertNormalValue : 0
+      - Name : 功率表通讯故障
+        Value : (($v[8]>>7) & 0x1)
+        AlertNormalValue : 0
+      - Name : 制冷剂泵通讯故障
+        Value : (($v[8]>>8) & 0x1)
+        AlertNormalValue : 0
+      - Name : 冷凝器通讯故障
+        Value : (($v[8]>>9) & 0x1)
+        AlertNormalValue : 0
+      - Name : 节能卡故障
+        Value : (($v[8]>>12) & 0x1)
+        AlertNormalValue : 0
+      - Name : 群控主机丢失报警
+        Value : (($v[9]>>0) & 0x1)
+        AlertNormalValue : 0
+      - Name : 群控从机丢失报警
+        Value : (($v[9]>>1) & 0x1)
+        AlertNormalValue : 0
+      - Name : 群控地址重复报警
+        Value : (($v[9]>>2) & 0x1)
+        AlertNormalValue : 0
+      - Name : 进水高温报警
+        Value : (($v[10]>>0) & 0x1)
+        AlertNormalValue : 0
+      - Name : 进水低温报警
+        Value : (($v[10]>>1) & 0x1)
+        AlertNormalValue : 0
+      - Name : 出水高温报警
+        Value : (($v[10]>>2) & 0x1)
+        AlertNormalValue : 0
+      - Name : 出水低温报警
+        Value : (($v[10]>>3) & 0x1)
+        AlertNormalValue : 0
+      - Name : 进水高压报警
+        Value : (($v[10]>>4) & 0x1)
+        AlertNormalValue : 0
+      - Name : 进水低压报警
+        Value : (($v[10]>>5) & 0x1)
+        AlertNormalValue : 0
+      - Name : 水流丢失报警
+        Value : (($v[10]>>6) & 0x1)
+        AlertNormalValue : 0
+      - Name : 水流量低报警
+        Value : (($v[10]>>7) & 0x1)
+        AlertNormalValue : 0
+      - Name : 制冷剂泵驱动故障
+        Value : (($v[11]>>0) & 0x1)
+        AlertNormalValue : 0
+      - Name : 制冷剂泵入口压力传感器故障
+        Value : (($v[11]>>1) & 0x1)
+        AlertNormalValue : 0
+      - Name : 制冷剂泵出口压力传感器故障
+        Value : (($v[11]>>2) & 0x1)
+        AlertNormalValue : 0
+      - Name : 制冷剂泵环境温度故障
+        Value : (($v[11]>>3) & 0x1)
+        AlertNormalValue : 0
+      - Name : 制冷剂泵过温故障
+        Value : (($v[11]>>4) & 0x1)
+        AlertNormalValue : 0
+      - Name : 制冷剂泵过温锁定故障
+        Value : (($v[11]>>5) & 0x1)
+        AlertNormalValue : 0
+      - Name : 制冷剂泵高扬程告警
+        Value : (($v[11]>>6) & 0x1)
+        AlertNormalValue : 0
+      - Name : 制冷剂泵高扬程锁定告警
+        Value : (($v[11]>>7) & 0x1)
+        AlertNormalValue : 0
+      - Name : 制冷剂泵低扬程告警
+        Value : (($v[11]>>8) & 0x1)
+        AlertNormalValue : 0
+      - Name : 制冷剂泵低扬程锁定告警
+        Value : (($v[11]>>9) & 0x1)
+        AlertNormalValue : 0
+      - Name : 冷凝器驱动故障
+        Value : (($v[12]>>0) & 0x1)
+        AlertNormalValue : 0
+      - Name : 冷凝器压力传感器故障
+        Value : (($v[12]>>1) & 0x1)
+        AlertNormalValue : 0
+      - Name : 冷凝器风机故障
+        Value : (($v[12]>>2) & 0x1)
+        AlertNormalValue : 0
+      - Name : 冷凝器风机故障锁定
+        Value : (($v[12]>>3) & 0x1)
+        AlertNormalValue : 0
+      - Name : 冷凝器喷淋高压故障
+        Value : (($v[12]>>4) & 0x1)
+        AlertNormalValue : 0
+      - Name : 冷凝器低压差故障
+        Value : (($v[12]>>5) & 0x1)
+        AlertNormalValue : 0
+      - Name : 冷凝器环境温度传感器故障
+        Value : (($v[12]>>6) & 0x1)
+        AlertNormalValue : 0
+      - Name : 冷凝器风机未配置
+        Value : (($v[12]>>7) & 0x1)
+        AlertNormalValue : 0
+      - Name : 冷凝器喷淋水系统故障
+        Value : (($v[12]>>8) & 0x1)
+        AlertNormalValue : 0
+
+
+
+RunCheckThresholdCodeTelecom : |
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_1_0", "70601", "报警状态1", "远程关机报警", (cData.r3_2[0] & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_1_1", "70601", "报警状态1", "地板溢水报警", ((cData.r3_2[0] >> 1) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_1_2", "70601", "报警状态1", "烟感报警", ((cData.r3_2[0] >> 2) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_1_3", "70601", "报警状态1", "火感报警", ((cData.r3_2[0] >> 3) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_1_4", "70601", "报警状态1", "防雷器报警", ((cData.r3_2[0] >> 4) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_1_5", "70601", "报警状态1", "自定义1报警", ((cData.r3_2[0] >> 5) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_1_6", "70601", "报警状态1", "自定义2报警", ((cData.r3_2[0] >> 6) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_1_7", "70601", "报警状态1", "自定义3报警", ((cData.r3_2[0] >> 7) & 0x1), signal_index_++);
+
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_1_8", "70601", "报警状态1", "自定义4报警", ((cData.r3_2[0] >> 8) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_1_9", "70601", "报警状态1", "自定义5报警", ((cData.r3_2[0] >> 9) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_1_10", "70601", "报警状态1", "自定义6报警", ((cData.r3_2[0] >> 10) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_1_11", "70601", "报警状态1", "消防报警", ((cData.r3_2[0] >> 11) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_1_12", "70601", "报警状态1", "水盘超高水位报警", ((cData.r3_2[0]>> 12) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_1_13", "70601", "报警状态1", "注水故障报警", ((cData.r3_2[0] >> 13) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_1_14", "70601", "报警状态1", "水位开关故障报警", ((cData.r3_2[0] >> 14) & 0x1), signal_index_++);
+
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_2_0", "70601", "报警状态2", "电源丢失报警", (cData.r3_2[1] & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_2_1", "70601", "报警状态2", "电源过压报警", ((cData.r3_2[1] >> 1) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_2_2", "70601", "报警状态2", "电源欠压报警", ((cData.r3_2[1] >> 2) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_2_3", "70601", "报警状态2", "电源频偏报警", ((cData.r3_2[1] >> 3) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_2_4", "70601", "报警状态2", "电源缺相报警", ((cData.r3_2[1] >> 4) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_2_5", "70601", "报警状态2", "电源反相报警", ((cData.r3_2[1] >> 5) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_2_6", "70601", "报警状态2", "交流断电报警", ((cData.r3_2[1] >> 6) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_2_7", "70601", "报警状态2", "直流断电报警", ((cData.r3_2[1] >> 7) & 0x1), signal_index_++);
+
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_2_8", "70601", "报警状态2", "联动地址重复报警", ((cData.r3_2[1] >> 8) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_2_9", "70601", "报警状态2", "联动从机丢失报警", ((cData.r3_2[1] >> 9) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_2_10", "70601", "报警状态2", "湿膜维护提醒", ((cData.r3_2[1] >> 10) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "0777001", "0777001", "报警状态3", "风机维护提醒", cData.r3_2[2]&0x1, signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "0777001", "0777001", "报警状态3", "过滤网维护提醒", (cData.r3_2[2])&0x1, signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "0777001", "0777001", "报警状态3", "电加热维护提醒", (cData.r3_2[2]>>2)&0x1, signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "0777001", "0777001", "报警状态3", "加湿器维护提醒", (cData.r3_2[2]>>3)&0x1, signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "0777001", "0777001", "报警状态3", "压缩机维护提醒", (cData.r3_2[2]>>4)&0x1, signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "0777001", "0777001", "报警状态3", "风机故障报警", (cData.r3_2[2]>>5)&0x1, signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "0777001", "0777001", "报警状态3", "电加热故障报警", (cData.r3_2[2]>>6)&0x1, signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "0777001", "0777001", "报警状态3", "加湿器故障报警", (cData.r3_2[2]>>7)&0x1, signal_index_++);
+
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_3_8", "70601", "报警状态3", "红外加湿高水位报警", ((cData.r3_2[2] >> 8) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_3_9", "70601", "报警状态3", "过滤网堵塞报警", ((cData.r3_2[2]>> 9) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_3_10", "70601", "报警状态3", "风阀故障报警", ((cData.r3_2[2] >> 10) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_3_11", "70601", "报警状态3", "气流丢失报警", ((cData.r3_2[2]>> 11) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_3_12", "70601", "报警状态3", "冷凝高水位报警", ((cData.r3_2[2]>> 12) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_3_13", "70601", "报警状态3", "冷凝水泵报警", ((cData.r3_2[2] >> 13) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_3_14", "70601", "报警状态3", "水阀故障报警", ((cData.r3_2[2] >> 14) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_3_15", "70601", "报警状态3", "水阀维护提醒", ((cData.r3_2[2]>> 15) & 0x1), signal_index_++);
+
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_4_0", "70601", "报警状态4", "回风高温报警", (cData.r3_2[3] & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_4_1", "70601", "报警状态4", "回风低温报警", ((cData.r3_2[3] >> 1) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_4_2", "70601", "报警状态4", "送风高温报警", ((cData.r3_2[3]>> 2) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_4_3", "70601", "报警状态4", "送风低温报警", ((cData.r3_2[3]>> 3) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_4_4", "70601", "报警状态4", "远程高温报警", ((cData.r3_2[3]>> 4) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_4_5", "70601", "报警状态4", "远程低温报警", ((cData.r3_2[3]>> 5) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_4_6", "70601", "报警状态4", "回风高湿报警", ((cData.r3_2[3]>> 6) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_4_7", "70601", "报警状态4", " 回风地湿报警", ((cData.r3_2[3] >> 7) & 0x1), signal_index_++);
+
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_4_8", "70601", "报警状态4", "送风高湿报警", ((cData.r3_2[3] >> 8) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL4, "alarm_4_9", "70601", "报警状态4", "送风地湿报警", ((cData.r3_2[3] >> 9) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_4_10", "70601", "报警状态4", "远程高湿报警", ((cData.r3_2[3]>> 10) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_4_11", "70601", "报警状态4", "远程地湿报警", ((cData.r3_2[3]>> 11) & 0x1), signal_index_++);
+
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_5_0", "70601", "报警状态5", "回风温度传感器故障", (cData.r3_2[4] & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_5_1", "70601", "报警状态5", "回风湿度传感器故障", ((cData.r3_2[4] >> 1) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_5_2", "70601", "报警状态5", "送风温度传感器故障", ((cData.r3_2[4] >> 2) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_5_3", "70601", "报警状态5", "送风湿度传感器故障", ((cData.r3_2[4] >> 3) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_5_4", "70601", "报警状态5", "远程温度传感器故障", ((cData.r3_2[4]>> 4) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_5_5", "70601", "报警状态5", "远程湿度传感器故障", ((cData.r3_2[4] >> 5) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_5_6", "70601", "报警状态5", "回风传感器通讯故障", ((cData.r3_2[4] >> 6) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_5_7", "70601", "报警状态5", "送风传感器通讯故障", ((cData.r3_2[4] >> 7) & 0x1), signal_index_++);
+
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_5_8", "70601", "报警状态5", "远程传感器通讯故障", ((cData.r3_2[4]>> 8) & 0x1), signal_index_++);
+
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_6_0", "70601", "报警状态6", "气流丢失传感器故障", (cData.r3_2[5] & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_6_1", "70601", "报警状态6", "高压压力传感器故障", ((cData.r3_2[5] >> 1) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_6_2", "70601", "报警状态6", "低压压力传感器故障", ((cData.r3_2[5]>> 2) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_6_3", "70601", "报警状态6", "排气温度传感器故障", ((cData.r3_2[5] >> 3) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_6_4", "70601", "报警状态6", "吸气温度传感器故障", ((cData.r3_2[5]>> 4) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_6_5", "70601", "报警状态6", "进水温度传感器故障", ((cData.r3_2[5] >> 5) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_6_6", "70601", "报警状态6", "出水温度传感器故障", ((cData.r3_2[5] >> 6) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_6_7", "70601", "报警状态6", "风压传感器故障", ((cData.r3_2[5] >> 7) & 0x1), signal_index_++);
+
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_6_8", "70601", "报警状态6", "水压传感器故障", ((cData.r3_2[5] >> 8) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_6_9", "70601", "报警状态6", "水流量传感器故障", ((cData.r3_2[5] >> 9) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_6_10", "70601", "报警状态6", "滤网压差传感器故障", ((cData.r3_2[5] >> 10) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_6_11", "70601", "报警状态6", "低压压力传感器故障锁定", ((cData.r3_2[5]>> 11) & 0x1), signal_index_++);
+
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_7_0", "70601", "报警状态7", "高压报警", (cData.r3_2[6]& 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_7_1", "70601", "报警状态7", "高压锁定报警", ((cData.r3_2[6] >> 1) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_7_2", "70601", "报警状态7", "低压报警", ((cData.r3_2[6] >> 2) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_7_3", "70601", "报警状态7", "低压锁定报警", ((cData.r3_2[6] >> 3) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_7_4", "70601", "报警状态7", "排气高温报警", ((cData.r3_2[6]>> 4) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL4, "alarm_7_5", "70601", "报警状态7", "排气高温锁定报警", ((cData.r3_2[6] >> 5) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL4, "alarm_7_6", "70601", "报警状态7", "排气低温报警", ((cData.r3_2[6] >> 6) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL4, "alarm_7_7", "70601", "报警状态7", "排气低温锁定报警", ((cData.r3_2[6] >> 7) & 0x1), signal_index_++);
+
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_7_8", "70601", "报警状态7", "排气过热度低报警", ((cData.r3_2[6] >> 8) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_7_9", "70601", "报警状态7", "排气过热度低锁定报警", ((cData.r3_2[6] >> 9) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_7_10", "70601", "报警状态7", "盘管冻结报警", ((cData.r3_2[6] >> 10) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_7_11", "70601", "报警状态7", "盘管冻结锁定报警", ((cData.r3_2[6]>> 11) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_7_12", "70601", "报警状态7", "压缩机高压异常报警", ((cData.r3_2[6] >> 12) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_7_13", "70601", "报警状态7", "压差报警", ((cData.r3_2[6] >> 13) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_7_14", "70601", "报警状态7", "压差锁定报警", ((cData.r3_2[6] >> 14) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_7_15", "70601", "报警状态7", "压缩机低压异常报警", ((cData.r3_2[6] >> 15) & 0x1), signal_index_++);
+
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_8_0", "70601", "报警状态8", "电子膨胀阀驱动通信故障", (cData.r3_2[7] & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_8_1", "70601", "报警状态8", "电子膨胀阀驱动故障", ((cData.r3_2[7]>> 1) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_8_2", "70601", "报警状态8", "压缩机驱动通信故障", ((cData.r3_2[7]>> 2) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_8_3", "70601", "报警状态8", "压缩机驱动故障", ((cData.r3_2[7] >> 3) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_8_4", "70601", "报警状态8", "压缩机驱动故障锁定", ((cData.r3_2[7]>> 4) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_8_5", "70601", "报警状态8", "风机检测板通讯故障", ((cData.r3_2[7] >> 5) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_8_6", "70601", "报警状态8", "压缩机驱动通信锁定", ((cData.r3_2[7] >> 6) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_8_7", "70601", "报警状态8", "功率表通讯故障", ((cData.r3_2[7] >> 7) & 0x1), signal_index_++);
+
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_8_8", "70601", "报警状态8", "制冷剂泵通讯故障", ((cData.r3_2[7]>> 8) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_8_9", "70601", "报警状态8", "冷凝器通讯故障", ((cData.r3_2[7] >> 9) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_8_10", "70601", "报警状态8", "节能卡故障", ((cData.r3_2[7] >> 10) & 0x1), signal_index_++);
+
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_9_0", "70601", "报警状态9", "群控主机丢失报警", (cData.r3_2[8] & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_9_1", "70601", "报警状态9", "群控从机丢失报警", ((cData.r3_2[8] >> 1) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_9_2", "70601", "报警状态9", "群控地址重复报警", ((cData.r3_2[8] >> 2) & 0x1), signal_index_++);
+
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_10_0", "70601", "报警状态10", "进水高温报警", (cData.r3_2[9] & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_10_1", "70601", "报警状态10", "进水低温报警", ((cData.r3_2[9]  >> 1) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_10_2", "70601", "报警状态10", "出水高温报警", ((cData.r3_2[9]  >> 2) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_10_3", "70601", "报警状态10", "出水低温报警", ((cData.r3_2[9]  >> 3) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_10_4", "70601", "报警状态10", "进水高压报警", ((cData.r3_2[9]  >> 4) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_10_5", "70601", "报警状态10", "进水低压报警", ((cData.r3_2[9] >> 5) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_10_6", "70601", "报警状态10", "水流丢失报警", ((cData.r3_2[9]  >> 6) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_10_7", "70601", "报警状态10", "水流量低报警", ((cData.r3_2[9]  >> 7) & 0x1), signal_index_++);
+
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_11_0", "70601", "报警状态11", "制冷剂泵驱动故障", (cData.r3_2[10]  & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_11_1", "70601", "报警状态11", "制冷剂泵入口压力传感器故障", ((cData.r3_2[10]  >> 1) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_11_2", "70601", "报警状态11", "制冷剂泵出口压力传感器故障", ((cData.r3_2[10] >> 2) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_11_3", "70601", "报警状态11", "制冷剂泵环境温度故障", ((cData.r3_2[10] >> 3) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_11_4", "70601", "报警状态11", "制冷剂泵过温故障", ((cData.r3_2[10] >> 4) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_11_5", "70601", "报警状态11", "制冷剂泵过温锁定故障", ((cData.r3_2[10] >> 5) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_11_6", "70601", "报警状态11", "制冷剂泵高扬程告警", ((cData.r3_2[10] >> 6) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_11_7", "70601", "报警状态11", "制冷剂泵高扬程锁定告警", ((cData.r3_2[10] >> 7) & 0x1), signal_index_++);
+
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_11_8", "70601", "报警状态11", "制冷剂泵低扬程告警", ((cData.r3_2[10] >> 8) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_11_9", "70601", "报警状态11", "制冷剂泵低扬程锁定告警", ((cData.r3_2[10] >> 9) & 0x1), signal_index_++);
+
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_12_0", "70601", "报警状态12", "冷凝器驱动故障", (cData.r3_2[11] & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_12_1", "70601", "报警状态12", "冷凝器压力传感器故障", ((cData.r3_2[11] >> 1) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_12_2", "70601", "报警状态12", "冷凝器风机故障", ((cData.r3_2[11] >> 2) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_12_3", "70601", "报警状态12", "冷凝器风机故障锁定", ((cData.r3_2[11] >> 3) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_12_4", "70601", "报警状态12", "冷凝器喷淋高压故障", ((cData.r3_2[11] >> 4) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_12_5", "70601", "报警状态12", "冷凝器低压差故障", ((cData.r3_2[11] >> 5) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_12_6", "70601", "报警状态12", "冷凝器环境温度传感器故障", ((cData.r3_2[11] >> 6) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_12_7", "70601", "报警状态12", "冷凝器风机未配置", ((cData.r3_2[11] >> 7) & 0x1), signal_index_++);
+
+  CheckThresholdBool(SMDController::LEVEL1, "alarm_12_8", "70601", "报警状态12", "冷凝器喷淋水系统故障", ((cData.r3_2[11] >> 8) & 0x1), signal_index_++);

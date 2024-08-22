@@ -1,0 +1,701 @@
+Project:
+  Name :  XHBPQA
+  RT_ID : 5156
+  File : "电力分析仪通信协议.pdf"
+Sample : 
+  - Cmd : 3
+    Offset : 0x0020
+    Len : 16
+    Data : 
+      - Name : "T相有功消耗电度"
+        Unit : "Kwh"
+        Offset : 1
+        Value: (($v[1]<<16)+$v[2])/100
+      - Name : "T相有功释放电度"
+        Unit : "Kwh"
+        Offset : 3
+        Value: (($v[3]<<16)+$v[4])/100
+      - Name : "T相无功消耗电度"
+        Unit : "Kvarh"
+        Offset : 5
+        Value: (($v[5]<<16)+$v[6])/100
+      - Name : "T相无功释放电度"
+        Unit : "Kvarh"
+        Offset : 7
+        Value: (($v[7]<<16)+$v[8])/100
+      - Name : "T相总有功电度"
+        Unit : "Kwh"
+        Offset : 9
+        Value: (($v[9]<<16)+$v[10])/100
+      - Name : "T相净有功电度"
+        Unit : "Kwh"
+        Offset : 11
+        Value: (($v[11]<<16)+$v[12])/100
+      - Name : "T相总无功电度"
+        Unit : "Kvarh"
+        Offset : 13
+        Value: (($v[13]<<16)+$v[14])/100
+      - Name : "T相净无功电度"
+        Unit : "Kvarh"
+        Offset : 15
+        Value: (($v[15]<<16)+$v[16])/100
+  - Cmd : 3
+    Offset : 0x0030
+    Len : 31
+    Data : 
+      - Name : "条件不等式使能寄存器"
+        Offset : 1
+      - Name : "时间限值设定寄存器"
+        Offset : 2
+      - Name : "不等式与继电器1关联寄存器"
+        Offset : 3
+      - Name : "不等式与继电器2关联寄存器"
+        Offset : 4
+      - Name : "第1组不等式变量选择寄存器"
+        Offset : 5
+      - Name : "第1组不等式符号选择寄存器"
+        Offset : 6
+      - Name : "第1组不等式限值设定寄存器"
+        Offset : 7
+      - Name : "第2组不等式变量选择寄存器 "
+        Offset : 8
+      - Name : "第2组不等式符号选择寄存器 "
+        Offset : 9
+      - Name : "第2组不等式限值设定寄存器"
+        Offset : 10
+      - Name : "第3组不等式变量选择寄存器"
+        Offset : 11
+      - Name : "第3组不等式符号选择寄存器"
+        Offset : 12
+      - Name : "第3组不等式限值设定寄存器"
+        Offset : 13
+      - Name : "第4组不等式变量选择寄存器"
+        Offset : 14
+      - Name : "第4组不等式符号选择寄存器"
+        Offset : 15
+      - Name : "第4组不等式限值设定寄存器 "
+        Offset : 16
+      - Name : "第5组不等式变量选择寄存器"
+        Offset : 17
+      - Name : "第5组不等式符号选择寄存器"
+        Offset : 18
+      - Name : "第5组不等式限值设定寄存器"
+        Offset : 19
+      - Name : "第6组不等式变量选择寄存器"
+        Offset : 20
+      - Name : "第6组不等式符号选择寄存器"
+        Offset : 21
+      - Name : "第6组不等式限值设定寄存器"
+        Offset : 22
+      - Name : "第7组不等式变量选择寄存器"
+        Offset : 23
+      - Name : "第7组不等式符号选择寄存器 "
+        Offset : 24
+      - Name : "第7组不等式限值设定寄存器"
+        Offset : 25
+      - Name : "第8组不等式变量选择寄存器"
+        Offset : 26
+      - Name : "第8组不等式符号选择寄存器"
+        Offset : 27
+      - Name : "第8组不等式限值设定寄存器"
+        Offset : 28
+      - Name : "第9组不等式变量选择寄存器"
+        Offset : 29
+      - Name : "第9组不等式符号选择寄存器"
+        Offset : 30
+      - Name : "第9组不等式限值设定寄存器"
+        Offset : 31
+  - Cmd : 3
+    Offset : 0x0100
+    Len : 36
+    Data : 
+      - Name : "电网频率"
+        Unit : "Hz"
+        Ratio : 100
+        Offset : 1
+      - Name : "A相电压"
+        Unit : "V"
+        Ratio : 10
+        Offset : 2
+      - Name : "B相电压"
+        Unit : "V"
+        Ratio : 10
+        Offset : 3
+      - Name : "C相电压"
+        Unit : "V"
+        Ratio : 10
+        Offset : 4
+      - Name : "相电压均值"
+        Unit : "V"
+        Ratio : 10
+        Offset : 5
+      - Name : "AB线电压"
+        Unit : "V"
+        Ratio : 10
+        Offset : 6
+      - Name : "BC线电压"
+        Unit : "V"
+        Ratio : 10
+        Offset : 7
+      - Name : "CA线电压 "
+        Unit : "V"
+        Ratio : 10
+        Offset : 8
+      - Name : "线电压均值 "
+        Unit : "V"
+        Ratio : 10
+        Offset : 9
+      - Name : "A相电流"
+        Unit : "A"
+        Ratio : 100
+        Offset : 10
+      - Name : "B相电流"
+        Unit : "A"
+        Ratio : 100
+        Offset : 11
+      - Name : "C相电流"
+        Unit : "A"
+        Ratio : 100
+        Offset : 12
+      - Name : "三相电流平均值"
+        Unit : "A"
+        Ratio : 100
+        Offset : 13
+      - Name : "中线电流"
+        Unit : "A"
+        Ratio : 100
+        Offset : 14
+      - Name : "A相有功功率"
+        Unit : "KW"
+        Ratio : 1000
+        Offset : 15
+      - Name : "B相有功功率 "
+        Unit : "KW"
+        Ratio : 1000
+        Offset : 16
+      - Name : "C相有功功率"
+        Unit : "KW"
+        Ratio : 1000
+        Offset : 17
+      - Name : "总有功功率"
+        Unit : "KW"
+        Ratio : 1000
+        Offset : 18
+      - Name : "A相无功功率"
+        Unit : "Kvar"
+        Ratio : 1000
+        Offset : 19
+      - Name : "B相无功功率"
+        Unit : "Kvar"
+        Ratio : 1000
+        Offset : 20
+      - Name : "C相无功功率"
+        Unit : "Kvar"
+        Ratio : 1000
+        Offset : 21
+      - Name : "总无功功率"
+        Unit : "Kvar"
+        Ratio : 1000
+        Offset : 22
+      - Name : "A相视在功率"
+        Unit : "KA"
+        Ratio : 1000
+        Offset : 23
+      - Name : "B相视在功率 "
+        Unit : "KA"
+        Ratio : 1000
+        Offset : 24
+      - Name : "C相视在功率"
+        Unit : "KA"
+        Ratio : 1000
+        Offset : 25
+      - Name : "总视在功率"
+        Unit : "KA"
+        Ratio : 1000
+        Offset : 26
+      - Name : "A相功率因数"
+        Ratio : 1000
+        Offset : 27
+      - Name : "B相功率因数"
+        Ratio : 1000
+        Offset : 28
+      - Name : "C相功率因数"
+        Ratio : 1000
+        Offset : 29
+      - Name : "总功率因数"
+        Ratio : 1000
+        Offset : 30
+      - Name : "电压不平衡度"
+        Ratio : 100
+        Offset : 31
+      - Name : "电流不平衡度"
+        Ratio : 100
+        Offset : 32
+      - Name : "负载性质RT（感性/容性/阻性）"
+        Offset : 33
+      - Name : "有功功率需量"
+        Unit : "KW"
+        Ratio : 1000
+        Offset : 34
+      - Name : "无功功率需量"
+        Unit : "Kvar"
+        Ratio : 1000
+        Offset : 35
+      - Name : "视在功率需量"
+        Unit : "KA"
+        Ratio : 1000
+        Offset : 36
+  - Cmd : 3
+    Offset : 0x0124
+    Len : 8
+    Data : 
+      - Name : "UA总畸变率"
+        Ratio : 100
+        Offset : 1
+      - Name : "UB总畸变率"
+        Ratio : 100
+        Offset : 2
+      - Name : "UC总畸变率"
+        Ratio : 100
+        Offset : 3
+      - Name : "UT总畸变率"
+        Ratio : 100
+        Offset : 4
+      - Name : "IA总畸变率"
+        Ratio : 100
+        Offset : 5
+      - Name : "IB总畸变率"
+        Ratio : 100
+        Offset : 6
+      - Name : "IC总畸变率"
+        Ratio : 100
+        Offset : 7
+      - Name : "IT总畸变率"
+        Ratio : 100
+        Offset : 8
+  - Cmd : 3
+    Offset : 0x012C
+    Len : 20
+    Data :   
+      - ArrayName : "UA %d次谐波"
+        NameOffset :  1
+        ArrayLength : 20
+        Ratio : 1000
+        Offset : 1
+  - Cmd : 3
+    Offset : 0x014A
+    Len : 4
+    Data : 
+      - Name : "UA 奇次谐波畸变率"
+        Ratio : 100
+        Offset : 1
+      - Name : "UA 偶次谐波畸变率"
+        Ratio : 100
+        Offset : 2
+      - Name : "UA 波峰系数"
+        Ratio : 1000
+        Offset : 3
+      - Name : "UA 电话谐波波形因数"
+        Ratio : 100
+        Offset : 4
+  - Cmd : 3
+    Offset : 0x014E
+    Len : 20
+    Data :   
+      - ArrayName : "UB %d次谐波"
+        NameOffset :  1
+        ArrayLength : 20
+        Ratio : 1000
+        Offset : 1
+  - Cmd : 3
+    Offset : 0x016C
+    Len : 4
+    Data : 
+      - Name : "UB 奇次谐波畸变率"
+        Ratio : 100
+        Offset : 1
+      - Name : "UB 偶次谐波畸变率"
+        Ratio : 100
+        Offset : 2
+      - Name : "UB 波峰系数"
+        Ratio : 1000
+        Offset : 3
+      - Name : "UB 电话谐波波形因数"
+        Ratio : 1000
+        Offset : 4
+  - Cmd : 3
+    Offset : 0x0170
+    Len : 20
+    Data :   
+      - ArrayName : "UC %d次谐波"
+        NameOffset :  1
+        ArrayLength : 20
+        Ratio : 1000
+        Offset : 1
+  - Cmd : 3
+    Offset : 0x018E
+    Len : 4
+    Data :  
+      - Name : "UC 奇次谐波畸变率"
+        Ratio : 100
+        Offset : 1
+      - Name : "UC 偶次谐波畸变率"
+        Ratio : 100
+        Offset : 2
+      - Name : "UC 波峰系数"
+        Ratio : 100
+        Offset : 3
+      - Name : "UC 电话谐波波形因数"
+        Ratio : 100
+        Offset : 4
+  - Cmd : 3
+    Offset : 0x0192
+    Len : 20
+    Data :   
+      - ArrayName : "IA %d次谐波"
+        NameOffset :  1
+        ArrayLength : 20
+        Ratio : 1000
+        Offset : 1
+  - Cmd : 3
+    Offset : 0x01B0
+    Len : 3
+    Data :   
+      - Name : "IA 奇次谐波畸变率"
+        Ratio : 100
+        Offset : 1
+      - Name : "IA 偶次谐波畸变率"
+        Ratio : 100
+        Offset : 2
+      - Name : "IA  K系数"
+        Ratio : 1000
+        Offset : 3
+  - Cmd : 3
+    Offset : 0x01B3
+    Len : 20
+    Data :   
+      - ArrayName : "IB %d次谐波"
+        NameOffset :  1
+        ArrayLength : 20
+        Ratio : 1000
+        Offset : 1
+  - Cmd : 3
+    Offset : 0x01D1
+    Len : 3
+    Data :   
+      - Name : "IB 奇次谐波畸变率"
+        Ratio : 100
+        Offset : 1
+      - Name : "IB 偶次谐波畸变率"
+        Ratio : 100
+        Offset : 2
+      - Name : "IB  K系数"
+        Ratio : 100
+        Offset : 3
+  - Cmd : 3
+    Offset : 0x01D4
+    Len : 20
+    Data :   
+      - ArrayName : "IC %d次谐波"
+        NameOffset :  1
+        ArrayLength : 20
+        Ratio : 1000
+        Offset : 1
+  - Cmd : 3
+    Offset : 0x01F2
+    Len : 3
+    Data :   
+      - Name : "IC 奇次谐波畸变率"
+        Ratio : 100
+        Offset : 1
+      - Name : "IC 偶次谐波畸变率"
+        Ratio : 100
+        Offset : 2
+      - Name : "IC  K系数"
+        Ratio : 1000
+        Offset : 3
+  - Cmd : 3
+    Offset : 0x01F5
+    Len : 8
+    Data :   
+      - Name : "VB相对于VA的相角差"
+        Ratio : 10
+        Offset : 1
+      - Name : "VC相对于VA的相角差"
+        Ratio : 10
+        Offset : 2
+      - Name : "IA相对于VA的相角差"
+        Ratio : 10
+        Offset : 3
+      - Name : "IB相对于VB的相角差"
+        Ratio : 10
+        Offset : 4
+      - Name : "IC相对于VC的相角差"
+        Ratio : 10
+        Offset : 5
+      - Name : "VBC相对于VAB的相角差"
+        Ratio : 10
+        Offset : 6
+      - Name : "IA相对于VAB的相角差"
+        Ratio : 10
+        Offset : 7
+      - Name : "IC相对于VAB的相角差"
+        Ratio : 10
+        Offset : 8
+  - Cmd : 3
+    Offset : 0x0500
+    Len : 48
+    Data :   
+      - Name : "A相有功消耗电度"
+        Unit : "Kwh"
+        Offset : 1
+        Value: (($v[1]<<16)+$v[2])/100
+      - Name : "A相有功释放电度"
+        Unit : "Kwh"
+        Offset : 3
+        Value: (($v[3]<<16)+$v[4])/100
+      - Name : "A相无功消耗电度"
+        Unit : "Kvarh"
+        Offset : 5
+        Value: (($v[5]<<16)+$v[6])/100
+      - Name : "A相无功释放电度"
+        Unit : "Kvarh"
+        Offset : 7
+        Value: (($v[7]<<16)+$v[8])/100
+      - Name : "A相总有功电度"
+        Unit : "Kwh"
+        Offset : 9
+        Value: (($v[9]<<16)+$v[10])/100
+      - Name : "A相净有功电度"
+        Unit : "Kwh"
+        Offset : 11
+        Value: (($v[11]<<16)+$v[12])/100
+      - Name : "A相总无功电度"
+        Unit : "Kvarh"
+        Offset : 13
+        Value: (($v[13]<<16)+$v[14])/100
+      - Name : "A相净无功电度"
+        Unit : "Kvarh"
+        Offset : 15
+        Value: (($v[15]<<16)+$v[16])/100
+      - Name : "B相有功消耗电度"
+        Unit : "Kwh"
+        Offset : 17
+        Value: (($v[17]<<16)+$v[18])/100
+      - Name : "B相有功释放电度"
+        Unit : "Kwh"
+        Offset : 19
+        Value: (($v[19]<<16)+$v[20])/100
+      - Name : "B相无功消耗电度"
+        Unit : "Kvarh"
+        Offset : 21
+        Value: (($v[21]<<16)+$v[22])/100
+      - Name : "B相无功释放电度"
+        Unit : "Kvarh"
+        Offset : 23
+        Value: (($v[23]<<16)+$v[24])/100
+      - Name : "B相总有功电度"
+        Unit : "Kwh"
+        Offset : 25
+        Value: (($v[25]<<16)+$v[26])/100
+      - Name : "B相净有功电度"
+        Unit : "Kwh"
+        Offset : 27
+        Value: (($v[27]<<16)+$v[28])/100
+      - Name : "B相总无功电度"
+        Unit : "Kvarh"
+        Offset : 29
+        Value: (($v[29]<<16)+$v[30])/100
+      - Name : "B相净无功电度"
+        Unit : "Kvarh"
+        Offset : 31
+        Value: (($v[31]<<16)+$v[32])/100
+      - Name : "C相有功消耗电度"
+        Unit : "Kwh"
+        Offset : 33
+        Value: (($v[33]<<16)+$v[34])/100
+      - Name : "C相有功释放电度"
+        Unit : "Kwh"
+        Offset : 35
+        Value: (($v[35]<<16)+$v[36])/100
+      - Name : "C相无功消耗电度"
+        Unit : "Kvarh"
+        Offset : 37
+        Value: (($v[37]<<16)+$v[38])/100
+      - Name : "C相无功释放电度"
+        Unit : "Kvarh"
+        Offset : 39
+        Value: (($v[39]<<16)+$v[40])/100
+      - Name : "C相总有功电度"
+        Unit : "Kwh"
+        Offset : 41
+        Value: (($v[41]<<16)+$v[42])/100
+      - Name : "C相净有功电度"
+        Unit : "Kwh"
+        Offset : 43
+        Value: (($v[43]<<16)+$v[44])/100
+      - Name : "C相总无功电度"
+        Unit : "Kvarh"
+        Offset : 45
+        Value: (($v[45]<<16)+$v[46])/100
+      - Name : "C相净无功电度"
+        Unit : "Kvarh"
+        Offset : 47
+        Value: (($v[47]<<16)+$v[48])/100
+  - Cmd : 3
+    Offset : 0x0600
+    Len : 17
+    Data :   
+      - Name : "A相基波电压"
+        Unit : "V"
+        Ratio : 10
+        Offset : 1
+      - Name : "B相基波电压"
+        Unit : "V"
+        Ratio : 10
+        Offset : 2
+      - Name : "C相基波电压"
+        Unit : "V"
+        Ratio : 10
+        Offset : 3
+      - Name : "AB相基波线电压"
+        Unit : "V"
+        Ratio : 10
+        Offset : 4
+      - Name : "BC相基波线电压"
+        Unit : "V"
+        Ratio : 10
+        Offset : 5
+      - Name : "CA相基波线电压"
+        Unit : "V"
+        Ratio : 10
+        Offset : 6
+      - Name : "A相基波电流"
+        Unit : "A"
+        Ratio : 100
+        Offset : 7
+      - Name : "B相基波电流"
+        Unit : "A"
+        Ratio : 100
+        Offset : 8
+      - Name : "C相基波电流"
+        Unit : "A"
+        Ratio : 100
+        Offset : 9
+      - Name : "总基波有功功率"
+        Unit : "KW"
+        Ratio : 1000
+        Offset : 10
+      - Name : "A相基波有功功率"
+        Unit : "KW"
+        Ratio : 1000
+        Offset : 11
+      - Name : "B相基波有功功率"
+        Unit : "KW"
+        Ratio : 1000
+        Offset : 12
+      - Name : "C相基波有功功率"
+        Unit : "KW"
+        Ratio : 1000
+        Offset : 13
+      - Name : "总基波无功功率"
+        Unit : "Kvar"
+        Ratio : 1000
+        Offset : 14
+      - Name : "A相基波无功功率"
+        Unit : "Kvar"
+        Ratio : 1000
+        Offset : 15
+      - Name : "B相基波无功功率"
+        Unit : "Kvar"
+        Ratio : 1000
+        Offset : 16
+      - Name : "C相基波无功功率"
+        Unit : "Kvar"
+        Ratio : 1000
+        Offset : 17
+  - Cmd : 3
+    Offset : 0x0700
+    Len : 14
+    Data :   
+      - Name : "A相谐波电压"
+        Unit : "V"
+        Ratio : 10
+        Offset : 1
+      - Name : "B相谐波电压"
+        Unit : "V"
+        Ratio : 10
+        Offset : 2
+      - Name : "C相谐波电压"
+        Unit : "V"
+        Ratio : 10
+        Offset : 3
+      - Name : "A相谐波电流"
+        Unit : "A"
+        Ratio : 100
+        Offset : 4
+      - Name : "B相谐波电流"
+        Unit : "A"
+        Ratio : 100
+        Offset : 5
+      - Name : "C相谐波电流"
+        Unit : "A"
+        Ratio : 100
+        Offset : 6
+      - Name : "总谐波有功功率"
+        Unit : "KW"
+        Ratio : 1000
+        Offset : 7
+      - Name : "A相谐波有功功率"
+        Unit : "KW"
+        Ratio : 1000
+        Offset : 8
+      - Name : "B相谐波有功功率"
+        Unit : "KW"
+        Ratio : 1000
+        Offset : 9
+      - Name : "C相谐波有功功率"
+        Unit : "KW"
+        Ratio : 1000
+        Offset : 10
+      - Name : "总谐波无功功率"
+        Unit : "Kvar"
+        Ratio : 1000
+        Offset : 11
+      - Name : "A相谐波无功功率"
+        Unit : "Kvar"
+        Ratio : 1000
+        Offset : 12
+      - Name : "B相谐波无功功率"
+        Unit : "Kvar"
+        Ratio : 1000
+        Offset : 13
+      - Name : "C相谐波无功功率"
+        Unit : "Kvar"
+        Ratio : 1000
+        Offset : 14
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+

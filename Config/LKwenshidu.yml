@@ -1,0 +1,17 @@
+Project:
+  Name : LKwenshidu
+  RT_ID : 5157
+  File : ""
+Sample : 
+  - Cmd : 4
+    Offset : 0x0000
+    Len : 2
+    Data : 
+      - Name : "环境温度"
+        Offset : 1
+        Unit : "℃"
+        Ratio : 10
+      - Name : "环境湿度"
+        Offset : 2
+        Unit : "%RH"
+        Ratio : 10

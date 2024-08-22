@@ -1,0 +1,155 @@
+Project:
+  Name : ASCB1
+  RT_ID : 5156
+  File : "测试.pdf"
+InitSetting :
+  - Name : ct
+    Type : int
+  - Name : has_a
+    Type : int
+Sample :
+  - Cmd : 3
+    Offset : 0x000A
+    Len : 14
+    Data :
+      - Name : 已重合闸次数
+      - Name : 漏电温度预报警标志位
+      - Name : 功率预报警标志位
+      - Name : 电压预报警标志位
+      - Name : 电流预报警标志位
+      - Name : 当前信号值
+      - Name : 当前型号
+      - Name : 漏电温度接线故障标志位
+      - Name : 漏电温度报警标志位
+      - Name : 功率报警标志位
+      - Name : 电压报警标志位
+      - Name : 电流报警标志位
+      - Name : 当前状态
+      - Name : 分合闸控制
+      - Name : 剩余电流测量值
+      - Name : 温度1测量值
+      - Name : 温度2测量值
+      - Name : 温度3测量值
+      - Name : 温度4测量值
+      - Name : 剩余电流报警时测量值
+      - Name : 温度1报警时测量值
+      - Name : 温度2报警时测量值
+      - Name : 温度3报警时测量值
+      - Name : 温度4报警时测量值
+      - Name : 频率
+      - Name : 电压不平衡度
+      - Name : A相相电压
+      - Name : B相相电压
+      - Name : C相相电压
+      - Name : 相电压平均值
+      - Name : 零序电压
+      - Name : AB相线电压
+      - Name : BC相线电压
+      - Name : CA相线电压
+      - Name : 线电压平均值
+      - Name : A相过压时报警测量值
+      - Name : B相过压时报警测量值
+      - Name : C相过压时报警测量值
+      - Name : A相欠压时报警测量值
+      - Name : B相欠压时报警测量值
+      - Name : C相欠压时报警测量值
+      - Name : 电流不平衡度
+      - Name : A相电流测量值
+      - Name : B相电流测量值
+      - Name : C相电流测量值
+      - Name : 电流平均值
+      - Name : 零序电流
+      - Name : A相过流时报警测量值
+      - Name : B相过流时报警测量值
+      - Name : C相过流时报警测量值
+      - Name : A相有功功率
+      - Name : B相有功功率
+      - Name : C相有功功率
+      - Name : 总有功功率
+      - Name : A相无功功率
+      - Name : B相无功功率
+      - Name : C相无功功率
+      - Name : 总无功功率
+      - Name : A相视在功率
+      - Name : B相视在功率
+      - Name : C相视在功率
+      - Name : 总视在功率
+      - Name : A相功率因数
+      - Name : B相功率因数
+      - Name : C相功率因数
+      - Name : 总功率因数
+      - Name : EPI测量值
+      - Name : EPE测量值
+      - Name : EQL测量值
+      - Name : EQC测量值
+      - Name : ES测量值
+        Offset : 72
+  - Cmd : 3
+    Offset : 0x001A
+    Len : 114
+
+RunCheckThreshold : |
+  CheckThresholdBool(1, "0777001", "0777001", "电压量程", "", cData.alarm1&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "电流量程", "", cData.alarm1>>1&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "接线方式", "", cData.alarm1>>2&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "电压变比", "", cData.alarm1>>3&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "漏电流变比", "", cData.alarm1>>4&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "漏电报警类型", "", cData.alarm1>>5&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "漏电预警值", "", cData.alarm1>>6&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "漏电报警值", "", cData.alarm1>>7&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "漏电报警时间", "", cData.alarm1>>8&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "温度1报警类型", "", cData.alarm1>>9&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "温度1报警类型", "", cData.alarm1>>10&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "温度1预警值", "", cData.alarm1>>11&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "温度1预警值", "", cData.alarm1>>12&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "温度1警时间", "", cData.alarm1>>13&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "温度2报警类型", "", cData.alarm1>>14&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "温度2预警值", "", cData.alarm1>>15&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "温度2报警值", "", cData.alarm2&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "温度2警时间", "", cData.alarm2>>1&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "温度3报警类型", "", cData.alarm2>>2&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "温度3预警值", "", cData.alarm2>>3&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "温度3报警值", "", cData.alarm2>>4&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "温度3警时间", "", cData.alarm2>>5&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "温度4报警类型", "", cData.alarm2>>6&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "温度4预警值", "", cData.alarm2>>7&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "温度4报警值", "", cData.alarm2>>8&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "温度4警时间", "", cData.alarm2>>9&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "过压预警值", "", cData.alarm2>>10&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "过压报警值", "", cData.alarm2>>11&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "过压报警时间", "", cData.alarm2>>12&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "欠压报警类型", "", cData.alarm2>>13&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "欠压预警值", "", cData.alarm2>>14&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "欠压报警值", "", cData.alarm2>>15&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "欠压报警类型", "", cData.alarm3&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "过流预警值", "", cData.alarm3>>1&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "过流报警值", "", cData.alarm3>>2&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "过流报警时间", "", cData.alarm3>>3&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "过功率报警类型", "", cData.alarm3>>4&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "过功率预警值", "", cData.alarm3>>5&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "过功率报警值", "", cData.alarm3>>6&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "过功率报警时间", "", cData.alarm3>>7&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "短路报警类型", "", cData.alarm3>>8&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "短路预警值", "", cData.alarm3>>9&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "短路报警值", "", cData.alarm3>>10&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "短路报警时间", "", cData.alarm3>>11&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "电压不平衡报警类型", "", cData.alarm3>>12&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "电压不平衡预警值", "", cData.alarm3>>13&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "电压不平衡报警值", "", cData.alarm3>>14&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "电压不平衡报警时间", "", cData.alarm3>>15&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "电流不平衡报警类型", "", cData.alarm4&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "电流不平衡预警值", "", cData.alarm4>>1&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "电流不平衡报警值", "", cData.alarm4>>2&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "电流不平衡报警时间", "", cData.alarm4>>3&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "电压逆相报警类型", "", cData.alarm4>>4&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "电压逆相预警值", "", cData.alarm4>>5&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "电压逆相报警值", "", cData.alarm4>>6&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "电压逆相报警时间", "", cData.alarm4>>7&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "电流逆相报警类型", "", cData.alarm4>>8&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "电流逆相预警值", "", cData.alarm4>>9&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "电流逆相报警值", "", cData.alarm4>>10&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "电流逆相报警时间", "", cData.alarm4>>11&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "功率因数低报警类型", "", cData.alarm4>>12&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "功率因数低预警值", "", cData.alarm4>>13&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "功率因数低报警值", "", cData.alarm4>>14&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "功率因数低报警时间", "", cData.alarm4>>>15&0x1, 1);

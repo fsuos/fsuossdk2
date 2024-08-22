@@ -1,0 +1,610 @@
+Project:
+  Name : modbus
+  RT_ID : 5156
+  File : "RS485 Modbus RTU"
+Sample : 
+  - Cmd : 3
+    Offset : 0
+    Len : 
+   # Type : "S"
+    Data : 
+      - Name : "UA电压有效值"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "UB电压有效值"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "UC电压有效值"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "AB线电压"
+        Unit : "Hz"
+        Offset : 4
+        Ratio : 10
+      - Name : "BC线电压"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "AC线电压"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "A相电流"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "B相电流"
+        Unit : "Hz"
+        Offset : 4
+        Ratio : 10
+      - Name : "C相电流"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "IN中线电流"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "PA有功功率高"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "PA有功功率低"
+        Unit : "Hz"
+        Offset : 4
+        Ratio : 10
+      - Name : "PB有功功率高"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "PB有功功率低"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "PC有功功率高"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "PC有功功率低"
+        Unit : "Hz"
+        Offset : 4
+        Ratio : 10
+      - Name : "P总有功功率高"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "P总有功功率低"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "QA无功功率高"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "QA无功功率低"
+        Unit : "Hz"
+        Offset : 4
+        Ratio : 10
+      - Name : "QB无功功率高"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "QB无功功率低"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "QC无功功率高"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "QC无功功率低"
+        Unit : "Hz"
+        Offset : 4
+        Ratio : 10
+      - Name : "Q总无功功率高"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "Q总无功功率低"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "SA视在功率高"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "SA视在功率低"
+        Unit : "Hz"
+        Offset : 4
+        Ratio : 10
+
+      - Name : "SB视在功率高"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "SB视在功率低"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "SC视在功率高"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "SC视在功率低"
+        Unit : "Hz"
+        Offset : 4
+        Ratio : 10
+      - Name : "S总视在功率高"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "S总视在功率低"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "A功率因素"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "B功率因素"
+        Unit : "Hz"
+        Offset : 4
+        Ratio : 10
+      - Name : "C功率因素"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "总功率因"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "频率"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+
+
+
+
+  - Cmd : 3
+    Offset : 200
+    Len : 
+   # Type : "S"
+    Data : 
+      - Name : "有功电量总高"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "有功电量总低"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "无功电量总高"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "无功电量总低"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "正向有功电量总高"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "正向有功电量总低"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "反向有功电量总高"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "反向有功电量总L"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "正向无功电量总高"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "正向无功电量总低"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "反向无功电量总高"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "反向无功电量总低"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "费率1有功电量总高"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "费率1有功电量总低"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "费率2有功电量总高"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "费率2有功电量总低"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "费率3有功电量总高"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "费率3有功电量总低"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "费率4有功电量总高"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "费率4有功电量总低"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "费率5有功电量总高"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "费率5有功电量总低"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "费率6有功电量总高"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "费率6有功电量总低"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "费率7有功电量总高"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "费率7有功电量总低"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "费率8有功电量总高"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "费率8有功电量总低"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+
+
+
+
+  - Cmd : 3
+    Offset : 500
+    Len : 
+   # Type : "S"
+    Data : 
+      - Name : "A相电压3次谐波含有率"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "A相电压5次谐波含有率"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "A相电压7次谐波含有率"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "A相电压9次谐波含有率"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "A相电压11次谐波含有率"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "A相电压13次谐波含有率"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "A相电压15次谐波含有率"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "A相电压17次谐波含有率"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "A相电压19次谐波含有率"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "A相电压21次谐波含有率"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "A相电压23次谐波含有率"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "A相电压25次谐波含有率"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "A相电压27次谐波含有率"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "A相电压29次谐波含有率"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "A相电压31次谐波含有率"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "A相电压总谐波畸变率"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "A相电压奇谐波畸变率"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "A相电压偶谐波畸变率"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "B相电压3次谐波含有率"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "B相电压5次谐波含有率"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "B相电压7次谐波含有率"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "B相电压9次谐波含有率"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "B相电压11次谐波含有率"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "B相电压13次谐波含有率"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "B相电压15次谐波含有率"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "B相电压17次谐波含有率"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+
+
+
+
+
+
+
+
+
+      - Name : "B相电压19次谐波含有率"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "B相电压21次谐波含有率"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "B相电压23次谐波含有率"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "B相电压25次谐波含有率"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "B相电压27次谐波含有率"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "B相电压29次谐波含有率"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "B相电压31次谐波含有率"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "B相电压总谐波畸变率"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "B相电压奇谐波畸变率"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "B相电压偶谐波畸变率"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "C相电压3次谐波含有率"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "C相电压5次谐波含有率"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "C相电压7次谐波含有率"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "C相电压9次谐波含有率"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "C相电压11次谐波含有率"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "C相电压13次谐波含有率"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "C相电压15次谐波含有率"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "C相电压17次谐波含有率"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "C相电压19次谐波含有率"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "C相电压21次谐波含有率"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "C相电压23次谐波含有率"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "C相电压25次谐波含有率"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "C相电压27次谐波含有率"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "C相电压29次谐波含有率"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "C相电压31次谐波含有率"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "C相电压总谐波畸变率"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "C相电压奇谐波畸变率"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "C相电压偶谐波畸变率"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "A相电流3次谐波含有率"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "A相电流5次谐波含有率"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "A相电流7次谐波含有率"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "A相电流9次谐波含有率"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "A相电流11次谐波含有率"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "A相电流13次谐波含有率"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "A相电流15次谐波含有率"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "A相电流17次谐波含有率"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "A相电流19次谐波含有率"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "B相电压13次谐波含有率"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "B相电压15次谐波含有率"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "A相电流17次谐波含有率"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "A相电流19次谐波含有率"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "A相电流21次谐波含有率"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "A相电流23次谐波含有率"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "A相电流25次谐波含有率"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "A相电流27次谐波含有率"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "A相电流29次谐波含有率"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "A相电流31次谐波含有率"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "A相电流总谐波含有率"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "A相电流奇次谐波含有率"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "A相电流偶次谐波含有率"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10

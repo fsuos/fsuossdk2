@@ -1,0 +1,59 @@
+Project:
+  Name : DTSD3366DJ
+  RT_ID : 5156
+  File : "测试.pdf"
+InitSetting :
+  - Name : ct
+    Type : int
+  - Name : has_a
+    Type : int
+Sample :
+  - Cmd : 3
+    Offset : 0x8000
+    Len : 48
+    Data :
+      - Name : 当前组合有功总电能
+      - Name : 当前组合有功尖电能
+      - Name : 当前组合有功峰电能
+      - Name : 当前组合有功平电能
+      - Name : 当前组合有功谷电能
+      - Name : 当前正向有功总电能
+      - Name : 当前正向有功尖电能
+      - Name : 当前正向有功峰电能
+      - Name : 当前正向有功平电能
+      - Name : 当前正向有功谷电能
+      - Name : 当前反向有功总电能
+      - Name : 当前反向有功尖电能
+      - Name : 当前反向有功峰电能
+      - Name : 当前反向有功平电能
+      - Name : 当前反向有功谷电能
+      - Name : 电压
+      - Name : 电流
+      - Name : 瞬时有功有功率
+      - Name : 瞬时无功有功率
+      - Name : 瞬时视在功率
+      - Name : 功率因数
+      - Name : 频率
+      - Name : 当前组合有功深谷电能
+      - Name : 当前正向有功深谷电能
+      - Name : 当前反向有功深谷电能
+      - Name : 当前组合有功总电能
+      - Name : 当前组合有功尖电能
+      - Name : 当前组合有功峰电能
+      - Name : 当前组合有功平电能
+      - Name : 当前组合有功谷电能
+      - Name : 当前组合有功深谷电能
+      - Name : 当前正向有功总电能
+      - Name : 当前正向有功尖电能
+      - Name : 当前正向有功峰电能
+      - Name : 当前正向有功平电能
+      - Name : 当前正向有功谷电能
+      - Name : 当前正向有功深谷电能
+      - Name : 当前反向有功总电能
+      - Name : 当前反向有功尖电能
+      - Name : 当前反向有功峰电能
+      - Name : 当前反向有功平电能
+      - Name : 当前反向有功谷电能
+      - Name : 当前反向有功深谷电能
+        Offset : 26
+

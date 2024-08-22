@@ -1,0 +1,49 @@
+Project:
+  Name : CoolRow5000
+  RT_ID : 5156
+  File : "测试.pdf"
+InitSetting :
+  - Name : ct
+    Type : int
+  - Name : has_a
+    Type : int
+Sample :
+  - Cmd : 3
+    Offset : 40001
+    Len : 8
+    Data :
+      - Name : 回风温度测量值
+      - Name : 回风湿度测量值
+      - Name : 送风温度1测量值
+      - Name : 送风温度2测量值
+      - Name : 排气压力
+      - Name : 吸气压力
+      - Name : 排气温度
+      - Name : 吸气温度
+  - Cmd : 3
+    Offset : 40013
+    Len : 22
+    Data :
+      - Name : 机组运行状态
+      - Name : 远程温度1测量值
+      - Name : 远程温度2测量值
+      - Name : 远程温度3测量值
+      - Name : 远程温度4测量值
+      - Name : 远程温度5测量值
+      - Name : 远程温度6测量值
+      - Name : 远程温度7测量值
+      - Name : 远程温度8测量值
+      - Name : 远程温度9测量值
+      - Name : 远程温度10测量值
+      - Name : 远程温度11测量值
+      - Name : 远程温度12测量值
+      - Name : 远程温度13测量值
+      - Name : 远程温度14测量值
+      - Name : 远程温度15测量值
+      - Name : 远程温度16测量值
+      - Name : 送风温度设定点
+      - Name : 回风温度设定点
+      - Name : 远程温度设定点
+      - Name : 湿度设定点
+      - Name : 监控开关机
+

@@ -1,0 +1,20 @@
+Project:
+  Name : RS485
+  RT_ID : 5156
+  File : "测试.pdf"
+InitSetting :
+  - Name : ct
+    Type : int
+  - Name : has_a
+    Type : int
+Sample :
+  - Cmd : 3
+    Offset : 7
+    Len : 4
+    Data :
+      - Name : A相电压
+      - Name : B相电压
+        Offset : 3
+  - Cmd : 3
+    Offset : 0x16E
+    Len : 44

@@ -1,0 +1,88 @@
+Project:
+  Name : Sxyw
+  RT_ID : 5156
+  File : "测试.pdf"
+InitSetting :
+  - Name : ct
+    Type : float
+  - Name : has_A
+    Type : float
+Sample : 
+  - Cmd : 3
+    Offset : 0
+    Len : 120
+    Data : 
+      - Name : 1水箱液位
+      - Name : 2水箱液位
+      - Name : 3水箱液位
+      - Name : 4水箱液位
+      - Name : 5水箱液位
+      - Name : 6水箱液位
+      - Name : 7水箱液位
+      - Name : 8水箱液位
+      - Name : 9水箱液位
+      - Name : 10水箱液位
+      - Name : 11水箱液位
+      - Name : 1油罐液位
+      - Name : 2油罐液位
+      - Name : 3油罐液位
+        Offset : 15
+  
+RunCheckThreshold : |
+  CheckThresholdBool(1, "0777001", "0777001", "状态告警", "1水箱液位异常", cData.alarm1&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "状态告警", "2水箱液位异常", (cData.alarm1>>1)&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "状态告警", "3水箱液位异常", (cData.alarm1>>2)&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "状态告警", "4水箱液位异常", (cData.alarm1>>3)&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "状态告警", "5水箱液位异常", (cData.alarm1>>4)&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "状态告警", "6水箱液位异常", (cData.alarm1>>5)&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "状态告警", "7水箱液位异常", (cData.alarm1>>6)&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "状态告警", "8水箱液位异常", (cData.alarm1>>7)&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "状态告警", "9水箱液位异常", (cData.alarm1>>8)&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "状态告警", "10水箱液位异常", (cData.alarm1>>9)&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "状态告警", "11水箱液位异常", (cData.alarm1>>10)&0x1, 1);
+  //alarm2
+  CheckThresholdBool(1, "0777001", "0777001", "状态告警", "1油罐液位异常", cData.alarm2&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "状态告警", "2油罐液位异常", (cData.alarm2>>1)&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "状态告警", "3油罐液位异常", (cData.alarm2>>2)&0x1, 1);
+  
+ 
+Value :
+  - Name : 1water_tank_level
+    Value : cData.r3_level[0]
+  - Name : 2water_tank_level
+    Value : cData.r3_level[1]
+  - Name : 3water_tank_level
+    Value : cData.r3_level[2]
+  - Name : 4water_tank_level
+    Value : cData.r3_level[3]
+  - Name : 5water_tank_level
+    Value : cData.r3_level[4]
+  - Name : 6water_tank_level
+    Value : cData.r3_level[5]
+  - Name : 7water_tank_level
+    Value : cData.r3_level[6]
+  - Name : 8water_tank_level
+    Value : cData.r3_level[7]
+  - Name : 9water_tank_level
+    Value : cData.r3_level[8]
+  - Name : 10water_tank_level
+    Value : cData.r3_level[9]
+  - Name : 11water_tank_level
+    Value : cData.r3_level[10]
+  - Name : 1oil_tank_level
+    Value : cData.r3_level[11]
+  - Name : 2oil_tank_level
+    Value : cData.r3_level[12]
+  - Name : 3oil_tank_level
+    Value : cData.r3_level[13]
+AO :
+  - SignalId : 1234567
+    Desc : 测试1
+  - SignalId : 1234568
+    Desc : 测试2
+DO :
+  - SignalId : 1234567
+    Desc : 测试3
+  - SignalId : 1234568
+    Desc : 测试4
+

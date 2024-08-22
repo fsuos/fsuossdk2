@@ -1,0 +1,101 @@
+Project:
+  Name : BAT61CJ
+  RT_ID : 5156
+  File : "XRD-XY-024  BAT6.1_CJ通讯协议（客户版）V1.16"
+Sample :
+  - Cmd : 3
+    Offset : 1
+    Len : 21
+    Data : 
+      - Name : "电池组总电压"
+        Unit : "V"
+        Ratio : 10
+        Offset : 1
+      - Name : "电池组充放电电流"
+        Unit : "A"
+        Ratio : 10
+        Offset : 2
+      - Name : "电池组温度1"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 3
+      - Name : "电池组温度2"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 4
+      - Name : "电池组单节电压平均值"
+        Unit : "V"
+        Ratio : 1000
+        Offset : 5
+      - Name : "电池组单节温度平均值"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 6
+      - Name : "电池组单节内阻平均值"
+        Unit : "mΩ"
+        Ratio : 1000
+        Offset : 7
+      - Name : "电池组状态"
+        Offset : 8
+        Options : 
+          - Key : 0
+            Value : 充电
+          - Key : 1
+            Value : 放电
+      - Name : "CJ模块ICT通道对应电压值"
+        Unit : "mV"
+        Offset : 9
+      - Name : "正在内阻测试的电池组号"
+        Offset : 10
+      - Name : "电池组容量"
+        Unit : "%"
+        Offset : 11
+      - Name : "电池剩余放电时间"
+        Unit : "分钟"
+        Offset : 12
+      - Name : "电池组容量AH"
+        Unit : "AH"
+        Ratio : 10
+        Offset : 13
+      - Name : "电池组电流状态"
+        Offset : 14
+        Options : 
+          - Key : 0
+            Value : 浮充 
+          - Key : 1
+            Value : 放电
+          - Key : 2
+            Value : 均充
+          - Key : 3
+            Value : 离线
+      - Name : "第1组电池电流"
+        Unit : "A"
+        Ratio : 10
+        Offset : 15
+      - Name : "第2组电池电流"
+        Unit : "A"
+        Ratio : 10
+        Offset : 16
+      - Name : "第3组电池电流"
+        Unit : "A"
+        Ratio : 10
+        Offset : 17
+      - Name : "第4组电池电流"
+        Unit : "A"
+        Ratio : 10
+        Offset : 18
+      - Name : "第5组电池电流"
+        Unit : "A"
+        Ratio : 10
+        Offset : 19
+      - Name : "第6组电池电流"
+        Unit : "A"
+        Ratio : 10
+        Offset : 20
+      - Name : "内阻测量状态"
+        Offset : 21
+        Options : 
+          - Key : 0
+            Value : 当前未进行内阻测
+          - Key : 1
+            Value : 正在进行内阻测试

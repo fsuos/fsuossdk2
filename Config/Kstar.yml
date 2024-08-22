@@ -1,0 +1,116 @@
+Project:
+  Name : Kstar
+  RT_ID : 5156
+  File : "测试.pdf"
+InitSetting :
+  - Name : ct
+    Type : int
+  - Name : has_a
+    Type : int
+Sample :
+  - Cmd : 3
+    Offset : 0x01
+    Len : 47
+    Data :
+      - Name : 输入A相电压
+      - Name : 输入B相电压
+      - Name : 输入C相电压
+      - Name : 输出电压
+      - Name : 输出频率
+      - Name : 输出电流
+      - Name : 输出功因
+      - Name : 负载率
+      - Name : 负载峰值比
+      - Name : 旁路电压
+      - Name : 旁路频率
+      - Name : BUS电压
+      - Name : 电池电压
+      - Name : 电池电流
+      - Name : 有功功率
+      - Name : 视在功率
+      - Name : 输入A相电流
+      - Name : 输入B相电流
+      - Name : 输入C相电流
+      - Name : 输入功因
+      - Name : 机内温度
+      - Name : 整流温度
+      - Name : 逆变温度
+      - Name : 初始化
+      - Name : 待机状态
+      - Name : 无输出状态
+      - Name : 旁路状态
+      - Name : 市电状态
+      - Name : 电池状态
+      - Name : 电池自检状态
+      - Name : 逆变启动中
+      - Name : 经济模式
+      - Name : EPO 状态
+      - Name : 维护旁路模式
+      - Name : 故障模式
+      - Name : 紧急关机
+      - Name : 整流器状态
+      - Name : 整流器限流
+      - Name : 输入供电状态
+      - Name : 输入供电模式
+      - Name : 电池充电
+      - Name : 正组电池均浮充
+      - Name : 负组电池均浮充
+      - Name : 电池自检
+      - Name : 逆变开关机状态
+      - Name : 间断切换提示
+      - Name : 启动容量不足
+        Offset : 48
+
+RunCheckThreshold : |
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "整流器故障", cData.alarm1&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "整流模块过温", cData.alarm1>>1&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "逆变模块过温", cData.alarm1>>2&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "整流过流故障", cData.alarm1>>3&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "辅助电源 1 故障", cData.alarm1>>4&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "辅助电源 2 故障", cData.alarm1>>5&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "输入晶闸管故障", cData.alarm1>>6&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "电池放电晶闸管故障", cData.alarm1>>7&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "电池充电晶闸管故障", cData.alarm1>>8&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "风扇故障", cData.alarm1>>9&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "风扇电源故障", cData.alarm1>>10&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "母线电压过压", cData.alarm1>>11&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "正负母线压差大", cData.alarm1>>12&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "输入电压相序反", cData.alarm1>>13&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "软启动失败", cData.alarm1>>14&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "输入缺零", cData.alarm1>>15&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "电池反", cData.alarm2&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "电池无", cData.alarm2>>1&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "正组电池充电器故障", cData.alarm2>>2&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "负组电池充电器故障", cData.alarm2>>3&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "电池电压低", cData.alarm2>>4&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "电池电压高", cData.alarm2>>5&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "电池电压预告警", cData.alarm2>>6&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "市电频率异常", cData.alarm2>>7&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "市电电压异常", cData.alarm2>>8&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "输出短路", cData.alarm2>>9&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "电池故障", cData.alarm2>>10&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "旁路反灌", cData.alarm1&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "电池低压保护", cData.alarm1&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "逆变器故障", cData.alarm1&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "逆变晶闸管短路故障", cData.alarm1&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "逆变晶闸管断路故障", cData.alarm1&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "旁路晶闸管短路故障", cData.alarm1&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "旁路晶闸管断路故障", cData.alarm1&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "CAN 通信故障", cData.alarm1&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "并机均流故障", cData.alarm1&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "旁路反序", cData.alarm1&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "旁路超跟踪", cData.alarm1&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "旁路超保护", cData.alarm1&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "IGBT 过流", cData.alarm1&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "熔丝断", cData.alarm1&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "并机连线故障", cData.alarm1&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "并机继电器故障", cData.alarm1&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "LBS 超跟踪", cData.alarm1&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "加上电初始化故障", cData.alarm1&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "开机无效", cData.alarm1&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "过载", cData.alarm1&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "并机过载", cData.alarm1&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "逆变直流分量过大", cData.alarm1&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "旁路过流", cData.alarm1&0x1, 1);
+   CheckThresholdBool(1, "0777001", "0777001", "状态告警", "回馈保护", cData.alarm1&0x1, 1);
+

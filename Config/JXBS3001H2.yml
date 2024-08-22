@@ -1,0 +1,20 @@
+Project:
+  Name : JXBS3001H2
+  RT_ID : 5156
+  File : "485型氢气变送器使用说明书 JXBS-3001-H2 SVer1.0"
+Sample :
+  - Cmd : 3
+    Offset : 0x0000
+    Len : 7
+    Data :
+      - Name : 湿度
+        Offset : 1
+        Unit : "%RH"
+        Ratio : 10
+      - Name : 温度
+        Offset : 2
+        Unit : "℃"
+        Ratio : 10
+      - Name : H2浓度
+        Offset : 7
+        Unit : "ppm"

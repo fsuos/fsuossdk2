@@ -1,0 +1,46 @@
+Project:
+  Name : HBZS96K
+  RT_ID : 5156
+  File : "测试.pdf"
+InitSetting :
+  - Name : ct
+    Type : int
+  - Name : has_a
+    Type : int
+Sample :
+  - Cmd : 3
+    Offset : 0x000A
+    Len : 14
+    Data :
+      - Name : AC交流电压
+      - Name : A路直流电压
+      - Name : A路直流电流
+      - Name : A路直流功率
+      - Name : A路直流电能
+      - Name : A路直流电流需量
+      - Name : A路直流功率需量
+      - Name : B路直流电压
+      - Name : B路直流电流
+      - Name : B路直流功率
+      - Name : B路直流电能
+      - Name : B路直流电流需量
+      - Name : B路直流功率需量
+      - Name : 回路数
+      - Name : A路1-72路支路开关状态
+      - Name : B路1-72路支路开关状态
+
+RunCheckThreshold : |
+  CheckThresholdBool(1, "0777001", "0777001", "状态告警", "回路", cData.alarm1&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "状态告警", "回路", cData.alarm1>>5&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "状态告警", "A路进线熔断器", cData.alarm1>>6&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "状态告警", "A路防雷器", cData.alarm1>>7&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "状态告警", "B路防雷器", cData.alarm1>>8&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "状态告警", "A路进线电压", cData.alarm1>>9&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "状态告警", "A路进线电流", cData.alarm1>>10&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "状态告警", "A路进线功率", cData.alarm1>>11&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "状态告警", "B路进线熔断器", cData.alarm2&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "状态告警", "B路进线电压", cData.alarm2>>3&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "状态告警", "B路进线电流", cData.alarm2>>4&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "状态告警", "B路进线功率", cData.alarm2>>5&0x1, 1);
+  CheckThresholdBool(1, "0777001", "0777001", "状态告警", "支路熔丝告警", cData.alarm2>>6&0x1, 1);
+  

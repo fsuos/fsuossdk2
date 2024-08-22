@@ -1,0 +1,18 @@
+Project:
+  Name : LC2Awater
+  RT_ID : 5156
+  File : "水浸"
+Sample : 
+  - Cmd : 4
+    Offset : 0
+    Len : 1
+    Data : 
+      - Name : 水浸状态
+        Value : '(($v[1]) & 0x1) ? "泄漏" : "无泄漏"'
+RunCheckThresholdCodeUnicom  : |
+    CheckThresholdBool(1, "0777001", "0777001", "水浸状态", "水浸泄漏", cData.r4_0[0]&0x1, 1);
+
+RunCheckThresholdCodeTelecom  : |
+    CheckThresholdBool(1, "0777001", "0777001", "水浸状态", "水浸泄漏", cData.r4_0[0]&0x1, 1);
+
+    

@@ -1,0 +1,231 @@
+Project:
+  Name : DPJG1K
+  RT_ID : 5156
+  File : "DPJ-G1K 通信协议.pdf"
+InitSetting :
+  - Name : ct
+    Type : int
+  - Name : has_a
+    Type : int
+Sample :
+  - Cmd : 3
+    Offset : 0
+    Len : 72
+    Data :
+      - Name : A母线A相电压
+      - Name : A母线B相电压
+      - Name : A母线C相电压
+      - Name : A母线AB线电压
+      - Name : A母线BC线电压
+      - Name : A母线CA线电压
+      - Name : A母线A相电流
+      - Name : A母线B相电流
+      - Name : A母线C相电流
+      - Name : A母线A相功率因数
+      - Name : A母线B相功率因数
+      - Name : A母线C相功率因数
+      - Name : A母线合相功率因数
+      - Name : A母线A相有功功率
+      - Name : A母线B相有功功率
+      - Name : A母线C相有功功率
+      - Name : A母线合相有功功率
+      - Name : A母线A相无功功率
+      - Name : A母线B相无功功率
+      - Name : A母线C相无功功率
+      - Name : A 母线合相无功功率
+      - Name : A母线A相有功电能
+      - Name : A母线B相有功电能
+      - Name : A母线C相有功电能
+      - Name : A母线合相有功电能
+      - Name : A母线A相无功电能
+      - Name : A母线B相无功电能
+      - Name : A母线C相无功电能
+      - Name : A母线合相无功电能
+      - Name : A频率
+      - Name : A母线A相电压谐波畸变率
+      - Name : A母线B相电压谐波畸变率
+      - Name : A母线C相电压谐波畸变率
+      - Name : A母线A相电流谐波畸变率
+      - Name : A母线B相电流谐波畸变率
+      - Name : A母线C相电流谐波畸变率
+      - Name : B母线A相电压
+      - Name : B母线B相电压
+      - Name : B母线C相电压
+      - Name : B母线AB线电压
+      - Name : B母线BC线电压
+      - Name : B母线CA线电压
+      - Name : B母线A相电流
+      - Name : B母线B相电流
+      - Name : B母线C相电流
+      - Name : B母线A相功率因数
+      - Name : B母线B相功率因数
+      - Name : B母线C相功率因数
+      - Name : B母线合相功率因数
+      - Name : B母线A相有功功率
+      - Name : B母线B相有功功率
+      - Name : B母线C相有功功率
+      - Name : B母线合相有功功率
+      - Name : B母线A相无功功率
+      - Name : B母线B相无功功率
+      - Name : B母线C相无功功率
+      - Name : B母线合相无功功率
+      - Name : B母线A相有功电能
+      - Name : B母线B相有功电能
+      - Name : B母线C相有功电能
+      - Name : B母线合相有功电能
+      - Name : B母线A相无功电能
+      - Name : B母线B相无功电能
+      - Name : B母线C相无功电能
+      - Name : B母线合相无功电能
+      - Name : B频率
+      - Name : B母线A相电压谐波畸变率
+      - Name : B母线B相电压谐波畸变率
+      - Name : B母线C相电压谐波畸变率
+      - Name : B母线A相电流谐波畸变率
+      - Name : B母线B相电流谐波畸变率
+      - Name : B母线C相电流谐波畸变率
+  - Cmd : 3
+    Offset : 0
+    Len : 4
+    Data : 
+      - Name : A母线开关状态
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+      - Name : A防雷器状态
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 故障
+      - Name : B母线开关状态
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+      - Name : B防雷器状态
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 故障
+
+  - Cmd : 3
+    Offset : 0
+    Len : 20
+    Data : 
+      - Name : A母线A相电压告警-低于下限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : A母线A相电压告警-高于上限
+        Offset : 1
+        AlertAbnormalValue : 2
+      - Name : A母线B相电压告警-低于下限
+        Offset : 2
+        AlertAbnormalValue : 1
+      - Name : A母线B相电压告警-高于上限
+        Offset : 2
+        AlertAbnormalValue : 2
+      - Name : A母线C相电压告警-低于下限
+        Offset : 3
+        AlertAbnormalValue : 1
+      - Name : A母线C相电压告警-高于上限
+        Offset : 3
+        AlertAbnormalValue : 2
+      - Name : A母线A相电流告警-高于一级上限
+        Offset : 4
+        AlertAbnormalValue : 2
+      - Name : A母线A相电流告警-高于二级上限
+        Offset : 4
+        AlertAbnormalValue : 3
+      - Name : A母线B相电流告警-高于一级上限
+        Offset : 5
+        AlertAbnormalValue : 2
+      - Name : A母线B相电流告警-高于二级上限
+        Offset : 5
+        AlertAbnormalValue : 3
+      - Name : A母线C相电流告警-高于一级上限
+        Offset : 6
+        AlertAbnormalValue : 2
+      - Name : A母线C相电流告警-高于二级上限
+        Offset : 6
+        AlertAbnormalValue : 3
+      - Name : A母线有功功率告警-高于上限
+        Offset : 7
+        AlertAbnormalValue : 2
+      - Name : A母线频率告警-低于下限
+        Offset : 8
+        AlertAbnormalValue : 1
+      - Name : A母线频率告警-高于上限
+        Offset : 8
+        AlertAbnormalValue : 2
+      - Name : A母线开关告警-断开
+        Offset : 9
+        AlertAbnormalValue : 1
+      - Name : A母线防雷告警
+        Offset : 10
+        AlertAbnormalValue : 1
+      - Name : B母线A相电压告警-低于下限
+        Offset : 11
+        AlertAbnormalValue : 1
+      - Name : B母线A相电压告警-高于上限
+        Offset : 11
+        AlertAbnormalValue : 2
+      - Name : B母线B相电压告警-低于下限
+        Offset : 12
+        AlertAbnormalValue : 1
+      - Name : B母线B相电压告警-高于上限
+        Offset : 12
+        AlertAbnormalValue : 2
+      - Name : B母线C相电压告警-低于下限
+        Offset : 13
+        AlertAbnormalValue : 1
+      - Name : B母线C相电压告警-高于上限
+        Offset : 13
+        AlertAbnormalValue : 2
+      - Name : B母线A相电流告警-高于一级上限
+        Offset : 14
+        AlertAbnormalValue : 1
+      - Name : B母线A相电流告警-高于二级上限
+        Offset : 14
+        AlertAbnormalValue : 2
+      - Name : B母线B相电流告警-高于一级上限
+        Offset : 15
+        AlertAbnormalValue : 1
+      - Name : B母线B相电流告警-高于二级上限
+        Offset : 15
+        AlertAbnormalValue : 2
+      - Name : B母线C相电流告警-高于一级上限
+        Offset : 16
+        AlertAbnormalValue : 1
+      - Name : B母线C相电流告警-高于二级上限
+        Offset : 16
+        AlertAbnormalValue : 2
+      - Name : B母线有功功率告警-高于上限
+        Offset : 17
+        AlertAbnormalValue : 2
+      - Name : B母线频率告警-低于下限
+        Offset : 18
+        AlertAbnormalValue : 1
+      - Name : B母线频率告警-高于上限
+        Offset : 18
+        AlertAbnormalValue : 2
+      - Name : B母线开关告警-跳闸告警
+        Offset : 19
+        AlertAbnormalValue : 1
+      - Name : B母线防雷告警-故障
+        Offset : 20
+        AlertAbnormalValue : 1
+
+
+
+
+
+ 

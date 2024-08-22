@@ -1,0 +1,6 @@
+-I/home/jgcx/fsuossdk2/Projects/SocketAGC150
+-I/home/jgcx/fsuossdk2/Projects
+-I/home/jgcx/fsuossdk2/include
+-I/home/jgcx/fsuossdk2/interface
+-DUSE_SEPERATE_DRIVER
+-std=c++14

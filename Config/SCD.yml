@@ -1,0 +1,447 @@
+Project:
+  Name : SCD 
+  RT_ID : 5156
+  File : "SCD 空调机组通信协议 版本 V1.14"
+Sample : 
+  - Cmd : 3
+    Offset : 0
+    Len : 62
+    Data : 
+      - Name : "开关机"
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 关机
+          - Key : 1
+            Value : 开机
+      - Name : "设定回风温度"
+        Offset : 2
+        Ratio : 10
+        Unit : "°C" 
+      - Name : "设定回风湿度"
+        Offset : 3
+        Ratio : 10
+        Unit : "%" 
+      - Name : "开关机状态"
+        Value : (($v[4]) &0x1)
+        Options : 
+          - Key : 0
+            Value : 关机状态
+          - Key : 1
+            Value : 开机状态
+      - Name : "风机"
+        Value : ((($v[4]) >> 1)&0x1)
+        Options : 
+          - Key : 0
+            Value : 关闭状态
+          - Key : 1
+            Value : 开启状态
+      - Name : "制热"
+        Value : ((($v[4]) >> 2)&0x1)
+        Options : 
+          - Key : 0
+            Value : 非制热状态
+          - Key : 1
+            Value : 制热状态
+      - Name : "制冷"
+        Value : ((($v[4]) >> 3)&0x1)
+        Options : 
+          - Key : 0
+            Value : 非制冷状态
+          - Key : 1
+            Value : 制冷状态
+      - Name : "加湿"
+        Value : ((($v[4]) >> 4)&0x1)
+        Options : 
+          - Key : 0
+            Value : 非加湿状态
+          - Key : 1
+            Value : 加湿状态
+      - Name : "除湿"
+        Value : ((($v[4]) >> 5)&0x1)
+        Options : 
+          - Key : 0
+            Value : 非除湿状态
+          - Key : 1
+            Value : 除湿状态
+      - Name : "单机/群控模式"
+        Value : ((($v[4]) >> 8)&0x1)
+        Options : 
+          - Key : 0
+            Value : 单机状态
+          - Key : 1
+            Value : 群控状态
+      - Name : "告警状态"
+        Value : ((($v[4]) >> 14)&0x1)
+        Options : 
+          - Key : 0
+            Value : 无告警
+          - Key : 1
+            Value : 有告警
+      - Name : "平均回风温度值"
+        Offset : 5
+        Ratio : 10
+        Unit : "°C" 
+      - Name : "平均回风湿度值"
+        Offset : 6
+        Ratio : 10
+        Unit : "%" 
+      - Name : "回风高温告警"
+        Value : (($v[7]) &0x1)
+        AlertNormalValue : 0
+      - Name : "回风低温告警"
+        Value : ((($v[7]) >> 1)&0x1)
+        AlertNormalValue : 0
+      - Name : "回风高湿告警"
+        Value : ((($v[7]) >> 2)&0x1)
+        AlertNormalValue : 0
+      - Name : "回风低湿告警"
+        Value : ((($v[7]) >> 3)&0x1)
+        AlertNormalValue : 0
+      - Name : "送风高温告警"
+        Value : ((($v[7]) >> 4)&0x1)
+        AlertNormalValue : 0
+      - Name : "送风低温告警"
+        Value : ((($v[7]) >> 5)&0x1)
+        AlertNormalValue : 0
+      - Name : "Modbus硬件故障告警"
+        Value : ((($v[7]) >> 8)&0x1)
+        AlertNormalValue : 0
+      - Name : "Modbus通信故障"
+        Value : ((($v[7]) >> 9)&0x1)
+        AlertNormalValue : 0
+      - Name : "风机故障"
+        Value : ((($v[7]) >> 11)&0x1)
+        AlertNormalValue : 0
+      - Name : "风机超时"
+        Value : ((($v[8]) >> 1)&0x1)
+        AlertNormalValue : 0
+      - Name : "压机１高压"
+        Value : ((($v[8]) >> 7)&0x1)
+        AlertNormalValue : 0
+      - Name : "压机１高压锁死"
+        Value : ((($v[8]) >> 8)&0x1)
+        AlertNormalValue : 0
+      - Name : "压机１低压"
+        Value : ((($v[8]) >> 9)&0x1)
+        AlertNormalValue : 0
+      - Name : "压机１低压锁死"
+        Value : ((($v[8]) >> 10)&0x1)
+        AlertNormalValue : 0
+      - Name : "排气高温"
+        Value : ((($v[8]) >> 11)&0x1)
+        AlertNormalValue : 0
+      - Name : "排气高温锁死"
+        Value : ((($v[8]) >> 12)&0x1)
+        AlertNormalValue : 0
+      - Name : "压机１短周期"
+        Value : ((($v[8]) >> 13)&0x1)
+        AlertNormalValue : 0
+      - Name : "压机１超时"
+        Value : ((($v[8]) >> 14)&0x1)
+        AlertNormalValue : 0
+      - Name : "压机２高压"
+        Value : ((($v[8]) >> 15)&0x1)
+        AlertNormalValue : 0
+      - Name : "压机２高压锁死"
+        Value : ($v[9] &0x1)
+        AlertNormalValue : 0
+      - Name : "压机２低压"
+        Value : ((($v[9]) >> 1)&0x1)
+        AlertNormalValue : 0
+      - Name : "压机２低压锁死"
+        Value : ((($v[9]) >> 2)&0x1)
+        AlertNormalValue : 0
+      - Name : "排气2高温"
+        Value : ((($v[9]) >> 3)&0x1)
+        AlertNormalValue : 0
+      - Name : "排气高温2锁死"
+        Value : ((($v[9]) >> 4)&0x1)
+        AlertNormalValue : 0
+      - Name : "压机２短周期"
+        Value : ((($v[9]) >> 5)&0x1)
+        AlertNormalValue : 0
+      - Name : "压机２超时"
+        Value : ((($v[9]) >> 6)&0x1)
+        AlertNormalValue : 0
+      - Name : "加湿器水位过高"
+        Value : ((($v[9]) >> 8)&0x1)
+        AlertNormalValue : 0
+      - Name : "加湿器水位过低"
+        Value : ((($v[9]) >> 9)&0x1)
+        AlertNormalValue : 0
+      - Name : "加湿器超时"
+        Value : ((($v[9]) >> 10)&0x1)
+        AlertNormalValue : 0
+      - Name : "加热器过载"
+        Value : ((($v[9]) >> 11)&0x1)
+        AlertNormalValue : 0
+      - Name : "加热器１超时"
+        Value : ((($v[9]) >> 12)&0x1)
+        AlertNormalValue : 0
+      - Name : "加热器２超时"
+        Value : ((($v[9]) >> 13)&0x1)
+        AlertNormalValue : 0
+      - Name : "掉电告警"
+        Value : ((($v[9]) >> 14)&0x1)
+        AlertNormalValue : 0
+      - Name : "相序错误"
+        Value : ((($v[9]) >> 15)&0x1)
+        AlertNormalValue : 0
+      - Name : "电源频率偏高"
+        Value : ($v[10] &0x1)
+        AlertNormalValue : 0
+      - Name : "电源频率偏低"
+        Value : ((($v[10]) >> 1)&0x1)
+        AlertNormalValue : 0
+      - Name : "A 相过压"
+        Value : ((($v[10]) >> 2)&0x1)
+        AlertNormalValue : 0
+      - Name : "B 相过压"
+        Value : ((($v[10]) >> 3)&0x1)
+        AlertNormalValue : 0
+      - Name : "C 相过压"
+        Value : ((($v[10]) >> 4)&0x1)
+        AlertNormalValue : 0
+      - Name : "A 相欠压"
+        Value : ((($v[10]) >> 5)&0x1)
+        AlertNormalValue : 0
+      - Name : "B 相欠压"
+        Value : (( ($v[10]) >> 6)&0x1)
+        AlertNormalValue : 0
+      - Name : "C 相欠压"
+        Value : ((($v[10]) >> 7)&0x1)
+        AlertNormalValue : 0
+      - Name : "A 相缺相"
+        Value : ((($v[10]) >> 8)&0x1)
+        AlertNormalValue : 0
+      - Name : "B 相缺相"
+        Value : ((($v[10]) >> 9)&0x1)
+        AlertNormalValue : 0
+      - Name : "C 相缺相"
+        Value : ((($v[10]) >> 10)&0x1)
+        AlertNormalValue : 0
+      - Name : "气流丢失告警"
+        Value : ((($v[10]) >> 11)&0x1)
+        AlertNormalValue : 0
+      - Name : "过滤网超时"
+        Value : ((($v[10]) >> 12)&0x1)
+        AlertNormalValue : 0
+      - Name : "过滤网堵塞"
+        Value : ((($v[10]) >> 13)&0x1)
+        AlertNormalValue : 0
+      - Name : "远程关机"
+        Value : ((($v[10]) >> 14)&0x1)
+        AlertNormalValue : 0
+      - Name : "漏水告警"
+        Value : ((($v[10]) >> 15)&0x1)
+        AlertNormalValue : 0
+
+      - Name : "群控异常"
+        Value : ($v[11] &0x1)
+        AlertNormalValue : 0
+      - Name : "变频器故障"
+        Value : ((($v[11]) >> 1)&0x1)
+        AlertNormalValue : 0
+      - Name : "烟雾告警"
+        Value : ((($v[11]) >> 4)&0x1)
+        AlertNormalValue : 0
+      - Name : "自定义告警"
+        Value : ((($v[11]) >> 5)&0x1)
+        AlertNormalValue : 0
+
+      - Name : "加湿器（水泵）故障"
+        Value : ((($v[12]) >> 1)&0x1)
+        AlertNormalValue : 0
+      - Name : "加湿器过载"
+        Value : ((($v[12]) >> 3)&0x1)
+        AlertNormalValue : 0
+      - Name : "加湿排水故障"
+        Value : ((($v[12]) >> 4)&0x1)
+        AlertNormalValue : 0
+      - Name : "加湿注水故障"
+        Value : ((($v[12]) >> 5)&0x1)
+        AlertNormalValue : 0
+      - Name : "压机过载"
+        Value : ((($v[12]) >> 6)&0x1)
+        AlertNormalValue : 0
+      - Name : "防冻保护"
+        Value : ((($v[12]) >> 7)&0x1)
+        AlertNormalValue : 0
+      - Name : "水位检测故障"
+        Value : ((($v[12]) >> 8)&0x1)
+        AlertNormalValue : 0
+      - Name : "防冻保护2"
+        Value : ((($v[12]) >> 9)&0x1)
+        AlertNormalValue : 0
+      - Name : "防冻锁死"
+        Value : ((($v[12]) >> 10)&0x1)
+        AlertNormalValue : 0
+      - Name : "防冻2锁死"
+        Value : ((($v[12]) >> 11)&0x1)
+        AlertNormalValue : 0
+      - Name : "水位检测锁死"
+        Value : ((($v[12]) >> 12)&0x1)
+        AlertNormalValue : 0
+
+      - Name : "湿度控制方式"
+        Offset : 14
+        Options : 
+          - Key : 0
+            Value : 相对湿度
+          - Key : 1
+            Value : 绝对含湿量
+      - Name : "温度控制目标"
+        Offset : 15
+        Options : 
+          - Key : 0
+            Value : 回风
+          - Key : 1
+            Value : 送风
+          - Key : 2
+            Value : 远程
+      - Name : "风机运行时间"
+        Offset : 16
+        Unit : "小时" 
+        Value : (($v[16]<<4)+($v[17]>>12))
+      - Name : "压机1运行时间"
+        Offset : 18
+        Ratio : 10
+        Unit : "小时"
+        Value : (($v[18]<<4)+($v[19]>>12))
+      - Name : "压机2运行时间"
+        Offset : 20
+        Ratio : 10
+        Unit : "小时" 
+        Value : (($v[20]<<4)+($v[21]>>12))
+      - Name : "送风温度设定"
+        Offset : 22
+        Ratio : 10
+        Unit : "°C" 
+      - Name : "送风湿度设定"
+        Offset : 23
+        Ratio : 10
+        Unit : "%" 
+      - Name : "送风温度测量值"
+        Offset : 24
+        Ratio : 10
+        Unit : "°C" 
+      - Name : "送风湿度测量值"
+        Offset : 25
+        Ratio : 10
+        Unit : "%" 
+      - Name : "干接点输入状态"
+        Offset : 28
+      - Name : "干接点输出状态"
+        Offset : 29
+      - Name : "低压压力"
+        Offset : 32
+        Ratio : 10
+        Unit : "°Bar" 
+      - Name : "高压压力"
+        Offset : 33
+        Ratio : 10
+        Unit : "Bar" 
+      - Name : "室内EC风机转速"
+        Offset : 36
+        Unit : "%" 
+      - Name : "变频器输出"
+        Offset : 37
+        Unit : "%" 
+      - Name : "加湿泵输出"
+        Offset : 38
+        Unit : "%" 
+      - Name : "回风高温告警阈值"
+        Offset : 41
+        Ratio : 10
+        Unit : "°C" 
+      - Name : "回风低温告警阈值"
+        Offset : 42
+        Ratio : 10
+        Unit : "°C" 
+      - Name : "回风高湿告警阈值"
+        Offset : 43
+        Ratio : 10
+        Unit : "%" 
+      - Name : "回风低湿告警阈值"
+        Offset : 44
+        Ratio : 10
+        Unit : "%" 
+      - Name : "送风高温告警阈值"
+        Offset : 45
+        Ratio : 10
+        Unit : "°C" 
+      - Name : "送风低温告警阈值"
+        Offset : 46
+        Ratio : 10
+        Unit : "°C" 
+      - Name : "电源过压告警阈值"
+        Offset : 47
+        Ratio : 10
+        Unit : "V" 
+      - Name : "电源欠压告警阈值"
+        Offset : 48
+        Ratio : 10
+        Unit : "V" 
+      - Name : "静音"
+        Offset : 50
+        Options : 
+          - Key : 0
+            Value : 关闭静音
+          - Key : 1
+            Value : 开启静音
+      - Name : "排气温度2"
+        Offset : 51
+        Ratio : 10
+        Unit : "°C" 
+      - Name : "管路温度2"
+        Offset : 52
+        Ratio : 10
+        Unit : "°C" 
+      - Name : "排气温度1"
+        Offset : 53
+      - Name : "管路温度1"
+        Offset : 54
+      - Name : "A相电压"
+        Offset : 55
+        Ratio : 10
+        Unit : "V" 
+      - Name : "B相电压"
+        Offset : 56
+        Ratio : 10
+        Unit : "V" 
+      - Name : "C相电压"
+        Offset : 57
+        Ratio : 10
+        Unit : "V" 
+      - Name : "市电频率"
+        Offset : 58
+        Ratio : 10
+        Unit : "Hz" 
+      - Name : "电源错相"
+        Offset : 59
+        Options : 
+          - Key : 0
+            Value : 相序正确
+          - Key : 1
+            Value : 相序错误
+      - Name : "解除告警"
+        Offset : 61
+        Options : 
+          - Key : 0
+            Value : 告警保持当前状态
+          - Key : 1
+            Value : 执行解除当前告警
+      - Name : "当前水位"
+        Offset : 62
+        Options : 
+          - Key : 0
+            Value : 水位过低
+          - Key : 1
+            Value : 水位低
+          - Key : 2
+            Value : 水位正常
+          - Key : 3
+            Value : 水位高
+          - Key : 4
+            Value : 水位超高

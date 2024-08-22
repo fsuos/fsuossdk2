@@ -1,0 +1,585 @@
+Project:
+  Name : DPJG1K
+  RT_ID : 5156
+  File : "DPJ-G1K 通信协议.pdf"
+InitSetting :
+  - Name : ct
+    Type : int
+  - Name : has_a
+    Type : int
+Sample :
+  - Cmd : 3
+    Offset : 0
+    Len : 19
+    Data :
+      - Name : 主机电源相电压 A
+      - Name : 主机电源相电压 B
+      - Name : 主机电源相电压 C
+      - Name : 主机/压缩机工作电流 A 相
+      - Name : 主机/压缩机工作电流 B 相
+      - Name : 主机/压缩机工作电流 C 相
+      - Name : 送风温度
+      - Name : 回风温度/室内环境温度
+      - Name : 送风湿度
+      - Name : 回风湿度/室内环境湿度
+      - Name : 压缩机吸气压力
+      - Name : 压缩机排气压力
+      - Name : 用户自定义遥测数量 P
+      - Name : 室外环境温度
+      - Name : 压缩机排气温度
+      - Name : 室外湿度
+      - Name : 室内盘管/蒸发器盘管温度
+      - Name : 压缩机运行时间
+      - Name : 机组运行时间
+
+  - Cmd : 3
+    Offset : 0
+    Len : 
+    Data : 
+      - Name : 空调状态
+        Options : 
+          - Key : 0
+            Value : 关机
+          - Key : 1
+            Value : 开机
+      - Name : 用户自定义状态数量
+      - Name : 空调运行模式
+        Options : 
+          - Key : 0
+            Value : 自动
+          - Key : 1
+            Value : 制冷
+          - Key : 2
+            Value : 除湿
+          - Key : 3
+            Value : 送风
+          - Key : 4
+            Value : 制热
+      - Name : 内风机状态
+        Options : 
+          - Key : 0
+            Value : 停
+          - Key : 1
+            Value : 低风
+          - Key : 2
+            Value : 中风
+          - Key : 3
+            Value : 高风
+      - Name : 四通阀状态
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运转
+      - Name : 压缩机状态
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运转
+      - Name : 外风机状态
+        Options : 
+          - Key : 0
+            Value : 停
+          - Key : 1
+            Value : 低风
+          - Key : 2
+            Value : 中风
+          - Key : 3
+            Value : 高风
+      - Name : 摆风状态
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运转
+      - Name : 电加热状态
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运转
+
+  - Cmd : 3
+    Offset : 0
+    Len : 20
+    Data : 
+      - Name : A 相交流电压 UA告警-低于下限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : A 相交流电压 UA告警-高于上限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : A 相交流电压 UA告警-未检测
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : A 相交流电压 UA告警-故障
+        Offset : 1
+        AlertAbnormalValue : 1
+
+      - Name : B 相交流电压 UB告警-低于下限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : B 相交流电压 UB告警-高于上限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : B 相交流电压 UB告警-未检测
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : B 相交流电压 UB告警-故障
+        Offset : 1
+        AlertAbnormalValue : 1
+
+      - Name : C 相交流电压 UC告警-低于下限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : C 相交流电压 UC告警-高于上限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : C 相交流电压 UC告警-未检测
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : C 相交流电压 UC告警-故障
+        Offset : 1
+        AlertAbnormalValue : 1
+
+      - Name : A 相交流电流 IA告警-低于下限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : A 相交流电流 IA告警-高于上限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : A 相交流电流 IA告警-未检测
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : A 相交流电流 IA告警-故障
+        Offset : 1
+        AlertAbnormalValue : 1
+
+      - Name : B 相交流电流 IB告警-低于下限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : B 相交流电流 IB告警-高于上限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : B 相交流电流 IB告警-未检测
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : B 相交流电流 IB告警-故障
+        Offset : 1
+        AlertAbnormalValue : 1
+
+      - Name : C 相交流电流 IC告警-低于下限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : C 相交流电流 IC告警-高于上限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : C 相交流电流 IC告警-未检测
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : C 相交流电流 IC告警-故障
+        Offset : 1
+        AlertAbnormalValue : 1
+
+      - Name : 回风温度告警-低于下限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 回风温度告警-高于上限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 回风温度告警-未检测
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 回风温度告警-故障
+        Offset : 1
+        AlertAbnormalValue : 1
+
+      - Name : 回风湿度告警-低于下限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 回风湿度告警-高于上限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 回风湿度告警-未检测
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 回风湿度告警-故障
+        Offset : 1
+        AlertAbnormalValue : 1
+
+      - Name : 过滤网保护告警-低于下限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 过滤网保护告警-高于上限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 过滤网保护告警-未检测
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 过滤网保护告警-故障
+        Offset : 1
+        AlertAbnormalValue : 1
+
+      - Name : 压缩机保护告警-低于下限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 压缩机保护告警-高于上限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 压缩机保护告警-未检测
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 压缩机保护告警-故障
+        Offset : 1
+        AlertAbnormalValue : 1
+
+      - Name : 风机保护告警-低于下限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 风机保护告警-高于上限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 风机保护告警-未检测
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 风机保护告警-故障
+        Offset : 1
+        AlertAbnormalValue : 1
+
+      - Name : 用户自定义状态数量
+
+      - Name : 高压保护告警-低于下限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 高压保护告警-高于上限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 高压保护告警-未检测
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 高压保护告警-故障
+        Offset : 1
+        AlertAbnormalValue : 1
+
+      - Name : 低压保护告警-低于下限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 低压保护告警-高于上限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 低压保护告警-未检测
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 低压保护告警-故障
+        Offset : 1
+        AlertAbnormalValue : 1
+
+      - Name : 排气温度保护告警-低于下限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 排气温度保护告警-高于上限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 排气温度保护告警-未检测
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 排气温度保护告警-故障
+        Offset : 1
+        AlertAbnormalValue : 1
+
+      - Name : 内外机通讯告警-低于下限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 内外机通讯告警-高于上限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 内外机通讯告警-未检测
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 内外机通讯告警-故障
+        Offset : 1
+        AlertAbnormalValue : 1
+
+      - Name : 室内环境温度传感器告警-低于下限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 室内环境温度传感器告警-高于上限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 室内环境温度传感器告警-未检测
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 室内环境温度传感器告警-故障
+        Offset : 1
+        AlertAbnormalValue : 1
+
+      - Name : 内机盘管进口温度传感器告警-低于下限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 内机盘管进口温度传感器告警-高于上限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 内机盘管进口温度传感器告警-未检测
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 内机盘管进口温度传感器告警-故障
+        Offset : 1
+        AlertAbnormalValue : 1
+
+      - Name : 内机盘管中间温度传感器告警-低于下限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 内机盘管中间温度传感器告警-高于上限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 内机盘管中间温度传感器告警-未检测
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 内机盘管中间温度传感器告警-故障
+        Offset : 1
+        AlertAbnormalValue : 1
+
+      - Name : 内机盘管出口温度传感器告警-低于下限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 内机盘管出口温度传感器告警-高于上限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 内机盘管出口温度传感器告警-未检测
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 内机盘管出口温度传感器告警-故障
+        Offset : 1
+        AlertAbnormalValue : 1
+
+      - Name : 室外环境温度传感器告警-低于下限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 室外环境温度传感器告警-高于上限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 室外环境温度传感器告警-未检测
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 室外环境温度传感器告警-故障
+        Offset : 1
+        AlertAbnormalValue : 1
+
+      - Name : 外机盘管温度传感器告警-低于下限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 外机盘管温度传感器告警-高于上限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 外机盘管温度传感器告警-未检测
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 外机盘管温度传感器告警-故障
+        Offset : 1
+        AlertAbnormalValue : 1
+
+      - Name : 排气温度传感器告警-低于下限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 排气温度传感器告警-高于上限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 排气温度传感器告警-未检测
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 排气温度传感器告警-故障
+        Offset : 1
+        AlertAbnormalValue : 1
+
+      - Name : 相序错误告警-低于下限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 相序错误告警-高于上限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 相序错误告警-未检测
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 相序错误告警-故障
+        Offset : 1
+        AlertAbnormalValue : 1
+
+      - Name : 缺相保护告警-低于下限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 缺相保护告警-高于上限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 缺相保护告警-未检测
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 缺相保护告警-故障
+        Offset : 1
+        AlertAbnormalValue : 1
+
+      - Name : 室外风机保护告警-低于下限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 室外风机保护告警-高于上限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 室外风机保护告警-未检测
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 室外风机保护告警-故障
+        Offset : 1
+        AlertAbnormalValue : 1
+
+      - Name : EEPROM 故障告警-低于下限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : EEPROM 故障告警-高于上限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : EEPROM 故障告警-未检测
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : EEPROM 故障告警-故障
+        Offset : 1
+        AlertAbnormalValue : 1
+
+      - Name : 消防报警告警-低于下限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 消防报警告警-高于上限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 消防报警告警-未检测
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 消防报警告警-故障
+        Offset : 1
+        AlertAbnormalValue : 1
+
+      - Name : 室内湿度传感器告警-低于下限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 室内湿度传感器告警-高于上限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 室内湿度传感器告警-未检测
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 室内湿度传感器告警-故障
+        Offset : 1
+        AlertAbnormalValue : 1
+
+      - Name : 室外湿度传感器告警-低于下限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 室外湿度传感器告警-高于上限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 室外湿度传感器告警-未检测
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 室外湿度传感器告警-故障
+        Offset : 1
+        AlertAbnormalValue : 1
+
+      - Name : 系统异常告警-低于下限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 系统异常告警-高于上限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 系统异常告警-未检测
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 系统异常告警-故障
+        Offset : 1
+        AlertAbnormalValue : 1
+
+      - Name : 水浸告警-低于下限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 水浸告警-高于上限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 水浸告警-未检测
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 水浸告警-故障
+        Offset : 1
+        AlertAbnormalValue : 1
+
+      - Name : 其他不正常告警-低于下限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 其他不正常告警-高于上限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 其他不正常告警-未检测
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 其他不正常告警-故障
+        Offset : 1
+        AlertAbnormalValue : 1
+
+      - Name : 外机被盗告警-低于下限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 外机被盗告警-高于上限
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 外机被盗告警-未检测
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 外机被盗告警-故障
+        Offset : 1
+        AlertAbnormalValue : 1
+
+
+
+
+  - Cmd : 3
+    Offset : 0
+    Len : 20
+    Data : 
+      - Name : 空调开机温度
+      - Name : 空调关机温度
+      - Name : 回风温度上限
+      - Name : 回风温度下限
+      - Name : 回风湿度上限
+      - Name : 回风湿度下限
+      - Name : 制冷模式温度设定值
+      - Name : 用户自定义遥测数量
+      - Name : 运行模式设定
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运转
+      - Name : 内风机风速设定
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运转
+      - Name : 摆风功能设定
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运转
+      - Name : 屏蔽本地操作
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运转
+      - Name : 双机备份切换时间
+        Options : 
+          - Key : 0
+            Value : 不启用
+      - Name : 高温同开温度设定
+      - Name : 制热模式温度设定值
+      - Name : 制冷温控精度
+      - Name : 制热温控精度
+

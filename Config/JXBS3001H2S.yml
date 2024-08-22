@@ -1,0 +1,13 @@
+Project:
+  Name : JXBS3001H2S
+  RT_ID : 5156
+  File : "485型硫化氢变送器使用说明书 JXBS-3001-H2S SVer1.0"
+Sample :
+  - Cmd : 3
+    Offset : 0x0006
+    Len : 1
+    Data :
+      - Name : H2S浓度
+        Offset : 1
+        Unit : "ppm"
+        Ratio : 100

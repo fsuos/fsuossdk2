@@ -1,0 +1,1750 @@
+Project:
+  Name : SL3500TH3CT2 
+  RT_ID : 5156
+  File : ""
+Sample : 
+  - Cmd : 1
+    Offset : 128
+    Len : 16
+    Data : 
+      - Name : "运行"
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "送风机"
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "压缩机1"
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "压缩机2"
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "1#氟泵"
+        Offset : 5
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "2#氟泵"
+        Offset : 6
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "备用"
+        Offset : 7
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "进水阀"
+        Offset : 8
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "排水阀"
+        Offset : 9
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "电加热1"
+        Offset : 10
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "电加热2"
+        Offset : 11
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "电加热3"
+        Offset : 12
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "加湿器"
+        Offset : 13
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "备用"
+        Offset : 14
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "备用"
+        Offset : 15
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "故障输出"
+        Offset : 16
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+
+  - Cmd : 3
+    Offset : 238
+    Len : 8
+    Data : 
+      - Name : "备用"
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "送风机"
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "压缩机1"
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "压缩机2"
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "1#氟泵"
+        Offset : 5
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "2#氟泵"
+        Offset : 6
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "备用"
+        Offset : 7
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "进水阀"
+        Offset : 8
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+
+  - Cmd : 3
+    Offset : 246
+    Len : 8
+    Data : 
+      - Name : "排水阀"
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "电加热1"
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "电加热2"
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "电加热3"
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "加湿器"
+        Offset : 5
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "备用"
+        Offset : 6
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "备用"
+        Offset : 7
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "故障输出"
+        Offset : 8
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+
+  - Cmd : 3
+    Offset : 254
+    Len : 2
+    Data : 
+      - Name : "手调EEV-1开度"
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "手调EEV-2开度"
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+
+  - Cmd : 1
+    Offset : 0
+    Len : 99
+    Data : 
+      - Name : 回风温度探头故障
+        Offset : 1
+        AlertNormalValue : 0
+      - Name : 回风湿度探头故障
+        Offset : 2
+        AlertNormalValue : 0
+      - Name : 送风温度探头故障
+        Offset : 3
+        AlertNormalValue : 0
+      - Name : 2#氟泵压差报警
+        Offset : 4
+        AlertNormalValue : 0
+      - Name : 1#吸气温度探头故障
+        Offset : 5
+        AlertNormalValue : 0
+      - Name : 2#吸气温度探头故障
+        Offset : 6
+        AlertNormalValue : 0
+      - Name : 1#系统压力探头故障
+        Offset : 7
+        AlertNormalValue : 0
+      - Name : 2#系统压力探头故障
+        Offset : 8
+        AlertNormalValue : 0
+      - Name : 1#吸气压力探头故障
+        Offset : 9
+        AlertNormalValue : 0
+      - Name : 2#吸气压力探头故障
+        Offset : 10
+        AlertNormalValue : 0
+      - Name : 送风机过载
+        Offset : 11
+        AlertNormalValue : 0
+      - Name : 1#高压/外风机过载
+        Offset : 12
+        AlertNormalValue : 0
+      - Name : 1#压缩机低压
+        Offset : 13
+        AlertNormalValue : 0
+      - Name : 1#压机过载/排气高温
+        Offset : 14
+        AlertNormalValue : 0
+      - Name : 2#高压/外风机过载
+        Offset : 15
+        AlertNormalValue : 0
+      - Name : 2#压缩机低压
+        Offset : 16
+        AlertNormalValue : 0
+      - Name : 2#压机过载/排气高温
+        Offset : 17
+        AlertNormalValue : 0
+      - Name : 滤网堵塞
+        Offset : 18
+        AlertNormalValue : 0
+      - Name : 气流丢失
+        Offset : 19
+        AlertNormalValue : 0
+      - Name : 加湿器报警
+        Offset : 20
+        AlertNormalValue : 0
+      - Name : 电加热报警
+        Offset : 21
+        AlertNormalValue : 0
+      - Name : 接水盘满报警
+        Offset : 22
+        AlertNormalValue : 0
+      - Name : 相序保护
+        Offset : 23
+        AlertNormalValue : 0
+      - Name : 1#辅助报警
+        Offset : 24
+        AlertNormalValue : 0
+      - Name : 1#氟泵压差报警
+        Offset : 25
+        AlertNormalValue : 0
+      - Name : 1#压缩机低压压力报警
+        Offset : 26
+        AlertNormalValue : 0
+      - Name : 2#压缩机低压压力报警
+        Offset : 27
+        AlertNormalValue : 0
+      - Name : 机组电流过载
+        Offset : 28
+        AlertNormalValue : 0
+      - Name : 水质软报警
+        Offset : 30
+        AlertNormalValue : 0
+      - Name : 低电流告警
+        Offset : 31
+        AlertNormalValue : 0
+      - Name : 高电流告警
+        Offset : 32
+        AlertNormalValue : 0
+      - Name : 零电流告警
+        Offset : 33
+        AlertNormalValue : 0
+      - Name : 水浸告警
+        Offset : 34
+        AlertNormalValue : 0
+      - Name : 1#压缩机高压压力报警
+        Offset : 35
+        AlertNormalValue : 0
+      - Name : 2#压缩机高压压力报警
+        Offset : 36
+        AlertNormalValue : 0
+      - Name : 室外探头故障
+        Offset : 41
+        AlertNormalValue : 0
+      - Name : 备用(41)
+        Offset : 42
+        AlertNormalValue : 0
+      - Name : 从板缺失
+        Offset : 44
+        AlertNormalValue : 0
+      - Name : 1#变频通讯故障
+        Offset : 45
+        AlertNormalValue : 0
+      - Name : 2#变频通讯故障
+        Offset : 46
+        AlertNormalValue : 0
+      - Name : 主机缺失
+        Offset : 49
+        AlertNormalValue : 0
+      - Name : 从机1缺失
+        Offset : 50
+        AlertNormalValue : 0
+      - Name : 从机2缺失
+        Offset : 51
+        AlertNormalValue : 0
+      - Name : 从机3缺失
+        Offset : 52
+        AlertNormalValue : 0
+      - Name : 从机4缺失
+        Offset : 53
+        AlertNormalValue : 0
+      - Name : 从机5缺失
+        Offset : 54
+        AlertNormalValue : 0
+      - Name : 从机6缺失
+        Offset : 55
+        AlertNormalValue : 0
+      - Name : 从机7缺失
+        Offset : 56
+        AlertNormalValue : 0
+      - Name : 从机8缺失
+        Offset : 57
+        AlertNormalValue : 0
+      - Name : 从机9缺失
+        Offset : 58
+        AlertNormalValue : 0
+      - Name : 从机10缺失
+        Offset : 59
+        AlertNormalValue : 0
+      - Name : 从机11缺失
+        Offset : 60
+        AlertNormalValue : 0
+      - Name : 1#变频功率卡温度故障
+        Offset : 66
+        AlertNormalValue : 0
+      - Name : 1#变频故障
+        Offset : 67
+        AlertNormalValue : 0
+      - Name : 1#变频过电流故障
+        Offset : 68
+        AlertNormalValue : 0
+      - Name : 1#变频短路故障
+        Offset : 69
+        AlertNormalValue : 0
+      - Name : 1#变频主电源缺相故障
+        Offset : 70
+        AlertNormalValue : 0
+      - Name : 1#变频内部故障
+        Offset : 71
+        AlertNormalValue : 0
+      - Name : 1#变频U相缺相故障
+        Offset : 72
+        AlertNormalValue : 0
+      - Name : 1#变频V相缺相故障
+        Offset : 73
+        AlertNormalValue : 0
+      - Name : 1#变频W相缺相故障
+        Offset : 74
+        AlertNormalValue : 0
+      - Name : 1#变频控制电压故障
+        Offset : 75
+        AlertNormalValue : 0
+      - Name : 1#变频制动电阻器短路故障
+        Offset : 76
+        AlertNormalValue : 0
+      - Name : 1#变频接地故障
+        Offset : 77
+        AlertNormalValue : 0
+      - Name : 1#变频制动斩波器短路故障
+        Offset : 78
+        AlertNormalValue : 0
+      - Name : 1#逆变器过载
+        Offset : 79
+        AlertNormalValue : 0
+      - Name : 高温报警
+        Offset : 80
+        AlertNormalValue : 0
+      - Name : 低温报警
+        Offset : 81
+        AlertNormalValue : 0
+      - Name : 高湿报警
+        Offset : 82
+        AlertNormalValue : 0
+      - Name : 低湿报警
+        Offset : 83
+        AlertNormalValue : 0
+      - Name : 2#变频功率卡温度故障
+        Offset : 86
+        AlertNormalValue : 0
+      - Name : 2#变频故障
+        Offset : 87
+        AlertNormalValue : 0
+      - Name : 2#变频过电流故障
+        Offset : 88
+        AlertNormalValue : 0
+      - Name : 2#变频短路故障
+        Offset : 89
+        AlertNormalValue : 0
+      - Name : 2#变频主电源缺相故障
+        Offset : 90
+        AlertNormalValue : 0
+      - Name : 2#变频内部故障
+        Offset : 91
+        AlertNormalValue : 0
+      - Name : 2#变频U相缺相故障
+        Offset : 92
+        AlertNormalValue : 0
+      - Name : 2#变频V相缺相故障
+        Offset : 93
+        AlertNormalValue : 0
+      - Name : 2#变频W相缺相故障
+        Offset : 94
+        AlertNormalValue : 0
+      - Name : 2#变频控制电压故障
+        Offset : 95
+        AlertNormalValue : 0
+      - Name : 2#变频制动电阻器短路故障
+        Offset : 96
+        AlertNormalValue : 0
+      - Name : 2#变频接地故障
+        Offset : 97
+        AlertNormalValue : 0
+      - Name : 2#变频制动斩波器短路故障
+        Offset : 98
+        AlertNormalValue : 0
+      - Name : 2#逆变器过载
+        Offset : 99
+        AlertNormalValue : 0
+
+  - Cmd : 3
+    Offset : 102
+    Len : 8
+    Data : 
+      - Name : 送风机过载
+        Offset : 1
+        AlertNormalValue : 0
+      - Name : 1#高压
+        Offset : 2
+        AlertNormalValue : 0
+      - Name : 1#低压
+        Offset : 3
+        AlertNormalValue : 0
+      - Name : 1#过载
+        Offset : 4
+        AlertNormalValue : 0
+      - Name : 2#高压
+        Offset : 5
+        AlertNormalValue : 0
+      - Name : 2#低压
+        Offset : 6
+        AlertNormalValue : 0
+      - Name : 2#过载
+        Offset : 7
+        AlertNormalValue : 0
+      - Name : 滤网堵塞
+        Offset : 8
+
+  - Cmd : 3
+    Offset : 110
+    Len : 8
+    Data : 
+      - Name : 气流丢失
+        Offset : 1
+        AlertNormalValue : 0
+      - Name : 加湿器报警
+        Offset : 2
+        AlertNormalValue : 0
+      - Name : 电加热报警
+        Offset : 3
+        AlertNormalValue : 0
+      - Name : 接水盘满
+        Offset : 4
+        AlertNormalValue : 0
+      - Name : 相序保护
+        Offset : 5
+        AlertNormalValue : 0
+      - Name : 辅助报警1
+        Offset : 6
+        AlertNormalValue : 0
+      - Name : 辅助报警2-1#氟泵压差
+        Offset : 7
+        AlertNormalValue : 0
+      - Name : 2#氟泵压差
+        Offset : 8
+        AlertNormalValue : 0
+
+  - Cmd : 3
+    Offset : 73
+    Len : 3
+    Data : 
+      - Name : 储液器液位
+        Offset : 1
+        AlertNormalValue : 0
+      - Name : 气分低液位
+        Offset : 2
+        AlertNormalValue : 0
+      - Name : 气分高液位
+        Offset : 3
+        AlertNormalValue : 0
+
+  - Cmd : 1
+    Offset : 152
+    Len : 21
+    Data : 
+      - Name : "送风机过载"
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+      - Name : "1#高压"
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+      - Name : "1#低压"
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+      - Name : "1#过载"
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+      - Name : "2#高压"
+        Offset : 5
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+      - Name : "2#低压"
+        Offset : 6
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+      - Name : "2#过载"
+        Offset : 7
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+      - Name : "滤网堵塞"
+        Offset : 8
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+      - Name : "气流丢失"
+        Offset : 9
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+      - Name : "加湿器报警"
+        Offset : 10
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+      - Name : "电加热报警"
+        Offset : 11
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+      - Name : "接水盘满"
+        Offset : 12
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+      - Name : "相序保护"
+        Offset : 13
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+      - Name : "辅助报警"
+        Offset : 14
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+      - Name : "1#氟泵压差报警"
+        Offset : 15
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+      - Name : "远控"
+        Offset : 16
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+      - Name : "高水位"
+        Offset : 17
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+      - Name : "气分高液位"
+        Offset : 19
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+      - Name : "气分低液位"
+        Offset : 20
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+      - Name : "储液器液位"
+        Offset : 21
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+
+  - Cmd : 1
+    Offset : 185
+    Len : 1
+    Data : 
+      - Name : "2#氟泵压差报警"
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+
+  - Cmd : 3
+    Offset : 91
+    Len : 8
+    Data : 
+      - Name : "回风温度校正"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 1
+      - Name : "回风湿度校正"
+        Unit : "%"
+        Ratio : 10
+        Offset : 2
+      - Name : "室外温度校正"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 3
+      - Name : "1#吸气温度校正"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 5
+      - Name : "2#吸气温度校正"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 6
+      - Name : "1#系统压力校正"
+        Unit : "Bar"
+        Ratio : 10
+        Offset : 7
+      - Name : "2#系统压力校正"
+        Unit : "Bar"
+        Ratio : 10
+        Offset : 8
+
+  - Cmd : 3
+    Offset : 99
+    Len : 3
+    Data : 
+      - Name : "1#吸气压力校正"
+        Unit : "Bar"
+        Ratio : 10
+        Offset : 1
+      - Name : "2#吸气压力校正"
+        Unit : "Bar"
+        Ratio : 10
+        Offset : 2
+      - Name : "加湿电流校正"
+        Unit : "A"
+        Ratio : 10
+        Offset : 3
+
+  - Cmd : 3
+    Offset : 700
+    Len : 8
+    Data : 
+      - Name : 室内温度
+        Ratio : 10 
+        Offset : 1
+      - Name : 室内湿度
+        Ratio : 10
+        Offset : 2
+      - Name : 室外温度
+        Ratio : 10
+        Offset : 3
+      - Name : 吸气温度1
+        Ratio : 10
+        Offset : 5
+      - Name : 吸气温度2
+        Ratio : 10
+        Offset : 6
+      - Name : 系统压力1
+        Ratio : 10
+        Offset : 7
+      - Name : 系统压力2
+        Ratio : 10
+        Offset : 8
+
+  - Cmd : 3
+    Offset : 708
+    Len : 2
+    Data : 
+      - Name : 吸气压力1
+        Ratio : 10
+        Offset : 1
+      - Name : 吸气压力2
+        Ratio : 10
+        Offset : 2
+  - Cmd : 3
+    Offset : 696
+    Len : 4
+    Data : 
+      - Name : EEV1 开度
+        Ratio : 10
+        Offset : 1
+      - Name : EEV2 开度
+        Ratio : 10
+        Offset : 2
+      - Name : 1# 过热度
+        Ratio : 10
+        Offset : 3
+      - Name : 2# 过热度
+        Ratio : 10
+        Offset : 4
+  - Cmd : 3
+    Offset : 711
+    Len : 2
+    Data : 
+      - Name : 漏水检测值
+        Ratio : 10
+        Offset : 1
+      - Name : 加湿器电流
+        Ratio : 10
+        Offset : 2
+
+  - Cmd : 3
+    Offset : 720
+    Len : 4
+    Data : 
+      - Name : 加湿器输出
+        Ratio : 10
+        Offset : 1
+      - Name : 内风机输出比例
+        Ratio : 10
+        Offset : 2
+      - Name : 外风机1输出比例
+        Ratio : 10
+        Offset : 3
+      - Name : 外风机2输出比例
+        Ratio : 10
+        Offset : 4
+
+  - Cmd : 3
+    Offset : 800
+    Len : 6
+    Data : 
+      - Name : 变频功率输出
+        Ratio : 10
+        Offset : 1
+      - Name : 电机电压
+        Ratio : 10
+        Offset : 2
+      - Name : 频率
+        Ratio : 10
+        Offset : 3
+      - Name : 电机电流
+        Ratio : 10
+        Offset : 4
+      - Name : 电机速度
+        Ratio : 10
+        Offset : 6
+
+  - Cmd : 3
+    Offset : 207
+    Len : 1
+    Data : 
+      - Name : 变频输出测试用的地址
+        Ratio : 10
+        Offset : 1
+
+  - Cmd : 3
+    Offset : 16899
+    Len : 2
+    Data : 
+      - Name : 变频故障测试用的地址
+        Ratio : 10
+        Offset : 1
+      - Name : 变频故障测试用的地址
+        Ratio : 10
+        Offset : 2
+
+
+  - Cmd : 3
+    Offset : 0
+    Len : 8
+    Data : 
+      - Name : 低压压力报警
+        Offset : 1
+        Unit : "bar"
+        Ratio : 100
+      - Name : 低压故障检测时间
+        Offset : 2
+        Unit : "秒"
+      - Name : 变频风机最高转速
+        Offset : 3
+        Unit : "%"
+      - Name : 联网地址
+        Offset : 4
+      - Name : 压缩机个数
+        Offset : 5
+      - Name : 电加热个数
+        Offset : 6
+      - Name : 变频风机最低转速
+        Offset : 7
+        Unit : "%"
+      - Name : 变频风机死区
+        Offset : 8
+        Unit : "℃"
+        Ratio : 10
+
+  - Cmd : 3
+    Offset : 8
+    Len : 8
+    Data : 
+      - Name : 变频风机比例带
+        Offset : 1
+        Unit : "℃"
+        Ratio : 10
+      - Name : 是否启用电极加湿
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 外置开关量
+          - Key : 2
+            Value : 置模拟量
+          - Key : 3
+            Value : 内置开关量
+          - Key : 4
+            Value : 内置模拟量
+      - Name : 加湿电极选择
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 三极
+          - Key : 1
+            Value : 六极
+      - Name : 加湿公斤数选择
+        Offset : 4
+      - Name : 排水比率
+        Offset : 5
+      - Name : 排水时间
+        Offset : 6
+        Unit : "秒"
+      - Name : 二次进水时间
+        Offset : 7
+        Unit : "分"
+      - Name : 排水时间间隔
+        Offset : 8
+  - Cmd : 3
+    Offset : 16
+    Len : 8
+    Data : 
+      - Name : EEV正反转
+        Offset : 1
+      - Name : 故障报警设置
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 无声
+          - Key : 1
+            Value : 单声
+          - Key : 2
+            Value : 长声
+      - Name : 一级制冷开启点
+        Offset : 3
+        Unit : "℃"
+        Ratio : 10
+      - Name : 一级制冷关闭点
+        Offset : 4
+        Unit : "℃"
+        Ratio : 10
+      - Name : 二级制冷开启点
+        Offset : 5
+        Unit : "℃"
+        Ratio : 10
+      - Name : 二级制冷关闭点
+        Offset : 6
+        Unit : "℃"
+        Ratio : 10
+      - Name : 一级制热开启点
+        Offset : 7
+        Unit : "℃"
+        Ratio : 10
+      - Name : 一级制热关闭点
+        Offset : 8
+        Unit : "℃"
+        Ratio : 10
+  - Cmd : 3
+    Offset : 24
+    Len : 8
+    Data : 
+      - Name : 二级制热开启点
+        Offset : 1
+        Unit : "℃"
+        Ratio : 10
+      - Name : 二级制热关闭点
+        Offset : 2
+        Unit : "℃"
+        Ratio : 10
+      - Name : 加湿开启点
+        Offset : 3
+        Unit : "%"
+        Ratio : 10
+      - Name : 加湿关闭点
+        Offset : 4
+        Unit : "%"
+        Ratio : 10
+      - Name : 一级除湿开启点
+        Offset : 5
+        Unit : "%"
+        Ratio : 10
+      - Name : 一级除湿关闭点
+        Offset : 6
+        Unit : "%"
+        Ratio : 10
+      - Name : 二级除湿开启点
+        Offset : 7
+        Unit : "%"
+        Ratio : 10
+      - Name : 二级除湿关闭点
+        Offset : 8
+        Unit : "%"
+        Ratio : 10
+
+  - Cmd : 3
+    Offset : 32
+    Len : 7
+    Data : 
+      - Name : 高水位级别
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 低
+          - Key : 1
+            Value : 中
+          - Key : 2
+            Value : 高
+      - Name : 开机延时
+        Offset : 2
+        Unit : "秒"
+      - Name : 来电自启动
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 禁用
+          - Key : 1
+            Value : 启用
+      - Name : 恢复出厂设置
+        Offset : 7
+
+
+  - Cmd : 3
+    Offset : 38
+    Len : 8
+    Data : 
+      - Name : 除湿低温点
+        Offset : 1
+        Unit : "℃"
+        Ratio : 10
+      - Name : 湿度设置
+        Offset : 2
+      - Name : 温度设置
+        Offset : 3
+      - Name : 低压延时时间
+        Offset : 5
+        Unit : "秒"
+      - Name : 关机延时
+        Offset : 6
+      - Name : 除湿低温回差
+        Offset : 7
+        Unit : "℃"
+        Ratio : 10
+      - Name : 最短运行时间
+        Offset : 8
+
+  - Cmd : 3
+    Offset : 46
+    Len : 4
+    Data : 
+      - Name : 最短停机时间
+        Offset : 1
+      - Name : 轮值设置
+        Offset : 2
+      - Name : 轮值设置地址
+        Offset : 3
+      - Name : 轮值间隔时间
+        Offset : 4
+        Unit : "时"
+
+  - Cmd : 3
+    Offset : 54
+    Len : 8
+    Data : 
+      - Name : 轮值机组个数
+        Offset : 1
+      - Name : 模式切换
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 恒温恒湿
+          - Key : 1
+            Value : 恒温
+          - Key : 2
+            Value : 送风
+      - Name : 清洗间隔
+        Offset : 3
+        Unit : "秒"
+      - Name : 清洗时间
+        Offset : 4
+        Unit : "天"
+      - Name : 风机控制方式
+        Offset : 5
+        Options : 
+          - Key : 0
+            Value : 温度
+          - Key : 1
+            Value : 压力
+      - Name : 高压压力量程
+        Offset : 6
+        Unit : "bar"
+        Ratio : 10
+      - Name : 低压压力量程
+        Offset : 7
+        Unit : "bar"
+        Ratio : 10
+      - Name : FSC最大转速
+        Offset : 8
+
+  - Cmd : 3
+    Offset : 62
+    Len : 8
+    Data : 
+      - Name : FSC最小转速
+        Offset : 1
+      - Name : FSC温度设置
+        Offset : 2
+        Unit : "℃"
+      - Name : FSC温度回差
+        Offset : 3
+        Unit : "℃"
+      - Name : FSC压力设置
+        Offset : 4
+        Unit : "bar"
+      - Name : FSC压力回差
+        Offset : 5
+        Unit : "bar"
+      - Name : 加湿加热选择
+        Offset : 6
+        Options : 
+          - Key : 0
+            Value : 不互斥
+          - Key : 1
+            Value : 制热优先
+          - Key : 2
+            Value : 加湿优先
+      - Name : 电加热控制方式
+        Offset : 7
+        Options : 
+          - Key : 0
+            Value : 1：1
+          - Key : 1
+            Value : 2进制
+      - Name : 高压报警值
+        Offset : 8
+
+  - Cmd : 3
+    Offset : 70
+    Len : 8
+    Data : 
+      - Name : 风压报警延时
+        Offset : 1
+      - Name : 送风温湿度
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 禁用
+          - Key : 1
+            Value : 启用
+      - Name : 机组电流报警
+        Offset : 7
+        Unit : "A"
+        Ratio : 10
+      - Name : FSC设定温度
+        Offset : 8
+        Unit : "A"
+        Ratio : 10
+
+    
+
+  - Cmd : 3
+    Offset : 78
+    Len : 8
+    Data : 
+      - Name : 除湿过热度
+        Offset : 1
+        Unit : "℃"
+        Ratio : 10
+      - Name : EEV初始开度时间
+        Offset : 2
+        Unit : "秒"
+      - Name : EEV初始开度设置
+        Offset : 3
+      - Name : PID_T_EEV
+        Offset : 4
+      - Name : PID_P_EEV
+        Offset : 5
+      - Name : PID_I_EEV
+        Offset : 6  
+      - Name : PID_D_EEV
+        Offset : 7
+      - Name : EEV最小开度
+        Offset : 8
+
+  - Cmd : 3
+    Offset : 86
+    Len : 5
+    Data : 
+      - Name : EEV步长
+        Offset : 1
+      - Name : 地板漏水报警值
+        Offset : 2
+        Unit : "KΩ"
+      - Name : 制冷过热度
+        Offset : 3
+        Unit : "℃"
+        Ratio : 10
+      - Name : 过热度超限
+        Offset : 4
+        Unit : "℃"
+        Ratio : 10
+      - Name : 过热度超限调整值
+        Offset : 5
+
+  - Cmd : 3
+    Offset : 124
+    Len : 8
+    Data : 
+      - Name : 压缩机1手动自动
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 自动
+          - Key : 1
+            Value : 手动
+      - Name : 压缩机1手动开关
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+      - Name : 压缩机2手动自动
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 自动
+          - Key : 1
+            Value : 手动
+      - Name : 压缩机2手动开关
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+      - Name : 电加热1手动自动
+        Offset : 5
+        Options : 
+          - Key : 0
+            Value : 自动
+          - Key : 1
+            Value : 手动
+      - Name : 电加热1手动开关
+        Offset : 6
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+      - Name : 电加热2手动自动
+        Offset : 7
+        Options : 
+          - Key : 0
+            Value : 自动
+          - Key : 1
+            Value : 手动
+      - Name : 电加热2手动开关
+        Offset : 8
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+
+  - Cmd : 3
+    Offset : 132
+    Len : 8
+    Data : 
+      - Name : 电加热3手动自动
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 自动
+          - Key : 1
+            Value : 手动
+      - Name : 电加热3手动开关
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+      - Name : 加湿器手动自动
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 自动
+          - Key : 1
+            Value : 手动
+      - Name : 加湿器手动比例
+        Offset : 4
+        Unit : "%"
+      - Name : EEV1手动自动
+        Offset : 5
+        Options : 
+          - Key : 0
+            Value : 自动
+          - Key : 1
+            Value : 手动
+      - Name : EEV1手动开度
+        Offset : 6
+        Unit : "步"
+      - Name : EEV2手动自动
+        Offset : 7
+        Options : 
+          - Key : 0
+            Value : 自动
+          - Key : 1
+            Value : 手动
+      - Name : EEV2手动开度
+        Offset : 8
+        Unit : "步"
+
+  - Cmd : 3
+    Offset : 140
+    Len : 8
+    Data : 
+      - Name : 送风机手动自动
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 自动
+          - Key : 1
+            Value : 手动
+      - Name : 送风手动比例
+        Offset : 2
+        Unit : "%"
+      - Name : 冷凝风机1手动自动
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 自动
+          - Key : 1
+            Value : 手动
+      - Name : 冷凝风机手动比例
+        Offset : 4
+        Unit : "%"
+      - Name : 冷凝风机2手动自动
+        Offset : 5
+        Options : 
+          - Key : 0
+            Value : 自动
+          - Key : 1
+            Value : 手动
+      - Name : 冷凝风机手动比例
+        Offset : 6
+        Unit : "%"
+      - Name : 地板漏水动作
+        Offset : 8
+        Options : 
+          - Key : 0
+            Value : 停机
+          - Key : 1
+            Value : 不停
+
+  - Cmd : 3
+    Offset : 148
+    Len : 7
+    Data : 
+      - Name : 接水盘满动作
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 不停机
+          - Key : 1
+            Value : 停机
+      - Name : 温差报警
+        Offset : 2
+        Unit : "℃"
+        Ratio : 10
+      - Name : 湿差报警
+        Offset : 3
+        Unit : "%"
+        Ratio : 10
+      - Name : 高温偏差
+        Offset : 4
+        Unit : "℃"
+        Ratio : 10
+      - Name : 低温偏差
+        Offset : 5
+        Unit : "℃"
+        Ratio : 10
+      - Name : 高湿偏差
+        Offset : 6
+        Unit : "%"
+        Ratio : 10
+      - Name : 低湿偏差
+        Offset : 7
+        Unit : "%"
+        Ratio : 10
+
+  - Cmd : 3
+    Offset : 158
+    Len : 5
+    Data : 
+      - Name : FSC温度回差
+        Offset : 1
+        Unit : "℃"
+        Ratio : 10
+      - Name : FSC最小输出比例
+        Offset : 2
+        Unit : "℃"
+        Ratio : 10
+      - Name : FSC最大输出比例
+        Offset : 3  
+      - Name : 切断温度设置
+        Offset : 4
+        Unit : "℃"
+        Ratio : 10
+      - Name : 电流量程
+        Offset : 5
+
+  - Cmd : 3
+    Offset : 50
+    Len : 4
+    Data :  
+      - Name : 氟泵最短运行时间
+        Offset : 1
+        Unit : "秒"
+      - Name : 氟泵压缩机切换时间
+        Offset : 2
+        Unit : "秒"
+      - Name : 氟泵间隔延时
+        Offset : 3
+        Unit : "秒"
+      - Name : 切断压力设置
+        Offset : 4
+        Unit : "bar"
+        Ratio : 10
+
+  - Cmd : 3
+    Offset : 36
+    Len : 1
+    Data :  
+      - Name : 氟泵开启环境温度
+        Offset : 1
+        Unit : "℃"
+        Ratio : 10
+      - Name : 氟泵关闭温度回差
+        Offset : 2
+        Unit : "℃"
+        Ratio : 10
+
+  - Cmd : 3
+    Offset : 174
+    Len : 8
+    Data :  
+      - Name : FSC控制模式
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 液温
+          - Key : 1
+            Value : 压力
+          - Key : 2
+            Value : 过冷度
+      - Name : FSC最大输出比例
+        Offset : 2
+      - Name : FSC最小输出比例
+        Offset : 3
+      - Name : 冷凝压力下限
+        Offset : 4
+      - Name : PID输出下限时间
+        Offset : 6
+      - Name : 切断设置
+        Offset : 7
+        Options : 
+          - Key : 0
+            Value : 禁用
+          - Key : 1
+            Value : 启用
+      - Name : FSC设定液温
+        Offset : 8
+
+  - Cmd : 3
+    Offset : 182
+    Len : 8
+    Data : 
+      - Name : FSC设定压力
+        Offset : 1
+      - Name : FSC设定过冷度
+        Offset : 2
+      - Name : 1#环境温度
+        Offset : 3
+      - Name : 2#环境温度
+        Offset : 4
+      - Name : 3#环境温度
+        Offset : 5
+      - Name : 1# FSC P 系数
+        Offset : 6
+      - Name : 1# FSC I 系数
+        Offset : 7
+      - Name : 1# FSC D 系数
+        Offset : 8
+
+  - Cmd : 3
+    Offset : 190
+    Len : 8
+    Data : 
+      - Name : 1# FSC T 系数
+        Offset : 1
+      - Name : 2# FSC P 系数
+        Offset : 2
+      - Name : 2# FSC I 系数
+        Offset : 3
+      - Name : 2# FSC D 系数
+        Offset : 4
+      - Name : 2# FSC T 系数
+        Offset : 5
+      - Name : 3# FSC P 系数
+        Offset : 6
+      - Name : 3# FSC I 系数
+        Offset : 7
+      - Name : 3# FSC D 系数
+        Offset : 8
+
+  - Cmd : 3
+    Offset : 198
+    Len : 7
+    Data : 
+      - Name : 3# FSC T 系数
+        Offset : 1
+      - Name : 4# FSC P 系数
+        Offset : 2
+      - Name : 4# FSC I 系数
+        Offset : 3
+      - Name : 4# FSC D 系数
+        Offset : 4
+      - Name : 4# FSC T 系数
+        Offset : 5
+      - Name : 风机高速外温
+        Offset : 6
+        Unit : "℃"
+        Ratio : 10
+      - Name : 风机低速外温
+        Offset : 7
+        Unit : "℃"
+        Ratio : 10
+
+  - Cmd : 3
+    Offset : 205
+    Len : 2
+    Data : 
+      - Name : FSC最大输出比例
+        Offset : 1
+        Unit : "%"
+      - Name : FSC最小输出比例
+        Offset : 2
+        Unit : "%"
+
+  - Cmd : 3
+    Offset : 120
+    Len : 4
+    Data : 
+      - Name : 1#变频器强制输出
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 自动
+          - Key : 1
+            Value : 手动
+      - Name : 1#变频器手动比例输出
+        Offset : 2
+        Unit : "%"
+      - Name : 2#变频器强制输出
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 自动
+          - Key : 1
+            Value : 手动
+      - Name : 2#变频器手动比例输出
+        Offset : 4
+        Unit : "%"
+
+  - Cmd : 3
+    Offset : 222
+    Len : 6
+    Data : 
+      - Name : 机组运行时间清零
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 禁用
+          - Key : 1
+            Value : 启用
+      - Name : 1#压机运行时间清零
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 禁用
+          - Key : 1
+            Value : 启用
+      - Name : 2#压机运行时间清零
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 禁用
+          - Key : 1
+            Value : 启用
+      - Name : 1#电热运行时间清零
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 禁用
+          - Key : 1
+            Value : 启用
+      - Name : 2#电热运行时间清零
+        Offset : 5
+        Options : 
+          - Key : 0
+            Value : 禁用
+          - Key : 1
+            Value : 启用
+      - Name : 3#电热运行时间清零
+        Offset : 6
+        Options : 
+          - Key : 0
+            Value : 禁用
+          - Key : 1
+            Value : 启用
+
+
+  - Cmd : 1
+    Offset : 176
+    Len : 3
+    Data : 
+      - Name : 开关机
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 关机
+          - Key : 1
+            Value : 开机
+      - Name : 手动/自动
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 自动
+          - Key : 1
+            Value : 手动
+      - Name : 故障复位
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 无故障
+          - Key : 1
+            Value : 有故障
+
+  - Cmd : 3
+    Offset : 276
+    Len : 4
+    Data : 
+      - Name : 运行状态
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 停机
+          - Key : 1
+            Value : 运行
+          - Key : 1
+            Value : 停机中
+      - Name : 制冷模式显示
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 无制冷
+          - Key : 1
+            Value : 氟泵制冷
+          - Key : 1
+            Value : 压缩机制冷
+
+
+
+
+
+
+
+
+
+
+

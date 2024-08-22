@@ -1,0 +1,9 @@
+Project:
+  Name : BatteryV
+  RT_ID : 5156
+  File : "测试.pdf"
+InitSetting :
+  - Name : count
+    Type : int
+Sample :
+  Name : 电压

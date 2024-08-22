@@ -1,0 +1,27 @@
+Project:
+  Name : PilotSPM206
+  RT_ID : 5156
+  File : " PilotSPM206精密配电监测单元MODBUS串行通信协议V1.0 "
+Sample : 
+  - Cmd : 3
+    Offset : 0
+    Len : 6
+    Data : 
+      - Name : 进线A相电压
+        Offset : 1
+      - Name : 进线B相电压
+        Offset : 2
+      - Name : 进线C相电压
+        Offset : 3
+      - Name : 进线A相电流
+        Offset : 4
+      - Name : 进线B相电流
+        Offset : 5
+      - Name : 进线C相电流
+        Offset : 6
+  - Cmd : 3
+    Offset : 57
+    Len : 1
+    Data : 
+      - Name : CT变比
+        Offset : 1
