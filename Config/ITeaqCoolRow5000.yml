@@ -11,8 +11,7 @@ Sample :
       - Name : "回风温度测量值"
         Unit : "℃"
         Offset : 1
-        Ratio : 10
-        
+        Ratio : 10        
       - Name : "回风湿度测量值"
         Unit : "%"
         Offset : 2
@@ -41,6 +40,175 @@ Sample :
         Unit : "℃"
         Offset : 8
         Ratio : 10
+      - Name : "高压告警"
+        Value : ($v[9] & 0x1)
+        AlertNormalValue : 0
+      - Name : "高压锁定"
+        Value : (($v[9]>>1) & 0x1)
+        AlertNormalValue : 0
+      - Name : "低压告警"
+        Value : (($v[9]>>2) & 0x1)
+        AlertNormalValue : 0
+      - Name : "低压锁定"
+        Value : (($v[9]>>3) & 0x1)
+        AlertNormalValue : 0
+      - Name : "排气高温"
+        Value : (($v[9]>>4) & 0x1)
+        AlertNormalValue : 0
+      - Name : "排气锁定"
+        Value : (($v[9]>>5) & 0x1)
+        AlertNormalValue : 0
+      - Name : "过热度低"
+        Value : (($v[9]>>6) & 0x1)
+        AlertNormalValue : 0
+      - Name : "过热低锁定"
+        Value : (($v[9]>>7) & 0x1)
+        AlertNormalValue : 0
+      - Name : "送风低温"
+        Value : (($v[9]>>8) & 0x1)
+        AlertNormalValue : 0
+      - Name : "送风高温"
+        Value : (($v[9]>>9) & 0x1)
+        AlertNormalValue : 0
+      - Name : "回风高温"
+        Value : (($v[9]>>10) & 0x1)
+        AlertNormalValue : 0
+      - Name : "回风高湿"
+        Value : (($v[9]>>11) & 0x1)
+        AlertNormalValue : 0
+      - Name : "回风低湿"
+        Value : (($v[9]>>12) & 0x1)
+        AlertNormalValue : 0
+      - Name : "低压传感故障"
+        Value : (($v[9]>>13) & 0x1)
+        AlertNormalValue : 0
+      - Name : "高压传感故障"
+        Value : (($v[9]>>14) & 0x1)
+        AlertNormalValue : 0
+      - Name : "回温故障"
+        Value : (($v[9]>>15) & 0x1)
+        AlertNormalValue : 0
+      - Name : "回湿故障"
+        Value : ($v[10] & 0x1)
+        AlertNormalValue : 0
+      - Name : "送温故障"
+        Value : (($v[10]>>1) & 0x1)
+        AlertNormalValue : 0
+      - Name : "排温故障"
+        Value : (($v[10]>>2) & 0x1)
+        AlertNormalValue : 0
+      - Name : "吸温故障"
+        Value : (($v[10]>>3) & 0x1)
+        AlertNormalValue : 0
+      - Name : "风机故障"
+        Value : (($v[10]>>4) & 0x1)
+        AlertNormalValue : 0
+      - Name : "EEV 通信故障"
+        Value : (($v[10]>>5) & 0x1)
+        AlertNormalValue : 0
+      - Name : "压驱通信故障"
+        Value : (($v[10]>>6) & 0x1)
+        AlertNormalValue : 0
+      - Name : "地板溢水"
+        Value : (($v[10]>>7) & 0x1)
+        AlertNormalValue : 0
+      - Name : "远程关机"
+        Value : (($v[10]>>8) & 0x1)
+        AlertNormalValue : 0
+      - Name : "压缩机驱动故障"
+        Value : (($v[10]>>9) & 0x1)
+        AlertNormalValue : 0
+      - Name : "电源丢失"
+        Value : (($v[10]>>10) & 0x1)
+        AlertNormalValue : 0
+      - Name : "过滤网堵"
+        Value : (($v[10]>>11) & 0x1)
+        AlertNormalValue : 0
+      - Name : "远温故障"
+        Value : (($v[10]>>12) & 0x1)
+        AlertNormalValue : 0
+      - Name : "烟感告警"
+        Value : (($v[10]>>13) & 0x1)
+        AlertNormalValue : 0
+      - Name : "电源过压"
+        Value : (($v[10]>>14) & 0x1)
+        AlertNormalValue : 0
+      - Name : "电源欠压"
+        Value : (($v[10]>>15) & 0x1)
+        AlertNormalValue : 0      
+      - Name : "电源缺相"
+        Value : ($v[11] & 0x1)
+        AlertNormalValue : 0
+      - Name : "显示通信故障"
+        Value : (($v[11]>>1) & 0x1)
+        AlertNormalValue : 0
+      - Name : "压驱故障锁定"
+        Value : (($v[11]>>2) & 0x1)
+        AlertNormalValue : 0
+      - Name : "高压异常告警"
+        Value : (($v[11]>>3) & 0x1)
+        AlertNormalValue : 0
+      - Name : "DI模块通信故障"
+        Value : (($v[11]>>4) & 0x1)
+        AlertNormalValue : 0
+      - Name : "加热故障"
+        Value : (($v[11]>>5) & 0x1)
+        AlertNormalValue : 0
+      - Name : "电源反相"
+        Value : (($v[11]>>6) & 0x1)
+        AlertNormalValue : 0
+      - Name : "电源频偏"
+        Value : (($v[11]>>7) & 0x1)
+        AlertNormalValue : 0
+      - Name : "冷凝水高水位"
+        Value : (($v[11]>>8) & 0x1)
+        AlertNormalValue : 0
+      - Name : "排水故障"
+        Value : (($v[11]>>9) & 0x1)
+        AlertNormalValue : 0
+      - Name : "加湿大电流"
+        Value : (($v[11]>>10) & 0x1)
+        AlertNormalValue : 0
+      - Name : "加湿小电流"
+        Value : (($v[11]>>11) & 0x1)
+        AlertNormalValue : 0
+      - Name : "加湿器维护"
+        Value : (($v[11]>>12) & 0x1)
+        AlertNormalValue : 0
+      - Name : "加湿板故障"
+        Value : (($v[11]>>13) & 0x1)
+        AlertNormalValue : 0
+      - Name : "组网故障"
+        Value : (($v[11]>>14) & 0x1)
+        AlertNormalValue : 0
+      - Name : "制冷"
+        Value : ($v[12] & 0x1)
+        Options :
+          - Key : 0
+            Value : 待机
+          - Key : 1
+            Value : 工作
+      - Name : "加热"
+        Value : (($v[12]>>1) & 0x1)
+        Options :
+          - Key : 0
+            Value : 待机
+          - Key : 1
+            Value : 工作
+      - Name : "加湿"
+        Value : (($v[12]>>2) & 0x1)
+        Options :
+          - Key : 0
+            Value : 待机
+          - Key : 1
+            Value : 工作
+      - Name : "除湿"
+        Value : (($v[12]>>3) & 0x1)
+        Options :
+          - Key : 0
+            Value : 待机
+          - Key : 1
+            Value : 工作
       - Name : "机组运行状态"
         Offset : 13
         Options :
@@ -157,3 +325,53 @@ SET_RET_CODE: |
         Reset();
         return false;
       }
+
+RunCheckThresholdCodeTelecom : |
+  CheckThresholdBool(SMDController::LEVEL1, "3_0_0", SIGID_12008, SIGNAME_12008, "高压告警", ((cData.r3_0[8]) & 0x1), 1);
+  CheckThresholdBool(SMDController::LEVEL1, "3_0_1", SIGID_12008, SIGNAME_12008, "高压锁定", ((cData.r3_0[8] >> 1) & 0x1), 2);
+  CheckThresholdBool(SMDController::LEVEL1, "3_0_2", SIGID_12009, SIGNAME_12009, "低压告警", ((cData.r3_0[8] >> 2) & 0x1), 1);
+  CheckThresholdBool(SMDController::LEVEL1, "3_0_3", SIGID_12009, SIGNAME_12009, "低压锁定", ((cData.r3_0[8] >> 3) & 0x1), 1);
+  CheckThresholdBool(SMDController::LEVEL1, "3_0_4", SIGID_12017, "排气高温", "排气高温", ((cData.r3_0[8] >> 4) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_0_5", SIGID_12017, "排气锁定", "排气锁定", ((cData.r3_0[8] >> 5) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_0_6", SIGID_12017, "过热度低", "过热度低",  ((cData.r3_0[8] >> 6) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_0_7", SIGID_12017, "过热低锁定", "过热低锁定", ((cData.r3_0[8] >> 7) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_0_8", SIGID_12017, "送风低温", "送风低温",  ((cData.r3_0[8] >> 8) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_0_9", SIGID_12017, "送风高温", "送风高温", ((cData.r3_0[8] >> 9) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_0_10", SIGID_12006, SIGNAME_12006, "回风高温", ((cData.r3_0[8] >> 10) & 0x1), 1);
+  CheckThresholdBool(SMDController::LEVEL1, "3_0_11", SIGID_12004, SIGNAME_12004, "回风高湿", ((cData.r3_0[8] >> 11) & 0x1), 1);
+  CheckThresholdBool(SMDController::LEVEL1, "3_0_12", SIGID_12005, SIGNAME_12005, "回风低湿", ((cData.r3_0[8] >> 12) & 0x1), 1);
+  CheckThresholdBool(SMDController::LEVEL1, "3_0_13", SIGID_12017, "低压传感故障", "低压传感故障", ((cData.r3_0[8] >> 13) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_0_14", SIGID_12017, "高压传感故障", "高压传感故障",  ((cData.r3_0[8] >> 14) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_0_15", SIGID_12017, "回温故障", "回温故障", ((cData.r3_0[8] >> 15) & 0x1), signal_index_++);
+
+  CheckThresholdBool(SMDController::LEVEL1, "3_1_0", SIGID_12017, "回湿故障", "回湿故障", ((cData.r3_0[9]) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_1_1", SIGID_12017, "送温故障", "送温故障", ((cData.r3_0[9] >> 1) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_1_2", SIGID_12017, "排温故障", "排温故障", ((cData.r3_0[9] >> 2) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_1_3", SIGID_12017, "吸温故障", "吸温故障", ((cData.r3_0[9] >> 3) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_1_4", SIGID_12017, "风机故障", "风机故障", ((cData.r3_0[9] >> 4) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_1_5", SIGID_12017, "EEV通信故障", "EEV通信故障", ((cData.r3_0[9] >> 5) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_1_6", SIGID_12017, "压驱通信故障", "压驱通信故障",  ((cData.r3_0[9] >> 6) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_1_7", SIGID_12015, SIGNAME_12015, "地板溢水", ((cData.r3_0[9] >> 7) & 0x1), 1);
+  CheckThresholdBool(SMDController::LEVEL1, "3_1_8", SIGID_12017, "远程关机", "远程关机",  ((cData.r3_0[9] >> 8) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_1_9", SIGID_12017, "压缩机驱动故障", "压缩机驱动故障", ((cData.r3_0[9] >> 9) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_1_10", SIGID_12017, "电源丢失", "电源丢失", ((cData.r3_0[9] >> 10) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_1_11", SIGID_12017, "过滤网堵", "过滤网堵", ((cData.r3_0[9] >> 11) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_1_12", SIGID_12017, "远温故障", "远温故障", ((cData.r3_0[9] >> 12) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_1_13", SIGID_12017, "烟感告警", "烟感告警", ((cData.r3_0[9] >> 13) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_1_14", SIGID_12017, "电源过压", "电源过压",  ((cData.r3_0[9] >> 14) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_1_15", SIGID_12017, "电源欠压", "电源欠压", ((cData.r3_0[9] >> 15) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_2_0", SIGID_12017, "电源缺相", "电源缺相", ((cData.r3_0[10]) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_2_1", SIGID_12017, "显示通信故障", "显示通信故障", ((cData.r3_0[10] >> 1) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_2_2", SIGID_12017, "压驱故障锁定", "压驱故障锁定", ((cData.r3_0[10] >> 2) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_2_3", SIGID_12017, "高压异常告警", "高压异常告警", ((cData.r3_0[10] >> 3) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_2_4", SIGID_12017, "DI模块通信故障", "DI模块通信故障", ((cData.r3_0[10] >> 4) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_2_5", SIGID_12017, "加热故障", "加热故障",  ((cData.r3_0[10] >> 5) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_2_6", SIGID_12017, "电源反相", "电源反相", ((cData.r3_0[10] >> 6) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_2_7", SIGID_12017, "电源频偏", "电源频偏",  ((cData.r3_0[10] >> 7) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_2_8", SIGID_12017, "冷凝水高水位", "冷凝水高水位", ((cData.r3_0[10] >> 8) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_2_9", SIGID_12017, "排水故障", "排水故障", ((cData.r3_0[10] >> 9) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_2_10", SIGID_12017, "加湿大电流", "加湿大电流", ((cData.r3_0[10] >> 10) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_2_11", SIGID_12017, "加湿小电流", "加湿小电流", ((cData.r3_0[10] >> 11) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_2_12", SIGID_12017, "加湿器维护", "加湿器维护", ((cData.r3_0[10] >> 12) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_2_13", SIGID_12017, "加湿板故障", "加湿板故障",  ((cData.r3_0[10] >> 13) & 0x1), signal_index_++);
+  CheckThresholdBool(SMDController::LEVEL1, "3_2_14", SIGID_12017, "组网故障", "组网故障", ((cData.r3_0[10] >> 14) & 0x1), signal_index_++);

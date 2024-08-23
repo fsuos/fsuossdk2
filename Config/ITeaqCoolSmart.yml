@@ -327,6 +327,7 @@ Sample :
           - Key : 1
             Value : 开启
       - ArrayName : "节能卡温度%d测量值"
+        ArrayStart : 0
         ArrayLength : 16
         Unit : "℃"
         Ratio : 10
@@ -364,8 +365,69 @@ Sample :
         Ratio : 10
         Unit : "℃"
 RunCheckThresholdCodeTelecom : |
-    if( 1 == 1){
-    }
+    CheckThresholdBool(2, "r3_0_9_0", SIGID_12008, SIGNAME_12008, "高压告警", (cData.r3_0[9]) & 0x1, 1);
+    CheckThresholdBool(2, "r3_0_9_1", SIGID_12008, SIGNAME_12008, "高压锁定", (cData.r3_0[9] >> 1) & 0x1, 2);
+    CheckThresholdBool(2, "r3_0_9_2", SIGID_12009, SIGNAME_12009, "低压1报警", (cData.r3_0[9] >> 2) & 0x1, 1);
+    CheckThresholdBool(2, "r3_0_9_3", SIGID_12009, SIGNAME_12009, "低压2报警", (cData.r3_0[9] >> 3) & 0x1, 2);
+    CheckThresholdBool(2, "r3_0_9_4", SIGID_12017, "排气高温", "排气高温", (cData.r3_0[9] >> 4) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_9_5", SIGID_12017, "排气高温锁定", "排气高温锁定", (cData.r3_0[9] >> 5) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_9_6", SIGID_12017, "排气低过热度", "排气低过热度", (cData.r3_0[9] >> 6) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_9_7", SIGID_12017, "排气低过热度锁定", "排气低过热度锁定", (cData.r3_0[9] >> 7) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_9_8", SIGID_12006, SIGNAME_12006, "回风高温", (cData.r3_0[9] >> 8) & 0x1, 1);
+    CheckThresholdBool(2, "r3_0_9_9", SIGID_12006, SIGNAME_12004, "回风高湿", (cData.r3_0[9] >> 9) & 0x1, 1);
+    CheckThresholdBool(2, "r3_0_9_10", SIGID_12005, SIGNAME_12005, "回风低湿", (cData.r3_0[9] >> 10) & 0x1, 1);
+    CheckThresholdBool(2, "r3_0_9_11", SIGID_12007, SIGNAME_12007, "回风低温", (cData.r3_0[9] >> 11) & 0x1, 1);
+    CheckThresholdBool(2, "r3_0_9_12", SIGID_12017, "送风高温", "送风高温", (cData.r3_0[9] >> 12) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_9_13", SIGID_12017, "送风低温", "送风低温", (cData.r3_0[9] >> 13) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_9_14", SIGID_12017, "回温故障", "回温故障", (cData.r3_0[9] >> 14) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_9_15", SIGID_12017, "回湿故障", "回湿故障", (cData.r3_0[9] >> 15) & 0x1, signal_index_++);
+    //alarm[1]
+    CheckThresholdBool(2, "r3_0_10_0", SIGID_12017, "送温故障", "送温故障", (cData.r3_0[10]) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_10_1", SIGID_12017, "排温故障", "排温故障", (cData.r3_0[10] >> 1) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_10_2", SIGID_12017, "风机故障", "风机故障", (cData.r3_0[10] >> 2) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_10_3", SIGID_12015, SIGNAME_12015, "地板溢水", (cData.r3_0[10] >> 3) & 0x1, 1);
+    CheckThresholdBool(2, "r3_0_10_4", SIGID_12017, "远程关机", "远程关机", (cData.r3_0[10] >> 4) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_10_5", SIGID_12017, "输入电源故障告警", "电源丢失", (cData.r3_0[10] >> 5) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_10_6", SIGID_12017, "过滤网堵塞", "过滤网堵", (cData.r3_0[10] >> 6) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_10_7", SIGID_12017, "其它故障告警", "烟感告警", (cData.r3_0[10] >> 7) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_10_8", SIGID_12017, "输入电源故障告警", "电源故障", (cData.r3_0[10] >> 8) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_10_9", SIGID_12017, "其它故障告警", "盘管冻结", (cData.r3_0[10] >> 9) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_10_10", SIGID_12002, SIGNAME_12002, "气流丢失", (cData.r3_0[10] >> 10) & 0x1, 1);	
+    CheckThresholdBool(2, "r3_0_10_11", SIGID_12017, "其它故障告警", "加湿高水位", (cData.r3_0[10] >> 11) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_10_12", SIGID_12017, "加湿器故障告警", "加湿器故障", (cData.r3_0[10] >> 12) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_10_13", SIGID_12017, "其它故障告警", "制冷剂不足", (cData.r3_0[10] >> 13) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_10_14", SIGID_12017, "其它故障告警", "冷凝器需维护", (cData.r3_0[10] >> 14) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_10_15", SIGID_12017, "其它故障告警", "泵不可用", (cData.r3_0[10] >> 15) & 0x1, signal_index_++);
+    //alarm[2]
+    CheckThresholdBool(2, "r3_0_11_0", SIGID_12017, "其它故障告警", "泵入口压力故障", (cData.r3_0[11]) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_1", SIGID_12017, "其它故障告警", "泵出口压力故障", (cData.r3_0[11] >> 1) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_2", SIGID_12017, "其它故障告警", "泵环温故障", (cData.r3_0[11] >> 2) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_3", SIGID_12017, "其它故障告警", "泵过温报警", (cData.r3_0[11] >> 3) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_4", SIGID_12017, "其它故障告警", "泵过温锁定", (cData.r3_0[11] >> 4) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_5", SIGID_12017, "其它故障告警", "泵高扬程", (cData.r3_0[11] >> 5) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_6", SIGID_12017, "其它故障告警", "泵低扬程", (cData.r3_0[11] >> 6) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_7", SIGID_12017, "其它故障告警", "泵高扬程锁定", (cData.r3_0[11] >> 7) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_8", SIGID_12017, "其它故障告警", "泵低扬程锁定", (cData.r3_0[11] >> 8) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_9", SIGID_12017, "其它故障告警", "泵驱动故障", (cData.r3_0[11] >> 9) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_10", SIGID_12017, "通信故障告警", "泵通信故障", (cData.r3_0[11] >> 10) & 0x1, signal_index_++);	
+    CheckThresholdBool(2, "r3_0_11_11", SIGID_12017, "其它故障告警", "冷凝压力故障", (cData.r3_0[11] >> 11) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_12", SIGID_12017, "其它故障告警", "冷凝风机过温", (cData.r3_0[11] >> 12) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_13", SIGID_12017, "其它故障告警", "冷凝风机过温锁定", (cData.r3_0[11] >> 13) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_14", SIGID_12017, "其它故障告警", "冷凝驱动故障", (cData.r3_0[11] >> 14) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_15", SIGID_12017, "通信故障告警", "冷凝通信故障", (cData.r3_0[11] >> 15) & 0x1, signal_index_++);
+    //alarm[3]
+    CheckThresholdBool(2, "r3_0_11_16", SIGID_12017, "其它故障告警", "吸气温度故障", (cData.r3_0[12]) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_17", SIGID_12017, "其它故障告警", "低压传感器故障", (cData.r3_0[12] >> 1) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_18", SIGID_12017, "其它故障告警", "机组地址重复", (cData.r3_0[12] >> 2) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_19", SIGID_12017, "其它故障告警", "从机丢失", (cData.r3_0[12] >> 3) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_20", SIGID_12017, "其它故障告警", "群控本机离线", (cData.r3_0[12] >> 4) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_21", SIGID_12017, "通信故障告警", "压机通信故障", (cData.r3_0[12] >> 5) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_22", SIGID_12017, "其它故障告警", "压机驱动故障", (cData.r3_0[12] >> 6) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_23", SIGID_12017, "其它故障告警", "压机驱动故障锁定", (cData.r3_0[12] >> 7) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_24", SIGID_12017, "其它故障告警", "压机驱动过欠压", (cData.r3_0[12] >> 8) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_25", SIGID_12017, "其它故障告警", "高压传感器故障", (cData.r3_0[12] >> 9) & 0x1, signal_index_++);
+    CheckThresholdBool(2, "r3_0_11_26", SIGID_12017, "其它故障告警", "高压异常", (cData.r3_0[12] >> 10) & 0x1, signal_index_++);	
+    CheckThresholdBool(2, "r3_0_11_27", SIGID_12017, "其它故障告警", "节能卡故障", (cData.r3_0[12] >> 11) & 0x1, signal_index_++);
 
 RunCheckThresholdCodeUnicom : |
     CheckThresholdBool(2, "r3_0_9_0", "602230E03", "压缩机排气压力高", "高压告警", (cData.r3_0[9]) & 0x1, 1);
