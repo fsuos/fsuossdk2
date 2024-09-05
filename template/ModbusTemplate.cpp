@@ -1,3 +1,126 @@
+{% macro render_sc(sc, scPrefix=none) -%}
+  {
+  {% if sc.Data is defined %}
+  
+        {% if sc.Type is defined %}
+            {% if sc.Type == 'f' %}
+            float pData[{{ (sc.Len*2/4)|int }}];     
+            {% elif sc.Type == 'S' %}
+            uint16_t pData[{{ sc.Len }}];
+            {% elif sc.Type == 's' %}
+            int16_t pData[{{ sc.Len }}];
+            {% elif sc.Type == "I" %}
+            uint32_t pData[{{ (sc.Len*2/4)|int }}];
+            {% elif sc.Type == "i" %}
+            int32_t pData[{{ (sc.Len*2/4)|int }}];
+            {% endif %}
+        {% elif sc.Cmd == 3 or sc.Cmd == 4 %}
+        uint16_t pData[{{ sc.Len }}];
+        {% else %}
+        uint8_t pData[{{ sc.Len*2 }}];
+        {% endif %}
+        memcpy(pData, pCData + offset, {{2*sc.Len}});
+	    {% for d in sc.Data %}
+      
+      {% if d.ArrayBlock is defined %}
+        {% if d.ArrayStart is defined %}
+          {% if d.Transform is defined and d.Length is defined and d.Transform == "bits" %}
+          uint8_t lMemData[8 * {{ d.Length }}];
+          int lOffset = 0;
+          for(int j=0;j<{{ d.Length }};j++)
+          {
+              for(int k = 0; k <8; k++)
+              {
+                lMemData[j*8+k] = ((pData)[j]>>k)&0x1;
+              }
+          }
+          for(int i={{d.ArrayStart}};i<={{d.ArrayEnd}};i++)
+          {
+            uint8_t *tMemData = lMemData + lOffset;            
+            //_{{ Project.Name|lower }}_{{ d.ArrayBlock }}(rtJ, $tMemData, {% if d.Prefix is defined %}"{{d.Prefix}}"{%else%}""{%endif%}, $index + $i);
+            //$lOffset += {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }};
+          }
+          offset += {{ d.Length }};
+          {% else %}
+          for(int i={{d.ArrayStart}};i<={{d.ArrayEnd}};i++)
+          {
+            $tMemData = substr($memData, $offset, {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }});            
+            _{{ Project.Name|lower }}_{{ d.ArrayBlock }}($dataArray, $tMemData, {% if d.Prefix is defined %}"{{d.Prefix}}"{%else%}""{%endif%}, $index + $i);
+            $offset += {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }};
+          }
+          {% endif %}
+        {% endif %}
+      {% elif d.Block is defined %}
+      $lMemData = substr($memData, $offset, {{ BlockTemplate[d.Block]["BlockLength"] }});
+      _{{ Project.Name|lower }}_{{ d.Block }}($dataArray, $lMemData, {% if d.Prefix is defined %}"{{d.Prefix}}"{%else%}""{%endif%}, "{{ d.index }}" {% if d.index1 is defined %},"{{d.index1}}"{% endif %}{% if d.index2 is defined %},"{{d.index2}}"{% endif %} );
+      $offset += {{ BlockTemplate[d.Block]["BlockLength"] }};
+      {% else %}
+	    {% if d.CValue is defined %}
+        {% if d.AlertNormalValue is defined %}
+        jsonValue["{{ d.Name }}"] = ({{ d.CValue }} == {{ d.AlertNormalValue }}) ? "正常" : "告警";
+        jsonValue["AlertArray"]["{{ d.Name }}"] = ({{ d.CValue }} != {{ d.AlertNormalValue }});
+        {% elif d.Options is defined %}
+        switch({{ d.CValue }}){
+        {% for item in d.Options %}
+          case {{ item.Key }}:
+          jsonValue[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}"{{ d.Name }}"] = "{{ item.Value }}";
+            break;
+        {% endfor %}
+          default:
+            jsonValue[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}"{{ d.Name }}"] = "无效值";
+            break;
+        }
+        {% else %}
+        jsonValue[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}"{{ d.Name }}"] = ({{ d.CValue }});
+        {% endif %}
+        {% elif d.Options is defined %}
+        switch(pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}]){
+        {% for item in d.Options %}
+          case {{ item.Key }}:
+          jsonValue[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}"{{ d.Name }}"] = "{{ item.Value }}";
+          {% if item.IsAlert is defined and item.IsAlert %}
+          jsonValue["AlertArray"]["{{ d.Name }}"] = 1;
+          {% endif %}
+            break;
+        {% endfor %}
+          default:
+            jsonValue[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}"{{ d.Name }}"] = "无效值";
+            break;
+        }
+        {% elif d.AlertNormalValue is defined %}
+        jsonValue["{{ d.Name }}"] = (pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] == {{ d.AlertNormalValue }}) ? "正常" : "告警";
+        jsonValue["AlertArray"]["{{ d.Name }}"] = (pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] != {{ d.AlertNormalValue }});
+      {% elif d.ArrayName is defined %}
+      for(int i=1;$i<={{ d.ArrayLength }};i++){
+        char nameBuffer[48] = {0};
+        snprintf(nameBuffer, 48, "{{ tsc.ArrayName }}", {{ d.ArrayStart }} + i);
+        std::string name = nameBuffer;
+        int kIndex = {{ d.Offset }} + i;
+        jsonValue[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}name] = ((float)pData[kIndex]){% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %};
+      }
+	    {% else %}
+        jsonValue[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}"{{ d.Name }}"] = ((float)pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}]){% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %};
+	    {% endif %}
+      
+        {% if d.Alias is defined %}
+        {% for newName in d.Alias %}
+        jsonValue["{{ newName }}"] = jsonValue["{{ d.Name }}"];
+        {% endfor %}
+
+      {% endif %}
+
+        {% endif %}
+
+	    {% endfor %}
+      {% if sc.Cmd == 3 or sc.Cmd == 4 %}
+      offset += {{ 2*sc.Len }};
+    {% else %}
+      offset += {{ sc.Len }};
+    {% endif %}
+	    {% endif %}
+  }
+{%- endmacro %}
+
 #include "common_define.h"
 #include "{{ Project.Name }}.h"
 #include "UniDataDevice.cpp"
@@ -319,7 +442,75 @@ int {{ Project.Name }}::DeviceIoControl(int ioControlCode, const void* inBuffer,
         }
         break;
     }
-
+    case 801:    
+    case 803:
+    {
+        //get fsuos json data
+        {
+            std::lock_guard<std::mutex> lLock(jsonValueMutex);
+            if(lastTime != lastJsonTime_)
+            {
+                lastJsonTime_ = lastTime;
+                uint8_t* pCData = (uint8_t*)&cData;
+                int offset = 4;
+                {% for tsc in Sample %}
+                    {% if tsc.CmdGroupStart is defined %}                
+                        for(int cgIndex = {{ tsc.CmdGroupStart }}, index = 1; cgIndex < {{ tsc.CmdGroupEnd }}; cgIndex+={{ tsc.CmdGroupStep}}, index++){
+                            std::string namePrefix;
+                        {% if tsc.CmdGroupPrefix is string %}
+                        char nameBuffer[48] = {0};
+                        snprintf(nameBuffer, 48, "{{ tsc.CmdGroupPrefix }}", index);
+                        namePrefix = nameBuffer;
+                        {% else %}
+                        Json::Value namePrefixArray;
+                        Json::Reader pReader;//解析
+                        if(!pReader.parse("{{ tsc.CmdGroupPrefix }}", namePrefixArray)) {
+                        continue;
+                        }
+                        namePrefix = namePrefixArray[index-1].asString();
+                        {% endif %}
+                        {% for sc in tsc.CmdGroupSample %}
+                        {{ render_sc(sc, "namePrefix") }}
+                        {% endfor %}
+                        }
+                    {% else %}
+                    {{ render_sc(tsc, none) }}
+                    {% endif %}
+                {% endfor %}
+                
+                std::stringstream uSS;
+                uSS<<(int)cData.update_time.year<<"-"<<(int)cData.update_time.month<<"-"<<(int)cData.update_time.day<<" "<<(int)cData.update_time.hour<<":"<<(int)cData.update_time.minute<<":"<<(int)cData.update_time.second;
+                jsonValue["更新时间"] = uSS.str();
+            }
+        }
+        if(ioControlCode == 801)
+        {
+            Json::FastWriter writer;
+            std::string jsonStr = writer.write(jsonValue);
+            if(outBufferSize >= jsonStr.size())
+            {
+                memcpy(outBuffer, jsonStr.data(), jsonStr.size());
+                bytesReturned = jsonStr.size();
+                return 0;
+            }else{
+                bytesReturned = jsonStr.size();
+                return -1;
+            }
+        }else if(ioControlCode == 803){
+            //绝大部分都会走这里，几乎不会走801
+            if(outBufferSize >= sizeof(void*))
+            {
+                void *pJsonValue = &jsonValue;
+                memcpy(outBuffer, &pJsonValue, sizeof(void*));
+                bytesReturned = sizeof(void*);
+                return 0;
+            }else{
+                bytesReturned = sizeof(void*);
+                return -1;
+            }
+        }
+        return 0;
+    }
     default:
         if((uint32_t)outBufferSize >= sizeof(int)) {
             *((int*)outBuffer) = 2;//无效命令

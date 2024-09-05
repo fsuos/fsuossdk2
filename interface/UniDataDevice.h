@@ -20,6 +20,10 @@ protected:
     CDataType __attribute__((__aligned__(4))) cData;
     
     int b_mode_ = 1;//1:联通 2:电信
+
+    boost::posix_time::ptime lastJsonTime_;
+    std::mutex jsonValueMutex;
+    Json::Value jsonValue;
 };
 
 #endif // PMBUSPOWERAC_H
