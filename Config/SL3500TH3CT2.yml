@@ -827,10 +827,10 @@ Sample :
     Len : 2
     Data : 
       - Name : 吸气压力1
-        Ratio : 10
+        Ratio : 100
         Offset : 1
       - Name : 吸气压力2
-        Ratio : 10
+        Ratio : 100
         Offset : 2
   - Cmd : 3
     Offset : 696
