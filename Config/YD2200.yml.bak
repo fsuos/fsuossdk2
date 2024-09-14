@@ -1,0 +1,145 @@
+Project:
+  Name : YD2200
+  RT_ID : 5156
+  File : "YD2200通讯协议.pdf"
+Sample : 
+  - Cmd : 3
+    Offset : 0
+    Len : 41
+    Data : 
+      - Name : "相电压1"
+        Ratio : 10
+        Unit : "V"
+        Offset : 1
+      - Name : "线电压U12"
+        Ratio : 10
+        Unit : "V"
+        Offset : 2
+      - Name : "第1相电流"
+        Unit : "A"
+        Ratio : 1000
+        Offset : 3
+      - Name : "1相频率"
+        Unit : "Hz"
+        Ratio : 100
+        Offset : 4
+      - Name : "1相有功"
+        Unit : "kW"
+        Ratio : 1000
+        Offset : 5
+      - Name : "1相功率因数"
+        Ratio : 1000
+        Offset : 6
+      - Name : "1相无功"
+        Unit : "kvar"
+        Ratio : 1000
+        Offset : 7
+      - Name : "1相视在功率"
+        Unit : "kVA"
+        Ratio : 1000
+        Offset : 8
+      - Name : "相电压2"
+        Ratio : 10
+        Unit : "V"
+        Offset : 9
+      - Name : "线电压U23"
+        Ratio : 10
+        Unit : "V"
+        Offset : 10
+      - Name : "第2相电流"
+        Unit : "A"
+        Ratio : 1000
+        Offset : 11
+      - Name : "2相频率"
+        Unit : "Hz"
+        Ratio : 100
+        Offset : 12
+      - Name : "2相有功"
+        Unit : "kW"
+        Ratio : 1000
+        Offset : 13
+      - Name : "2相功率因数"
+        Ratio : 1000
+        Offset : 14
+      - Name : "2相无功"
+        Unit : "kvar"
+        Ratio : 1000
+        Offset : 15
+      - Name : "2相视在功率"
+        Unit : "kVA"
+        Ratio : 1000
+        Offset : 16
+      - Name : "相电压3"
+        Ratio : 10
+        Unit : "V"
+        Offset : 17
+      - Name : "线电压U31"
+        Ratio : 10
+        Unit : "V"
+        Offset : 18
+      - Name : "第3相电流"
+        Unit : "A"
+        Ratio : 1000
+        Offset : 19
+      - Name : "3相频率"
+        Unit : "Hz"
+        Ratio : 100
+        Offset : 20
+      - Name : "3相有功"
+        Unit : "kW"
+        Ratio : 1000
+        Offset : 21
+      - Name : "3相功率因数"
+        Ratio : 1000
+        Offset : 22
+      - Name : "3相无功"
+        Unit : "kvar"
+        Ratio : 1000
+        Offset : 23
+      - Name : "3相视在功率"
+        Unit : "kVA"
+        Ratio : 1000
+        Offset : 24
+      - Name : "相电压"
+        Unit : "V"
+        Ratio : 10
+        Offset : 25
+      - Name : "线电压"
+        Unit : "V"
+        Ratio : 10
+        Offset : 26
+      - Name : "合相电流"
+        Unit : "mA"
+        Ratio : 1000
+        Offset : 27
+      - Name : "频率"
+        Unit : "Hz"
+        Ratio : 100
+        Offset : 28
+      - Name : "有功"
+        Unit : "kW"
+        Ratio : 1000
+        Offset : 29
+      - Name : "功率因数"
+        Ratio : 1000
+        Offset : 30
+      - Name : "无功"
+        Unit : "kvar"
+        Ratio : 1000
+        Offset : 31
+      - Name : "视在功率"
+        Unit : "kVA"
+        Ratio : 1000
+        Offset : 32
+      - Name : "正向有功电能"
+        Unit : "kWh"
+        Value : ($v[34] + ($v[35]<<16))
+      - Name : "负向有功电能"
+        Unit : "kWh"
+        Value : ($v[36] + ($v[37]<<16))
+      - Name : "正向无功电能"
+        Unit : "kvarh"
+        Value : ($v[38] + ($v[39]<<16))
+      - Name : "负向无功电能"
+        Unit : "kvarh"
+        Value : ($v[40] + ($v[41]<<16))

@@ -1,0 +1,80 @@
+Project:
+  Name : ITeaqSBMS
+  RT_ID : 5156
+  File : "电池监控仪SBMS系列后台协议V203.pdf"
+BlockTemplate :
+  GroupAlert :
+    BlockLength : 16
+    BlockType : 'C'
+    BlockContent :
+      - Name : "第%d组电池组总电压-过压告警"
+        AlertNormalValue : 0
+      - Name : "第%d组电池组总电压-欠压告警"
+        AlertNormalValue : 0
+      - Name : "第%d组电池组总电压-充电电流异常"
+        AlertNormalValue : 0
+      - Name : "第%d组电池组总电压-放电电流异常"
+        AlertNormalValue : 0
+      - Name : "第%d组电池组总电压-电池开关断开"
+        AlertNormalValue : 0
+      - Name : "第%d组电池组总电压-电流板通讯故障"
+        AlertNormalValue : 0
+      - Name : "第%d组电池组总电压-电池组容量低"
+        AlertNormalValue : 0
+Sample : 
+  - Cmd : 3
+    Offset : 1000
+    Len : 8
+    Data : 
+      - Name : "第1组电池组总电压"
+        Ratio : 10
+        Unit : "V"
+      - Name : "第2组电池组总电压"
+        Ratio : 10
+        Unit : "V"
+      - Name : "第3组电池组总电压"
+        Ratio : 10
+        Unit : "V"
+      - Name : "第4组电池组总电压"
+        Ratio : 10
+        Unit : "V"
+      - Name : "第1组电池组总电流"
+        Ratio : 10
+        Unit : "A"
+      - Name : "第2组电池组总电流"
+        Ratio : 10
+        Unit : "A"
+      - Name : "第3组电池组总电流"
+        Ratio : 10
+        Unit : "A"
+      - Name : "第4组电池组总电流"
+        Ratio : 10
+        Unit : "A"
+  - Cmd : 3
+    Offset : 1008
+    Len : 4
+    Transform : "bits"
+    Data :
+      - ArrayBlock : GroupAlert
+        ArrayStart : 1
+        ArrayEnd : 4
+  - Cmd : 3
+    Offset : 1012
+    Len : 125
+    Data : 
+      - ArrayName : "第%d号电池的电压"
+        ArrayStart : 0
+        ArrayLength : 125
+        Offset : 0
+        Unit : "V"
+        Ratio : 1000
+  - Cmd : 3
+    Offset : 1127
+    Len : 125
+    Data : 
+      - ArrayName : "第%d号电池的电压"
+        ArrayStart : 125
+        ArrayLength : 125
+        Offset : 0
+        Unit : "V"
+        Ratio : 1000

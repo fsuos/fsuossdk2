@@ -22,6 +22,12 @@ public:
     float Get_Value(uint32_t data_id, const std::string& var_name) const;
     int DeviceIoControl(int ioControlCode, const void* inBuffer, int inBufferSize, void* outBuffer, int outBufferSize, int& bytesReturned) override;
 private:
+{% if BlockTemplate is defined %}
+{% for key,blockDef in BlockTemplate.items() %}
+void _{{ Project.Name|lower }}_{{ key }}(char* pCData,const std::string &prefix, int index {% if blockDef.HasIndex1 is defined  %}, int index1{% endif %} {% if blockDef.HasIndex2 is defined %}, int index2{% endif %});
+{% endfor %}
+{% endif %}
+
     {% if InitSetting is defined %}
     {% for s in InitSetting %}
     {% if s.Type == "int" %}

@@ -1,0 +1,203 @@
+Project:
+  Name : CM02N600A0
+  RT_ID : 5156
+  File : "CM-02N 600节协议A0版（对外公开）电池.xlsx"
+Sample:
+  - Cmd : 3
+    Offset : 10001
+    Len : 3
+    Data :
+      - Name : 电压更新时间
+        Value : $v[1]." ".$v[2]." ".$v[3]
+  - Cmd : 3
+    Offset : 10004
+    Len : 100
+    Data : 
+      - ArrayName : "单体电压%d#"
+        ArrayStart : 1
+        ArrayLength : 100
+        Offset : 0
+        Unit : "V"
+        Ratio : 1000
+  - Cmd : 3
+    Offset : 10104
+    Len : 100
+    Data : 
+      - ArrayName : "单体电压%d#"
+        ArrayStart : 100
+        ArrayLength : 100
+        Offset : 0
+        Unit : "V"
+        Ratio : 1000
+  - Cmd : 3
+    Offset : 10204
+    Len : 100
+    Data : 
+      - ArrayName : "单体电压%d#"
+        ArrayStart : 200
+        ArrayLength : 100
+        Offset : 0
+        Unit : "V"
+        Ratio : 1000
+  - Cmd : 3
+    Offset : 10304
+    Len : 100
+    Data : 
+      - ArrayName : "单体电压%d#"
+        ArrayStart : 300
+        ArrayLength : 100
+        Offset : 0
+        Unit : "V"
+        Ratio : 1000
+  - Cmd : 3
+    Offset : 10404
+    Len : 100
+    Data : 
+      - ArrayName : "单体电压%d#"
+        ArrayStart : 400
+        ArrayLength : 100
+        Offset : 0
+        Unit : "V"
+        Ratio : 1000
+  - Cmd : 3
+    Offset : 10504
+    Len : 100
+    Data : 
+      - ArrayName : "单体电压%d#"
+        ArrayStart : 500
+        ArrayLength : 100
+        Offset : 0
+        Unit : "V"
+        Ratio : 1000
+  - Cmd : 3
+    Offset : 10604
+    Len : 3
+    Data :
+      - Name : 内阻更新时间
+        Value : $v[1]." ".$v[2]." ".$v[3]
+  - Cmd : 3
+    Offset : 10607
+    Len : 100
+    Data : 
+      - ArrayName : "单体内阻%d#"
+        ArrayStart : 0
+        ArrayLength : 100
+        Offset : 0
+        Unit : "uΩ"
+        Ratio : 1000
+  - Cmd : 3
+    Offset : 10707
+    Len : 100
+    Data : 
+      - ArrayName : "单体内阻%d#"
+        ArrayStart : 100
+        ArrayLength : 100
+        Offset : 0
+        Unit : "uΩ"
+        Ratio : 1000
+  - Cmd : 3
+    Offset : 10807
+    Len : 100
+    Data : 
+      - ArrayName : "单体内阻%d#"
+        ArrayStart : 200
+        ArrayLength : 100
+        Offset : 0
+        Unit : "uΩ"
+        Ratio : 1000
+  - Cmd : 3
+    Offset : 10907
+    Len : 100
+    Data : 
+      - ArrayName : "单体内阻%d#"
+        ArrayStart : 300
+        ArrayLength : 100
+        Offset : 0
+        Unit : "uΩ"
+        Ratio : 1000
+  - Cmd : 3
+    Offset : 11007
+    Len : 100
+    Data : 
+      - ArrayName : "单体内阻%d#"
+        ArrayStart : 400
+        ArrayLength : 100
+        Offset : 0
+        Unit : "uΩ"
+        Ratio : 1000
+  - Cmd : 3
+    Offset : 11107
+    Len : 100
+    Data : 
+      - ArrayName : "单体内阻%d#"
+        ArrayStart : 500
+        ArrayLength : 100
+        Offset : 0
+        Unit : "uΩ"
+        Ratio : 1000
+  - Cmd : 3
+    Offset : 11207
+    Len : 3
+    Data :
+      - Name : 温度更新时间
+        Value : $v[1]." ".$v[2]." ".$v[3]
+  - Cmd : 3
+    Offset : 11210
+    Len : 100
+    Data : 
+      - ArrayName : "单体温度%d#"
+        ArrayStart : 0
+        ArrayLength : 100
+        Offset : 0
+        Unit : "℃"
+        Ratio : 1000
+  - Cmd : 3
+    Offset : 11310
+    Len : 100
+    Data : 
+      - ArrayName : "单体温度%d#"
+        ArrayStart : 100
+        ArrayLength : 100
+        Offset : 0
+        Unit : "℃"
+        Ratio : 1000
+  - Cmd : 3
+    Offset : 11410
+    Len : 100
+    Data : 
+      - ArrayName : "单体温度%d#"
+        ArrayStart : 200
+        ArrayLength : 100
+        Offset : 0
+        Unit : "℃"
+        Ratio : 1000
+  - Cmd : 3
+    Offset : 11510
+    Len : 100
+    Data : 
+      - ArrayName : "单体温度%d#"
+        ArrayStart : 300
+        ArrayLength : 100
+        Offset : 0
+        Unit : "℃"
+        Ratio : 1000
+  - Cmd : 3
+    Offset : 11610
+    Len : 100
+    Data : 
+      - ArrayName : "单体温度%d#"
+        ArrayStart : 400
+        ArrayLength : 100
+        Offset : 0
+        Unit : "℃"
+        Ratio : 1000
+  - Cmd : 3
+    Offset : 11710
+    Len : 100
+    Data : 
+      - ArrayName : "单体温度%d#"
+        ArrayStart : 500
+        ArrayLength : 100
+        Offset : 0
+        Unit : "℃"
+        Ratio : 1000

@@ -1,0 +1,1347 @@
+Project:
+  Name : ITeaqUPS
+  RT_ID : 5156
+  File : "UPS MODBUS协议_客户端对外_标准机.pdf"
+Sample : 
+  - Cmd : 3
+    Offset : 1
+    Len : 55
+    Data : 
+      - Name : "输入A相电压"
+        Unit : "V"
+        Offset : 1
+        Ratio : 10
+      - Name : "输入B相电压"
+        Unit : "V"
+        Offset : 2
+        Ratio : 10
+      - Name : "输入C相电压"
+        Unit : "V"
+        Offset : 3
+        Ratio : 10
+      - Name : "输入频率"
+        Unit : "Hz"
+        Offset : 4
+        Ratio : 10
+      - Name : "输入A相电流"
+        Unit : "A"
+        Offset : 5
+        Ratio : 10
+      - Name : "输入B相电流"
+        Unit : "V"
+        Offset : 6
+        Ratio : 10
+      - Name : "输入C相电流"
+        Unit : "V"
+        Offset : 7
+        Ratio : 10
+      - Name : "输入A相功因数"
+        Offset : 8
+        Ratio : 100
+      - Name : "输入B相功因数"
+        Offset : 9
+        Ratio : 100
+      - Name : "输入C相功因数"
+        Offset : 10
+        Ratio : 100
+      - Name : "输出A相电压"
+        Unit : "V"
+        Offset : 11
+        Ratio : 10
+      - Name : "输出B相电压"
+        Unit : "V"
+        Offset : 12
+        Ratio : 10
+      - Name : "输出C相电压"
+        Unit : "A"
+        Offset : 13
+        Ratio : 10
+      - Name : "输出频率"
+        Unit : "Hz"
+        Offset : 14
+        Ratio : 10
+      - Name : "输出A相电流"
+        Unit : "A"
+        Offset : 15
+        Ratio : 10
+      - Name : "输出B相电流"
+        Unit : "A"
+        Offset : 16
+        Ratio : 10
+      - Name : "输出C相电流"
+        Unit : "A"
+        Offset : 17
+        Ratio : 10
+      - Name : "输出A相有功功率"
+        Unit : "kW"
+        Offset : 18
+        Ratio : 10
+      - Name : "输出B相有功功率"
+        Unit : "kW"
+        Offset : 19
+        Ratio : 10
+      - Name : "输出C相有功功率"
+        Unit : "kW"
+        Offset : 20
+        Ratio : 10
+      - Name : "输出A相负载率"
+        Offset : 21
+        Ratio : 100
+      - Name : "输出B相负载率"
+        Offset : 22
+        Ratio : 100
+      - Name : "输出C相负载率"
+        Offset : 23
+        Ratio : 100
+      - Name : "输出A相负载峰值比"
+        Offset : 24
+        Ratio : 100
+      - Name : "输出B相负载峰值比"
+        Offset : 25
+        Ratio : 100
+      - Name : "输出C相负载峰值比"
+        Offset : 26
+        Ratio : 100
+      - Name : "旁路A相电压"
+        Unit : "V"
+        Offset : 27
+        Ratio : 10
+      - Name : "旁路B相电压"
+        Unit : "V"
+        Offset : 28
+        Ratio : 10
+      - Name : "旁路C相电压"
+        Unit : "V"
+        Offset : 29
+        Ratio : 10
+      - Name : "旁路频率"
+        Unit : "Hz"
+        Offset : 30
+        Ratio : 10
+      - Name : "正组电池电压"
+        Unit : "V"
+        Offset : 31
+        Ratio : 10
+      - Name : "负组电池电压"
+        Unit : "V"
+        Offset : 32
+        Ratio : 10
+      - Name : "正组电池放电电流"
+        Offset : 33
+        Ratio : 10
+        Unit : 'A'
+      - Name : "负组电池放电电流"
+        Offset : 34
+        Ratio : 10
+        Unit : 'A'
+      - Name : "正组电池充电电流"
+        Offset : 35
+        Ratio : 10
+        Unit : 'A'
+      - Name : "负组电池充电电流"
+        Offset : 36
+        Ratio : 10
+        Unit : 'A'
+      - Name : "电池容量率"
+        Offset : 37
+        Unit : '%'
+      - Name : "电池后备时间"
+        Offset : 38
+        Unit : "分钟"
+      - Name : "电池温度"
+        Offset : 39
+        Unit : "℃"
+      - Name : "环境温度"
+        Offset : 40
+        Unit : "℃"
+      - Name : "电池放电时间"
+        Offset : 41
+        Unit : "分钟"
+      - Name : "输出A相视在功率"
+        Ratio : 10
+        Unit : "kW"
+        Offset : 47
+      - Name : "输出B相视在功率"
+        Ratio : 10
+        Unit : "kW"
+        Offset : 48
+      - Name : "输出C相视在功率"
+        Ratio : 10
+        Unit : "kW"
+        Offset : 49
+      - Name : "输入AB线电压"
+        Ratio : 10
+        Unit : "V"
+        Offset : 50
+      - Name : "输入BC线电压"
+        Ratio : 10
+        Unit : "V"
+        Offset : 51
+      - Name : "输入CA线电压"
+        Ratio : 10
+        Unit : "V"
+        Offset : 52
+      - Name : "旁路AB线电压"
+        Ratio : 10
+        Unit : "V"
+        Offset : 53
+      - Name : "旁路BC线电压"
+        Ratio : 10
+        Unit : "V"
+        Offset : 54
+      - Name : "旁路CA线电压"
+        Ratio : 10
+        Unit : "V"
+        Offset : 55
+  - Cmd : 3
+    Offset : 71
+    Len : 1
+    Data : 
+      - Name : "UPS 运行状态"
+        Offset : 1
+        Options :
+          - Key : 0
+            Value : 初始化
+          - Key : 1
+            Value : 待机状态
+          - Key : 2
+            Value : 无输出状态
+          - Key : 3
+            Value : 旁路状态
+          - Key : 4
+            Value : 市电状态
+          - Key : 5
+            Value : 电池状态
+          - Key : 6
+            Value : 电池自检状态
+          - Key : 7
+            Value : 逆变启动中
+          - Key : 8
+            Value : 经济模式
+          - Key : 9
+            Value : EPO 状态
+          - Key : 10
+            Value : 维护旁路模式
+          - Key : 11
+            Value : 故障模式
+          - Key : 12
+            Value : UPS重新初始化状态
+          - Key : 13
+            Value : 联合供电
+  - Cmd : 3
+    Offset : 81
+    Len : 38
+    Data :
+      - Name : "整流状态-烧录状态"
+        Value : (($v[1] >> 0) & 0x1)
+        CValue : ((pData[0] >>0 ) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无动作
+          - Key : 1
+            Value : 烧录中
+      - Name : "整流状态-电池自检"
+        Value : (($v[1] >> 1) & 0x1)
+        CValue : ((pData[0] >>1 ) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 停止自检
+          - Key : 1
+            Value : 电池自检中
+      - Name : "整流状态-负组电池充电状态"
+        Value : (($v[1] >> 2) & 0x3)
+        CValue : ((pData[0] >>2 ) & 0x3)
+        Options : 
+          - Key : 0
+            Value : 不充电
+          - Key : 1
+            Value : 均充
+          - Key : 2
+            Value : 浮充
+      - Name : "整流状态-正组电池充电状态"
+        Value : (($v[1] >> 4) & 0x3)
+        CValue : ((pData[0] >> 4 ) & 0x3) 
+        Options : 
+          - Key : 0
+            Value : 不充电
+          - Key : 1
+            Value : 均充
+          - Key : 2
+            Value : 浮充
+      - Name : "整流状态-整流器自检状态"
+        Value : (($v[1] >> 6) & 0x3)
+        CValue : ((pData[0] >> 6 ) & 0x3)
+        Options : 
+          - Key : 0
+            Value : 不充电
+          - Key : 1
+            Value : 均充
+          - Key : 2
+            Value : 浮充
+      - Name : "整流状态-紧急关机提示"
+        Value : (($v[1] >> 8) & 0x1)
+        CValue : ((pData[0] >> 8 ) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无提示
+          - Key : 1
+            Value : 紧急关机提示
+            IsAlert : True
+      - Name : "整流状态-输入供电模式"
+        Value : (($v[1] >> 9) & 0x3)
+        CValue : ((pData[0] >> 9 ) & 0x3)
+        Options : 
+          - Key : 0
+            Value : 均不供电
+          - Key : 1
+            Value : 市电供电
+          - Key : 2
+            Value : 电池供电
+      - Name : "整流状态-整流器状态"
+        Value : (($v[1] >> 11) & 0x3)
+        CValue : ((pData[0] >> 11 ) & 0x3)
+        Options :
+          - Key : 0
+            Value : 不工作
+          - Key : 1
+            Value : 整流器软启动
+          - Key : 2
+            Value : 整流器正常工作
+      - Name : "整流状态-整流器限流"
+        Value : (($v[1] >> 13) & 0x1)
+        CValue : ((pData[0] >> 13 ) & 0x1)
+        Options : 
+          - Key : 0 
+            Value : 正常
+          - Key : 1
+            Value : "限流状态"
+      - Name : "整流状态-紧急关机"
+        Value : (($v[1] >> 14) & 0x1)
+        CValue : ((pData[0] >> 14 ) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 紧急关机状态
+      - Name : "整流状态-市电有无状态"
+        Value : (($v[1] >> 15) & 0x1)
+        CValue : ((pData[0] >> 15 ) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 市电有
+          - Key : 1
+            Value : 市电无
+      - Name : "整流告警-监控设置数据异常"
+        Value : (($v[3] >> 1) & 0x1)
+        CValue : ((pData[2] >> 1 ) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流告警-市电无"
+        Value : (($v[3] >> 2) & 0x1)
+        CValue : ((pData[2] >> 2 ) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流告警-内部通信故障EPPROM的IIC通信异常"
+        Value : (($v[3] >> 3) & 0x1)
+        CValue : ((pData[2] >> 3 ) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流告警-市电电压异常"
+        Value : (($v[3] >> 4) & 0x1)
+        CValue : ((pData[2] >> 4 ) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流告警-市电频率异常"
+        Value : (($v[3] >> 5) & 0x1)
+        CValue : ((pData[2] >> 5 ) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流告警-输入缺零"
+        Value : (($v[3] >> 6) & 0x1)
+        CValue : ((pData[2] >> 6 ) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流告警-输入电压相序反"
+        Value : (($v[3] >> 7) & 0x1)
+        CValue : ((pData[2] >> 7 ) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流告警-电池无告警"
+        Value : (($v[3] >> 8) & 0x1)
+        CValue : ((pData[2] >> 8 ) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流告警-电池电压低告警"
+        Value : (($v[3] >> 9) & 0x1)
+        CValue : ((pData[2] >> 9 ) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流告警-电池模式电池EOD告警"
+        Value : (($v[3] >> 10) & 0x1)
+        CValue : ((pData[2] >> 10) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流告警-电池接反告警"
+        Value : (($v[3] >> 11) & 0x1)
+        CValue : ((pData[2] >> 11) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流告警-电池模式电池EOD预告警"
+        Value : (($v[3] >> 12) & 0x1)
+        CValue : ((pData[2] >> 12) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流告警-电池过压告警"
+        Value : (($v[3] >> 13) & 0x1)
+        CValue : ((pData[2] >> 13) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流故障信息-正负母线压差大"
+        Value : (($v[6] >> 0) & 0x1)
+        CValue : ((pData[5] >> 0) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流故障信息-母线电压欠压"
+        Value : (($v[6] >> 1) & 0x1)
+        CValue : ((pData[5] >> 1) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流故障信息-母线电压过压"
+        Value : (($v[6] >> 2) & 0x1)
+        CValue : ((pData[5] >> 2) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流故障信息-模块接入,置位接入(接入触点信号，只是触点信号)"
+        Value : (($v[6] >> 3) & 0x1)
+        CValue : ((pData[5] >> 3) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流故障信息-初始化故障"
+        Value : (($v[6] >> 4) & 0x1)
+        CValue : ((pData[5] >> 4) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流故障信息-保留故障"
+        Value : (($v[6] >> 5) & 0x1)
+        CValue : ((pData[5] >> 5) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流故障信息-硬件版本匹配故障"
+        Value : (($v[6] >> 6) & 0x1)
+        CValue : ((pData[5] >> 6) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流故障信息-RAM故障"
+        Value : (($v[6] >> 7) & 0x1)
+        CValue : ((pData[5] >> 7) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流故障信息-逆变CPLD的SPI通信故障"
+        Value : (($v[6] >> 8) & 0x1)
+        CValue : ((pData[5] >> 8) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流故障信息-EPPROM的IIC通信故障"
+        Value : (($v[6] >> 9) & 0x1)
+        CValue : ((pData[5] >> 9) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流故障信息-逆变整流SPI通信故障"
+        Value : (($v[6] >> 10) & 0x1)
+        CValue : ((pData[5] >> 10) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流故障信息-负组电池充电器故障"
+        Value : (($v[6] >> 11) & 0x1)
+        CValue : ((pData[5] >> 11) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流故障信息-正组电池充电器故障"
+        Value : (($v[6] >> 12) & 0x1)
+        CValue : ((pData[5] >> 12) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流故障信息-软启动失败"
+        Value : (($v[6] >> 13) & 0x1)
+        CValue : ((pData[5] >> 13) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流故障信息-充电器过温故障"
+        Value : (($v[6] >> 14) & 0x1)
+        CValue : ((pData[5] >> 14) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流故障信息-风扇电源故障"
+        Value : (($v[6] >> 15) & 0x1)
+        CValue : ((pData[5] >> 15) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流故障信息-风扇1故障"
+        Value : (($v[5] >> 0) & 0x1)
+        CValue : ((pData[4] >> 0) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流故障信息-风扇2故障"
+        Value : (($v[5] >> 1) & 0x1)
+        CValue : ((pData[4] >> 1) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流故障信息-风扇3故障"
+        Value : (($v[5] >> 2) & 0x1)
+        CValue : ((pData[4] >> 2) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流故障信息-负电池充电晶闸管故障"
+        Value : (($v[5] >> 3) & 0x1)
+        CValue : ((pData[4] >> 3) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流故障信息-正电池充电晶闸管故障"
+        Value : (($v[5] >> 4) & 0x1)
+        CValue : ((pData[4] >> 4) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流故障信息-负电池放电晶闸管故障"
+        Value : (($v[5] >> 5) & 0x1)
+        CValue : ((pData[4] >> 5) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流故障信息-正电池放电晶闸管故障"
+        Value : (($v[5] >> 6) & 0x1)
+        CValue : ((pData[4] >> 6) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流故障信息-输入C相晶闸管故障"
+        Value : (($v[5] >> 7) & 0x1)
+        CValue : ((pData[4] >> 7) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流故障信息-输入B相晶闸管故障"
+        Value : (($v[5] >> 8) & 0x1)
+        CValue : ((pData[4] >> 8) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流故障信息-输入A相晶闸管故障"
+        Value : (($v[5] >> 9) & 0x1)
+        CValue : ((pData[4] >> 9) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流故障信息-辅助电源2故障(15V)"
+        Value : (($v[5] >> 10) & 0x1)
+        CValue : ((pData[4] >> 10) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流故障信息-辅助电源1故障(本模块)"
+        Value : (($v[5] >> 11) & 0x1)
+        CValue : ((pData[4] >> 11) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流故障信息-整流过流故障"
+        Value : (($v[5] >> 12) & 0x1)
+        CValue : ((pData[4] >> 12) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流故障信息-载波同步信号故障"
+        Value : (($v[5] >> 13) & 0x1)
+        CValue : ((pData[4] >> 13) & 0x1)
+        AlertNormalValue : 0
+      - Name : "整流故障信息-整流模块过温"
+        Value : (($v[5] >> 14) & 0x1)
+        CValue : ((pData[4] >> 14) & 0x1)
+        AlertNormalValue : 0
+      - Name : "逆变状态位信息-机柜模式"
+        Value : (($v[12] >> 9) & 0x1)
+        CValue : ((pData[11] >> 9) & 0x1)
+      - Name : "逆变状态位信息-烧录状态"
+        Value : (($v[12] >> 10) & 0x1)
+        CValue : ((pData[11] >> 10) & 0x1)
+      - Name : "逆变状态位信息-逆变待机(ECO 状态位)"
+        Value : (($v[12] >> 11) & 0x1)
+        CValue : ((pData[11] >> 11) & 0x1)
+      - Name : "逆变状态位信息-LBS(负载总线同步)系统激活"
+        Value : (($v[12] >> 12) & 0x1)
+        CValue : ((pData[11] >> 12) & 0x1)
+      - Name : "逆变状态位信息-EPO状态"
+        Value : (($v[12] >> 13) & 0x1)
+        CValue : ((pData[11] >> 13) & 0x1)
+      - Name : "逆变状态位信息-负载冲击切旁路"
+        Value : (($v[12] >> 14) & 0x1)
+        CValue : ((pData[11] >> 14) & 0x1)
+      - Name : "逆变状态位信息-过载延时到关机"
+        Value : (($v[12] >> 15) & 0x1)
+        CValue : ((pData[11] >> 15) & 0x1)
+      - Name : "逆变状态位信息-逆变主机"
+        Value : (($v[11] >> 0) & 0x1)
+        CValue : ((pData[10] >> 0) & 0x1)
+      - Name : "逆变状态位信息-间断切换逆变提示"
+        Value : (($v[11] >> 1) & 0x1)
+        CValue : ((pData[10] >> 1) & 0x1)
+      - Name : "逆变状态位信息-紧急关机提示"
+        Value : (($v[11] >> 2) & 0x1)
+        CValue : ((pData[10] >> 2) & 0x1)
+      - Name : "逆变状态位信息-UPS供电状态"
+        Value : (($v[11] >> 8) & 0x3)
+        CValue : ((pData[10] >> 8) & 0x3)
+        Options :
+          - Key : 0
+            Value : 不可供电
+          - Key : 1
+            Value : 逆变供电
+          - Key : 2
+            Value : 自老化
+          - Key : 3
+            Value : 旁路
+      - Name : "逆变状态位信息-自检状态"
+        Value : (($v[11] >> 10) & 0x3)
+        CValue : ((pData[10] >> 10) & 0x3)
+        Options :
+          - Key : 0
+            Value : 非自检
+          - Key : 1
+            Value : 初始化自检
+          - Key : 3
+            Value : 逆变开机自检
+      - Name : "逆变告警信息-内部通信故障EPPROM的IIC通信异常"
+        Value : (($v[13] >> 7) & 0x1)
+        CValue : ((pData[12] >> 7) & 0x1)
+        AlertNormalValue : 0
+      - Name : "逆变告警信息-机柜内并机线异常:载波同步信号"
+        Value : (($v[13] >> 12) & 0x1)
+        CValue : ((pData[12] >> 12) & 0x1)
+        AlertNormalValue : 0
+      - Name : "逆变告警信息-机柜内并机线异常:三相过零同步信号"
+        Value : (($v[13] >> 13) & 0x1)
+        CValue : ((pData[12] >> 13) & 0x1)
+        AlertNormalValue : 0
+      - Name : "逆变告警信息-机柜内并机线异常:逆变状态信号"
+        Value : (($v[13] >> 14) & 0x1)
+        CValue : ((pData[12] >> 14) & 0x1)
+        AlertNormalValue : 0
+      - Name : "逆变告警信息-机柜内并机线异常:控制CAN通信"
+        Value : (($v[13] >> 15) & 0x1)
+        CValue : ((pData[12] >> 15) & 0x1)
+        AlertNormalValue : 0
+      - Name : "逆变故障信息-保险丝故障"
+        Value : (($v[17] >> 5) & 0x1)
+        CValue : ((pData[16] >> 5) & 0x1)
+        AlertNormalValue : 0
+      - Name : "逆变故障信息-机柜模式错误"
+        Value : (($v[17] >> 6) & 0x1)
+        CValue : ((pData[16] >> 6) & 0x1)
+        AlertNormalValue : 0
+      - Name : "逆变故障信息-并机均流故障"
+        Value : (($v[17] >> 8) & 0x1)
+        CValue : ((pData[16] >> 8) & 0x1)
+        AlertNormalValue : 0
+      - Name : "逆变故障信息-逆变模块过温故障"
+        Value : (($v[17] >> 9) & 0x1)
+        CValue : ((pData[16] >> 9) & 0x1)
+        AlertNormalValue : 0
+      - Name : "逆变故障信息-电源故障:1.5V偏置电源故障"
+        Value : (($v[17] >> 10) & 0x1)
+        CValue : ((pData[16] >> 10) & 0x1)
+        AlertNormalValue : 0
+      - Name : "逆变故障信息-电源故障:1.5V电源故障:15V 电源故障"
+        Value : (($v[17] >> 11) & 0x1)
+        CValue : ((pData[16] >> 11) & 0x1)
+        AlertNormalValue : 0
+      - Name : "逆变故障信息-电源故障:模块辅助电源故障"
+        Value : (($v[17] >> 12) & 0x1)
+        CValue : ((pData[16] >> 12) & 0x1)
+        AlertNormalValue : 0
+      - Name : "逆变故障信息-模块接入短针故障"
+        Value : (($v[17] >> 13) & 0x1)
+        CValue : ((pData[16] >> 13) & 0x1)
+        AlertNormalValue : 0
+      - Name : "逆变故障信息-逆变侧母线电压异常故障"
+        Value : (($v[17] >> 15) & 0x1)
+        CValue : ((pData[16] >> 15) & 0x1)
+        AlertNormalValue : 0
+      - Name : "逆变故障信息-逆变直流分量故障:A相"
+        Value : (($v[16] >> 0) & 0x1)
+        CValue : ((pData[15] >> 0) & 0x1)
+        AlertNormalValue : 0
+      - Name : "逆变故障信息-逆变直流分量故障:B相"
+        Value : (($v[16] >> 1) & 0x1)
+        CValue : ((pData[15] >> 1) & 0x1)
+        AlertNormalValue : 0 
+      - Name : "逆变故障信息-逆变直流分量故障:C相"
+        Value : (($v[16] >> 2) & 0x1)
+        CValue : ((pData[15] >> 2) & 0x1)
+        AlertNormalValue : 0 
+      - Name : "逆变故障信息-逆变开机自检故障:输出电压异常"
+        Value : (($v[16] >> 4) & 0x1)
+        CValue : ((pData[15] >> 4) & 0x1)
+        AlertNormalValue : 0 
+      - Name : "逆变故障信息-逆变开机自检故障:逆变电压异常"
+        Value : (($v[16] >> 5) & 0x1)
+        CValue : ((pData[15] >> 5) & 0x1)
+        AlertNormalValue : 0 
+      - Name : "逆变故障信息-逆变开机自检故障:逆变继电器闭合不满足调节"
+        Value : (($v[16] >> 6) & 0x1)
+        CValue : ((pData[15] >> 6) & 0x1)
+        AlertNormalValue : 0 
+      - Name : "逆变故障信息-初始化故障:保留故障"
+        Value : (($v[16] >> 7) & 0x1)
+        CValue : ((pData[15] >> 7) & 0x1)
+        AlertNormalValue : 0 
+      - Name : "逆变故障信息-初始化故障:硬件版本匹配故障"
+        Value : (($v[16] >> 8) & 0x1)
+        CValue : ((pData[15] >> 8) & 0x1)
+        AlertNormalValue : 0 
+      - Name : "逆变故障信息-初始化故障:RAM 故障"
+        Value : (($v[16] >> 9) & 0x1)
+        CValue : ((pData[15] >> 9) & 0x1)
+        AlertNormalValue : 0 
+      - Name : "逆变故障信息-内部通信故障:逆变CPLD的SPI通信故障"
+        Value : (($v[16] >> 10) & 0x1)
+        CValue : ((pData[15] >> 10) & 0x1)
+        AlertNormalValue : 0 
+      - Name : "逆变故障信息-内部通信故障:EPPROM的IIC通信故障"
+        Value : (($v[16] >> 11) & 0x1)
+        CValue : ((pData[15] >> 11) & 0x1)
+        AlertNormalValue : 0 
+      - Name : "逆变故障信息-内部通信故障:逆变整流SPI通信故障"
+        Value : (($v[16] >> 12) & 0x1)
+        CValue : ((pData[15] >> 12) & 0x1)
+        AlertNormalValue : 0 
+      - Name : "逆变故障信息-输出短路:A相"
+        Value : (($v[16] >> 13) & 0x1)
+        CValue : ((pData[15] >> 13) & 0x1)
+        AlertNormalValue : 0 
+      - Name : "逆变故障信息-输出短路:B相"
+        Value : (($v[16] >> 14) & 0x1)
+        CValue : ((pData[15] >> 14) & 0x1)
+        AlertNormalValue : 0 
+      - Name : "逆变故障信息-输出短路:C相"
+        Value : (($v[16] >> 15) & 0x1)
+        CValue : ((pData[15] >> 15) & 0x1)
+        AlertNormalValue : 0 
+      - Name : "逆变故障信息-机柜内并机线故障:载波同步信号故障"
+        Value : (($v[15] >> 0) & 0x1)
+        CValue : ((pData[14] >> 0) & 0x1)
+        AlertNormalValue : 0 
+      - Name : "逆变故障信息-机柜内并机线故障:三相过零同步信号故障"
+        Value : (($v[15] >> 1) & 0x1)
+        CValue : ((pData[14] >> 1) & 0x1)
+        AlertNormalValue : 0
+      - Name : "逆变故障信息-机柜内并机线故障:逆变状态信号故障"
+        Value : (($v[15] >> 2) & 0x1)
+        CValue : ((pData[14] >> 2) & 0x1)
+        AlertNormalValue : 0  
+      - Name : "逆变故障信息-机柜内并机线故障:控制CAN通信故障"
+        Value : (($v[15] >> 3) & 0x1)
+        CValue : ((pData[14] >> 3) & 0x1)
+        AlertNormalValue : 0
+      - Name : "逆变故障信息-逆变继电器断路:A相"
+        Value : (($v[15] >> 4) & 0x1)
+        CValue : ((pData[14] >> 4) & 0x1)
+        AlertNormalValue : 0
+      - Name : "逆变故障信息-逆变继电器断路:B相"
+        Value : (($v[15] >> 5) & 0x1)
+        CValue : ((pData[14] >> 5) & 0x1)
+        AlertNormalValue : 0
+      - Name : "逆变故障信息-逆变继电器断路:C相"
+        Value : (($v[15] >> 6) & 0x1)
+        CValue : ((pData[14] >> 6) & 0x1)
+        AlertNormalValue : 0
+      - Name : "逆变故障信息-逆变继电器短路:A相"
+        Value : (($v[15] >> 7) & 0x1)
+        CValue : ((pData[14] >> 7) & 0x1)
+        AlertNormalValue : 0
+      - Name : "逆变故障信息-逆变继电器短路:B相"
+        Value : (($v[15] >> 8) & 0x1)
+        CValue : ((pData[14] >> 8) & 0x1)
+        AlertNormalValue : 0
+      - Name : "逆变故障信息-逆变继电器短路:C相"
+        Value : (($v[15] >> 9) & 0x1)
+        CValue : ((pData[14] >> 9) & 0x1)
+        AlertNormalValue : 0
+      - Name : "逆变故障信息-逆变桥臂直通:A相"
+        Value : (($v[15] >> 10) & 0x1)
+        CValue : ((pData[14] >> 10) & 0x1)
+        AlertNormalValue : 0
+      - Name : "逆变故障信息-逆变桥臂直通:B相"
+        Value : (($v[15] >> 11) & 0x1)
+        CValue : ((pData[14] >> 11) & 0x1)
+        AlertNormalValue : 0
+      - Name : "逆变故障信息-逆变桥臂直通:C相"
+        Value : (($v[15] >> 12) & 0x1)
+        CValue : ((pData[14] >> 12) & 0x1)
+        AlertNormalValue : 0
+      - Name : "逆变故障信息-逆变器故障:A相"
+        Value : (($v[15] >> 13) & 0x1)
+        CValue : ((pData[14] >> 13) & 0x1)
+        AlertNormalValue : 0
+      - Name : "逆变故障信息-逆变器故障:B相"
+        Value : (($v[15] >> 14) & 0x1)
+        CValue : ((pData[14] >> 14) & 0x1)
+        AlertNormalValue : 0
+      - Name : "逆变故障信息-逆变器故障:C相"
+        Value : (($v[15] >> 15) & 0x1)
+        CValue : ((pData[14] >> 15) & 0x1)
+        AlertNormalValue : 0
+
+      - Name : "ECU状态信息-干接点发电机接入状态"
+        Value : (($v[22] >> 9) & 0x1)
+        CValue : ((pData[21] >> 9) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 发电机接入
+      - Name : "ECU状态信息-ECU主机"
+        Value : (($v[22] >> 10) & 0x1)
+        CValue : ((pData[21] >> 10) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 激活
+      - Name : "ECU状态信息-切换次数到"
+        Value : (($v[22] >> 11) & 0x1)
+        CValue : ((pData[21] >> 11) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 激活
+      - Name : "ECU状态信息-烧录状态"
+        Value : (($v[22] >> 12) & 0x1)
+        CValue : ((pData[21] >> 12) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 激活
+      - Name : "ECU状态信息-ECO状态"
+        Value : (($v[22] >> 13) & 0x1)
+        CValue : ((pData[21] >> 13) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 激活
+      - Name : "ECU状态信息-LBS(负载总线同步)系统激活"
+        Value : (($v[22] >> 14) & 0x1)
+        CValue : ((pData[21] >> 14) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 激活
+      - Name : "ECU状态信息-EPO状态"
+        Value : (($v[22] >> 15) & 0x1)
+        CValue : ((pData[21] >> 15) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 激活
+      - Name : "ECU状态信息-系统供电状态"
+        Value : (($v[21] >> 0) & 0x3)
+        CValue : ((pData[20] >> 0) & 0x3)
+        Options : 
+          - Key : 0
+            Value : 系统无输出状态
+          - Key : 1
+            Value : 系统旁路供电告警（ECO状态时为正常)
+          - Key : 2
+            Value : 系统逆变供电状态
+      - Name : "ECU状态信息-ECU工作状态"
+        Value : (($v[21] >> 2) & 0x3)
+        CValue : ((pData[20] >> 2) & 0x3)
+        Options : 
+          - Key : 0
+            Value : 关机状态
+          - Key : 1
+            Value : 待机状态
+          - Key : 2
+            Value : 工作状态
+      - Name : "ECU状态信息-启动容量不足"
+        Value : (($v[21] >> 4) & 0x1)
+        CValue : ((pData[20] >> 4) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 激活
+      - Name : "ECU状态信息-紧急关机提示"
+        Value : (($v[21] >> 5) & 0x1)
+        CValue : ((pData[20] >> 5) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 激活
+      - Name : "ECU状态信息-关机将导致断电告警"
+        Value : (($v[21] >> 6) & 0x1)
+        CValue : ((pData[20] >> 6) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 激活
+      - Name : "ECU状态信息-间断切换到旁路提示"
+        Value : (($v[21] >> 7) & 0x1)
+        CValue : ((pData[20] >> 7) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 激活
+      - Name : "ECU状态信息-干接点输出开关状态"
+        Value : (($v[21] >> 8) & 0x1)
+        CValue : ((pData[20] >> 8) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+      - Name : "ECU状态信息-干接点旁路开关状态"
+        Value : (($v[21] >> 9) & 0x1)
+        CValue : ((pData[20] >> 9) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+      - Name : "ECU状态信息-干接点电池开关状态"
+        Value : (($v[21] >> 10) & 0x1)
+        CValue : ((pData[20] >> 10) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+      - Name : "ECU状态信息-干接点维修开关状态"
+        Value : (($v[21] >> 11) & 0x1)
+        CValue : ((pData[20] >> 11) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+      - Name : "ECU状态信息-柜内输出开关"
+        Value : (($v[21] >> 12) & 0x1)
+        CValue : ((pData[20] >> 12) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+      - Name : "ECU状态信息-柜内旁路开关"
+        Value : (($v[21] >> 13) & 0x1)
+        CValue : ((pData[20] >> 13) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+      - Name : "ECU状态信息-柜内主路开关"
+        Value : (($v[21] >> 14) & 0x1)
+        CValue : ((pData[20] >> 14) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+      - Name : "ECU状态信息-柜内维修开关"
+        Value : (($v[21] >> 15) & 0x1)
+        CValue : ((pData[20] >> 15) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+      - Name : "ECU告警信息-旁路超保护"
+        Value : (($v[23] >> 0) & 0x1)
+        CValue : ((pData[22] >> 0) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU告警信息-旁路超跟踪"
+        Value : (($v[23] >> 1) & 0x1)
+        CValue : ((pData[22] >> 1) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU告警信息-旁路反序"
+        Value : (($v[23] >> 2) & 0x1)
+        CValue : ((pData[22] >> 2) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU告警信息-ECU1异常"
+        Value : (($v[23] >> 3) & 0x1)
+        CValue : ((pData[22] >> 3) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU告警信息-ECU2异常"
+        Value : (($v[23] >> 4) & 0x1)
+        CValue : ((pData[22] >> 4) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU告警信息-机柜内并机线异常:ECU冗余异常"
+        Value : (($v[23] >> 5) & 0x1)
+        CValue : ((pData[22] >> 5) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU告警信息-机柜内并机线异常:载波同步信号"
+        Value : (($v[23] >> 6) & 0x1)
+        CValue : ((pData[22] >> 6) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU告警信息-机柜内并机线异常:三相过零同步信号"
+        Value : (($v[23] >> 7) & 0x1)
+        CValue : ((pData[22] >> 7) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU告警信息-机柜内并机线异常:逆变状态信号"
+        Value : (($v[23] >> 8) & 0x1)
+        CValue : ((pData[22] >> 8) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU告警信息-机柜内并机线异常:控制CAN通信"
+        Value : (($v[23] >> 9) & 0x1)
+        CValue : ((pData[22] >> 9) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU告警信息-内部通信故障EPPROM的IIC通信异常"
+        Value : (($v[23] >> 10) & 0x1)
+        CValue : ((pData[22] >> 10) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU告警信息-维修开关误操作告警"
+        Value : (($v[23] >> 11) & 0x1)
+        CValue : ((pData[22] >> 11) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU告警信息-旁路过载"
+        Value : (($v[23] >> 12) & 0x1)
+        CValue : ((pData[22] >> 12) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU告警信息-并机过载"
+        Value : (($v[23] >> 13) & 0x1)
+        CValue : ((pData[22] >> 13) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU告警信息-模块设置台数不符合"
+        Value : (($v[23] >> 14) & 0x1)
+        CValue : ((pData[22] >> 14) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU告警信息-旁路切换次数到告警"
+        Value : (($v[23] >> 15) & 0x1)
+        CValue : ((pData[22] >> 15) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU故障信息-干接点卡通信故障"
+        Value : (($v[26] >> 4) & 0x1)
+        CValue : ((pData[25] >> 4) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU故障信息-干接点卡12V电源故障"
+        Value : (($v[26] >> 5) & 0x1)
+        CValue : ((pData[25] >> 5) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU故障信息-输出电流CT接反故障"
+        Value : (($v[26] >> 6) & 0x1)
+        CValue : ((pData[25] >> 6) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU故障信息-旁路过温1故障"
+        Value : (($v[26] >> 7) & 0x1)
+        CValue : ((pData[25] >> 7) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU故障信息-旁路过温2故障"
+        Value : (($v[26] >> 8) & 0x1)
+        CValue : ((pData[25] >> 8) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU故障信息-旁路过温3故障"
+        Value : (($v[26] >> 9) & 0x1)
+        CValue : ((pData[25] >> 9) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU故障信息-A相旁路晶闸管短路"
+        Value : (($v[26] >> 10) & 0x1)
+        CValue : ((pData[25] >> 10) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU故障信息-B相旁路晶闸管短路"
+        Value : (($v[26] >> 11) & 0x1)
+        CValue : ((pData[25] >> 11) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU故障信息-C相旁路晶闸管短路"
+        Value : (($v[26] >> 12) & 0x1)
+        CValue : ((pData[25] >> 12) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU故障信息-A相旁路晶闸管断路"
+        Value : (($v[26] >> 13) & 0x1)
+        CValue : ((pData[25] >> 13) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU故障信息-B相旁路晶闸管断路"
+        Value : (($v[26] >> 14) & 0x1)
+        CValue : ((pData[25] >> 14) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU故障信息-C相旁路晶闸管断路"
+        Value : (($v[26] >> 15) & 0x1)
+        CValue : ((pData[25] >> 15) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU故障信息-初始化故障:MCP2515故障"
+        Value : (($v[25] >> 0) & 0x1)
+        CValue : ((pData[24] >> 0) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU故障信息-初始化故障:硬件版本匹配故障"
+        Value : (($v[25] >> 1) & 0x1)
+        CValue : ((pData[24] >> 1) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU故障信息-初始化故障:RAM 故障"
+        Value : (($v[25] >> 2) & 0x1)
+        CValue : ((pData[24] >> 2) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU故障信息-初始化故障:保留故障"
+        Value : (($v[25] >> 3) & 0x1)
+        CValue : ((pData[24] >> 3) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU故障信息-内部通信故障逆变CPLD的SPI通信故障"
+        Value : (($v[25] >> 4) & 0x1)
+        CValue : ((pData[24] >> 4) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU故障信息-内部通信故障EPPROM的IIC通信故障"
+        Value : (($v[25] >> 5) & 0x1)
+        CValue : ((pData[24] >> 5) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU故障信息-电源故障:5V"
+        Value : (($v[25] >> 7) & 0x1)
+        CValue : ((pData[24] >> 7) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU故障信息-电源故障:15V"
+        Value : (($v[25] >> 8) & 0x1)
+        CValue : ((pData[24] >> 8) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU故障信息-模块接入触点故障"
+        Value : (($v[25] >> 9) & 0x1)
+        CValue : ((pData[24] >> 9) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU故障信息-模块接入短针故障"
+        Value : (($v[25] >> 10) & 0x1)
+        CValue : ((pData[24] >> 10) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU故障信息-机柜间并机线故障:载波同步信号故障"
+        Value : (($v[25] >> 11) & 0x1)
+        CValue : ((pData[24] >> 11) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU故障信息-机柜间并机线故障:三相过零同步信号故障"
+        Value : (($v[25] >> 12) & 0x1)
+        CValue : ((pData[24] >> 12) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU故障信息-机柜间并机线故障:逆变状态信号故障"
+        Value : (($v[25] >> 13) & 0x1)
+        CValue : ((pData[24] >> 13) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU故障信息-机柜间并机线故障:控制CAN通信故障"
+        Value : (($v[25] >> 14) & 0x1)
+        CValue : ((pData[24] >> 14) & 0x1)
+        AlertNormalValue : 0
+      - Name : "ECU故障信息-机柜间并机线故障:连接线故障"
+        Value : (($v[25] >> 15) & 0x1)
+        CValue : ((pData[24] >> 15) & 0x1)
+        AlertNormalValue : 0
+
+      - Name : "旁路状态信息-逆变待机(ECO 状态位)"
+        Value : (($v[32] >> 11) & 0x1)
+        CValue : ((pData[31] >> 11) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 激活
+      - Name : "旁路状态信息-LBS(负载总线同步)系统激活"
+        Value : (($v[32] >> 12) & 0x1)
+        CValue : ((pData[31] >> 12) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 激活
+      - Name : "旁路状态信息-并机系统转旁路"
+        Value : (($v[32] >> 13) & 0x1)
+        CValue : ((pData[31] >> 13) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 激活
+      - Name : "旁路状态信息-负载冲击切旁路"
+        Value : (($v[32] >> 14) & 0x1)
+        CValue : ((pData[31] >> 14) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 激活
+      - Name : "旁路状态信息-过载延时到关机"
+        Value : (($v[32] >> 15) & 0x1)
+        CValue : ((pData[31] >> 15) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 激活
+      - Name : "旁路状态信息-切换次数到"
+        Value : (($v[31] >> 0) & 0x1)
+        CValue : ((pData[30] >> 0) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 激活
+      - Name : "旁路状态信息-EPO状态"
+        Value : (($v[31] >> 2) & 0x1)
+        CValue : ((pData[30] >> 2) & 0x1)
+        Options:
+          - Key : 0
+            Value : 非EPO
+          - Key : 1
+            Value : EPO
+      - Name : "旁路状态信息-紧急关机提示"
+        Value : (($v[31] >> 3) & 0x1)
+        CValue : ((pData[30] >> 3) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 激活
+      - Name : "旁路状态信息-关机将导致过载告警"
+        Value : (($v[31] >> 4) & 0x1)
+        CValue : ((pData[30] >> 4) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 激活
+      - Name : "旁路状态信息-关机将导致断电告警"
+        Value : (($v[31] >> 5) & 0x1)
+        CValue : ((pData[30] >> 5) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 激活
+      - Name : "旁路状态信息-间断切换提示"
+        Value : (($v[31] >> 6) & 0x1)
+        CValue : ((pData[30] >> 6) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 激活
+      - Name : "旁路状态信息-旁路模块供电状态"
+        Value : (($v[31] >> 7) & 0x3)
+        CValue : ((pData[30] >> 7) & 0x3)
+        Options : 
+          - Key : 0
+            Value : 均不供电
+          - Key : 1
+            Value : 旁路供电
+      - Name : "旁路状态信息-旁路模块工作模式"
+        Value : (($v[31] >> 9) & 0x3)
+        CValue : ((pData[30] >> 9) & 0x3)
+        Options : 
+          - Key : 0
+            Value : ECU接管模式
+          - Key : 1
+            Value : 旁路接管模式
+      - Name : "旁路状态信息-外部输出空开状态"
+        Value : (($v[31] >> 11) & 0x1)
+        CValue : ((pData[30] >> 11) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+      - Name : "旁路状态信息-旁路柜旁路空开状态"
+        Value : (($v[31] >> 12) & 0x1)
+        CValue : ((pData[30] >> 12) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+      - Name : "旁路状态信息-维修旁路空开状态"
+        Value : (($v[31] >> 13) & 0x1)
+        CValue : ((pData[30] >> 13) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+      - Name : "旁路状态信息-输出空开状态"
+        Value : (($v[31] >> 14) & 0x1)
+        CValue : ((pData[30] >> 14) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+      - Name : "旁路状态信息-旁路空开状态"
+        Value : (($v[31] >> 15) & 0x1)
+        CValue : ((pData[30] >> 15) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+      - Name : "旁路告警信息-旁路接管模式不可供电"
+        Value : (($v[33] >> 10) & 0x1)
+        CValue : ((pData[32] >> 10) & 0x1)
+        AlertNormalValue : 0
+      - Name : "旁路告警信息-内部通信故障EPPROM的IIC通信异常"
+        Value : (($v[33] >> 11) & 0x1)
+        CValue : ((pData[32] >> 11) & 0x1)
+        AlertNormalValue : 0
+      - Name : "旁路告警信息-旁路超保护"
+        Value : (($v[33] >> 12) & 0x1)
+        CValue : ((pData[32] >> 12) & 0x1)
+        AlertNormalValue : 0
+      - Name : "旁路告警信息-旁路超跟踪"
+        Value : (($v[33] >> 13) & 0x1)
+        CValue : ((pData[32] >> 13) & 0x1)
+        AlertNormalValue : 0
+      - Name : "旁路告警信息-旁路反序"
+        Value : (($v[33] >> 14) & 0x1)
+        CValue : ((pData[32] >> 14) & 0x1)
+        AlertNormalValue : 0
+      - Name : "旁路告警信息-机柜内并机线控制CAN通信异常"
+        Value : (($v[33] >> 15) & 0x1)
+        CValue : ((pData[32] >> 15) & 0x1)
+        AlertNormalValue : 0
+      - Name : "旁路故障信息-辅助电源2故障(15V)"
+        Value : (($v[36] >> 9) & 0x1)
+        CValue : ((pData[35] >> 9) & 0x1)
+        AlertNormalValue : 0
+      - Name : "旁路故障信息-辅助电源1故障(本模块)"
+        Value : (($v[36] >> 10) & 0x1)
+        CValue : ((pData[35] >> 10) & 0x1)
+        AlertNormalValue : 0
+      - Name : "旁路故障信息-风扇1故障"
+        Value : (($v[36] >> 11) & 0x1)
+        CValue : ((pData[35] >> 11) & 0x1)
+        AlertNormalValue : 0
+      - Name : "旁路故障信息-风扇2故障"
+        Value : (($v[36] >> 12) & 0x1)
+        CValue : ((pData[35] >> 12) & 0x1)
+        AlertNormalValue : 0
+      - Name : "旁路故障信息-风扇3故障"
+        Value : (($v[36] >> 13) & 0x1)
+        CValue : ((pData[35] >> 13) & 0x1)
+        AlertNormalValue : 0
+      - Name : "旁路故障信息-风扇4故障"
+        Value : (($v[36] >> 14) & 0x1)
+        CValue : ((pData[35] >> 14) & 0x1)
+        AlertNormalValue : 0
+      - Name : "旁路故障信息-旁路模块1过温"
+        Value : (($v[36] >> 15) & 0x1)
+        CValue : ((pData[35] >> 14) & 0x1)
+        AlertNormalValue : 0
+      - Name : "旁路故障信息-旁路模块2过温"
+        Value : (($v[35] >> 0) & 0x1)
+        CValue : ((pData[34] >> 0) & 0x1)
+        AlertNormalValue : 0
+      - Name : "旁路故障信息-旁路模块3过温"
+        Value : (($v[35] >> 1) & 0x1)
+        CValue : ((pData[34] >> 1) & 0x1)
+        AlertNormalValue : 0
+      - Name : "旁路故障信息-模块接入短针故障"
+        Value : (($v[35] >> 2) & 0x1)
+        CValue : ((pData[34] >> 2) & 0x1)
+        AlertNormalValue : 0
+      - Name : "旁路故障信息-模块接入触点故障"
+        Value : (($v[35] >> 3) & 0x1)
+        CValue : ((pData[34] >> 3) & 0x1)
+        AlertNormalValue : 0
+      - Name : "旁路故障信息-初始化故障保留"
+        Value : (($v[35] >> 4) & 0x1)
+        CValue : ((pData[34] >> 4) & 0x1)
+        AlertNormalValue : 0
+      - Name : "旁路故障信息-初始化故障:硬件版本匹配故障"
+        Value : (($v[35] >> 5) & 0x1)
+        CValue : ((pData[34] >> 5) & 0x1)
+        AlertNormalValue : 0
+      - Name : "旁路故障信息-初始化故障:RAM故障"
+        Value : (($v[35] >> 6) & 0x1)
+        CValue : ((pData[34] >> 6) & 0x1)
+        AlertNormalValue : 0
+      - Name : "旁路故障信息-内部通信故障逆变CPLD的SPI通信故障"
+        Value : (($v[35] >> 7) & 0x1)
+        CValue : ((pData[34] >> 7) & 0x1)
+        AlertNormalValue : 0
+      - Name : "旁路故障信息-内部通信故障EPPROM的IIC通信故障"
+        Value : (($v[35] >> 8) & 0x1)
+        CValue : ((pData[34] >> 8) & 0x1)
+        AlertNormalValue : 0
+      - Name : "旁路故障信息-A相旁路晶闸管短路"
+        Value : (($v[35] >> 9) & 0x1)
+        CValue : ((pData[34] >> 9) & 0x1)
+        AlertNormalValue : 0
+      - Name : "旁路故障信息-B相旁路晶闸管短路"
+        Value : (($v[35] >> 10) & 0x1)
+        CValue : ((pData[34] >> 10) & 0x1)
+        AlertNormalValue : 0
+      - Name : "旁路故障信息-C相旁路晶闸管短路"
+        Value : (($v[35] >> 11) & 0x1)
+        CValue : ((pData[34] >> 11) & 0x1)
+        AlertNormalValue : 0
+      - Name : "旁路故障信息-A相旁路晶闸管断路"
+        Value : (($v[35] >> 12) & 0x1)
+        CValue : ((pData[34] >> 12) & 0x1)
+        AlertNormalValue : 0
+      - Name : "旁路故障信息-B相旁路晶闸管断路"
+        Value : (($v[35] >> 13) & 0x1)
+        CValue : ((pData[34] >> 13) & 0x1)
+        AlertNormalValue : 0
+      - Name : "旁路故障信息-C相旁路晶闸管断路"
+        Value : (($v[35] >> 14) & 0x1)
+        CValue : ((pData[34] >> 14) & 0x1)
+        AlertNormalValue : 0
+      - Name : "旁路故障信息-机柜内并机线控制CAN通信故障"
+        Value : (($v[35] >> 15) & 0x1)
+        CValue : ((pData[34] >> 15) & 0x1)
+        AlertNormalValue : 0

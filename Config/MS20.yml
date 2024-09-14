@@ -3,586 +3,172 @@ Project:
   RT_ID : 5156
   File : " MS20通讯协议Ver2.9"
 Sample : 
-  - Cmd : 3
+  - Cmd : 4
     Offset : 1
-    Len : 7
+    Len : 65
     Data : 
-      - Name : 冷源/系统类型
+      - Name : "软件版本"
+        Ratio : 100
         Offset : 1
-        Options : 
-          - Key : 0
-            Value : 风冷直膨型
-          - Key : 1
-            Value : 风冷双冷源型
-          - Key : 2
-            Value : 冷冻水单盘管型
-          - Key : 3
-            Value : FreeCooling型
-          - Key : 4
-            Value : 冷冻水双盘管型
-          - Key : 5
-            Value : 水冷直膨型
-          - Key : 6
-            Value : 水冷双冷源型
-      - Name : 设置风阀开启延时
+      - Name : "当前电源电压"
+        Ratio : 100
         Offset : 2
-        Unit : "S"
+      - Name : "回风温度当前值"
         Ratio : 10
-      - Name : 电压高限值
         Offset : 3
-        Unit : "V"
-      - Name : 电压低限值
+      - Name : "回风湿度当前值"
+        Ratio : 10
         Offset : 4
-        Unit : "V"
-      - Name : 回风温度高限值
+      - Name : "回风：室外温度"
+        Ratio : 10
         Offset : 5
-        Unit : "℃"
+      - Name : "回风：区域温度"
         Ratio : 10
-      - Name : 回风温度低限值
         Offset : 6
-        Unit : "℃"
+      - Name : "回风：A路冷冻水进水温度"
         Ratio : 10
-      - Name : 回风温度设定目标值
         Offset : 7
-        Unit : "℃"
+      - Name : "回风：A路冷冻水出水温度"
         Ratio : 10
-
-  - Cmd : 3
-    Offset : 9
-    Len : 14
-    Data : 
-      - Name : 温度静区值
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 回风湿度高限值
-        Offset : 2
-        Unit : "%"
-        Ratio : 10
-      - Name : 回风湿度低限值
-        Offset : 3
-        Unit : "%"
-        Ratio : 10
-      - Name : 回风湿度设定目标值
-        Offset : 4
-        Unit : "%"
-        Ratio : 10
-      - Name : 湿度静区值
-        Offset : 6
-        Unit : "%"
-        Ratio : 10
-      - Name : A路冷冻水进水温度高限值
-        Offset : 9
-        Unit : "℃"
-        Ratio : 10
-      - Name : A路冷冻水进水温度低限值
-        Offset : 10
-        Unit : "℃"
-        Ratio : 10
-      - Name : B路冷冻水进水温度高限值
-        Offset : 13
-        Unit : "℃"
-        Ratio : 10
-      - Name : B路冷冻水进水温度低限值
-        Offset : 14
-        Unit : "℃"
-        Ratio : 10
-
-  - Cmd : 3
-    Offset : 33
-    Len : 17
-    Data : 
-      - Name : 冷通道保护设定温度
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 送风温度高限值
-        Offset : 2
-        Unit : "℃"
-        Ratio : 10
-      - Name : 送风温度低限值
-        Offset : 3
-        Unit : "℃"
-        Ratio : 10
-      - Name : 送风温度设定目标值
-        Offset : 4
-        Unit : "℃"
-        Ratio : 10
-      - Name : 送风湿度高限值
-        Offset : 7
-        Unit : "%"
-        Ratio : 10
-      - Name : 送风湿度低限值
         Offset : 8
-        Unit : "%"
+      - Name : "回风：B路冷冻水进水温度"
         Ratio : 10
-      - Name : 冷冻水阀B输出
+        Offset : 9
+      - Name : "回风：B路冷冻水出水温度"
+        Ratio : 10
+        Offset : 10
+      - Name : "回风：A路冷却水进水温度"
+        Ratio : 10
         Offset : 11
-        Unit : "%"
-      - Name : 冷冻水阀A输出
+      - Name : “回风：A路冷却水出水温度”
+        Ratio : 10
+        Offset : 12
+      - Name : "回风：B路冷却水进水温度"
+        Ratio : 10
+        Offset : 13
+      - Name : "回风：B路冷却水出水温度"
+        Ratio : 10
+        Offset : 14
+      - Name : "回风：表冷器温度1"
+        Ratio : 10
+        Offset : 15
+      - Name : "绝对湿度目标值"
+        Ratio : 100
         Offset : 16
-        Unit : "%"
-      - Name : 冷冻水阀最小输出设定
+      - Name : "绝对湿度"
+        Ratio : 100
         Offset : 17
-        Unit : "%"
-
-  - Cmd : 3
-    Offset : 53
-    Len : 14
+      - Name : "主板NTC温度"
+        Ratio : 10
+        Offset : 18
+      - Name : "送风温度当前值"
+        Ratio : 10
+        Offset : 19
+      - Name : "送风湿度当前值"
+        Ratio : 10
+        Offset : 20
+      - Name : "送风：NTC1_送风温度1"
+        Ratio : 10
+        Offset : 21
+      - Name : "送风：NTC5_回风温度1"
+        Ratio : 10
+        Offset : 25
+      - Name : "A路进水压力"
+        Ratio : 100
+        Offset : 33
+      - Name : "A路出水压力/B路进水压力"
+        Ratio : 100
+        Offset : 34
+      - Name : "冷冻水阀A开度反馈"
+        Offset : 35
+      - Name : "冷冻水阀B开度反馈"
+        Offset : 36
+      - Name : "AC本次启动运行时间（秒）"
+        Offset : 37
+      - Name : "风机运行累计时间"
+        Unit : "时"
+        Ratio : 2
+        Offset : 39
+      - Name : "1号压缩机运行累计时间"
+        Unit : "时"
+        Ratio : 2
+        Offset : 42
+      - Name : "1号压缩机吸气温度A"
+        Ratio : 10
+        Offset : 45
+      - Name : "1号压缩机吸气温度B"
+        Ratio : 10
+        Offset : 46
+      - Name : "1号压缩机排气温度"
+        Ratio : 10
+        Offset : 47
+      - Name : "1号压缩机吸气压力"
+        Ratio : 10
+        Offset : 48
+      - Name : "1号压缩机排气压力"
+        Ratio : 10
+        Offset : 49
+      - Name : "2号压缩机运行累计时间"
+        Unit : "时"
+        Ratio : 2
+        Offset : 50
+      - Name : "2号压缩机吸气温度A"
+        Ratio : 10
+        Offset : 53
+      - Name : "2号压缩机吸气温度B"
+        Ratio : 10
+        Offset : 54
+      - Name : "2号压缩机排气温度"
+        Ratio : 10
+        Offset : 55
+      - Name : "2号压缩机吸气压力"
+        Ratio : 10
+        Offset : 56
+      - Name : "2号压缩机排气压力"
+        Ratio : 10
+        Offset : 57
+      - Name : "3号压缩机运行累计时间"
+        Unit : "时"
+        Ratio : 2
+        Offset : 58
+      - Name : "3号压缩机吸气温度A"
+        Ratio : 10
+        Offset : 61
+      - Name : "3号压缩机吸气温度B"
+        Ratio : 10
+        Offset : 62
+      - Name : "3号压缩机排气温度"
+        Ratio : 10
+        Offset : 63
+      - Name : "3号压缩机吸气压力"
+        Ratio : 10
+        Offset : 64
+      - Name : "3号压缩机排气压力"
+        Ratio : 10
+        Offset : 65
+  - Cmd : 4
+    Offset : 136
+    Len : 9
     Data : 
-      - Name : 1号扩展板压缩机转速设定
-        Offset : 1
-        Unit : "RPM"
-      - Name : 2号扩展板压缩机转速设定
-        Offset : 1
-        Unit : "RPM"
-      - Name : 3号扩展板压缩机转速设定
-        Offset : 1
-        Unit : "RPM"
-      - Name : 变频驱动选择
-        Offset : 1
-        Options : 
-          - Key : 0
-            Value : 定频
-          - Key : 1
-            Value : 谷轮EVD
-          - Key : 2
-            Value : 汇川CA200
-          - Key : 3
-            Value : 丹弗斯303
-          - Key : 4
-            Value : 丹弗斯803
-          - Key : 5
-            Value : 优驱Volvo
-          - Key : 6
-            Value : 壹格品牌
-      - Name : 变频压机最高转速设定
-        Offset : 1
-        Unit : "RPM"
-      - Name : 变频压机最低转速设定
-        Offset : 1
-        Unit : "RPM"
-      - Name : 变频压机最优转速设定
-        Offset : 1
-        Unit : "RPM"
-      - Name : 变频压机高压降频值设定
-        Offset : 1
-        Unit : "bar"
-        Ratio : 10
-      - Name : 变频压机回油触发低频转速设定
-        Offset : 1
-        Unit : "RPM"
-      - Name : 变频压机回油运行转速设定
-        Offset : 1
-        Unit : "RPM"
-      - Name : 开关机方式
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 送回风控制模式
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 再启动模式
-
-      - Name : EC风机正常额定转速
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 除湿风量百分比
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 过滤网堵塞提速间隔时间
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 风机启动预热期
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : EC风机输出值
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 恒定风压设定值
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : EC风机最低转速设定值
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : EC风机冷通道保护设定风速
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 制冷剂类型
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 压机启动低压报警屏蔽时间
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 设置热气旁通阀保持时间
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 设置最小运行时间
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 设置最小停运时间
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 电子膨胀阀A最小开度
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 电子膨胀阀A最大开度
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 电子膨胀阀B最小开度
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 电子膨胀阀B最大开度
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 1号扩展版电子膨胀阀A开度
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 1号扩展版电子膨胀阀B开度
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 1号扩展板电子膨胀阀控制周期
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 1号吸气过热度A目标值
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 1号吸气过热度B目标值
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 2号扩展版电子膨胀阀A开度
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 2号扩展版电子膨胀阀B开度
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 2号扩展板电子膨胀阀控制周期
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 2号吸气过热度A目标值
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 2号吸气过热度B目标值
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 3号扩展版电子膨胀阀A开度
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 3号扩展版电子膨胀阀B开度
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 3号扩展板电子膨胀阀控制周期
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 3号吸气过热度A目标值
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 3号吸气过热度B目标值
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 电加热0~10V输出值
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 加湿0~10V输出值
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 电极加湿器设定加湿量
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 电极加湿器灌满最高电压
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 电极加湿供电方式
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 温度比例带
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 温度微分系数
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 温度积分时间
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 湿度比例带
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-
-      - Name : 湿度微分系数
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 湿度积分时间
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 压差比例带
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 压差微分系数
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 压差积分时间
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 送回风温差设定值
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 不工作区设定值
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 蒸发阶段高浓度判定值
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 常规排水高浓度判定值
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 恢复升容电流判定值
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 排水阀故障判定值
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 低电导率判定值
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 加湿灌类型
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : EC风机待机转速
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 压缩机模块数量
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 除湿保护温度优先设定值
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-
-
-      - Name : 变频压机回油运行最长时间设定
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 变频压机回油触发累计时间设定
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 值班需求分配模式
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 值班机组数量设定值
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 本机备用使能
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 值班排序周期
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 温湿度排序周期
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 值班手动更新使能
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 值班轮询模式
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-      - Name : 值班轮询开关
-        Offset : 1
-        Unit : "℃"
-        Ratio : 10
-
-
-
-
-
-
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
-      - Name : 湿度静区值
+      - Name : "当前组合有功总电能"
+        Value : (($v[2]<<16) + $v[1])
+      - Name : "A相电压"
+        Ratio : 10
+        Offset : 3 
+      - Name : "B相电压"
+        Ratio : 10
+        Offset : 4
+      - Name : "C相电压"
+        Ratio : 10
+        Offset : 5
+      - Name : "A相电流"
+        Ratio : 100
+        Offset : 3 
+      - Name : "B相电流"
+        Ratio : 100
+        Offset : 4
+      - Name : "C相电流"
+        Ratio : 100
+        Offset : 5
+      - Name : "总有功功率"
+        Value : (($v[9]<<16) + $v[8])

@@ -2,6 +2,33 @@ Project:
   Name : BAT61CJ
   RT_ID : 5156
   File : "XRD-XY-024  BAT6.1_CJ通讯协议（客户版）V1.16"
+BlockTemplate: 
+  BatteryV:
+    BlockLength : 2
+    BlockType : 'S'
+    BlockContent :
+      - Name : "#%d电池电压"
+        Unit : "V"
+        Ratio : 1000
+  BatteryT: 
+    BlockLength : 2
+    BlockType : 's'
+    BlockContent :
+      - Name : "#%d电池温度"
+        Value : '( ($v[1] == 0x7FFF) ? "" : (($v[1]/10)."°C"))'
+  BatteryR:
+    BlockLength : 2
+    BlockType : 'S'
+    BlockContent :
+      - Name : "#%d电池内阻"
+        Unit : "mΩ"
+        Ratio : 1000
+  BatteryInfo : 
+    BlockLength : 6
+    BlockContent : 
+      - Block : BatteryV
+      - Block : BatteryT
+      - Block : BatteryR   
 Sample :
   - Cmd : 3
     Offset : 1
@@ -99,3 +126,24 @@ Sample :
             Value : 当前未进行内阻测
           - Key : 1
             Value : 正在进行内阻测试
+  - Cmd : 3
+    Offset : 50
+    Len : 120
+    Data : 
+      - ArrayBlock : BatteryInfo
+        ArrayStart : 1
+        ArrayEnd : 40
+  - Cmd : 3
+    Offset : 170
+    Len : 120
+    Data : 
+      - ArrayBlock : BatteryInfo
+        ArrayStart : 41
+        ArrayEnd : 80
+  - Cmd : 3
+    Offset : 290
+    Len : 120
+    Data : 
+      - ArrayBlock : BatteryInfo
+        ArrayStart : 81
+        ArrayEnd : 120

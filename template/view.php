@@ -36,7 +36,7 @@ function _{{ Project.Name|lower }}_{{ key }}(&$signalList, $index)
           }
         {% endif %}
       {% elif d.Block is defined %}
-      _{{ Project.Name|lower }}_{{ d.Block }}($signalList, $index + {{ d.index }});
+      _{{ Project.Name|lower }}_{{ d.Block }}($signalList, $index {% if d.index is defined %}+ {{ d.index }}{% endif %} );
       {% else %}        
         {% if d.ArrayName is defined %}
         for($i=1;$i<={{ d.ArrayLength }};$i++){

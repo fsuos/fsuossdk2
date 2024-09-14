@@ -1,3 +1,94 @@
+#include "common_define.h"
+#include "{{ Project.Name }}.h"
+#include "UniDataDevice.cpp"
+
+{% if BlockTemplate is defined %}
+{% for key,blockDef in BlockTemplate.items() %}
+void {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}(char* pCData,const std::string &prefix, int index {% if blockDef.HasIndex1 is defined  %}, int index1{% endif %} {% if blockDef.HasIndex2 is defined %}, int index2{% endif %})
+{
+          int offset = 0;
+    {% if blockDef.BlockType is defined %}
+        {% if blockDef.BlockType == 'f' %}
+        float pData[{{ (blockDef.BlockLength/4)|int }}];     
+        {% elif blockDef.BlockType == 'S' %}
+        uint16_t pData[{{ (blockDef.BlockLength/2)|int }}];
+        {% elif blockDef.BlockType == 's' %}
+        int16_t pData[{{ (blockDef.BlockLength/2)|int }}];
+        {% elif blockDef.BlockType == "I" %}
+        uint32_t pData[{{ (blockDef.BlockLength/4)|int }}];
+        {% elif blockDef.BlockType == "i" %}
+        int32_t pData[{{ (blockDef.BlockLength/4)|int }}];
+        {% else %}
+        uint16_t pData[{{ (blockDef.BlockLength/2)|int }}];
+        {% endif %}
+        memcpy(pData, pCData, {{blockDef.BlockLength}});
+    {% else %}
+    char * pData = pCData;
+    {% endif %}
+
+    {% for d in blockDef.BlockContent %}
+
+      {% if d.Block is defined %}
+      _{{ Project.Name|lower }}_{{ d.Block }}(pData + offset , prefix, {% if d.index is defined %}"{{ d.index }}"{% if d.index1 is defined %},"{{d.index1}}"{% endif %}{% if d.index2 is defined %},"{{d.index2}}"{% endif %}{% else %}index{% endif %});
+      offset += {{ BlockTemplate[d.Block]["BlockLength"] }};
+      {% else %}
+        char nameBuffer[48] = {0};
+        snprintf(nameBuffer, 48, "{{ d.Name }}", {% if d.Index is defined %}${{ d.Index }}{% else %}index{% endif %});
+        std::string name = nameBuffer;
+        {% if d.CValue is defined %}
+          {% if d.AlertNormalValue is defined %}
+          jsonValue[name] = ({{ d.CValue }} == {{ d.AlertNormalValue }}) ? "正常" : "告警";
+          jsonValue["AlertArray"][name] = ({{ d.CValue }} != {{ d.AlertNormalValue }});
+          {% elif d.Options is defined %}
+          switch({{ d.CValue }}){
+          {% for item in d.Options %}
+            case {{ item.Key }}:
+            jsonValue[name] = "{{ item.Value }}";
+              break;
+          {% endfor %}
+            default:
+            jsonValue[name]  = "无效值";
+              break;
+          }
+          {% else %}
+          jsonValue[name]  = {{ d.CValue }};
+          {% endif %}
+        {% elif d.Options is defined %}
+          switch($v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}]){
+          {% for item in d.Options %}
+            case {{ item.Key }}:
+            jsonValue[name]  = "{{ item.Value }}";
+              break;
+          {% endfor %}
+            default:
+              jsonValue[name]  = "无效值";
+              break;
+          }
+        {% elif d.AlertNormalValue is defined %}
+          _{{ Project.Name|lower }}_ShowAlert($dataArray, $name, $v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}], {{ d.AlertNormalValue }});
+          jsonValue[name] = (pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] == {{ d.AlertNormalValue }}) ? "正常" : "告警";
+          jsonValue["AlertArray"][name] = (pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] != {{ d.AlertNormalValue }});
+        {% elif d.ArrayName is defined %}
+        for(int i=1;int i<={{ d.ArrayLength }};int i++){
+          $name = $prefix.sprintf("{{ d.ArrayName }}", {{ d.ArrayStart }} + $i);
+          int kIndex = {{ d.Offset }} + i;
+          jsonValue[name] = ((float)pData[$kIndex-1]){% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %};
+        }
+        {% else %}
+          jsonValue[name] = ((float)pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}]){% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %};
+        {% endif %}
+      {% endif %}
+          {% if d.Alias is defined %}
+          {% for newName in d.Alias %}
+          jsonValue["{{ newName }}"] = jsonValue["{{ d.Name }}"];
+          {% endfor %}
+          {% endif %}
+    {% endfor %}
+}
+{% endfor %}
+{% endif %}
+
+
 {% macro render_sc(sc, scPrefix=none) -%}
   {
   {% if sc.Data is defined %}
@@ -42,11 +133,11 @@
           }
           offset += {{ d.Length }};
           {% else %}
+          int lOffset = 0;
           for(int i={{d.ArrayStart}};i<={{d.ArrayEnd}};i++)
           {
-            $tMemData = substr($memData, $offset, {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }});            
-            _{{ Project.Name|lower }}_{{ d.ArrayBlock }}($dataArray, $tMemData, {% if d.Prefix is defined %}"{{d.Prefix}}"{%else%}""{%endif%}, $index + $i);
-            $offset += {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }};
+            _{{ Project.Name|lower }}_{{ d.ArrayBlock }}((char*)pData + lOffset, {% if d.Prefix is defined %}"{{d.Prefix}}"{%else%}""{%endif%}, i);
+            lOffset += {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }};
           }
           {% endif %}
         {% endif %}
@@ -56,48 +147,80 @@
       $offset += {{ BlockTemplate[d.Block]["BlockLength"] }};
       {% else %}
 	    {% if d.CValue is defined %}
-        {% if d.AlertNormalValue is defined %}
-        jsonValue["{{ d.Name }}"] = ({{ d.CValue }} == {{ d.AlertNormalValue }}) ? "正常" : "告警";
-        jsonValue["AlertArray"]["{{ d.Name }}"] = ({{ d.CValue }} != {{ d.AlertNormalValue }});
+            {% if d.AlertNormalValue is defined %}
+            jsonValue["{{ d.Name }}"] = ({{ d.CValue }} == {{ d.AlertNormalValue }}) ? "正常" : "告警";
+            jsonValue["AlertArray"]["{{ d.Name }}"] = ({{ d.CValue }} != {{ d.AlertNormalValue }});
+            {% elif d.Options is defined %}
+            switch({{ d.CValue }}){
+            {% for item in d.Options %}
+            case {{ item.Key }}:
+            jsonValue[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}"{{ d.Name }}"] = "{{ item.Value }}";
+                break;
+            {% endfor %}
+            default:
+                jsonValue[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}"{{ d.Name }}"] = "无效值";
+                break;
+            }
+            {% else %}
+            jsonValue[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}"{{ d.Name }}"] = ({{ d.CValue }});
+            {% endif %}
+        {% elif d.ArrayName is defined %}      
+            {% if d.Transform is defined and d.ArrayLength is defined and d.Transform == "bits" %}
+                {
+                    uint8_t lMemData[{{ d.ArrayLength }}];
+                    int lOffset = 0;
+                    for(int j=0;j<{{ d.ArrayLength }};j++)
+                    {
+
+                        lMemData[j] = ((pData)[{{d.Offset}}]>>j)&0x1;
+                    }
+                    for(int i=1;i<={{ d.ArrayLength }};i++){
+                        char nameBuffer[48] = {0};
+                        snprintf(nameBuffer, 48, "{{ d.ArrayName }}", {{ d.ArrayStart }} + i);
+                        std::string name = nameBuffer;
+                        {% if d.Options is defined %}
+                        switch(lMemData[i-1]){
+                        {% for item in d.Options %}
+                        case {{ item.Key }}:
+                        jsonValue[name] = "{{ item.Value }}";
+                            break;
+                        {% endfor %}
+                        default:
+                            jsonValue[name] = "无效值";
+                            break;
+                        }
+                        {% else %}
+                        jsonValue[name] = lMemData[i-1];
+                        {% endif %}
+                    }
+                }
+            {% else %}
+                for(int i=1;i<={{ d.ArrayLength }};i++){
+                    char nameBuffer[48] = {0};
+                    snprintf(nameBuffer, 48, "{{ d.ArrayName }}", {{ d.ArrayStart }} + i);
+                    std::string name = nameBuffer;
+                    int kIndex = {{ d.Offset }} + i;
+                    jsonValue[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}name] = ((float)pData[kIndex]){% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %};
+                }
+            {% endif %}
         {% elif d.Options is defined %}
-        switch({{ d.CValue }}){
-        {% for item in d.Options %}
-          case {{ item.Key }}:
-          jsonValue[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}"{{ d.Name }}"] = "{{ item.Value }}";
-            break;
-        {% endfor %}
-          default:
-            jsonValue[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}"{{ d.Name }}"] = "无效值";
-            break;
-        }
-        {% else %}
-        jsonValue[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}"{{ d.Name }}"] = ({{ d.CValue }});
-        {% endif %}
-        {% elif d.Options is defined %}
-        switch(pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}]){
-        {% for item in d.Options %}
-          case {{ item.Key }}:
-          jsonValue[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}"{{ d.Name }}"] = "{{ item.Value }}";
-          {% if item.IsAlert is defined and item.IsAlert %}
-          jsonValue["AlertArray"]["{{ d.Name }}"] = 1;
-          {% endif %}
-            break;
-        {% endfor %}
-          default:
-            jsonValue[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}"{{ d.Name }}"] = "无效值";
-            break;
-        }
+            switch(pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}]){
+            {% for item in d.Options %}
+            case {{ item.Key }}:
+            jsonValue[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}"{{ d.Name }}"] = "{{ item.Value }}";
+            {% if item.IsAlert is defined and item.IsAlert %}
+            jsonValue["AlertArray"]["{{ d.Name }}"] = 1;
+            {% endif %}
+                break;
+            {% endfor %}
+            default:
+                jsonValue[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}"{{ d.Name }}"] = "无效值";
+                break;
+            }
         {% elif d.AlertNormalValue is defined %}
-        jsonValue["{{ d.Name }}"] = (pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] == {{ d.AlertNormalValue }}) ? "正常" : "告警";
-        jsonValue["AlertArray"]["{{ d.Name }}"] = (pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] != {{ d.AlertNormalValue }});
-      {% elif d.ArrayName is defined %}
-      for(int i=1;$i<={{ d.ArrayLength }};i++){
-        char nameBuffer[48] = {0};
-        snprintf(nameBuffer, 48, "{{ tsc.ArrayName }}", {{ d.ArrayStart }} + i);
-        std::string name = nameBuffer;
-        int kIndex = {{ d.Offset }} + i;
-        jsonValue[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}name] = ((float)pData[kIndex]){% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %};
-      }
+            jsonValue["{{ d.Name }}"] = (pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] == {{ d.AlertNormalValue }}) ? "正常" : "告警";
+            jsonValue["AlertArray"]["{{ d.Name }}"] = (pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] != {{ d.AlertNormalValue }});
+        
 	    {% else %}
         jsonValue[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}"{{ d.Name }}"] = ((float)pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}]){% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %};
 	    {% endif %}
@@ -121,9 +244,7 @@
   }
 {%- endmacro %}
 
-#include "common_define.h"
-#include "{{ Project.Name }}.h"
-#include "UniDataDevice.cpp"
+
 
 
 {{ Project.Name }}::{{ Project.Name }}()

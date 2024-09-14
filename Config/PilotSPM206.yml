@@ -1,27 +1,276 @@
 Project:
   Name : PilotSPM206
   RT_ID : 5156
-  File : " PilotSPM206精密配电监测单元MODBUS串行通信协议V1.0 "
+  File : " PilotSPM206精密配电监测单元MODBUS串行通信协议V1.0    <<列头柜.pdf>>"
 Sample : 
   - Cmd : 3
     Offset : 0
-    Len : 6
+    Len : 67
     Data : 
       - Name : 进线A相电压
+        Ratio : 100
+        Unit : "V"
         Offset : 1
       - Name : 进线B相电压
+        Ratio : 100
+        Unit : "V"
         Offset : 2
       - Name : 进线C相电压
+        Ratio : 100
+        Unit : "V"
         Offset : 3
       - Name : 进线A相电流
+        Ratio : 1000
+        Unit : "A"
         Offset : 4
       - Name : 进线B相电流
+        Ratio : 1000
+        Unit : "A"
         Offset : 5
       - Name : 进线C相电流
+        Ratio : 1000
+        Unit : "A"
         Offset : 6
-  - Cmd : 3
-    Offset : 57
-    Len : 1
-    Data : 
+      - Name : 进线零线电流
+        Ratio : 1000
+        Unit : "A"
+        Offset : 7
+      - Name : 进线电流不平衡率
+        Unit : "%"
+        Offset : 8
+      - Name : 进线A相最大电流
+        Ratio : 1000
+        Unit : "A"
+        Offset : 9
+      - Name : 进线B相最大电流
+        Ratio : 1000
+        Unit : "A"
+        Offset : 10
+      - Name : 进线C相最大电流
+        Ratio : 1000
+        Unit : "A"
+        Offset : 11
+      - Name : 进线零线最大电流
+        Ratio : 1000
+        Unit : "A"
+        Offset : 12
+      - Name : 进线A相电流需量
+        Offset : 13
+      - Name : 进线B相电流需量
+        Offset : 14
+      - Name : 进线C相电流需量
+        Offset : 15
+      - Name : 进线A相最大电流需量
+        Offset : 16
+      - Name : 进线B相最大电流需量
+        Offset : 17
+      - Name : 进线C相最大电流需量
+        Offset : 18
+      - Name : 进线A相有功功率
+        Ratio : 10
+        Offset : 19
+      - Name : 进线B相有功功率
+        Ratio : 10
+        Offset : 20
+      - Name : 进线C相有功功率
+        Ratio : 10
+        Offset : 21
+      - Name : 进线总有功功率
+        CValue : ( (pData[22]<<16) + pData[21])
+        Value : ( ($v[23]<<16) + $v[22])
+      - Name : 进线A相有功需量
+        Offset : 24
+      - Name : 进线B相有功需量
+        Offset : 25
+      - Name : 进线C相有功需量
+        Offset : 26
+      - Name : 进线总有功需量
+        CValue : ( (pData[27]<<16) + pData[26])
+        Value : ( ($v[28]<<16) + $v[27])
+      - Name : 进线A相最大有功需量
+        Offset : 29
+      - Name : 进线B相最大有功需量
+        Offset : 30
+      - Name : 进线C相最大有功需量
+        Offset : 31
+      - Name : 进线最大总有功需量
+        CValue : ( (pData[32]<<16) + pData[31])
+        Value : ( ($v[33]<<16) + $v[32])
+      - Name : 进线A相功率因数
+        Ratio : 1000
+        Offset : 34
+      - Name : 进线B相功率因数
+        Ratio : 1000
+        Offset : 35
+      - Name : 进线C相功率因数
+        Ratio : 1000
+        Offset : 36
+      - Name : 进线总功率因数
+        Ratio : 1000
+        Offset : 37
+      - Name : 频率
+        Ratio : 100
+        Offset : 38
+      - Name : 进线有功电度
+        CValue : ( (pData[39]<<16) + pData[38])
+        Value : ( ($v[40]<<16) + $v[39])
+      - Name : 进线A相电压谐波总畸变率
+        Offset : 41
+      - Name : 进线B相电压谐波总畸变率
+        Offset : 42
+      - Name : 进线C相电压谐波总畸变率
+        Offset : 43
+      - Name : 进线A相电流谐波总畸变率
+        Offset : 44
+      - Name : 进线A相电流谐波总畸变率
+        Offset : 45
+      - Name : 进线A相电流谐波总畸变率
+        Offset : 46
+      - Name : 进线A相无功功率
+        Offset : 47
+      - Name : 进线B相无功功率
+        Offset : 48
+      - Name : 进线C相无功率
+        Offset : 49
+      - Name : 进线总无功功率
+        CValue : ( (pData[50]<<16) + pData[49])
+        Value : ( ($v[51]<<16) + $v[50])
+      - Name : 进线无功电度
+        CValue : ( (pData[52]<<16) + pData[51])
+        Value : ( ($v[53]<<16) + $v[52])
+      - Name : 进线漏电电流
+        Offset : 54
+      - Name : 温度
+        Offset : 55
+      - Name : 零地电压
+        Offset : 56
       - Name : CT变比
-        Offset : 1
+        Offset : 58
+      - Name : 主机开关量1状态
+        CValue : (pData[58]&0x1)
+        Value : ($v[59]&0x1)
+        Options : 
+          - Key : 0
+            Value : "断开"
+          - Key : 1
+            Value : "闭合"
+      - Name : 主机开关量2状态
+        CValue : ((pData[58]>>1)&0x1)
+        Value : (($v[59]>>1)&0x1)
+        Options : 
+          - Key : 0
+            Value : "断开"
+          - Key : 1
+            Value : "闭合"
+      - Name : 主机开关量3状态
+        CValue : ((pData[58]>>2)&0x1)
+        Value : (($v[59]>>2)&0x1)
+        Options : 
+          - Key : 0
+            Value : "断开"
+          - Key : 1
+            Value : "闭合"
+      - Name : 主机开关量4状态
+        CValue : ((pData[58]>>3)&0x1)
+        Value : (($v[59]>>3)&0x1)
+        Options : 
+          - Key : 0
+            Value : "断开"
+          - Key : 1
+            Value : "闭合"
+      - Name : 主机继电器1状态
+        CValue : ((pData[58]>>8)&0x1)
+        Value : (($v[59]>>8)&0x1)
+        Options : 
+          - Key : 0
+            Value : "断开"
+          - Key : 1
+            Value : "闭合"
+      - Name : 主机继电器2状态
+        CValue : ((pData[58]>>9)&0x1)
+        Value : (($v[59]>>9)&0x1)
+        Options : 
+          - Key : 0
+            Value : "断开"
+          - Key : 1
+            Value : "闭合"        
+      - ArrayName : "开关量模块A的第%d#开关量状态"
+        ArrayLength : 16
+        ArrayStart : 0
+        Transform : "bits"
+        Offset : 60
+        Options : 
+          - Key : 0
+            Value : "断开"
+          - Key : 1
+            Value : "闭合"
+      - ArrayName : "开关量模块A的第%d#开关量状态"
+        ArrayLength : 5
+        ArrayStart : 16
+        Transform : "bits"
+        Offset : 61
+        Options : 
+          - Key : 0
+            Value : "断开"
+          - Key : 1
+            Value : "闭合"
+      - ArrayName : "开关量模块A的第%d#开关量状态"
+        ArrayLength : 16
+        ArrayStart : 21
+        Transform : "bits"
+        Offset : 62
+        Options : 
+          - Key : 0
+            Value : "断开"
+          - Key : 1
+            Value : "闭合"
+      - ArrayName : "开关量模块A的第%d#开关量状态"
+        ArrayLength : 5
+        ArrayStart : 37
+        Transform : "bits"
+        Offset : 63
+        Options : 
+          - Key : 0
+            Value : "断开"
+          - Key : 1
+            Value : "闭合"
+      - ArrayName : "开关量模块B的第%d#开关量状态"
+        ArrayLength : 16
+        ArrayStart : 0
+        Transform : "bits"
+        Offset : 64
+        Options : 
+          - Key : 0
+            Value : "断开"
+          - Key : 1
+            Value : "闭合"
+      - ArrayName : "开关量模块B的第%d#开关量状态"
+        ArrayLength : 5
+        ArrayStart : 16
+        Transform : "bits"
+        Offset : 65
+        Options : 
+          - Key : 0
+            Value : "断开"
+          - Key : 1
+            Value : "闭合"
+      - ArrayName : "开关量模块B的第%d#开关量状态"
+        ArrayLength : 16
+        ArrayStart : 21
+        Transform : "bits"
+        Offset : 66
+        Options : 
+          - Key : 0
+            Value : "断开"
+          - Key : 1
+            Value : "闭合"
+      - ArrayName : "开关量模块B的第%d#开关量状态"
+        ArrayLength : 5
+        ArrayStart : 37
+        Transform : "bits"
+        Offset : 67
+        Options : 
+          - Key : 0
+            Value : "断开"
+          - Key : 1
+            Value : "闭合"     
