@@ -1,0 +1,122 @@
+Project:
+  Name : AcrelAMC
+  RT_ID : 5156
+  File : "527 AMC系列智能电量采集监控装置安装使用说明书V3.2-20220324-1.pdf"
+Sample : 
+  - Cmd : 3
+    Offset : 0x25
+    Len : 9
+    Type : 'S'
+    Data :
+      - Name : "1相电压UA"
+        Ratio : 10
+        Unit : V
+      - Name : "1相电压UB"
+        Ratio : 10
+        Unit : V
+      - Name : "1相电压UC"
+        Ratio : 10
+        Unit : V
+  - Cmd : 3
+    Offset : 0x100
+    Len : 9
+    Type : 'S'
+    Data : 
+      - Name : "相电压UA"
+        Ratio : 10
+        Unit : V
+      - Name : "相电压UB"
+        Ratio : 10
+        Unit : V
+      - Name : "相电压UC"
+        Ratio : 10
+        Unit : V
+      - Name : "线电压UAB"
+        Ratio : 10
+        Unit : V
+      - Name : "线电压UBC"
+        Ratio : 10
+        Unit : V
+      - Name : "线电压UAC"
+        Ratio : 10
+        Unit : V
+      - Name : "电流IA"
+        Ratio : 1000
+        Unit : A
+      - Name : "电流IB"
+        Ratio : 1000
+        Unit : A
+      - Name : "电流IC"
+        Ratio : 1000
+        Unit : A
+  - Cmd : 3
+    Offset : 0x109
+    Len : 12
+    Type : 's'
+    Data : 
+      - Name : "A相有功功率"
+        Ratio : 1000
+        Unit : kw
+      - Name : "B相有功功率"
+        Ratio : 1000
+        Unit : kw
+      - Name : "C相有功功率"
+        Ratio : 1000
+        Unit : kw
+      - Name : "总有功功率"
+        Ratio : 1000
+        Unit : kw
+      - Name : "A相无功功率"
+        Ratio : 1000
+        Unit : kvar
+      - Name : "B相无功功率"
+        Ratio : 1000
+        Unit : kvar
+      - Name : "C相无功功率"
+        Ratio : 1000
+        Unit : kvar
+      - Name : "总无功功率"
+        Ratio : 1000
+        Unit : kvar
+      - Name : "A相功率因数"
+        Ratio : 1000
+      - Name : "B相功率因数"
+        Ratio : 1000
+      - Name : "C相功率因数"
+        Ratio : 1000
+      - Name : "总功率因数"
+        Ratio : 1000
+  - Cmd : 3
+    Offset : 0x115
+    Len : 7
+    Type : 'S'
+    Data : 
+      - Name : "A相视在功率"
+        Ratio : 1000
+        Unit : VA
+      - Name : "B相视在功率"
+        Ratio : 1000
+        Unit : VA
+      - Name : "C相视在功率"
+        Ratio : 1000
+        Unit : VA
+      - Name : "总视在功率"
+        Ratio : 1000
+        Unit : VA
+      - Name : "频率F"
+        Ratio : 100
+        Unit : Hz
+      - Name : "零序电压"
+        Ratio : 10
+        Unit : V
+      - Name : "零序电流"
+        Ratio : 10
+        Unit : A
+  - Cmd : 3
+    Offset : 0x52
+    Len : 2
+    Type : 'S'
+    Data : 
+      - Name : "总有功电能"
+        Unit : "kwh"
+        Value : (($v[1] << 32) + $v[2])

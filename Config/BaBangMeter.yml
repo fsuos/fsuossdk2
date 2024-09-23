@@ -1,0 +1,96 @@
+Project:
+  Name : BaBangMeter
+  RT_ID : 5156
+  File : "多功能表数码管液晶二合一说明书V1.2.pdf"
+Sample : 
+  - Cmd : 3
+    Offset : 2
+    Len : 2
+    Data :
+      - Name : PT
+      - Name : CT
+  - Cmd : 3
+    Offset : 57
+    Len : 52
+    RType : 'f'
+    Data :
+     - Name : A相电压
+       Unit : V
+     - Name : B相电压
+       Unit : V
+     - Name : C相电压
+       Unit : V
+     - Name : 线电压Uab
+       Unit : V
+     - Name : 线电压Ubc
+       Unit : V
+     - Name : 线电压Uca
+       Unit : V
+     - Name : A相电流
+       Ratio : (1/$dataArray["CT"])
+       Unit : A
+     - Name : B相电流
+       Ratio : (1/$dataArray["CT"])
+       Unit : A       
+     - Name : C相电流
+       Ratio : (1/$dataArray["CT"])
+       Unit : A
+     - Name : A相有功功率
+       Ratio : (1/($dataArray["PT"]*$dataArray["CT"]))
+       Unit : kW
+     - Name : B相有功功率
+       Ratio : (1/($dataArray["PT"]*$dataArray["CT"]))
+       Unit : kW
+     - Name : C相有功功率
+       Ratio : (1/($dataArray["PT"]*$dataArray["CT"]))
+       Unit : kW
+     - Name : 合相有功功率
+       Ratio : (1/($dataArray["PT"]*$dataArray["CT"]))
+       Unit : kW
+     - Name : A相无功功率
+       Ratio : (1/($dataArray["PT"]*$dataArray["CT"]))
+       Unit : kW
+     - Name : B相无功功率
+       Ratio : (1/($dataArray["PT"]*$dataArray["CT"]))
+       Unit : kW
+     - Name : C相无功功率
+       Ratio : (1/($dataArray["PT"]*$dataArray["CT"]))
+       Unit : kW
+     - Name : 合相无功功率
+       Ratio : (1/($dataArray["PT"]*$dataArray["CT"]))
+       Unit : kW
+     - Name : A相视在功率
+       Ratio : (1/($dataArray["PT"]*$dataArray["CT"]))
+       Unit : kVar
+     - Name : B相视在功率
+       Ratio : (1/($dataArray["PT"]*$dataArray["CT"]))
+       Unit : kVar
+     - Name : C相视在功率
+       Ratio : (1/($dataArray["PT"]*$dataArray["CT"]))
+       Unit : kVar
+     - Name : 合相视在功率
+       Ratio : (1/($dataArray["PT"]*$dataArray["CT"]))
+       Unit : kVar
+     - Name : A相功率因数
+     - Name : B相功率因数
+     - Name : C相功率因数
+     - Name : 合相功率因数
+     - Name : 电网频率
+       Unit : Hz
+  - Cmd : 3
+    Offset : 129
+    Len : 8
+    RType : 'f'
+    Data :
+      - Name : 正向有功电能
+        Ratio : (1/($dataArray["PT"]*$dataArray["CT"]))
+        Unit : kWh
+      - Name : 负向有功电能
+        Ratio : (1/($dataArray["PT"]*$dataArray["CT"]))
+        Unit : kWh
+      - Name : 正向无功电能
+        Ratio : (1/($dataArray["PT"]*$dataArray["CT"]))
+        Unit : kWh
+      - Name : 负向无功电能
+        Ratio : (1/($dataArray["PT"]*$dataArray["CT"]))
+        Unit : kWh

@@ -1,6 +1,6 @@
 #ifndef UNIDATADEVICE_H
 #define UNIDATADEVICE_H
-
+#include <mutex>
 template<typename CDataType, typename PClass, int RT_TYPE>
 class UniDataDevice: public PClass 
 {

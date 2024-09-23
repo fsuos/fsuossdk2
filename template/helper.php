@@ -1,6 +1,13 @@
 {% macro render_sc(sc, scPrefix=none) -%}
   {% if sc.Data is defined %}
-        {% if sc.Type is defined %}
+        {% if sc.RType is defined %}
+        $tMemData = substr($memData , $offset, 2*{{ sc.Len }});
+        $lMemData = '';
+        for($i=0;$i<strlen($tMemData);$i+=4){
+          $lMemData .= $tMemData[$i+2].$tMemData[$i+3].$tMemData[$i].$tMemData[$i+1];
+        }
+        $v = unpack("{{sc.RType}}*" , $lMemData);
+        {% elif sc.Type is defined %}        
 $v = unpack("{{sc.Type}}*" , substr($memData , $offset, 2*{{ sc.Len }}));
         {% elif sc.Cmd == 3 or sc.Cmd == 4 %}
 $v = unpack("S*" , substr($memData , $offset, 2*{{ sc.Len }}));
@@ -25,17 +32,18 @@ $v = unpack("C*" , substr($memData , $offset, {{ sc.Len }}));
           }
           for($i={{d.ArrayStart}};$i<={{d.ArrayEnd}};$i++)
           {
-            $tMemData = substr($lMemData, $lOffset, {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }});            
+            $tMemData = substr($lMemData, $offset + $lOffset, {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }});            
             _{{ Project.Name|lower }}_{{ d.ArrayBlock }}($dataArray, $tMemData, {% if d.Prefix is defined %}"{{d.Prefix}}"{%else%}""{%endif%}, $index + $i);
             $lOffset += {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }};
           }
           $offset += {{ d.Length }};
           {% else %}
+          $lOffset = 0;
           for($i={{d.ArrayStart}};$i<={{d.ArrayEnd}};$i++)
           {
-            $tMemData = substr($memData, $offset, {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }});            
+            $tMemData = substr($memData, $offset + $lOffset, {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }});            
             _{{ Project.Name|lower }}_{{ d.ArrayBlock }}($dataArray, $tMemData, {% if d.Prefix is defined %}"{{d.Prefix}}"{%else%}""{%endif%}, $index + $i);
-            $offset += {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }};
+            $lOffset += {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }};
           }
           {% endif %}
         {% endif %}
@@ -176,18 +184,19 @@ function _{{ Project.Name|lower }}_{{ key }}(&$dataArray, $memData, $prefix, $in
           }
           for($i={{d.ArrayStart}};$i<={{d.ArrayEnd}};$i++)
           {
-            $tMemData = substr($lMemData, $lOffset, {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }});            
+            $tMemData = substr($lMemData, $offset + $lOffset, {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }});            
+            _{{ Project.Name|lower }}_{{ d.ArrayBlock }}($dataArray, $tMemData, $prefix, $index + $i);
+            $lOffset += {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }};
+          }
+          {% else %}
+          $lOffset = 0;
+          for($i={{d.ArrayStart}};$i<={{d.ArrayEnd}};$i++)
+          {
+            $tMemData = substr($memData,  $offset + $lOffset, {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }});            
             _{{ Project.Name|lower }}_{{ d.ArrayBlock }}($dataArray, $tMemData, $prefix, $index + $i);
             $lOffset += {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }};
           }
           $offset += {{ d.Length }};
-          {% else %}
-          for($i={{d.ArrayStart}};$i<={{d.ArrayEnd}};$i++)
-          {
-            $tMemData = substr($memData, $offset, {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }});            
-            _{{ Project.Name|lower }}_{{ d.ArrayBlock }}($dataArray, $tMemData, $prefix, $index + $i);
-            $offset += {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }};
-          }
           {% endif %}          
         {% endif %}
       {% elif d.Block is defined %}

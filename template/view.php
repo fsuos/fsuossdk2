@@ -25,6 +25,7 @@
 <?php
 {% if BlockTemplate is defined %}
 {% for key,blockDef in BlockTemplate.items() %}
+if(!function_exists('_{{ Project.Name|lower }}_{{ key }}')){
 function _{{ Project.Name|lower }}_{{ key }}(&$signalList, $index)
 {
     {% for d in blockDef.BlockContent %}
@@ -54,6 +55,7 @@ function _{{ Project.Name|lower }}_{{ key }}(&$signalList, $index)
           {% endfor %}
           {% endif %}
     {% endfor %}
+}
 }
 {% endfor %}
 {% endif %}

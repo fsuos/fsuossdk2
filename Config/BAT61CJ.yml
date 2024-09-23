@@ -15,7 +15,7 @@ BlockTemplate:
     BlockType : 's'
     BlockContent :
       - Name : "#%d电池温度"
-        Value : '( ($v[1] == 0x7FFF) ? "" : (($v[1]/10)."°C"))'
+        Value : '( ($v[1] == 0x7FFF) ? "" : (($v[1]/100)."°C"))'
   BatteryR:
     BlockLength : 2
     BlockType : 'S'
@@ -33,6 +33,7 @@ Sample :
   - Cmd : 3
     Offset : 1
     Len : 21
+    Type : 's'
     Data : 
       - Name : "电池组总电压"
         Unit : "V"
