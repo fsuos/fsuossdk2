@@ -1,10 +1,10 @@
 #include "common_define.h"
 #include "{{ Project.Name }}.h"
 #include "UniDataDevice.cpp"
-
+#include <boost/lexical_cast.hpp>
 {% if BlockTemplate is defined %}
 {% for key,blockDef in BlockTemplate.items() %}
-void {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}(char* pCData,const std::string &prefix, int index {% if blockDef.HasIndex1 is defined  %}, int index1{% endif %} {% if blockDef.HasIndex2 is defined %}, int index2{% endif %})
+void {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}(char* pCData,const char* prefix, const char* index {% if blockDef.HasIndex1 is defined  %}, const char* index1{% endif %} {% if blockDef.HasIndex2 is defined %}, const char* index2{% endif %})
 {
           int offset = 0;
     {% if blockDef.BlockType is defined %}
@@ -32,8 +32,9 @@ void {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}(char* pCData,const 
       _{{ Project.Name|lower }}_{{ d.Block }}(pData + offset , prefix, {% if d.index is defined %}"{{ d.index }}"{% if d.index1 is defined %},"{{d.index1}}"{% endif %}{% if d.index2 is defined %},"{{d.index2}}"{% endif %}{% else %}index{% endif %});
       offset += {{ BlockTemplate[d.Block]["BlockLength"] }};
       {% else %}
+        {
         char nameBuffer[48] = {0};
-        snprintf(nameBuffer, 48, "{{ d.Name }}", {% if d.Index is defined %}${{ d.Index }}{% else %}index{% endif %});
+        snprintf(nameBuffer, 48, "{{ d.Name }}", {% if d.Index is defined %}{{ d.Index }}{% else %}index{% endif %});
         std::string name = nameBuffer;
         {% if d.CValue is defined %}
           {% if d.AlertNormalValue is defined %}
@@ -54,7 +55,7 @@ void {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}(char* pCData,const 
           jsonValue[name]  = {{ d.CValue }};
           {% endif %}
         {% elif d.Options is defined %}
-          switch($v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}]){
+          switch(pData[0]){
           {% for item in d.Options %}
             case {{ item.Key }}:
             jsonValue[name]  = "{{ item.Value }}";
@@ -65,7 +66,6 @@ void {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}(char* pCData,const 
               break;
           }
         {% elif d.AlertNormalValue is defined %}
-          _{{ Project.Name|lower }}_ShowAlert($dataArray, $name, $v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}], {{ d.AlertNormalValue }});
           jsonValue[name] = (pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] == {{ d.AlertNormalValue }}) ? "正常" : "告警";
           jsonValue["AlertArray"][name] = (pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] != {{ d.AlertNormalValue }});
         {% elif d.ArrayName is defined %}
@@ -77,6 +77,7 @@ void {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}(char* pCData,const 
         {% else %}
           jsonValue[name] = ((float)pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}]){% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %};
         {% endif %}
+        }
       {% endif %}
           {% if d.Alias is defined %}
           {% for newName in d.Alias %}
@@ -116,35 +117,39 @@ void {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}(char* pCData,const 
       {% if d.ArrayBlock is defined %}
         {% if d.ArrayStart is defined %}
           {% if d.Transform is defined and d.Length is defined and d.Transform == "bits" %}
-          uint8_t lMemData[8 * {{ d.Length }}];
-          int lOffset = 0;
-          for(int j=0;j<{{ d.Length }};j++)
           {
-              for(int k = 0; k <8; k++)
-              {
-                lMemData[j*8+k] = ((pData)[j]>>k)&0x1;
-              }
+            uint8_t lMemData[8 * {{ d.Length }}];
+            int lOffset = 0;
+            for(int j=0;j<{{ d.Length }};j++)
+            {
+                for(int k = 0; k <8; k++)
+                {
+                    lMemData[j*8+k] = ((pData)[j]>>k)&0x1;
+                }
+            }
+            for(int i={{d.ArrayStart}};i<={{d.ArrayEnd}};i++)
+            {
+                uint8_t *tMemData = lMemData + lOffset;            
+                //_{{ Project.Name|lower }}_{{ d.ArrayBlock }}(rtJ, $tMemData, {% if d.Prefix is defined %}"{{d.Prefix}}"{%else%}""{%endif%}, $index + $i);
+                //$lOffset += {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }};
+            }
+            offset += {{ d.Length }};
           }
-          for(int i={{d.ArrayStart}};i<={{d.ArrayEnd}};i++)
-          {
-            uint8_t *tMemData = lMemData + lOffset;            
-            //_{{ Project.Name|lower }}_{{ d.ArrayBlock }}(rtJ, $tMemData, {% if d.Prefix is defined %}"{{d.Prefix}}"{%else%}""{%endif%}, $index + $i);
-            //$lOffset += {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }};
-          }
-          offset += {{ d.Length }};
+          
           {% else %}
-          int lOffset = 0;
-          for(int i={{d.ArrayStart}};i<={{d.ArrayEnd}};i++)
           {
-            _{{ Project.Name|lower }}_{{ d.ArrayBlock }}((char*)pData + lOffset, {% if d.Prefix is defined %}"{{d.Prefix}}"{%else%}""{%endif%}, i);
-            lOffset += {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }};
+            int lOffset = 0;
+            for(int i={{d.ArrayStart}};i<={{d.ArrayEnd}};i++)
+            {
+                std::string tI = boost::lexical_cast<std::string>(i);
+                _{{ Project.Name|lower }}_{{ d.ArrayBlock }}((char*)pData + lOffset, {% if d.Prefix is defined %}"{{d.Prefix}}"{%else%}""{%endif%}, tI.c_str());
+                lOffset += {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }};
+            }
           }
           {% endif %}
         {% endif %}
       {% elif d.Block is defined %}
-      $lMemData = substr($memData, $offset, {{ BlockTemplate[d.Block]["BlockLength"] }});
-      _{{ Project.Name|lower }}_{{ d.Block }}($dataArray, $lMemData, {% if d.Prefix is defined %}"{{d.Prefix}}"{%else%}""{%endif%}, "{{ d.index }}" {% if d.index1 is defined %},"{{d.index1}}"{% endif %}{% if d.index2 is defined %},"{{d.index2}}"{% endif %} );
-      $offset += {{ BlockTemplate[d.Block]["BlockLength"] }};
+      _{{ Project.Name|lower }}_{{ d.Block }}((char*)pData, {% if d.Prefix is defined %}"{{d.Prefix}}"{%else%}""{%endif%}, "{{ d.index }}" {% if d.index1 is defined %},"{{d.index1}}"{% endif %}{% if d.index2 is defined %},"{{d.index2}}"{% endif %} );
       {% else %}
 	    {% if d.CValue is defined %}
             {% if d.AlertNormalValue is defined %}

@@ -650,9 +650,9 @@ Sample :
     Len : 36
     Data :
       - Block : Feeder
-        index : 'A67'
-        index1 : 'A68'
-        index2 : 'A69'
+        index : 'B67'
+        index1 : 'B68'
+        index2 : 'B69'
   - Cmd : 3
     Offset : 1836
     Len : 36

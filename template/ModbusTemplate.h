@@ -24,7 +24,7 @@ public:
 private:
 {% if BlockTemplate is defined %}
 {% for key,blockDef in BlockTemplate.items() %}
-void _{{ Project.Name|lower }}_{{ key }}(char* pCData,const std::string &prefix, int index {% if blockDef.HasIndex1 is defined  %}, int index1{% endif %} {% if blockDef.HasIndex2 is defined %}, int index2{% endif %});
+void _{{ Project.Name|lower }}_{{ key }}(char* pCData,const char* prefix, const char* index {% if blockDef.HasIndex1 is defined  %}, const char* index1{% endif %} {% if blockDef.HasIndex2 is defined %}, const char* index2{% endif %});
 {% endfor %}
 {% endif %}
 
