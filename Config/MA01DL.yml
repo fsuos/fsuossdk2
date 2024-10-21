@@ -4,7 +4,7 @@ Project:
   File : "MA01D-L智能电源监测系统通信协议V4.0.01.pdf"
 BlockTemplate :
   Inline :
-    BlockLength : 44
+    BlockLength : 28
     BlockType : 'S'
     BlockContent : 
       - Name : "%s路进线-电压"
@@ -112,7 +112,7 @@ BlockTemplate :
     BlockLength : 2
     BlockType : 'S'
     BlockContent : 
-      - Name : "A%开关状态"
+      - Name : "A%s开关状态"
         Index : index
         Options : 
           - Key : 0
@@ -128,7 +128,7 @@ BlockTemplate :
     BlockLength : 2
     BlockType : 'S'
     BlockContent : 
-      - Name : "B%开关状态"
+      - Name : "B%s开关状态"
         Index : index
         Options : 
           - Key : 0
@@ -190,6 +190,14 @@ BlockTemplate :
       - Name : '%s电流越下下限'
         AlertNormalValue : 0
 Sample : 
+  - Cmd : 3
+    Offset : 0
+    Len : 4
+    Data :
+      - Name : "系统硬件编码"
+      - Name : "系统软件版本号"
+      - Name : "系统序列号1"
+      - Name : "系统序列号2"
   - Cmd : 3
     Offset : 4
     Len : 14

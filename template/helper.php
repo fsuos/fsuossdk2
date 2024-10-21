@@ -9,18 +9,30 @@
         $v = unpack("{{sc.RType}}*" , $lMemData);
         {% elif sc.Type is defined %}        
 $v = unpack("{{sc.Type}}*" , substr($memData , $offset, 2*{{ sc.Len }}));
+$lMemData = substr($memData , $offset, 2*{{ sc.Len }});
         {% elif sc.Cmd == 3 or sc.Cmd == 4 %}
 $v = unpack("S*" , substr($memData , $offset, 2*{{ sc.Len }}));
+$lMemData = substr($memData , $offset, 2*{{ sc.Len }});
         {% else %}
 $v = unpack("C*" , substr($memData , $offset, {{ sc.Len }}));
+$lMemData = substr($memData , $offset, {{ sc.Len }});
         {% endif %}
-	    {% for d in sc.Data %}
-      
+        {% if sc.Transform is defined and sc.Transform == "bits" %}
+          $lMemData = '';
+          for($j=1;$j<=count($v);$j++)
+          {
+              for($k = 0; $k <8; $k++)
+              {
+                $lMemData .= pack("C", ($v[$j]>>$k)&0x1);
+              }
+          }
+        {% endif %}
+      $lOffset = 0;
+	    {% for d in sc.Data %}      
       {% if d.ArrayBlock is defined %}
         {% if d.ArrayStart is defined %}
           {% if d.Transform is defined and d.Length is defined and d.Transform == "bits" %}
           $lMemData = substr($memData, $offset, {{ d.Length }});
-          $lOffset = 0;
           $v = unpack('C*', $lMemData);
           $lMemData = '';
           for($j=1;$j<=count($v);$j++)
@@ -38,10 +50,9 @@ $v = unpack("C*" , substr($memData , $offset, {{ sc.Len }}));
           }
           $offset += {{ d.Length }};
           {% else %}
-          $lOffset = 0;
           for($i={{d.ArrayStart}};$i<={{d.ArrayEnd}};$i++)
           {
-            $tMemData = substr($memData, $offset + $lOffset, {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }});            
+            $tMemData = substr($lMemData, $lOffset, {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }});            
             _{{ Project.Name|lower }}_{{ d.ArrayBlock }}($dataArray, $tMemData, {% if d.Prefix is defined %}"{{d.Prefix}}"{%else%}""{%endif%}, $index + $i);
             $lOffset += {{ BlockTemplate[d.ArrayBlock]["BlockLength"] }};
           }
@@ -50,7 +61,6 @@ $v = unpack("C*" , substr($memData , $offset, {{ sc.Len }}));
       {% elif d.Block is defined %}
       $lMemData = substr($memData, $offset, {{ BlockTemplate[d.Block]["BlockLength"] }});
       _{{ Project.Name|lower }}_{{ d.Block }}($dataArray, $lMemData, {% if d.Prefix is defined %}"{{d.Prefix}}"{%else%}""{%endif%}, {% if d.index is defined %} "{{ d.index }}" {% if d.index1 is defined %},"{{d.index1}}"{% endif %}{% if d.index2 is defined %},"{{d.index2}}"{% endif %} {% else %}$index{% endif %});
-      $offset += {{ BlockTemplate[d.Block]["BlockLength"] }};
       {% else %}
 	    {% if d.Value is defined %}
         {% if d.AlertNormalValue is defined %}
@@ -203,7 +213,7 @@ function _{{ Project.Name|lower }}_{{ key }}(&$dataArray, $memData, $prefix, $in
       $lMemData = substr($memData, $offset, {{ BlockTemplate[d.Block]["BlockLength"] }});
       _{{ Project.Name|lower }}_{{ d.Block }}($dataArray, $lMemData, $prefix, {% if d.index is defined %}"{{ d.index }}"{% if d.index1 is defined %},"{{d.index1}}"{% endif %}{% if d.index2 is defined %},"{{d.index2}}"{% endif %}{% else %}$index{% endif %});
       {% else %}
-        $name = $prefix.sprintf("{{ d.Name }}", {% if d.Index is defined %}${{ d.Index }}{% else %}$index{% endif %});
+        $name = $prefix.sprintf("{{ d.Name }}", strval({% if d.Index is defined %}${{ d.Index }}{% else %}$index{% endif %}));
         {% if d.Value is defined %}
           {% if d.AlertNormalValue is defined %}
           _{{ Project.Name|lower }}_ShowAlert($dataArray, $name, {{ d.Value }}, {{ d.AlertNormalValue }});

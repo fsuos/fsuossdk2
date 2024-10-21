@@ -1,0 +1,71 @@
+Project:
+  Name : DPM8600
+  RT_ID : 5156
+  File : "  DPM8600通讯协议和通讯方法介绍.doc"
+Sample :
+  - Cmd : 3
+    Offset : 0
+    Len : 7
+    Data :
+      - Name : "电压设定值"
+        Ratio : 100
+        Unit : "V"
+      - Name : "电流设定值"
+        Ratio : 1000
+        Unit : "A"
+      - Name : "输出开关"
+      - Name : "输出状态"
+      - Name : "电压显示值"
+        Ratio : 100
+        Unit : "V"
+      - Name : "电流显示值"
+        Ratio : 1000
+        Unit : "A"
+      - Name : "温度显示值"
+SET_RET_CODE : |
+  case 100:
+  case 101:
+  case 102: {
+      if(tab_reg[0] == last_data_) {
+          cmd_result_ = 1;
+      } else {
+          cmd_result_ = 3;
+      }
+      Reset();
+      return false;
+    }
+SET_AO_CODE: |
+  if(setting["signal_id"].asString() == "100" && setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
+        last_data_ = atoi(setting["SetValue"].asString().c_str())*100;
+        //设置电压
+        state = 100;
+        cmd_result_ = -1;
+        OpenPort();
+        modbus_write_register(0, last_data_);
+        if((uint32_t)outBufferSize >= sizeof(int)) {
+            *((int*)outBuffer) = 1;//通知取状态
+            bytesReturned = sizeof(int);
+        }                       
+  }else if(setting["signal_id"].asString() == "101" && setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
+        last_data_ = atof(setting["SetValue"].asString().c_str())*1000;
+        //设置电流
+        state = 101;
+        cmd_result_ = -1;
+        OpenPort();
+        modbus_write_register(1, last_data_);
+        if((uint32_t)outBufferSize >= sizeof(int)) {
+            *((int*)outBuffer) = 1;//通知取状态
+            bytesReturned = sizeof(int);
+        }                       
+  }else if(setting["signal_id"].asString() == "102" && setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
+        last_data_ = atoi(setting["SetValue"].asString().c_str());
+        //设置开关
+        state = 102;
+        cmd_result_ = -1;
+        OpenPort();
+        modbus_write_register(2, last_data_);
+        if((uint32_t)outBufferSize >= sizeof(int)) {
+            *((int*)outBuffer) = 1;//通知取状态
+            bytesReturned = sizeof(int);
+        }                       
+  }

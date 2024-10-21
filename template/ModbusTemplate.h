@@ -51,7 +51,7 @@ void _{{ Project.Name|lower }}_{{ key }}(char* pCData,const char* prefix, const 
         {{ Project.Name }}_END
     };
     int cmd_result_ = -1;
-    uint8_t last_data_ = -1;
+    int last_data_ = -1;
     int cmdgroup_step_ = 0;
 };
 

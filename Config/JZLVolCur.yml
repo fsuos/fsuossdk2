@@ -1,0 +1,21 @@
+Project:
+  Name : JZLVolCur
+  RT_ID : 5156
+  File : "电压隔离模块 modbus 协议.docx"
+Sample :
+  - Cmd : 3
+    Offset : 3
+    Len : 4
+    Data :
+      - Name : 电压1
+        Ratio : 100
+        Unit : "V"
+      - Name : 电流1
+        Ratio : 1000
+        Unit : "A"
+      - Name : 电压2
+        Ratio : 100
+        Unit : "V"
+      - Name : 电流2
+        Ratio : 1000
+        Unit : "A"

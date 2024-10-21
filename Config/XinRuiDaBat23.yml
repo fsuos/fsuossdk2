@@ -1,0 +1,29 @@
+Project:
+  Name : XinRuiDaBat23
+  RT_ID : 5156
+  File : "通信协议.pdf"
+  Parity : "EnumParity::ODD"
+Sample:
+  - Cmd : 3
+    Offset : 512
+    Len : 3
+    Data :
+      - Name : 电压
+        Unit : "V"
+        Ratio : 10
+      - Name : 电池组电流
+        Unit : "A"
+        Ratio : 10
+      - Name : 电池组温度
+        Unit : "℃"
+        Ratio : 100
+  - Cmd : 3
+    Offset : 515
+    Len : 24
+    Data : 
+      - ArrayName : "第%d节电池电压"
+        ArrayStart : 0
+        ArrayLength : 23
+        Offset : 0
+        Unit : "V"
+        Ratio : 1000

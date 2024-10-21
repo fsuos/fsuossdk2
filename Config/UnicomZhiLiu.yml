@@ -1,0 +1,117 @@
+Project:
+  Name : UnicomZhiLiu
+  RT_ID : 5156
+  File : 直流监控系统 通讯协议(Modbus) V2.41 20140515.doc
+BlockTemplate: 
+  BranchV : 
+    
+Sample : 
+  - Cmd : 3
+    Offset : 0
+    Len : 2
+    Data : 
+      - Name : A主路的电压
+        Ratio : 100
+        Unit : "V"
+      - Name : B主路的电压
+        Ratio : 100
+        Unit : "V"
+  - Cmd : 3
+    Offset : 3
+    Len : 30
+    Data : 
+      - ArrayName : "支路A-%d的电压"
+        ArrayStart : 0
+        ArrayLength : 30
+        Offset : 0
+        Unit : "V"
+        Ratio : 100
+  - Cmd : 3
+    Offset : 0x21
+    Len : 30
+    Data : 
+      - ArrayName : "支路B-%d的电压"
+        ArrayStart : 0
+        ArrayLength : 30
+        Offset : 0
+        Unit : "V"
+        Ratio : 100
+  - Cmd : 3
+    Offset : 0x3F
+    Len : 30
+    Data : 
+      - ArrayName : "支路A-%d的电流"
+        ArrayStart : 0
+        ArrayLength : 30
+        Offset : 0
+        Unit : "A"
+        Ratio : 100
+  - Cmd : 3
+    Offset : 0x5D
+    Len : 30
+    Data : 
+      - ArrayName : "支路B-%d的电流"
+        ArrayStart : 0
+        ArrayLength : 30
+        Offset : 0
+        Unit : "A"
+        Ratio : 100
+  - Cmd : 3
+    Offset : 0x7B
+    Len : 2
+    Transform : "bits"
+    Data : 
+      - ArrayName : "A主路的前%d支路通断"
+        ArrayStart : 0
+        ArrayLength : 30
+        Offset : 0
+  - Cmd : 3
+    Offset : 0x7D
+    Len : 2
+    Transform : "bits"
+    Data : 
+      - ArrayName : "A主路的后%d支路通断"
+        ArrayStart : 0
+        ArrayLength : 30
+        Offset : 0
+  - Cmd : 3
+    Offset : 0x7F
+    Len : 2
+    Transform : "bits"
+    Data : 
+      - ArrayName : "B主路的前%d支路通断"
+        ArrayStart : 0
+        ArrayLength : 30
+        Offset : 0
+  - Cmd : 3
+    Offset : 0x81
+    Len : 2
+    Transform : "bits"
+    Data : 
+      - ArrayName : "B主路的后%d支路通断"
+        ArrayStart : 0
+        ArrayLength : 30
+        Offset : 0
+  - Cmd : 3
+    Offset : 0x83
+    Len : 12
+    Data : 
+      - Name : A主路的电流
+        Value : ($v[2]<<16 + $v[1])/100
+        Unit : "A"
+      - Name : B主路的电流
+        Value : ($v[4]<<16 + $v[3])/100
+        Unit : "A"
+      - Name : A主路的功率
+        Value : ($v[6]<<16 + $v[5])/10000/1000
+        Unit : "kW"
+      - Name : B主路的功率
+        Value : ($v[8]<<16 + $v[7])/10000/1000
+        Unit : "kW"
+      - Name : A主路的电能
+        Value : ($v[10]<<16 + $v[9])/10000
+        Unit : "kW"
+      - Name : B主路的电能
+        Value : ($v[12]<<16 + $v[11])/10000
+        Unit : "kW"
+        

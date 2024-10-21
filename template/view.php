@@ -5,11 +5,11 @@
         {% if d.ArrayStart is defined %}
           for($i={{d.ArrayStart}};$i<={{d.ArrayEnd}};$i++)
           {
-            _{{ Project.Name|lower }}_{{ d.ArrayBlock }}({{signalList}}, $i);
+            _{{ Project.Name|lower }}_{{ d.ArrayBlock }}({{signalList}}, {% if d.Prefix is defined %}"{{d.Prefix}}"{%else%}""{%endif%}, $i);
           }
         {% endif %}
       {% elif d.Block is defined %}
-      _{{ Project.Name|lower }}_{{ d.Block }}({{signalList}}, {{ d.index }});
+      _{{ Project.Name|lower }}_{{ d.Block }}({{signalList}}, {% if d.Prefix is defined %}"{{d.Prefix}}"{%else%}""{%endif%}, {{ d.index }});
       {% else %}
         {% if d.ArrayName is defined %}
         for($i=1;$i<={{ d.ArrayLength }};$i++){
@@ -26,26 +26,26 @@
 {% if BlockTemplate is defined %}
 {% for key,blockDef in BlockTemplate.items() %}
 if(!function_exists('_{{ Project.Name|lower }}_{{ key }}')){
-function _{{ Project.Name|lower }}_{{ key }}(&$signalList, $index)
+function _{{ Project.Name|lower }}_{{ key }}(&$signalList, $prefix, $index)
 {
     {% for d in blockDef.BlockContent %}
       {% if d.ArrayBlock is defined %}
         {% if d.ArrayStart is defined %}
           for($i={{d.ArrayStart}};$i<={{d.ArrayEnd}};$i++)
           {
-            _{{ Project.Name|lower }}_{{ d.ArrayBlock }}($signalList, $index + $i);
+            _{{ Project.Name|lower }}_{{ d.ArrayBlock }}($signalList, {% if d.Prefix is defined %}"{{d.Prefix}}"{%else%}""{%endif%}, $index + $i);
           }
         {% endif %}
       {% elif d.Block is defined %}
-      _{{ Project.Name|lower }}_{{ d.Block }}($signalList, $index {% if d.index is defined %}+ {{ d.index }}{% endif %} );
+      _{{ Project.Name|lower }}_{{ d.Block }}($signalList, {% if d.Prefix is defined %}"{{d.Prefix}}"{%else%}""{%endif%}, {% if d.Prefix is defined %}"{{d.Prefix}}"{%else%}""{%endif%}, $index {% if d.index is defined %}+ {{ d.index }}{% endif %} );
       {% else %}        
         {% if d.ArrayName is defined %}
         for($i=1;$i<={{ d.ArrayLength }};$i++){
-          $name = sprintf("{{ d.ArrayName }}", $index + $i);
+          $name = $prefix.sprintf("{{ d.ArrayName }}", strval($index + $i));
           $signalList[] = $name;
         }
         {% else %}
-          $name = sprintf("{{ d.Name }}", $index);
+          $name = $prefix.sprintf("{{ d.Name }}", strval($index));
           $signalList[] = $name;
         {% endif %}
       {% endif %}
@@ -113,11 +113,11 @@ function _{{ Project.Name|lower }}_{{ key }}(&$signalList, $index)
         {% if d.ArrayStart is defined %}
           for($i={{d.ArrayStart}};$i<={{d.ArrayEnd}};$i++)
           {
-            _{{ Project.Name|lower }}_{{ d.ArrayBlock }}($signalList, $i);
+            _{{ Project.Name|lower }}_{{ d.ArrayBlock }}($signalList, {% if d.Prefix is defined %}"{{d.Prefix}}"{%else%}""{%endif%}, $i);
           }
         {% endif %}
       {% elif d.Block is defined %}
-      _{{ Project.Name|lower }}_{{ d.Block }}($signalList, {{ d.index }});
+      _{{ Project.Name|lower }}_{{ d.Block }}($signalList, {% if d.Prefix is defined %}"{{d.Prefix}}"{%else%}""{%endif%}, "{{ d.index }}");
       {% else %}
         {% if d.ArrayName is defined %}
         for($i=1;$i<={{ d.ArrayLength }};$i++){
