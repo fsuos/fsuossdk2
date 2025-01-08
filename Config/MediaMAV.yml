@@ -559,12 +559,9 @@ SET_AO_CODE: |
           //送风温度
           state = AC_Control_Code::AC_SET_TEMPERATURE;
           cmd_result_ = -1;
-          OpenPort();
+          last_data_ = newValue;
           modbus_write_register(0, newValue);
-          if((uint32_t)outBufferSize >= sizeof(int)) {
-              *((int*)outBuffer) = 1;//通知取状态
-              bytesReturned = sizeof(int);
-          }                       
+          return 0;                    
       }
   }else if(setting["signal_id"].asString() == "6016A2101001" || setting["signal_id"].asString() == "150800340010") {
       if(setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
@@ -572,12 +569,9 @@ SET_AO_CODE: |
           //湿度
           state = AC_Control_Code::AC_SET_HUMID;
           cmd_result_ = -1;
-          OpenPort();
+          last_data_ = newValue;
           modbus_write_register(2, newValue);
-          if((uint32_t)outBufferSize >= sizeof(int)) {
-              *((int*)outBuffer) = 1;//通知取状态
-              bytesReturned = sizeof(int);
-          }                       
+          return 0;                       
       }
   }
 
@@ -590,10 +584,18 @@ SET_DO_CODE : |
             std::string doId((char*)inBuffer, inBufferSize);
             if(doId == "601500201001" || doId == "140800280010") {
                 //开机
+                state = AC_Control_Code::AC_START;
+                cmd_result_ = -1;
+                last_data_ = 0xF;	
                 modbus_write_register(168, 0xF);
+                return 0;
             } else if(doId == "601500200001" || doId == "140800300010") {
                 //关机
+                state = AC_Control_Code::AC_STOP;
+                cmd_result_ = -1;
+                last_data_ = 0xE;
                 modbus_write_register(168, 0xE);
+                return 0;
             }
             break;
         }
@@ -610,10 +612,18 @@ SET_DO_CODE : |
                     if(setting["signal_id"].asString() != "") {
                         if(setting["signal_id"].asString() == "140800280010"){
                               //开机
+                            state = AC_Control_Code::AC_START;
+                            cmd_result_ = -1;
+                            last_data_ = 0xF;	
                             modbus_write_register(168, 0xF);
+                            return 0;
                         }else if(setting["signal_id"].asString() == "140800300010") {
                               //关机
+                            state = AC_Control_Code::AC_STOP;
+                            cmd_result_ = -1;
+                            last_data_ = 0xE;
                             modbus_write_register(168, 0xE);
+                            return 0;
                         }
                     }
                 }
@@ -624,7 +634,7 @@ SET_DO_CODE : |
 
 SET_RET_CODE: |
   case AC_Control_Code::AC_START: {
-        if(tab_reg[0] == 1) {
+        if(tab_reg[0] == last_data_) {
             cmd_result_ = 1;
         } else {
             cmd_result_ = 3;
@@ -633,7 +643,7 @@ SET_RET_CODE: |
         return false;
       }
       case AC_Control_Code::AC_STOP: {
-        if(tab_reg[0] == 0) {
+        if(tab_reg[0] == last_data_) {
             cmd_result_ = 1;
         } else {
             cmd_result_ = 3;

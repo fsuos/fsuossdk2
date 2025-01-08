@@ -13,10 +13,10 @@
       {% else %}
         {% if d.ArrayName is defined %}
         for($i=1;$i<={{ d.ArrayLength }};$i++){
-          {{signalList}}[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}] = sprintf("{{ d.ArrayName }}", $i);
+          {{signalList}}[{% if scPrefix is not none %}"{{scPrefix}}"][{% endif %}] = sprintf("{{ d.ArrayName }}", $i);
         }
         {% else %}
-        {{signalList}}[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}] = "{{ d.Name }}";
+        {{signalList}}[{% if scPrefix is not none %}"{{scPrefix}}"][{% endif %}] = "{{ d.Name }}";
         {% endif %}
       {%endif %}
       {% endfor %}
@@ -67,41 +67,58 @@ function _{{ Project.Name|lower }}_{{ key }}(&$signalList, $prefix, $index)
         <ul class="nav nav-tabs childTabs">
             <?php $signalList = [];
             $groupSignalList = [];
+            {% if Project.TabGroup is defined %}
+              {% for name in Project.TabGroup %}
+              echo '<li><a class="list" href="##">{{name}}</a></li>';
+              {% endfor %}
+            {% endif %}
             {% for tsc in Sample %}
-            {% if tsc.CmdGroupStart is defined %}
-            for($cgIndex = {{ tsc.CmdGroupStart }},$index = 1; $cgIndex < {{ tsc.CmdGroupEnd }}; $cgIndex+={{ tsc.CmdGroupStep}}, $index++){
-            {% if tsc.CmdGroupPrefix is string %}
-            $namePrefix = sprintf("{{ tsc.CmdGroupPrefix }}", $index);
-            {% else %}
-            $namePrefixArray = {{ tsc.CmdGroupPrefix }};
-            $namePrefix = $namePrefixArray[$index-1];
-            {% endif %}
-            {% for sc in tsc.CmdGroupSample %}
-            {{ render_sc(sc, "$namePrefix", "$groupSignalList") }}
-            {% endfor %}
-            echo '<li><a class="list" href="##">'.$namePrefix.'</a></li>';
-            }
-            {% else %}
-            {{ render_sc(tsc, none, "$signalList") }}
-            {% endif %}
+              {% if tsc.TabGroup is defined %}
+              {{ render_sc(tsc, tsc.TabGroup, "$groupSignalList") }}
+              {% else %}
+                {% if tsc.CmdGroupStart is defined %}
+                for($cgIndex = {{ tsc.CmdGroupStart }},$index = 1; $cgIndex < {{ tsc.CmdGroupEnd }}; $cgIndex+={{ tsc.CmdGroupStep}}, $index++){
+                {% if tsc.CmdGroupPrefix is string %}
+                $namePrefix = sprintf("{{ tsc.CmdGroupPrefix }}", $index);
+                {% else %}
+                $namePrefixArray = {{ tsc.CmdGroupPrefix }};
+                $namePrefix = $namePrefixArray[$index-1];
+                {% endif %}
+                {% for sc in tsc.CmdGroupSample %}
+                {{ render_sc(sc, "$namePrefix", "$groupSignalList") }}
+                {% endfor %}
+                echo '<li><a class="list" href="##">'.$namePrefix.'</a></li>';
+                }
+                {% else %}
+                {{ render_sc(tsc, none, "$signalList") }}
+                {% endif %}
+              {% endif %}
             {% endfor %}
             ?>
         </ul>
     </div>
-    {% for tsc in Sample %}
-    {% if tsc.CmdGroupStart is defined %}
-    <?php for($cgIndex = {{ tsc.CmdGroupStart }},$index = 1; $cgIndex < {{ tsc.CmdGroupEnd }}; $cgIndex+={{ tsc.CmdGroupStep}}, $index++){
-    {% if tsc.CmdGroupPrefix is string %}
-    $namePrefix = sprintf("{{ tsc.CmdGroupPrefix }}", $index); 
-    {% else %}
-    $namePrefixArray = {{ tsc.CmdGroupPrefix }};
-    $namePrefix = $namePrefixArray[$index-1]; 
-    {% endif %} ?>
-    <div class="tab-content">
-    <?php $this->load->view("portal/DevicePage/signal_ctrl_noid", array("signalList"=>$groupSignalList[$namePrefix], "cols"=>6)); ?>
-    </div>
-    <?php } ?>
+    {% if Project.TabGroup is defined %}
+      {% for name in Project.TabGroup %}
+      <div class="tab-content">
+      <?php $this->load->view("portal/DevicePage/signal_ctrl_noid", array("signalList"=>$groupSignalList["{{name}}"], "cols"=>6)); ?>
+      </div>
+      {% endfor %}
     {% endif %}
+    
+    {% for tsc in Sample %}
+      {% if tsc.CmdGroupStart is defined %}
+      <?php for($cgIndex = {{ tsc.CmdGroupStart }},$index = 1; $cgIndex < {{ tsc.CmdGroupEnd }}; $cgIndex+={{ tsc.CmdGroupStep}}, $index++){
+      {% if tsc.CmdGroupPrefix is string %}
+      $namePrefix = sprintf("{{ tsc.CmdGroupPrefix }}", $index); 
+      {% else %}
+      $namePrefixArray = {{ tsc.CmdGroupPrefix }};
+      $namePrefix = $namePrefixArray[$index-1]; 
+      {% endif %} ?>
+      <div class="tab-content">
+      <?php $this->load->view("portal/DevicePage/signal_ctrl_noid", array("signalList"=>$groupSignalList[$namePrefix], "cols"=>6)); ?>
+      </div>
+      <?php } ?>
+      {% endif %}
     {% endfor %}
   </div>
 {% else %}

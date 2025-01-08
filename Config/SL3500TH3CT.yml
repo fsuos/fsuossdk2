@@ -1,0 +1,519 @@
+Project:
+  Name : SL3500TH3CT
+  RT_ID : 5156
+  File : "SL3500-TH3-CT 地址表.xls"
+Sample : 
+  - Cmd : 1
+    Offset : 128
+    Len : 16
+    Data : 
+      - Name : "运行指示"
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "送风机"
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "压缩机1"
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "压缩机2"
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "1#氟泵"
+        Offset : 5
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "2#氟泵"
+        Offset : 6
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "备用"
+        Offset : 7
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "进水阀"
+        Offset : 8
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "排水阀"
+        Offset : 9
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "电加热1"
+        Offset : 10
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "电加热2"
+        Offset : 11
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "电加热3"
+        Offset : 12
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "加湿器"
+        Offset : 13
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "备用"
+        Offset : 14
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "备用"
+        Offset : 15
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "故障输出"
+        Offset : 16
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+  - Cmd : 1
+    Offset : 0
+    Len : 60
+    Data : 
+      - Name : 回风温度探头故障
+        Offset : 1
+        AlertNormalValue : 0
+      - Name : 回风湿度探头故障
+        Offset : 2
+        AlertNormalValue : 0
+      - Name : 送风温度探头故障
+        Offset : 3
+        AlertNormalValue : 0
+      - Name : 送风湿度探头故障
+        Offset : 4
+        AlertNormalValue : 0
+      - Name : 1#吸气温度探头故障
+        Offset : 5
+        AlertNormalValue : 0
+      - Name : 2#吸气温度探头故障
+        Offset : 6
+        AlertNormalValue : 0
+      - Name : 1#系统压力探头故障
+        Offset : 7
+        AlertNormalValue : 0
+      - Name : 2#系统压力探头故障
+        Offset : 8
+        AlertNormalValue : 0
+      - Name : 1#吸气压力探头故障
+        Offset : 9
+        AlertNormalValue : 0
+      - Name : 2#吸气压力探头故障
+        Offset : 10
+        AlertNormalValue : 0
+      - Name : 送风机过载
+        Offset : 11
+        AlertNormalValue : 0
+      - Name : 1#高压/外风机过载
+        Offset : 12
+        AlertNormalValue : 0
+      - Name : 1#压缩机低压
+        Offset : 13
+        AlertNormalValue : 0
+      - Name : 1#压机过载/排气高温
+        Offset : 14
+        AlertNormalValue : 0
+      - Name : 2#高压/外风机过载
+        Offset : 15
+        AlertNormalValue : 0
+      - Name : 2#压缩机低压
+        Offset : 16
+        AlertNormalValue : 0
+      - Name : 2#压机过载/排气高温
+        Offset : 17
+        AlertNormalValue : 0
+      - Name : 滤网堵塞
+        Offset : 18
+        AlertNormalValue : 0
+      - Name : 气流丢失
+        Offset : 19
+        AlertNormalValue : 0
+      - Name : 加湿器报警
+        Offset : 20
+        AlertNormalValue : 0
+      - Name : 电加热报警
+        Offset : 21
+        AlertNormalValue : 0
+      - Name : 接水盘满报警
+        Offset : 22
+        AlertNormalValue : 0
+      - Name : 相序保护
+        Offset : 23
+        AlertNormalValue : 0
+      - Name : 火灾报警
+        Offset : 24
+        AlertNormalValue : 0
+      - Name : 辅助报警
+        Offset : 25
+        AlertNormalValue : 0
+      - Name : 1#压缩机低压压力报警
+        Offset : 26
+        AlertNormalValue : 0
+      - Name : 2#压缩机低压压力报警
+        Offset : 27
+        AlertNormalValue : 0
+      - Name : 1#过热度过低
+        Offset : 28
+        AlertNormalValue : 0
+      - Name : 2#过热度过低
+        Offset : 29
+        AlertNormalValue : 0
+      - Name : 水质软报警
+        Offset : 30
+        AlertNormalValue : 0        
+      - Name : 低电流告警
+        Offset : 31
+        AlertNormalValue : 0
+      - Name : 高电流告警
+        Offset : 32
+        AlertNormalValue : 0
+      - Name : 零电流告警
+        Offset : 33
+        AlertNormalValue : 0
+      - Name : 水浸告警
+        Offset : 34
+        AlertNormalValue : 0
+      - Name : 1#压缩机高压压力报警
+        Offset : 35
+        AlertNormalValue : 0
+      - Name : 2#压缩机高压压力报警
+        Offset : 36
+        AlertNormalValue : 0
+      - Name : 低湿报警
+        Offset : 38
+        AlertNormalValue : 0
+      - Name : 高湿报警
+        Offset : 39
+        AlertNormalValue : 0
+      - Name : 低温报警
+        Offset : 40
+        AlertNormalValue : 0
+      - Name : 高温报警
+        Offset : 41
+        AlertNormalValue : 0
+      - Name : 主机缺失
+        Offset : 49
+        AlertNormalValue : 0
+      - Name : 从机1缺失
+        Offset : 50
+        AlertNormalValue : 0
+      - Name : 从机2缺失
+        Offset : 51
+        AlertNormalValue : 0
+      - Name : 从机3缺失
+        Offset : 52
+        AlertNormalValue : 0
+      - Name : 从机4缺失
+        Offset : 53
+        AlertNormalValue : 0
+      - Name : 从机5缺失
+        Offset : 54
+        AlertNormalValue : 0
+      - Name : 从机6缺失
+        Offset : 55
+        AlertNormalValue : 0
+      - Name : 从机7缺失
+        Offset : 56
+        AlertNormalValue : 0
+      - Name : 从机8缺失
+        Offset : 57
+        AlertNormalValue : 0
+      - Name : 从机9缺失
+        Offset : 58
+        AlertNormalValue : 0
+      - Name : 从机10缺失
+        Offset : 59
+        AlertNormalValue : 0
+      - Name : 从机11缺失
+        Offset : 60
+        AlertNormalValue : 0
+  - Cmd : 3
+    Offset : 34
+    Len : 1
+    Data : 
+      - Name : 来电自启动
+        Options : 
+          - Key : 0
+            Value : 禁用
+          - Key : 1
+            Value : 启用
+  - Cmd : 3
+    Offset : 39
+    Len : 2
+    Data : 
+      - Name : 湿度设置
+        Ratio : 10
+      - Name : 温度设置
+        Ratio : 10
+  - Cmd : 3
+    Offset : 55
+    Len : 1
+    Data : 
+      - Name : 模式切换
+        Options : 
+          - Key : 0
+            Value : 恒温恒湿
+          - Key : 1
+            Value : 恒温
+          - Key : 2
+            Value : 送风
+  - Cmd : 1
+    Offset : 176
+    Len : 3
+    Data : 
+      - Name : 开关机
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : 故障复位
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 无故障
+          - Key : 1
+            Value : 有故障
+      - Name : 手动/自动
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 自动
+          - Key : 1
+            Value : 手动
+  - Cmd : 3
+    Offset : 176
+    Len : 1
+    Data : 
+      - Name : 运行状态
+        Options : 
+          - Key : 0
+            Value : 停机
+          - Key : 1
+            Value : 运行
+          - Key : 2
+            Value : 停机中
+  - Cmd : 3
+    Offset : 700
+    Len : 8
+    Data : 
+      - Name : 室内温度
+        Ratio : 10 
+        Offset : 1
+      - Name : 室内湿度
+        Ratio : 10
+        Offset : 2
+      - Name : 1#系统低压压力
+        Ratio : 10
+        Offset : 3
+      - Name : 2#系统低压压力
+        Ratio : 10
+        Offset : 4
+      - Name : 吸气温度1
+        Ratio : 10
+        Offset : 5
+      - Name : 吸气温度2
+        Ratio : 10
+        Offset : 6
+      - Name : 系统压力1
+        Ratio : 10
+        Offset : 7
+      - Name : 系统压力2
+        Ratio : 10
+        Offset : 8
+      - Name : 吸气压力1
+        Ratio : 100
+        Offset : 9
+      - Name : 吸气压力2
+        Ratio : 100
+        Offset : 10
+  - Cmd : 3
+    Offset : 696
+    Len : 4
+    Data : 
+      - Name : EEV1开度
+        Ratio : 10
+        Offset : 1
+      - Name : EEV2开度
+        Ratio : 10
+        Offset : 2
+      - Name : 1#过热度
+        Ratio : 10
+        Offset : 3
+      - Name : 2#过热度
+        Ratio : 10
+        Offset : 4
+  - Cmd : 3
+    Offset : 710
+    Len : 9
+    Data : 
+      - Name : 加湿器电流
+        Ratio : 10
+        Offset : 1
+      - Name : 漏水检测值
+        Ratio : 10
+        Offset : 2
+      - Name : 1#-2吸气温度
+        Ratio : 10
+        Offset : 3
+      - Name : 2#-2吸气温度
+        Ratio : 10
+        Offset : 4
+      - Name : 1#-2吸气压力
+        Ratio : 10
+        Offset : 6
+      - Name : 2#-2吸气压力
+        Ratio : 10
+        Offset : 7
+      - Name : 送风温度
+        Ratio : 10
+        Offset : 8
+      - Name : 送风湿度
+        Ratio : 10
+        Offset : 9
+SET_RET_CODE : |
+  case AC_Control_Code::AC_START: {
+        if(tab_reg[0] == 1) {
+            cmd_result_ = 1;
+        } else {
+            cmd_result_ = 3;
+        }
+        Reset();
+        return false;
+      }
+      case AC_Control_Code::AC_STOP: {
+        if(tab_reg[0] == 0) {
+            cmd_result_ = 1;
+        } else {
+            cmd_result_ = 3;
+        }
+        Reset();
+        return false;
+      } 
+      case AC_Control_Code::AC_SET_TEMPERATURE:
+      case AC_Control_Code::AC_SET_HUMID: {
+        if(tab_reg[0] == last_data_) {
+            cmd_result_ = 1;
+        } else {
+            cmd_result_ = 3;
+        }
+        Reset();
+        return false;
+      }
+      
+SET_DO_CODE : |
+  if(setting["signal_id"].asString() != "") {
+      if(setting["signal_id"].asString() == "140800280010") {
+          //开机
+          state = AC_Control_Code::AC_START;
+          cmd_result_ = -1;
+          last_data_ = 1;
+          modbus_write_bit(176, 1);
+          if((uint32_t)outBufferSize >= sizeof(int)) {
+              *((int*)outBuffer) = 1;//通知取状态
+              bytesReturned = sizeof(int);
+          }
+      }else if(setting["signal_id"].asString() == "140800300010") {
+          //关机
+          state = AC_Control_Code::AC_STOP;
+          cmd_result_ = -1;
+          last_data_ = 0;
+          modbus_write_bit(176, 0);
+          if((uint32_t)outBufferSize >= sizeof(int)) {
+              *((int*)outBuffer) = 1;//通知取状态
+              bytesReturned = sizeof(int);
+          }
+      }
+  }
+
+SET_AO_CODE: |
+  if(setting["signal_id"].asString() == "150800310010") {
+      if(setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
+          int16_t newValue = atoi(setting["SetValue"].asString().c_str())*10;
+          //1#回风温度
+          state = AC_Control_Code::AC_SET_TEMPERATURE;
+          cmd_result_ = -1;
+          OpenPort();
+          modbus_write_register(40, newValue);
+          if((uint32_t)outBufferSize >= sizeof(int)) {
+              *((int*)outBuffer) = 1;//通知取状态
+              bytesReturned = sizeof(int);
+          }                       
+      }
+  }else if(setting["signal_id"].asString() == "150800340010") {
+      if(setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
+          int16_t newValue = atoi(setting["SetValue"].asString().c_str())*10;
+          //湿度
+          state = AC_Control_Code::AC_SET_HUMID;
+          cmd_result_ = -1;
+          OpenPort();
+          modbus_write_register(39, newValue);
+          if((uint32_t)outBufferSize >= sizeof(int)) {
+              *((int*)outBuffer) = 1;//通知取状态
+              bytesReturned = sizeof(int);
+          }                       
+      }
+  }
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,575 @@
+Project:
+  Name : EVOU4XrowDX
+  RT_ID : 5156
+  File : "XRow DX系列列间空调-Modbus通信协议.pdf"
+Sample : 
+  - Cmd : 3
+    Offset : 0x0100
+    Len : 16
+    Data : 
+      - Name : "1#回风温度"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 1
+      - Name : "2#回风温度"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 2
+      - Name : "3#回风温度"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 3
+      - Name : "拉远回风"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 4
+      - Name : "1#出风温度"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 6
+      - Name : "2#出风温度"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 7
+      - Name : "3#出风温度"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 8
+      - Name : "1#盘管进水温度"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 10
+      - Name : "1#盘管出水温度"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 11
+      - Name : "1#回风湿度"
+        Unit : "%"
+        Ratio : 10
+        Offset : 14
+      - Name : "1#出风湿度"
+        Unit : "%"
+        Ratio : 10
+        Offset : 15
+      - Name : "3#回风湿度"
+        Unit : "%"
+        Ratio : 10
+        Offset : 16
+  - Cmd : 3
+    Offset : 0x0127
+    Len : 1
+    Data : 
+      - Name : "冷热通道压差"
+        Unit : "Pa"
+        Ratio : 10
+  - Cmd : 3
+    Offset : 0x012A
+    Len : 18
+    Data :   
+      - ArrayName : "%d#外扩温度"
+        ArrayStart : 1
+        ArrayLength : 18
+        Unit : "℃"
+        Ratio : 10
+        Offset : 1
+  - Cmd : 3
+    Offset : 0x013C
+    Len : 18
+    Data :   
+      - ArrayName : "%d#外扩湿度"
+        ArrayStart : 1
+        ArrayLength : 18
+        Unit : "%"
+        Ratio : 10
+        Offset : 1
+  - Cmd : 3
+    Offset : 0x14E
+    Len : 3
+    Data : 
+      - Name : "2#出风湿度"
+        Unit : "%"
+        Ratio : 10
+        Offset : 1
+      - Name : "3#出风湿度"
+        Unit : "%"
+        Ratio : 10
+        Offset : 2
+      - Name : "2#回风湿度"
+        Unit : "%"
+        Ratio : 10
+        Offset : 3
+  - Cmd : 3
+    Offset : 0x0200
+    Len : 28
+    Data : 
+      - Name : "内风机"
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启 
+      - Name : "压缩机"
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启 
+      - Name : "1#电加热"
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+      - Name : "2#电加热"
+        Offset : 5
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启 
+      - Name : "加湿器"
+        Offset : 7
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启 
+      - Name : "外风机"
+        Offset : 8
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启 
+      - Name : "1#水阀"
+        Unit : "%"
+        Ratio : 10
+        Offset : 10
+      - Name : "系统开关机状态"
+        Offset : 21
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启 
+      - Name : "制冷模式"
+        Offset : 26
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启 
+      - Name : "加热模式"
+        Offset : 27
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启 
+      - Name : "除湿模式"
+        Offset : 28
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启 
+  - Cmd : 3
+    Offset : 0x0300
+    Len : 10
+    Data : 
+      - Name : "温度设定点"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 1
+      - Name : "温度灵敏度"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 2
+      - Name : "湿度设定点"
+        Unit : "%"
+        Ratio : 10
+        Offset : 3
+      - Name : "湿度灵敏度"
+        Unit : "%"
+        Ratio : 10
+        Offset : 4
+      - Name : "高温告警点"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 5
+      - Name : "低温告警点"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 6
+      - Name : "高湿告警点"
+        Unit : "%"
+        Ratio : 10
+        Offset : 7
+      - Name : "低湿告警点"
+        Unit : "%"
+        Ratio : 10
+        Offset : 8
+      - Name : "压差设定点"
+        Unit : "Pa"
+        Ratio : 10
+        Offset : 9
+      - Name : "压差灵敏度"
+        Unit : "Pa"
+        Ratio : 10
+        Offset : 10
+  - Cmd : 3
+    Offset : 0x030E
+    Len : 2
+    Data : 
+      - Name : "出风高温设定点"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 1
+      - Name : "出风低温设定点"
+        Unit : "℃"
+        Ratio : 10
+        Offset : 2
+  - Cmd : 3
+    Offset : 0x0400
+    Len : 1
+    Data : 
+      - Name : "监控开关机"
+        Options : 
+          - Key : 0
+            Value : 关机
+          - Key : 1
+            Value : 开机 
+  - Cmd : 3
+    Offset : 0x0500
+    Len : 84
+    Data : 
+      - Name : 回风高温告警
+        Offset : 1
+        AlertNormalValue : 0
+        TeleSignalId : 12006
+        TeleSignalName : SIGNAME_12006
+      - Name : 回风低温告警
+        Offset : 2
+        AlertNormalValue : 0    
+        TeleSignalId : 12007
+        TeleSignalName : SIGNAME_12007
+      - Name : 回风高湿告警
+        Offset : 3
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 回风低湿告警
+        Offset : 4
+        AlertNormalValue : 0  
+        TeleSignalId : 12017
+      - Name : 1#回风温感故障
+        Offset : 5
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 2#回风温感故障
+        Offset : 6
+        AlertNormalValue : 0
+        TeleSignalId : 12017  
+      - Name : 3#回风温感故障
+        Offset : 7
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 1#出风温感故障
+        Offset : 8
+        AlertNormalValue : 0
+        TeleSignalId : 12017  
+      - Name : 2#出风温感故障
+        Offset : 9
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 3#出风温感故障
+        Offset : 10
+        AlertNormalValue : 0
+        TeleSignalId : 12017  
+      - Name : 回风湿感故障
+        Offset : 11
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 滤网压差传感器故障
+        Offset : 12
+        AlertNormalValue : 0
+        TeleSignalId : 12017  
+      - Name : 1#内风机故障
+        Offset : 13
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 2#内风机故障
+        Offset : 14
+        AlertNormalValue : 0
+        TeleSignalId : 12017  
+      - Name : 3#内风机故障
+        Offset : 15
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 4#内风机故障
+        Offset : 16
+        AlertNormalValue : 0  
+        TeleSignalId : 12017
+      - Name : 5#内风机故障
+        Offset : 17
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 6#内风机故障
+        Offset : 18
+        AlertNormalValue : 0
+        TeleSignalId : 12017  
+      - Name : 1#电源故障
+        Offset : 19
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 2#电源故障
+        Offset : 20
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 1#水阀故障
+        Offset : 21
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 2#水阀故障
+        Offset : 22
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 滤网堵塞告警
+        Offset : 24
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 电极加湿电流过小
+        Offset : 27
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 电极加湿电流过大
+        Offset : 28
+        AlertNormalValue : 0
+        TeleSignalId : 12017  
+      - Name : 电极加湿水位过高
+        Offset : 29
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 地板溢水
+        Offset : 30
+        AlertNormalValue : 0
+        TeleSignalId : 12017  
+      - Name : 电源电压过高
+        Offset : 31
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 电源电压过低
+        Offset : 32
+        AlertNormalValue : 0
+        TeleSignalId : 12017  
+      - Name : 冷凝水位过高
+        Offset : 36
+        AlertNormalValue : 0
+        TeleSignalId : 12017 
+      - Name : 加湿桶维护时间到
+        Offset : 37
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 系统高压
+        Offset : 42
+        AlertNormalValue : 0
+        TeleSignalId : 12008  
+        TeleSignalName : SIGNAME_12008
+      - Name : 系统低压
+        Offset : 43
+        AlertNormalValue : 0
+        TeleSignalId : 12009
+        TeleSignalName : SIGNAME_12009
+      - Name : 系统高压锁定
+        Offset : 46
+        AlertNormalValue : 0
+        TeleSignalId : 12008
+        TeleSignalName : SIGNAME_12008
+      - Name : 系统低压锁定
+        Offset : 48
+        AlertNormalValue : 0
+        TeleSignalId : 12009
+        TeleSignalName : SIGNAME_12009
+      - Name : 系统排气温度保护
+        Offset : 50
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 系统排气温度锁定
+        Offset : 52
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 盘管防冻保护
+        Offset : 54
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 制冷系统异常
+        Offset : 56
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 系统短周期报警
+        Offset : 58
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 烟感告警
+        Offset : 75
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 冷凝温感失效
+        Offset : 76
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 吸气温感失效
+        Offset : 78
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 排气温感失效
+        Offset : 80
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 低压传感器失效
+        Offset : 82
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 冷凝压力传感器失效
+        Offset : 84
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+  - Cmd : 3
+    Offset : 0x0560
+    Len : 41
+    Data : 
+      - Name : 低过热度保护
+        Offset : 1
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 7#风机故障
+        Offset : 8
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 异常掉电
+        Offset : 9
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 模块过流
+        Offset : 10
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 模块过温
+        Offset : 11
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 模块过压
+        Offset : 12
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 模块欠压
+        Offset : 13
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 模块缺相
+        Offset : 14
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 模块故障
+        Offset : 15
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 内外机通信故障
+        Offset : 16
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 进水温度失效
+        Offset : 22
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 出水温度失效
+        Offset : 23
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 2#回风湿感故障
+        Offset : 31
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 3#回风湿感故障
+        Offset : 32
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 1#出风湿感故障
+        Offset : 33
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 2#出风湿感故障
+        Offset : 34
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 3#出风湿感故障
+        Offset : 35
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 冷热通道低压告警
+        Offset : 36
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 冷热通道高压告警
+        Offset : 37
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 8#内风机故障
+        Offset : 41
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 通道压差传感器故障
+        Offset : 42
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 出风高温告警
+        Offset : 43
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 出风低温告警
+        Offset : 44
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+
+RunCheckThresholdCodeTelecom : |
+   if(levelMap_["110800540010"]){
+            float fValue = cData.r3_256[5];
+            fValue /= 10;
+            CheckThresholdBool(levelMap_["110800540010"] , "110800540010", "110800540010", "送风温度过高告警", "出风高温告警",  fValue > valueMap_["110800540010"], 1);
+    }
+    if(levelMap_["110800550010"]){
+            float fValue = cData.r3_256[5];
+            fValue /= 10;
+            CheckThresholdBool(levelMap_["110800550010"] , "110800550010", "110800550010", "送风温度过低告警", "出风低温告警",  fValue < valueMap_["110800540010"] , 1);
+    }
+    if(levelMap_["120800090010"]){
+            float fValue = cData.r3_256[0];
+            fValue /= 10;
+            CheckThresholdBool(levelMap_["120800090010"] , "120800090010", "120800090010", "精密空调回风温度高告警", "回风高温告警",  fValue > valueMap_["120800090010"] , 1);
+    }
+    if(levelMap_["120800100010"]){
+            float fValue = cData.r3_256[0];
+            fValue /= 10;
+            CheckThresholdBool(levelMap_["120800100010"] , "120800100010", "120800100010", "精密空调回风温度低告警", "回风低温告警",  fValue < valueMap_["120800100010"] , 1);
+    }
+    if(levelMap_["120800120010"]){
+            float fValue = cData.r3_256[13];
+            fValue /= 10;
+            CheckThresholdBool(levelMap_["120800120010"] , "120800120010", "120800120010", "精密空调回风湿度高告警", "回风高湿告警",  fValue > valueMap_["120800120010"] , 1);
+    }
+    if(levelMap_["120800130010"]){
+            float fValue = cData.r3_256[13];
+            fValue /= 10;
+            CheckThresholdBool(levelMap_["120800130010"] , "120800130010", "120800130010", "精密空调回风湿度低告警", "回风低湿告警",  fValue < valueMap_["120800130010"] , 1);
+    }
+    if(levelMap_["120800140010"]){
+            CheckThresholdBool(levelMap_["120800140010"] , "120800140010", "120800140010", "精密空调溢水告警", "精密空调溢水告警",  cData.r3_1280[29], 1);
+    }
+
+RunCheckThresholdCodeUnicom: |
+  if(1 == 1)
+  {
+
+  }

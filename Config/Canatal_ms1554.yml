@@ -1,0 +1,377 @@
+Project:
+  Name : Canatal_ms1554
+  RT_ID : 5156
+  File : "MS1554佳力图9系列通讯协议(461D9)(2).doc 备注:非标准协议，本配置文件仅用于生成那个界面"
+Sample:
+  - Cmd : 1
+    Offset : 1
+    Len : 16
+    Data :
+      - Name : 工作单元单元数量
+      - Name : 温度设定值
+        Unit : ℃
+      - Name : 温度上限
+        Unit : ℃
+      - Name : 温度下限
+        Unit : ℃
+      - Name : 湿度设定值
+        Unit : '%rh'
+      - Name : 湿度上限
+        Unit : '%rh'
+      - Name : 湿度下限
+        Unit : '%rh'
+      - Name : 锅炉限时
+        Offset : 10
+        Unit : min
+      - Name : 本机传感器
+        Offset : 12
+        Options : 
+          - Key : 0
+            Value : 失活
+          - Key : 1
+            Value : 激活
+          - Key : 2
+            Value : 演示
+      - Name : 湿度设定退后
+        Offset : 13
+        Unit : '%rh'
+      - Name : 湿度控制
+        Offset : 14
+        Options : 
+          - Key : 0
+            Value : 失活
+          - Key : 1
+            Value : 激活
+      - Name : 开/关模式
+        Offset : 15
+        Options : 
+          - Key : 0
+            Value : 本地
+          - Key : 1
+            Value : 定时器
+          - Key : 2
+            Value : 远程
+      - Name : 本机重启模式
+        Offset : 16
+        Options : 
+          - Key : 0
+            Value : 自动
+          - Key : 1
+            Value : 手动
+  - Cmd : 1
+    Offset : 16
+    Len : 13
+    Data :  
+      - Name : 自动切换期
+        Value : ($v[1]<<16 + $v[2]) 
+        Unit : Hr
+      - Name : 重启延时
+        Value : ($v[3]<<16 + $v[4]) 
+        Unit : Sec
+      - Name : 预热延时
+        Value : ($v[5]<<16 + $v[6]) 
+        Unit : Sec
+      - Name : 风机吹扫延时
+        Value : ($v[7]<<16 + $v[8]) 
+        Unit : Sec
+      - Name : 压缩机经时
+        offset : 9
+        Unit : Sec
+      - Name : 正启动延时
+        Value : ($v[10]<<16 + $v[11]) 
+        Unit : Sec
+      - Name : 换瓶延时
+        Value : ($v[12]<<16 + $v[13]) 
+        Unit : Sec
+  - Cmd : 1
+    Offset : 30
+    Len : 18
+    Data :  
+      - Name : 读取显示
+        Options : 
+          - Key : 0
+            Value : 本机
+          - Key : 1
+            Value : 现场
+      - Name : 显示模式
+        Options : 
+          - Key : 0
+            Value : "℃"
+          - Key : 1
+            Value : "℉"
+      - Name : 电压上限
+        Unit : '%'
+      - Name : 电压下限
+        Unit : '%'
+      - Name : 温度2上限
+        Unit : ℃
+      - Name : 温度2下限
+        Unit : ℃
+      - Name : 湿度2上限
+        Unit : '%rh'
+      - Name : 湿度2下限
+        Unit : '%rh'
+      - Name : 温度死区（正常）
+        Unit : ℃
+      - Name : 温度死区（松弛）
+        Unit : ℃
+      - Name : 湿度死区（正常）
+        Unit : '%rh'
+      - Name : 湿度死区（松弛）
+        Unit : '%rh'
+      - Name : 冷却比例带
+        Unit : ℃
+      - Name : 加热比例带
+        Unit : ℃
+      - Name : 加湿比例带
+        Unit : '%rh'
+      - Name : 去湿比例带
+        Unit : '%rh'
+      - Name : 温度整体反应时间
+        Unit : min
+      - Name : 湿度整体反应时间
+        Unit : min
+  - Cmd : 3
+    Offset : 60
+    Len : 7
+    Type : 'n'
+    Data :  
+      - Name : 现场温度
+        Ratio : 10
+        Unit : ℃
+      - Name : 现场湿度
+        Ratio : 10
+        Unit : '%rh'
+      - Name : 本机温度1
+        Ratio : 10
+        Unit : ℃
+      - Name : 本机温度2
+        Ratio : 10
+        Unit : ℃
+      - Name : 本机湿度1
+        Ratio : 10
+        Unit : '%rh'
+      - Name : 本机湿度2
+        Ratio : 10
+        Unit : '%rh'
+      - Name : 供压
+        Ratio : 10
+        Unit : "%"
+  - Cmd : 1
+    Offset : 110
+    Len : 26
+    Data :
+      - Name : "单元1:风机过载"
+        AlertNormalValue : 0
+      - Name : "单元1:低气流"
+        AlertNormalValue : 0
+      - Name : "单元1:锅炉变脏"
+        AlertNormalValue : 0
+      - Name : "单元1:加热器过热"
+        AlertNormalValue : 0
+      - Name : "单元1:过滤器变脏"
+        AlertNormalValue : 0
+      - Name : "单元1:火灾"
+        AlertNormalValue : 0
+      - Name : "单元1:水灾"
+        AlertNormalValue : 0
+      - Name : "单元1:故障"
+        AlertNormalValue : 0
+      - Name : "单元1:高湿"
+        AlertNormalValue : 0
+      - Name : "单元1:高湿2"
+        AlertNormalValue : 0
+      - Name : "单元1:高温"
+        AlertNormalValue : 0
+      - Name : "单元1:高温2"
+        AlertNormalValue : 0
+      - Name : "单元1:高压"
+        AlertNormalValue : 0
+      - Name : "单元1:低湿"
+        AlertNormalValue : 0
+      - Name : "单元1:低湿2"
+        AlertNormalValue : 0
+      - Name : "单元1:低温"
+        AlertNormalValue : 0
+      - Name : "单元1:低温2"
+        AlertNormalValue : 0
+      - Name : "单元1:低压"
+        AlertNormalValue : 0
+      - Name : "单元1:压缩机高压1"
+        AlertNormalValue : 0
+      - Name : "单元1:压缩机低压1"
+        AlertNormalValue : 0
+      - Name : "单元1:短循环1"
+        AlertNormalValue : 0
+      - Name : "单元1:压缩机高压2"
+        AlertNormalValue : 0
+      - Name : "单元1:压缩机低压2"
+        AlertNormalValue : 0
+      - Name : "单元1:短循环2"
+        AlertNormalValue : 0
+  - Cmd : 1
+    Offset : 140
+    Len : 26
+    Data :
+      - Name : "单元2:风机过载"
+        AlertNormalValue : 0
+      - Name : "单元2:低气流"
+        AlertNormalValue : 0
+      - Name : "单元2:锅炉变脏"
+        AlertNormalValue : 0
+      - Name : "单元2:加热器过热"
+        AlertNormalValue : 0
+      - Name : "单元2:过滤器变脏"
+        AlertNormalValue : 0
+      - Name : "单元2:火灾"
+        AlertNormalValue : 0
+      - Name : "单元2:水灾"
+        AlertNormalValue : 0
+      - Name : "单元2:故障"
+        AlertNormalValue : 0
+      - Name : "单元2:高湿"
+        AlertNormalValue : 0
+      - Name : "单元2:高湿2"
+        AlertNormalValue : 0
+      - Name : "单元2:高温"
+        AlertNormalValue : 0
+      - Name : "单元2:高温2"
+        AlertNormalValue : 0
+      - Name : "单元2:高压"
+        AlertNormalValue : 0
+      - Name : "单元2:低湿"
+        AlertNormalValue : 0
+      - Name : "单元2:低湿2"
+        AlertNormalValue : 0
+      - Name : "单元2:低温"
+        AlertNormalValue : 0
+      - Name : "单元2:低温2"
+        AlertNormalValue : 0
+      - Name : "单元2:低压"
+        AlertNormalValue : 0
+      - Name : "单元2:压缩机高压1"
+        AlertNormalValue : 0
+      - Name : "单元2:压缩机低压1"
+        AlertNormalValue : 0
+      - Name : "单元2:短循环1"
+        AlertNormalValue : 0
+      - Name : "单元2:压缩机高压2"
+        AlertNormalValue : 0
+      - Name : "单元2:压缩机低压2"
+        AlertNormalValue : 0
+      - Name : "单元2:短循环2"
+        AlertNormalValue : 0
+  - Cmd : 1
+    Offset : 170
+    Len : 26
+    Data :
+      - Name : "单元3:风机过载"
+        AlertNormalValue : 0
+      - Name : "单元3:低气流"
+        AlertNormalValue : 0
+      - Name : "单元3:锅炉变脏"
+        AlertNormalValue : 0
+      - Name : "单元3:加热器过热"
+        AlertNormalValue : 0
+      - Name : "单元3:过滤器变脏"
+        AlertNormalValue : 0
+      - Name : "单元3:火灾"
+        AlertNormalValue : 0
+      - Name : "单元3:水灾"
+        AlertNormalValue : 0
+      - Name : "单元3:故障"
+        AlertNormalValue : 0
+      - Name : "单元3:高湿"
+        AlertNormalValue : 0
+      - Name : "单元3:高湿2"
+        AlertNormalValue : 0
+      - Name : "单元3:高温"
+        AlertNormalValue : 0
+      - Name : "单元3:高温2"
+        AlertNormalValue : 0
+      - Name : "单元3:高压"
+        AlertNormalValue : 0
+      - Name : "单元3:低湿"
+        AlertNormalValue : 0
+      - Name : "单元3:低湿2"
+        AlertNormalValue : 0
+      - Name : "单元3:低温"
+        AlertNormalValue : 0
+      - Name : "单元3:低温2"
+        AlertNormalValue : 0
+      - Name : "单元3:低压"
+        AlertNormalValue : 0
+      - Name : "单元3:压缩机高压1"
+        AlertNormalValue : 0
+      - Name : "单元3:压缩机低压1"
+        AlertNormalValue : 0
+      - Name : "单元3:短循环1"
+        AlertNormalValue : 0
+      - Name : "单元3:压缩机高压2"
+        AlertNormalValue : 0
+      - Name : "单元3:压缩机低压2"
+        AlertNormalValue : 0
+      - Name : "单元3:短循环2"
+        AlertNormalValue : 0
+  - Cmd : 1
+    Offset : 200
+    Len : 26
+    Data :
+      - Name : "单元4:风机过载"
+        AlertNormalValue : 0
+      - Name : "单元4:低气流"
+        AlertNormalValue : 0
+      - Name : "单元4:锅炉变脏"
+        AlertNormalValue : 0
+      - Name : "单元4:加热器过热"
+        AlertNormalValue : 0
+      - Name : "单元4:过滤器变脏"
+        AlertNormalValue : 0
+      - Name : "单元4:火灾"
+        AlertNormalValue : 0
+      - Name : "单元4:水灾"
+        AlertNormalValue : 0
+      - Name : "单元4:故障"
+        AlertNormalValue : 0
+      - Name : "单元4:高湿"
+        AlertNormalValue : 0
+      - Name : "单元4:高湿2"
+        AlertNormalValue : 0
+      - Name : "单元4:高温"
+        AlertNormalValue : 0
+      - Name : "单元4:高温2"
+        AlertNormalValue : 0
+      - Name : "单元4:高压"
+        AlertNormalValue : 0
+      - Name : "单元4:低湿"
+        AlertNormalValue : 0
+      - Name : "单元4:低湿2"
+        AlertNormalValue : 0
+      - Name : "单元4:低温"
+        AlertNormalValue : 0
+      - Name : "单元4:低温2"
+        AlertNormalValue : 0
+      - Name : "单元4:低压"
+        AlertNormalValue : 0
+      - Name : "单元4:压缩机高压1"
+        AlertNormalValue : 0
+      - Name : "单元4:压缩机低压1"
+        AlertNormalValue : 0
+      - Name : "单元4:短循环1"
+        AlertNormalValue : 0
+      - Name : "单元4:压缩机高压2"
+        AlertNormalValue : 0
+      - Name : "单元4:压缩机低压2"
+        AlertNormalValue : 0
+      - Name : "单元4:短循环2"
+        AlertNormalValue : 0
+  - Cmd : 1
+    Offset : 201
+    Len : 1
+    Data :
+      - Name : "系统开/关控制"
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开

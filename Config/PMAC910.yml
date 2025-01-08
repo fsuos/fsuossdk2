@@ -1,7 +1,7 @@
 Project:
   Name : PMAC910
   RT_ID : 5156
-  File : "  "
+  File : "PMAC910_MODBUS通讯协议V1.9_20150526.doc"
 Sample : 
   - Cmd : 3
     Offset : 0
@@ -18,31 +18,27 @@ Sample :
       - Name : L1路电流二次侧值 
         Offset : 4
         Ratio : 1000
-        Unit : "V" 
+        Unit : "A" 
       - Name : L2路电流二次侧值
         Offset : 5
         Ratio : 1000
-        Unit : "V" 
+        Unit : "A" 
       - Name : L1路电流一次侧值
-        Offset : 7
-        Ratio : 100000
+        Value : (( ($v[8] << 16) + $v[7])/100000)
         Unit : "A" 
       - Name : L2路电流一次侧值
         Offset : 9
-        Ratio : 100000
+        Value : (( ($v[10] << 16) + $v[9])/100000)
         Unit : "A" 
       - Name : L1路功率
-        Offset : 13
-        Ratio : 100
-        Unit : "W" 
+        Value : ((($v[14] << 16) + $v[13])/100000)
+        Unit : "kW" 
       - Name : L2路功率
-        Offset : 15
-        Ratio : 100
-        Unit : "W" 
+        Value : ((($v[16] << 16) + $v[15])/100000)
+        Unit : "kW" 
       - Name : 总功率
-        Offset : 19
-        Ratio : 100
-        Unit : "W" 
+        Value : ((($v[20] << 16) + $v[19])/100000)
+        Unit : "kW" 
       - Name : 开关量状态
         Offset : 21
         Ratio : 10 
@@ -52,91 +48,91 @@ Sample :
       - Name : 电度脉冲计数
         Offset : 23
       - Name : L1路电流需量
-        Offset : 24
-        Ratio : 100000
+        Value : ((($v[25] << 16) + $v[24])/100000)
         Unit : "A" 
       - Name : L2路电流需量
-        Offset : 26
+        Value : ((($v[27] << 16) + $v[26])/100000)
         Ratio : 100000
         Unit : "A" 
       - Name : L1路功率需量
-        Offset : 30
-        Ratio : 100
-        Unit : "W" 
+        Value : ((($v[31] << 16) + $v[30])/100000)
+        Unit : "kW" 
       - Name : L2路功率需量
-        Offset : 32
-        Ratio : 100
-        Unit : "W" 
+        Value : ((($v[33] << 16) + $v[32])/100000)
+        Unit : "kW" 
       - Name : 总功率需量
-        Offset : 36
-        Ratio : 100
-        Unit : "W" 
+        Value : ((($v[37] << 16) + $v[36])/100000)
+        Unit : "kW"
       - Name : 电压越限状态
         Offset : 38
-        Options : 
-          - Key : 0
-            Value : 不越限
-          - Key : 1
-            Value : 越限
-          - Key : (($v[38])&0x1)
-            Value : L1下限状态
-          - Key : (($v[38]>>1)&0x1)
-            Value : L1上限状态
-          - Key : (($v[38]>>2)&0x1)
-            Value : L2下限状态
-          - Key : (($v[38]>>3)&0x1)
-            Value : L2上限状态
+        AlertNormalValue : 0
+        
+        # Offset : 38
+        # Options : 
+        #   - Key : 0
+        #     Value : 不越限
+        #   - Key : 1
+        #     Value : 越限
+        #   - Key : (($v[38])&0x1)
+        #     Value : L1下限状态
+        #   - Key : (($v[38]>>1)&0x1)
+        #     Value : L1上限状态
+        #   - Key : (($v[38]>>2)&0x1)
+        #     Value : L2下限状态
+        #   - Key : (($v[38]>>3)&0x1)
+        #     Value : L2上限状态
       - Name : 电流越限状态
         Offset : 39
-        Options : 
-          - Key : 0
-            Value : 不越限
-          - Key : 1
-            Value : 越限
-          - Key : (($v[39])&0x1)
-            Value : L1下下限状态
-          - Key : (($v[39]>>1)&0x1)
-            Value : L1下限状态
-          - Key : (($v[39]>>2)&0x1)
-            Value : L1 上限状态
-          - Key : (($v[39]>>3)&0x1)
-            Value : L1上上限状态
-          - Key : (($v[39]>>4)&0x1)
-            Value : L2下下限状态
-          - Key : (($v[39]>>5)&0x1)
-            Value : L2下限状态
-          - Key : (($v[39]>>6)&0x1)
-            Value : L2 上限状态
-          - Key : (($v[39]>>7)&0x1)
-            Value : L2上上限状态
+        AlertNormalValue : 0
+        # Options : 
+        #   - Key : 0
+        #     Value : 不越限
+        #   - Key : 1
+        #     Value : 越限
+        #   - Key : (($v[39])&0x1)
+        #     Value : L1下下限状态
+        #   - Key : (($v[39]>>1)&0x1)
+        #     Value : L1下限状态
+        #   - Key : (($v[39]>>2)&0x1)
+        #     Value : L1 上限状态
+        #   - Key : (($v[39]>>3)&0x1)
+        #     Value : L1上上限状态
+        #   - Key : (($v[39]>>4)&0x1)
+        #     Value : L2下下限状态
+        #   - Key : (($v[39]>>5)&0x1)
+        #     Value : L2下限状态
+        #   - Key : (($v[39]>>6)&0x1)
+        #     Value : L2 上限状态
+        #   - Key : (($v[39]>>7)&0x1)
+        #     Value : L2上上限状态
 
   - Cmd : 3
     Offset : 50
     Len : 16
     Data : 
       - Name : L1路电度输入
-        Value : (($v[1]<<16)+$v[2])
-        Ratio : 10
+        Value : (($v[1]<<16)+$v[2])/10
+        CValue : ((float)((pData[0]<<16)+pData[1]))/10
         Unit : "Kwh" 
       - Name : L1路电度输出
-        Value : (($v[3]<<16)+$v[4])
-        Ratio : 10
+        Value : (($v[3]<<16)+$v[4])/10
+        CValue : ((float)((pData[2]<<16)+pData[3]))/10
         Unit : "Kwh" 
       - Name : L2路电度输入
-        Value : (($v[5]<<16)+$v[6])
-        Ratio : 10
+        Value : (($v[5]<<16)+$v[6])/10
+        CValue : ((float)((pData[4]<<16)+pData[5]))/10
         Unit : "Kwh" 
       - Name : L2路电度输出
-        Value : (($v[7]<<16)+$v[8])
-        Ratio : 10
+        Value : (($v[7]<<16)+$v[8])/10
+        CValue : ((float)((pData[6]<<16)+pData[7]))/10
         Unit : "Kwh" 
       - Name : 总电度输入
-        Value : (($v[13]<<16)+$v[14])
-        Ratio : 10
+        Value : (($v[13]<<16)+$v[14])/10
+        CValue : ((float)((pData[12]<<16)+pData[13]))/10
         Unit : "Kwh" 
       - Name : 总电度输出
-        Value : (($v[15]<<16)+$v[16])
-        Ratio : 10
+        Value : (($v[15]<<16)+$v[16])/10
+        CValue : ((float)((pData[14]<<16)+pData[15]))/10
         Unit : "Kwh" 
 
 

@@ -1,13 +1,13 @@
 Project:
   Name : SL3500TH3CT2 
   RT_ID : 5156
-  File : ""
+  File : "SL3500-TH3-CT2 地址表.xls"
 Sample : 
   - Cmd : 1
     Offset : 128
     Len : 16
     Data : 
-      - Name : "运行"
+      - Name : "运行指示"
         Offset : 1
         Options : 
           - Key : 0
@@ -1737,7 +1737,6 @@ Sample :
             Value : 氟泵制冷
           - Key : 1
             Value : 压缩机制冷
-
 
 
 

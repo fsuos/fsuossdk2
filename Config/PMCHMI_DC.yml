@@ -1,0 +1,601 @@
+Project:
+  Name : PMCHMI_DC
+  RT_ID : 5156
+  File : "PMC-HMI（直流版）_MODBUS规约_V1.2.pdf"
+BlockTemplate :
+  DeviceCommAlert : 
+    BlockLength : 1
+    BlockType : 'C'
+    BlockContent :
+      - Name : '设备%d通信告警'
+        Index : ($index*10+1)
+        CIndex : (iIndex*10+1)
+        Value : ($v[1]&0x1)
+        CValue : (pData[0]&0x1)
+      - Name : '设备%d通信告警'
+        Index : ($index*10+2)
+        CIndex : (iIndex*10+2)
+        Value : (($v[1]>>1)&0x1)
+        CValue : ((pData[0]>>1)&0x1)
+      - Name : '设备%d通信告警'
+        Index : ($index*10+3)
+        CIndex : (iIndex*10+3)
+        Value : (($v[1]>>2)&0x1)
+        CValue : ((pData[0]>>2)&0x1)
+      - Name : '设备%d通信告警'
+        Index : ($index*10+4)
+        CIndex : (iIndex*10+4)
+        Value : (($v[1]>>3)&0x1)
+        CValue : ((pData[0]>>3)&0x1)
+      - Name : '设备%d通信告警'      
+        Index : ($index*10+5)
+        CIndex : (iIndex*10+5)
+        Value : (($v[1]>>4)&0x1)
+        CValue : ((pData[0]>>4)&0x1)
+      - Name : '设备%d通信告警'
+        Index : ($index*10+6)
+        CIndex : (iIndex*10+6)
+        Value : (($v[1]>>5)&0x1)
+        CValue : ((pData[0]>>5)&0x1)
+      - Name : '设备%d通信告警'
+        Index : ($index*10+7)
+        CIndex : (iIndex*10+7)
+        Value : (($v[1]>>6)&0x1)
+        CValue : ((pData[0]>>6)&0x1)
+      - Name : '设备%d通信告警'
+        Index : ($index*10+8)
+        CIndex : (iIndex*10+8)
+        Value : (($v[1]>>7)&0x1)
+        CValue : ((pData[0]>>7)&0x1)
+      - Name : '设备%d通信告警'
+        Index : ($index*10+9)
+        CIndex : (iIndex*10+9)
+        Value : (($v[1]>>8)&0x1)
+        CValue : ((pData[0]>>8)&0x1)
+      - Name : '设备%d通信告警'
+        Index : ($index*10+10)
+        CIndex : (iIndex*10+10)
+        Value : (($v[1]>>9)&0x1)
+        CValue : ((pData[0]>>9)&0x1)
+  DeviceCheckAlert : 
+    BlockLength : 1
+    BlockType : 'C'
+    BlockContent :
+      - Name : '设备%d自检状态'
+        Index : ($index*10+1)
+        CIndex : (iIndex*10+1)
+        Value : ($v[1]&0x1)
+        CValue : (pData[0]&0x1)
+      - Name : '设备%d自检状态'
+        Index : ($index*10+2)
+        CIndex : (iIndex*10+2)
+        Value : (($v[1]>>1)&0x1)
+        CValue : ((pData[0]>>1)&0x1)
+      - Name : '设备%d自检状态'
+        Index : ($index*10+3)
+        CIndex : (iIndex*10+3)
+        Value : (($v[1]>>2)&0x1)
+        CValue : ((pData[0]>>2)&0x1)
+      - Name : '设备%d自检状态'
+        Index : ($index*10+4)
+        CIndex : (iIndex*10+4)
+        Value : (($v[1]>>3)&0x1)
+        CValue : ((pData[0]>>3)&0x1)
+      - Name : '设备%d自检状态'      
+        Index : ($index*10+5)
+        CIndex : (iIndex*10+5)
+        Value : (($v[1]>>4)&0x1)
+        CValue : ((pData[0]>>4)&0x1)
+      - Name : '设备%d自检状态'
+        Index : ($index*10+6)
+        CIndex : (iIndex*10+6)
+        Value : (($v[1]>>5)&0x1)
+        CValue : ((pData[0]>>5)&0x1)
+      - Name : '设备%d自检状态'
+        Index : ($index*10+7)
+        CIndex : (iIndex*10+7)
+        Value : (($v[1]>>6)&0x1)
+        CValue : ((pData[0]>>6)&0x1)
+      - Name : '设备%d自检状态'
+        Index : ($index*10+8)
+        CIndex : (iIndex*10+8)
+        Value : (($v[1]>>7)&0x1)
+        CValue : ((pData[0]>>7)&0x1)
+      - Name : '设备%d自检状态'
+        Index : ($index*10+9)
+        CIndex : (iIndex*10+9)
+        Value : (($v[1]>>8)&0x1)
+        CValue : ((pData[0]>>8)&0x1)
+      - Name : '设备%d自检状态'
+        Index : ($index*10+10)
+        CIndex : (iIndex*10+10)
+        Value : (($v[1]>>9)&0x1)
+        CValue : ((pData[0]>>9)&0x1)
+  OutputDIAlert : 
+    BlockLength : 1
+    BlockType : 'S'
+    BlockContent :
+      - Name : '出线DI%d状态'
+        Index : ($index*10+1)
+        CIndex : (iIndex*10+1)
+        Value : ($v[1]&0x1)
+        CValue : (pData[0]&0x1)
+        AlertNormalValue : 0
+      - Name : '出线DI%d状态'
+        Index : ($index*10+2)
+        CIndex : (iIndex*10+2)
+        Value : (($v[1]>>1)&0x1)
+        CValue : ((pData[0]>>1)&0x1)
+        AlertNormalValue : 0
+      - Name : '出线DI%d状态'
+        Index : ($index*10+3)
+        CIndex : (iIndex*10+3)
+        Value : (($v[1]>>2)&0x1)
+        CValue : ((pData[0]>>2)&0x1)
+        AlertNormalValue : 0
+      - Name : '出线DI%d状态'
+        Index : ($index*10+4)
+        CIndex : (iIndex*10+4)
+        Value : (($v[1]>>3)&0x1)
+        CValue : ((pData[0]>>3)&0x1)
+        AlertNormalValue : 0
+      - Name : '出线DI%d状态'        
+        Index : ($index*10+5)
+        CIndex : (iIndex*10+5)
+        Value : (($v[1]>>4)&0x1)
+        CValue : ((pData[0]>>4)&0x1)
+        AlertNormalValue : 0
+      - Name : '出线DI%d状态'
+        Index : ($index*10+6)
+        CIndex : (iIndex*10+6)
+        Value : (($v[1]>>5)&0x1)
+        CValue : ((pData[0]>>5)&0x1)
+        AlertNormalValue : 0
+      - Name : '出线DI%d状态'
+        Index : ($index*10+7)
+        CIndex : (iIndex*10+7)
+        Value : (($v[1]>>6)&0x1)
+        CValue : ((pData[0]>>6)&0x1)
+        AlertNormalValue : 0
+      - Name : '出线DI%d状态'
+        Index : ($index*10+8)
+        CIndex : (iIndex*10+8)
+        Value : (($v[1]>>7)&0x1)
+        CValue : ((pData[0]>>7)&0x1)
+        AlertNormalValue : 0
+      - Name : '出线DI%d状态'
+        Index : ($index*10+9)
+        CIndex : (iIndex*10+9)
+        Value : (($v[1]>>8)&0x1)
+        CValue : ((pData[0]>>8)&0x1)
+        AlertNormalValue : 0
+      - Name : '出线DI%d状态'
+        Index : ($index*10+10)
+        CIndex : (iIndex*10+10)
+        Value : (($v[1]>>9)&0x1)
+        CValue : ((pData[0]>>9)&0x1)
+        AlertNormalValue : 0
+  OutputDOState : 
+    BlockLength : 1
+    BlockType : 'S'
+    BlockContent :
+      - Name : 'DO%d状态'
+        Index : ($index*10+1)
+        CIndex : (iIndex*10+1)
+        Value : ($v[1]&0x1)
+        CValue : (pData[0]&0x1)
+      - Name : 'DO%d状态'
+        Index : ($index*10+2)
+        CIndex : (iIndex*10+2)
+        Value : (($v[1]>>1)&0x1)
+        CValue : ((pData[0]>>1)&0x1)
+      - Name : 'DO%d状态'
+        Index : ($index*10+3)
+        CIndex : (iIndex*10+3)
+        Value : (($v[1]>>2)&0x1)
+        CValue : ((pData[0]>>2)&0x1)
+      - Name : 'DO%d状态'
+        Index : ($index*10+4)
+        CIndex : (iIndex*10+4)
+        Value : (($v[1]>>3)&0x1)
+        CValue : ((pData[0]>>3)&0x1)
+      - Name : 'DO%d状态'        
+        Index : ($index*10+5)
+        CIndex : (iIndex*10+5)
+        Value : (($v[1]>>4)&0x1)
+        CValue : ((pData[0]>>4)&0x1)
+      - Name : 'DO%d状态'
+        Index : ($index*10+6)
+        CIndex : (iIndex*10+6)
+        Value : (($v[1]>>5)&0x1)
+        CValue : ((pData[0]>>5)&0x1)
+      - Name : 'DO%d状态'
+        Index : ($index*10+7)
+        CIndex : (iIndex*10+7)
+        Value : (($v[1]>>6)&0x1)
+        CValue : ((pData[0]>>6)&0x1)
+      - Name : 'DO%d状态'
+        Index : ($index*10+8)
+        CIndex : (iIndex*10+8)
+        Value : (($v[1]>>7)&0x1)
+        CValue : ((pData[0]>>7)&0x1)
+      - Name : 'DO%d状态'
+        Index : ($index*10+9)
+        CIndex : (iIndex*10+9)
+        Value : (($v[1]>>8)&0x1)
+        CValue : ((pData[0]>>8)&0x1)
+      - Name : 'DO%d状态'
+        Index : ($index*10+10)
+        CIndex : (iIndex*10+10)
+        Value : (($v[1]>>9)&0x1)
+        CValue : ((pData[0]>>9)&0x1)
+  InlineAlert :
+    BlockLength : 4
+    BlockType : 'I'
+    BlockContent : 
+      - Name : "进线%s电压高"
+        Value : (($v[1])&0x1)
+        CValue : ((pData[0])&0x1)
+        AlertNormalValue : 0
+      - Name : "进线%s电压低"
+        Value : (($v[1]>>1)&0x1)
+        CValue : ((pData[0]>>1)&0x1)
+        AlertNormalValue : 0
+      - Name : "进线%s电流过高"
+        Value : (($v[1]>>2)&0x1)
+        CValue : ((pData[0]>>2)&0x1)
+        AlertNormalValue : 0
+      - Name : "进线%s电流高"
+        Value : (($v[1]>>3)&0x1)
+        CValue : ((pData[0]>>3)&0x1)
+        AlertNormalValue : 0
+      - Name : "进线%s电流过低"
+        Value : (($v[1]>>4)&0x1)
+        CValue : ((pData[0]>>4)&0x1)
+        AlertNormalValue : 0
+      - Name : "进线%s电流低"
+        Value : (($v[1]>>5)&0x1)
+        CValue : ((pData[0]>>5)&0x1)
+        AlertNormalValue : 0
+      - Name : "进线%s正极绝缘电阻预警"
+        Value : (($v[1]>>6)&0x1)
+        CValue : ((pData[0]>>6)&0x1)
+        AlertNormalValue : 0
+      - Name : "进线%s正极绝缘电阻报警"
+        Value : (($v[1]>>7)&0x1)
+        CValue : ((pData[0]>>7)&0x1)
+        AlertNormalValue : 0
+      - Name : "进线%s负极绝缘电阻预警"
+        Value : (($v[1]>>8)&0x1)
+        CValue : ((pData[0]>>8)&0x1)
+        AlertNormalValue : 0
+      - Name : "进线%s负极绝缘电阻报警"
+        Value : (($v[1]>>9)&0x1)
+        CValue : ((pData[0]>>9)&0x1)
+        AlertNormalValue : 0
+      - Name : "进线%s交流窜电"
+        Value : (($v[1]>>10)&0x1)
+        CValue : ((pData[0]>>10)&0x1)
+        AlertNormalValue : 0
+      - Name : "进线%s正极进线跳闸"
+        Value : (($v[1]>>11)&0x1)
+        CValue : ((pData[0]>>11)&0x1)
+        AlertNormalValue : 0
+      - Name : "进线%s负极进线跳闸"
+        Value : (($v[1]>>12)&0x1)
+        CValue : ((pData[0]>>12)&0x1)
+        AlertNormalValue : 0
+      - Name : "进线%s防雷故障"
+        Value : (($v[1]>>13)&0x1)
+        CValue : ((pData[0]>>13)&0x1)
+        AlertNormalValue : 0
+  OutputChAlert : 
+    BlockLength : 4
+    BlockType : 'C'
+    BlockContent :
+      - Name :  "出线回路%s电流超高"
+        AlertNormalValue : 0
+      - Name :  "出线回路%s电流高"
+        AlertNormalValue : 0
+      - Name :  "出线回路%s电流低"
+        AlertNormalValue : 0
+      - Name :  "出线回路%s电流过低"
+        AlertNormalValue : 0
+  OutputChAlert : 
+    BlockLength : 1
+    BlockType : 'S'
+    BlockContent :
+      - Name : '出线%d跳闸告警'
+        Index : ($index*10+1)
+        CIndex : (iIndex*10+1)
+        Value : ($v[1]&0x1)
+        CValue : (pData[0]&0x1)
+      - Name : '出线%d跳闸告警'
+        Index : ($index*10+2)
+        CIndex : (iIndex*10+2)
+        Value : (($v[1]>>1)&0x1)
+        CValue : ((pData[0]>>1)&0x1)
+      - Name : '出线%d跳闸告警'
+        Index : ($index*10+3)
+        CIndex : (iIndex*10+3)
+        Value : (($v[1]>>2)&0x1)
+        CValue : ((pData[0]>>2)&0x1)
+      - Name : '出线%d跳闸告警'
+        Index : ($index*10+4)
+        CIndex : (iIndex*10+4)
+        Value : (($v[1]>>3)&0x1)
+        CValue : ((pData[0]>>3)&0x1)
+      - Name : '出线%d跳闸告警'      
+        Index : ($index*10+5)
+        CIndex : (iIndex*10+5)
+        Value : (($v[1]>>4)&0x1)
+        CValue : ((pData[0]>>4)&0x1)
+      - Name : '出线%d跳闸告警'
+        Index : ($index*10+6)
+        CIndex : (iIndex*10+6)
+        Value : (($v[1]>>5)&0x1)
+        CValue : ((pData[0]>>5)&0x1)
+      - Name : '出线%d跳闸告警'
+        Index : ($index*10+7)
+        CIndex : (iIndex*10+7)
+        Value : (($v[1]>>6)&0x1)
+        CValue : ((pData[0]>>6)&0x1)
+      - Name : '出线%d跳闸告警'
+        Index : ($index*10+8)
+        CIndex : (iIndex*10+8)
+        Value : (($v[1]>>7)&0x1)
+        CValue : ((pData[0]>>7)&0x1)
+      - Name : '出线%d跳闸告警'
+        Index : ($index*10+9)
+        CIndex : (iIndex*10+9)
+        Value : (($v[1]>>8)&0x1)
+        CValue : ((pData[0]>>8)&0x1)
+      - Name : '出线%d跳闸告警'
+        Index : ($index*10+10)
+        CIndex : (iIndex*10+10)
+        Value : (($v[1]>>9)&0x1)
+        CValue : ((pData[0]>>9)&0x1)
+  OutputPosIsolationAlert :
+    BlockLength : 2
+    BlockType : 'C'
+    BlockContent :
+      - Name :  "出线%s正极绝缘电阻预警"
+        AlertNormalValue : 0
+      - Name :  "出线%s正极绝缘电阻报警"
+        AlertNormalValue : 0
+  OutputNegIsolationAlert :
+    BlockLength : 2
+    BlockType : 'C'
+    BlockContent :
+      - Name :  "出线%s正极绝缘电阻预警"
+        AlertNormalValue : 0
+      - Name :  "出线%s正极绝缘电阻报警"
+        AlertNormalValue : 0
+Sample :
+  - Cmd : 3
+    Offset : 0
+    Len : 1
+    Data : 
+      - Name : 总通信状态
+        AlertNormalValue : 0
+  - Cmd : 3
+    Offset : 1
+    Len : 3
+    Data : 
+      - ArrayBlock : DeviceCommAlert
+        ArrayStart : 1
+        ArrayEnd : 3
+  - Cmd : 3
+    Offset : 4
+    Len : 1
+    Data : 
+      - Name : '设备31通信告警'
+        Value : ($v[1]&0x1)
+        CValue : (pData[0]&0x1)
+      - Name : '设备32通信告警'
+        Value : (($v[1]>>1)&0x1)
+        CValue : ((pData[0]>>1)&0x1)
+  - Cmd : 3
+    Offset : 5
+    Len : 1
+    Data : 
+      - Name : 总自检状态
+        AlertNormalValue : 0
+  - Cmd : 3
+    Offset : 6
+    Len : 3
+    Transform : "bits"
+    Data : 
+      - ArrayBlock : DeviceCheckAlert
+        ArrayStart : 1
+        ArrayEnd : 3
+  - Cmd : 3
+    Offset : 9
+    Len : 1
+    Data : 
+      - Name : '设备31自检状态'
+        Value : ($v[1]&0x1)
+        CValue : (pData[0]&0x1)
+      - Name : '设备32自检状态'
+        Value : (($v[1]>>1)&0x1)
+        CValue : ((pData[0]>>1)&0x1)
+  - Cmd : 3
+    Offset : 20
+    Len : 2
+    Data : 
+      - Name : "进线1正极进线开关"
+        Value : ($v[1]&0x1)
+        CValue : (pData[0]&0x1)
+      - Name : "进线1负极进线开关"
+        Value : (($v[1]>>1)&0x1)
+        CValue : ((pData[0]>>1)&0x1)
+      - Name : "进线1防雷开关"
+        Value : (($v[1]>>2)&0x1)
+        CValue : ((pData[0]>>2)&0x1)
+      - Name : "进线1防雷故障"
+        Value : (($v[1]>>3)&0x1)
+        CValue : ((pData[0]>>3)&0x1)
+      - Name : "进线2正极进线开关"
+        Value : ($v[2]&0x1)
+        CValue : (pData[1]&0x1)
+      - Name : "进线2负极进线开关"
+        Value : (($v[2]>>1)&0x1)
+        CValue : ((pData[1]>>1)&0x1)
+      - Name : "进线2防雷开关"
+        Value : (($v[2]>>2)&0x1)
+        CValue : ((pData[1]>>2)&0x1)
+      - Name : "进线2防雷故障"
+        Value : (($v[2]>>3)&0x1)
+        CValue : ((pData[1]>>3)&0x1)
+  - Cmd : 3
+    Offset : 22
+    Len : 20
+    Data : 
+      - ArrayBlock : OutputDIAlert
+        ArrayStart : 1
+        ArrayEnd : 20
+  - Cmd : 3
+    Offset : 120
+    Len : 6
+    Data : 
+      - ArrayBlock : OutputDOState
+        ArrayStart : 1
+        ArrayEnd : 6
+  - Cmd : 3
+    Offset : 126
+    Len : 1
+    Data : 
+      - Name : 'DO61状态'
+        Value : ($v[1]&0x1)
+        CValue : (pData[0]&0x1)
+      - Name : 'DO62状态'
+        Value : (($v[1]>>1)&0x1)
+        CValue : ((pData[0]>>1)&0x1)
+      - Name : 'DO63状态'
+        Value : (($v[1]>>2)&0x1)
+        CValue : ((pData[0]>>2)&0x1)
+      - Name : 'DO64状态'
+        Value : (($v[1]>>3)&0x1)
+        CValue : ((pData[0]>>3)&0x1)
+  - Cmd : 3
+    Offset : 130
+    Len : 1
+    Data :
+      - Name : '总报警状态'
+        Offset : 1
+        AlertNormalValue : 0
+      - Name : '进线1电流过流报警'
+        Value : ($v[2]&0x1)
+        CValue : (pData[1]&0x1)
+      - Name : '进线1系统绝缘电阻过低'
+        Value : ($v[2]&0x1)
+        CValue : (pData[1]&0x1)
+      - Name : '进线2电流过流报警'
+        Value : ($v[3]&0x1)
+        CValue : (pData[2]&0x1)
+      - Name : '进线2系统绝缘电阻过低'
+        Value : ($v[3]&0x1)
+        CValue : (pData[2]&0x1)
+      - Name : '出线总报警'
+        Offset : 4
+        AlertNormalValue : 0
+      - Name : '出线绝缘报警'
+        Offset : 5
+        AlertNormalValue : 0
+  - Cmd : 3
+    Offset : 135
+    Len : 4
+    Data :
+      - ArrayBlock : InlineAlert
+        ArrayStart : 1
+        ArrayEnd : 2
+  - Cmd : 3
+    Offset : 143
+    Len : 50
+    Transform : "bits"
+    Data : 
+      - ArrayBlock : OutputChAlert
+        ArrayStart : 1
+        ArrayEnd : 200
+  - Cmd : 3
+    Offset : 193
+    Len : 20
+    Data : 
+      - ArrayBlock : OutputChAlert
+        ArrayStart : 1
+        ArrayEnd : 20
+  - Cmd : 3
+    Offset : 213
+    Len : 25
+    Transform : "bits"
+    Data : 
+      - ArrayBlock : OutputPosIsolationAlert
+        ArrayStart : 1
+        ArrayEnd : 200
+  - Cmd : 3
+    Offset : 4650
+    Len : 25
+    Transform : "bits"
+    Data : 
+      - ArrayBlock : OutputNegIsolationAlert
+        ArrayStart : 1
+        ArrayEnd : 200
+  - CmdGroupStart : 300
+    CmdGroupStep : 100
+    CmdGroupEnd : 400
+    CmdGroupPrefix : "进线%d"
+    CmdGroupSample :
+      - Cmd : 3
+        Offset : 0
+        Len : 8
+        Type : 'f'
+        Data : 
+          - Name : "电压"
+          - Name : "电流"
+          - Name : "功率"
+          - Name : "负载率"
+      - Cmd : 3
+        Offset : 8
+        Len : 2
+        Type : "i"
+        Data : 
+          - Name : "电能"
+      - Cmd : 3
+        Offset : 10
+        Len : 16
+        Type : 'f'
+        Data : 
+          - Name : "正极对地电压"
+          - Name : "负极对地电压"
+          - Name : "正极对地交流电压"
+          - Name : "负极对地交流电压"
+          - Name : "系统正对地电阻"
+          - Name : "系统负对地电阻"
+          - Name : "母线正对地电阻"
+          - Name : "母线负对地电阻"
+  - CmdGroupStart : 500
+    CmdGroupStep : 20
+    CmdGroupEnd : 4500
+    CmdGroupPrefix : "模块%d数据"
+    CmdGroupSample :
+      - Cmd : 3
+        Offset : 0
+        Len : 6
+        Type : 'f'
+        Data : 
+          - Name : "电流"
+          - Name : "负载率"
+          - Name : "功率"
+      - Cmd : 3
+        Offset : 6
+        Len : 2
+        Type : "i"
+        Data : 
+          - Name : "电能"
+      - Cmd : 3
+        Offset : 8
+        Len : 4
+        Type : 'f'
+        Data : 
+          - Name : "正极绝缘电阻"
+          - Name : "负极绝缘电阻"

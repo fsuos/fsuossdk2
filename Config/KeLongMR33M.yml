@@ -1,0 +1,574 @@
+Project:
+  Name : KeLongMR33M
+  RT_ID : 5156
+  File : "科华UPS-MR33-M 系列（400K-600K) 北向监控Modbus通信协议(南湖七楼).pdf"
+Sample :
+  - Cmd : 2
+    Offset : 5000
+    Len : 19
+    Data :
+      - Name : 电池异常
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 电池供电
+        Options :
+          - Key : 0
+            Value : 非电池供电态
+          - Key : 1
+            Value : 电池供电态
+      - Name : 电池电量低
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 电池耗尽
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 市电异常
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 输出异常
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 输出过载
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 旁路异常
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 旁路供电
+        Options : 
+          - Key : 0
+            Value : 非旁路态
+          - Key : 1
+            Value : 旁路输出态
+      - Name : 开关机状态
+        Options : 
+          - Key : 0
+            Value : 关机
+          - Key : 1
+            Value : 开机
+      - Name : 电池测试中
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 动作
+      - Name : UPS其他故障
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 蜂鸣器状态
+        Options : 
+          - Key : 0
+            Value : 无声
+          - Key : 1
+            Value : 鸣叫
+      - Name : 维护旁路空开状态
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+      - Name : EPO
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+      - Name : UPS类型
+        Options : 
+          - Key : 0
+            Value : 塔式
+          - Key : 1
+            Value : 模块化
+      - Name : 输入防雷器状态
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 输出空开状态
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+      - Name : UPS状态
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+  - Cmd : 2
+    Offset : 5032
+    Len : 8
+    Data :
+      - Name : 逆变旁路失同步
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 辅助电源故障
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 整流器故障
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 逆变器故障
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 充电器故障
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 电池开关状态
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+      - Name : 市电开关状态
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+      - Name : 旁路开关状态
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+  - Cmd : 2
+    Offset : 5100
+    Len : 8
+    Data :
+      - Name : 市电过压
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 市电欠压
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 市电频率过频
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 市电频率欠频
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 市电缺相
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 市电电压不平衡
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 市电相序异常
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 市电掉电
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+  - Cmd : 2
+    Offset : 5117
+    Len : 4
+    Data :
+      - Name : 电池过压
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 电池回路异常
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 电池极性接反
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 电池温度异常
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+  - Cmd : 2
+    Offset : 5132
+    Len : 8
+    Data :
+      - Name : 旁路过压
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 旁路欠压
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 旁路频率过频
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 旁路频率欠频
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 旁路缺相
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 旁路相序异常
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 旁路掉电
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 旁路过载保护
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+  - Cmd : 2
+    Offset : 5148
+    Len : 12
+    Data :
+      - Name : 逆变过压
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 逆变欠压
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 逆变过载保护
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 输出回路异常
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : ECO故障
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 主权故障
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 并机通讯故障
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 并机线异常
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 逆变过频故障
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 逆变欠频故障
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 输出短路故障
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 并机系统EPO故障
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+  - Cmd : 2
+    Offset : 5164
+    Len : 13
+    Data :
+      - Name : 市电保险丝异常
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 电池保险丝异常
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 输出保险丝异常
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 功率模块风机异常
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 旁路风机异常
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 整流器过温保护
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 充电器过温保护
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 逆变器过温保护
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 母线电容更换预告警
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 旁路风机更换预告警
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 功率模块风机更换预告警
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : BSC 同步线异常
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : 温控器失效故障
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+  - Cmd : 2
+    Offset : 5196
+    Len : 1
+    Data :
+      - Name : 其他故障
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+  - Cmd : 2
+    Offset : 5200
+    Len : 25
+    Data :
+      - ArrayName : "模块%d异常"
+        ArrayStart : 1
+        ArrayLength : 25
+        Offset : 0
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+  - Cmd : 2
+    Offset : 5232
+    Len : 25
+    Data :
+      - ArrayName : "模块%d过载"
+        ArrayStart : 1
+        ArrayLength : 25
+        Offset : 0
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+  - Cmd : 4
+    Offset : 5000
+    Len : 45
+    Data :
+      - Name : 电池性能状态
+        Options : 
+          - Key : 1
+            Value : 电池物理链路异常
+          - Key : 2
+            Value : 电池正常
+          - Key : 3
+            Value : 电池低压告警
+          - Key : 4
+            Value : 电池低压保护
+      - Name : 电池剩余供电时间
+        Unit : "min"
+      - Name : 电池剩余容量
+        Unit : "%"
+      - Name : 电池温度
+        Ratio : 10
+        Unit : "℃"
+      - Name : 输入相数
+      - Name : "输入（市电）频率"
+        Ratio : 100
+        Unit : "Hz"
+      - Name : "输入U相电压"
+        Ratio : 10
+        Unit : "V"
+      - Name : "输入V相电压"
+        Ratio : 10
+        Unit : "V"
+      - Name : "输入W相电压"
+        Ratio : 10
+        Unit : "V"
+      - Name : "输入U相电压"
+        Ratio : 10
+        Unit : "A"
+      - Name : "输入V相电流"
+        Ratio : 10
+        Unit : "A"
+      - Name : "输入W相电流"
+        Ratio : 10
+        Unit : "A"
+      - Name : "输出工作方式"
+        Options : 
+          - Key : 1
+            Value : "其他"
+          - Key : 2
+            Value : "无输出"
+          - Key : 3
+            Value : "市电逆变"
+          - Key : 4
+            Value : "旁路"
+          - Key: 5
+            Value : 电池逆变
+          - Key : 6
+            Value : Booster
+          - Key : 7
+            Value : reducer
+      - Name : 输出相数
+      - Name : 输出频率
+        Unit : Hz
+        Ratio : 100
+      - Name : 输出U相电压
+        Ratio : 10
+        Unit : hz
+      - Name : 输出V相电压
+        Ratio : 10
+        Unit : hz
+      - Name : 输出W相电压
+        Ratio : 10
+        Unit : hz
+      - Name : 输出U相电流
+        Unit : A
+      - Name : 输出V相电流
+        Unit : A
+      - Name : 输出W相电流
+        Unit : A
+      - Name : 输出U相有功功率
+        Unit : kW
+        Rato : 10
+      - Name : 输出V相有功功率
+        Unit : kW
+        Rato : 10
+      - Name : 输出W相有功功率
+        Unit : kW
+        Rato : 10
+      - Name : 旁路相数
+      - Name : 旁路输入频率
+        Unit : Hz
+        Ratio : 100
+      - Name : 旁路U相电压
+        Ratio : 10
+        Unit : V
+      - Name : 旁路V相电压
+        Ratio : 10
+        Unit : V
+      - Name : 旁路W相电压
+        Ratio : 10
+        Unit : V
+      - Name : 旁路U相电流
+        Unit : A
+      - Name : 旁路V相电流
+        Unit : A
+      - Name : 旁路W相电流
+        Unit : A
+      - Name : 旁路U相有功功率
+        Unit : kW
+        Rato : 10
+      - Name : 旁路V相有功功率
+        Unit : kW
+        Rato : 10
+      - Name : 旁路W相有功功率
+        Unit : kW
+        Rato : 10
+      - Name : 额定输入电压
+        Unit : V
+      - Name : 额定输入频率
+        Unit : Hz
+      - Name : 额定输出电压
+        Unit : V
+      - Name : 额定输出频率
+        Unit : Hz
+      - Name : 额定输出有功功率
+        Unit : kVA
+      - Name : 额定输出视在功率
+        Unit : kVA
+      - Name : 额定电池电压
+  - Cmd : 4
+    Offset : 5129
+    Len : 28
+    Data :
+      - Name : 系统工作模式
+        Options : 
+          - Key : 0
+            Value : 初始化
+          - Key : 1
+            Value : 故障保护
+          - Key : 2
+            Value : 关机
+          - Key : 3
+            Value : 并机切出
+          - Key : 4
+            Value : 旁路
+          - Key : 5
+            Value : 逆变
+          - Key : 6
+            Value : 并网自老化
+          - Key : 7
+            Value : ECO模式
+          - Key : 8
+            Value : 变频模式
+          - Key : 9
+            Value : 维护旁路
+          - Key : 10
+            Value : 并网自老化关机
+          - Key : 11
+            Value : 变频模式关机
+          - Key : 12
+            Value : 自老化旁路输出
+          - Key : 13
+            Value : 其他
+      - Name : 整流工作状态
+        Options :
+          - Key : 0
+            Value : 启动中
+          - Key : 1
+            Value : 故障
+          - Key : 2
+            Value : 市电升压
+          - Key : 3
+            Value : 电池升压
+      - Name : 电池运行状态
+        Options : 
+          - Key : 0
+            Value : 放电
+          - Key : 1
+            Value : 均充
+          - Key : 2
+            Value : 浮充
+          - Key : 3
+            Value : 未知
+      - Name : 电池节数
+      - Name : 输出U相视在功率
+        Ratio : 10
+        Unit : kVA
+      - Name : 输出V相视在功率
+        Ratio : 10
+        Unit : kVA
+      - Name : 输出W相视在功率
+        Ratio : 10
+        Unit : kVA
+      - Name : 旁路U相视在功率
+        Ratio : 10
+        Unit : kVA
+      - Name : 旁路V相视在功率
+        Ratio : 10
+        Unit : kVA
+      - Name : 旁路W相视在功率
+        Ratio : 10
+        Unit : kVA
+      - Name : 正电池组电压
+        Ratio : 10
+        Unit : V
+      - Name : 负电池组电压
+        Ratio : 10
+        Unit : V
+      - Name : 正电池组放电电流
+        Unit : A
+      - Name : 负电池组放电电流
+        Unit : A
+      - Name : 正电池组充电电流
+        Ratio : 10
+        Unit : A
+      - Name : 负电池组充电电流
+        Ratio : 10
+        Unit : A
+      - Name : 输出U相功率因数
+        Ratio : 1000
+      - Name : 输出V相功率因数
+        Ratio : 1000
+      - Name : 输出W相功率因数
+        Ratio : 1000
+      - Name : 输入U相视在功率
+        Ratio : 10
+        Unit : kVA
+      - Name : 输入V相视在功率
+        Ratio : 10
+        Unit : kVA
+      - Name : 输入W相视在功率
+        Ratio : 10
+        Unit : kVA
+      - Name : 输入U相有功功率
+        Ratio : 10
+        Unit : kW
+      - Name : 输入V相有功功率
+        Ratio : 10
+        Unit : kW
+      - Name : 输入W相有功功率
+        Ratio : 10
+        Unit : kW
+      - Name : 输入U相功率因数
+        Ratio : 1000
+      - Name : 输入V相功率因数
+        Ratio : 1000
+      - Name : 输入W相功率因数
+        Ratio : 1000
+  # - Cmd : 1
+  #   Offset : 1
+  #   Len : 1
+  #   Data :
+  #     - Name : 开关机设置
+  #       Options : 
+  #         - Key : 1
+  #           Value : 开机
+  #         - Key : 0
+  #           Value : 关机
+  # - Cmd : 4
+  #   Offset : 5315
+  #   Len : 1
+  #   Data :
+  #     - Name : 模块数

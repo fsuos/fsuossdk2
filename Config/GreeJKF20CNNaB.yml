@@ -257,7 +257,7 @@ RunCheckThresholdCodeTelecom: |
 
 SET_RET_CODE : |
   case AC_Control_Code::AC_START: {
-        if(tab_reg[0] == 1) {
+        if(tab_reg[0] == last_data_) {
             cmd_result_ = 1;
         } else {
             cmd_result_ = 3;
@@ -266,8 +266,8 @@ SET_RET_CODE : |
         return false;
       }
       case AC_Control_Code::AC_STOP: {
-        if(tab_reg[0] == 0) {
-            cmd_result_ = 1;
+        if(tab_reg[0] == last_data_) {
+            cmd_result_ = ;
         } else {
             cmd_result_ = 3;
         }
@@ -291,22 +291,16 @@ SET_DO_CODE : |
           //开机
           state = AC_Control_Code::AC_START;
           cmd_result_ = -1;
-          last_data_ = 1;
+          last_data_ = 0xAA;
           modbus_write_register(13, 0xAA);
-          if((uint32_t)outBufferSize >= sizeof(int)) {
-              *((int*)outBuffer) = 1;//通知取状态
-              bytesReturned = sizeof(int);
-          }
+          return 0;
       }else if(setting["signal_id"].asString() == "140800300010") {
           //关机
           state = AC_Control_Code::AC_STOP;
           cmd_result_ = -1;
-          last_data_ = 0;
+          last_data_ = 0x55;
           modbus_write_register(13, 0x55);
-          if((uint32_t)outBufferSize >= sizeof(int)) {
-              *((int*)outBuffer) = 1;//通知取状态
-              bytesReturned = sizeof(int);
-          }
+          return 0;
       }
   }
 
@@ -317,12 +311,8 @@ SET_AO_CODE: |
           //送风温度
           state = AC_Control_Code::AC_SET_TEMPERATURE;
           cmd_result_ = -1;
-          OpenPort();
           modbus_write_register(1, newValue);
-          if((uint32_t)outBufferSize >= sizeof(int)) {
-              *((int*)outBuffer) = 1;//通知取状态
-              bytesReturned = sizeof(int);
-          }                       
+          return 0;                     
       }
   }else if(setting["signal_id"].asString() == "150800340010") {
       if(setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
@@ -330,12 +320,8 @@ SET_AO_CODE: |
           //湿度
           state = AC_Control_Code::AC_SET_HUMID;
           cmd_result_ = -1;
-          OpenPort();
           modbus_write_register(2, newValue);
-          if((uint32_t)outBufferSize >= sizeof(int)) {
-              *((int*)outBuffer) = 1;//通知取状态
-              bytesReturned = sizeof(int);
-          }                       
+          return 0;                      
       }
   }
         

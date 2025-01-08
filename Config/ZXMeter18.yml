@@ -1,0 +1,43 @@
+Project:
+  Name : ZXMeter18
+  RT_ID : 5156
+  File : "18路直流电表通信协议(modbus rtu).docx"
+Sample :
+  - Cmd : 3
+    Offset : 100
+    Len : 2
+    Type : 'f'
+    Data : 
+      - Name : "电压"
+        Unit : "V"
+  - Cmd : 3
+    Offset : 102
+    Len : 36
+    Type : 'f'
+    Data : 
+      - ArrayName : "电流%d"
+        ArrayStart : 1
+        ArrayLength : 18
+        Offset : 0
+        Unit : "A"
+  - Cmd : 3
+    Offset : 138
+    Len : 36
+    Type : 'f'
+    Data : 
+      - ArrayName : "功率%d"
+        ArrayStart : 1
+        ArrayLength : 18
+        Offset : 0
+        Unit : "kw"
+        Ratio : 1000
+  - Cmd : 3
+    Offset : 174
+    Len : 36
+    Type : 'f'
+    Data : 
+      - ArrayName : "电度%d"
+        ArrayStart : 1
+        ArrayLength : 18
+        Offset : 0
+        Unit : "kwh"

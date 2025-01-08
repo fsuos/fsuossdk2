@@ -1,0 +1,1571 @@
+Project:
+  Name : KStarUPS
+  RT_ID : 5156
+  File : "KSTAR UPS MODBUS协议_V1.2_.pdf"
+  TabView : true
+  TabGroup : 
+    - 整机状态位
+    - 整机告警位
+BlockTemplate: 
+  BatteryV:
+    BlockLength : 2
+    BlockType : 'S'
+    BlockContent :
+      - Name : "#%s电池电压"
+        Unit : "V"
+        Ratio : 100
+  BatteryT: 
+    BlockLength : 2
+    BlockType : 's'
+    BlockContent :
+      - Name : "#%s电池温度"
+        Value : '( ($v[1] == 0x7FFF) ? "" : (($v[1]/10)."°C"))'
+  BatteryR:
+    BlockLength : 2
+    BlockType : 'S'
+    BlockContent :
+      - Name : "#%s电池内阻"
+        Unit : "mΩ"
+        Ratio : 100
+  BatteryInfo : 
+    BlockLength : 8
+    BlockContent : 
+      - Block : BatteryV
+      - Block : BatteryT
+      - Block : BatteryR   
+  ModuleData1 :
+    BlockLength : 42
+    BlockType : 'S'
+    BlockContent :  
+      - Name : '模块%s-（逆变）正母线电压'
+        Index : index
+        Unit : V
+        Ratio : 10
+      - Name : '模块%s-（逆变）负母线电压'
+        Index : index
+        Unit : V
+        Ratio : 10
+      - Name : '模块%s-逆变A相电压'
+        Index : index
+        Unit : V
+        Ratio : 10
+      - Name : '模块%s-逆变B相电压'
+        Index : index
+        Unit : V
+        Ratio : 10
+      - Name : '模块%s-逆变C相电压'
+        Index : index
+        Unit : V
+        Ratio : 10
+      - Name : '模块%s-逆变A相电流'
+        Index : index
+        Unit : A
+        Ratio : 10
+      - Name : '模块%s-逆变B相电流'
+        Index : index
+        Unit : A
+        Ratio : 10
+      - Name : '模块%s-逆变C相电流'
+        Index : index
+        Unit : A
+        Ratio : 10
+      - Name : '模块%s-逆变频率'
+        Index : index
+        Unit : Hz
+        Ratio : 10
+      - Name : '模块%s-整流温度'
+        Index : index
+        Unit : "℃"
+        Ratio : 10
+      - Name : '模块%s-逆变温度'
+        Index : index
+        Unit : "℃"
+        Ratio : 10
+      - Name : '模块%s-整流模块通讯联机'
+        Index : index
+        Value : '(($v[13] >> 15)&0x1) ? "通讯联机" : "通讯无"'
+        CValue : '((pData[12] >> 15)&0x1) ? "通讯联机" : "通讯无"'
+      - Name : '模块%s-整流模块负组电池均浮充'
+        Index : index
+        Value : '(($v[12] >> 6)&0x1) ? "均充" : "浮充"'
+        CValue : '((pData[11] >> 6)&0x1) ? "均充" : "浮充"'
+      - Name : '模块%s-整流模块正组电池均浮充'
+        Index : index
+        Value : '(($v[12] >> 7)&0x1) ? "均充" : "浮充"'
+        CValue : '((pData[11] >> 7)&0x1) ? "均充" : "浮充"'
+      - Name : '模块%s-整流模块电池充电'
+        Index : index
+        Value : '(($v[12] >> 8)&0x1) ? "电池充电" : "未充电"'
+        CValue : '((pData[11] >> 8)&0x1) ? "电池充电" : "未充电"'
+      - Name : '模块%s-整流模块电池自检'
+        Index : index
+        Value : '(($v[12] >> 9)&0x1) ? "电池自检中" : "未自检"'
+        CValue : '((pData[11] >> 9)&0x1) ? "电池自检中" : "未自检"'
+      - Name : '模块%s-整流模块输入供电模式'
+        Index : index
+        Value : '(($v[12] >> 10)&0x1) ? "输入供电" : "电池供电"'
+        CValue : '((pData[11] >> 10)&0x1) ? "输入供电" : "电池供电"'
+      - Name : '模块%s-整流模块输入供电状态'
+        Index : index
+        Value : '(($v[12] >> 11)&0x1) ? "工作" : "不工作"'
+        CValue : '((pData[11] >> 11)&0x1) ? "工作" : "不工作"'
+      - Name : '模块%s-整流模块整流器限流'
+        Index : index
+        Value : '(($v[12] >> 12)&0x1) ? "限流状态" : "不限流"'
+        CValue : '((pData[11] >> 12)&0x1) ? "限流状态" : "不限流"'
+      - Name : '模块%s-整流模块紧急关机'
+        Index : index
+        Value : '(($v[12] >> 13)&0x1) ? "紧急关机" : "正常"'
+        CValue : '((pData[11] >> 13)&0x1) ? "紧急关机" : "正常"'
+      - Name : '模块%s-整流模块整流器状态'
+        Index : index
+        Value : '(($v[12] >> 14)&0x1) ? "工作" : "停止"'
+        CValue : '((pData[11] >> 14)&0x1) ? "工作" : "停止"'
+      - Name : '模块%s-整流模块输入空开状态'
+        Index : index
+        Value : '(($v[12] >> 15)&0x1) ? "闭合" : "断开"'
+        CValue : '((pData[11] >> 14)&0x1) ? "工作" : "停止"'
+      - Name : '模块%s-逆变模块逆变待机(ECO状态位)'
+        Index : index
+        Value : '(($v[15] >> 11)&0x1) ? "有效" : "无效"'
+        CValue : '((pData[14] >> 11)&0x1) ? "有效" : "无效"'
+      - Name : '模块%s-逆变模块LBS系统激活'
+        Index : index
+        Value : '(($v[15] >> 12)&0x1) ? "有效" : "无效"'
+        CValue : '((pData[14] >> 12)&0x1) ? "有效" : "无效"'
+      - Name : '模块%s-并机系统转旁路'
+        Index : index
+        Value : '(($v[15] >> 13)&0x1) ? "有效" : "无效"'
+        CValue : '((pData[14] >> 13)&0x1) ? "有效" : "无效"'
+      - Name : '模块%s-逆变模块负载冲击切旁路'
+        Index : index
+        Value : '(($v[15] >> 14)&0x1) ? "有效" : "无效"'
+        CValue : '((pData[14] >> 14)&0x1) ? "有效" : "无效"'
+      - Name : '模块%s-逆变模块过载延时到关机'
+        Index : index
+        Value : '(($v[15] >> 15)&0x1) ? "有效" : "无效"'
+        CValue : '((pData[14] >> 15)&0x1) ? "有效" : "无效"'
+      - Name : '模块%s-逆变模块切换次数到'
+        Index : index
+        Value : '(($v[14] >> 0)&0x1) ? "有效" : "无效"'
+        CValue : '((pData[13] >> 0)&0x1) ? "有效" : "无效"'
+      - Name : '模块%s-逆变模块逆变主机'
+        Index : index
+        Value : '(($v[14] >> 1)&0x1) ? "有效" : "无效"'
+        CValue : '((pData[13] >> 1)&0x1) ? "有效" : "无效"'
+      - Name : '模块%s-逆变模块启动容量不足'
+        Index : index
+        Value : '(($v[14] >> 2)&0x1) ? "有效" : "无效"'
+        CValue : '((pData[13] >> 2)&0x1) ? "有效" : "无效"'
+      - Name : '模块%s-逆变模块紧急关机提示'
+        Index : index
+        Value : '(($v[14] >> 3)&0x1) ? "有效" : "无效"'
+        CValue : '((pData[13] >> 3)&0x1) ? "有效" : "无效"'
+      - Name : '模块%s-逆变模块关机将导致过载告警'
+        Index : index
+        Value : '(($v[14] >> 4)&0x1) ? "有效" : "无效"'
+        CValue : '((pData[13] >> 4)&0x1) ? "有效" : "无效"'
+      - Name : '模块%s-逆变模块关机将导致断电告警'
+        Index : index
+        Value : '(($v[14] >> 5)&0x1) ? "闭合" : "无效"'
+        CValue : '((pData[13] >> 5)&0x1) ? "闭合" : "无效"'
+      - Name : '模块%s-逆变模块间断切换提示'
+        Index : index
+        Value : '(($v[14] >> 6)&0x1) ? "闭合" : "无效"'
+        CValue : '((pData[13] >> 6)&0x1) ? "闭合" : "无效"'
+      - Name : '模块%s-逆变模块UPS供电状态'
+        Index : index
+        Value : '(($v[14] >> 8)&0x1) ? "旁路供电" : "均不供电"'
+        CValue : '((pData[13] >> 8)&0x1) ? "旁路供电" : "均不供电"'
+      - Name : '模块%s-逆变模块开关机状态'
+        Index : index
+        Value : (($v[14] >> 9)&0x3)
+        CValue : ((pData[13] >> 9)&0x3)
+        Options :
+          - Key : 0
+            Value : 关机
+          - Key : 1
+            Value : 软启动
+          - Key : 2
+            Value : 启动完毕未供电
+          - Key : 3
+            Value : 正常供电中
+      - Name : '模块%s-逆变模块外部输出空开状态'
+        Index : index
+        Value : '(($v[14] >> 11)&0x1) ? "闭合" : "断开"'
+        CValue : '((pData[14] >> 11)&0x1) ? "闭合" : "断开"'
+      - Name : '模块%s-逆变模块旁路柜旁路空开状态'
+        Index : index
+        Value : '(($v[14] >> 12)&0x1) ? "闭合" : "断开"'
+        CValue : '((pData[13] >> 12)&0x1) ? "闭合" : "断开"'
+      - Name : '模块%s-逆变模块维修旁路空开状态'
+        Index : index
+        Value : '(($v[14] >> 13)&0x1) ? "闭合" : "断开"'
+        CValue : '((pData[13] >> 13)&0x1) ? "闭合" : "断开"'
+      - Name : '模块%s-逆变模块输出空开状态'
+        Index : index
+        Value : '(($v[14] >> 14)&0x1) ? "闭合" : "断开"'
+        CValue : '((pData[13] >> 14)&0x1) ? "闭合" : "断开"'
+      - Name : '模块%s-逆变模块旁路空开状态'
+        Index : index
+        Value : '(($v[14] >> 15)&0x1) ? "闭合" : "断开"'
+        CValue : '((pData[13] >> 15)&0x1) ? "闭合" : "断开"'
+      - Name : '模块%s-整流模块市电电压异常'
+        Index : index
+        Value : (($v[17] >> 6)&0x1)
+        CValue : ((pData[16] >> 6)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-整流模块市电频率异常'
+        Index : index
+        Value : (($v[17] >> 7)&0x1)
+        CValue : ((pData[16] >> 7)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-整流模块电池电压预告警'
+        Index : index
+        Value : (($v[17] >> 8)&0x1)
+        CValue : ((pData[16] >> 8)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-整流模块电池电压高'
+        Index : index
+        Value : (($v[17] >> 9)&0x1)
+        CValue : ((pData[16] >> 9)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-整流模块电池电压低'
+        Index : index
+        Value : (($v[17] >> 10)&0x1)
+        CValue : ((pData[16] >> 10)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-整流模块负组电池充电器故障'
+        Index : index
+        Value : (($v[17] >> 11)&0x1)
+        CValue : ((pData[16] >> 11)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-整流模块正组电池充电器故障'
+        Index : index
+        Value : (($v[17] >> 12)&0x1)
+        CValue : ((pData[16] >> 12)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-整流模块电池无'
+        Index : index
+        Value : (($v[17] >> 13)&0x1)
+        CValue : ((pData[16] >> 13)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-整流模块电池反'
+        Index : index
+        Value : (($v[17] >> 14)&0x1)
+        CValue : ((pData[16] >> 14)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-整流模块输入缺零'
+        Index : index
+        Value : (($v[17] >> 15)&0x1)
+        CValue : ((pData[16] >> 15)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-整流模块软启动失败'
+        Index : index
+        Value : (($v[16] >> 0)&0x1)
+        CValue : ((pData[15] >> 0)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-整流模块输入电压相序反'
+        Index : index
+        Value : (($v[16] >> 1)&0x1)
+        CValue : ((pData[15] >> 1)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-整流模块正负母线压差大'
+        Index : index
+        Value : (($v[16] >> 2)&0x1)
+        CValue : ((pData[15] >> 2)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-整流模块母线电压欠压'
+        Index : index
+        Value : (($v[16] >> 3)&0x1)
+        CValue : ((pData[15] >> 3)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-整流模块母线电压过压'
+        Index : index
+        Value : (($v[16] >> 4)&0x1)
+        CValue : ((pData[15] >> 4)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-整流模块风扇电源故障'
+        Index : index
+        Value : (($v[16] >> 5)&0x1)
+        CValue : ((pData[15] >> 5)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-整流模块风扇故障'
+        Index : index
+        Value : (($v[16] >> 6)&0x1)
+        CValue : ((pData[15] >> 6)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-整流模块电池充电晶闸管故障'
+        Index : index
+        Value : (($v[16] >> 7)&0x1)
+        CValue : ((pData[15] >> 7)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-整流模块电池放电晶闸管故障'
+        Index : index
+        Value : (($v[16] >> 8)&0x1)
+        CValue : ((pData[15] >> 8)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-整流模块输入晶闸管故障'
+        Index : index
+        Value : (($v[16] >> 9)&0x1)
+        CValue : ((pData[15] >> 9)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-整流模块辅助电源2故障'
+        Index : index
+        Value : (($v[16] >> 10)&0x1)
+        CValue : ((pData[15] >> 10)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-整流模块辅助电源1故障'
+        Index : index
+        Value : (($v[16] >> 11)&0x1)
+        CValue : ((pData[15] >> 11)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-整流模块整流过流故障'
+        Index : index
+        Value : (($v[16] >> 12)&0x1)
+        CValue : ((pData[15] >> 12)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-整流模块逆变模块过温'
+        Index : index
+        Value : (($v[16] >> 13)&0x1)
+        CValue : ((pData[15] >> 13)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-整流模块整流模块过温'
+        Index : index
+        Value : (($v[16] >> 14)&0x1)
+        CValue : ((pData[15] >> 14)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-整流模块整流器故障'
+        Index : index
+        Value : (($v[16] >> 15)&0x1)
+        CValue : ((pData[15] >> 15)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-逆变模块BUS电压异常'
+        Index : index
+        Value : (($v[19] >> 7)&0x1)
+        CValue : ((pData[18] >> 7)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-逆变模块回馈保护'
+        Index : index
+        Value : (($v[19] >> 8)&0x1)
+        CValue : ((pData[18] >> 8)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-逆变模块旁路过流'
+        Index : index
+        Value : (($v[19] >> 9)&0x1)
+        CValue : ((pData[18] >> 9)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-逆变模块逆变直流分量过大'
+        Index : index
+        Value : (($v[19] >> 10)&0x1)
+        CValue : ((pData[18] >> 10)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-逆变模块并机过载'
+        Index : index
+        Value : (($v[19] >> 11)&0x1)
+        CValue : ((pData[18] >> 11)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-逆变模块过载'
+        Index : index
+        Value : (($v[19] >> 12)&0x1)
+        CValue : ((pData[18] >> 12)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-逆变模块开机无效'
+        Index : index
+        Value : (($v[19] >> 13)&0x1)
+        CValue : ((pData[18] >> 13)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-逆变模块上电初始化故障'
+        Index : index
+        Value : (($v[19] >> 14)&0x1)
+        CValue : ((pData[18] >> 14)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-逆变模块LBS超跟踪'
+        Index : index
+        Value : (($v[19] >> 15)&0x1)
+        CValue : ((pData[18] >> 15)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-逆变模块并机继电器故障'
+        Index : index
+        Value : (($v[18] >> 0)&0x1)
+        CValue : ((pData[17] >> 0)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-逆变模块并机连线故障'
+        Index : index
+        Value : (($v[18] >> 1)&0x1)
+        CValue : ((pData[17] >> 1)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-逆变模块熔丝断'
+        Index : index
+        Value : (($v[18] >> 2)&0x1)
+        CValue : ((pData[17] >> 2)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-逆变模块IGBT过流'
+        Index : index
+        Value : (($v[18] >> 3)&0x1)
+        CValue : ((pData[17] >> 3)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-逆变模块旁路超保护'
+        Index : index
+        Value : (($v[18] >> 4)&0x1)
+        CValue : ((pData[17] >> 4)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-逆变模块旁路超跟踪'
+        Index : index
+        Value : (($v[18] >> 5)&0x1)
+        CValue : ((pData[17] >> 5)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-逆变模块不同步'
+        Index : index
+        Value : (($v[18] >> 6)&0x1)
+        CValue : ((pData[17] >> 6)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-逆变模块旁路反序'
+        Index : index
+        Value : (($v[18] >> 7)&0x1)
+        CValue : ((pData[17] >> 7)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-逆变模块并机均流故障'
+        Index : index
+        Value : (($v[18] >> 8)&0x1)
+        CValue : ((pData[17] >> 8)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-逆变模块CAN通信故障'
+        Index : index
+        Value : (($v[18] >> 9)&0x1)
+        CValue : ((pData[17] >> 9)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-逆变模块旁路晶闸管断路故障'
+        Index : index
+        Value : (($v[18] >> 10)&0x1)
+        CValue : ((pData[17] >> 10)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-逆变模块旁路晶闸管短路故障'
+        Index : index
+        Value : (($v[18] >> 11)&0x1)
+        CValue : ((pData[17] >> 11)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-逆变模块逆变晶闸管断路故障'
+        Index : index
+        Value : (($v[18] >> 12)&0x1)
+        CValue : ((pData[17] >> 12)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-逆变模块逆变晶闸管短路故障'
+        Index : index
+        Value : (($v[18] >> 13)&0x1)
+        CValue : ((pData[17] >> 13)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-逆变模块逆变桥臂直通'
+        Index : index
+        Value : (($v[18] >> 14)&0x1)
+        CValue : ((pData[17] >> 14)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-逆变模块逆变器故障'
+        Index : index
+        Value : (($v[18] >> 15)&0x1)
+        CValue : ((pData[17] >> 15)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 08049
+      - Name : '模块%s-（整流）正母线电压'
+        Offset : 20
+        Unit : "V"
+        Ratio : 10
+      - Name : '模块%s-（整流）负母线电压'
+        Offset : 21
+        Unit : "V"
+        Ratio : 10
+Sample : 
+  - Cmd : 1
+    Offset : 1
+    Len : 31
+    TabGroup : 整机状态位
+    Data : 
+      - Name : 输入空开状态
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+      - Name : 输出空开状态
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+      - Name : 维修旁路空开状态
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+      - Name : 外部输出空开状态
+        Offset : 6
+        Options : 
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+      - Name : 逆变主机
+        Offset : 7
+        Options : 
+          - Key : 0
+            Value : 不在位
+          - Key : 1
+            Value : 在位
+      - Name : 逆变主机(ECO状态)
+        Offset : 8
+        Options : 
+          - Key : 0
+            Value : 不在位
+          - Key : 1
+            Value : 在位
+      - Name : 电池自检
+        Offset : 10
+        Options : 
+          - Key : 0
+            Value : 未自检
+          - Key : 1
+            Value : 自检中
+      - Name : 电池充电
+        Offset : 11
+        Options : 
+          - Key : 0
+            Value : 未充电
+          - Key : 1
+            Value : 电池充电
+      - Name : 正组电池均充
+        Offset : 12
+        Options : 
+          - Key : 0
+            Value : 未均充
+          - Key : 1
+            Value : 均充
+      - Name : 负组电池均充
+        Offset : 13
+        Options : 
+          - Key : 0
+            Value : 未均充
+          - Key : 1
+            Value : 均充
+      - Name : 整流器状态
+        Offset : 14
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 工作
+      - Name : 整流器限流
+        Offset : 15
+        Options : 
+          - Key : 0
+            Value : 不限流
+          - Key : 1
+            Value : 限流
+      - Name : 输入供电状态
+        Offset : 16
+        Options : 
+          - Key : 0
+            Value : 不工作
+          - Key : 1
+            Value : 工作
+      - Name : 输入供电模式
+        Offset : 17
+        Options : 
+          - Key : 0
+            Value : 电池供电
+          - Key : 1
+            Value : 输入供电
+      - Name : 逆变开关机状态1
+        Offset : 18
+        Options : 
+          - Key : 0
+            Value : 关机
+          - Key : 1
+            Value : 软启动
+          - Key : 2
+            Value : 启动完毕未供电
+          - Key : 3
+            Value : 正常供电中
+      - Name : 逆变开关机状态2
+        Offset : 19
+        Options : 
+          - Key : 0
+            Value : 关机
+          - Key : 1
+            Value : 软启动
+          - Key : 2
+            Value : 启动完毕未供电
+          - Key : 3
+            Value : 正常供电中
+      - Name : UPS供电状态1
+        Offset : 20
+        Options : 
+          - Key : 0
+            Value : 无状态
+          - Key : 1
+            Value : 逆变供电
+      - Name : UPS供电状态2
+        Offset : 21
+        Options : 
+          - Key : 0
+            Value : 无状态
+          - Key : 1
+            Value : 旁路供电
+      - Name : 间断切换提示
+        Offset : 22
+        Options : 
+          - Key : 0
+            Value : 无效
+          - Key : 1
+            Value : 有效
+      - Name : 关机将导致断电告警
+        Offset : 23
+        Options : 
+          - Key : 0
+            Value : 无效
+          - Key : 1
+            Value : 有效
+      - Name : 关机将导致过载告警
+        Offset : 24
+        Options : 
+          - Key : 0
+            Value : 无效
+          - Key : 1
+            Value : 有效
+      - Name : 启动容量不足
+        Offset : 26
+        Options : 
+          - Key : 0
+            Value : 无效
+          - Key : 1
+            Value : 有效
+      - Name : 过载延时到关机
+        Offset : 27
+        Options : 
+          - Key : 0
+            Value : 无效
+          - Key : 1
+            Value : 有效
+      - Name : 负载冲击切旁路
+        Offset : 28
+        Options : 
+          - Key : 0
+            Value : 无效
+          - Key : 1
+            Value : 有效
+      - Name : 并机系统转旁路
+        Offset : 29
+        Options : 
+          - Key : 0
+            Value : 无效
+          - Key : 1
+            Value : 有效
+      - Name : 电池电压低关机
+        Offset : 30
+        Options : 
+          - Key : 0
+            Value : 无效
+          - Key : 1
+            Value : 有效
+      - Name : 切换次数到
+        Offset : 31
+        Options : 
+          - Key : 0
+            Value : 无效
+          - Key : 1
+            Value : 有效
+  - Cmd : 1
+    Offset : 65
+    Len : 33
+    TabGroup : 整机告警位
+    Data : 
+      - Name : 整流器故障
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 逆变器故障
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 辅助电源故障
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 风扇故障
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 输入晶闸管故障
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 逆变晶闸管故障
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 旁路晶闸管故障
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 熔丝断
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 母线电压异常
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 初始化故障
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 充电器故障
+        Offset : 12
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 并机故障
+        Offset : 13
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 开机无效
+        Offset : 14
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 逆变直流分量过大
+        Offset : 15
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 输入电压相序反
+        Offset : 16
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 输入缺零
+        Offset : 17
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 旁路反序
+        Offset : 18
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 电池反
+        Offset : 19
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 电池无
+        Offset : 20
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 回馈保护
+        Offset : 21
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 过载
+        Offset : 24
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 并机过载
+        Offset : 25
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 电池电压低
+        Offset : 26
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 电池电压高
+        Offset : 27
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 电池欠压预告警
+        Offset : 28
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 市电频率异常
+        Offset : 29
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 市电电压异常
+        Offset : 30
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 旁路超跟踪
+        Offset : 31
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 旁路超保护
+        Offset : 32
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+      - Name : 旁路过流
+        Offset : 33
+        AlertNormalValue : 0
+        TeleSignalId : 12017
+  - Cmd : 4
+    Offset : 1
+    Len : 40
+    TabGroup : "整机数据"
+    Data :
+      - Name : "输入A相电压"
+        Ratio : 10
+        Unit : "V"
+        Offset : 1
+      - Name : "输入B相电压"
+        Ratio : 10
+        Unit : "V"
+        Offset : 2
+      - Name : "输入C相电压"
+        Ratio : 10
+        Unit : "V"
+        Offset : 3
+      - Name : "输入频率"
+        Ratio : 10
+        Unit : "Hz"
+        Offset : 4
+      - Name : "输入A相电流"
+        Ratio : 10
+        Unit : "A"
+        Offset : 5
+      - Name : "输入B相电流"
+        Ratio : 10
+        Unit : "A"
+        Offset : 6
+      - Name : "输入C相电流"
+        Ratio : 10
+        Unit : "A"
+        Offset : 7
+      - Name : "输入A相功率因数"
+        Ratio : 100
+        Offset : 8
+      - Name : "输入B相功率因数"
+        Ratio : 100
+        Offset : 9
+      - Name : "输入C相功率因数"
+        Ratio : 100
+        Offset : 10
+      - Name : "输出A相电压"
+        Ratio : 10
+        Unit : "V"
+        Offset : 11
+      - Name : "输出B相电压"
+        Ratio : 10
+        Unit : "V"
+        Offset : 12
+      - Name : "输出C相电压"
+        Ratio : 10
+        Unit : "V"
+        Offset : 13
+      - Name : "输出频率"
+        Ratio : 10
+        Unit : "Hz"
+        Offset : 14
+      - Name : "输出A相电流"
+        Ratio : 10
+        Unit : "A"
+        Offset : 15
+      - Name : "输出B相电流"
+        Ratio : 10
+        Unit : "A"
+        Offset : 16
+      - Name : "输出C相电流"
+        Ratio : 10
+        Unit : "A"
+        Offset : 17
+      - Name : "输出A相有功功率"
+        Ratio : 100
+        Offset : 18
+      - Name : "输出B相有功功率"
+        Ratio : 100
+        Offset : 19
+      - Name : "输出C相有功功率"
+        Ratio : 100
+        Offset : 20
+      - Name : "输出A相负载率"
+        Unit : "%"
+        Offset : 21
+      - Name : "输出B相负载率"
+        Unit : "%"
+        Offset : 22
+      - Name : "输出C相负载率"
+        Unit : "%"
+        Offset : 23
+      - Name : "输入A相负载峰值比"
+        Ratio : 100
+        Offset : 24
+      - Name : "输入B相负载峰值比"
+        Ratio : 100
+        Offset : 25
+      - Name : "输入C相负载峰值比"
+        Ratio : 100
+        Offset : 26
+      - Name : "旁路A相电压"
+        Ratio : 10
+        Unit : "V"
+        Offset : 27
+      - Name : "旁路B相电压"
+        Ratio : 10
+        Unit : "V"
+        Offset : 28
+      - Name : "旁路C相电压"
+        Ratio : 10
+        Unit : "V"
+        Offset : 29
+      - Name : "旁路频率"
+        Ratio : 10
+        Unit : "Hz"
+        Offset : 30
+      - Name : "正组电池电压"
+        Ratio : 10
+        Unit : "V"
+        Offset : 31
+      - Name : "负组电池电压"
+        Ratio : 10
+        Unit : "V"
+        Offset : 32
+      - Name : "正组电池放电电流"
+        Ratio : 10
+        Unit : "A"
+        Offset : 33
+      - Name : "负组电池放电电流"
+        Ratio : 10
+        Unit : "A"
+        Offset : 34
+      - Name : "正组电池充电电流"
+        Ratio : 10
+        Unit : "A"
+        Offset : 35
+      - Name : "负组电池充电电流"
+        Ratio : 10
+        Unit : "A"
+        Offset : 36
+      - Name : "电池容量率"
+        Unit : "%"
+        Offset : 37
+      - Name : "电池后备时间"
+        Unit : "分钟"
+        Offset : 38
+      - Name : "电池温度"
+        Ratio : 10
+        Unit : "℃"
+        Offset : 39
+      - Name : "环境温度"
+        Ratio : 10
+        Unit : "℃"
+        Offset : 40
+  - Cmd : 4
+    Offset : 61
+    Len : 8
+    TabGroup : "并机数据"
+    Data : 
+      - Name : 并机上电总台数
+      - Name : 并机逆变供电台数
+      - Name : 并机输出A相总视在功率
+        Ratio : 1000
+        Unit : kVA
+      - Name : 并机输出B相总视在功率
+        Ratio : 1000
+        Unit : kVA
+      - Name : 并机输出C相总视在功率
+        Ratio : 1000
+        Unit : kVA
+      - Name : 并机输出A相有功功率
+        Ratio : 1000
+        Unit : kW
+      - Name : 并机输出B相有功功率
+        Ratio : 1000
+        Unit : kW
+      - Name : 并机输出C相有功功率
+        Ratio : 1000
+        Unit : kW
+  - Cmd : 4
+    Offset : 81
+    Len : 1
+    TabGroup : "整机状态数据"
+    Data :
+      - Name : 运行状态
+        Options : 
+          - Key : 0
+            Value : 初始化
+          - Key : 1
+            Value : 待机状态
+          - Key : 2
+            Value : 无输出状态
+          - Key : 3
+            Value : 旁路状态
+          - Key : 4
+            Value : 市电状态
+          - Key : 5
+            Value : 电池状态
+          - Key : 6
+            Value : 电池自检状态
+          - Key : 7
+            Value : 逆变启动中
+          - Key : 8
+            Value : 经济模式
+          - Key : 9
+            Value : EPO状态
+          - Key : 10
+            Value : 维护旁路模式
+          - Key : 11
+            Value : 故障模式
+  - Cmd : 4
+    Offset : 82
+    Len : 4
+    TabGroup : "整机状态位"
+    Transform : "bits"
+    Data :
+      - Name : "逆变待机(ECO 状态位)"
+        Offset : 12
+      - Name : "LBS系统激活"
+        Offset : 13
+      - Name : "并机系统转旁路"
+        Offset : 14
+      - Name : "负载冲击切旁路"
+        Offset : 15
+      - Name : "过载延时到关机"
+        Offset : 16
+      - Name : "切换次数到"
+        Offset : 17
+      - Name : "逆变主机"
+        Offset : 18
+      - Name : "启动容量不足"
+        Offset : 19
+      - Name : "紧急关机提示"
+        Offset : 20
+      - Name : "关机将导致过载告警"
+        Offset : 21
+      - Name : "关机将导致断电告警"
+        Offset : 22
+      - Name : "间断切换提示"
+        Offset : 23
+      - Name : "UPS供电状态"
+        Value : ($v[25] << 1)  & $v[24]
+        CValue : ((pData[24]<<1)&pData[23])
+        Options:
+          - Key : 0
+            Value : 均不供电
+          - Key : 1
+            Value : 旁路供电
+          - Key : 2
+            Value : 逆变供电
+      - Name : "逆变开关机状态"
+        Value : ($v[27] << 1)  & $v[26]
+        Options:
+          - Key : 0
+            Value : 关机
+          - Key : 1
+            Value : 软启动
+          - Key : 2
+            Value : 启动完毕未供电
+          - Key : 3
+            Value : 正常供电中
+      - Name : "外部输出空开状态"
+        Offset : 28
+        Options:
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+      - Name : "旁路柜旁路空开状态"
+        Offset : 29
+        Options:
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+      - Name : "维修旁路空开状态"
+        Offset : 30
+        Options:
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+      - Name : "输出空开状态"
+        Offset : 31
+        Options:
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+      - Name : "旁路空开状态"
+        Offset : 32
+        Options:
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+      - Name : "负组电池均浮充"
+        Offset : 55
+        Options:
+          - Key : 0
+            Value : 浮充
+          - Key : 1
+            Value : 均充
+      - Name : "正组电池均浮充"
+        Offset : 56
+        Options:
+          - Key : 0
+            Value : 浮充
+          - Key : 1
+            Value : 均充
+      - Name : "电池充电"
+        Offset : 57
+        Options:
+          - Key : 0
+            Value : 未充电
+          - Key : 1
+            Value : 充电
+      - Name : "电池自检"
+        Offset : 58
+        Options:
+          - Key : 0
+            Value : 未自检
+          - Key : 1
+            Value : 自检
+      - Name : "输入供电模式"
+        Offset : 59
+        Options:
+          - Key : 0
+            Value : 输入供电
+          - Key : 1
+            Value : 电池供电
+      - Name : "输入供电状态"
+        Offset : 60
+        Options:
+          - Key : 0
+            Value : 工作
+          - Key : 1
+            Value : 不工作
+      - Name : "整流器限流"
+        Offset : 61
+        Options:
+          - Key : 0
+            Value : 未限流
+          - Key : 1
+            Value : 限流
+      - Name : "紧急关机"
+        Offset : 62
+        Options:
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 紧急关机状态
+      - Name : "整流器状态"
+        Offset : 63
+        Options:
+          - Key : 0
+            Value : 工作
+          - Key : 1
+            Value : 停止
+      - Name : "输入空开状态"
+        Offset : 64
+        Options:
+          - Key : 0
+            Value : 闭合
+          - Key : 1
+            Value : 断开
+  - Cmd : 4
+    Offset : 86
+    Len : 4
+    TabGroup : "整机告警位位"
+    Transform : "bits"
+    Data :
+      - Name : BUS电压异常
+        Offset : 8
+        AlertNormalValue : 0
+      - Name : 回馈保护
+        Offset : 9
+        AlertNormalValue : 0
+      - Name : 旁路过流
+        Offset : 10
+        AlertNormalValue : 0
+      - Name : 逆变直流分量过大
+        Offset : 11
+        AlertNormalValue : 0
+      - Name : 并机过载
+        Offset : 12
+        AlertNormalValue : 0
+      - Name : 过载
+        Offset : 13
+        AlertNormalValue : 0
+      - Name : 开机无效
+        Offset : 14
+        AlertNormalValue : 0
+      - Name : 上电初始化故障
+        Offset : 15
+        AlertNormalValue : 0
+      - Name : LBS超跟踪
+        Offset : 16
+        AlertNormalValue : 0
+      - Name : 并机继电器故障
+        Offset : 17
+        AlertNormalValue : 0
+      - Name : 并机连线故障
+        Offset : 18
+        AlertNormalValue : 0
+      - Name : 熔丝断
+        Offset : 19
+        AlertNormalValue : 0
+      - Name : IGBT过流
+        Offset : 20
+        AlertNormalValue : 0
+      - Name : 旁路超保护
+        Offset : 21
+        AlertNormalValue : 0
+      - Name : 旁路超跟踪
+        Offset : 22
+        AlertNormalValue : 0
+      - Name : 不同步
+        Offset : 23
+        AlertNormalValue : 0
+      - Name : 旁路反序
+        Offset : 24
+        AlertNormalValue : 0
+      - Name : 并机均流故障
+        Offset : 25
+        AlertNormalValue : 0
+      - Name : CAN通信故障
+        Offset : 26
+        AlertNormalValue : 0
+      - Name : 旁路晶闸管断路故障
+        Offset : 27
+        AlertNormalValue : 0
+      - Name : 逆变晶闸管断路故障
+        Offset : 28
+        AlertNormalValue : 0
+      - Name : 逆变晶闸管断路故障
+        Offset : 29
+        AlertNormalValue : 0
+      - Name : 逆变晶闸管短路故障
+        Offset : 30
+        AlertNormalValue : 0
+      - Name : 逆变桥臂直通
+        Offset : 31
+        AlertNormalValue : 0
+      - Name : 逆变器故障
+        Offset : 32
+        AlertNormalValue : 0
+      - Name : 市电电压异常
+        Offset : 39
+        AlertNormalValue : 0
+      - Name : 市电频率异常
+        Offset : 40
+        AlertNormalValue : 0
+      - Name : 电池电压预告警
+        Offset : 41
+        AlertNormalValue : 0
+      - Name : 电池电压高
+        Offset : 42
+        AlertNormalValue : 0
+      - Name : 电池电压低
+        Offset : 43
+        AlertNormalValue : 0
+      - Name : 负组电池充电器故障
+        Offset : 44
+        AlertNormalValue : 0
+      - Name : 正组电池充电器故障
+        Offset : 45
+        AlertNormalValue : 0
+      - Name : 电池无
+        Offset : 46
+        AlertNormalValue : 0
+      - Name : 电池反
+        Offset : 47
+        AlertNormalValue : 0
+      - Name : 输入缺零
+        Offset : 48
+        AlertNormalValue : 0
+      - Name : 软启动失败
+        Offset : 49
+        AlertNormalValue : 0
+      - Name : 输入电压相序反
+        Offset : 50
+        AlertNormalValue : 0
+      - Name : 正负母线压差大
+        Offset : 51
+        AlertNormalValue : 0
+      - Name : 母线电压欠压
+        Offset : 52
+        AlertNormalValue : 0
+      - Name : 母线电压过压
+        Offset : 53
+        AlertNormalValue : 0
+      - Name : 风扇电源故障
+        Offset : 54
+        AlertNormalValue : 0
+      - Name : 风扇故障
+        Offset : 55
+        AlertNormalValue : 0
+      - Name : 电池充电晶闸管故障
+        Offset : 56
+        AlertNormalValue : 0
+      - Name : 电池放电晶闸管故障
+        Offset : 57
+        AlertNormalValue : 0
+      - Name : 输入晶闸管故障
+        Offset : 58
+        AlertNormalValue : 0
+      - Name : 辅助电源2故障
+        Offset : 59
+        AlertNormalValue : 0
+      - Name : 辅助电源1故障
+        Offset : 60
+        AlertNormalValue : 0
+      - Name : 整流过流故障
+        Offset : 61
+        AlertNormalValue : 0
+      - Name : 逆变模块过温
+        Offset : 62
+        AlertNormalValue : 0
+      - Name : 整流模块过温
+        Offset : 63
+        AlertNormalValue : 0
+      - Name : 整流器故障
+        Offset : 64
+        AlertNormalValue : 0
+  - Cmd : 4
+    Offset : 90
+    Len : 1
+    TabGroup : "整机系统状态"
+    Transform : "bits"
+    Data :
+      - Name : 后备时间计算位
+        Offset : 7
+        Options :
+          - Key : 0
+            Value : 未计算
+          - Key : 1
+            Value : 已计算
+      - Name : 充电率计算位
+        Offset : 8
+        Options :
+          - Key : 0
+            Value : 未计算
+          - Key : 1
+            Value : 已计算
+      - Name : 序列号注册位
+        Offset : 9
+        Options :
+          - Key : 0
+            Value : 未注册
+          - Key : 1
+            Value : 已注册
+      - Name : 电池监控系统接入位
+        Offset : 10
+        Options :
+          - Key : 0
+            Value : 未接入
+          - Key : 1
+            Value : 已接入
+      - Name : 避雷动作信号
+        Offset : 11
+        Options :
+          - Key : 0
+            Value : 状态无效
+          - Key : 1
+            Value : 状态有效
+      - Name : 定期自检开始
+        Offset : 12
+        Options :
+          - Key : 0
+            Value : 状态无效
+          - Key : 1
+            Value : 状态有效
+      - Name : 定时关机
+        Offset : 13
+        Options :
+          - Key : 0
+            Value : 状态无效
+          - Key : 1
+            Value : 状态有效
+      - Name : 定时开机
+        Offset : 14
+        Options :
+          - Key : 0
+            Value : 状态无效
+          - Key : 1
+            Value : 状态有效
+      - Name : 电池电压低关机状态位
+        Offset : 15
+        Options :
+          - Key : 0
+            Value : 状态无效
+          - Key : 1
+            Value : 状态有效
+      - Name : 发电机接入
+        Offset : 16
+        Options :
+          - Key : 0
+            Value : 状态无效
+          - Key : 1
+            Value : 状态有效
+  - Cmd : 4
+    Offset : 91
+    Len : 1
+    TabGroup : "整机系统状态"
+    Transform : "bits"
+    Data :
+      - Name : 预防性维护时间到
+        Offset : 9
+        Options :
+          - Key : 0
+            Value : 状态无效
+          - Key : 1
+            Value : 状态有效
+      - Name : 机型错误
+        Offset : 10
+        Options :
+          - Key : 0
+            Value : 状态无效
+          - Key : 1
+            Value : 状态有效
+      - Name : 烟雾报警
+        Offset : 11
+        Options :
+          - Key : 0
+            Value : 状态无效
+          - Key : 1
+            Value : 状态有效
+      - Name : 火灾报警
+        Offset : 12
+        Options :
+          - Key : 0
+            Value : 状态无效
+          - Key : 1
+            Value : 状态有效
+      - Name : 电池电压低
+        Offset : 13
+        Options :
+          - Key : 0
+            Value : 状态无效
+          - Key : 1
+            Value : 状态有效
+      - Name : 电池电压高
+        Offset : 14
+        Options :
+          - Key : 0
+            Value : 状态无效
+          - Key : 1
+            Value : 状态有效
+      - Name : 电池过温
+        Offset : 15
+        Options :
+          - Key : 0
+            Value : 状态无效
+          - Key : 1
+            Value : 状态有效
+      - Name : 电池损坏
+        Offset : 16
+        Options :
+          - Key : 0
+            Value : 状态无效
+          - Key : 1
+            Value : 状态有效
+  - Cmd : 4
+    Offset : 100
+    Len : 21
+    Data :
+      - Block : ModuleData1
+        index : '1'
+  - Cmd : 4
+    Offset : 150
+    Len : 21
+    Data :
+      - Block : ModuleData1
+        index : '2'
+  - Cmd : 4
+    Offset : 200
+    Len : 21
+    Data :
+      - Block : ModuleData1
+        index : '3'
+  - Cmd : 4
+    Offset : 250
+    Len : 21
+    Data :
+      - Block : ModuleData1
+        index : '4'
+  - Cmd : 4
+    Offset : 300
+    Len : 21
+    Data :
+      - Block : ModuleData1
+        index : '5'
+  - Cmd : 4
+    Offset : 350
+    Len : 21
+    Data :
+      - Block : ModuleData1
+        index : '6'
+  - Cmd : 4
+    Offset : 400
+    Len : 21
+    Data :
+      - Block : ModuleData1
+        index : '7'
+  - Cmd : 4
+    Offset : 450
+    Len : 21
+    Data :
+      - Block : ModuleData1
+        index : '8'
+  - Cmd : 4
+    Offset : 500
+    Len : 21
+    Data :
+      - Block : ModuleData1
+        index : '9'
+  - Cmd : 4
+    Offset : 550
+    Len : 21
+    Data :
+      - Block : ModuleData1
+        index : '10'
+  - Cmd : 4
+    Offset : 2000
+    Len : 120
+    Data : 
+      - ArrayBlock : BatteryInfo
+        ArrayStart : 1
+        ArrayEnd : 30

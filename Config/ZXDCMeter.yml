@@ -1,0 +1,83 @@
+Project:
+  Name : ZXDCMeter
+  RT_ID : 5156
+  File : "直流显示屏通信协议(modbus rtu).docx"
+BlockTemplate:
+  OutputH:
+    BlockLength : 2
+    BlockType : 'S'
+    BlockContent : 
+      - Name : "%s组-序号"
+  OutputC:
+    BlockLength : 28
+    BlockType : 'f'
+    BlockRType : 1
+    BlockContent : 
+      - Name : "%s组-开关规格"
+      - Name : "%s组-电压"
+        Unit : "V"
+      - Name : "%s组-电流"
+        Unit : "A"
+      - Name : "%s组-负载率"
+      - Name : "%s组-备用"
+      - Name : "%s组-有功功率"
+        Unit : "kW"
+      - Name : "%s组-有功电度"
+        Unit : "kWh"
+  OutputE:
+    BlockLength : 2
+    BlockType : 'S'
+    BlockContent : 
+      - Name : "%s组-开关状态"
+        Options: 
+          - Key : 0
+            Value : "闭"
+          - Key : 1
+            Value : "开"
+          - Key : 2
+            Value : "未启用"
+  Output:
+    BlockLength : 32
+    BlockContent : 
+      - Block : OutputH
+      - Block : OutputC
+      - Block : OutputE
+Sample :
+  - Cmd : 3
+    Offset : 7006
+    Len : 12
+    RType : 'f'
+    Data : 
+      - Name : "输入I路开关规格"
+      - Name : "输入I路电压"
+        Ratio : 10
+        Unit : "V"
+      - Name : "输入I路电流"
+        Ratio : 100
+        Unit : "A"
+      - Name : "输入I路负载率"
+      - Name : "输入I路有功功率"
+        Unit : "kw"
+      - Name : "输入I路有功电度"
+        Unit : "kwh"
+  - Cmd : 3
+    Offset : 7520
+    Len : 96
+    Data : 
+      - ArrayBlock : Output
+        ArrayStart : 1
+        ArrayEnd : 6
+  - Cmd : 3
+    Offset : 7574
+    Len : 96
+    Data : 
+      - ArrayBlock : Output
+        ArrayStart : 7
+        ArrayEnd : 12
+  - Cmd : 3
+    Offset : 7628
+    Len : 96
+    Data : 
+      - ArrayBlock : Output
+        ArrayStart : 13
+        ArrayEnd : 18

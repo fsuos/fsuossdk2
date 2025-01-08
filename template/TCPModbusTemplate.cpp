@@ -205,10 +205,12 @@ int {{ Project.Name }}::DeviceIoControl(int ioControlCode, void* inBuffer, int i
         }
         break;
     }
-
+    {% if DEVICEIOCONTROL_CODE is defined %}
+    {{ DEVICEIOCONTROL_CODE }}
+    {% endif %}
     default:
         if((uint32_t)outBufferSize >= sizeof(int)) {
-            *((int*)outBuffer) = 2;//无效命令
+            *((int*)outBuffer) = cmd_result_;//无效命令
             bytesReturned = sizeof(int);
         } else {
             bytesReturned = 0;

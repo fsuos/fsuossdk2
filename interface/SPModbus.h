@@ -50,6 +50,7 @@ protected:
 	jgcx_modbus_t *ctx;
 	uint8_t tab_bit[JGCX_MODBUS_MAX_READ_BITS];
 	uint16_t tab_reg[JGCX_MODBUS_MAX_READ_REGISTERS];
+	//2024-10-28 这个是个bug，req给小了，应该给255,但是现在改，驱动和libvdevice就不匹配了，得大范围更新，所以不改
 	uint8_t req[_MIN_REQ_LENGTH];
 	int rc;
 	int function_;

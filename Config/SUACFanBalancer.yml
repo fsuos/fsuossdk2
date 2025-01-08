@@ -1,0 +1,84 @@
+Project:
+  Name : SUACFanBalancer
+  RT_ID : 5156
+  File : "交流负载通讯协议RS485 .doc"
+Sample : 
+  - Cmd : 3
+    Offset : 1
+    Len : 9
+    Data : 
+      - Name : "电压"
+        Unit : "V"
+        Ratio : 10
+      - Name : "电流"
+        Unit : "A"
+        Ratio : 100
+      - Name : "功率"
+        Unit : "kW"
+        Ratio : 1000
+      - Name : "频率"
+        Unit : "Hz"
+        Ratio : 100
+      - Name : "入口温度"
+        Unit : "℃"
+        Ratio : 10
+      - Name : "出口温度"
+        Unit : "℃"
+        Ratio : 10
+      - Name : "温度差"
+        Unit : "℃"  
+        Ratio : 10
+      - Name : "风扇转速"
+        Unit : "RPM"
+      - Name : "风量"
+        Unit : "m3/h"
+SET_RET_CODE : |
+  case 200: {
+      if(tab_reg[0] == 0x10 && tab_reg[1] == 9) {
+          cmd_result_ = 1;
+      } else {
+          cmd_result_ = 3;
+      }
+      Reset();
+      return false;
+    }
+DEVICEIOCONTROL_CODE: |
+  case 200:{
+    cmd_result_ = -1;
+    OpenPort();
+    std::string parameter((char*)inBuffer, inBufferSize);
+    Json::Value jsonAS;
+    Json::Reader reader;
+    if(reader.parse(parameter, jsonAS)) {
+       //{"kw":5,"kw_adjust":0,"fan":1,"fan_adjust":0,"temp":1,"temp_adjust":0,"voltage_safe":1,"temp_safe":1,"current_safe":1}
+       uint16_t cmd[9] = {0};
+       cmd[0] = atoi(jsonAS["kw"].asString().c_str());
+       cmd[1] = atoi(jsonAS["kw_adjust"].asString().c_str());
+       cmd[2] = atoi(jsonAS["fan"].asString().c_str());
+       cmd[3] = atoi(jsonAS["fan_adjust"].asString().c_str());
+       cmd[4] = atoi(jsonAS["temp"].asString().c_str());
+       cmd[5] = atoi(jsonAS["temp_adjust"].asString().c_str());
+       cmd[6] = atoi(jsonAS["voltage_safe"].asString().c_str());
+       cmd[7] = atoi(jsonAS["temp_safe"].asString().c_str());
+       cmd[8] = atoi(jsonAS["current_safe"].asString().c_str());
+       if(cmd[5] == 1 && cmd[3] == 1){
+          cmd[3] = 1;
+          cmd[5] = 0;
+       }       
+       modbus_write_registers(0x10, 9, cmd);
+       state = 200;
+       return 0;
+    }
+    return -1;
+  }  
+
+RunCheckThresholdCodeUnicom: |
+  boost::posix_time::ptime now = boost::posix_time::second_clock::local_time();
+  boost::posix_time::time_duration diff = now - lastSaveTime;
+  bSaveHistory = ((diff.total_seconds() >= 60) && (cData.r3_1[1] || cData.r3_1[2])) ? 1 : 0;
+
+RunCheckThresholdCodeTelecom: |
+  boost::posix_time::ptime now = boost::posix_time::second_clock::local_time();
+  boost::posix_time::time_duration diff = now - lastSaveTime;
+  bSaveHistory = ((diff.total_seconds() >= 60) && (cData.r3_1[1] || cData.r3_1[2])) ? 1 : 0;
+

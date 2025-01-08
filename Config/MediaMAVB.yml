@@ -4,7 +4,7 @@ Project:
   File : "美的MAV小型机房精密空调机组Modbus监控协议V1.5（适用于MAV-B机型）默认用本协议.pdf"
 SET_RET_CODE : |
   case AC_Control_Code::AC_START: {
-        if(tab_reg[0] == 1) {
+        if(tab_reg[0] == last_data_) {
             cmd_result_ = 1;
         } else {
             cmd_result_ = 3;
@@ -13,7 +13,7 @@ SET_RET_CODE : |
         return false;
       }
       case AC_Control_Code::AC_STOP: {
-        if(tab_reg[0] == 0) {
+        if(tab_reg[0] == last_data_) {
             cmd_result_ = 1;
         } else {
             cmd_result_ = 3;
@@ -40,20 +40,14 @@ SET_DO_CODE : |
           cmd_result_ = -1;
           last_data_ = 1;
           modbus_write_register(3000, 1);
-          if((uint32_t)outBufferSize >= sizeof(int)) {
-              *((int*)outBuffer) = 1;//通知取状态
-              bytesReturned = sizeof(int);
-          }
+          return 0;
       }else if(setting["signal_id"].asString() == "140800300010") {
           //关机
           state = AC_Control_Code::AC_STOP;
           cmd_result_ = -1;
           last_data_ = 0;
           modbus_write_register(3000, 0);
-          if((uint32_t)outBufferSize >= sizeof(int)) {
-              *((int*)outBuffer) = 1;//通知取状态
-              bytesReturned = sizeof(int);
-          }
+          return 0;
       }
   }
 
@@ -64,12 +58,9 @@ SET_AO_CODE: |
           //送风温度
           state = AC_Control_Code::AC_SET_TEMPERATURE;
           cmd_result_ = -1;
-          OpenPort();
+          last_data_ = newValue;
           modbus_write_register(3001, newValue);
-          if((uint32_t)outBufferSize >= sizeof(int)) {
-              *((int*)outBuffer) = 1;//通知取状态
-              bytesReturned = sizeof(int);
-          }                       
+          return 0;                    
       }
   }else if(setting["signal_id"].asString() == "150800340010") {
       if(setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
@@ -77,12 +68,9 @@ SET_AO_CODE: |
           //湿度
           state = AC_Control_Code::AC_SET_HUMID;
           cmd_result_ = -1;
-          OpenPort();
+          last_data_ = newValue;
           modbus_write_register(3002, newValue);
-          if((uint32_t)outBufferSize >= sizeof(int)) {
-              *((int*)outBuffer) = 1;//通知取状态
-              bytesReturned = sizeof(int);
-          }                       
+          return 0;                       
       }
   }
         

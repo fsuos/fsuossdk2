@@ -1,0 +1,124 @@
+Project:
+  Name : TCMeter
+  RT_ID : 5156
+  File : "数显仪表485通讯使用说明V6.4.docx"
+Sample : 
+  - Cmd : 3
+    Offset : 59
+    Len : 2
+    Data :
+      - Name : PT
+      - Name : CT
+  - Cmd : 3
+    Offset : 0
+    Len : 52
+    Data :
+     - Name : A相电压
+       Unit : V
+       Ratio : 10/$dataArray["PT"]
+     - Name : B相电压
+       Unit : V
+       Ratio : 10/$dataArray["PT"]
+     - Name : C相电压
+       Unit : V
+       Ratio : 10/$dataArray["PT"]
+     - Name : A相电流
+       Unit : A
+       Ratio: 1000
+     - Name : B相电流
+       Unit : A
+       Ratio: 1000    
+     - Name : C相电流
+       Unit : A
+       Ratio: 1000
+     - Name : 总有功功率
+       Unit : kW
+       Offset : 8
+       Ratio : 1000/($dataArray["PT"]*$dataArray["CT"])
+     - Name : A相有功功率
+       Unit : kW
+       Offset : 9
+       Ratio : 1000/($dataArray["PT"]*$dataArray["CT"])
+     - Name : B相有功功率
+       Unit : kW
+       Offset : 10
+       Ratio : 1000/($dataArray["PT"]*$dataArray["CT"])
+     - Name : C相有功功率
+       Unit : kW
+       Offset : 11
+       Ratio : 1000/($dataArray["PT"]*$dataArray["CT"])
+     - Name : 总无功功率
+       Unit : kVar
+       Offset : 12
+       Ratio : 1000/($dataArray["PT"]*$dataArray["CT"])
+     - Name : A相无功功率
+       Unit : kVar
+       Offset : 13
+       Ratio : 1000/($dataArray["PT"]*$dataArray["CT"])
+     - Name : B相无功功率
+       Unit : kVar
+       Offset : 14
+       Ratio : 1000/($dataArray["PT"]*$dataArray["CT"])
+     - Name : C相无功功率
+       Unit : kVar
+       Offset : 15
+       Ratio : 1000/($dataArray["PT"]*$dataArray["CT"])
+     - Name : 总视在功率
+       Unit : kVA
+       Offset : 16
+       Ratio : 1000/($dataArray["PT"]*$dataArray["CT"])
+     - Name : A相视在功率
+       Unit : kVA
+       Offset : 17
+       Ratio : 1000/($dataArray["PT"]*$dataArray["CT"])
+     - Name : B相视在功率
+       Unit : kVA
+       Offset : 18
+       Ratio : 1000/($dataArray["PT"]*$dataArray["CT"])
+     - Name : C相视在功率
+       Unit : kVA
+       Offset : 19
+       Ratio : 1000/($dataArray["PT"]*$dataArray["CT"])
+     - Name : 总功率因数
+       Offset : 20
+       Ratio : 1000
+     - Name : A相功率因数
+       Offset : 21
+       Ratio : 1000
+     - Name : B相功率因数
+       Offset : 22
+       Ratio : 1000
+     - Name : C相功率因数
+       Offset : 23
+       Ratio : 1000
+     - Name : AB线电压
+       Ratio : 10/$dataArray["PT"]
+       Offset : 24
+     - Name : BC线电压
+       Ratio : 0/$dataArray["PT"]
+       Offset : 25
+     - Name : CA线电压
+       Ratio : 0/$dataArray["PT"]
+       Offset : 26
+     - Name : A相频率
+       Ratio : 100
+       Offset : 27
+     - Name : B相频率
+       Ratio : 100
+       Offset : 28
+     - Name : C相频率
+       Ratio : 100
+       Offset : 29
+     - Name : "正向有功电能"
+       Unit : "kWh"
+       Value : ($v[31] + ($v[30]<<16))/100
+     - Name : "反向有功电能"
+       Unit : "kWh"
+       Value : ($v[33] + ($v[32]<<16))/100
+     - Name : "正向无功电能"
+       Unit : "kvarh"
+       Value : ($v[35] + ($v[34]<<16))/100
+     - Name : "反向无功电能"
+       Unit : "kvarh"
+       Value : ($v[37] + ($v[36]<<16))/100
+     
