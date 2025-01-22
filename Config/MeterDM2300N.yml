@@ -1,0 +1,96 @@
+Project:
+  Name : MeterDM2300N
+  RT_ID : 5156
+  File : "附件2_DM23xxN Register List Ver2.2.xls"
+Sample:
+  - Cmd : 3
+    Offset : 2700
+    Len : 8
+    RType : 'f'
+    Data : 
+      - Name : "输出有功电能"
+        Unit : "kWh"
+      - Name : "输入有功电能"
+        Unit : "kWh"
+      - Name : "输出无功电能"
+        Unit : "kVARh"
+      - Name : "输入无功电能"
+        Unit : "kVARh"
+  - Cmd : 3
+    Offset : 3000
+    Len : 12
+    RType : 'f'
+    Data : 
+      - Name : "A相电流"
+        Unit : "A"
+      - Name : "B相电流"
+        Unit : "A"
+      - Name : "C相电流"
+        Unit : "A"
+      - Name : "N相电流"
+        Unit : "A"
+      - Name : "平均电流"
+        Unit : "A"
+      - Name : "电流不平衡率"
+  - Cmd : 3
+    Offset : 3020
+    Len : 18
+    RType : "f"
+    Data : 
+      - Name : "AB线电压"
+        Unit : "V"
+      - Name : "BC线电压"
+        Unit : "V"
+      - Name : "CA线电压"
+        Unit : "V"
+      - Name : "L-L平均电压"
+        Unit : "V"
+      - Name : "AN电压"
+        Unit : "V"
+      - Name : "BN电压"
+        Unit : "V"
+      - Name : "CN电压"
+        Unit : "V"
+      - Name : "LN平均电压"
+        Unit : "V"
+      - Name : "电压不平衡率"
+  - Cmd : 3
+    Offset : 3054
+    Len : 32
+    RType : "f"
+    Data : 
+      - Name : "A相有功功率"
+        Unit : "kW"
+      - Name : "B相有功功率"
+        Unit : "kW"
+      - Name : "C相有功功率"
+        Unit : "kW"
+      - Name : "总有功功率"
+        Unit : "kW"
+      - Name : "A相无功功率"
+        Unit : "kVAR"
+      - Name : "B相无功功率"
+        Unit : "kVAR"
+      - Name : "C相无功功率"
+        Unit : "kVAR"
+      - Name : "总无功功率"
+        Unit : "kVAR"
+      - Name : "A相视在功率"
+        Unit : "kVA"
+      - Name : "B相视在功率"
+        Unit : "kVA"
+      - Name : "C相视在功率"
+        Unit : "kVA"
+      - Name : "总视在功率"
+        Unit : "kVA"
+      - Name : "A相功率因数"
+      - Name : "B相功率因数"
+      - Name : "C相功率因数"
+      - Name : "总功率因数"
+  - Cmd : 3
+    Offset : 3110
+    Len : 2
+    RType : "f"
+    Data : 
+      - Name : "频率"
+      

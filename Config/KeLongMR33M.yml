@@ -2,10 +2,175 @@ Project:
   Name : KeLongMR33M
   RT_ID : 5156
   File : "科华UPS-MR33-M 系列（400K-600K) 北向监控Modbus通信协议(南湖七楼).pdf"
+InitSetting :
+  - Name : count
+    Type : int
+  # TabView : true
+  # #TabGroup : 
+  #   - 汇总数据
+  #   - 模块1数据
+  #   - 模块2数据
+  #   - 模块3数据
+  #   - 模块4数据
+  #   - 模块5数据
+  #   - 模块6数据
+  #   - 模块7数据
+  #   - 模块8数据
+  #   - 模块9数据
+  #   - 模块10数据
+  #   - 模块11数据
+  #   - 模块12数据
+  #   - 模块13数据
+  #   - 模块14数据
+  #   - 模块15数据
+  #   - 模块16数据
+  #   - 模块17数据
+  #   - 模块18数据
+  #   - 模块19数据
+  #   - 模块20数据
+  #   - 模块21数据
+  #   - 模块22数据
+  #   - 模块23数据
+  #   - 模块24数据
+  #   - 模块25数据
+BlockTemplate: 
+  MBattery : 
+    BlockLength : 12
+    BlockType : 's'
+    BlockContent:
+      - Name : "模块%s-正电池电压"
+        Unit : "V"
+        Ratio : 10
+      - Name : "模块%s-负电池电压"
+        Unit : "V"
+        Ratio : 10
+      - Name : "模块%s-正电池放电电流"
+        Unit : "A"
+        Ratio : 10
+      - Name : "模块%s-负电池放电电流"
+        Unit : "A"
+        Ratio : 10
+      - Name : "模块%s-正电池充电电流"
+        Unit : "A"
+        Ratio : 100
+      - Name : "模块%s-负电池充电电流"
+        Unit : "A"
+        Ratio : 100      
+  MInfo:
+    BlockLength : 84
+    BlockType : 'S'
+    BlockContent :
+      - Name : "模块%s-市电U相电压"
+        Unit : "V"
+        Ratio : 10
+      - Name : "模块%s-市电V相电压"
+        Unit : "V"
+        Ratio : 10
+      - Name : "模块%s-市电W相电压"
+        Unit : "V"
+        Ratio : 10
+      - Name : "模块%s-市电U相电流"
+        Unit : "A"
+        Ratio : 10
+      - Name : "模块%s-市电V相电流"
+        Unit : "A"
+        Ratio : 10
+      - Name : "模块%s-市电W相电流"
+        Unit : "A"
+        Ratio : 10
+      - Name : "模块%s-市电频率"
+        Unit : "Hz"
+        Ratio : 10
+      - Name : "模块%s-市电输入U相有功功率"
+        Unit : "kW"
+        Ratio : 100
+      - Name : "模块%s-市电输入V相有功功率"
+        Unit : "kW"
+        Ratio : 100
+      - Name : "模块%s-市电输入W相有功功率"
+        Unit : "kW"
+        Ratio : 100
+      - Name : "模块%s-市电输入U相视在功率"
+        Offset : 18
+        Unit : "kVA"
+        Ratio : 100
+      - Name : "模块%s-市电输入V相视在功率"
+        Offset : 19
+        Unit : "kVA"
+        Ratio : 100
+      - Name : "模块%s-市电输入W相视在功率"
+        Offset : 20
+        Unit : "kVA"
+        Ratio : 100
+      - Name : "模块%s-输出U相电压"
+        Offset : 21
+        Unit : "V"
+        Ratio : 10
+      - Name : "模块%s-输出V相电压"
+        Offset : 22
+        Unit : "V"
+        Ratio : 10
+      - Name : "模块%s-输出W相电压"
+        Offset : 23
+        Unit : "V"
+        Ratio : 10
+      - Name : "模块%s-输出频率"
+        Offset : 24
+        Unit : "Hz"
+        Ratio : 10
+      - Name : "模块%s-输出U相电流"
+        Offset : 28
+        Unit : "A"
+        Ratio : 10
+      - Name : "模块%s-输出V相电流"
+        Offset : 29
+        Unit : "A"
+        Ratio : 10
+      - Name : "模块%s-输出W相电流"
+        Offset : 30
+        Unit : "A"
+        Ratio : 10
+      - Name : "模块%s-输出U相有功功率"
+        Offset : 34
+        Unit : "kW"
+        Ratio : 10
+      - Name : "模块%s-输出V相有功功率"
+        Offset : 35
+        Unit : "kW"
+        Ratio : 10
+      - Name : "模块%s-输出W相有功功率"
+        Offset : 36
+        Unit : "kW"
+        Ratio : 10
+      - Name : "模块%s-输出U相视在功率"
+        Offset : 37
+        Unit : "kVA"
+        Ratio : 100
+      - Name : "模块%s-输出V相视在功率"
+        Offset : 38
+        Unit : "kVA"
+        Ratio : 100
+      - Name : "模块%s-输出W相视在功率"
+        Offset : 39
+        Unit : "kVA"
+        Ratio : 100
+      - Name : "模块%s-输出U相负载率"
+        Offset : 40
+        Unit : "%"
+        Ratio : 10
+      - Name : "模块%s-输出V相负载率"
+        Offset : 41
+        Unit : "%"
+        Ratio : 10
+      - Name : "模块%s-输出W相负载率"
+        Offset : 42
+        Unit : "%"
+        Ratio : 10
 Sample :
   - Cmd : 2
     Offset : 5000
     Len : 19
+    # #TabGroup : 汇总数据
     Data :
       - Name : 电池异常
         AlertNormalValue : 0
@@ -94,6 +259,7 @@ Sample :
   - Cmd : 2
     Offset : 5032
     Len : 8
+    # #TabGroup : 汇总数据
     Data :
       - Name : 逆变旁路失同步
         AlertNormalValue : 0
@@ -131,6 +297,7 @@ Sample :
   - Cmd : 2
     Offset : 5100
     Len : 8
+    #TabGroup : 汇总数据
     Data :
       - Name : 市电过压
         AlertNormalValue : 0
@@ -159,6 +326,7 @@ Sample :
   - Cmd : 2
     Offset : 5117
     Len : 4
+    #TabGroup : 汇总数据
     Data :
       - Name : 电池过压
         AlertNormalValue : 0
@@ -175,6 +343,7 @@ Sample :
   - Cmd : 2
     Offset : 5132
     Len : 8
+    #TabGroup : 汇总数据
     Data :
       - Name : 旁路过压
         AlertNormalValue : 0
@@ -203,6 +372,7 @@ Sample :
   - Cmd : 2
     Offset : 5148
     Len : 12
+    #TabGroup : 汇总数据
     Data :
       - Name : 逆变过压
         AlertNormalValue : 0
@@ -243,6 +413,7 @@ Sample :
   - Cmd : 2
     Offset : 5164
     Len : 13
+    #TabGroup : 汇总数据
     Data :
       - Name : 市电保险丝异常
         AlertNormalValue : 0
@@ -286,6 +457,7 @@ Sample :
   - Cmd : 2
     Offset : 5196
     Len : 1
+    #TabGroup : 汇总数据
     Data :
       - Name : 其他故障
         AlertNormalValue : 0
@@ -293,6 +465,7 @@ Sample :
   - Cmd : 2
     Offset : 5200
     Len : 25
+    #TabGroup : 汇总数据
     Data :
       - ArrayName : "模块%d异常"
         ArrayStart : 1
@@ -303,6 +476,7 @@ Sample :
   - Cmd : 2
     Offset : 5232
     Len : 25
+    #TabGroup : 汇总数据
     Data :
       - ArrayName : "模块%d过载"
         ArrayStart : 1
@@ -313,6 +487,7 @@ Sample :
   - Cmd : 4
     Offset : 5000
     Len : 45
+    #TabGroup : 汇总数据
     Data :
       - Name : 电池性能状态
         Options : 
@@ -441,6 +616,7 @@ Sample :
   - Cmd : 4
     Offset : 5129
     Len : 28
+    #TabGroup : 汇总数据
     Data :
       - Name : 系统工作模式
         Options : 
@@ -557,18 +733,359 @@ Sample :
         Ratio : 1000
       - Name : 输入W相功率因数
         Ratio : 1000
-  # - Cmd : 1
-  #   Offset : 1
-  #   Len : 1
-  #   Data :
-  #     - Name : 开关机设置
-  #       Options : 
-  #         - Key : 1
-  #           Value : 开机
-  #         - Key : 0
-  #           Value : 关机
-  # - Cmd : 4
+  # - Cmd : 3
   #   Offset : 5315
   #   Len : 1
-  #   Data :
+  #   #TabGroup : 汇总数据
+  #   Data : 
   #     - Name : 模块数
+  # - Cmd : 3
+  #   Offset : 5316
+  #   Len : 42
+  #   #TabGroup : 模块1
+  #   Data :
+  #     - Block : MInfo
+  #       index : 1
+  # - Cmd : 3
+  #   Offset : 5366
+  #   Len : 42
+  #   #TabGroup : 模块2
+  #   Data :
+  #     - Block : MInfo
+  #       index : 2
+  # - Cmd : 3
+  #   Offset : 5416
+  #   #TabGroup : 模块3
+  #   Len : 42
+  #   Data :
+  #     - Block : MInfo
+  #       index : 3
+  # - Cmd : 3
+  #   Offset : 5466
+  #   #TabGroup : 模块4
+  #   Len : 42
+  #   Data :
+  #     - Block : MInfo
+  #       index : 4
+  # - Cmd : 3
+  #   Offset : 5516
+  #   #TabGroup : 模块5
+  #   Len : 42
+  #   Data :
+  #     - Block : MInfo
+  #       index : 5
+  # - Cmd : 3
+  #   Offset : 5566
+  #   #TabGroup : 模块6
+  #   Len : 42
+  #   Data :
+  #     - Block : MInfo
+  #       index : 6
+  # - Cmd : 3
+  #   Offset : 5616
+  #   #TabGroup : 模块7
+  #   Len : 42
+  #   Data :
+  #     - Block : MInfo
+  #       index : 7
+  # - Cmd : 3
+  #   Offset : 5666
+  #   #TabGroup : 模块8
+  #   Len : 42
+  #   Data :
+  #     - Block : MInfo
+  #       index : 8
+  # - Cmd : 3
+  #   Offset : 5716
+  #   #TabGroup : 模块9
+  #   Len : 42
+  #   Data :
+  #     - Block : MInfo
+  #       index : 9
+  # - Cmd : 3
+  #   Offset : 5766
+  #   #TabGroup : 模块10
+  #   Len : 42
+  #   Data :
+  #     - Block : MInfo
+  #       index : 10
+  # - Cmd : 3
+  #   Offset : 5816
+  #   #TabGroup : 模块11
+  #   Len : 42
+  #   Data :
+  #     - Block : MInfo
+  #       index : 11
+  # - Cmd : 3
+  #   Offset : 5866
+  #   #TabGroup : 模块12
+  #   Len : 42
+  #   Data :
+  #     - Block : MInfo
+  #       index : 12
+  # - Cmd : 3
+  #   Offset : 5916
+  #   #TabGroup : 模块13
+  #   Len : 42
+  #   Data :
+  #     - Block : MInfo
+  #       index : 13
+  # - Cmd : 3
+  #   Offset : 5966
+  #   #TabGroup : 模块14
+  #   Len : 42
+  #   Data :
+  #     - Block : MInfo
+  #       index : 14
+  # - Cmd : 3
+  #   Offset : 6016
+  #   #TabGroup : 模块15
+  #   Len : 42
+  #   Data :
+  #     - Block : MInfo
+  #       index : 15
+  # - Cmd : 3
+  #   Offset : 6056
+  #   #TabGroup : 模块16
+  #   Len : 42
+  #   Data :
+  #     - Block : MInfo
+  #       index : 16
+  # - Cmd : 3
+  #   Offset : 6116
+  #   #TabGroup : 模块17
+  #   Len : 42
+  #   Data :
+  #     - Block : MInfo
+  #       index : 17
+  # - Cmd : 3
+  #   Offset : 6166
+  #   #TabGroup : 模块18
+  #   Len : 42
+  #   Data :
+  #     - Block : MInfo
+  #       index : 18
+  # - Cmd : 3
+  #   Offset : 6216
+  #   #TabGroup : 模块19
+  #   Len : 42
+  #   Data :
+  #     - Block : MInfo
+  #       index : 19
+  # - Cmd : 3
+  #   Offset : 6266
+  #   #TabGroup : 模块20
+  #   Len : 42
+  #   Data :
+  #     - Block : MInfo
+  #       index : 20
+  # - Cmd : 3
+  #   Offset : 6316
+  #   #TabGroup : 模块21
+  #   Len : 42
+  #   Data :
+  #     - Block : MInfo
+  #       index : 21
+  # - Cmd : 3
+  #   Offset : 6366
+  #   #TabGroup : 模块22
+  #   Len : 42
+  #   Data :
+  #     - Block : MInfo
+  #       index : 22
+  # - Cmd : 3
+  #   Offset : 6416
+  #   #TabGroup : 模块23
+  #   Len : 42
+  #   Data :
+  #     - Block : MInfo
+  #       index : 23
+  # - Cmd : 3
+  #   Offset : 6466
+  #   #TabGroup : 模块24
+  #   Len : 42
+  #   Data :
+  #     - Block : MInfo
+  #       index : 24
+  # - Cmd : 3
+  #   Offset : 6516
+  #   #TabGroup : 模块25
+  #   Len : 42
+  #   Data :
+  #     - Block : MInfo
+  #       index : 25
+  # - Cmd : 3
+  #   Offset : 7000
+  #   #TabGroup : 模块1
+  #   Len : 7
+  #   Data : 
+  #     - Block : MBattery
+  #       index : 1
+  # - Cmd : 3
+  #   Offset : 7025
+  #   #TabGroup : 模块2
+  #   Len : 6
+  #   Data : 
+  #     - Block : MBattery
+  #       index : 2
+  # - Cmd : 3
+  #   Offset : 7050
+  #   #TabGroup : 模块3
+  #   Len : 6
+  #   Data : 
+  #     - Block : MBattery
+  #       index : 3
+  # - Cmd : 3
+  #   Offset : 7075
+  #   #TabGroup : 模块4
+  #   Len : 6
+  #   Data : 
+  #     - Block : MBattery
+  #       index : 4
+  # - Cmd : 3
+  #   Offset : 7100
+  #   #TabGroup : 模块5
+  #   Len : 6
+  #   Data : 
+  #     - Block : MBattery
+  #       index : 5
+  # - Cmd : 3
+  #   Offset : 7125
+  #   #TabGroup : 模块6
+  #   Len : 6
+  #   Data : 
+  #     - Block : MBattery
+  #       index : 6
+  # - Cmd : 3
+  #   Offset : 7150
+  #   #TabGroup : 模块7
+  #   Len : 6
+  #   Data : 
+  #     - Block : MBattery
+  #       index : 7
+  # - Cmd : 3
+  #   Offset : 7175
+  #   #TabGroup : 模块8
+  #   Len : 6
+  #   Data : 
+  #     - Block : MBattery
+  #       index : 8
+  # - Cmd : 3
+  #   Offset : 7200
+  #   #TabGroup : 模块9
+  #   Len : 6
+  #   Data : 
+  #     - Block : MBattery
+  #       index : 9
+  # - Cmd : 3
+  #   Offset : 7225
+  #   #TabGroup : 模块10
+  #   Len : 6
+  #   Data : 
+  #     - Block : MBattery
+  #       index : 10
+  # - Cmd : 3
+  #   Offset : 7250
+  #   #TabGroup : 模块11
+  #   Len : 6
+  #   Data : 
+  #     - Block : MBattery
+  #       index : 11
+  # - Cmd : 3
+  #   Offset : 7275
+  #   #TabGroup : 模块12
+  #   Len : 6
+  #   Data : 
+  #     - Block : MBattery
+  #       index : 12
+  # - Cmd : 3
+  #   Offset : 7300
+  #   #TabGroup : 模块13
+  #   Len : 6
+  #   Data : 
+  #     - Block : MBattery
+  #       index : 13
+  # - Cmd : 3
+  #   Offset : 7325
+  #   #TabGroup : 模块14
+  #   Len : 6
+  #   Data : 
+  #     - Block : MBattery
+  #       index : 14
+  # - Cmd : 3
+  #   Offset : 7350
+  #   #TabGroup : 模块15
+  #   Len : 6
+  #   Data : 
+  #     - Block : MBattery
+  #       index : 15
+  # - Cmd : 3
+  #   Offset : 7375
+  #   #TabGroup : 模块16
+  #   Len : 6
+  #   Data : 
+  #     - Block : MBattery
+  #       index : 16
+  # - Cmd : 3
+  #   Offset : 7400
+  #   #TabGroup : 模块17
+  #   Len : 6
+  #   Data : 
+  #     - Block : MBattery
+  #       index : 17
+  # - Cmd : 3
+  #   Offset : 7425
+  #   #TabGroup : 模块18
+  #   Len : 6
+  #   Data : 
+  #     - Block : MBattery
+  #       index : 18
+  # - Cmd : 3
+  #   Offset : 7450
+  #   #TabGroup : 模块19
+  #   Len : 6
+  #   Data : 
+  #     - Block : MBattery
+  #       index : 19
+  # - Cmd : 3
+  #   Offset : 7475
+  #   #TabGroup : 模块20
+  #   Len : 6
+  #   Data : 
+  #     - Block : MBattery
+  #       index : 20
+  # - Cmd : 3
+  #   Offset : 7500
+  #   #TabGroup : 模块21
+  #   Len : 6
+  #   Data : 
+  #     - Block : MBattery
+  #       index : 21
+  # - Cmd : 3
+  #   Offset : 7525
+  #   #TabGroup : 模块22
+  #   Len : 6
+  #   Data : 
+  #     - Block : MBattery
+  #       index : 22
+  # - Cmd : 3
+  #   Offset : 7550
+  #   #TabGroup : 模块23
+  #   Len : 6
+  #   Data : 
+  #     - Block : MBattery
+  #       index : 23
+  # - Cmd : 3
+  #   Offset : 7575
+  #   #TabGroup : 模块24
+  #   Len : 6
+  #   Data : 
+  #     - Block : MBattery
+  #       index : 24
+  # - Cmd : 3
+  #   Offset : 7600
+  #   #TabGroup : 模块25
+  #   Len : 6
+  #   Data : 
+  #     - Block : MBattery
+  #       index : 25

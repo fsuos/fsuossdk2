@@ -366,6 +366,94 @@ Sample:
       - Name : "单元4:短循环2"
         AlertNormalValue : 0
   - Cmd : 1
+    Offset : 230
+    Len : 10
+    Data : 
+      - Name : "单元1:开/关状态"
+        Value : ($v[1]&0x1)
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "单元2:开/关状态"
+        Value : ($v[3]&0x1)
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "单元3:开/关状态"
+        Value : ($v[5]&0x1)
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "单元4:开/关状态"
+        Value : ($v[7]&0x1)
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "单元1:连接"
+        Value : ($v[9]&0x1)
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "单元2:连接"
+        Value : (($v[9]>>2)&0x1)
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "单元3:连接"
+        Value : (($v[9]>>4)&0x1)
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "单元4:连接"
+        Value : (($v[9]>>6)&0x1)
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "去湿"
+        Value : ($v[10]&0x1)
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "加湿"
+        Value : (($v[10]>>1)&0x1)
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "冷却"
+        Value : (($v[10]>>2)&0x1)
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : "加热"
+        Value : (($v[10]>>3)&0x1)
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+  - Cmd : 1
     Offset : 201
     Len : 1
     Data :

@@ -31,45 +31,59 @@ Sample :
       - Name : "电源故障（过/欠压）"
         Offset : 17
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "相序错误"
         Offset : 18
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "缺相错误"
         Offset : 19
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "电加热保护"
         Offset : 20
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "加湿器报警"
         Offset : 21
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "烟雾报警"
         Offset : 22
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "水浸报警"
         Offset : 23
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "湿膜低水位报警"
         Offset : 24
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "湿膜水位开关故障"
         Offset : 25
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "EEPROM故障"
         Offset : 26
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "本地联网通讯故障"
         Offset : 29
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "扩展板通讯故障"
         Offset : 30
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "状态远程内温探头故障"
         Offset : 31
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "滤网堵塞报警"
         Offset : 32
         AlertNormalValue : 0
+        TeleSignalId : 12018
 
   - Cmd : 1
     Offset : 8033
@@ -78,27 +92,35 @@ Sample :
       - Name : "风机1转速反馈故障"
         Offset : 1
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "风机2转速反馈故障"
         Offset : 2
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "风机3转速反馈故障"
         Offset : 3
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "风机4转速反馈故障"
         Offset : 4
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "风机5转速反馈故障"
         Offset : 5
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "风机6转速反馈故障"
         Offset : 6
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "风机7转速反馈故障"
         Offset : 7
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "风机8转速反馈故障"
         Offset : 8
         AlertNormalValue : 0
+        TeleSignalId : 12018
 
   - Cmd : 1
     Offset : 8041
@@ -107,27 +129,35 @@ Sample :
       - Name : "风机过载故障"
         Offset : 1
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "气流丢失故障"
         Offset : 2
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "高温报警"
         Offset : 3
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "低温报警"
         Offset : 4
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "高湿报警"
         Offset : 5
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "低湿报警"
         Offset : 6
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "送风高温报警"
         Offset : 7
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "送风低温报警"
         Offset : 8
         AlertNormalValue : 0
+        TeleSignalId : 12018
   - Cmd : 1
     Offset : 8049
     Len : 3
@@ -135,12 +165,15 @@ Sample :
       - Name : "回风温度探头1故障"
         Offset : 1
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "回风温度探头2故障"
         Offset : 2
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "回风温度探头3故障"
         Offset : 3
         AlertNormalValue : 0
+        TeleSignalId : 12018
 
   - Cmd : 1
     Offset : 8052
@@ -149,15 +182,19 @@ Sample :
       - Name : "回风湿度探头故障"
         Offset : 1
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "送风温度1探头故障"
         Offset : 2
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "送风温度2探头故障"
         Offset : 3
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "送风温度3探头故障"
         Offset : 4
         AlertNormalValue : 0
+        TeleSignalId : 12018
 
   - Cmd : 1
     Offset : 8056
@@ -166,57 +203,75 @@ Sample :
       - Name : "送风湿度探头故障"
         Offset : 1
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "风机电流探头故障"
         Offset : 6
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "电量检测故障"
         Offset : 7
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "风机欠流"
         Offset : 8
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "外风机脏堵"
         Offset : 9
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "系统1高压保护"
         Offset : 10
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "系统1低压保护"
         Offset : 11
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "高压开关1故障"
         Offset : 12
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "低压开关1故障"
         Offset : 13
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "吸气温度1探头故障"
         Offset : 14
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "排气温度1探头故障"
         Offset : 15
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "系统1蒸发温度过低"
         Offset : 16
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "系统1排气高温"
         Offset : 17
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "压缩机1过流"
         Offset : 18
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "压缩机1欠流"
         Offset : 19
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "系统1吸气压力传感器故障"
         Offset : 20
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "液管温度1探头故障"
         Offset : 21
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "系统1吸气高温锁定"
         Offset : 22
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "压缩机1 "
         Offset : 24
         Options : 
@@ -227,36 +282,47 @@ Sample :
       - Name : "系统2高压保护"
         Offset : 26
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "系统2低压保护"
         Offset : 27
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "高压开关2故障"
         Offset : 28
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "低压开关2故障"
         Offset : 29
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "吸气温度2探头故障"
         Offset : 30
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "排气温度2探头故障"
         Offset : 31
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "系统2蒸发温度过低"
         Offset : 32
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "系统2排气高温"
         Offset : 33
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "系统2吸气压力传感器故障"
         Offset : 36
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "液管温度2探头故障"
         Offset : 37
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "系统2吸气高温"
         Offset : 38
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "压缩机2"
         Offset : 40
         Options : 
@@ -270,34 +336,43 @@ Sample :
     Offset : 8001
     Len : 27
     Data : 
-      - Name : "系统运行模式"
-        Offset : 1
-        Options : 
-          - Key : 0
-            Value : 停机
-          - Key : (($v[1]>>4) & 0x1)
-            Value : 制冷
-          - Key : (($v[1]>>1) & 0x1)
-            Value : 制热
-          - Key : (($v[1]>>2) & 0x1)
-            Value : 加湿
-          - Key : (($v[1]>>3) & 0x1)
-            Value : 除湿
-          - Key : (($v[1]>>4) & 0x1)
-            Value : 待机
-          - Key : (($v[1]>>5) & 0x1)
-            Value : 故障停机
-          - Key : (($v[1]>>6) & 0x1)
-            Value : 手动关机
-          - Key : (($v[1]>>7) & 0x1)
-            Value : 主/备
-          - Key : (($v[1]>>8) & 0x1)
-            Value : 断网
-          - Key : (($v[1]>>9) & 0x1)
-            Value : 干接点关机
+      - Name : "系统运行模式-停机"
+        Value : ( ($v[1]&0x1) == 0 )
+        CValue : ( (pData[0]&0x1) == 0 )
+      - Name : "系统运行模式-制冷"
+        Value : (($v[1]>>4) & 0x1)
+        CValue : ((pData[0]>>4) & 0x1)
+      - Name : "系统运行模式-制热"
+        Value : (($v[1]>>1) & 0x1)
+        CValue : ((pData[0]>>1) & 0x1)
+      - Name : "系统运行模式-加湿"
+        Value : (($v[1]>>2) & 0x1)
+        CValue : ((pData[0]>>2) & 0x1)
+      - Name : "系统运行模式-除湿"
+        Value : (($v[1]>>3) & 0x1)
+        CValue : ((pData[0]>>3) & 0x1)
+      - Name : "系统运行模式-待机"
+        Value : (($v[1]>>4) & 0x1)
+        CValue : ((pData[0]>>4) & 0x1)
+      - Name : "系统运行模式-故障停机"
+        Value : (($v[1]>>5) & 0x1)
+        CValue : ((pData[0]>>5) & 0x1)
+      - Name : "系统运行模式-手动关机"
+        Value : (($v[1]>>6) & 0x1)
+        CValue : ((pData[0]>>6) & 0x1)
+      - Name : "系统运行模式-主/备"
+        Value : (($v[1]>>7) & 0x1)
+        CValue : ((pData[0]>>7) & 0x1)
+      - Name : "系统运行模式-断网"
+        Value : (($v[1]>>8) & 0x1)
+        CValue : ((pData[0]>>8) & 0x1)
+      - Name : "系统运行模式-干接点关机"
+        Value : (($v[1]>>9) & 0x1)
+        CValue : ((pData[0]>>9) & 0x1)
       - Name : "烟雾报警"
         Offset : 2
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "送风温度"
         Unit : "℃"
         Ratio : 10
@@ -354,27 +429,35 @@ Sample :
       - Name : "外风机变频驱动通讯故障"
         Offset : 3
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "室外温度传感器故障"
         Offset : 4
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "压力传感器故障"
         Offset : 5
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "系统高压保护"
         Offset : 6
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "系统低压保护"
         Offset : 7
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "外风机变频驱动故障"
         Offset : 11
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "风机过热保护"
         Offset : 12
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "与室内机通讯故障"
         Offset : 31
         AlertNormalValue : 0
+        TeleSignalId : 12018
 
   - Cmd : 3
     Offset : 8101
@@ -418,27 +501,35 @@ Sample :
       - Name : "外风机变频驱动通讯故障"
         Offset : 3
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "室外温度传感器故障"
         Offset : 4
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "压力传感器故障"
         Offset : 5
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "系统高压保护"
         Offset : 6
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "系统低压保护"
         Offset : 7
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "外风机变频驱动故障"
         Offset : 11
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "风机过热保护"
         Offset : 12
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "与室内机通讯故障"
         Offset : 31
         AlertNormalValue : 0
+        TeleSignalId : 12018
   - Cmd : 3
     Offset : 8109
     Len : 6
@@ -481,33 +572,43 @@ Sample :
       - Name : "氟泵高扬程锁定告警"
         Offset : 14
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "氟泵低扬程锁定告警"
         Offset : 15
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "氟泵进口压力传感器故障"
         Offset : 19
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "氟泵出口压力传感器故障"
         Offset : 20
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "相序错误"
         Offset : 21
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "泵柜环温传感器故障报警"
         Offset : 25
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "泵柜驱动故障报警"
         Offset : 27
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "氟泵驱动通讯故障"
         Offset : 28
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "氟泵过温锁定告警"
         Offset : 29
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "与室内机通讯故障"
         Offset : 32
         AlertNormalValue : 0
+        TeleSignalId : 12018
 
   - Cmd : 1
     Offset :  8233
@@ -523,33 +624,43 @@ Sample :
       - Name : "氟泵高扬程锁定告警"
         Offset : 14
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "氟泵低扬程锁定告警"
         Offset : 15
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "氟泵进口压力传感器故障"
         Offset : 19
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "氟泵出口压力传感器故障"
         Offset : 20
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "相序错误"
         Offset : 21
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "泵柜环温传感器故障报警"
         Offset : 25
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "泵柜驱动故障报警"
         Offset : 27
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "氟泵驱动通讯故障"
         Offset : 28
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "氟泵过温锁定告警"
         Offset : 29
         AlertNormalValue : 0
+        TeleSignalId : 12018
       - Name : "与室内机通讯故障"
         Offset : 32
         AlertNormalValue : 0
+        TeleSignalId : 12018
   - Cmd : 3
     Offset : 3501
     Len : 12
@@ -603,130 +714,74 @@ Sample :
       - Name : "启动延时"
         Offset : 12
         Unit : "秒"
+SET_RET_CODE : |
+  case AC_Control_Code::AC_START: {
+        if(tab_reg[0] == last_data_) {
+            cmd_result_ = 1;
+        } else {
+            cmd_result_ = 3;
+        }
+        Reset();
+        return false;
+      }
+      case AC_Control_Code::AC_STOP: {
+        if(tab_reg[0] == last_data_) {
+            cmd_result_ = 1;
+        } else {
+            cmd_result_ = 3;
+        }
+        Reset();
+        return false;
+      } 
+      case AC_Control_Code::AC_SET_TEMPERATURE:
+      case AC_Control_Code::AC_SET_HUMID: {
+        if(tab_reg[0] == last_data_) {
+            cmd_result_ = 1;
+        } else {
+            cmd_result_ = 3;
+        }
+        Reset();
+        return false;
+      }
+      
+SET_DO_CODE : |
+  if(setting["signal_id"].asString() != "") {
+      if(setting["signal_id"].asString() == "140800280010") {
+          //开机
+          state = AC_Control_Code::AC_START;
+          cmd_result_ = -1;
+          last_data_ = 1;
+          modbus_write_register(3509, 1);
+          return 0;
+      }else if(setting["signal_id"].asString() == "140800300010") {
+          //关机
+          state = AC_Control_Code::AC_STOP;
+          cmd_result_ = -1;
+          last_data_ = 0;
+          modbus_write_register(3509, 0);
+          return 0;
+      }
+  }
 
-
-
-
-RunCheckThresholdCodeTelecom : |
-            CheckThresholdBool(LEVEL_1, "a0", SIGID_12018, SIGNAME_12018, "电源故障（过/欠压）", cData.b1_8001[16], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a1", SIGID_12018, SIGNAME_12018, "相序错误", cData.b1_8001[17], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a2", SIGID_12018, SIGNAME_12018, "缺相错误", cData.b1_8001[18], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a3", SIGID_12017, SIGNAME_12017, "电加热保护", cData.b1_8001[19], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a4", SIGID_12015, SIGNAME_12015, "加湿器报警", cData.b1_8001[20], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a5", SIGID_12017, SIGNAME_12017, "烟雾报警", cData.b1_8001[21], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a6", SIGID_12017, SIGNAME_12017, "水浸报警", cData.b1_8001[22], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a7", SIGID_12017, SIGNAME_12017, "湿膜低水位报警", cData.b1_8001[23], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a8", SIGID_12017, SIGNAME_12017, "湿膜水位开关故障", cData.b1_8001[24], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a9", SIGID_12017, SIGNAME_12017, "EEPROM故障", cData.b1_8001[25], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a10", SIGID_12017, SIGNAME_12017, "本地联网通讯故障", cData.b1_8001[28], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a11", SIGID_12009, SIGNAME_12009, "扩展板通讯故障", cData.b1_8001[29], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a12", SIGID_12017, SIGNAME_12017, "远程内温探头故障", cData.b1_8001[30], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a13", SIGID_12017, SIGNAME_12017, "滤网堵塞报警", cData.b1_8001[31], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a14", SIGID_12008, SIGNAME_12008, "风机1转速反馈故障", cData.b1_8033[0], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a15", SIGID_12017, SIGNAME_12017, "风机2转速反馈故障", cData.b1_8033[1], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a16", SIGID_12017, SIGNAME_12017, "风机3转速反馈故障", cData.b1_8033[2], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a17", SIGID_12014, SIGNAME_12014, "风机4转速反馈故障", cData.b1_8033[3], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a18", SIGID_12017, SIGNAME_12017, "风机5转速反馈故障", cData.b1_8033[4], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a19", SIGID_12017, SIGNAME_12017, "风机6转速反馈故障", cData.b1_8033[5], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a20", SIGID_12006, SIGNAME_12006, "风机7转速反馈故障", cData.b1_8033[6], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a21", SIGID_12007, SIGNAME_12007, "风机8转速反馈故障", cData.b1_8033[7], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a22", SIGID_12004, SIGNAME_12004, "风机过载故障", cData.b1_8041[0], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a23", SIGID_12005, SIGNAME_12005, "气流丢失故障", cData.b1_8041[1], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a24", SIGID_12006, SIGNAME_12006, "高温报警", cData.b1_8041[2], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a25", SIGID_12007, SIGNAME_12007, "低温报警", cData.b1_8041[3], signal_index_++);
-
-            CheckThresholdBool(LEVEL_1, "a24_1", SIGID_12004, SIGNAME_12004, "高湿报警", cData.b1_8041[4], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a25_1", SIGID_12005, SIGNAME_12005, "低湿报警", cData.b1_8041[5], signal_index_++);
-
-            CheckThresholdBool(LEVEL_1, "a26", SIGID_12017, SIGNAME_12017, "送风高温报警", cData.b1_8041[6], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a27", SIGID_12017, SIGNAME_12017, "送风低温报警", cData.b1_8041[7], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a28", SIGID_12017, SIGNAME_12017, "回风温度探头1故障", cData.b1_8049[0], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a29", SIGID_12017, SIGNAME_12017, "回风温度探头2故障", cData.b1_8049[1], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a30", SIGID_12017, SIGNAME_12017, "回风温度探头3故障", cData.b1_8049[2], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a31", SIGID_12017, SIGNAME_12017, "回风湿度探头故障", cData.b1_8052[0], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a32", SIGID_12017, SIGNAME_12017, "送风温度1探头故障", cData.b1_8052[1], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a33", SIGID_12017, SIGNAME_12017, "送风温度2探头故障", cData.b1_8052[2], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a34", SIGID_12017, SIGNAME_12017, "送风温度3探头故障", cData.b1_8052[3], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a35", SIGID_12017, SIGNAME_12017, "送风湿度探头故障", cData.b1_8056[0], signal_index_++);
-
-            CheckThresholdBool(LEVEL_1, "a36", SIGID_12017, SIGNAME_12017, "风机电流探头故障", cData.b1_8056[5], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a37", SIGID_12017, SIGNAME_12017, "电量检测故障", cData.b1_8056[6], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a38", SIGID_12017, SIGNAME_12017, "风机欠流", cData.b1_8056[7], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a39", SIGID_12017, SIGNAME_12017, "外风机脏堵", cData.b1_8056[8], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a40", SIGID_12017, SIGNAME_12017, "系统1高压保护", cData.b1_8056[9], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a41", SIGID_12017, SIGNAME_12017, "系统1低压保护", cData.b1_8056[10], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a42", SIGID_12017, SIGNAME_12017, "高压开关1故障", cData.b1_8056[11], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a43", SIGID_12017, SIGNAME_12017, "低压开关1故障", cData.b1_8056[12], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a44", SIGID_12017, SIGNAME_12017, "吸气温度1探头故障", cData.b1_8056[13], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a45", SIGID_12017, SIGNAME_12017, "排气温度1探头故障", cData.b1_8056[14], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a46", SIGID_12017, SIGNAME_12017, "系统1蒸发温度过低", cData.b1_8056[15], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a47", SIGID_12017, SIGNAME_12017, "系统1排气高温", cData.b1_8056[16], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a47", SIGID_12017, SIGNAME_12017, "压缩机1过流", cData.b1_8056[17], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a47", SIGID_12017, SIGNAME_12017, "压缩机1欠流", cData.b1_8056[18], signal_index_++);
-
-            CheckThresholdBool(LEVEL_1, "a48", SIGID_12017, SIGNAME_12017, "系统1吸气压力传感器故障", cData.b1_8056[19], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a48", SIGID_12017, SIGNAME_12017, "液管温度1探头故障", cData.b1_8056[20], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a48", SIGID_12017, SIGNAME_12017, "系统1吸气高温锁定", cData.b1_8056[21], signal_index_++);
-
-
-            CheckThresholdBool(LEVEL_1, "a49", SIGID_12017, SIGNAME_12017, "系统2高压保护", cData.b1_8056[25], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a50", SIGID_12017, SIGNAME_12017, "系统2低压保护", cData.b1_8056[26], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a51", SIGID_12017, SIGNAME_12017, "高压开关2故障", cData.b1_8056[27], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a52", SIGID_12017, SIGNAME_12017, "低压开关2故障", cData.b1_8056[28], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a53", SIGID_12017, SIGNAME_12017, "吸气温度2探头故障", cData.b1_8056[29], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a54", SIGID_12017, SIGNAME_12017, "排气温度2探头故障", cData.b1_8056[30], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a55", SIGID_12017, SIGNAME_12017, "系统2蒸发温度过低", cData.b1_8056[31], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a56", SIGID_12017, SIGNAME_12017, "系统2排气高温", cData.b1_8056[32], signal_index_++);
-
-            CheckThresholdBool(LEVEL_1, "a57", SIGID_12017, SIGNAME_12017, "系统2吸气压力传感器故障", cData.b1_8056[35], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a58", SIGID_12017, SIGNAME_12017, "液管温度2探头故障", cData.b1_8056[36], signal_index_++);
-            CheckThresholdBool(LEVEL_1, "a59", SIGID_12017, SIGNAME_12017, "系统2吸气高温", cData.b1_8056[37], signal_index_++);
-
-            {
-                //室外机1
-                CheckThresholdBool(LEVEL_1, "a60_host1", SIGID_12017, SIGNAME_12017, "室外机1外风机变频驱动通讯故障", cData.b1_8102[2], signal_index_++);
-                CheckThresholdBool(LEVEL_1, "a61_host1", SIGID_12017, SIGNAME_12017, "室外机1室外温度传感器故障", cData.b1_8102[3], signal_index_++);
-                CheckThresholdBool(LEVEL_1, "a62_host1", SIGID_12017, SIGNAME_12017, "室外机1压力传感器故障", cData.b1_8102[4], signal_index_++);
-                CheckThresholdBool(LEVEL_1, "a63_host1", SIGID_12017, SIGNAME_12017, "室外机1系统高压保护", cData.b1_8102[5], signal_index_++);
-                CheckThresholdBool(LEVEL_1, "a64_host1", SIGID_12017, SIGNAME_12017, "室外机1系统低压保护", cData.b1_8102[6], signal_index_++);
-                CheckThresholdBool(LEVEL_1, "a65_host1", SIGID_12017, SIGNAME_12017, "室外机1外风机变频驱动故障", cData.b1_8102[10], signal_index_++);
-                CheckThresholdBool(LEVEL_1, "a66_host1", SIGID_12017, SIGNAME_12017, "室外机1风机过热保护", cData.b1_8102[11], signal_index_++);
-                CheckThresholdBool(LEVEL_1, "a67_host1", SIGID_12017, SIGNAME_12017, "室外机1与室内机通讯故障", cData.b1_8102[30], signal_index_++);
-
-                CheckThresholdBool(LEVEL_1, "a68_host1", SIGID_12017, SIGNAME_12017, "泵柜1高扬程锁定告警", cData.b1_8201[13], signal_index_++);
-                CheckThresholdBool(LEVEL_1, "a69_host1", SIGID_12017, SIGNAME_12017, "泵柜1低扬程锁定告警", cData.b1_8201[14], signal_index_++);
-                CheckThresholdBool(LEVEL_1, "a70_host1", SIGID_12017, SIGNAME_12017, "泵柜1进口压力传感器故障", cData.b1_8201[18], signal_index_++);
-                CheckThresholdBool(LEVEL_1, "a71_host1", SIGID_12017, SIGNAME_12017, "泵柜1出口压力传感器故障", cData.b1_8201[19], signal_index_++);
-                CheckThresholdBool(LEVEL_1, "a72_host1", SIGID_12017, SIGNAME_12017, "泵柜1相序错误", cData.b1_8201[20], signal_index_++);
-                CheckThresholdBool(LEVEL_1, "a73_host1", SIGID_12017, SIGNAME_12017, "泵柜1环温传感器故障报警", cData.b1_8201[24], signal_index_++);
-                CheckThresholdBool(LEVEL_1, "a74_host1", SIGID_12017, SIGNAME_12017, "泵柜1驱动故障报警", cData.b1_8201[26], signal_index_++);
-                CheckThresholdBool(LEVEL_1, "a75_host1", SIGID_12017, SIGNAME_12017, "泵柜1驱动通讯故障", cData.b1_8201[27], signal_index_++);
-                CheckThresholdBool(LEVEL_1, "a76_host1", SIGID_12017, SIGNAME_12017, "泵柜1过温锁定告警", cData.b1_8201[28], signal_index_++);
-                CheckThresholdBool(LEVEL_1, "a77_host1", SIGID_12017, SIGNAME_12017, "泵柜1与室内机通讯故障", cData.b1_8201[31], signal_index_++);
-            }
-
-            {
-                //室外机2
-                CheckThresholdBool(LEVEL_1, "a60_host2", SIGID_12017, SIGNAME_12017, "室外机2外风机变频驱动通讯故障", cData.b1_8134[2], signal_index_++);
-                CheckThresholdBool(LEVEL_1, "a61_host2", SIGID_12017, SIGNAME_12017, "室外机2室外温度传感器故障", cData.b1_8134[3], signal_index_++);
-                CheckThresholdBool(LEVEL_1, "a62_host2", SIGID_12017, SIGNAME_12017, "室外机2压力传感器故障", cData.b1_8134[4], signal_index_++);
-                CheckThresholdBool(LEVEL_1, "a63_host2", SIGID_12017, SIGNAME_12017, "室外机2系统高压保护", cData.b1_8134[5], signal_index_++);
-                CheckThresholdBool(LEVEL_1, "a64_host2", SIGID_12017, SIGNAME_12017, "室外机2系统低压保护", cData.b1_8134[6], signal_index_++);
-                CheckThresholdBool(LEVEL_1, "a65_host2", SIGID_12017, SIGNAME_12017, "室外机2外风机变频驱动故障", cData.b1_8134[10], signal_index_++);
-                CheckThresholdBool(LEVEL_1, "a66_host2", SIGID_12017, SIGNAME_12017, "室外机2风机过热保护", cData.b1_8134[11], signal_index_++);
-                CheckThresholdBool(LEVEL_1, "a67_host2", SIGID_12017, SIGNAME_12017, "室外机2与室内机通讯故障", cData.b1_8134[30], signal_index_++);
-
-                CheckThresholdBool(LEVEL_1, "a68_host2", SIGID_12017, SIGNAME_12017, "泵柜2高扬程锁定告警", cData.b1_8233[13], signal_index_++);
-                CheckThresholdBool(LEVEL_1, "a69_host2", SIGID_12017, SIGNAME_12017, "泵柜2低扬程锁定告警", cData.b1_8233[14], signal_index_++);
-                CheckThresholdBool(LEVEL_1, "a70_host2", SIGID_12017, SIGNAME_12017, "泵柜2进口压力传感器故障", cData.b1_8233[18], signal_index_++);
-                CheckThresholdBool(LEVEL_1, "a71_host2", SIGID_12017, SIGNAME_12017, "泵柜2出口压力传感器故障", cData.b1_8233[19], signal_index_++);
-                CheckThresholdBool(LEVEL_1, "a72_host2", SIGID_12017, SIGNAME_12017, "泵柜2相序错误", cData.b1_8233[20], signal_index_++);
-                CheckThresholdBool(LEVEL_1, "a73_host2", SIGID_12017, SIGNAME_12017, "泵柜2环温传感器故障报警", cData.b1_8233[24], signal_index_++);
-                CheckThresholdBool(LEVEL_1, "a74_host2", SIGID_12017, SIGNAME_12017, "泵柜2驱动故障报警", cData.b1_8233[26], signal_index_++);
-                CheckThresholdBool(LEVEL_1, "a75_host2", SIGID_12017, SIGNAME_12017, "泵柜2驱动通讯故障", cData.b1_8233[27], signal_index_++);
-                CheckThresholdBool(LEVEL_1, "a76_host2", SIGID_12017, SIGNAME_12017, "泵柜2过温锁定告警", cData.b1_8233[28], signal_index_++);
-                CheckThresholdBool(LEVEL_1, "a77_host2", SIGID_12017, SIGNAME_12017, "泵柜2与室内机通讯故障", cData.b1_8233[31], signal_index_++);
-            }
-
-
-
+SET_AO_CODE: |
+  if(setting["signal_id"].asString() == "150800310010") {
+      if(setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
+          int16_t newValue = atoi(setting["SetValue"].asString().c_str())*10;
+          //送风温度
+          state = AC_Control_Code::AC_SET_TEMPERATURE;
+          cmd_result_ = -1;
+          last_data_ = newValue;
+          modbus_write_register(3501, newValue);
+          return 0;                    
+      }
+  }else if(setting["signal_id"].asString() == "150800340010") {
+      if(setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
+          int16_t newValue = atoi(setting["SetValue"].asString().c_str())*10;
+          //湿度
+          state = AC_Control_Code::AC_SET_HUMID;
+          cmd_result_ = -1;
+          last_data_ = newValue;
+          modbus_write_register(3504, newValue);
+          return 0;                       
+      }
+  }

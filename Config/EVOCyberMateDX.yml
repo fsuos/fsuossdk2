@@ -36,7 +36,7 @@ Sample :
         Ratio : 10
         Offset : 9
       - Name : "1#回风湿度"
-        Unit : "℃"
+        Unit : "%"
         Ratio : 10
         Offset : 14
       - Name : "2#回风湿度"
@@ -48,15 +48,15 @@ Sample :
         Ratio : 10
         Offset : 16
       - Name : "4#回风湿度"
-        Unit : "Pa"
+        Unit : "%"
         Ratio : 10
         Offset : 17
       - Name : "5#回风湿度"
-        Unit : "L/min"
+        Unit : "%"
         Ratio : 10
         Offset : 18
       - Name : "室外湿度"
-        Unit : "Pa"
+        Unit : "%"
         Ratio : 10
         Offset : 19
       - Name : "出风湿度"
@@ -144,6 +144,7 @@ Sample :
     Len : 18
     Data :   
       - ArrayName : "%d#外扩温度"
+        ArrayStart : 1
         ArrayLength : 6
         Unit : "℃"
         Ratio : 10
@@ -153,6 +154,7 @@ Sample :
     Len : 6
     Data :   
       - ArrayName : "%d#外扩湿度"
+        ArrayStart : 1
         ArrayLength : 6
         Unit : "%"
         Ratio : 10
@@ -661,7 +663,7 @@ SET_AO_CODE: |
           state = AC_Control_Code::AC_SET_TEMPERATURE;
           cmd_result_ = -1;
           OpenPort();
-          modbus_write_register(0x0100, newValue);
+          modbus_write_register(0x0300, newValue);
           if((uint32_t)outBufferSize >= sizeof(int)) {
               *((int*)outBuffer) = 1;//通知取状态
               bytesReturned = sizeof(int);
@@ -674,7 +676,7 @@ SET_AO_CODE: |
           state = AC_Control_Code::AC_SET_HUMID;
           cmd_result_ = -1;
           OpenPort();
-          modbus_write_register(0x010D, newValue);
+          modbus_write_register(0x0302, newValue);
           if((uint32_t)outBufferSize >= sizeof(int)) {
               *((int*)outBuffer) = 1;//通知取状态
               bytesReturned = sizeof(int);

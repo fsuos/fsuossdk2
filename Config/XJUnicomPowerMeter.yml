@@ -1,0 +1,78 @@
+Project:
+  Name : XJUnicomPowerMeter
+  RT_ID : 5156
+  File : "多功能电力仪表使用说明书(综合卷).pdf"
+Sample : 
+  - Cmd : 3
+    Offset : 0x19
+    Len : 58
+    RType : 'f'
+    Data : 
+      - Name : "A相相电压"
+        Unit : "V"
+      - Name : "B相相电压"
+        Unit : "V"
+      - Name : "C相相电压"
+        Unit : "V"
+      - Name : "AB相线电压"
+        Unit : "V"
+      - Name : "BC相线电压"
+        Unit : "V"
+      - Name : "CA相线电压"
+        Unit : "V"
+      - Name : "A相电流测量"
+        Unit : "A"
+      - Name : "B相电流测量"
+        Unit : "A"
+      - Name : "C相电流测量"
+        Unit : "A"
+      - Name : "合相有功功率测量"
+        Ratio : 1000
+        Unit : "kw"
+      - Name : "合相无功功率测量"
+        Ratio : 1000
+        Unit : "kw"
+      - Name : "合相视在功率测量"
+        Ratio : 1000
+        Unit : "kw"
+      - Name : "A相有功功率测量"
+        Ratio : 1000
+        Unit : "kw"
+      - Name : "B相有功功率测量"
+        Ratio : 1000
+        Unit : "kw"
+      - Name : "C相有功功率测量"
+        Ratio : 1000
+        Unit : "kw"
+      - Name : "A相无功功率测量"
+        Ratio : 1000
+        Unit : "kvar"
+      - Name : "B相无功功率测量"
+        Ratio : 1000
+        Unit : "kvar"
+      - Name : "C相无功功率测量"
+        Ratio : 1000
+        Unit : "kvar"
+      - Name : "A相视在功率测量"
+        Ratio : 1000
+        Unit : "kva"
+      - Name : "B相视在功率测量"
+        Ratio : 1000
+        Unit : "kva"
+      - Name : "C相视在功率测量"
+        Ratio : 1000
+        Unit : "kva"
+      - Name : "A相功率因素测量"
+      - Name : "B相功率因素测量"
+      - Name : "C相功率因素测量"
+      - Name : "有功电能测量"
+        Ratio : 1000
+        Unit : "kWh"
+      - Name : "无功电能测量"
+        Ratio : 1000
+        Unit : "kVarh"
+      - Name : "合相功率因素测量"
+      - Name : "频率测量"
+        Unit : "Hz"
+      - Name : "平均电流测量"
+        Unit : "A"
