@@ -631,7 +631,43 @@ SET_DO_CODE : |
             break;
         }
     }
-
+DEVICEIOCONTROL_CODE: |
+  case AC_Control_Code::AC_START: {
+        state = AC_Control_Code::AC_START;
+        cmd_result_ = -1;
+        OpenPort();
+        last_data_ = 1;
+        modbus_write_register(168, 0xF);
+    }
+    break;
+    case AC_Control_Code::AC_STOP: {
+        state = AC_Control_Code::AC_STOP;
+        cmd_result_ = -1;
+        OpenPort();
+        last_data_ = 0;
+        modbus_write_register(168, 0xE);
+        break;
+    }
+    case AC_Control_Code::AC_SET_TEMPERATURE: {
+        if(inBufferSize == sizeof(uint16_t)) {
+            state = AC_Control_Code::AC_SET_TEMPERATURE;
+            cmd_result_ = -1;
+            OpenPort();
+            last_data_ = 10* (*(uint16_t*)inBuffer);
+            modbus_write_register(0, last_data_);
+        }
+        break;
+    }
+    case AC_Control_Code::AC_SET_HUMID: {
+        if(inBufferSize == sizeof(uint16_t)) {
+            state = AC_Control_Code::AC_SET_HUMID;
+            cmd_result_ = -1;
+            OpenPort();
+            last_data_ = 10*(*(uint16_t*)inBuffer);
+            modbus_write_register(2, last_data_);
+        }
+        break;
+    }  
 SET_RET_CODE: |
   case AC_Control_Code::AC_START: {
         if(tab_reg[0] == last_data_) {

@@ -1,0 +1,794 @@
+Project:
+  Name : ZHM19M
+  RT_ID : 5156
+  File : "8007990331_ZHM19主监控程序（联通系统非标,含DCM03)_Modbus协议_A.xlsx"
+  TabView : true
+  TabGroup : 
+    - 汇总
+    - 直流
+    - 交流
+    - 电池
+    - 整流
+    - 温度
+BlockTemplate: 
+  InputVI:
+    BlockLength : 4
+    BlockType : 'S'
+    BlockContent :
+       - Name : "#%s输入电压"
+         Ratio : 100
+         Unit : "V"
+       - Name : "#%s输入电流"
+  Rectifier:
+    BlockLength : 20
+    BlockType : 'S'
+    BlockContent :
+      - Name : "#%s整流器序列号低位"
+      - Name : "#%s整流器序列号高位"
+      - Name : "#%s整流器输出电压"
+        Ratio : 100
+        Unit : "V"
+      - Name : "#%s整流器输出电流"
+        Ratio : 100
+        Unit : "A"
+      - Name : "#%s整流器输出功率百分比"
+        Ratio : 100
+        Unit : "%"
+      - Name : "#%s整流器最大功率"
+        Ratio : 1000
+        Unit : "kW"
+      - Name : "#%s整流器温度"
+        Unit : "℃"
+      - Name : "#%s整流器故障状态-风扇故障"
+        Value : ($v[8] & 0x1)
+        CValue : (pData[7] & 0x1)
+      - Name : "#%s整流器故障状态-过温"
+        Value : (($v[8]>>1) & 0x1)
+        CValue : ((pData[7]>>1) & 0x1)
+      - Name : "#%s整流器故障状态-限流"
+        Value : (($v[8]>>2) & 0x1)
+        CValue : ((pData[7]>>2) & 0x1)
+      - Name : "#%s整流器故障状态-限功率"
+        Value : (($v[8]>>3) & 0x1)
+        CValue : ((pData[7]>>3) & 0x1)
+      - Name : "#%s整流器故障状态-光伏模块状态"
+        Value : (($v[8]>>4) & 0x1)
+        CValue : ((pData[7]>>4) & 0x1)
+      - Name : "#%s整流器故障状态-过压"
+        Value : (($v[8]>>5) & 0x1)
+        CValue : ((pData[7]>>5) & 0x1)
+      - Name : "#%s整流器故障状态-相位错误"
+        Value : (($v[8]>>6) & 0x1)
+        CValue : ((pData[7]>>6) & 0x1)
+      - Name : "#%s整流器故障状态-辅助源故障"
+        Value : (($v[8]>>7) & 0x1)
+        CValue : ((pData[7]>>7) & 0x1)
+      - Name : "#%s整流器故障状态-交流故障"
+        Value : (($v[8]>>8) & 0x1)
+        CValue : ((pData[7]>>8) & 0x1)
+      - Name : "#%s整流器故障状态-关机"
+        Value : (($v[8]>>9) & 0x1)
+        CValue : ((pData[7]>>9) & 0x1)
+      - Name : "#%s整流器故障状态-模块故障"
+        Value : (($v[8]>>10) & 0x1)
+        CValue : ((pData[7]>>10) & 0x1)
+      - Name : "#%s整流器故障状态-过流"
+        Value : (($v[8]>>11) & 0x1)
+        CValue : ((pData[7]>>11) & 0x1)
+      - Name : "#%s整流器故障状态-PFC故障"
+        Value : (($v[8]>>12) & 0x1)
+        CValue : ((pData[7]>>12) & 0x1)
+      - Name : "#%s整流器故障状态-三相不平衡"
+        Value : (($v[8]>>13) & 0x1)
+        CValue : ((pData[7]>>13) & 0x1)
+      - Name : "#%s整流器故障状态-通信故障"
+        Value : (($v[8]>>15) & 0x1)
+        CValue : ((pData[7]>>15) & 0x1)
+Sample : 
+  - Cmd : 3
+    Offset : 0
+    Len : 1
+    Type : "S"
+    TabGroup : 汇总
+    Data : 
+      - Name : "母排电压"
+        Ratio : 100
+        Unit : "V"
+  - Cmd : 3
+    Offset : 1
+    Len : 18
+    RType : 'f'
+    TabGroup : 汇总
+    Data :
+      - Name : "整流器总电流"
+        Ratio : 100
+        Unit : "A"
+      - Name : "负载总电流"
+        Ratio : 100
+        Unit : "A"
+      - Name : "电池总电流"
+        Ratio : 100
+        Unit : "A"
+      - Name : "电池组1电流"
+        Ratio : 100
+        Unit : "A"
+      - Name : "电池组2电流"
+        Ratio : 100
+        Unit : "A"
+      - Name : "电池组3电流"
+        Ratio : 100
+        Unit : "A"
+      - Name : "电池组4电流"
+        Ratio : 100
+        Unit : "A"
+      - Name : "电池组5电流"
+        Ratio : 100
+        Unit : "A"
+      - Name : "电池组6电流"
+        Ratio : 100
+        Unit : "A"
+  - Cmd : 3
+    Offset : 0x13
+    Len : 2
+    Type : "S"
+    TabGroup : 汇总
+    Data : 
+      - Name : "电池温度"
+        Ratio : 100
+        Unit : "℃"
+      - Name : "环境温度"
+        Ratio : 100
+        Unit : "℃"
+  - Cmd : 3
+    Offset : 0x1000
+    Len : 38
+    TabGroup : 直流
+    Data :
+      - Name : 汇流排1电压
+        Ratio : 100
+        Unit : "V"
+      - Name : 负载总电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 负载1电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 负载2电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 负载3电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 负载4电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 负载5电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 负载6电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 负载7电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 负载8电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 负载9电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 负载10电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 负载11电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 负载12电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 负载13电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 负载14电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 负载15电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 负载16电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 负载17电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 负载18电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 负载19电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 负载20电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 负载21电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 负载22电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 负载23电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 负载24电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 负载25电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 负载26电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 用户1电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 用户2电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 用户3电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 用户4电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 用户5电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 用户6电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 用户7电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 用户8电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 用户9电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 用户10电流
+        Ratio : 10
+        Unit : "A"
+  - Cmd : 3
+    Offset : 0x1026
+    Len : 74
+    RType : 'f'
+    TabGroup : 直流
+    Data :
+      - Name : "负载总电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "负载1电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "负载2电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "负载3电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "负载4电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "负载5电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "负载6电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "负载7电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "负载8电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "负载9电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "负载10电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "负载11电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "负载12电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "负载13电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "负载14电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "负载15电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "负载16电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "负载17电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "负载18电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "负载19电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "负载20电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "负载21电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "负载22电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "负载23电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "负载24电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "负载25电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "负载26电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "用户1电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "用户2电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "用户3电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "用户4电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "用户5电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "用户6电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "用户7电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "用户8电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "用户9电能"
+        Ratio : 1000
+        Unit : "kWH"
+      - Name : "用户10电能"
+        Ratio : 1000
+        Unit : "kWH"
+  - Cmd : 3
+    Offset : 0x1200
+    Len : 28
+    Type : "S"
+    TabGroup : 交流
+    Data : 
+      - Name : "交流1路A相电压"
+        Ratio : 100
+        Unit : "V"
+      - Name : "交流1路B相电压"
+        Ratio : 100
+        Unit : "V"
+      - Name : "交流1路C相电压"
+        Ratio : 100
+        Unit : "V"
+      - Name : "交流1路频率"
+        Unit : "Hz"
+      - Name : "交流2路A相电压"
+        Ratio : 100
+        Unit : "V"
+      - Name : "交流2路B相电压"
+        Ratio : 100
+        Unit : "V"
+      - Name : "交流2路C相电压"
+        Ratio : 100
+        Unit : "V"
+      - Name : "交流2路频率"
+        Unit : "Hz"
+      - Name : 交流1路A相电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 交流1路B相电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 交流1路C相电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 交流2路A相电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 交流2路B相电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 交流2路C相电流
+        Ratio : 10
+        Unit : "A"
+  - Cmd : 3
+    Offset : 0x1220
+    Len : 1
+    Type : "S"
+    TabGroup : 交流
+    Data : 
+      - Name : "太阳能输入总电流"
+        Ratio : 10
+        Unit : "A"
+  - Cmd : 3
+    Offset : 0x1300
+    Len : 14
+    Type : "S"
+    TabGroup : 电池
+    Data : 
+      - Name : "电池剩余容量"
+        Unit : "AH"
+      - Name : "电池后备时间"
+        Unit : "Min"
+      - Name : "电池工作状态"
+        Options : 
+          - Key : 0
+            Value : 浮充
+          - Key : 1
+            Value : 均充
+          - Key : 2
+            Value : 测试
+      - Name : "均充状态"
+        Options : 
+          - Key : 0
+            Value : "禁止"
+          - Key : 1
+            Value : "不活跃"
+          - Key : 2
+            Value : "活跃"
+      - Name : "测试状态"
+        Options : 
+          - Key : 0
+            Value : "禁止"
+          - Key : 1
+            Value : "不活跃"
+          - Key : 2
+            Value : "活跃"
+          - Key : 3
+            Value : "停止"
+          - Key : 4
+            Value : "锁定"
+      - Name : "限流状态"
+        Options : 
+          - Key : 0
+            Value : "禁止"
+          - Key : 1
+            Value : "不活跃"
+          - Key : 2
+            Value : "活跃"
+      - Name : "温度补偿状态"
+        Options : 
+          - Key : 0
+            Value : "禁止"
+          - Key : 1
+            Value : "不活跃"
+          - Key : 2
+            Value : "活跃"
+      - Name : "活跃控制状态"
+        Options : 
+          - Key : 0
+            Value : "禁止"
+          - Key : 1
+            Value : "不活跃"
+          - Key : 2
+            Value : "活跃"
+      - Name : "电池组1中心点电压"
+        Ratio : 100
+        Unit : "V"
+      - Name : "电池组2中心点电压"
+        Ratio : 100
+        Unit : "V"
+      - Name : "电池组3中心点电压"
+        Ratio : 100
+        Unit : "V"
+      - Name : "电池组4中心点电压"
+        Ratio : 100
+        Unit : "V"
+      - Name : "电池组5中心点电压"
+        Ratio : 100
+        Unit : "V"
+      - Name : "电池组6中心点电压"
+        Ratio : 100
+        Unit : "V"
+  - Cmd : 3
+    Offset : 0x130E
+    Len : 14
+    RType : 'f'
+    TabGroup : 电池
+    Data :
+      - Name : "电池组总电流"
+        Ratio : 100
+        Unit : "A"
+      - Name : "电池组1电流"
+        Ratio : 100
+        Unit : "A"
+      - Name : "电池组2电流"
+        Ratio : 100
+        Unit : "A"
+      - Name : "电池组3电流"
+        Ratio : 100
+        Unit : "A"
+      - Name : "电池组4电流"
+        Ratio : 100
+        Unit : "A"
+      - Name : "电池组5电流"
+        Ratio : 100
+        Unit : "A"
+      - Name : "电池组6电流"
+        Ratio : 100
+        Unit : "A"
+  - Cmd : 3
+    Offset : 0x1400
+    Len : 48
+    Type : "S"
+    TabGroup : 电池
+    Data : 
+      - ArrayName : "1#电池组%d节电池电压"
+        ArrayStart : 1
+        ArrayLength : 48
+        Offset : 0
+        Ratio : 1000
+        Unit : "V"
+  - Cmd : 3
+    Offset : 0x1440
+    Len : 48
+    Type : "S"
+    TabGroup : 电池
+    Data : 
+      - ArrayName : "2#电池组%d节电池电压"
+        ArrayStart : 1
+        ArrayLength : 48
+        Offset : 0
+        Ratio : 1000
+        Unit : "V"
+  - Cmd : 3
+    Offset : 0x1480
+    Len : 48
+    Type : "S"
+    TabGroup : 电池
+    Data : 
+      - ArrayName : "3#电池组%d节电池电压"
+        ArrayStart : 1
+        ArrayLength : 48
+        Offset : 0
+        Ratio : 1000
+        Unit : "V"
+  - Cmd : 3
+    Offset : 0x14C0
+    Len : 48
+    Type : "S"
+    TabGroup : 电池
+    Data : 
+      - ArrayName : "4#电池组%d节电池电压"
+        ArrayStart : 1
+        ArrayLength : 48
+        Offset : 0
+        Ratio : 1000
+        Unit : "V"
+  - Cmd : 3
+    Offset : 0x1500
+    Len : 48
+    Type : "S"
+    TabGroup : 电池
+    Data : 
+      - ArrayName : "5#电池组%d节电池电压"
+        ArrayStart : 1
+        ArrayLength : 48
+        Offset : 0
+        Ratio : 1000
+        Unit : "V"
+  - Cmd : 3
+    Offset : 0x1540
+    Len : 48
+    Type : "S"
+    TabGroup : 电池
+    Data : 
+      - ArrayName : "6#电池组%d节电池电压"
+        ArrayStart : 1
+        ArrayLength : 48
+        Offset : 0
+        Ratio : 1000
+        Unit : "V"
+  - Cmd : 3
+    Offset : 0x1600
+    Len : 48
+    Type : "S"
+    TabGroup : 电池
+    Data : 
+      - ArrayName : "1#电池组%d节电池内阻"
+        ArrayStart : 1
+        ArrayLength : 48
+        Offset : 0
+        Ratio : 1000
+        Unit : "Ω"
+  - Cmd : 3
+    Offset : 0x1640
+    Len : 48
+    Type : "S"
+    TabGroup : 电池
+    Data : 
+      - ArrayName : "2#电池组%d节电池内阻"
+        ArrayStart : 1
+        ArrayLength : 48
+        Offset : 0
+        Ratio : 1000
+        Unit : "Ω"
+  - Cmd : 3
+    Offset : 0x1680
+    Len : 48
+    Type : "S"
+    TabGroup : 电池
+    Data : 
+      - ArrayName : "3#电池组%d节电池内阻"
+        ArrayStart : 1
+        ArrayLength : 48
+        Offset : 0
+        Ratio : 1000
+        Unit : "Ω"
+  - Cmd : 3
+    Offset : 0x16C0
+    Len : 48
+    Type : "S"
+    TabGroup : 电池
+    Data : 
+      - ArrayName : "4#电池组%d节电池内阻"
+        ArrayStart : 1
+        ArrayLength : 48
+        Offset : 0
+        Ratio : 1000
+        Unit : "Ω"
+  - Cmd : 3
+    Offset : 0x1700
+    Len : 48
+    Type : "S"
+    TabGroup : 电池
+    Data : 
+      - ArrayName : "5#电池组%d节电池内阻"
+        ArrayStart : 1
+        ArrayLength : 48
+        Offset : 0
+        Ratio : 1000
+        Unit : "Ω"
+  - Cmd : 3
+    Offset : 0x1740
+    Len : 48
+    Type : "S"
+    TabGroup : 电池
+    Data : 
+      - ArrayName : "6#电池组%d节电池内阻"
+        ArrayStart : 1
+        ArrayLength : 48
+        Offset : 0
+        Ratio : 1000
+        Unit : "Ω"
+  - Cmd : 3
+    Offset : 0x1B00
+    Len : 1
+    Type : "S"
+    TabGroup : "整流"
+    Data :
+      - Name : "模块平均电压"
+        Ratio : 100
+        Unit : "V"
+  - Cmd : 3
+    Offset : 0x1B01
+    Len : 4
+    Type : "I"
+    TabGroup : "整流"
+    Data :
+      - Name : "交流整流器总电流"
+        Ratio : 100
+        Unit : "A"
+      - Name : "系统总功率"
+        Ratio : 100000
+        Unit : "kW"
+  - Cmd : 3
+    Offset : 0x1B05
+    Len : 5
+    Type : "S"
+    TabGroup : "整流"
+    Data : 
+      - Name : "整流器平均功率百分比"
+        Unit : "%"
+      - Name : "输出平均功率百分比"
+        Unit : "%"
+        Ratio : 100
+      - Name : "均流偏置电压"
+        Unit : "V"
+      - Name : "当前连接模块个数"
+      - Name : "太阳能模块平均功率百分比"
+        Unit : '%'
+  - Cmd : 3
+    Offset : 0x1B0A
+    Len : 2
+    Type : 'I'
+    TabGroup : "整流"
+    Data :    
+      - Name : "太阳能模块输出总电流"
+        Ratio : 100
+        Unit : "A"
+  - Cmd : 3
+    Offset : 0x1B10
+    Len : 100
+    TabGroup : "整流"
+    Data : 
+      - ArrayBlock : Rectifier
+        ArrayStart : 1
+        ArrayEnd : 10
+      - ArrayBlock : Rectifier
+        ArrayStart : 11
+        ArrayEnd : 20
+      - ArrayBlock : Rectifier
+        ArrayStart : 21
+        ArrayEnd : 30
+      - ArrayBlock : Rectifier
+        ArrayStart : 31
+        ArrayEnd : 40
+  - Cmd : 3
+    Offset : 0x1cA0
+    Len : 80
+    TabGroup : "整流"
+    Data : 
+      - ArrayBlock : InputVI
+        ArrayStart : 1
+        ArrayEnd : 40
+  - Cmd : 3
+    Offset : 0x1CF0
+    Len : 40
+    TabGroup : "整流"
+    Data : 
+      - ArrayName : "%d#整流器类型"
+        ArrayStart : 1
+        ArrayLength : 40
+        Offset : 0
+        Options : 
+          - Key : 0
+            Value : 交流模块
+          - Key : 1
+            Value : 太阳能模块
+  - Cmd : 3
+    Offset : 0x1E00
+    Len : 7
+    TabGroup : "温度"
+    Data : 
+      - Name : "电池温度"
+        Ratio : 100
+        Unit : "℃"
+      - Name : "环境温度"
+        Ratio : 100
+        Unit : "℃"
+      - Name : "IOM温度1"
+        Ratio : 100
+        Unit : "℃"
+      - Name : "IOM温度2"
+        Ratio : 100
+        Unit : "℃"
+      - Name : "IOM温度3"
+        Ratio : 100
+        Unit : "℃"
+      - Name : "IOM温度4"
+        Ratio : 100
+        Unit : "℃"
+      - Name : "IOM温度5"
+        Ratio : 100
+        Unit : "℃"

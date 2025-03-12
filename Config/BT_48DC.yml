@@ -1,0 +1,14 @@
+Project:
+  Name : BT_48DC
+  RT_ID : 5156
+  File : "从其他开关电源采集交流停电状态和直流电压"
+InitSetting :
+  - Name : ref_data_id
+    Type : uint32_t
+Sample : 
+  - Cmd : 3
+    Offset : 0
+    Len : 2
+    Data : 
+      - Name : out_v
+      - Name : ac

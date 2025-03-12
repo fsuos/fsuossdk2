@@ -42,352 +42,352 @@ Sample :
         Value : ($v[9] & 0x1)
         CValue : (pData[8] & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400101
+        UnicomSignalId : 602400101
         UnicomSignalName : 其它故障告警
       - Name : "送风高温告警"
         Value : (($v[9]>>1) & 0x1)
         CValue : ((pData[8]>>1) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400101
+        UnicomSignalId : 602400101
         UnicomSignalName : 其它故障告警
       - Name : "回风高温告警"
         Value : (($v[9]>>2) & 0x1)
         CValue : ((pData[8]>>2) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601230A04
+        UnicomSignalId : 602243003
         UnicomSignalName : 回风温度过高
       - Name : "回风高湿告警"
         Value : (($v[9]>>3) & 0x1)
         CValue : ((pData[8]>>3) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601230C03
+        UnicomSignalId : 602243203
         UnicomSignalName : 回风湿度高
       - Name : "回风低湿告警"
         Value : (($v[9]>>4) & 0x1)
         CValue : ((pData[8]>>4) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601230C01
+        UnicomSignalId : 602243201
         UnicomSignalName : 回风湿度低
       - Name : "回风温度传感器故障"
         Value : (($v[9]>>5) & 0x1)
         CValue : ((pData[8]>>5) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601460201
+        UnicomSignalId : 602400101
         UnicomSignalName : 温度传感器故障告警
       - Name : "回风湿度传感器故障"
         Value : (($v[9]>>6) & 0x1)
         CValue : ((pData[8]>>6) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601460101
+        UnicomSignalId : 602400101
         UnicomSignalName : 传感器故障告警
       - Name : "送风温度传感器故障"
         Value : (($v[9]>>7) & 0x1)
         CValue : ((pData[8]>>7) & 0x1)
-        UnicomSignalId : 601460201
+        UnicomSignalId : 602400101
         UnicomSignalName : 温度传感器故障告警
         AlertNormalValue : 0
       - Name : "风机故障"
         Value : (($v[9]>>8) & 0x1)
         CValue : ((pData[8]>>8) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601431C01
+        UnicomSignalId : 602431901
         UnicomSignalName : 风机故障告警
       - Name : "地板溢水"
         Value : (($v[9]>>9) & 0x1)
         CValue : ((pData[8]>>9) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601432C01
+        UnicomSignalId : 602432C01
         UnicomSignalName : 溢水
       - Name : "远程关机"
         Value : (($v[9]>>10) & 0x1)
         CValue : ((pData[8]>>10) & 0x1)
-        UnicomSignalId : 601400101
+        UnicomSignalId : 602400101
         UnicomSignalName : 其它故障告警
         AlertNormalValue : 0
       - Name : "电源丢失"
         Value : (($v[9]>>11) & 0x1)
         CValue : ((pData[8]>>11) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601415101
+        UnicomSignalId : 602415101
         UnicomSignalName : 输入电源故障告警
       - Name : "过滤网堵"
         Value : (($v[9]>>12) & 0x1)
         CValue : ((pData[8]>>12) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601432001
+        UnicomSignalId : 602432001
         UnicomSignalName : 过滤网堵塞
       - Name : "远程温度传感器故障"
         Value : (($v[9]>>13) & 0x1)
         CValue : ((pData[8]>>13) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601460201
+        UnicomSignalId : 602400101
         UnicomSignalName : 温度传感器故障告警
       - Name : "烟感告警"
         Value : (($v[9]>>14) & 0x1)
         CValue : ((pData[8]>>14) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400101
+        UnicomSignalId : 602400101
         UnicomSignalName : 其它故障告警
 
       - Name : "电源过压"
         Value : ($v[10] & 0x1)
         CValue : ((pData[9]) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601415101
+        UnicomSignalId : 602415101
         UnicomSignalName : 输入电源故障告警
       - Name : "电源欠压"
         Value : (($v[10]>>1) & 0x1)
         CValue : ((pData[9]>>1) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601415101
+        UnicomSignalId : 602415101
         UnicomSignalName : 输入电源故障告警
       - Name : "电源缺相"
         Value : (($v[10]>>2) & 0x1)
         CValue : ((pData[9]>>2) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601460101
+        UnicomSignalId : 602400101
         UnicomSignalName : 传感器故障告警
       - Name : "电源反相"
         Value : (($v[10]>>3) & 0x1)
         CValue : ((pData[9]>>3) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601415101
+        UnicomSignalId : 602415101
         UnicomSignalName : 输入电源故障告警
       - Name : "电源频偏"
         Value : (($v[10]>>4) & 0x1)
         CValue : ((pData[9]>>4) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601415101
+        UnicomSignalId : 602415101
         UnicomSignalName : 输入电源故障告警
      
       - Name : "DI采集模块1通信故障"
         Value : (($v[10]>>6) & 0x1)
         CValue : ((pData[9]>>6) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400201
+        UnicomSignalId : 602400201
         UnicomSignalName : 通信故障告警
       - Name : "DI采集模块2通信故障"
         Value : (($v[10]>>7) & 0x1)
         CValue : ((pData[9]>>7) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400201
+        UnicomSignalId : 602400201
         UnicomSignalName : 通信故障告警
 
       - Name : "从机通信故障"
         Value : (($v[10]>>9) & 0x1)
         CValue : ((pData[9]>>9) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400201
+        UnicomSignalId : 602400201
         UnicomSignalName : 通信故障告警
       - Name : "组网失败"
         Value : (($v[10]>>10) & 0x1)
         CValue : ((pData[9]>>10) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400201
+        UnicomSignalId : 602400201
         UnicomSignalName : 通信故障告警
       - Name : "电极加湿排水故障"
         Value : (($v[10]>>11) & 0x1)
         CValue : ((pData[9]>>11) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400101
+        UnicomSignalId : 602400101
         UnicomSignalName : 其它故障告警
       - Name : "加湿大电流"
         Value : (($v[10]>>12) & 0x1)
         CValue : ((pData[9]>>12) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400101
+        UnicomSignalId : 602400101
         UnicomSignalName : 其它故障告警
       - Name : "加湿小电流"
         Value : (($v[10]>>13) & 0x1)
         CValue : ((pData[9]>>13) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400101
+        UnicomSignalId : 602400101
         UnicomSignalName : 其它故障告警
       - Name : "加湿器需维护"
         Value : (($v[10]>>14) & 0x1)
         CValue : ((pData[9]>>14) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400101
+        UnicomSignalId : 602400101
         UnicomSignalName : 其它故障告警
       - Name : "加湿板故障"
         Value : (($v[10]>>15) & 0x1)
         CValue : ((pData[9]>>15) & 0x1)
         AlertNormalValue : 0     
-        UnicomSignalId : 601400101
+        UnicomSignalId : 602400101
         UnicomSignalName : 其它故障告警 
       - Name : "高压告警"
         Value : ($v[11] & 0x1)
         CValue : ((pData[10]) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601230E03
+        UnicomSignalId : 602230E03
         UnicomSignalName : 压缩机排气压力高
       - Name : "高压锁定"
         Value : (($v[11]>>1) & 0x1)
         CValue : ((pData[10]>>1) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400101
+        UnicomSignalId : 602400101
         UnicomSignalName : 其它故障告警 
       - Name : "低压告警"
         Value : (($v[11]>>2) & 0x1)
         CValue : ((pData[10]>>2) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601230D01
+        UnicomSignalId : 602230D01
         UnicomSignalName : 压缩机吸气压力低 
       - Name : "低压锁定"
         Value : (($v[11]>>3) & 0x1)
         CValue : ((pData[10]>>3) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400101
+        UnicomSignalId : 602400101
         UnicomSignalName : 其它故障告警 
       - Name : "排气高温告警"
         Value : (($v[11]>>4) & 0x1)
         CValue : ((pData[10]>>4) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400101
+        UnicomSignalId : 602400101
         UnicomSignalName : 其它故障告警 
       - Name : "排气高温锁定"
         Value : (($v[11]>>5) & 0x1)
         CValue : ((pData[10]>>5) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400101
+        UnicomSignalId : 602400101
         UnicomSignalName : 其它故障告警 
       - Name : "排气低过热度告警"
         Value : (($v[11]>>6) & 0x1)
         CValue : ((pData[10]>>6) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400101
+        UnicomSignalId : 602400101
         UnicomSignalName : 其它故障告警 
       - Name : "排气低过热度锁定"
         Value : (($v[11]>>7) & 0x1)
         CValue : ((pData[10]>>7) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400101
+        UnicomSignalId : 602400101
         UnicomSignalName : 其它故障告警 
       - Name : "高压传感器1故障"
         Value : (($v[11]>>8) & 0x1)
         CValue : ((pData[10]>>8) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601460101
+        UnicomSignalId : 602400101
         UnicomSignalName : 传感器故障告警
       - Name : "泵过温告警"
         Value : (($v[11]>>9) & 0x1)
         CValue : ((pData[10]>>9) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400101
+        UnicomSignalId : 602400101
         UnicomSignalName : 其它故障告警 
       - Name : "泵过温锁定"
         Value : (($v[11]>>10) & 0x1)
         CValue : ((pData[10]>>10) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400101
+        UnicomSignalId : 602400101
         UnicomSignalName : 其它故障告警 
       - Name : "泵环温故障"
         Value : (($v[11]>>11) & 0x1)
         CValue : ((pData[10]>>11) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400101
+        UnicomSignalId : 602400101
         UnicomSignalName : 其它故障告警 
       - Name : "泵入口压力传感器故障"
         Value : (($v[11]>>12) & 0x1)
         CValue : ((pData[10]>>12) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601460101
+        UnicomSignalId : 602400101
         UnicomSignalName : 传感器故障告警
       - Name : "泵出口压力传感器故障"
         Value : (($v[11]>>13) & 0x1)
         CValue : ((pData[10]>>13) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601460101
+        UnicomSignalId : 602400101
         UnicomSignalName : 传感器故障告警
       - Name : "高扬程告警"
         Value : (($v[11]>>14) & 0x1)
         CValue : ((pData[10]>>14) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400101
+        UnicomSignalId : 602400101
         UnicomSignalName : 其它故障告警 
       - Name : "低扬程告警"
         Value : (($v[11]>>15) & 0x1)
         CValue : ((pData[10]>>15) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400101
+        UnicomSignalId : 602400101
         UnicomSignalName : 其它故障告警 
       - Name : "高扬程锁定"
         Value : ($v[12] & 0x1)
         CValue : ((pData[11]) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400101
+        UnicomSignalId : 602400101
         UnicomSignalName : 其它故障告警 
       - Name : "低扬程锁定"
         Value : (($v[12]>>1) & 0x1)
         CValue : ((pData[11]>>1) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400101
+        UnicomSignalId : 602400101
         UnicomSignalName : 其它故障告警 
       - Name : "泵驱动故障"
         Value : (($v[12]>>2) & 0x1)
         CValue : ((pData[11]>>2) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400101
+        UnicomSignalId : 602400101
         UnicomSignalName : 其它故障告警 
       - Name : "泵通信故障"
         Value : (($v[12]>>3) & 0x1)
         CValue : ((pData[11]>>3) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400201
+        UnicomSignalId : 602400201
         UnicomSignalName : 通信故障告警 
       - Name : "EEV控制板故障"
         Value : (($v[12]>>4) & 0x1)
         CValue : ((pData[11]>>4) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400101
+        UnicomSignalId : 602400101
         UnicomSignalName : 其它故障告警 
       - Name : "吸气温度传感器故障"
         Value : (($v[12]>>5) & 0x1)
         CValue : ((pData[11]>>5) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601460101
+        UnicomSignalId : 602400101
         UnicomSignalName : 传感器故障告警
       - Name : "低压压力传感器故障"
         Value : (($v[12]>>6) & 0x1)
         CValue : ((pData[11]>>6) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601460101
+        UnicomSignalId : 602400101
         UnicomSignalName : 传感器故障告警
       - Name : "EEV通信故障"
         Value : (($v[12]>>7) & 0x1)
         CValue : ((pData[11]>>7) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400201
+        UnicomSignalId : 602400201
         UnicomSignalName : 通信故障告警 
       - Name : "冷凝器1压力传感器故障"
         Value : (($v[12]>>8) & 0x1)
         CValue : ((pData[11]>>8) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601460101
+        UnicomSignalId : 602400101
         UnicomSignalName : 传感器故障告警
       - Name : "冷凝器1风机过温"
         Value : (($v[12]>>9) & 0x1)
         CValue : ((pData[11]>>9) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400101
+        UnicomSignalId : 602400101
         UnicomSignalName : 其它故障告警 
       - Name : "冷凝器1风机过温锁定"
         Value : (($v[12]>>10) & 0x1)
         CValue : ((pData[11]>>10) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400101
+        UnicomSignalId : 602400101
         UnicomSignalName : 其它故障告警 
       - Name : "冷凝器1驱动硬件故障"
         Value : (($v[12]>>11) & 0x1)
         CValue : ((pData[11]>>11) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400101
+        UnicomSignalId : 602400101
         UnicomSignalName : 其它故障告警 
       - Name : "冷凝器1通信故障"
         Value : (($v[12]>>12) & 0x1)
         CValue : ((pData[11]>>12) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400201
+        UnicomSignalId : 602400201
         UnicomSignalName : 通信故障告警 
       - Name : "冷凝器2风机过温"
         Value : (($v[12]>>14) & 0x1)
@@ -397,61 +397,61 @@ Sample :
         Value : (($v[12]>>15) & 0x1)
         CValue : ((pData[11]>>15) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400101
+        UnicomSignalId : 602400101
         UnicomSignalName : 其它故障告警 
       - Name : "冷凝器2驱动硬件故障"
         Value : (($v[13]) & 0x1)
         CValue : ((pData[12]) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400101
+        UnicomSignalId : 602400101
         UnicomSignalName : 其它故障告警 
       - Name : "冷凝器2通信故障"
         Value : (($v[13]>>1) & 0x1)
         CValue : ((pData[12]>>1) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400201
+        UnicomSignalId : 602400201
         UnicomSignalName : 通信故障告警 
       - Name : "压缩机驱动故障"
         Value : (($v[13]>>2) & 0x1)
         CValue : ((pData[12]>>2) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400101
+        UnicomSignalId : 602400101
         UnicomSignalName : 其它故障告警 
       - Name : "压缩机驱动故障锁定"
         Value : (($v[13]>>3) & 0x1)
         CValue : ((pData[12]>>3) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400101
+        UnicomSignalId : 602400101
         UnicomSignalName : 其它故障告警 
       - Name : "压缩机通信故障"
         Value : (($v[13]>>4) & 0x1)
         CValue : ((pData[12]>>4) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400201
+        UnicomSignalId : 602400201
         UnicomSignalName : 通信故障告警 
       - Name : "压缩机驱动过欠压"
         Value : (($v[13]>>5) & 0x1)
         CValue : ((pData[12]>>5) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400101
+        UnicomSignalId : 602400101
         UnicomSignalName : 其它故障告警 
       - Name : "排气温度传感器故障"
         Value : (($v[13]>>7) & 0x1)
         CValue : ((pData[12]>>7) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601460101
+        UnicomSignalId : 602400101
         UnicomSignalName : 传感器故障告警
       - Name : "高压异常"
         Value : (($v[13]>>8) & 0x1)
         CValue : ((pData[12]>>8) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400101
+        UnicomSignalId : 602400101
         UnicomSignalName : 其它故障告警 
       - Name : "冷凝水泵高水位告警"
         Value : (($v[13]>>9) & 0x1) 
         CValue : ((pData[12]>>9) & 0x1)
         AlertNormalValue : 0
-        UnicomSignalId : 601400101
+        UnicomSignalId : 602400101
         UnicomSignalName : 其它故障告警 
       - Name : "机组运行状态"
         Offset : 14

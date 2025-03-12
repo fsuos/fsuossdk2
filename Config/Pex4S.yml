@@ -33,17 +33,38 @@ Sample :
             Value : 群控模式2
           - Key : 4
             Value : 群控模式3
-      - Name : 运行状态
-        Offset : 3
+      - Name : 运行状态-制冷
+        Value : (($v[3])&0x1)
+        CValue : ((pData[2])&0x1)
         Options : 
-          - Key : (($v[3])&0x1)
-            Value : 制冷
-          - Key : (($v[3]>>1)&0x1)
-            Value : 加热 
-          - Key : (($v[3]>>2)&0x1)
-            Value : 加湿
-          - Key : (($v[3]>>3)&0x1)
-            Value : 除湿
+          - Key : 0
+            Value : 未工作
+          - Key : 1
+            Value : 工作
+      - Name : 运行状态-加热
+        Value : (($v[3]>>1)&0x1)
+        CValue : ((pData[2]>>1)&0x1)
+        Options : 
+          - Key : 0
+            Value : 未工作
+          - Key : 1
+            Value : 工作
+      - Name : 运行状态-加湿
+        Value : (($v[3]>>2)&0x1)
+        CValue : ((pData[2]>>2)&0x1)
+        Options : 
+          - Key : 0
+            Value : 未工作
+          - Key : 1
+            Value : 工作
+      - Name : 运行状态-除湿
+        Value : (($v[3]>>3)&0x1)
+        CValue : ((pData[2]>>3)&0x1)
+        Options : 
+          - Key : 0
+            Value : 未工作
+          - Key : 1
+            Value : 工作
       - Name : A相电压
         Offset : 4
         Ratio : 10
@@ -118,6 +139,7 @@ Sample :
     Len : 16
     Data : 
       - ArrayName : "远程温度%d"
+        ArrayStart : 1
         ArrayLength : 16
         Unit : "℃"
         Ratio : 10
@@ -131,6 +153,7 @@ Sample :
     Len : 16
     Data : 
       - ArrayName : "远程湿度%d"
+        ArrayStart : 1
         ArrayLength : 16
         Unit : "%RH"
         Ratio : 10
@@ -929,3 +952,162 @@ RunCheckThresholdCodeTelecom : |
   CheckThresholdBool(SMDController::LEVEL1, "alarm_12_7", "70601", "报警状态12", "冷凝器风机未配置", ((cData.r3_2[11] >> 7) & 0x1), signal_index_++);
 
   CheckThresholdBool(SMDController::LEVEL1, "alarm_12_8", "70601", "报警状态12", "冷凝器喷淋水系统故障", ((cData.r3_2[11] >> 8) & 0x1), signal_index_++);
+SET_RET_CODE : |
+  case AC_Control_Code::AC_START: {
+        if(tab_reg[0] == last_data_) {
+            cmd_result_ = 0;
+        } else {
+            cmd_result_ = 3;
+        }
+        Reset();
+        return false;
+      }
+      case AC_Control_Code::AC_STOP: {
+        if(tab_reg[0] == last_data_) {
+            cmd_result_ = 0;
+        } else {
+            cmd_result_ = 3;
+        }
+        Reset();
+        return false;
+      } 
+      case AC_Control_Code::AC_SET_TEMPERATURE:
+      case AC_Control_Code::AC_SET_HUMID: {
+        if(tab_reg[0] == last_data_) {
+            cmd_result_ = 0;
+        } else {
+            cmd_result_ = 3;
+        }
+        Reset();
+        return false;
+      }
+      
+SET_DO_CODE : |
+  if(setting["signal_id"] != Json::nullValue && setting["signal_id"].type()  != Json::nullValue) {
+      if(setting["signal_id"].asString() != "") {
+          switch(b_mode_)
+          {
+              case 1://联通
+              {
+                    //320是SET_DO
+                  std::string doId((char*)inBuffer, inBufferSize);
+                  if(doId == "601500201001" || doId == "140800280010") {
+                      //开机
+                      state = AC_Control_Code::AC_START;
+                      modbus_write_register(100, 0x10);
+                      return 0;
+                  } else if(doId == "601500200001" || doId == "140800300010") {
+                      //关机
+                      state = AC_Control_Code::AC_STOP;
+                      modbus_write_register(100, 0x1F);
+                      return 0;
+                  }
+                  break;
+              }
+              case 2://电信
+              {
+                  std::string aoStr((char*)inBuffer, inBufferSize);
+                  Json::Value setting;//
+                  Json::Reader reader;//解析
+                  if(!reader.parse(aoStr, setting)) {
+                      return -1;
+                  }
+                  if(setting.type() == Json::objectValue) {
+                      if(setting["signal_id"] != Json::nullValue && setting["signal_id"].type()  != Json::nullValue) {
+                          if(setting["signal_id"].asString() != "") {
+                              if(setting["signal_id"].asString() == "140800280010"){
+                                    //开机
+                                  state = AC_Control_Code::AC_START;
+                                  modbus_write_register(100, 0x10);
+                                  return 0;
+                              }else if(setting["signal_id"].asString() == "140800300010") {
+                                    //关机
+                                  state = AC_Control_Code::AC_STOP;
+                                  modbus_write_register(100, 0x1F);
+                                  return 0;
+                              }
+                          }
+                      }
+                  }
+                  break;
+              }
+          }
+      }
+  }
+
+SET_AO_CODE: |
+  if(setting["signal_id"] != Json::nullValue && setting["signal_id"].type()  != Json::nullValue) {
+      if(setting["signal_id"].asString() != "") {
+          if(setting["signal_id"].asString() == "6016A2101001" || setting["signal_id"].asString() == "150800310010") {
+              if(setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
+                  int16_t newValue = atoi(setting["SetValue"].asString().c_str())*10;
+                  //送风温度
+                  state = AC_Control_Code::AC_SET_TEMPERATURE;
+                  cmd_result_ = -1;
+                  last_data_ = newValue;
+                  modbus_write_register(102, newValue);
+
+                  return 0;                    
+              }
+          }else if(setting["signal_id"].asString() == "6016A2101001" || setting["signal_id"].asString() == "150800340010") {
+              if(setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
+                  int16_t newValue = atoi(setting["SetValue"].asString().c_str())*10;
+                  //湿度
+                  state = AC_Control_Code::AC_SET_HUMID;
+                  cmd_result_ = -1;
+                  last_data_ = newValue;
+                  modbus_write_register(104, newValue);
+                  return 0;                       
+              }
+          }
+
+      }
+  }
+DEVICEIOCONTROL_CODE: |
+  case AC_Control_Code::AC_START: {
+        state = AC_Control_Code::AC_START;
+        cmd_result_ = -1;
+        OpenPort();
+        last_data_ = 1;
+        modbus_write_register(100, 0x10);
+    }
+    break;
+    case AC_Control_Code::AC_STOP: {
+        state = AC_Control_Code::AC_STOP;
+        cmd_result_ = -1;
+        OpenPort();
+        last_data_ = 0;
+        modbus_write_register(100, 0x1F);
+        break;
+    }
+    case AC_Control_Code::AC_SET_TEMPERATURE: {
+        if(inBufferSize == sizeof(uint16_t)) {
+            state = AC_Control_Code::AC_SET_TEMPERATURE;
+            cmd_result_ = -1;
+            OpenPort();
+            last_data_ = 10* (*(uint16_t*)inBuffer);
+            modbus_write_register(102, last_data_);
+        }
+        break;
+    }
+    case AC_Control_Code::AC_SET_HUMID: {
+        if(inBufferSize == sizeof(uint16_t)) {
+            state = AC_Control_Code::AC_SET_HUMID;
+            cmd_result_ = -1;
+            OpenPort();
+            last_data_ = 10*(*(uint16_t*)inBuffer);
+            modbus_write_register(104, last_data_);
+        }
+        break;
+    }
+    case AC_Control_Code::AC_START_RESULT:
+    case AC_Control_Code::AC_STOP_RESULT:
+    case AC_Control_Code::AC_SET_TEMPERATURE_RESULT:
+    case AC_Control_Code::AC_SET_HUMID_RESULT:
+        if((uint32_t)outBufferSize >= sizeof(int)) {
+            *((int*)outBuffer) = cmd_result_;
+            bytesReturned = sizeof(int);
+        } else {
+            bytesReturned = 0;
+        }
+        break;

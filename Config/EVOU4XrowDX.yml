@@ -573,3 +573,111 @@ RunCheckThresholdCodeUnicom: |
   {
 
   }
+SET_RET_CODE : |
+  case AC_Control_Code::AC_START: {
+        if(tab_reg[0] == last_data_) {
+            cmd_result_ = 0;
+        } else {
+            cmd_result_ = 3;
+        }
+        Reset();
+        return false;
+      }
+      case AC_Control_Code::AC_STOP: {
+        if(tab_reg[0] == last_data_) {
+            cmd_result_ = 0;
+        } else {
+            cmd_result_ = 3;
+        }
+        Reset();
+        return false;
+      } 
+      case AC_Control_Code::AC_SET_TEMPERATURE:
+      case AC_Control_Code::AC_SET_HUMID: {
+        if(tab_reg[0] == last_data_) {
+            cmd_result_ = 0;
+        } else {
+            cmd_result_ = 3;
+        }
+        Reset();
+        return false;
+      }
+      
+SET_DO_CODE : |
+  if(setting["signal_id"].asString() != "") {
+      if(setting["signal_id"].asString() == "140800280010") {
+          //开机
+          state = AC_Control_Code::AC_START;
+          cmd_result_ = -1;
+          last_data_ = 0x15;
+          modbus_write_register(0x400, last_data_);
+          return 0;
+      }else if(setting["signal_id"].asString() == "140800300010") {
+          //关机
+          state = AC_Control_Code::AC_STOP;
+          cmd_result_ = -1;
+          last_data_ = 0x17;
+          modbus_write_register(0x400, last_data_);
+          return 0;
+      }
+  }
+
+SET_AO_CODE: |
+  if(setting["signal_id"].asString() == "150800310010") {
+      if(setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
+          int16_t newValue = atoi(setting["SetValue"].asString().c_str())*10;
+          //送风温度
+          state = AC_Control_Code::AC_SET_TEMPERATURE;
+          cmd_result_ = -1;
+          last_data_ = newValue;
+          modbus_write_register(0x300, last_data_);
+          return 0;                    
+      }
+  }else if(setting["signal_id"].asString() == "150800340010") {
+      if(setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
+          int16_t newValue = atoi(setting["SetValue"].asString().c_str())*10;
+          //湿度
+          state = AC_Control_Code::AC_SET_HUMID;
+          cmd_result_ = -1;
+          last_data_ = newValue;
+          modbus_write_register(0x302, last_data_);
+          return 0;                       
+      }
+  }
+DEVICEIOCONTROL_CODE: |
+  case AC_Control_Code::AC_START: {
+        state = AC_Control_Code::AC_START;
+        cmd_result_ = -1;
+        OpenPort();
+        last_data_ = 0x15;
+        modbus_write_register(0x400, last_data_);
+    }
+    break;
+    case AC_Control_Code::AC_STOP: {
+        state = AC_Control_Code::AC_STOP;
+        cmd_result_ = -1;
+        OpenPort();
+        last_data_ = 0x17;
+        modbus_write_register(0x400, last_data_);
+        break;
+    }
+    case AC_Control_Code::AC_SET_TEMPERATURE: {
+        if(inBufferSize == sizeof(uint16_t)) {
+            state = AC_Control_Code::AC_SET_TEMPERATURE;
+            cmd_result_ = -1;
+            OpenPort();
+            last_data_ = 10* (*(uint16_t*)inBuffer);
+            modbus_write_register(0x300, last_data_);
+        }
+        break;
+    }
+    case AC_Control_Code::AC_SET_HUMID: {
+        if(inBufferSize == sizeof(uint16_t)) {
+            state = AC_Control_Code::AC_SET_HUMID;
+            cmd_result_ = -1;
+            OpenPort();
+            last_data_ = 10*(*(uint16_t*)inBuffer);
+            modbus_write_register(0x302, last_data_);
+        }
+        break;
+    }     

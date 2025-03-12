@@ -24,6 +24,7 @@ BuildDriver () {
     fi
     cd ../..
     cp DeviceWeb/application/helpers/device/$DSTFILE.php $PACK_PATH$4/application/helpers/device/
+    cp public/portal/js/rt-data/rt-data-$DSTFILE.js $PACK_PATH$4/public/portal/js/rt-data/
     cp DeviceWeb/application/helpers/ini/telecom/$DSTFILE.yaml $PACK_PATH$4/application/helpers/ini/telecom/
     cp DeviceWeb/application/helpers/ini/telecom/$DSTFILE.ini $PACK_PATH$4/application/helpers/ini/telecom/
     cp DeviceWeb/application/helpers/ini/unicom/$DSTFILE.yaml $PACK_PATH$4/application/helpers/ini/unicom/

@@ -274,6 +274,12 @@ function _{{ Project.Name|lower }}_{{ key }}(&$dataArray, $memData, $prefix, $in
 {% endfor %}
 {% endif %}
 
+{% if InitSetting is defined %}
+function Is_{{ Project.Name|lower }}_NeedExtraPara(){
+  return true;
+}
+{% endif %}
+
 function Get_{{ Project.Name|lower }}_RtData($memData, &$dataArray, $extraPara = false){
     if($memData == false){
         $dataArray['无数据'] = true;
@@ -282,6 +288,18 @@ function Get_{{ Project.Name|lower }}_RtData($memData, &$dataArray, $extraPara =
     }else{
         $dataArray['无数据'] = false;
         $dataArray['AlertArray'] = array();
+
+        //InitSetting
+        {% if InitSetting is defined %}
+        {% for s in InitSetting %}
+          ${{s.Name}} = $extraPara->{{s.Name}};
+          if(!${{s.Name}}){
+            ${{s.Name}} = {% if s.Default is defined %}{{s.Default}}{% else %}0{% endif %};
+          }          
+        {% endfor %}
+        {% endif %}
+
+
         $offset = 4;
         {% for tsc in Sample %}
             {% if tsc.CmdGroupStart is defined %}

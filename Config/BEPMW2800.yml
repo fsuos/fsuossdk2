@@ -1,0 +1,92 @@
+Project:
+  Name : BEPMW2800
+  RT_ID : 5156
+  File : "PMW2800说明书.pdf"
+Sample : 
+  - Cmd : 4
+    Offset : 3
+    Len : 2
+    Data : 
+      - Name : PT
+      - Name : CT
+  - Cmd : 4
+    Offset : 37
+    Len : 52
+    RType : 'f'
+    Data : 
+      - Name : A相电压
+        Unit : "V"
+      - Name : B相电压
+        Unit : "V"
+      - Name : C相电压
+        Unit : "V"
+      - Name : AB线电压
+        Unit : "V"
+      - Name : BC线电压
+        Unit : "V"
+      - Name : CA线电压
+        Unit : "V"
+      - Name : A相电流
+        Unit : "A"
+      - Name : B相电流
+        Unit : "A"
+      - Name : C相电流
+        Unit : "A"
+      - Name : A相有功
+        Ratio : 1000
+        Unit : "kW"
+      - Name : B相有功
+        Ratio : 1000
+        Unit : "kW"
+      - Name : C相有功
+        Ratio : 1000
+        Unit : "kW"
+      - Name : 总有功
+        Ratio : 1000
+        Unit : "kW"
+      - Name : A相无功
+        Ratio : 1000
+        Unit : "kVA"
+      - Name : B相无功
+        Ratio : 1000
+        Unit : "kVA"
+      - Name : C相无功
+        Ratio : 1000
+        Unit : "kVA"
+      - Name : 总无功
+        Ratio : 1000
+        Unit : "kVA"
+      - Name : A相视在功率
+        Ratio : 1000
+        Unit : "kVAr"
+      - Name : B相视在功率
+        Ratio : 1000
+        Unit : "kVAr"
+      - Name : C相视在功率
+        Ratio : 1000
+        Unit : "kVAr"
+      - Name : 总视在功率
+        Ratio : 1000
+        Unit : "kVAr"
+      - Name : A相功率因数
+      - Name : B相功率因数
+      - Name : C相功率因数
+      - Name : 总功率因数
+      - Name : 频率
+  - Cmd : 4
+    Offset : 91
+    Len : 8
+    RType : 'f'
+    Data : 
+      - Name : 总正向有功电能
+        Ratio : 1000
+        Unit : "kWh"
+      - Name : 总正向无功电能
+        Ratio : 1000
+        Unit : "kVAh"
+      - Name : 总负向有功电能
+        Ratio : 1000
+        Unit : "kWh"
+      - Name : 总负向无功电能
+        Ratio : 1000
+        Unit : "kVAh"
