@@ -218,33 +218,33 @@ RunCheckThresholdCodeTelecom : |
   {
       float fValue = cData.r3_100[4];
       fValue /= 100;
-      if(levelMap_["110200060010"]){            
-            CheckThresholdBool(levelMap_["110200060010"] , "110200060010", "110200060010", "001#低压配电屏线电压Ubc过高", boost::lexical_cast<std::string>(fValue),  fValue > valueMap_["110200060010"], 1);
+      if(levelMap_["110200290010"]){            
+            CheckThresholdBool(levelMap_["110200290010"] , "110200290010", "110200290010", "001#低压配电屏线电压Ubc过高", boost::lexical_cast<std::string>(fValue),  fValue > valueMap_["110200290010"], 1);
       }
-      if(levelMap_["110200070010"]){
-            CheckThresholdBool(levelMap_["110200070010"] , "110200070010", "110200070010", "001#低压配电屏线电压Ubc过低", boost::lexical_cast<std::string>(fValue),  fValue < valueMap_["110200070010"], 1);
+      if(levelMap_["110200300010"]){
+            CheckThresholdBool(levelMap_["110200300010"] , "110200300010", "110200300010", "001#低压配电屏线电压Ubc过低", boost::lexical_cast<std::string>(fValue),  fValue < valueMap_["110200300010"], 1);
       }
-      if(levelMap_["110200080010"]){
-            CheckThresholdBool(levelMap_["110200080010"] , "110200080010", "110200080010", "001#低压配电屏线电压Ubc超高", boost::lexical_cast<std::string>(fValue),  fValue > valueMap_["110200080010"], 1);
+      if(levelMap_["110200310010"]){
+            CheckThresholdBool(levelMap_["110200310010"] , "110200310010", "110200310010", "001#低压配电屏线电压Ubc超高", boost::lexical_cast<std::string>(fValue),  fValue > valueMap_["110200310010"], 1);
       }
-      if(levelMap_["110200090010"]){
-            CheckThresholdBool(levelMap_["110200090010"] , "110200090010", "110200090010", "001#低压配电屏线电压Ubc过低", boost::lexical_cast<std::string>(fValue),  fValue < valueMap_["110200090010"], 1);
+      if(levelMap_["110200320010"]){
+            CheckThresholdBool(levelMap_["110200320010"] , "110200320010", "110200320010", "001#低压配电屏线电压Ubc过低", boost::lexical_cast<std::string>(fValue),  fValue < valueMap_["110200320010"], 1);
       }
   }
   {
       float fValue = cData.r3_100[5];
       fValue /= 100;
-      if(levelMap_["110200110010"]){            
-            CheckThresholdBool(levelMap_["110200110010"] , "110200110010", "110200110010", "001#低压配电屏线电压Uca过高", boost::lexical_cast<std::string>(fValue),  fValue > valueMap_["110200110010"], 1);
+      if(levelMap_["110200340010"]){            
+            CheckThresholdBool(levelMap_["110200340010"] , "110200340010", "110200340010", "001#低压配电屏线电压Uca过高", boost::lexical_cast<std::string>(fValue),  fValue > valueMap_["110200340010"], 1);
       }
-      if(levelMap_["110200120010"]){
-            CheckThresholdBool(levelMap_["110200120010"] , "110200120010", "110200120010", "001#低压配电屏线电压Uca过低", boost::lexical_cast<std::string>(fValue),  fValue < valueMap_["110200120010"], 1);
+      if(levelMap_["110200350010"]){
+            CheckThresholdBool(levelMap_["110200350010"] , "110200350010", "110200350010", "001#低压配电屏线电压Uca过低", boost::lexical_cast<std::string>(fValue),  fValue < valueMap_["110200350010"], 1);
       }
-      if(levelMap_["110200130010"]){
-            CheckThresholdBool(levelMap_["110200130010"] , "110200130010", "110200130010", "001#低压配电屏线电压Uca超高", boost::lexical_cast<std::string>(fValue),  fValue > valueMap_["110200130010"], 1);
+      if(levelMap_["110200360010"]){
+            CheckThresholdBool(levelMap_["110200360010"] , "110200360010", "110200360010", "001#低压配电屏线电压Uca超高", boost::lexical_cast<std::string>(fValue),  fValue > valueMap_["110200360010"], 1);
       }
-      if(levelMap_["110200140010"]){
-            CheckThresholdBool(levelMap_["110200140010"] , "110200140010", "110200140010", "001#低压配电屏线电压Uca过低", boost::lexical_cast<std::string>(fValue),  fValue < valueMap_["110200140010"], 1);
+      if(levelMap_["110200370010"]){
+            CheckThresholdBool(levelMap_["110200370010"] , "110200370010", "110200370010", "001#低压配电屏线电压Uca过低", boost::lexical_cast<std::string>(fValue),  fValue < valueMap_["110200370010"], 1);
       }
   }
   {

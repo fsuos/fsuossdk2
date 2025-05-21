@@ -1,0 +1,124 @@
+Project:
+  Name : YD2037YS
+  RT_ID : 5156
+  File : "YD2037Y-S系列通讯协议.pdf"
+InitSetting :
+  - Name : has_a
+    Type : int
+  - Name : has_b
+    Type : int
+  - Name : has_c
+    Type : int
+Sample : 
+  - Cmd : 3
+    Offset : 0
+    Len : 32
+    Data : 
+      - Name : "相电压Ua"
+        Unit : "V"
+        Ratio : 10
+      - Name : "线电压Uca"
+        Unit : "V"
+        Ratio : 10
+      - Name : "A相电流"
+        Unit : "A"
+        Ratio : 1000
+      - Name : "DI"
+      - Name : "A相有功功率"
+        Unit : "kW"
+        Ratio : 1000
+      - Name : "A相功率因数"
+        Ratio : 10000
+      - Name : "A相无功功率"
+        Unit : "kVar"
+        Ratio : 1000
+      - Name : "A相视在功率"
+        Unit : "kVA"
+        Ratio : 1000
+      - Name : "相电压Ub"
+        Unit : "V"
+        Ratio : 10
+      - Name : "线电压Uab"
+        Unit : "V"
+        Ratio : 10
+      - Name : "B相电流"
+        Unit : "A"
+        Ratio : 1000
+      - Name : "DO"
+      - Name : "B相有功功率"
+        Unit : "kW"
+        Ratio : 1000
+      - Name : "B相功率因数"
+        Ratio : 10000
+      - Name : "B相无功功率"
+        Unit : "kVar"
+        Ratio : 1000
+      - Name : "B相视在功率"
+        Unit : "kVA"
+        Ratio : 1000
+      - Name : "相电压Uc"
+        Unit : "V"
+        Ratio : 10
+      - Name : "线电压Ubc"
+        Unit : "V"
+        Ratio : 10
+      - Name : "C相电流"
+        Unit : "A"
+        Ratio : 1000
+      - Name : "无效"
+      - Name : "C相有功功率"
+        Unit : "kW"
+        Ratio : 1000
+      - Name : "C相功率因数"
+        Ratio : 10000
+      - Name : "C相无功功率"
+        Unit : "kVar"
+        Ratio : 1000
+      - Name : "C相视在功率"
+        Unit : "kVA"
+        Ratio : 1000
+      - Name : "三相平均线电压"
+        Unit : "V"
+        Ratio : 10
+      - Name : "三相平均相电压"
+        Unit : "V"
+        Ratio : 10
+      - Name : "三相平均相电流"
+        Unit : "A"
+        Ratio : 1000
+      - Name : "频率"
+        Unit : "Hz"
+        Ratio : (1/0.00106813)
+      - Name : "三相有功功率"
+        Unit : "kW"
+        Ratio : 1000
+      - Name : "三相总功率因数"
+        Ratio : 10000
+      - Name : "三相无功功率"
+        Unit : "kVar"
+        Ratio : 1000
+      - Name : "三相视在功率"
+        Unit : "kVA"
+        Ratio : 1000
+  - Cmd : 3
+    Offset : 33
+    Len : 8
+    Data : 
+      - Name : "正向有功电能"
+        Unit : "kWh"
+        Value: (($v[2]<<16)+$v[1])/1000
+      - Name : "负向有功电能"
+        Unit : "kWh"
+        Value: (($v[4]<<16)+$v[3])/1000
+      - Name : "正向无功电能"
+        Unit : "kVarh"
+        Value: (($v[6]<<16)+$v[5])/1000
+      - Name : "负向无功电能"
+        Unit : "kVarh"
+        Value: (($v[8]<<16)+$v[7])/1000
+RunCheckThresholdCodeUnicom: |
+    CheckThresholdBool(1, "p41_44_0","321415001", "输入电源中断", "输入电源中断 UA:" + boost::lexical_cast<std::string>(((float)cData.r3_0[0])/100) + " UB:" + boost::lexical_cast<std::string>(((float)cData.r3_0[8])/100) + " UC:" + boost::lexical_cast<std::string>(((float)cData.r3_0[16])/100), (has_a_ && (((float)cData.r3_0[0])/100 < 120) ) || 
+            ( has_b_ && (((float)cData.r3_0[8])/100 < 120 )) || ( has_c_ && (((float)cData.r3_0[16])/100 < 120 )), 1);
+
+
+

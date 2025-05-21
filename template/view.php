@@ -13,10 +13,10 @@
       {% else %}
         {% if d.ArrayName is defined %}
         for($i=1;$i<={{ d.ArrayLength }};$i++){
-          {{signalList}}[{% if scPrefix is not none %}"{{scPrefix}}"][{% endif %}] = sprintf("{{ d.ArrayName }}", $i);
+          {{signalList}}[] = {% if scPrefix is not none %}"{{scPrefix}}".{% endif %}sprintf("{{ d.ArrayName }}", $i);
         }
         {% else %}
-        {{signalList}}[{% if scPrefix is not none %}"{{scPrefix}}"][{% endif %}] = "{{ d.Name }}";
+        {{signalList}}[] = {% if scPrefix is not none %}"{{scPrefix}}".{% endif %}"{{ d.Name }}";
         {% endif %}
       {%endif %}
       {% endfor %}
@@ -45,7 +45,7 @@ function _{{ Project.Name|lower }}_{{ key }}(&$signalList, $prefix, $index)
           $signalList[] = $name;
         }
         {% else %}
-          $name = $prefix.sprintf("{{ d.Name }}", strval($index));
+          $name = $prefix.sprintf("{{ d.Name }}", {% if d.Index is defined %}{{ d.Index }}{% else %}strval($index){% endif %});
           $signalList[] = $name;
         {% endif %}
       {% endif %}
@@ -85,6 +85,7 @@ function _{{ Project.Name|lower }}_{{ key }}(&$signalList, $prefix, $index)
                 $namePrefix = $namePrefixArray[$index-1];
                 {% endif %}
                 {% for sc in tsc.CmdGroupSample %}
+                
                 {{ render_sc(sc, "$namePrefix", "$groupSignalList") }}
                 {% endfor %}
                 echo '<li><a class="list" href="##">'.$namePrefix.'</a></li>';
@@ -145,7 +146,21 @@ function _{{ Project.Name|lower }}_{{ key }}(&$signalList, $prefix, $index)
         {% endif %}
       {%endif %}
       {% endfor %}
+      {% elif sc.CmdGroupStart is defined %}
+        for($cgIndex = {{ sc.CmdGroupStart }},$index = 1; $cgIndex < {{ sc.CmdGroupEnd }}; $cgIndex+={{ sc.CmdGroupStep}}, $index++){
+          {% if sc.CmdGroupPrefix is string %}
+          $namePrefix = sprintf("{{ sc.CmdGroupPrefix }}", $index);
+          {% else %}
+          $namePrefixArray = {{ sc.CmdGroupPrefix }};
+          $namePrefix = $namePrefixArray[$index-1];
+          {% endif %}
+          {% for ssc in sc.CmdGroupSample %}
+          
+          {{ render_sc(ssc, "$namePrefix", "$signalList") }}
+          {% endfor %}
+        }
       {% endif %}
+
 {% endfor %}
 $this->load->view("portal/DevicePage/signal_ctrl_noid", array("signalList"=>$signalList, "cols"=>6));
 ?>

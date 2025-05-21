@@ -68,14 +68,14 @@ Sample :
     RType : 'f'
     Data :
       - Name : 正向有功电能
-        Ratio : $dataArray["CT"])
+        Ratio : $dataArray["CT"]
         Unit : kWh
       - Name : 负向有功电能
-        Ratio : $dataArray["CT"])
+        Ratio : $dataArray["CT"]
         Unit : kWh
       - Name : 正向无功电能
-        Ratio : $dataArray["CT"])
+        Ratio : $dataArray["CT"]
         Unit : kWh
       - Name : 负向无功电能
-        Ratio : $dataArray["CT"])
+        Ratio : $dataArray["CT"]
         Unit : kWh

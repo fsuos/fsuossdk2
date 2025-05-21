@@ -32,6 +32,8 @@ void _{{ Project.Name|lower }}_{{ key }}(char* pCData,const char* prefix, int iI
     {% for s in InitSetting %}
     {% if s.Type == "int" %}
     int {{s.Name}}_ = {% if s.Default is defined %}{{s.Default}}{% else %}0{% endif %};
+    {% elif s.Type == "uint32_t" %}
+    uint32_t {{s.Name}}_ = {% if s.Default is defined %}{{s.Default}}{% else %}0{% endif %};
     {% elif s.Type == "float" %}
     float {{s.Name}}_ = {% if s.Default is defined %}{{s.Default}}{% else %}0.0{% endif %};
     {% endif %}

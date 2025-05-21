@@ -1,0 +1,143 @@
+Project:
+  Name : SchneiderCompactNSX
+  RT_ID : 5156
+  File : "ComPacT+NSX+–+DCM+Modbus+SL通讯用户指南.pdf"
+Sample : 
+  - Cmd : 4
+    Offset: 2028
+    Len : 14
+    RType : 'f'
+    Data : 
+      - Name : 相A的RMS电流
+        Unit : A
+      - Name : 相B的RMS电流
+        Unit : A
+      - Name : 相C的RMS电流
+        Unit : A
+      - Name : 中性线的最大RMS电流
+        Unit : A
+      - Name : "相、和 N（负载最大的相）的最大RMS电流"
+        Unit : A
+      - Name : "接地电流比（Ig 设置比）"
+      - Name : "接地漏电的电流比（IΔn 设置比）"
+  - Cmd : 4
+    Offset: 2042
+    Len : 8
+    RType : 'f'
+    Data : 
+      - Name : 相A的最大RMS电流
+        Unit : A
+      - Name : 相B的最大RMS电流
+        Unit : A
+      - Name : 相C的最大RMS电流
+        Unit : A
+      - Name : 中性线的最大RMS电流
+        Unit : A
+  - Cmd : 4
+    Offset: 2056
+    Len : 12
+    RType : 'f'
+    Data : 
+      - Name : RMS相间电压VAB
+        Unit : V
+      - Name : RMS相间电压VBC
+        Unit : V
+      - Name : RMS相间电压VCA
+        Unit : V
+      - Name : RMS相间电压VAN
+        Unit : V
+      - Name : RMS相间电压VBN
+        Unit : V
+      - Name : RMS相间电压VCN
+        Unit : V
+  - Cmd : 4
+    Offset: 2068
+    Len : 4
+    RType : 'f'
+    Data : 
+      - Name : 频率
+        Unit : Hz
+      - Name : 最大频率
+        Unit : Hz
+  - Cmd : 4
+    Offset: 2072
+    Len : 24
+    RType : 'f'
+    Data : 
+      - Name : "相A的有功功率"
+        Unit : kW
+        Ratio : 1000
+      - Name : "相B的有功功率"
+        Unit : kW
+        Ratio : 1000
+      - Name : "相C的有功功率"
+        Unit : kW
+        Ratio : 1000
+      - Name : "总有功功率"
+        Unit : kW
+        Ratio : 1000
+      - Name : "相A的基波无功功率"
+        Unit : kVAr
+        Ratio : 1000
+      - Name : "相B的基波无功功率"
+        Unit : kVAr
+        Ratio : 1000
+      - Name : "相C的基波无功功率"
+        Unit : kVAr
+        Ratio : 1000
+      - Name : "总无功功率"
+        Unit : kVAr
+        Ratio : 1000
+      - Name : "相A的基波视在功率"
+        Unit : kVA
+        Ratio : 1000
+      - Name : "相B的基波视在功率"
+        Unit : kVA
+        Ratio : 1000
+      - Name : "相C的基波视在功率"
+        Unit : kVA
+        Ratio : 1000
+      - Name : "总视在功率"
+        Unit : kVA
+        Ratio : 1000
+  - Cmd : 4
+    Offset: 2096
+    Len : 36
+    RType : 'Q'
+    Data : 
+      - Name : "总有功电能"
+        Unit : kWh
+        Ratio : 1000
+      - Name : "总无功电能"
+        Unit : kVARh
+        Ratio : 1000
+      - Name : "提供的总有功电能"
+        Unit : kWh
+        Ratio : 1000
+      - Name : "接收的总有功电能"
+        Unit : kWh
+        Ratio : 1000
+      - Name : "提供的总无功电能"
+        Unit : kVARh
+        Ratio : 1000
+      - Name : "接收的总无功电能"
+        Unit : kVARh
+        Ratio : 1000
+      - Name : "总视在电能"
+        Unit : kVAh
+        Ratio : 1000
+      - Name : "提供的总累计有功电量"
+        Unit : kWh
+        Ratio : 1000
+      - Name : "接收的总累计有功电量"
+        Unit : kWh
+        Ratio : 1000
+  - Cmd : 4
+    Offset: 2206
+    Len : 8
+    RType : 'f'
+    Data : 
+      - Name : "相A的功率因数"
+      - Name : "相B的功率因数"
+      - Name : "相C的功率因数"
+      - Name : "总功率因数"

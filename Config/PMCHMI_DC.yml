@@ -12,51 +12,61 @@ BlockTemplate :
         CIndex : (iIndex*10+1)
         Value : ($v[1]&0x1)
         CValue : (pData[0]&0x1)
+        AlertNormalValue : 0
       - Name : '设备%d通信告警'
         Index : ($index*10+2)
         CIndex : (iIndex*10+2)
         Value : (($v[1]>>1)&0x1)
         CValue : ((pData[0]>>1)&0x1)
+        AlertNormalValue : 0
       - Name : '设备%d通信告警'
         Index : ($index*10+3)
         CIndex : (iIndex*10+3)
         Value : (($v[1]>>2)&0x1)
         CValue : ((pData[0]>>2)&0x1)
+        AlertNormalValue : 0
       - Name : '设备%d通信告警'
         Index : ($index*10+4)
         CIndex : (iIndex*10+4)
         Value : (($v[1]>>3)&0x1)
         CValue : ((pData[0]>>3)&0x1)
+        AlertNormalValue : 0
       - Name : '设备%d通信告警'      
         Index : ($index*10+5)
         CIndex : (iIndex*10+5)
         Value : (($v[1]>>4)&0x1)
         CValue : ((pData[0]>>4)&0x1)
+        AlertNormalValue : 0
       - Name : '设备%d通信告警'
         Index : ($index*10+6)
         CIndex : (iIndex*10+6)
         Value : (($v[1]>>5)&0x1)
         CValue : ((pData[0]>>5)&0x1)
+        AlertNormalValue : 0
       - Name : '设备%d通信告警'
         Index : ($index*10+7)
         CIndex : (iIndex*10+7)
         Value : (($v[1]>>6)&0x1)
         CValue : ((pData[0]>>6)&0x1)
+        AlertNormalValue : 0
       - Name : '设备%d通信告警'
         Index : ($index*10+8)
         CIndex : (iIndex*10+8)
         Value : (($v[1]>>7)&0x1)
         CValue : ((pData[0]>>7)&0x1)
+        AlertNormalValue : 0
       - Name : '设备%d通信告警'
         Index : ($index*10+9)
         CIndex : (iIndex*10+9)
         Value : (($v[1]>>8)&0x1)
         CValue : ((pData[0]>>8)&0x1)
+        AlertNormalValue : 0
       - Name : '设备%d通信告警'
         Index : ($index*10+10)
         CIndex : (iIndex*10+10)
         Value : (($v[1]>>9)&0x1)
         CValue : ((pData[0]>>9)&0x1)
+        AlertNormalValue : 0
   DeviceCheckAlert : 
     BlockLength : 1
     BlockType : 'C'
@@ -66,51 +76,61 @@ BlockTemplate :
         CIndex : (iIndex*10+1)
         Value : ($v[1]&0x1)
         CValue : (pData[0]&0x1)
+        AlertNormalValue : 0
       - Name : '设备%d自检状态'
         Index : ($index*10+2)
         CIndex : (iIndex*10+2)
         Value : (($v[1]>>1)&0x1)
         CValue : ((pData[0]>>1)&0x1)
+        AlertNormalValue : 0
       - Name : '设备%d自检状态'
         Index : ($index*10+3)
         CIndex : (iIndex*10+3)
         Value : (($v[1]>>2)&0x1)
         CValue : ((pData[0]>>2)&0x1)
+        AlertNormalValue : 0
       - Name : '设备%d自检状态'
         Index : ($index*10+4)
         CIndex : (iIndex*10+4)
         Value : (($v[1]>>3)&0x1)
         CValue : ((pData[0]>>3)&0x1)
+        AlertNormalValue : 0
       - Name : '设备%d自检状态'      
         Index : ($index*10+5)
         CIndex : (iIndex*10+5)
         Value : (($v[1]>>4)&0x1)
         CValue : ((pData[0]>>4)&0x1)
+        AlertNormalValue : 0
       - Name : '设备%d自检状态'
         Index : ($index*10+6)
         CIndex : (iIndex*10+6)
         Value : (($v[1]>>5)&0x1)
         CValue : ((pData[0]>>5)&0x1)
+        AlertNormalValue : 0
       - Name : '设备%d自检状态'
         Index : ($index*10+7)
         CIndex : (iIndex*10+7)
         Value : (($v[1]>>6)&0x1)
         CValue : ((pData[0]>>6)&0x1)
+        AlertNormalValue : 0
       - Name : '设备%d自检状态'
         Index : ($index*10+8)
         CIndex : (iIndex*10+8)
         Value : (($v[1]>>7)&0x1)
         CValue : ((pData[0]>>7)&0x1)
+        AlertNormalValue : 0
       - Name : '设备%d自检状态'
         Index : ($index*10+9)
         CIndex : (iIndex*10+9)
         Value : (($v[1]>>8)&0x1)
         CValue : ((pData[0]>>8)&0x1)
+        AlertNormalValue : 0
       - Name : '设备%d自检状态'
         Index : ($index*10+10)
         CIndex : (iIndex*10+10)
         Value : (($v[1]>>9)&0x1)
         CValue : ((pData[0]>>9)&0x1)
+        AlertNormalValue : 0
   OutputDIAlert : 
     BlockLength : 1
     BlockType : 'S'
@@ -301,7 +321,7 @@ BlockTemplate :
         AlertNormalValue : 0
       - Name :  "出线回路%s电流过低"
         AlertNormalValue : 0
-  OutputChAlert : 
+  OutputChAlert2 : 
     BlockLength : 1
     BlockType : 'S'
     BlockContent :
@@ -310,51 +330,61 @@ BlockTemplate :
         CIndex : (iIndex*10+1)
         Value : ($v[1]&0x1)
         CValue : (pData[0]&0x1)
+        AlertNormalValue : 0
       - Name : '出线%d跳闸告警'
         Index : ($index*10+2)
         CIndex : (iIndex*10+2)
         Value : (($v[1]>>1)&0x1)
         CValue : ((pData[0]>>1)&0x1)
+        AlertNormalValue : 0
       - Name : '出线%d跳闸告警'
         Index : ($index*10+3)
         CIndex : (iIndex*10+3)
         Value : (($v[1]>>2)&0x1)
         CValue : ((pData[0]>>2)&0x1)
+        AlertNormalValue : 0
       - Name : '出线%d跳闸告警'
         Index : ($index*10+4)
         CIndex : (iIndex*10+4)
         Value : (($v[1]>>3)&0x1)
         CValue : ((pData[0]>>3)&0x1)
+        AlertNormalValue : 0
       - Name : '出线%d跳闸告警'      
         Index : ($index*10+5)
         CIndex : (iIndex*10+5)
         Value : (($v[1]>>4)&0x1)
         CValue : ((pData[0]>>4)&0x1)
+        AlertNormalValue : 0
       - Name : '出线%d跳闸告警'
         Index : ($index*10+6)
         CIndex : (iIndex*10+6)
         Value : (($v[1]>>5)&0x1)
         CValue : ((pData[0]>>5)&0x1)
+        AlertNormalValue : 0
       - Name : '出线%d跳闸告警'
         Index : ($index*10+7)
         CIndex : (iIndex*10+7)
         Value : (($v[1]>>6)&0x1)
         CValue : ((pData[0]>>6)&0x1)
+        AlertNormalValue : 0
       - Name : '出线%d跳闸告警'
         Index : ($index*10+8)
         CIndex : (iIndex*10+8)
         Value : (($v[1]>>7)&0x1)
         CValue : ((pData[0]>>7)&0x1)
+        AlertNormalValue : 0
       - Name : '出线%d跳闸告警'
         Index : ($index*10+9)
         CIndex : (iIndex*10+9)
         Value : (($v[1]>>8)&0x1)
         CValue : ((pData[0]>>8)&0x1)
+        AlertNormalValue : 0
       - Name : '出线%d跳闸告警'
         Index : ($index*10+10)
         CIndex : (iIndex*10+10)
         Value : (($v[1]>>9)&0x1)
         CValue : ((pData[0]>>9)&0x1)
+        AlertNormalValue : 0
   OutputPosIsolationAlert :
     BlockLength : 2
     BlockType : 'C'
@@ -367,9 +397,9 @@ BlockTemplate :
     BlockLength : 2
     BlockType : 'C'
     BlockContent :
-      - Name :  "出线%s正极绝缘电阻预警"
+      - Name :  "出线%s负极绝缘电阻预警"
         AlertNormalValue : 0
-      - Name :  "出线%s正极绝缘电阻报警"
+      - Name :  "出线%s负极绝缘电阻报警"
         AlertNormalValue : 0
 Sample :
   - Cmd : 3
@@ -383,8 +413,8 @@ Sample :
     Len : 3
     Data : 
       - ArrayBlock : DeviceCommAlert
-        ArrayStart : 1
-        ArrayEnd : 3
+        ArrayStart : 0
+        ArrayEnd : 2
   - Cmd : 3
     Offset : 4
     Len : 1
@@ -407,8 +437,8 @@ Sample :
     Transform : "bits"
     Data : 
       - ArrayBlock : DeviceCheckAlert
-        ArrayStart : 1
-        ArrayEnd : 3
+        ArrayStart : 0
+        ArrayEnd : 2
   - Cmd : 3
     Offset : 9
     Len : 1
@@ -452,15 +482,15 @@ Sample :
     Len : 20
     Data : 
       - ArrayBlock : OutputDIAlert
-        ArrayStart : 1
-        ArrayEnd : 20
+        ArrayStart : 0
+        ArrayEnd : 19
   - Cmd : 3
     Offset : 120
     Len : 6
     Data : 
       - ArrayBlock : OutputDOState
-        ArrayStart : 1
-        ArrayEnd : 6
+        ArrayStart : 0
+        ArrayEnd : 5
   - Cmd : 3
     Offset : 126
     Len : 1
@@ -507,39 +537,39 @@ Sample :
     Len : 4
     Data :
       - ArrayBlock : InlineAlert
-        ArrayStart : 1
-        ArrayEnd : 2
+        ArrayStart : 0
+        ArrayEnd : 1
   - Cmd : 3
     Offset : 143
     Len : 50
     Transform : "bits"
     Data : 
       - ArrayBlock : OutputChAlert
-        ArrayStart : 1
-        ArrayEnd : 200
+        ArrayStart : 0
+        ArrayEnd : 199
   - Cmd : 3
     Offset : 193
     Len : 20
     Data : 
-      - ArrayBlock : OutputChAlert
-        ArrayStart : 1
-        ArrayEnd : 20
+      - ArrayBlock : OutputChAlert2
+        ArrayStart : 0
+        ArrayEnd : 19
   - Cmd : 3
     Offset : 213
     Len : 25
     Transform : "bits"
     Data : 
       - ArrayBlock : OutputPosIsolationAlert
-        ArrayStart : 1
-        ArrayEnd : 200
+        ArrayStart : 0
+        ArrayEnd : 199
   - Cmd : 3
     Offset : 4650
     Len : 25
     Transform : "bits"
     Data : 
       - ArrayBlock : OutputNegIsolationAlert
-        ArrayStart : 1
-        ArrayEnd : 200
+        ArrayStart : 0
+        ArrayEnd : 199
   - CmdGroupStart : 300
     CmdGroupStep : 100
     CmdGroupEnd : 400

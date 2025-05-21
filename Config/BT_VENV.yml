@@ -1,0 +1,40 @@
+Project:
+  Name : BT_VENV
+  RT_ID : 5156
+  File : "从其他设备获取温度,湿度,水浸,烟感的数据和告警状态"
+InitSetting :
+  - Name : ref_temp_id1
+    Type : uint32_t
+  - Name : ref_temp_id2
+    Type : uint32_t
+  - Name : ref_temp_id3
+    Type : uint32_t
+  - Name : ref_water_id1
+    Type : uint32_t
+  - Name : ref_water_id2
+    Type : uint32_t
+  - Name : ref_water_id3
+    Type : uint32_t
+  - Name : ref_smoke_id1
+    Type : uint32_t
+  - Name : ref_smoke_id2
+    Type : uint32_t
+  - Name : ref_smoke_id3
+    Type : uint32_t
+Sample : 
+  - Cmd : 3
+    Offset : 0
+    Len : 2
+    Data : 
+      - Name : 温度1
+      - Name : 湿度1
+      - Name : 温度2
+      - Name : 湿度2
+      - Name : 温度3
+      - Name : 湿度3
+      - Name : 水浸1
+      - Name : 水浸2
+      - Name : 水浸3
+      - Name : 烟感1
+      - Name : 烟感2
+      - Name : 烟感3

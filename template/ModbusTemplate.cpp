@@ -663,6 +663,24 @@ bool {{ Project.Name }}::process_payload(enum tab_type type, size_t len)
       }
       {% endif %}
       {% endfor %}
+      case 206: {
+        if(tab_reg[0] == last_data_) {
+            cmd_result_ = 1;
+        } else {
+            cmd_result_ = 3;
+        }
+        Reset();
+        return false;
+      }
+      case 210: {
+        if(tab_reg[0] == 0x10 && tab_reg[1] == last_data_) {
+            cmd_result_ = 1;
+        } else {
+            cmd_result_ = 3;
+        }
+        Reset();
+        return false;
+      }
       {% if SET_RET_CODE is defined %}
       {{ SET_RET_CODE }}
       {% endif %}
@@ -699,6 +717,24 @@ float {{ Project.Name }}::Get_Value(uint32_t data_id, const std::string& var_nam
 int {{ Project.Name }}::DeviceIoControl(int ioControlCode, const void* inBuffer, int inBufferSize, void* outBuffer, int outBufferSize, int& bytesReturned)
 {
     switch(ioControlCode) {
+    case 206 : {
+        //modbus 06命令下发
+        state = 206;
+        cmd_result_ = -1;
+        OpenPort();
+        last_data_ = ((uint16_t*)inBuffer)[1];
+        modbus_write_register(((uint16_t*)inBuffer)[0], last_data_);
+        return 0;
+    }
+    case 210: {
+        //modbus 10命令下发
+        state = 210;
+        cmd_result_ = -1;
+        OpenPort();
+        last_data_ = inBufferSize/2-1;
+        modbus_write_registers(((uint16_t*)inBuffer)[0], inBufferSize/2-1, ((uint16_t*)inBuffer)+1);
+        return 0;
+    }
 	case 310:{
 
         state = 310;
@@ -821,7 +857,8 @@ int {{ Project.Name }}::DeviceIoControl(int ioControlCode, const void* inBuffer,
         }
         break;
     }
-    return UniDataDevice<{{ Project.Name }}_Data_t, SPModbus, RT_{{ Project.Name }}>::DeviceIoControl(ioControlCode, inBuffer, inBufferSize, outBuffer, outBufferSize, bytesReturned);
+    return 0;
+    //return UniDataDevice<{{ Project.Name }}_Data_t, SPModbus, RT_{{ Project.Name }}>::DeviceIoControl(ioControlCode, inBuffer, inBufferSize, outBuffer, outBufferSize, bytesReturned);
 }
 
 

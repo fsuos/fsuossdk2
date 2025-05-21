@@ -792,3 +792,10 @@ Sample :
       - Name : "IOM温度5"
         Ratio : 100
         Unit : "℃"
+RunCheckThresholdCodeUnicom: |
+  bool isPowerOn = false;
+  if( (cData.r3_4608[0] > 12000) && ( cData.r3_4608[1] > 12000) && ( cData.r3_4608[2] > 12000) ){
+      isPowerOn = true;
+  }
+  this->CheckThresholdBool(1, "PowerOff", "419415001", "输入电源中断告警", "输入电源中断告警", isPowerOn == false, 100);
+

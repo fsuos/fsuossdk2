@@ -1,0 +1,51 @@
+Project:
+  Name :  DCM3366Q
+  RT_ID : 5156
+  File : "1_DCM3366Q型直流电表通讯协议_ModBus_V1.09.pdf"
+Sample : 
+  - Cmd : 3
+    Offset : 0
+    Len : 26
+    Data : 
+      - Name : "当前正向总电能"
+        Unit : "kWh"
+        Value: (($v[1]<<16)+$v[2])/100
+      - Name : "当前正向尖电能"
+        Unit : "kWh"
+        Value: (($v[3]<<16)+$v[4])/100
+      - Name : "当前正向峰电能"
+        Unit : "kWh"
+        Value: (($v[5]<<16)+$v[6])/100
+      - Name : "当前正向平电能"
+        Unit : "kWh"
+        Value: (($v[7]<<16)+$v[8])/100
+      - Name : "当前正向谷电能"
+        Unit : "kWh"
+        Value: (($v[9]<<16)+$v[10])/100
+      - Name : "当前反向总电能"
+        Unit : "kWh"
+        Value: (($v[11]<<16)+$v[12])/100
+      - Name : "当前反向尖电能"
+        Unit : "kWh"
+        Value: (($v[13]<<16)+$v[14])/100
+      - Name : "当前反向峰电能"
+        Unit : "kWh"
+        Value: (($v[15]<<16)+$v[16])/100
+      - Name : "当前反向平电能"
+        Unit : "kWh"
+        Value: (($v[17]<<16)+$v[18])/100
+      - Name : "当前反向谷电能"
+        Unit : "kWh"
+        Value: (($v[19]<<16)+$v[20])/100
+      - Name : "功率"
+        Unit : "kw"
+        Value: (($v[21]<<16)+$v[22])/10000
+      - Name : "电流"
+        Unit : "A"
+        Value: (($v[23]<<16)+$v[24])/10000
+      - Name : "电压"
+        Unit : "V"
+        Value: (($v[25]<<16)+$v[26])/10000
+
+
+

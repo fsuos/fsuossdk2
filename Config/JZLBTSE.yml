@@ -1,0 +1,294 @@
+Project:
+  Name : JZLBTSE
+  RT_ID : 5156
+  BaudRate : 57600
+  File : "Modbus协议说明(2).xlsx  远程放电MODBUS RTU协议.docx"
+Sample :
+  - Cmd : 4
+    Offset : 0x31
+    Len : 24
+    Data :
+      - Name : "工作状态"
+        Options : 
+          - Key : 0
+            Value : 在线浮充
+          - Key : 1
+            Value : 预充电（限流充电）
+          - Key : 2
+            Value : 核容测试
+          - Key : 3
+            Value : 停电放电
+          - Key : 4
+            Value : 内阻测试
+          - Key : 5
+            Value : K1/D1 测试
+      - Name : 在线电压
+        Ratio : 100
+        Unit : V
+      - Name : 整组电压
+        Ratio : 100
+        Unit : V
+      - Name : "设备温度"
+        Ratio  : 10
+      - Name : "放电时间(秒)"
+      - Name : 放电电流
+        Ratio : 100
+        Unit : "A"
+      - Name : 放电容量
+        Ratio : 10
+        Unit : AH
+      - Name : 放电剩余容量
+        Ratio : 10
+        Unit : AH
+      - Name : 停止原因
+        Options : 
+          - Key : 0
+            Value : 设备掉电终止
+          - Key : 1
+            Value : 手动终止
+          - Key : 2
+            Value : 放电时间到终止
+          - Key : 3
+            Value : 放电容量到终止
+          - Key : 4
+            Value : 单体电压下限到终止
+          - Key : 5
+            Value : 单体温度上限终止
+          - Key : 6
+            Value : 组端电压下限到终止
+          - Key : 7
+            Value : 市电中断终止
+          - Key : 8
+            Value : 单体模块通信异常终止
+          - Key : 9
+            Value : 存储数据满终止
+          - Key : 10
+            Value : 机内温度异常终止
+          - Key: 11
+            Value : 放电电流异常终止
+          - Key : 12
+            Value : 后台通信中断终止
+          - Key : 13
+            Value : 内部程序异常终止
+          - Key : 14
+            Value : 电源电压高终止
+          - Key : 15
+            Value : 协转通信异常
+          - Key : 16
+            Value : 其他
+          - Key : 17
+            Value : 外部输入干接点终止
+      - Name : 放电时间（分）
+      - Name : K测试电流
+        Ratio : 100
+        Unit : A
+      - Name : K测试内阻
+        Unit : 毫欧
+      - Name : D测试电流
+        Ratio : 100
+        Unit : A
+      - Name : D测试压降
+        Ratio : 100
+      - Name : 最大电压单体节索引(0开始)
+      - Name : 单体最大电压
+        Ratio : 1000
+        Unit : V
+      - Name : 最小电压单体节索引(0开始)
+      - Name : 单体最小电压
+        Ratio : 1000
+        Unit : V  
+      - Name : 最大温度单体节索引(0开始)
+      - Name : 单体最大温度
+        Ratio : 10
+      - Name : 最小温度单体节索引(0开始)
+      - Name : 单体最小温度
+        Ratio : 10
+      - Name : 告警码-电池组电压告警
+        Value : (($v[23]) & 0x1)
+        AlertNormalValue : 0
+      - Name : 告警码-单体电池电压告警
+        Value : (($v[23]>>1) & 0x1)
+        AlertNormalValue : 0
+      - Name : 告警码-单体电池内阻值告警
+        Value : (($v[23]>>2) & 0x1)
+        AlertNormalValue : 0
+      - Name : 告警码-单体极柱温度告警
+        Value : (($v[23]>>3) & 0x1)
+        AlertNormalValue : 0
+      - Name : 告警码-单体剩余容量告警
+        Value : (($v[23]>>4) & 0x1)
+        AlertNormalValue : 0
+      - Name : 告警码-闭接触器K1告警
+        Value : (($v[23]>>5) & 0x1)
+        AlertNormalValue : 0
+      - Name : 告警码-核容装置通讯告警
+        Value : (($v[23]>>6) & 0x1)
+        AlertNormalValue : 0
+      - Name : 告警码-核容装置过温告警
+        Value : (($v[23]>>7) & 0x1)
+        AlertNormalValue : 0
+      - Name : 告警码-核容装置二极管D1
+        Value : (($v[23]>>8) & 0x1)
+        AlertNormalValue : 0
+      - Name : 告警码-外部输入干接点告警
+        Value : (($v[23]>>9) & 0x1)
+        AlertNormalValue : 0
+      - Name : 告警码-核容装置总告警
+        Value : (($v[23]>>10) & 0x1)
+        AlertNormalValue : 0
+      - Name : 系统是否出错
+        Offset : 24
+  - Cmd : 3
+    Offset : 2
+    Len : 18
+    Data :
+      - Name : "设置-当前选择电池"
+        Options : 
+          - Key : 0
+            Value : 电池组1
+          - Key : 1
+            Value : 电池组2
+      - Name : "设置-标称电压"
+        Ratio : 100
+        Unit : "V"
+      - Name : "设置-标称容量值"
+        Ratio : 10
+        Unit : "AH"
+      - Name : "设置-单体电池节数"
+      - Name : "设置-单体标称容量"
+        Ratio : 10
+        Unit : "AH"
+      - Name : "设置-通信地址"
+      - Name : "设置-放电电流"
+        Ratio : 100
+        Unit : "A"
+      - Name : "设置-放电容量"
+        Ratio : 10
+        Unit : "AH"
+      - Name : "设置-放电剩余容量"
+        Value : (floatval($dataArray["标称容量值"]) - floatval($dataArray["放电容量"]))
+        Unit : "AH"
+      - Name : "设置-放电电压下限"
+        Ratio : 100
+        Unit : "V"
+      - Name : "设置-单体电压下限"
+        Ratio : 1000
+        Unit : "V"
+      - Name : "设置-单体到达下限个数"
+      - Name : "设置-放电时间"
+        Unit : "分钟"
+      - Name : "设置-单体电池温度上限"
+        Ratio : 10
+      - Name : "设置-充电电池组电压上限"
+        Ratio : 100
+        Unit : "V"
+      - Name : "设置-充电电流"
+        Ratio : 100
+      - Name : "设置-设备温度上限"
+        Ratio : 10
+      - Name : "设置-在线电压低动作"
+        Options : 
+          - Key : 0
+            Value : 继续
+          - Key : 1
+            Value : 停止
+  - Cmd : 3
+    Offset : 0x20
+    Len : 4
+    Data :    
+      - Name : 设置-整组电压下限阈值
+      - Name : 设置-单体电压下限阈值
+      - Name : 设置-单体内阻上限阈值
+      - Name : 设置-单体剩余容量阈值
+  - Cmd : 4
+    Offset : 0x0600
+    Len : 120
+    Data :
+      - ArrayName : "第%d节电池电压"
+        ArrayStart : 0
+        ArrayLength : 120
+        Offset : 0
+        Ratio : 1000
+        Unit : "V"
+  - Cmd : 4
+    Offset : 0x0700
+    Len : 120
+    Data :
+      - ArrayName : "第%d节电池温度"
+        ArrayStart : 0
+        ArrayLength : 120
+        Offset : 0
+        Ratio : 10
+  - Cmd : 4
+    Offset : 0x0800
+    Len : 120
+    Data :
+      - ArrayName : "第%d节电池单体容量"
+        ArrayStart : 0
+        ArrayLength : 120
+        Offset : 0
+        Ratio : 1000
+        Unit : "AH"
+  - Cmd : 4
+    Offset : 0x0900
+    Len : 120
+    Data :
+      - ArrayName : "第%d节电池单体内阻"
+        ArrayStart : 0
+        ArrayLength : 120
+        Offset : 0
+        Ratio : 1000
+  - Cmd : 4
+    Offset : 0x80
+    Len : 5
+    Data :    
+      - Name : 停止时在线电压
+      - Name : 停止时整组电压
+      - Name : 停止时放电时长（分）
+      - Name : 停止时放电电流
+        Ratio : 100
+        Unit : A
+      - Name : 停止时已放出容量
+        Ratio : 100
+        Unit : AH
+  - Cmd : 4
+    Offset : 0x0100
+    Len : 120
+    Data :
+      - ArrayName : "停止时第%d节电池电压"
+        ArrayStart : 0
+        ArrayLength : 120
+        Offset : 0
+        Ratio : 1000
+        Unit : "V"
+  - Cmd : 4
+    Offset : 0x0200
+    Len : 120
+    Data :
+      - ArrayName : "停止时第%d节电池温度"
+        ArrayStart : 0
+        ArrayLength : 120
+        Offset : 0
+        Ratio : 10
+  - Cmd : 4
+    Offset : 0x0300
+    Len : 120
+    Data :
+      - ArrayName : "停止时第%d节电池单体容量"
+        ArrayStart : 0
+        ArrayLength : 120
+        Offset : 0
+        Ratio : 1000
+        Unit : "AH"
+  - Cmd : 4
+    Offset : 0x0400
+    Len : 120
+    Data :
+      - ArrayName : "停止时第%d节电池单体内阻"
+        ArrayStart : 0
+        ArrayLength : 120
+        Offset : 0
+        Ratio : 1000
+
+
+  

@@ -1,0 +1,214 @@
+Project:
+  Name : AcrelDTSD1352
+  RT_ID : 5156
+  File : "201 DTSD1352导轨式多功能电能表安装使用说明书 V2.17-3.pdf"
+Sample : 
+  - Cmd : 3
+    Offset : 0x8D
+    Len : 2
+    Data :
+      - Name : PT
+      - Name : CT
+  - Cmd : 3
+    Offset : 0
+    Len : 60
+    Type : 'S'
+    Data :
+      - Name : "当前组合有功总电能"
+        Value : ((($v[1] << 32) + $v[2])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Unit : kWH
+      - Name : "当前组合有功尖电能"
+        Value : ((($v[3] << 32) + $v[4])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Unit : kWH
+      - Name : "当前组合有功峰电能"
+        Value : ((($v[5] << 32) + $v[6])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Unit : kWH
+      - Name : "当前组合有功平电能"
+        Value : ((($v[7] << 32) + $v[8])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Unit : kWH
+      - Name : "当前组合有功谷电能"
+        Value : ((($v[9] << 32) + $v[10])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Unit : kWH
+      - Name : "当前正向总有功总电能"
+        Value : ((($v[11] << 32) + $v[12])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Unit : kWH
+      - Name : "当前正向有功尖电能"
+        Value : ((($v[13] << 32) + $v[14])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Unit : kWH
+      - Name : "当前正向有功峰电能"
+        Value : ((($v[15] << 32) + $v[16])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Unit : kWH
+      - Name : "当前正向有功平电能"
+        Value : ((($v[17] << 32) + $v[18])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Unit : kWH
+      - Name : "当前正向有功谷电能"
+        Value : ((($v[19] << 32) + $v[20])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Unit : kWH
+      - Name : "当前反向总有功总电能"
+        Value : ((($v[21] << 32) + $v[22])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Unit : kWH
+      - Name : "当前反向有功尖电能"
+        Value : ((($v[23] << 32) + $v[24])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Unit : kWH
+      - Name : "当前反向有功峰电能"
+        Value : ((($v[25] << 32) + $v[26])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Unit : kWH
+      - Name : "当前反向有功平电能"
+        Value : ((($v[27] << 32) + $v[28])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Unit : kWH
+      - Name : "当前反向有功谷电能"
+        Value : ((($v[29] << 32) + $v[30])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Unit : kWH
+      - Name : "当前组合无功总电能"
+        Value : ((($v[31] << 32) + $v[32])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Unit : kVarh
+      - Name : "当前组合无功尖电能"
+        Value : ((($v[33] << 32) + $v[34])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Unit : kVarh
+      - Name : "当前组合无功峰电能"
+        Value : ((($v[35] << 32) + $v[36])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Unit : kVarh
+      - Name : "当前组合无功平电能"
+        Value : ((($v[37] << 32) + $v[38])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Unit : kVarh
+      - Name : "当前组合无功谷电能"
+        Value : ((($v[39] << 32) + $v[40])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Unit : kVarh
+      - Name : "当前正向总无功总电能"
+        Value : ((($v[41] << 32) + $v[42])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Unit : kVarh
+      - Name : "当前正向无功尖电能"
+        Value : ((($v[43] << 32) + $v[44])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Unit : kVarh
+      - Name : "当前正向无功峰电能"
+        Value : ((($v[45] << 32) + $v[46])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Unit : kVarh
+      - Name : "当前正向无功平电能"
+        Value : ((($v[47] << 32) + $v[48])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Unit : kVarh
+      - Name : "当前正向无功谷电能"
+        Value : ((($v[49] << 32) + $v[50])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Unit : kVarh
+      - Name : "当前反向总无功总电能"
+        Value : ((($v[51] << 32) + $v[52])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Unit : kVarh
+      - Name : "当前反向无功尖电能"
+        Value : ((($v[53] << 32) + $v[54])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Unit : kVarh
+      - Name : "当前反向无功峰电能"
+        Value : ((($v[55] << 32) + $v[56])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Unit : kVarh
+      - Name : "当前反向无功平电能"
+        Value : ((($v[57] << 32) + $v[58])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Unit : kVarh
+      - Name : "当前反向无功谷电能"
+        Value : ((($v[59] << 32) + $v[60])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Unit : kVarh
+  - Cmd : 3
+    Offset : 0x61
+    Len : 6
+    Type : 'S'
+    Data : 
+      - Name : "A相电压"
+        Ratio : (1/($dataArray["PT"]*0.1))
+        Unit : V
+      - Name : "B相电压"
+        Ratio : (1/($dataArray["PT"]*0.1))
+        Unit : V
+      - Name : "C相电压"
+        Ratio : (1/($dataArray["PT"]*0.1))
+        Unit : V
+      - Name : "A相电流"
+        Ratio : (1/($dataArray["CT"]*0.1))
+        Unit : A
+      - Name : "B相电流"
+        Ratio : (1/($dataArray["CT"]*0.1))
+        Unit : A
+      - Name : "C相电流"
+        Ratio : (1/($dataArray["CT"]*0.1))
+        Unit : V
+  - Cmd : 3
+    Offset : 0x77
+    Len : 4
+    Type : 'S'
+    Data : 
+      - Name : "频率"
+        Ratio : 100
+        Unit : Hz
+      - Name : "A-B线电压"
+        Ratio : (1/($dataArray["PT"]*0.1))
+        Unit : V
+      - Name : "B-C线电压"
+        Ratio : (1/($dataArray["PT"]*0.1))
+        Unit : V
+      - Name : "A-C线电压"
+        Ratio : (1/($dataArray["PT"]*0.1))
+        Unit : V
+  - Cmd : 3
+    Offset : 0x87
+    Len : 6
+    Type : 'S'
+    Data : 
+      - Name : "A相正向有功电能"
+        Value : ((($v[1] << 32) + $v[2])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Unit : kWH
+      - Name : "B相正向有功电能"
+        Value : ((($v[3] << 32) + $v[4])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Unit : kWH
+      - Name : "C相正向有功电能"
+        Value : ((($v[5] << 32) + $v[6])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Unit : kWH
+  - Cmd : 3
+    Offset : 0x164
+    Len : 24
+    Type : 'S'
+    Data : 
+      - Name : "A相有功功率"
+        Value : ((($v[1] << 32) + $v[2])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        Unit : kW
+      - Name : "B相有功功率"
+        Value : ((($v[3] << 32) + $v[4])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        Unit : kW
+      - Name : "C相有功功率"
+        Value : ((($v[5] << 32) + $v[6])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        Unit : kW
+      - Name : "总有功功率"
+        Value : ((($v[7] << 32) + $v[8])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        Unit : kW
+      - Name : "A相无功功率"
+        Value : ((($v[9] << 32) + $v[10])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        Unit : kvar
+      - Name : "B相无功功率"
+        Value : ((($v[11] << 32) + $v[12])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        Unit : kvar
+      - Name : "C相无功功率"
+        Value : ((($v[13] << 32) + $v[14])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        Unit : kvar
+      - Name : "总无功功率"
+        Value : ((($v[15] << 32) + $v[16])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        Unit : kvar
+      - Name : "A相视在功率"
+        Value : ((($v[17] << 32) + $v[18])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        Unit : kVA
+      - Name : "B相视在功率"
+        Value : ((($v[19] << 32) + $v[20])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        Unit : kVA
+      - Name : "C相视在功率"
+        Value : ((($v[21] << 32) + $v[22])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        Unit : kVA
+      - Name : "总视在功率"
+        Value : ((($v[23] << 32) + $v[24])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        Unit : kVA
+  - Cmd : 3
+    Offset : 0x17C
+    Len : 4
+    Type : 'S'
+    Data : 
+      - Name : "A相功率因数"
+        Ratio : 1000
+      - Name : "B相功率因数"
+        Ratio : 1000
+      - Name : "C相功率因数"
+        Ratio : 1000
+      - Name : "总功率因数"
+        Ratio : 1000

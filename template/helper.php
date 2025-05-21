@@ -73,15 +73,15 @@ $lMemData = substr($memData , $offset, {{ sc.Len }});
         switch({{ d.Value }}){
         {% for item in d.Options %}
           case {{ item.Key }}:
-          {{ dataArrayStr }}[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}"{{ d.Name }}"] = "{{ item.Value }}";
+          {{ dataArrayStr }}[{% if scPrefix is not none %}{{scPrefix}}.{% endif %}"{{ d.Name }}"] = "{{ item.Value }}";
             break;
         {% endfor %}
           default:
-            {{ dataArrayStr }}[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}"{{ d.Name }}"] = "无效值";
+            {{ dataArrayStr }}[{% if scPrefix is not none %}{{scPrefix}}.{% endif %}"{{ d.Name }}"] = "无效值";
             break;
         }
         {% else %}
-        {{ dataArrayStr }}[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}"{{ d.Name }}"] = ({{ d.Value }}){% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
+        {{ dataArrayStr }}[{% if scPrefix is not none %}{{scPrefix}}.{% endif %}"{{ d.Name }}"] = ({{ d.Value }}){% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
         {% endif %}
         {% elif d.ArrayName is defined %}
 
@@ -112,27 +112,27 @@ $lMemData = substr($memData , $offset, {{ sc.Len }});
           for($i=1;$i<={{ d.ArrayLength }};$i++){
             $name = sprintf("{{ d.ArrayName }}", {{ d.ArrayStart }} + $i);
             $kIndex = {{ d.Offset }} + $i;
-            {{ dataArrayStr }}[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}$name] = number_format($v[$kIndex]{% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %}, 2){% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
+            {{ dataArrayStr }}[{% if scPrefix is not none %}{{scPrefix}}.{% endif %}$name] = number_format($v[$kIndex]{% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %}, 2){% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
           }
          {% endif %}
         {% elif d.Options is defined %}
         switch($v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}]){
         {% for item in d.Options %}
           case {{ item.Key }}:
-          {{ dataArrayStr }}[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}"{{ d.Name }}"] = "{{ item.Value }}";
+          {{ dataArrayStr }}[{% if scPrefix is not none %}{{scPrefix}}.{% endif %}"{{ d.Name }}"] = "{{ item.Value }}";
           {% if item.IsAlert is defined and item.IsAlert %}
           {{ dataArrayStr }}["AlertArray"]["{{ d.Name }}"] = 1;
           {% endif %}
             break;
         {% endfor %}
           default:
-            {{ dataArrayStr }}[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}"{{ d.Name }}"] = "无效值";
+            {{ dataArrayStr }}[{% if scPrefix is not none %}{{scPrefix}}.{% endif %}"{{ d.Name }}"] = "无效值";
             break;
         }
         {% elif d.AlertNormalValue is defined %}
         _{{ Project.Name|lower }}_ShowAlert({{ dataArrayStr }}, "{{ d.Name }}", $v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}], {{ d.AlertNormalValue }});
 	    {% else %}
-        {{ dataArrayStr }}[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}"{{ d.Name }}"] = number_format($v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}]{% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %}, 2){% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
+        {{ dataArrayStr }}[{% if scPrefix is not none %}{{scPrefix}}.{% endif %}"{{ d.Name }}"] = number_format($v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}]{% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %}, 2){% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
 	    {% endif %}
       
         {% if d.Alias is defined %}
@@ -222,7 +222,7 @@ function _{{ Project.Name|lower }}_{{ key }}(&$dataArray, $memData, $prefix, $in
       _{{ Project.Name|lower }}_{{ d.Block }}($dataArray, $lMemData, $prefix, {% if d.index is defined %}"{{ d.index }}"{% if d.index1 is defined %},"{{d.index1}}"{% endif %}{% if d.index2 is defined %},"{{d.index2}}"{% endif %}{% else %}$index{% endif %});
       $offset += {{ BlockTemplate[d.Block]["BlockLength"] }};
       {% else %}
-        $name = $prefix.sprintf("{{ d.Name }}", {% if d.Index is defined %}${{ d.Index }}{% else %}strval($index){% endif %});
+        $name = $prefix.sprintf("{{ d.Name }}", {% if d.Index is defined %}{{ d.Index }}{% else %}strval($index){% endif %});
         {% if d.Value is defined %}
           {% if d.AlertNormalValue is defined %}
           _{{ Project.Name|lower }}_ShowAlert($dataArray, $name, {{ d.Value }}, {{ d.AlertNormalValue }});

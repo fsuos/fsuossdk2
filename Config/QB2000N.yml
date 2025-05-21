@@ -1,0 +1,12 @@
+Project:
+  Name : QB2000N
+  RT_ID : 5156
+  File : " 驰诚QB2000N-T模块化智能气体探测器(硫化氢.pdf"
+Sample : 
+  - Cmd : 3
+    Offset : 0x65
+    Len : 1
+    Data : 
+      - Name : "H2S浓度"
+        Ratio : 100
+        Unit : "ppm"

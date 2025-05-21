@@ -1,0 +1,468 @@
+Project:
+  Name : AM5SET
+  RT_ID : 5156
+  File : "AM5SE装置Modbus通讯规约说明V1.9-202501211031（综保）.pdf"
+Sample : 
+  - Cmd : 3
+    Offset : 0x3E8
+    Len : 4
+    RType : 'f'
+    Data : 
+      - Name : CT变比
+      - Name : PT变比
+  - Cmd : 3
+    Offset : 0x3EC
+    Len : 10
+    Type : "I"
+    Data :
+      - Name : 电压接线方式
+      - Name : 电流接线方式
+      - Name : 一次电压显示
+      - Name : 过流一段投退
+      - Name : 一段经复压
+  - Cmd : 3
+    Offset : 0x3F6
+    Len : 4
+    RType : 'f'
+    Data :
+      - Name : 过流一段定值
+      - Name : 过流一段延时
+  - Cmd : 3
+    Offset : 0x3FA
+    Len : 4
+    Type : "I"
+    Data :
+      - Name : 过流二段投退
+      - Name : 二段经复压
+  - Cmd : 3
+    Offset : 0x3FE
+    Len : 4
+    RType : 'f'
+    Data :
+      - Name : 过流三段定值
+      - Name : 过流三段延时
+  - Cmd : 3
+    Offset : 0x402
+    Len : 4
+    Type : "I"
+    Data :
+      - Name : 过流三段投退
+      - Name : 三段经复压
+  - Cmd : 3
+    Offset : 0x406
+    Len : 4
+    RType : 'f'
+    Data :
+      - Name : 过流三段定值
+      - Name : 过流三段延时
+  - Cmd : 3
+    Offset : 0x40A
+    Len : 4
+    Type : "I"
+    Data :
+      - Name : 反时限过流投退
+      - Name : 反时限经复压
+  - Cmd : 3
+    Offset : 0x40E
+    Len : 4
+    RType : 'f'
+    Data :
+      - Name : 反时限启动电流
+      - Name : 反时限时间系数
+  - Cmd : 3
+    Offset : 0x412
+    Len : 4
+    Type : "I"
+    Data :
+      - Name : 反时限曲线类型
+      - Name : 过负荷告警投退
+  - Cmd : 3
+    Offset : 0x416
+    Len : 4
+    RType : 'f'
+    Data :
+      - Name : 过负荷告警定值
+      - Name : 过负荷告警延时
+  - Cmd : 3
+    Offset : 0x41A
+    Len : 2
+    Type : "I"
+    Data :
+      - Name : 过负荷跳闸投退
+  - Cmd : 3
+    Offset : 0x41C
+    Len : 4
+    RType : 'f'
+    Data :
+      - Name : 过负荷跳闸定值
+      - Name : 过负荷跳闸延时
+  - Cmd : 3
+    Offset : 0x420
+    Len : 2
+    Type : "I"
+    Data :
+      - Name : I01一段投退
+  - Cmd : 3
+    Offset : 0x422
+    Len : 4
+    RType : 'f'
+    Data :
+      - Name : I01一段定值
+      - Name : I01一段延时
+  - Cmd : 3
+    Offset : 0x426
+    Len : 2
+    Type : "I"
+    Data :
+      - Name : I01二段投退
+  - Cmd : 3
+    Offset : 0x428
+    Len : 4
+    RType : 'f'
+    Data :
+      - Name : I01二段定值
+      - Name : I01二段延时
+  - Cmd : 3
+    Offset : 0x42C
+    Len : 2
+    Type : "I"
+    Data :
+      - Name : I01反时限投退
+  - Cmd : 3
+    Offset : 0x42E
+    Len : 4
+    RType : 'f'
+    Data :
+      - Name : I01反时限启动值
+      - Name : I01反时限系数
+  - Cmd : 3
+    Offset : 0x432
+    Len : 2
+    Type : "I"
+    Data :
+      - Name : I01反时限曲线
+  - Cmd : 3
+    Offset : 0x434
+    Len : 2
+    Type : "I"
+    Data :
+      - Name : I02一段投退
+  - Cmd : 3
+    Offset : 0x436
+    Len : 4
+    RType : 'f'
+    Data :
+      - Name : I02一段定值
+      - Name : I02一段延时
+  - Cmd : 3
+    Offset : 0x43A
+    Len : 2
+    Type : "I"
+    Data :
+      - Name : I02二段投退
+  - Cmd : 3
+    Offset : 0x43C
+    Len : 4
+    RType : 'f'
+    Data :
+      - Name : I02二段定值
+      - Name : I02二段延时
+  - Cmd : 3
+    Offset : 0x440
+    Len : 2
+    Type : "I"
+    Data :
+      - Name : I02反时限投退
+  - Cmd : 3
+    Offset : 0x442
+    Len : 4
+    RType : 'f'
+    Data :
+      - Name : I02反时限启动值
+      - Name : I02反时限系数
+  - Cmd : 3
+    Offset : 0x446
+    Len : 4
+    Type : "I"
+    Data :
+      - Name : I02反时限曲线
+      - Name : PT断线告警投退
+  - Cmd : 3
+    Offset : 0x44A
+    Len : 8
+    RType : 'f'
+    Data :
+      - Name : PT断线告警延时
+      - Name : 无压定值
+      - Name : 无流定值
+      - Name : PT断线负序电压
+  - Cmd : 3
+    Offset : 0x452
+    Len : 2
+    Type : "I"
+    Data :
+      - Name : 控故障告警投退
+  - Cmd : 3
+    Offset : 0x454
+    Len : 8
+    RType : 'f'
+    Data :
+      - Name : 控故障告警延时
+      - Name : 低压阈值
+      - Name : 低电压定值
+      - Name : 复合电压负序定值
+  - Cmd : 3
+    Offset : 0x45C
+    Len : 2
+    Type : "I"
+    Data :
+      - Name : 轻瓦斯告警投退
+  - Cmd : 3
+    Offset : 0x45E
+    Len : 2
+    RType : 'f'
+    Data :
+      - Name : 轻瓦斯告警延时
+  - Cmd : 3
+    Offset : 0x460
+    Len : 2
+    Type : "I"
+    Data :
+      - Name : 重瓦斯告警投退
+  - Cmd : 3
+    Offset : 0x462
+    Len : 2
+    RType : 'f'
+    Data :
+      - Name : 重瓦斯告警延时
+  - Cmd : 3
+    Offset : 0x464
+    Len : 2
+    Type : "I"
+    Data :
+      - Name : 压力释放投退
+  - Cmd : 3
+    Offset : 0x466
+    Len : 2
+    RType : 'f'
+    Data :
+      - Name : 压力释放延时
+  - Cmd : 3
+    Offset : 0x468
+    Len : 2
+    Type : "I"
+    Data :
+      - Name : 高温告警投退
+  - Cmd : 3
+    Offset : 0x46A
+    Len : 2
+    RType : 'f'
+    Data :
+      - Name : 高温告警延时
+  - Cmd : 3
+    Offset : 0x46C
+    Len : 2
+    Type : "I"
+    Data :
+      - Name : 超温跳闸投退
+  - Cmd : 3
+    Offset : 0x46E
+    Len : 2
+    RType : 'f'
+    Data :
+      - Name : 超温跳闸延时
+  - Cmd : 3
+    Offset : 0x470
+    Len : 2
+    Type : "I"
+    Data :
+      - Name : 门开投退
+  - Cmd : 3
+    Offset : 0x472
+    Len : 2
+    RType : 'f'
+    Data :
+      - Name : 门开延时
+  - Cmd : 3
+    Offset : 0x474
+    Len : 2
+    Type : "I"
+    Data :
+      - Name : 温控器故障投退
+  - Cmd : 3
+    Offset : 0x476
+    Len : 2
+    RType : 'f'
+    Data :
+      - Name : 温控器故障延时
+  - Cmd : 3
+    Offset : 0x478
+    Len : 2
+    Type : "I"
+    Data :
+      - Name : 非电量1投退
+  - Cmd : 3
+    Offset : 0x47A
+    Len : 2
+    RType : 'f'
+    Data :
+      - Name : 非电量1延时
+  - Cmd : 3
+    Offset : 0x47C
+    Len : 2
+    Type : "I"
+    Data :
+      - Name : 非电量2投退
+  - Cmd : 3
+    Offset : 0x47E
+    Len : 2
+    RType : 'f'
+    Data :
+      - Name : 非电量2延时
+  - Cmd : 3
+    Offset : 0x480
+    Len : 2
+    Type : "I"
+    Data :
+      - Name : I2一段跳闸投退
+  - Cmd : 3
+    Offset : 0x482
+    Len : 4
+    RType : 'f'
+    Data :
+      - Name : I2一段跳闸定值
+      - Name : I2一段跳闸延时
+  - Cmd : 3
+    Offset : 0x486
+    Len : 2
+    Type : "I"
+    Data :
+      - Name : I2一段告警投退
+  - Cmd : 3
+    Offset : 0x488
+    Len : 4
+    RType : 'f'
+    Data :
+      - Name : I2一段告警定值
+      - Name : I2一段告警延时
+  - Cmd : 3
+    Offset : 0x48C
+    Len : 2
+    Type : "I"
+    Data :
+      - Name : I2二段跳闸投退
+  - Cmd : 3
+    Offset : 0x48E
+    Len : 4
+    RType : 'f'
+    Data :
+      - Name : I2二段跳闸定值
+      - Name : I2二段跳闸延时
+  - Cmd : 3
+    Offset : 0x492
+    Len : 2
+    Type : "I"
+    Data :
+      - Name : I2二段告警投退
+  - Cmd : 3
+    Offset : 0x494
+    Len : 4
+    RType : 'f'
+    Data :
+      - Name : I2二段告警定值
+      - Name : I2二段告警延时
+  - Cmd : 3
+    Offset : 0x498
+    Len : 2
+    Type : "I"
+    Data :
+      - Name : I2反时限投退
+  - Cmd : 3
+    Offset : 0x49A
+    Len : 4
+    RType : 'f'
+    Data :
+      - Name : I2反时限启动值
+      - Name : I2反时限系数
+  - Cmd : 3
+    Offset : 0x49E
+    Len : 4
+    Type : "I"
+    Data :
+      - Name : I2反时限曲线
+      - Name : FC闭锁投退
+  - Cmd : 3
+    Offset : 0x4A2
+    Len : 8
+    RType : 'f'
+    Data :
+      - Name : FC闭锁电流定值
+      - Name : FC闭锁延时
+      - Name : 事故总信号延时
+      - Name : 内部延时
+  - Cmd : 3
+    Offset : 0x4AA
+    Len : 2
+    Type : "I"
+    Data :
+      - Name : 断路器位置采集
+  - Cmd : 3
+    Offset : 0x4AC
+    Len : 8
+    RType : 'f'
+    Data :
+      - Name : 断路器动作时间
+      - Name : 弹簧未储能动作延时
+      - Name : 过量返回系数
+      - Name : 欠量返回系数
+  - Cmd : 3
+    Offset : 0x4B4
+    Len : 2
+    Type : "I"
+    Data :
+      - Name : CT断线告警投退
+  - Cmd : 3
+    Offset : 0x4B6
+    Len : 6
+    RType : 'f'
+    Data :
+      - Name : CT断线无流定值
+      - Name : CT断线有流定值
+      - Name : CT断线告警延时
+  - Cmd : 3
+    Offset : 0x4BC
+    Len : 2
+    Type : "I"
+    Data :
+      - Name : 零序过压投退
+  - Cmd : 3
+    Offset : 0x4BE
+    Len : 4
+    RType : 'f'
+    Data :
+      - Name : 零序过压定值
+      - Name : 零序过压延时
+  - Cmd : 3
+    Offset : 0x4C2
+    Len : 4
+    Type : "I"
+    Data :
+      - Name : 检修闭锁通讯投退
+      - Name : 检修闭锁出口投退
+  - Cmd : 3
+    Offset : 0x4C6
+    Len : 2
+    RType : 'f'
+    Data :
+      - Name : 跳闸展宽
+  - Cmd : 3
+    Offset : 0x4C8
+    Len : 2
+    Type : "I"
+    Data :
+      - Name : I0参与2CT计算
+
+  
+
+  
+  
