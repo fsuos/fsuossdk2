@@ -5,6 +5,9 @@ Project:
 InitSetting :
   - Name : count
     Type : int
+    Default : 25
+    Min : 1
+    Max : 25
   # TabView : true
   # #TabGroup : 
   #   - 汇总数据

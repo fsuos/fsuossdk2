@@ -22,6 +22,7 @@ Sample :
         Unit : "kW"
         Offset : 4
       - Name : "第1回路电能"
+        Adjust : "+1"
         Unit : "kWh"
         Offset : 5
       - Name : "第1回路电能占比"
@@ -39,6 +40,7 @@ Sample :
         Unit : "kW"
         Offset : 3
       - Name : "第2回路电能"
+        Adjust : "+1"
         Unit : "kWh"
         Offset : 4
       - Name : "第2回路电能占比"
@@ -56,6 +58,7 @@ Sample :
         Unit : "kW"
         Offset : 3
       - Name : "第3回路电能"
+        Adjust : "+1"
         Unit : "kWh"
         Offset : 4
       - Name : "第3回路电能占比"
@@ -73,6 +76,7 @@ Sample :
         Unit : "kW"
         Offset : 3
       - Name : "第4回路电能"
+        Adjust : "+1"
         Unit : "kWh"
         Offset : 4
       - Name : "第4回路电能占比"

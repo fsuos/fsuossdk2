@@ -1,0 +1,278 @@
+Project:
+  Name : XDFreshAir
+  RT_ID : 5156
+  File : "XD新风混风冷气机MODBUS RTU 协议规范表(1).xlsx"
+Sample : 
+  - Cmd : 3
+    Offset : 80
+    Len : 1
+    Data :
+      - Name : "室内温度"
+        Ratio : 10
+  - Cmd : 3
+    Offset : 66
+    Len : 1
+    Data :
+      - Name : "室内湿度"
+        Ratio : 10
+  - Cmd : 3
+    Offset : 140
+    Len : 1
+    Data :
+      - Name : "新风温度"
+        Ratio : 10
+  - Cmd : 3
+    Offset : 142
+    Len : 1
+    Data :
+      - Name : "混风温度"
+        Ratio : 10
+  - Cmd : 3
+    Offset : 144
+    Len : 1
+    Data :
+      - Name : "总耗电能"
+        Ratio : 100
+  - Cmd : 3
+    Offset : 50393
+    Len : 1
+    Data :
+      - Name : "温度设定"
+        Ratio : 10
+  - Cmd : 3
+    Offset : 50418
+    Len : 1
+    Data :
+      - Name : "湿度设定"
+        Ratio : 10
+  - Cmd : 3
+    Offset : 3002
+    Len : 1
+    Data :
+      - Name : "机组状态"
+        Options : 
+          - Key : 0
+            Value : 关机
+          - Key : 1
+            Value : 开机
+          - Key : 2
+            Value : 通风
+          - Key : 3
+            Value : 故障
+  - Cmd : 1
+    Offset : 24576
+    Len : 12
+    Data : 
+      - Name : 送风机
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 启动
+      - Name : 排风机
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 启动
+      - Name : 进水阀
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 启动
+      - Name : 排水阀
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 启动
+      - Name : 空调输出
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 启动
+      - Name : 加湿水泵
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 启动
+      - Name : 新风阀1
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 启动
+      - Name : 新风阀2
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 启动
+      - Name : 回风阀1
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 启动
+      - Name : 回风阀2
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 启动
+      - Name : 混风阀1
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 启动
+      - Name : 混风阀2
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 启动
+  - Cmd : 1
+    Offset : 22
+    Len : 1
+    Data : 
+      - Name : 相序保护
+        AlertNormalValue : 0
+  - Cmd : 1
+    Offset : 25
+    Len : 1
+    Data : 
+      - Name : 高水位保护
+        AlertNormalValue : 0
+  - Cmd : 1
+    Offset : 26
+    Len : 1
+    Data : 
+      - Name : 低水位保护
+        AlertNormalValue : 0
+  - Cmd : 1
+    Offset : 28
+    Len : 1
+    Data : 
+      - Name : 漏水保护
+        AlertNormalValue : 0
+  - Cmd : 1
+    Offset : 30
+    Len : 1
+    Data : 
+      - Name : 超高水位保护
+        AlertNormalValue : 0
+SET_RET_CODE : |
+    case 201:
+    {
+        cmd_result_ = 1;
+        return false;
+    }
+    case AC_Control_Code::AC_START: {
+        modbus_write_bit(1, 0);
+        state = 201;
+        return true;
+      }
+      case 301:
+      {
+          cmd_result_ = 1;
+          Reset();
+          return false;
+      }
+      case AC_Control_Code::AC_STOP: {
+        modbus_write_bit(2, 0);
+        state = 301;
+        return true;
+      } 
+      case AC_Control_Code::AC_SET_TEMPERATURE:
+      case AC_Control_Code::AC_SET_HUMID: {
+        if(tab_reg[0] == last_data_) {
+            cmd_result_ = 1;
+        } else {
+            cmd_result_ = -2;
+        }
+        Reset();
+        return false;
+      }
+      
+SET_DO_CODE : |
+  switch(b_mode_)
+  {
+      case 1://联通
+      {
+            //320是SET_DO
+          std::string doId((char*)inBuffer, inBufferSize);
+          if(doId == "601500201001" || doId == "140800280010") {
+              //开机
+              state = AC_Control_Code::AC_START;
+              modbus_write_bit(1, 1);
+              return 0;
+          } else if(doId == "601500200001" || doId == "140800300010") {
+              //关机
+              state = AC_Control_Code::AC_STOP;
+              modbus_write_bit(2, 1);
+              return 0;
+          }
+          break;
+      }
+      case 2://电信
+      {
+          std::string doStr((char*)inBuffer, inBufferSize);
+          Json::Value setting;//
+          Json::Reader reader;//解析
+          if(!reader.parse(doStr, setting)) {
+            return -1;
+          }
+          if(setting.type() == Json::objectValue) {
+              if(setting["signal_id"] != Json::nullValue && setting["signal_id"].type()  != Json::nullValue) {
+                  if(setting["signal_id"].asString() != "") {
+                      if(setting["signal_id"].asString() == "140800280010"){
+                            //开机
+                          state = AC_Control_Code::AC_START;
+                          modbus_write_bit(1, 1);
+                          return 0;
+                      }else if(setting["signal_id"].asString() == "140800300010") {
+                            //关机
+                          state = AC_Control_Code::AC_STOP;
+                          modbus_write_bit(2, 1);
+                          return 0;
+                      }
+                  }
+              }
+          }
+          break;
+      }
+  }
+
+
+SET_AO_CODE: |
+  if(setting["signal_id"] != Json::nullValue && setting["signal_id"].type()  != Json::nullValue) {
+      if(setting["signal_id"].asString() != "") {
+          if(setting["signal_id"].asString() == "6016A2101001" || setting["signal_id"].asString() == "150800310010") {
+              if(setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
+                  int16_t newValue = atoi(setting["SetValue"].asString().c_str())*10;
+                  //送风温度
+                  state = AC_Control_Code::AC_SET_TEMPERATURE;
+                  cmd_result_ = -1;
+                  last_data_ = newValue;
+                  modbus_write_register(50393, newValue);
+
+                  return 0;                    
+              }
+          }else if(setting["signal_id"].asString() == "6016A2201001" || setting["signal_id"].asString() == "150800340010") {
+              if(setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
+                  int16_t newValue = atoi(setting["SetValue"].asString().c_str())*10;
+                  //湿度
+                  state = AC_Control_Code::AC_SET_HUMID;
+                  cmd_result_ = -1;
+                  last_data_ = newValue;
+                  modbus_write_register(50418, newValue);
+                  return 0;                       
+              }
+          }
+
+      }
+  }

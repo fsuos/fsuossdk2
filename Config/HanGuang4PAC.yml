@@ -51,15 +51,19 @@ Sample :
         Unit : "kW"
         Offset : 14
       - Name : "第1回路A相有功电能"
+        Adjust : "+1"
         Unit : "kWh"
         Offset : 15
       - Name : "第1回路B相有功电能"
+        Adjust : "+1"
         Unit : "kWh"
         Offset : 16
       - Name : "第1回路C相有功电能"
+        Adjust : "+1"
         Unit : "kWh"
         Offset : 17
       - Name : "第1回路总有功电能"
+        Adjust : "+1"
         Unit : "kWh"
         Offset : 18
   - Cmd : 3
@@ -110,15 +114,19 @@ Sample :
         Unit : "kW"
         Offset : 14
       - Name : "第2回路A相有功电能"
+        Adjust : "+1"
         Unit : "kWh"
         Offset : 15
       - Name : "第2回路B相有功电能"
+        Adjust : "+1"
         Unit : "kWh"
         Offset : 16
       - Name : "第2回路C相有功电能"
+        Adjust : "+1"
         Unit : "kWh"
         Offset : 17
       - Name : "第2回路总有功电能"
+        Adjust : "+1"
         Unit : "kWh"
         Offset : 18
   - Cmd : 3
@@ -169,15 +177,19 @@ Sample :
         Unit : "kW"
         Offset : 14
       - Name : "第3回路A相有功电能"
+        Adjust : "+1"
         Unit : "kWh"
         Offset : 15
       - Name : "第3回路B相有功电能"
+        Adjust : "+1"
         Unit : "kWh"
         Offset : 16
       - Name : "第3回路C相有功电能"
+        Adjust : "+1"
         Unit : "kWh"
         Offset : 17
       - Name : "第3回路总有功电能"
+        Adjust : "+1"
         Unit : "kWh"
         Offset : 18
   - Cmd : 3
@@ -228,14 +240,18 @@ Sample :
         Unit : "kW"
         Offset : 14
       - Name : "第4回路A相有功电能"
+        Adjust : "+1"
         Unit : "kWh"
         Offset : 15
       - Name : "第4回路B相有功电能"
+        Adjust : "+1"
         Unit : "kWh"
         Offset : 16
       - Name : "第4回路C相有功电能"
+        Adjust : "+1"
         Unit : "kWh"
         Offset : 17
       - Name : "第4回路总有功电能"
+        Adjust : "+1"
         Unit : "kWh"
         Offset : 18

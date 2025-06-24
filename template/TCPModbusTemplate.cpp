@@ -90,40 +90,84 @@ bool {{ Project.Name }}::RefreshStatus()
                 }
                 uint16_t regs[125];
                 uint8_t bits[2000];
-                {% for sc in Sample %}
-                    {% if sc.Cmd == 3 %}
-                    if(-1 == modbus_read_registers(pCtx, {{ sc.Offset }}, {{ sc.Len }}, regs)){
-                        modbus_close(pCtx);
-                        modbus_free(pCtx);
-                        pCtx = nullptr;
-                        return;
-                    }
-                    memcpy(cData.r3_{{ sc.Offset }}, regs, sizeof(uint16_t)*{{ sc.Len }});
-                    {% elif sc.Cmd == 4 %}
-                    if(-1 == modbus_read_input_registers(pCtx, {{ sc.Offset }}, {{ sc.Len }}, regs)){
-                        modbus_close(pCtx);
-                        modbus_free(pCtx);
-                        pCtx = nullptr;
-                        return;
-                    }
-                    memcpy(cData.r4_{{ sc.Offset }}, regs, sizeof(uint16_t)*{{ sc.Len }});
-                    {% elif sc.Cmd == 1 %}
-                    if(-1 == modbus_read_bits(pCtx, {{ sc.Offset }}, {{ sc.Len }}, bits)){
-                        modbus_close(pCtx);
-                        modbus_free(pCtx);
-                        pCtx = nullptr;
-                        return;
-                    }
-                    memcpy(cData.b1_{{ sc.Offset }}, bits, {{ sc.Len }});
-                    {% elif sc.Cmd == 2 %}
-                    if(-1 == modbus_read_input_bits(pCtx, {{ sc.Offset }}, {{ sc.Len }}, bits)){
-                        modbus_close(pCtx);
-                        modbus_free(pCtx);
-                        pCtx = nullptr;
-                        return;
-                    }
-                    memcpy(cData.b2_{{ sc.Offset }}, bits, {{ sc.Len }});
-                    {% endif %}                   
+                {% for tsc in Sample %}
+                    {% if tsc.CmdGroupStart is defined %}  
+                        for(int cmdgroup_step_ = 0; cmdgroup_step_ < {{ "%d"%((tsc.CmdGroupEnd-tsc.CmdGroupStart)/tsc.CmdGroupStep) }}; cmdgroup_step_++){             
+                        {% for sc in tsc.CmdGroupSample %}                        
+                        {% if sc.Cmd == 3 %}
+                        //modbus_read_registers({{ tsc.CmdGroupStart + sc.Offset }}, {{ sc.Len }});                        
+                        if(-1 == modbus_read_registers(pCtx, {{ tsc.CmdGroupStart + sc.Offset }} + {{ tsc.CmdGroupStep}}*cmdgroup_step_, {{ sc.Len }}, regs)){
+                            modbus_close(pCtx);
+                            modbus_free(pCtx);
+                            pCtx = nullptr;
+                            return;
+                        }
+                        memcpy(cData.{{ "r_%d[cmdgroup_step_]"%(tsc.CmdGroupStart ) }}.{{ "r%d_%d_%d"%(sc.Cmd,tsc.CmdGroupStart,sc.Offset ) }}, regs, sizeof(uint16_t)*{{ sc.Len }});
+                        {% elif sc.Cmd == 4 %}
+                        //modbus_read_input_registers({{ tsc.CmdGroupStart + sc.Offset }}, {{ sc.Len }});
+                        if(-1 == modbus_read_input_registers(pCtx, {{ tsc.CmdGroupStart + sc.Offset }} + {{ tsc.CmdGroupStep}}*cmdgroup_step_, {{ sc.Len }}, regs)){
+                            modbus_close(pCtx);
+                            modbus_free(pCtx);
+                            pCtx = nullptr;
+                            return;
+                        }
+                        memcpy(cData.{{ "r_%d[cmdgroup_step_]"%(tsc.CmdGroupStart ) }}.{{ "r%d_%d_%d"%(sc.Cmd,tsc.CmdGroupStart,sc.Offset ) }}, regs, sizeof(uint16_t)*{{ sc.Len }});
+                        {% elif sc.Cmd == 1 %}
+                        //modbus_read_bits({{ tsc.CmdGroupStart + sc.Offset }}, {{ sc.Len }});
+                        if(-1 == modbus_read_bits(pCtx, {{ tsc.CmdGroupStart + sc.Offset }} + {{ tsc.CmdGroupStep}}*cmdgroup_step_, {{ sc.Len }}, bits)){
+                            modbus_close(pCtx);
+                            modbus_free(pCtx);
+                            pCtx = nullptr;
+                            return;
+                        }
+                        memcpy(cData.{{ "r_%d[cmdgroup_step_]"%(tsc.CmdGroupStart ) }}.{{ "b%d_%d_%d"%(sc.Cmd,tsc.CmdGroupStart,sc.Offset ) }}, bits, {{ sc.Len }});
+                        {% elif sc.Cmd == 2 %}
+                        //modbus_read_input_bits({{ tsc.CmdGroupStart + sc.Offset }}, {{ sc.Len }});
+                        if(-1 == modbus_read_input_bits(pCtx, {{ tsc.CmdGroupStart + sc.Offset }} + {{ tsc.CmdGroupStep}}*cmdgroup_step_, {{ sc.Len }}, bits)){
+                            modbus_close(pCtx);
+                            modbus_free(pCtx);
+                            pCtx = nullptr;
+                            return;
+                        }
+                        memcpy(cData.{{ "r_%d[cmdgroup_step_]"%(tsc.CmdGroupStart ) }}.{{ "b%d_%d_%d"%(sc.Cmd,tsc.CmdGroupStart,sc.Offset ) }}, bits, {{ sc.Len }});
+                        {% endif %}
+                        {% endfor %}
+                        }
+                    {% else %}
+                        {% if tsc.Cmd == 3 %}
+                        if(-1 == modbus_read_registers(pCtx, {{ tsc.Offset }}, {{ tsc.Len }}, regs)){
+                            modbus_close(pCtx);
+                            modbus_free(pCtx);
+                            pCtx = nullptr;
+                            return;
+                        }
+                        memcpy(cData.r3_{{ tsc.Offset }}, regs, sizeof(uint16_t)*{{ tsc.Len }});
+                        {% elif tsc.Cmd == 4 %}
+                        if(-1 == modbus_read_input_registers(pCtx, {{ tsc.Offset }}, {{ tsc.Len }}, regs)){
+                            modbus_close(pCtx);
+                            modbus_free(pCtx);
+                            pCtx = nullptr;
+                            return;
+                        }
+                        memcpy(cData.r4_{{ tsc.Offset }}, regs, sizeof(uint16_t)*{{ tsc.Len }});
+                        {% elif tsc.Cmd == 1 %}
+                        if(-1 == modbus_read_bits(pCtx, {{ tsc.Offset }}, {{ tsc.Len }}, bits)){
+                            modbus_close(pCtx);
+                            modbus_free(pCtx);
+                            pCtx = nullptr;
+                            return;
+                        }
+                        memcpy(cData.b1_{{ tsc.Offset }}, bits, {{ tsc.Len }});
+                        {% elif tsc.Cmd == 2 %}
+                        if(-1 == modbus_read_input_bits(pCtx, {{ tsc.Offset }}, {{ tsc.Len }}, bits)){
+                            modbus_close(pCtx);
+                            modbus_free(pCtx);
+                            pCtx = nullptr;
+                            return;
+                        }
+                        memcpy(cData.b2_{{ tsc.Offset }}, bits, {{ tsc.Len }});
+                        {% endif %}
+                    {% endif %}                  
                 {% endfor %}
                 modbus_close(pCtx);
                 modbus_free(pCtx);

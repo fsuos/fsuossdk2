@@ -1,0 +1,132 @@
+Project:
+  Name : AcrelACR
+  RT_ID : 5156
+  File : "085 ACR系列谐波仪表中文版V1.1 16.7.1.pdf"
+Sample : 
+  - Cmd : 3
+    Offset : 6
+    Len : 2
+    Data : 
+      - Name : 电压变比
+      - Name : 电流变比
+  - Cmd : 3
+    Offset : 242
+    Len : 11
+    Data : 
+      - Name : "中性线电流"
+        Ratio : 1000
+        Unit : A
+      - Name : "相电压Uan"
+        Ratio : 10
+        Unit : V
+      - Name : "相电压Ubn"
+        Ratio : 10
+        Unit : V
+      - Name : "相电压Ucn"
+        Ratio : 10
+        Unit : V
+      - Name : "线电压Uab"
+        Ratio : 10
+        Unit : V
+      - Name : "线电压Ubc"
+        Ratio : 10
+        Unit : V
+      - Name : "线电压Uca"
+        Ratio : 10
+        Unit : V
+      - Name : "相电流Ia"
+        Ratio : 1000 * (1/floatval($dataArray["电流变比"]))
+        Unit : A
+      - Name : "相电流Ib"
+        Ratio : 1000 * (1/floatval($dataArray["电流变比"]))
+        Unit : A
+      - Name : "相电流Ic"
+        Ratio : 1000 * (1/floatval($dataArray["电流变比"]))
+        Unit : A
+      - Name : "频率F"
+        Ratio : 100
+        Unit : Hz
+  - Cmd : 3
+    Offset : 253
+    Len : 24
+    Data : 
+      - Name : "A相有功功率Pa"
+        Value : ((($v[1] << 16) | $v[2]) * $dataArray["电流变比"] /100/1000)
+        CValue : (((pData[0] << 16) | pData[1]) * jsonValue["电流变比"].asFloat() /100/1000)
+        Unit : kw
+      - Name : "B相有功功率Pb"
+        Value : ((($v[3] << 16) | $v[4]) * $dataArray["电流变比"]  /100/1000)
+        CValue : (((pData[2] << 16) | pData[3]) * jsonValue["电流变比"].asFloat() /100/1000)
+        Unit : kw
+      - Name : "C相有功功率Pc"
+        Value : ((($v[5] << 16) | $v[6]) * $dataArray["电流变比"]  /100/1000)
+        CValue : (((pData[4] << 16) | pData[5]) * jsonValue["电流变比"].asFloat() /100/1000)
+        Unit : kw
+      - Name : "总有功功率P总"
+        Value : ((($v[7] << 16) | $v[8]) * $dataArray["电流变比"]  /100/1000)
+        CValue : (((pData[6] << 16) | pData[7]) * jsonValue["电流变比"].asFloat() /100/1000)
+        Unit : kw
+      - Name : "A相无功功率Qa"
+        Value : ((($v[9] << 16) | $v[10]) * $dataArray["电流变比"]  /100/1000)
+        CValue : (((pData[8] << 16) | pData[9]) * jsonValue["电流变比"].asFloat() /100/1000)
+        Unit : kvar
+      - Name : "B相无功功率Qb"
+        Value : ((($v[11] << 16) | $v[12]) * $dataArray["电流变比"]  /100/1000)
+        CValue : (((pData[10] << 16) | pData[11]) * jsonValue["电流变比"].asFloat() /100/1000)
+        Unit : kvar
+      - Name : "C相无功功率Qc"
+        Value : ((($v[13] << 16) | $v[14]) * $dataArray["电流变比"]  /100/1000)
+        CValue : (((pData[12] << 16) | pData[13]) * jsonValue["电流变比"].asFloat() /100/1000)
+        Unit : kvar
+      - Name : "总无功功率Q总"
+        Value : ((($v[15] << 16) | $v[16]) * $dataArray["电流变比"]  /100/1000)
+        CValue : (((pData[14] << 16) | pData[15]) * jsonValue["电流变比"].asFloat() /100/1000)
+        Unit : kvar
+      - Name : "A相视在功率Sa"
+        Value : ((($v[17] << 16) | $v[18]) * $dataArray["电流变比"]  /100/1000)
+        CValue : (((pData[16] << 16) | pData[17]) * jsonValue["电流变比"].asFloat() /100/1000)
+        Unit : kVA
+      - Name : "B相视在功率Sb"
+        Value : ((($v[19] << 16) | $v[20]) * $dataArray["电流变比"]  /100/1000)
+        CValue : (((pData[18] << 16) | pData[19]) * jsonValue["电流变比"].asFloat() /100/1000)
+        Unit : kVA
+      - Name : "C相视在功率Sc"
+        Value : ((($v[21] << 16) | $v[22]) * $dataArray["电流变比"]  /100/1000)
+        CValue : (((pData[20] << 16) | pData[21]) * jsonValue["电流变比"].asFloat() /100/1000)
+        Unit : kVA
+      - Name : "总视在功率S总"
+        Value : ((($v[23] << 16) | $v[24]) * $dataArray["电流变比"]  /100/1000)
+        CValue : (((pData[22] << 16) | pData[23]) * jsonValue["电流变比"].asFloat() /100/1000)
+        Unit : kVA
+  - Cmd : 3
+    Offset : 277
+    Len : 4
+    Data : 
+      - Name : "A相功率因数"
+        Ratio : 1000
+      - Name : "B相功率因数"
+        Ratio : 1000
+      - Name : "C相功率因数"
+        Ratio : 1000
+      - Name : "总功率因数"
+        Ratio : 1000
+  - Cmd : 3
+    Offset : 365
+    Len : 8
+    Data : 
+      - Name : "正向有功电能EPI"
+        Unit : "kwh"
+        Value : ((($v[1] << 16) | $v[2]) * $dataArray["电流变比"] /100)
+        CValue : (((pData[0] << 16) | pData[1]) * jsonValue["电流变比"].asFloat() /100)
+      - Name : "反向有功电能EPE"
+        Value : ((($v[3] << 16) | $v[4]) * $dataArray["电流变比"]  /100)
+        CValue : (((pData[2] << 16) | pData[3]) * jsonValue["电流变比"].asFloat() /100)
+        Unit : kwh
+      - Name : "正向无功电能EQL"
+        Value : ((($v[5] << 16) | $v[6]) * $dataArray["电流变比"] /100)
+        CValue : (((pData[4] << 16) | pData[5]) * jsonValue["电流变比"].asFloat() /100)
+        Unit : kvarh
+      - Name : "反向无功电能EQC"
+        Value : ((($v[7] << 16) | $v[8]) * $dataArray["电流变比"] /100)
+        CValue : (((pData[6] << 16) | pData[7]) * jsonValue["电流变比"].asFloat() /100)
+        Unit : kvarh

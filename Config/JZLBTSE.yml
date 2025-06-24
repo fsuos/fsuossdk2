@@ -166,7 +166,7 @@ Sample :
         Ratio : 10
         Unit : "AH"
       - Name : "设置-放电剩余容量"
-        Value : (floatval($dataArray["标称容量值"]) - floatval($dataArray["放电容量"]))
+        Ratio : 10
         Unit : "AH"
       - Name : "设置-放电电压下限"
         Ratio : 100
@@ -243,7 +243,11 @@ Sample :
     Len : 5
     Data :    
       - Name : 停止时在线电压
+        Ratio : 100
+        Unit : V
       - Name : 停止时整组电压
+        Ratio : 100
+        Unit : V
       - Name : 停止时放电时长（分）
       - Name : 停止时放电电流
         Ratio : 100

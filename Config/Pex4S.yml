@@ -983,57 +983,54 @@ SET_RET_CODE : |
       }
       
 SET_DO_CODE : |
-  if(setting["signal_id"] != Json::nullValue && setting["signal_id"].type()  != Json::nullValue) {
-      if(setting["signal_id"].asString() != "") {
-          switch(b_mode_)
-          {
-              case 1://联通
-              {
-                    //320是SET_DO
-                  std::string doId((char*)inBuffer, inBufferSize);
-                  if(doId == "601500201001" || doId == "140800280010") {
-                      //开机
-                      state = AC_Control_Code::AC_START;
-                      modbus_write_register(100, 0x10);
-                      return 0;
-                  } else if(doId == "601500200001" || doId == "140800300010") {
-                      //关机
-                      state = AC_Control_Code::AC_STOP;
-                      modbus_write_register(100, 0x1F);
-                      return 0;
-                  }
-                  break;
-              }
-              case 2://电信
-              {
-                  std::string aoStr((char*)inBuffer, inBufferSize);
-                  Json::Value setting;//
-                  Json::Reader reader;//解析
-                  if(!reader.parse(aoStr, setting)) {
-                      return -1;
-                  }
-                  if(setting.type() == Json::objectValue) {
-                      if(setting["signal_id"] != Json::nullValue && setting["signal_id"].type()  != Json::nullValue) {
-                          if(setting["signal_id"].asString() != "") {
-                              if(setting["signal_id"].asString() == "140800280010"){
-                                    //开机
-                                  state = AC_Control_Code::AC_START;
-                                  modbus_write_register(100, 0x10);
-                                  return 0;
-                              }else if(setting["signal_id"].asString() == "140800300010") {
-                                    //关机
-                                  state = AC_Control_Code::AC_STOP;
-                                  modbus_write_register(100, 0x1F);
-                                  return 0;
-                              }
-                          }
+  switch(b_mode_)
+  {
+      case 1://联通
+      {
+            //320是SET_DO
+          std::string doId((char*)inBuffer, inBufferSize);
+          if(doId == "601500201001" || doId == "140800280010") {
+              //开机
+              state = AC_Control_Code::AC_START;
+              modbus_write_register(100, 0x10);
+              return 0;
+          } else if(doId == "601500200001" || doId == "140800300010") {
+              //关机
+              state = AC_Control_Code::AC_STOP;
+              modbus_write_register(100, 0x1F);
+              return 0;
+          }
+          break;
+      }
+      case 2://电信
+      {
+          std::string aoStr((char*)inBuffer, inBufferSize);
+          Json::Value setting;//
+          Json::Reader reader;//解析
+          if(!reader.parse(aoStr, setting)) {
+              return -1;
+          }
+          if(setting.type() == Json::objectValue) {
+              if(setting["signal_id"] != Json::nullValue && setting["signal_id"].type()  != Json::nullValue) {
+                  if(setting["signal_id"].asString() != "") {
+                      if(setting["signal_id"].asString() == "140800280010"){
+                            //开机
+                          state = AC_Control_Code::AC_START;
+                          modbus_write_register(100, 0x10);
+                          return 0;
+                      }else if(setting["signal_id"].asString() == "140800300010") {
+                            //关机
+                          state = AC_Control_Code::AC_STOP;
+                          modbus_write_register(100, 0x1F);
+                          return 0;
                       }
                   }
-                  break;
               }
           }
+          break;
       }
   }
+
 
 SET_AO_CODE: |
   if(setting["signal_id"] != Json::nullValue && setting["signal_id"].type()  != Json::nullValue) {

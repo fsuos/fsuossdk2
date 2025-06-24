@@ -1,0 +1,541 @@
+Project:
+  Name : XJChangJiLieJian
+  RT_ID : 5156
+  File : "新疆昌吉列间地址表.xlsx"
+Sample : 
+  - Cmd : 2
+    Offset : 1
+    Len : 6
+    Data : 
+      - Name : 滤网堵塞开关状态
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+      - Name : 高压告警开关状态
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+      - Name : 低压告警开关状态
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+      - Name : 上风机故障开关
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+      - Name : 中风机故障开关
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+      - Name : 消防连锁
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+  - Cmd : 2
+    Offset : 8
+    Len : 2
+    Data : 
+      - Name : 漏水检测
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+      - Name : 下风机故障开关
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+  - Cmd : 2
+    Offset : 16
+    Len : 3
+    Data : 
+      - Name : 氟系统电磁阀
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+      - Name : 水系统电磁阀
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+      - Name : 机组运行状态
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+  - Cmd : 2
+    Offset : 20
+    Len : 1
+    Data : 
+      - Name : 液管电磁阀
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+  - Cmd : 2
+    Offset : 61
+    Len : 1
+    Data : 
+      - Name : 氟泵状态
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 输出
+  - Cmd : 2
+    Offset : 111
+    Len : 1
+    Data : 
+      - Name : 系统开机
+        Options : 
+          - Key : 0
+            Value : 关机
+          - Key : 1
+            Value : 开机
+  - Cmd : 2
+    Offset : 120
+    Len : 4
+    Data : 
+      - Name : 制冷状态
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+      - Name : 制热状态
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+      - Name : 加湿状态
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+      - Name : 除湿状态
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+  - Cmd : 2
+    Offset : 141
+    Len : 32
+    Data :
+      - ArrayName : "#%d组网机组通讯状态"
+        ArrayStart : 1
+        ArrayLength : 32
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 无通讯
+          - Key : 1
+            Value : 有通讯
+  - Cmd : 2
+    Offset : 181
+    Len : 10
+    Data :
+      - Name : 滤网堵塞告警
+        AlertNormalValue : 0
+      - Name : 高压告警
+        AlertNormalValue : 0
+      - Name : 低压告警
+        AlertNormalValue : 0
+      - Name : 上风机故障告警
+        AlertNormalValue : 0
+      - Name : 中风机故障告警
+        AlertNormalValue : 0
+      - Name : 消防连锁告警
+        AlertNormalValue : 0
+      - Name : 冷凝器高水位告警
+        AlertNormalValue : 0
+      - Name : 漏水告警
+        AlertNormalValue : 0
+      - Name : 下风机故障告警
+        AlertNormalValue : 0
+      - Name : 外风机故障告警
+        AlertNormalValue : 0
+  - Cmd : 2
+    Offset : 196
+    Len : 17
+    Data :
+      - Name : 室内回风温度故障告警
+        AlertNormalValue : 0
+      - Name : 室内回风湿度故障告警
+        AlertNormalValue : 0
+      - Name : 出风温度#1故障
+        AlertNormalValue : 0
+      - Name : 出风温度#2故障
+        AlertNormalValue : 0
+      - Name : 吸气压力故障告警
+        AlertNormalValue : 0
+      - Name : 吸气温度故障告警
+        AlertNormalValue : 0
+      - Name : 排气温度故障告警
+        AlertNormalValue : 0
+      - Name : 出风温度#3故障
+        AlertNormalValue : 0
+      - Name : 排气压力故障告警
+        AlertNormalValue : 0
+      - Name : 内风机1故障告警
+        AlertNormalValue : 0
+      - Name : 内风机2故障告警
+        AlertNormalValue : 0
+      - Name : 内风机3故障告警
+        AlertNormalValue : 0
+      - Name : 内风机4故障告警
+        AlertNormalValue : 0
+      - Name : 内风机5故障告警
+        AlertNormalValue : 0
+      - Name : 内风机6故障告警
+        AlertNormalValue : 0
+      - Name : 内风机7故障告警
+        AlertNormalValue : 0
+      - Name : 内风机8故障告警
+        AlertNormalValue : 0
+  - Cmd : 2
+    Offset : 241
+    Len : 2
+    Data :
+      - Name : 泵变频器通讯告警
+        AlertNormalValue : 0
+      - Name : 泵变频器故障告警
+        AlertNormalValue : 0
+  - Cmd : 2
+    Offset : 249
+    Len : 2
+    Data :
+      - Name : 泵入口压力故障告警
+        AlertNormalValue : 0
+      - Name : 泵出口压力故障告警
+        AlertNormalValue : 0
+  - Cmd : 2
+    Offset : 280
+    Len : 1
+    Data :
+      - Name : 冷凝风机变频器故障告警
+        AlertNormalValue : 0
+  - Cmd : 2
+    Offset : 283
+    Len : 2
+    Data :      
+      - Name : 环境温度故障告警
+        AlertNormalValue : 0
+      - Name : 冷凝器压力故障告警
+        AlertNormalValue : 0
+  - Cmd : 2
+    Offset : 296
+    Len : 5
+    Data :      
+      - Name : 高温告警
+        AlertNormalValue : 0
+      - Name : 低温告警
+        AlertNormalValue : 0
+      - Name : 高湿告警
+        AlertNormalValue : 0
+      - Name : 低湿告警
+        AlertNormalValue : 0
+      - Name : 排气温度告警
+        AlertNormalValue : 0
+  - Cmd : 2
+    Offset : 302
+    Len : 1
+    Data :
+      - Name : 高压锁定告警
+        AlertNormalValue : 0
+  - Cmd : 2
+    Offset : 304
+    Len : 1
+    Data :
+      - Name : 低压锁定告警
+        AlertNormalValue : 0
+  - Cmd : 2
+    Offset : 306
+    Len : 1
+    Data :
+      - Name : 排气锁定告警
+        AlertNormalValue : 0
+  - Cmd : 2
+    Offset : 308
+    Len : 2
+    Data :
+      - Name : 扩展板通讯故障告警
+        AlertNormalValue : 0
+      - Name : 泵控制器通讯故障告警
+        AlertNormalValue : 0
+  - Cmd : 2
+    Offset : 311
+    Len : 1
+    Data :
+      - Name : 冷凝风机通讯故障告警
+        AlertNormalValue : 0
+  - Cmd : 2
+    Offset : 317
+    Len : 1
+    Data :
+      - Name : 吸气温度过高告警
+        AlertNormalValue : 0
+  - Cmd : 2
+    Offset : 319
+    Len : 1
+    Data :
+      - Name : 防冻结告警
+        AlertNormalValue : 0
+  - Cmd : 2
+    Offset : 321
+    Len : 1
+    Data :
+      - Name : 泵高扬程告警
+        AlertNormalValue : 0
+  - Cmd : 2
+    Offset : 323
+    Len : 1
+    Data :
+      - Name : 泵低扬程告警
+        AlertNormalValue : 0
+  - Cmd : 2
+    Offset : 328
+    Len : 4
+    Data :
+      - Name : 电压过高告警
+        AlertNormalValue : 0
+      - Name : 电压过低告警
+        AlertNormalValue : 0
+      - Name : 电流过高告警
+        AlertNormalValue : 0
+      - Name : 压缩机驱动通讯故障
+        AlertNormalValue : 0
+  - Cmd : 2
+    Offset : 333
+    Len : 1
+    Data :
+      - Name : 压缩机驱动故障
+        AlertNormalValue : 0
+  - Cmd : 2
+    Offset : 353
+    Len : 1
+    Data :
+      - Name : 吸气温度过高锁定
+        AlertNormalValue : 0
+  - Cmd : 2
+    Offset : 356
+    Len : 1
+    Data :
+      - Name : 远程温湿度通讯故障
+        AlertNormalValue : 0
+  - Cmd : 4
+    Offset : 21
+    Len : 9
+    Data : 
+      - Name : 室内回风温度测量值
+        Ratio : 10
+        Unit : "C°"
+      - Name : 室内回风湿度测量值
+        Ratio : 10
+        Unit : "%"
+      - Name : 室内上送风温度测量值
+        Ratio : 10
+        Unit : "C°"
+      - Name : 环境温度
+        Ratio : 10
+        Unit : "C°"
+      - Name : 吸气压力测量值
+        Ratio : 10
+        Unit : "Bar"
+      - Name : 吸气温度测量值
+        Ratio : 10
+        Unit : "C°"
+      - Name : 排气温度测量值
+        Ratio : 10
+        Unit : "C°"
+      - Name : 室内下送风温度测量值
+        Ratio : 10
+        Unit : "C°"
+      - Name : 冷凝压力测量值
+        Ratio : 10
+        Unit : "Bar"
+  - Cmd : 4
+    Offset : 38
+    Len : 3
+    Data : 
+      - Name : A相电压
+        Ratio : 10
+        Unit : V
+      - Name : B相电压
+        Ratio : 10
+        Unit : V
+      - Name : C相电压
+        Ratio : 10
+        Unit : V
+  - Cmd : 4
+    Offset : 61
+    Len : 1
+    Data : 
+      - Name : 内风机转速控制
+        Unit : "%"
+  - Cmd : 4
+    Offset : 66
+    Len : 1
+    Data : 
+      - Name : 送风湿度
+        Ratio : 10
+        Unit : "%"
+      - Name : 中送风温度
+        Ratio : 10
+        Unit : "C°"
+  - Cmd : 4
+    Offset : 91
+    Len : 2
+    Data : 
+      - Name : 泵入口压力
+        Ratio : 10
+        Unit : "Bar"
+      - Name : 泵出口压力
+        Ratio : 10
+        Unit : "Bar"
+  - Cmd : 4
+    Offset : 94
+    Len : 1
+    Data : 
+      - Name : 氟泵驱动状态码
+  - Cmd : 4
+    Offset : 111
+    Len : 1
+    Data : 
+      - Name : 泵转速控制
+  - Cmd : 4
+    Offset : 143
+    Len : 1
+    Data : 
+      - Name : 风机驱动状态码
+  - Cmd : 4
+    Offset : 151
+    Len : 1
+    Data : 
+      - Name : 冷凝风机转速
+  - Cmd : 4
+    Offset : 171
+    Len : 6
+    Data : 
+      - Name : 温度设定值
+        Ratio : 10
+        Unit : "C°"
+      - Name : 温度范围设定值
+        Ratio : 10
+        Unit : "C°"
+      - Name : 温度静区设定值
+        Ratio : 10
+        Unit : "C°"
+      - Name : 湿度设定值
+        Ratio : 10
+        Unit : "%"
+      - Name : 湿度范围设定值
+        Ratio : 10
+        Unit : "%"
+      - Name : 湿度静区设定值
+        Ratio : 10
+        Unit : "%"
+  - Cmd : 4
+    Offset : 195
+    Len : 1
+    Data : 
+      - Name : 机组状态
+        Options : 
+          - Key : 0
+            Value : 机组关闭
+          - Key : 1
+            Value : 机组开机
+          - Key : 2
+            Value : 机组待机
+          - Key : 3
+            Value : 机组锁定
+          - Key : 4
+            Value : 远程关机
+  - Cmd : 4
+    Offset : 208
+    Len : 1
+    Data : 
+      - Name : 系统当前工作模式
+        Options : 
+          - Key : 0
+            Value : 泵模式
+          - Key : 1
+            Value : 泵向压缩机切换模式
+          - Key : 2
+            Value : 压缩机向泵切换模式
+          - Key : 3
+            Value : 压缩机模式
+          - Key : 4
+            Value : 压缩机向压泵切换模式
+          - Key : 5
+            Value : 压泵向压缩机切换模式
+          - Key : 6
+            Value : 压泵模式
+          - Key : 7
+            Value : 压泵向泵切换模式
+          - Key : 8
+            Value : 泵向压泵切换模式
+  - Cmd : 4
+    Offset : 260
+    Len : 1
+    Data : 
+      - Name : 过热度
+        Ratio : 10
+        Unit : "C°"
+  - Cmd : 4
+    Offset : 262
+    Len : 1
+    Data : 
+      - Name : 膨胀阀开度
+        Ratio : 10
+        Unit : "%"
+  - Cmd : 4
+    Offset : 616
+    Len : 1
+    Data : 
+      - Name : 压机驱动母线电压
+        Unit : "V"
+  - Cmd : 4
+    Offset : 620
+    Len : 1
+    Data : 
+      - Name : 压机驱动输出电流
+        Unit : "A"
+  - Cmd : 4
+    Offset : 626
+    Len : 2
+    Data : 
+      - Name : 压机驱动告警标志#1
+      - Name : 压机驱动告警标志#2
+  - Cmd : 4
+    Offset : 631
+    Len : 1
+    Data : 
+      - Name : 压缩机转速控制
+        Unit : "%"
+        
+        
+      
+      
+        

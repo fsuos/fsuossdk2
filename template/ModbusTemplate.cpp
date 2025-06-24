@@ -390,6 +390,12 @@ bool {{ Project.Name }}::InitSetting(const Json::Value &settingRoot)
     {% for s in InitSetting %}
         if(settingRoot["appSetting"]["{{ s.Name }}"] != Json::nullValue) {
             {{s.Name}}_ = {% if s.Type == "int" %}atoi({%else%}atof({%endif%}settingRoot["appSetting"]["{{ s.Name }}"].asString().c_str());
+            {% if s.Min is defined %}
+            if({{s.Name}}_ < {{s.Min}}){{s.Name}}_ = {{s.Min}};
+            {% endif %}
+            {% if s.Max is defined %}
+            if({{s.Name}}_ > {{s.Max}}){{s.Name}}_ = {{s.Max}};
+            {% endif %}
         }
     {% endfor %}
     }
@@ -531,9 +537,9 @@ bool {{ Project.Name }}::process_payload(enum tab_type type, size_t len)
         case {{ Project.Name + "_R%d_%d_%d"%(sc.Cmd, tsc.CmdGroupStart, sc.Offset) + ":" }}{
             //for($cgIndex = {{ tsc.CmdGroupStart }},$index = 1; $cgIndex < {{ tsc.CmdGroupEnd }}; $cgIndex+={{ tsc.CmdGroupStep}}, $index++){
             {% if sc.Cmd == 3 or sc.Cmd == 4 %}
-                memcpy(cData.{{ "r%d_%d_%d[cmdgroup_step_]"%(sc.Cmd,tsc.CmdGroupStart,sc.Offset ) }}, tab_reg, sizeof(uint16_t)*{{ sc.Len }});
+                memcpy(cData.{{ "r_%d[cmdgroup_step_]"%(tsc.CmdGroupStart ) }}.{{ "r%d_%d_%d"%(sc.Cmd,tsc.CmdGroupStart,sc.Offset ) }} , tab_reg, sizeof(uint16_t)*{{ sc.Len }});
                 {% elif sc.Cmd == 1 or sc.Cmd == 2 %}
-                memcpy(cData.{{ "b%d_%d_%d[cmdgroup_step_]"%(sc.Cmd,tsc.CmdGroupStart,sc.Offset) }}, tab_bit, sizeof(uint8_t)*{{  sc.Len }});
+                memcpy(cData.{{ "r_%d[cmdgroup_step_]"%(tsc.CmdGroupStart ) }}.{{ "b%d_%d_%d[cmdgroup_step_]"%(sc.Cmd,tsc.CmdGroupStart,sc.Offset) }}, tab_bit, sizeof(uint8_t)*{{  sc.Len }});
             {% endif %}
             {% if loop.nextitem is defined %}
                 state = {{ Project.Name + "_R%d_%d_%d"%(loop.nextitem.Cmd, tsc.CmdGroupStart, loop.nextitem.Offset) + ";" }}
@@ -761,19 +767,9 @@ int {{ Project.Name }}::DeviceIoControl(int ioControlCode, const void* inBuffer,
         cmd_result_ = -1;
         OpenPort();
         //320是SET_DO
-        std::string aoStr((char*)inBuffer, inBufferSize);
-        Json::Value setting;//
-        Json::Reader reader;//解析
-        if(!reader.parse(aoStr, setting)) {
-          return -1;
-        }
-        if(setting["signal_id"] != Json::nullValue && setting["signal_id"].type()  != Json::nullValue) {
-            if(setting["signal_id"].asString() != "") {
-                {% if SET_DO_CODE is defined %}
-                {{ SET_DO_CODE }}
-                {% endif %}
-            }
-        }
+        {% if SET_DO_CODE is defined %}
+        {{ SET_DO_CODE }}
+        {% endif %}
         break;
     }
     case 801:    

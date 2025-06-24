@@ -1,0 +1,44 @@
+Project:
+  Name : AcrelPZ72L
+  RT_ID : 5156
+  File : "228  PZ系列直流电能表说明书V1.9.pdf"
+Sample : 
+  - Cmd : 3
+    Offset : 0
+    Len : 4
+    Data :
+      - Name : "电压有效值"
+        Ratio : 100
+        Unit : V
+      - Name : "电压指数位"
+      - Name : "电流有效值"
+        Ratio : 10
+        Unit : A
+      - Name : "电流指数位"
+  - Cmd : 3
+    Offset : 8
+    Len : 2
+    Data : 
+      - Name : "功率有效值"
+        Ratio : 100
+        Unit : kW
+      - Name : "功率指数位"
+  - Cmd : 3
+    Offset : 0xC
+    Len : 4
+    Type : 'S'
+    Data : 
+      - Name : "当前正向总有功电能"
+        Value : ( ($v[1]<<16) | $v[2])/1000
+        CValue : (((pData[0] << 16) | pData[1]) /1000)
+        Unit : kWh
+      - Name : "当前反向总有功电能"
+        Value : ( ($v[3]<<16) | $v[4])/1000
+        CValue : (((pData[2] << 16) | pData[3]) /1000)
+        Unit : kWh
+  - Cmd : 3
+    Offset : 0x10
+    Len : 2
+    Data : 
+      - Name : "电压变比"
+      - Name : "电流变比"

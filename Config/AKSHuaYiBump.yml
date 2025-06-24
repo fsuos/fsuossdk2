@@ -1,0 +1,136 @@
+Project:
+  Name : AKSHuaYiBump
+  RT_ID : 5156
+  File : "阿克苏项目水氟换热BA  485通讯地址250526(华奕）.xls"
+Sample : 
+  - Cmd : 3
+    Offset : 1
+    Len : 1
+    Data : 
+      - Name : 机组手动运行/自动启动
+        Options : 
+          - Key : 0
+            Value : 手动
+          - Key : 1
+            Value : 自动
+  - Cmd : 3
+    Offset : 3
+    Len : 39
+    Data : 
+      - Name : 远程/本地
+        Options : 
+          - Key : 0
+            Value : 本地
+          - Key : 1
+            Value : 远程
+      - Name : 机组状态
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运行
+      - Name : 风机1运行状态
+        AlertNormalValue : 0
+      - Name : 风机1故障状态
+        AlertNormalValue : 0
+      - Name : 风机2运行状态
+        AlertNormalValue : 0
+      - Name : 风机2故障状态
+        AlertNormalValue : 0
+      - Name : 风机3运行状态
+        AlertNormalValue : 0
+      - Name : 风机3故障状态
+        AlertNormalValue : 0
+      - Name : 风机4运行状态
+        AlertNormalValue : 0
+      - Name : 风机4故障状态
+        AlertNormalValue : 0
+      - Name : 水泵1运行状态
+        AlertNormalValue : 0
+      - Name : 水泵1故障状态
+        AlertNormalValue : 0
+      - Name : 水泵2运行状态
+        AlertNormalValue : 0
+      - Name : 水泵2故障状态
+        AlertNormalValue : 0
+      - Name : 水泵3运行状态
+        AlertNormalValue : 0
+      - Name : 水泵3故障状态
+        AlertNormalValue : 0
+      - Name : 水泵4运行状态
+        AlertNormalValue : 0
+      - Name : 水泵4故障状态
+        AlertNormalValue : 0
+      - Name : 水箱1加热运行状态
+        AlertNormalValue : 0
+      - Name : 水箱1加热故障状态
+        AlertNormalValue : 0
+      - Name : 水箱2加热运行状态
+        AlertNormalValue : 0
+      - Name : 水箱2加热故障状态
+        AlertNormalValue : 0
+      - Name : 水箱3加热运行状态
+        AlertNormalValue : 0
+      - Name : 水箱3加热故障状态
+        AlertNormalValue : 0
+      - Name : 水箱4加热运行状态
+        AlertNormalValue : 0
+      - Name : 水箱4加热故障状态
+        AlertNormalValue : 0
+      - Name : 补水泵1运行状态
+        AlertNormalValue : 0
+      - Name : 补水泵1故障状态
+        AlertNormalValue : 0
+      - Name : 补水泵2运行状态
+        AlertNormalValue : 0
+      - Name : 补水泵2故障状态
+        AlertNormalValue : 0
+      - Name : 模块1低水位状态
+        AlertNormalValue : 0
+      - Name : 模块2低水位状态
+        AlertNormalValue : 0
+      - Name : 模块3低水位状态
+        AlertNormalValue : 0
+      - Name : 模块4低水位状态
+        AlertNormalValue : 0
+      - Name : 消防联动
+        AlertNormalValue : 0
+      - Name : 排水阀1阀开
+        AlertNormalValue : 0
+      - Name : 排水阀2阀开
+        AlertNormalValue : 0
+      - Name : 排水阀3阀开
+        AlertNormalValue : 0
+      - Name : 排水阀4阀开
+        AlertNormalValue : 0
+  - Cmd : 3
+    Offset : 47
+    Len : 48
+    RType : 'f'
+    Data :
+      - Name : 盘管1出口压力
+      - Name : 盘管2出口压力
+      - Name : 盘管3出口压力
+      - Name : 盘管4出口压力
+      - Name : 水箱1温度
+      - Name : 水箱2温度
+      - Name : 水箱3温度
+      - Name : 水箱4温度
+      - Name : 风机频率1反馈
+      - Name : 风机频率2反馈
+      - Name : 风机频率3反馈
+      - Name : 风机频率4反馈
+      - Name : 水泵频率1反馈
+      - Name : 水泵频率2反馈
+      - Name : 水泵频率3反馈
+      - Name : 水泵频率4反馈
+      - Name : AI预留1
+      - Name : AI预留2
+      - Name : AI预留3
+      - Name : 蓄水箱液位
+      - Name : 室外温度
+      - Name : 室外湿度
+      - Name : 湿球温度
+
+
+  

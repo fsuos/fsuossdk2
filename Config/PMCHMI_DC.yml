@@ -572,7 +572,7 @@ Sample :
         ArrayEnd : 199
   - CmdGroupStart : 300
     CmdGroupStep : 100
-    CmdGroupEnd : 400
+    CmdGroupEnd : 500
     CmdGroupPrefix : "进线%d"
     CmdGroupSample :
       - Cmd : 3
@@ -590,6 +590,7 @@ Sample :
         Type : "i"
         Data : 
           - Name : "电能"
+            Ratio : 100
       - Cmd : 3
         Offset : 10
         Len : 16

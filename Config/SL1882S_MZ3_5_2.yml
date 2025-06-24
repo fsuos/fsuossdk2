@@ -142,7 +142,7 @@ Sample :
         Ratio : 10
       - Name : "出风低温报警设定"
         Ratio : 10
-  - Cmd : 3
+  - Cmd : 1
     Offset : 176
     Len : 1
     Data : 
@@ -200,6 +200,66 @@ Sample :
         Unit : "小时"
       - Name : "2#风机运行时间"
         Unit : "小时"
-
+SET_RET_CODE : |
+    case AC_Control_Code::AC_START:
+    {
+        cmd_result_ = 1;
+        Reset();
+        return false;
+    }
+      case AC_Control_Code::AC_STOP: {
+        cmd_result_ = 1;
+          Reset();
+          return false;
+      } 
+      
+SET_DO_CODE : |
+  switch(b_mode_)
+  {
+      case 1://联通
+      {
+            //320是SET_DO
+          std::string doId((char*)inBuffer, inBufferSize);
+          if(doId == "601500201001" || doId == "140800280010") {
+              //开机
+              state = AC_Control_Code::AC_START;
+              modbus_write_bit(176, 1);
+              return 0;
+          } else if(doId == "601500200001" || doId == "140800300010") {
+              //关机
+              state = AC_Control_Code::AC_STOP;
+              modbus_write_bit(176, 0);
+              return 0;
+          }
+          break;
+      }
+      case 2://电信
+      {
+          std::string doStr((char*)inBuffer, inBufferSize);
+          Json::Value setting;//
+          Json::Reader reader;//解析
+          if(!reader.parse(doStr, setting)) {
+            return -1;
+          }
+          if(setting.type() == Json::objectValue) {
+              if(setting["signal_id"] != Json::nullValue && setting["signal_id"].type()  != Json::nullValue) {
+                  if(setting["signal_id"].asString() != "") {
+                      if(setting["signal_id"].asString() == "140800280010"){
+                            //开机
+                          state = AC_Control_Code::AC_START;
+                          modbus_write_bit(176, 1);
+                          return 0;
+                      }else if(setting["signal_id"].asString() == "140800300010") {
+                            //关机
+                          state = AC_Control_Code::AC_STOP;
+                          modbus_write_bit(176, 0);
+                          return 0;
+                      }
+                  }
+              }
+          }
+          break;
+      }
+  }
 
         

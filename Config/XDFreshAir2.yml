@@ -1,0 +1,107 @@
+Project:
+  Name : XDFreshAir2
+  RT_ID : 5156
+  File : "ModbusRTU通讯协议地址表(1).xlsx"
+Sample : 
+  - Cmd : 3
+    Offset : 25
+    Len : 5
+    Data :
+      - Name : "温度"
+        Ratio : 10
+      - Name : "湿度"
+        Ratio : 10
+      - Name : "PM2.5"
+      - Name : "风机输出"
+        Unit : '%'
+      - Name : "风阀输出"
+        Unit : '%'
+  - Cmd : 3
+    Offset : 32
+    Len : 1
+    Data :
+      - Name : "开关机"
+        Options : 
+          - Key : 0
+            Value : 关机
+          - Key : 1
+            Value : 开机
+      - Name : "风速设定"
+      - Name : "风阀设定"
+  - Cmd : 3
+    Offset : 0
+    Len : 1
+    Data : 
+      - Name : 滤网压差报警
+        Value : (($v[1] >> 8) & 0x1)
+        CValue : ((pData[0] >> 8) & 0x1)
+        AlertNormalValue : 0
+      - Name : 高水位报警
+        Value : (($v[1] >> 9) & 0x1)
+        CValue : ((pData[0] >> 9) & 0x1)
+        AlertNormalValue : 0
+      - Name : 低水位报警
+        Value : (($v[1] >> 10) & 0x1)
+        CValue : ((pData[0] >> 10) & 0x1)
+        AlertNormalValue : 0
+SET_RET_CODE : |
+    case AC_Control_Code::AC_START:
+    {
+        cmd_result_ = 1;
+        Reset();
+        return false;
+    }
+      case AC_Control_Code::AC_STOP: {
+        cmd_result_ = 1;
+          Reset();
+          return false;
+      } 
+      
+SET_DO_CODE : |
+  switch(b_mode_)
+  {
+      case 1://联通
+      {
+            //320是SET_DO
+          std::string doId((char*)inBuffer, inBufferSize);
+          if(doId == "601500201001" || doId == "140800280010") {
+              //开机
+              state = AC_Control_Code::AC_START;
+              modbus_write_register(32, 1);
+              return 0;
+          } else if(doId == "601500200001" || doId == "140800300010") {
+              //关机
+              state = AC_Control_Code::AC_STOP;
+              modbus_write_register(32, 0);
+              return 0;
+          }
+          break;
+      }
+      case 2://电信
+      {
+          std::string doStr((char*)inBuffer, inBufferSize);
+          Json::Value setting;//
+          Json::Reader reader;//解析
+          if(!reader.parse(doStr, setting)) {
+            return -1;
+          }
+          if(setting.type() == Json::objectValue) {
+              if(setting["signal_id"] != Json::nullValue && setting["signal_id"].type()  != Json::nullValue) {
+                  if(setting["signal_id"].asString() != "") {
+                      if(setting["signal_id"].asString() == "140800280010"){
+                            //开机
+                          state = AC_Control_Code::AC_START;
+                          modbus_write_register(32, 1);
+                          return 0;
+                      }else if(setting["signal_id"].asString() == "140800300010") {
+                            //关机
+                          state = AC_Control_Code::AC_STOP;
+                          modbus_write_register(32, 0);
+                          return 0;
+                      }
+                  }
+              }
+          }
+          break;
+      }
+  }
