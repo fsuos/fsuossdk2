@@ -1,0 +1,610 @@
+Project:
+  Name : ChangJiYunCang20
+  RT_ID : 5156
+  File : "192.168.100.20-modbusTcp.xls"
+Sample:
+  - Cmd : 3
+    Offset : 0
+    Len : 1
+    Data : 
+      - Name : "冷通道温湿度1 在线点"
+        Options : 
+          - Key : 0
+            Value : 掉线
+          - Key : 1
+            Value : 在线
+  - Cmd : 3
+    Offset : 1
+    Len : 4
+    RType : 'f'
+    Data : 
+      - Name : '冷通道温湿度1 温度值'
+        Unit : "℃"
+      - Name : '冷通道温湿度1 湿度值'
+        Unit : "%"
+  - Cmd : 3
+    Offset : 5
+    Len : 1
+    Data : 
+      - Name : "冷通道温湿度2 在线点"
+        Options : 
+          - Key : 0
+            Value : 掉线
+          - Key : 1
+            Value : 在线
+  - Cmd : 3
+    Offset : 6
+    Len : 4
+    RType : 'f'
+    Data : 
+      - Name : '冷通道温湿度2 温度值'
+        Unit : "℃"
+      - Name : '冷通道温湿度2 湿度值'
+        Unit : "%"
+  - Cmd : 3
+    Offset : 10
+    Len : 1
+    Data : 
+      - Name : "冷通道温湿度3 在线点"
+        Options : 
+          - Key : 0
+            Value : 掉线
+          - Key : 1
+            Value : 在线
+  - Cmd : 3
+    Offset : 11
+    Len : 4
+    RType : 'f'
+    Data : 
+      - Name : '冷通道温湿度3 温度值'
+        Unit : "℃"
+      - Name : '冷通道温湿度3 湿度值'
+        Unit : "%"
+  - Cmd : 3
+    Offset : 15
+    Len : 1
+    Data : 
+      - Name : "热通道温湿度4 在线点"
+        Options : 
+          - Key : 0
+            Value : 掉线
+          - Key : 1
+            Value : 在线
+  - Cmd : 3
+    Offset : 16
+    Len : 4
+    RType : 'f'
+    Data : 
+      - Name : '热通道温湿度4 温度值'
+        Unit : "℃"
+      - Name : '热通道温湿度4 湿度值'
+        Unit : "%"
+  - Cmd : 3
+    Offset : 20
+    Len : 1
+    Data : 
+      - Name : "热通道温湿度5 在线点"
+        Options : 
+          - Key : 0
+            Value : 掉线
+          - Key : 1
+            Value : 在线
+  - Cmd : 3
+    Offset : 21
+    Len : 4
+    RType : 'f'
+    Data : 
+      - Name : '热通道温湿度5 温度值'
+        Unit : "℃"
+      - Name : '热通道温湿度5 湿度值'
+        Unit : "%"
+  - Cmd : 3
+    Offset : 25
+    Len : 1
+    Data : 
+      - Name : "平均温湿度 在线点"
+        Options : 
+          - Key : 0
+            Value : 掉线
+          - Key : 1
+            Value : 在线
+  - Cmd : 3
+    Offset : 26
+    Len : 8
+    RType : 'f'
+    Data : 
+      - Name : '平均温湿度 冷通道平均温度'
+        Unit : "℃"
+      - Name : '平均温湿度 冷通道平均湿度'
+        Unit : "%"
+      - Name : '平均温湿度 热通道平均温度'
+        Unit : "℃"
+      - Name : '平均温湿度 热通道平均湿度'
+        Unit : "%"
+  - Cmd : 3
+    Offset : 34
+    Len : 4
+    RType : 'f'
+    Data : 
+      - Name : '平均温湿度 温度'
+        Unit : "℃"
+      - Name : '平均温湿度 湿度'
+        Unit : "%"
+  - Cmd : 3
+    Offset : 38
+    Len : 1
+    Data : 
+      - Name : "热通道温湿度6 在线点"
+        Options : 
+          - Key : 0
+            Value : 掉线
+          - Key : 1
+            Value : 在线
+  - Cmd : 3
+    Offset : 39
+    Len : 4
+    RType : 'f'
+    Data : 
+      - Name : '热通道温湿度6 温度值'
+        Unit : "℃"
+      - Name : '热通道温湿度6 湿度值'
+        Unit : "%"
+  - Cmd : 3
+    Offset : 43
+    Len : 1
+    Data : 
+      - Name : "热通道温湿度7 在线点"
+        Options : 
+          - Key : 0
+            Value : 掉线
+          - Key : 1
+            Value : 在线
+  - Cmd : 3
+    Offset : 44
+    Len : 4
+    RType : 'f'
+    Data : 
+      - Name : '热通道温湿度7 温度值'
+        Unit : "℃"
+      - Name : '热通道温湿度7 湿度值'
+        Unit : "%"
+  - Cmd : 3
+    Offset : 48
+    Len : 41
+    Data : 
+      - Name : "板载 在线点"
+        Options : 
+          - Key : 0
+            Value : 掉线
+          - Key : 1
+            Value : 在线
+      - Name : "板载 烟感1（前门）"
+      - Name : "板载 烟感2（后门）"
+      - Name : "板载 红外双鉴（前门）"
+      - Name : "板载 红外双鉴（后门）"
+      - Name : "板载 漏水"
+      - Name : "板载 DI6"
+      - Name : "板载 DI7"
+      - Name : "板载 DI8"
+      - Name : "板载 DI9"
+      - Name : "板载 消防"
+        AlertNormalValue : 0
+      - Name : "板载 声光报警器"
+        AlertNormalValue : 0
+      - Name : "板载 DO2"
+      - Name : "板载 DO3"
+      - Name : "板载 DO4"
+      - Name : "天窗控制器 在线点"
+        Options : 
+          - Key : 0
+            Value : 掉线
+          - Key : 1
+            Value : 在线
+      - Name : "天窗控制器 照明控制1"
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+      - Name : "天窗控制器 照明控制2"
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+      - Name : "天窗控制器 控制天窗磁吸锁"
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+      - Name : "天窗控制器 电动推杆控制1"
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+      - Name : "天窗控制器 电动推杆控制2"
+        Options :
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+      - Name : "天窗控制器 照明开关信号"
+        Options :
+          - Key : 0
+            Value : 无输入
+          - Key : 1
+            Value : 有输入
+      - Name : "天窗控制器 照明联动开关信号"
+        Options :
+          - Key : 0
+            Value : 无输入
+          - Key : 1
+            Value : 有输入
+      - Name : "天窗控制器 开天窗行程开到位信号"
+        Options :
+          - Key : 0
+            Value : 无输入
+          - Key : 1
+            Value : 有输入
+      - Name : "天窗控制器 关天窗行程关到位信号"
+        Options :
+          - Key : 0
+            Value : 无输入
+          - Key : 1
+            Value : 有输入
+      - Name : "天窗控制器 开天窗信号"
+        Options :
+          - Key : 0
+            Value : 无输入
+          - Key : 1
+            Value : 有输入
+      - Name : "天窗控制器 复位按钮"
+        Options :
+          - Key : 0
+            Value : 无输入
+          - Key : 1
+            Value : 有输入
+      - Name : "天窗控制器 消防信号"
+        Options :
+          - Key : 0
+            Value : 无输入
+          - Key : 1
+            Value : 有输入
+      - Name : "天窗控制器 天窗控制器调试模式"
+        Options :
+          - Key : 0
+            Value : 调试模式关闭
+          - Key : 1
+            Value : 调试模式开启
+      - Name : "天窗控制器 照明状态"
+        Options :
+          - Key : 0
+            Value : 照明关
+          - Key : 1
+            Value : 照明开
+      - Name : "天窗控制器 远程开天窗"
+        Options :
+          - Key : 0
+            Value : 无效
+          - Key : 1
+            Value : 触发远程开启天窗
+      - Name : "天窗控制器 远程关天窗"
+        Options :
+          - Key : 0
+            Value : 无效
+          - Key : 1
+            Value : 触发远程关闭天窗
+      - Name : "天窗控制器 远程开照明"
+        Options :
+          - Key : 0
+            Value : 无效
+          - Key : 1
+            Value : 触发远程开启照明
+      - Name : "天窗控制器 远程关照明"
+        Options :
+          - Key : 0
+            Value : 无效
+          - Key : 1
+            Value : 触发远程关闭照明
+      - Name : "天窗控制器 天窗功能选择"
+        Options :
+          - Key : 0
+            Value : 没有特殊功能
+          - Key : 1
+            Value : 照明联动
+          - Key : 8
+            Value : 上电复位
+      - Name : "天窗控制器 照明联动关灯延迟时间"
+        Unit : ms
+      - Name : "天窗控制器 关天窗反推持续时间"
+        Unit : ms
+      - Name : "天窗控制器 开天窗持续时间"
+        Unit : ms
+      - Name : "天窗控制器 关天窗持续时间"
+        Unit : ms
+      - Name : "天窗控制器 开天窗延迟时间"
+        Unit : ms
+      - Name : "天窗控制器 磁力锁上电延迟时间"
+        Unit : ms
+  - CmdGroupStart : 89
+    CmdGroupStep : 107
+    CmdGroupEnd : 1159
+    CmdGroupPrefix : ["A列空调1","A列空调1","A列空调3","A列空调4","A列空调5","B列空调1","B列空调2","B列空调3","B列空调4","B列空调5"]
+    CmdGroupSample:
+      - Cmd : 3
+        Offset : 0
+        Len : 33
+        Data : 
+          - Name : " 在线点"
+            Options : 
+              - Key : 0
+                Value : 掉线
+              - Key : 1
+                Value : 在线
+          - Name : " 1#回风温度探头故障"
+            AlertNormalValue : 0
+          - Name : " 1#冷冻进水温度故障"
+            AlertNormalValue : 0
+          - Name : " 1#冷冻出水温度故障"
+            AlertNormalValue : 0
+          - Name : " 1#回风湿度探头故障"
+            AlertNormalValue : 0
+          - Name : " 1#送风温度故障"
+            AlertNormalValue : 0
+          - Name : " 2#送风温度故障"
+            AlertNormalValue : 0
+          - Name : " 3#送风温度故障"
+            AlertNormalValue : 0
+          - Name : " 1#冷冻出水压力故障"
+            AlertNormalValue : 0
+          - Name : " 1#冷冻进水压力故障"
+            AlertNormalValue : 0
+          - Name : " 滤网堵塞"
+            AlertNormalValue : 0
+          - Name : " 火灾告警"
+            AlertNormalValue : 0
+          - Name : " 1#水流开关故障"
+            AlertNormalValue : 0
+          - Name : " 水浸故障"
+            AlertNormalValue : 0
+          - Name : " 回风高湿告警"
+            AlertNormalValue : 0
+          - Name : " 回风低湿告警"
+            AlertNormalValue : 0
+          - Name : " 回风低温告警"
+            AlertNormalValue : 0
+          - Name : " 回风高温告警"
+            AlertNormalValue : 0
+          - Name : " 电源过压告警"
+            AlertNormalValue : 0
+          - Name : " 电源欠压告警"
+            AlertNormalValue : 0
+          - Name : " 供电过压告警"
+            AlertNormalValue : 0
+          - Name : " 供电欠压告警"
+            AlertNormalValue : 0
+          - Name : " 供电电流过高"
+            AlertNormalValue : 0
+          - Name : " 供电电流过低"
+            AlertNormalValue : 0
+          - Name : " 送风低温告警"
+            AlertNormalValue : 0
+          - Name : " 送风高温告警"
+            AlertNormalValue : 0
+          - Name : " 电表缺失"
+            AlertNormalValue : 0
+          - Name : " 从机离线"
+            AlertNormalValue : 0
+          - Name : " 主机离线"
+            AlertNormalValue : 0
+          - Name : " 1#风机故障"
+            AlertNormalValue : 0
+          - Name : " 2#风机故障"
+            AlertNormalValue : 0
+          - Name : " 3#风机故障"
+            AlertNormalValue : 0
+          - Name : " 开关机"
+            Options : 
+              - Key : 0
+                Value : 停机
+              - Key : 1
+                Value : 开机
+      - Cmd : 3
+        Offset : 33
+        Len : 24
+        RType : 'f'
+        Data : 
+          - Name : ' 回风温度设置'
+          - Name : ' 送风温度设置'
+          - Name : ' 进出水温差'
+          - Name : ' 水阀最大开度'
+          - Name : ' 水阀最小开度'
+          - Name : ' 高温报警'
+          - Name : ' 低温报警'
+          - Name : ' 高湿报警'
+          - Name : ' 低湿报警'
+          - Name : ' 变频送风机最小速率'
+          - Name : ' 变频送风机最大速率'
+          - Name : ' 机组运行时间'
+      - Cmd : 3
+        Offset : 57
+        Len : 4
+        Data : 
+          - Name : " 机组累计启停次数"
+          - Name : " 送风机累计启停次数"
+          - Name : " 机组状态"
+            Options : 
+              - Key : 0
+                Value : 停机
+              - Key : 1
+                Value : 运行
+              - Key : 2
+                Value : 停机中
+              - Key : 3
+                Value : 轮值待机
+              - Key : 4
+                Value : 故障停机
+              - Key : 5
+                Value : 轮值停机
+          - Name : " 运行状态"
+            Options : 
+              - Key : 0
+                Value : 待机
+              - Key : 1
+                Value : 送风
+              - Key : 2
+                Value : 制冷
+              - Key : 3
+                Value : 除湿
+              - Key : 4
+                Value : 制冷除湿
+      - Cmd : 3
+        Offset : 61
+        Len : 46
+        RType : 'f'
+        Data : 
+          - Name : " 回风温度"
+            Unit : "℃"
+          - Name : " 1#冷冻进水温度"
+            Unit : "℃"
+          - Name : " 1#冷冻出水温度"
+            Unit : "℃"
+          - Name : " 回风湿度"
+            Unit : "%"
+          - Name : " 送风温度1"
+            Unit : "℃"
+          - Name : " 送风温度2"
+            Unit : "℃"
+          - Name : " 送风温度3"
+            Unit : "℃"
+          - Name : " 1#冷冻出水压力"
+            Unit : "bar"
+          - Name : " 1#冷冻进水压力"
+            Unit : "bar"
+          - Name : " 地板漏水报警值"
+            Unit : "kΩ"
+          - Name : " 1#风机转速"
+            Unit : "%"
+          - Name : " 2#风机转速"
+            Unit : "%"
+          - Name : " 3#风机转速"
+            Unit : "%"
+          - Name : " 1#冷水阀输出"
+            Unit : "%"
+          - Name : " A相电压"
+            Unit : "V"
+          - Name : " B相电压"
+            Unit : "V"
+          - Name : " C相电压"
+            Unit : "V"
+          - Name : " A相电流"
+            Unit : "A"
+          - Name : " B相电流"
+            Unit : "A"
+          - Name : " C相电流"
+            Unit : "A"
+          - Name : " 总有功功率"
+            Ratio : 1000
+            Unit : "kW"
+          - Name : " 频率"
+            Unit : "Hz"
+          - Name : " 电量"
+            Unit : "kWh"
+  - CmdGroupStart : 1159
+    CmdGroupStep : 47
+    CmdGroupEnd : 1253
+    CmdGroupPrefix : ["前门","后门"]
+    CmdGroupSample:
+      - Cmd : 3
+        Offset : 0
+        Len : 18
+        Data : 
+          - Name : 在线点
+            Options : 
+              - Key : 0
+                Value : 掉线
+              - Key : 1
+                Value : 在线
+          - Name : 门磁状态点
+            Options : 
+              - Key : 0
+                Value : 关门
+              - Key : 1
+                Value : 开门
+          - Name : 门手自动状态
+            Options : 
+              - Key : 0
+                Value : 自动
+              - Key : 1
+                Value : 常开
+              - Key : 2
+                Value : 常闭
+          - Name : 开门模式
+            Options : 
+              - Key : 0
+                Value : 卡
+              - Key : 1
+                Value : 密码
+              - Key : 2
+                Value : 卡+密码
+              - Key : 3
+                Value : 卡或密码
+          - Name : 远程控制
+            Options : 
+              - Key : 0
+                Value : 开门
+              - Key : 1
+                Value : 常开
+              - Key : 2
+                Value : 常闭
+          - Name : 暴力入侵
+            AlertNormalValue : 0
+          - Name : 门开超时
+            AlertNormalValue : 0
+          - Name : 无效卡告警
+            AlertNormalValue : 0
+          - Name : 刷卡卡号
+      - Cmd : 3
+        Offset : 18
+        Len : 1
+        Data : 
+          - Name : 人员名称
+      - Cmd : 3
+        Offset : 19
+        Len : 28
+        Data : 
+          - Name : 刷卡日期（年）
+          - Name : 刷卡日期（月）
+          - Name : 刷卡日期（日）
+          - Name : 刷卡日期（时）
+          - Name : 刷卡日期（分）
+          - Name : 刷卡日期（秒）
+          - Name : 门禁日期（年）
+          - Name : 门禁日期（月）
+          - Name : 门禁日期（日）
+          - Name : 门禁日期（时）
+          - Name : 门禁日期（分）
+          - Name : 门禁日期（秒）
+          - Name : 火警状态
+            AlertNormalValue : 0
+          - Name : 手柄状态
+            Options : 
+              - Key : 0
+                Value : 在位
+              - Key : 1
+                Value : 不在位
+
+
+            
+
+
+
+
+
+
+
+
+  
+        

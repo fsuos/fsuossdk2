@@ -68,7 +68,7 @@ $lMemData = substr($memData , $offset, {{ sc.Len }});
       {% else %}
 	    {% if d.Value is defined %}
         {% if d.AlertNormalValue is defined %}
-        _{{ Project.Name|lower }}_ShowAlert({{ dataArrayStr }}, "{{ d.Name }}", {{ d.Value }}, {{ d.AlertNormalValue }});
+        _{{ Project.Name|lower }}_ShowAlert({{ dataArrayStr }}, {% if scPrefix is not none %}{{scPrefix}}.{% endif %}"{{ d.Name }}", {{ d.Value }}, {{ d.AlertNormalValue }});
         {% elif d.Options is defined %}
         switch({{ d.Value }}){
         {% for item in d.Options %}
@@ -130,7 +130,7 @@ $lMemData = substr($memData , $offset, {{ sc.Len }});
             break;
         }
         {% elif d.AlertNormalValue is defined %}
-        _{{ Project.Name|lower }}_ShowAlert({{ dataArrayStr }}, "{{ d.Name }}", $v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}], {{ d.AlertNormalValue }});
+        _{{ Project.Name|lower }}_ShowAlert({{ dataArrayStr }}, {% if scPrefix is not none %}{{scPrefix}}.{% endif %}"{{ d.Name }}", $v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}], {{ d.AlertNormalValue }});
 	    {% else %}
         {{ dataArrayStr }}[{% if scPrefix is not none %}{{scPrefix}}.{% endif %}"{{ d.Name }}"] = number_format($v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}]{% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %}{% if d.Adjust is defined %}{{ d.Adjust }}{% endif %}, 2){% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
 	    {% endif %}

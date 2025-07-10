@@ -261,5 +261,20 @@ SET_DO_CODE : |
           break;
       }
   }
-
+RunCheckThresholdCodeTelecom : |
+    if(levelMap_["120800140010"]){
+            CheckThresholdBool(levelMap_["120800140010"] , "120800140010", "120800140010", "精密空调溢水告警", "漏水报警",  cData.b1_0[12], 1);
+    }
+    if(levelMap_["110800540010"]){
+            CheckThresholdBool(levelMap_["110800540010"] , "110800540010", "110800540010", "送风温度过高告警", "进风高温报警",  cData.b1_0[32], 1);
+    }
+    if(levelMap_["110800550010"]){
+            CheckThresholdBool(levelMap_["110800550010"] , "110800550010", "110800550010", "送风温度过低告警", "进风低温报警",  cData.b1_0[33], 1);
+    }
+    if(levelMap_["120800120010"]){
+            CheckThresholdBool(levelMap_["120800120010"] , "120800120010", "120800120010", "精密空调回风湿度高告警", "进风高湿报警",  cData.b1_0[30], 1);
+    }
+    if(levelMap_["120800260010"]){
+            CheckThresholdBool(levelMap_["120800260010"] , "120800260010", "120800260010", "精密空调过滤网脏告警", "滤网报警",  cData.b1_0[14], 1);
+    }
         

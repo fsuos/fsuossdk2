@@ -88,6 +88,7 @@ bool {{ Project.Name }}::RefreshStatus()
                     pCtx = nullptr;
                     return;
                 }
+                modbus_set_slave(pCtx, addr_);
                 uint16_t regs[125];
                 uint8_t bits[2000];
                 {% for tsc in Sample %}
