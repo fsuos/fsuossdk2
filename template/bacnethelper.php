@@ -22,7 +22,7 @@ function Get_{{ Project.Name|lower }}_RtData($memData, &$dataArray, $extraPara =
         $v = unpack('f*', substr($memData, $offset, 4*{{ sc.Offset|length }}));
         $signalList = array("{{ sc.Data|join('","') }}");
         foreach($signalList as $index=>$signal){
-                $dataArray[$signal] = $v[$index+1];
+                $dataArray[$signal] = number_format($v[$index+1], 3);
         }
         $offset += 4*{{ sc.Offset|length }};
         {% elif sc.Cmd == 19 %}

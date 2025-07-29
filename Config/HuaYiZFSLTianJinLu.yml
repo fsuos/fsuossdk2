@@ -1,14 +1,14 @@
 Project:
-  Name : HuaYiZFSL
+  Name : HuaYiZFSLTianJinLu
   RT_ID : 5156
-  File : "开发区联通换热485通讯地址0619(华奕）.xls"
+  File : "天津路联通换热485通讯地址0520(华奕）.xls"
   DevType : 2
-  ProtocolName : 开发区联通换热
+  ProtocolName : 天津路联通换热
   Category : 新风设备
 Sample : 
   - Cmd : 3
     Offset : 0
-    Len : 28
+    Len : 36
     Data : 
       - Name : 机组手动运行/自动启动
         Offset : 1
@@ -43,32 +43,26 @@ Sample :
       - Name : 水泵4报警
         Offset : 8
         AlertNormalValue : 0
-      - Name : 水泵5报警
-        Offset : 9
-        AlertNormalValue : 0
-      - Name : 潜水泵1报警
+      - Name : 补水泵1报警
         Offset : 10
         AlertNormalValue : 0
-      - Name : 潜水泵2报警
+      - Name : 补水泵2报警
         Offset : 11
         AlertNormalValue : 0
-      - Name : 机组状态2
+      - Name : 水箱1#低水位
         Offset : 12
         AlertNormalValue : 0
-      - Name : 立管1高限报警
+      - Name : 水箱2#低水位
         Offset : 13
         AlertNormalValue : 0
-      - Name : 立管2高限报警
+      - Name : 水箱3#低水位
         Offset : 14
         AlertNormalValue : 0
-      - Name : 立管低限告警报警
+      - Name : 水箱4#低水位
         Offset : 15
         AlertNormalValue : 0
       - Name : 消防联动
         Offset : 16
-        AlertNormalValue : 0
-      - Name : 水浸检测
-        Offset : 17
         AlertNormalValue : 0
       - Name : 水泵1运行状态
         Offset : 18
@@ -98,13 +92,6 @@ Sample :
             Value : 停止
           - Key : 1
             Value : 运行
-      - Name : 水泵5运行状态
-        Offset : 22
-        Options :
-          - Key : 0
-            Value : 停止
-          - Key : 1
-            Value : 运行
       - Name : 潜水泵1运行状态
         Offset : 23
         Options :
@@ -119,74 +106,110 @@ Sample :
             Value : 停止
           - Key : 1
             Value : 运行
-      - Name : 排水阀运行状态
+      - Name : 排水阀1运行状态
         Offset : 25
         Options :
           - Key : 0
             Value : 关闭
           - Key : 1
             Value : 打开
-      - Name : 补水阀运行状态
+      - Name : 排水阀2运行状态
         Offset : 26
         Options :
           - Key : 0
             Value : 关闭
           - Key : 1
             Value : 打开
-      - Name : 大水箱高液位
+      - Name : 排水阀3运行状态
         Offset : 27
-        AlertNormalValue : 0
-      - Name : 大水箱高液位
+        Options :
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 打开
+      - Name : 排水阀4运行状态
         Offset : 28
+        Options :
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 打开
+      - Name : 风机1运行状态
+        Offset : 29
+        Options :
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运行
+      - Name : 风机2运行状态
+        Offset : 30
+        Options :
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运行
+      - Name : 风机3运行状态
+        Offset : 31
+        Options :
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运行
+      - Name : 风机4运行状态
+        Offset : 32
+        Options :
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运行
+      - Name : 风机1报警
+        Offset : 33
+        AlertNormalValue : 0
+      - Name : 风机2报警
+        Offset : 34
+        AlertNormalValue : 0
+      - Name : 风机3报警
+        Offset : 35
+        AlertNormalValue : 0
+      - Name : 风机4报警
+        Offset : 36
         AlertNormalValue : 0
   - Cmd : 3
-    Offset : 45
+    Offset : 46
     Len : 44
-    Type : "f"
+    RType : "f"
     Data : 
-      - Name : 水泵1启动值
+      - Name : 盘管1压力
         Offset : 1
-      - Name : 水泵2启动值
+      - Name : 盘管2压力
         Offset : 2
-      - Name : 水泵3启动值
+      - Name : 盘管3压力
         Offset : 3
-      - Name : 水泵4启动值
+      - Name : 盘管4压力
         Offset : 4
-      - Name : 水泵5启动值
+      - Name : 盘管1温度
         Offset : 5
-      - Name : 风机1转速反馈
+      - Name : 盘管2温度
         Offset : 6
-      - Name : 风机2转速反馈
+      - Name : 盘管3温度
         Offset : 7
-      - Name : 风机3转速反馈
+      - Name : 盘管4温度
         Offset : 8
-      - Name : 风机4转速反馈
+      - Name : 风机1频率反馈
         Offset : 9
-      - Name : 风机5转速反馈
+      - Name : 风机2频率反馈
         Offset : 10
-      - Name : 电动阀1反馈
+      - Name : 风机3频率反馈
         Offset : 11
-      - Name : 电动阀2反馈
+      - Name : 风机4频率反馈
         Offset : 12
-      - Name : 电动阀3反馈
+      - Name : 蓄水箱液位
         Offset : 13
-      - Name : 电动阀4反馈
-        Offset : 14
-      - Name : 电动阀5反馈
-        Offset : 15
       - Name : 室外温度
         Offset : 16
       - Name : 室外湿度
         Offset : 17
       - Name : 湿球温度
         Offset : 18
-      - Name : 温度启动上限
-        Offset : 19
-      - Name : 温度启动下限
-        Offset : 20
-      - Name : 液位启动上限
-        Offset : 21
-      - Name : 液位启动下限
-        Offset : 22
-      - Name : 水箱液位
-        Offset : 22
+    
+      

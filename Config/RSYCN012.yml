@@ -3,6 +3,9 @@ Project:
   RT_ID : 5156
   File : "RS-YC-N01-2压差变送器用户手册.pdf"
   BaudRate : 4800
+  DevType : 2
+  ProtocolName : RS-YC-N01压差变送器
+  Category : 传感器
 Sample : 
   - Cmd : 3
     Offset : 0

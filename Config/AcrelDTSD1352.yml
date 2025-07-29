@@ -119,14 +119,14 @@ Sample :
         Ratio : (1/($dataArray["PT"]*0.1))
         Unit : V
       - Name : "A相电流"
-        Ratio : (1/($dataArray["CT"]*0.1))
+        Ratio : (100/($dataArray["CT"]))
         Unit : A
       - Name : "B相电流"
-        Ratio : (1/($dataArray["CT"]*0.1))
+        Ratio : (100/($dataArray["CT"]))
         Unit : A
       - Name : "C相电流"
-        Ratio : (1/($dataArray["CT"]*0.1))
-        Unit : V
+        Ratio : (100/($dataArray["CT"]))
+        Unit : A
   - Cmd : 3
     Offset : 0x77
     Len : 4

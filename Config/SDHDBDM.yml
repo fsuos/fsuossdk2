@@ -1,0 +1,71 @@
+Project:
+  Name : SDHDBDM
+  RT_ID : 5156
+  File : "BDM_MODBUS协议(A11).doc"
+  DevType : 4
+  ProtocolName : 山东海电电池模块SDHDBDM
+  Category : 蓄电池组
+Sample : 
+  - Cmd : 4
+    Offset : 510
+    Len : 48
+    RType : 'f'
+    Data : 
+      - ArrayName : "单体%d电压"
+        ArrayStart : 0
+        ArrayLength : 24
+        Offset : 0
+        Unit : "V"
+  - Cmd : 4
+    Offset : 1310
+    Len : 48
+    RType : 'f'
+    Data : 
+      - ArrayName : "单体%d温度"
+        ArrayStart : 0
+        ArrayLength : 24
+        Offset : 0
+        Unit : "℃"
+  - Cmd : 4
+    Offset : 2110
+    Len : 48
+    RType : 'f'
+    Data : 
+      - ArrayName : "单体%d预估性能(SOC)"
+        ArrayStart : 0
+        ArrayLength : 24
+        Offset : 0
+  - Cmd : 4
+    Offset : 2910
+    Len : 48
+    RType : 'f'
+    Data : 
+      - ArrayName : "单体%d内阻"
+        ArrayStart : 0
+        ArrayLength : 24
+        Offset : 0
+        Unit : "Uω"
+  - Cmd : 4
+    Offset : 3710
+    Len : 48
+    RType : 'f'
+    Data : 
+      - ArrayName : "单体%d核对性容量(SOH)"
+        ArrayStart : 0
+        ArrayLength : 24
+        Offset : 0
+        Unit : "Ah"
+RunCheckThresholdCodeUnicom: |
+  for(int i = 0; i < 24; i++)
+  {
+      float v = 0.0;
+      copy_to_float(&cData.r4_510[i*2], (uint8_t*)&v);      
+      float resist = 0.0;
+      copy_to_float(&cData.r4_2910[i*2], (uint8_t*)&resist);
+      float temperature = 0.0;
+      copy_to_float(&cData.r4_1310[i*2], (uint8_t*)&temperature);
+      printf("battery %d v:%f r:%f t:%f\n",i, v, resist, temperature);
+      CheckThreshold("battery_" + boost::lexical_cast<std::string>(i) + "_value", "第" + boost::lexical_cast<std::string>(i + 1) + "节电池", v, i + 1);
+      CheckThreshold("battery_" + boost::lexical_cast<std::string>(i) + "_resist", "第" + boost::lexical_cast<std::string>(i + 1) + "节电池", resist, i + 1);
+      CheckThreshold("battery_" + boost::lexical_cast<std::string>(i) + "_temperature", "第" + boost::lexical_cast<std::string>(i + 1) + "节电池", temperature, i + 1);
+  }

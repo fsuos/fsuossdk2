@@ -1,0 +1,391 @@
+Project:
+  Name : XJBAShuiChuLiSheBeiTongXun
+  RT_ID : 5156
+  File : "新疆二枢纽BA数据MODBUS_TCP协议25.7.8.xls - 水处理设备通信"
+  DevType : 4
+  ProtocolName : 新疆二枢纽BA水处理设备通信
+  Category : 专用空调
+Sample : 
+  - Cmd : 1
+    Offset : 409
+    Len : 8
+    Data : 
+      - Name : 定压补水1自动运行按钮
+        Options : 
+          - Key : 0
+            Value : 本地
+          - Key : 1
+            Value : 远程
+      - Name : 定压补水1一泵运行信号
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运行
+      - Name : 定压补水1二泵运行信号
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运行
+      - Name : 定压补水1泄压阀开信号
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : 定压补水1一泵故障信号
+        AlertNormalValue : 0
+      - Name : 定压补水1二泵故障信号
+        AlertNormalValue : 0
+      - Name : 定压补水1缺水故障信号
+        AlertNormalValue : 0
+      - Name : 定压补水1压传故障
+        AlertNormalValue : 0
+  - Cmd : 3
+    Offset : 2472
+    Len : 10
+    RType : 'f'
+    Data : 
+      - Name : 定压补水1系统压力
+        Unit : bar
+      - Name : 定压补水1启泵值
+        Unit : bar
+      - Name : 定压补水1停泵值
+        Unit : bar
+      - Name : 定压补水1泄压关
+        Unit : bar
+      - Name : 定压补水1泄压开
+        Unit : bar
+  - Cmd : 1
+    Offset : 417
+    Len : 8
+    Data : 
+      - Name : 定压补水2自动运行按钮
+        Options : 
+          - Key : 0
+            Value : 本地
+          - Key : 1
+            Value : 远程
+      - Name : 定压补水2一泵运行信号
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运行
+      - Name : 定压补水2二泵运行信号
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运行
+      - Name : 定压补水2泄压阀开信号
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : 定压补水2一泵故障信号
+        AlertNormalValue : 0
+      - Name : 定压补水2二泵故障信号
+        AlertNormalValue : 0
+      - Name : 定压补水2缺水故障信号
+        AlertNormalValue : 0
+      - Name : 定压补水2压传故障
+        AlertNormalValue : 0
+  - Cmd : 3
+    Offset : 2482
+    Len : 10
+    RType : 'f'
+    Data : 
+      - Name : 定压补水2系统压力
+        Unit : bar
+      - Name : 定压补水2启泵值
+        Unit : bar
+      - Name : 定压补水2停泵值
+        Unit : bar
+      - Name : 定压补水2泄压关
+        Unit : bar
+      - Name : 定压补水2泄压开
+        Unit : bar
+  - CmdGroupStart : 2492
+    CmdGroupStep : 16
+    CmdGroupEnd : 2555
+    CmdGroupPrefix : ["软化水1","软化水2","软化水3","软化水4"]
+    CmdGroupSample:
+      - Cmd : 3
+        Offset : 0
+        Len : 1
+        Data : 
+          - Name : 剩余水量
+            Unit : "m³"
+      - Cmd : 3
+        Offset : 2
+        Len : 1
+        Data : 
+          - Name : 剩余水量小数
+            Unit : "m³"
+      - Cmd : 3
+        Offset : 4
+        Len : 1
+        Data : 
+          - Name : 剩余时间
+            Unit : "天/分钟"
+      - Cmd : 3
+        Offset : 6
+        Len : 1
+        Data : 
+          - Name : 故障状态
+            AlertNormalValue : 0
+      - Cmd : 3
+        Offset : 8
+        Len : 2
+        RType : 'f'
+        Data : 
+          - Name : "瞬时流量"
+            Unit : "m³/h"
+      - Cmd : 3
+        Offset : 10
+        Len : 1
+        Data : 
+          - Name : "当前位置"
+            Options : 
+              - Key : 1
+                Value : 运行
+              - Key : 3
+                Value : 反洗
+              - Key : 4
+                Value : 吸盐
+              - Key : 7
+                Value : 正洗
+              - Key : 8
+                Value : 补水
+              - Key : 10
+                Value : 切换 
+      - Cmd : 3
+        Offset : 12
+        Len : 1
+        Data : 
+          - Name : 再生时间小时
+      - Cmd : 3
+        Offset : 14
+        Len : 1
+        Data : 
+          - Name : 再生时间分钟
+  - Cmd : 1
+    Offset : 425
+    Len : 6
+    Data : 
+      - Name : 加药装置自动按钮
+        Options : 
+          - Key : 0
+            Value : 本地
+          - Key : 1
+            Value : 远程
+      - Name : 加药装置一桶计量泵
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运行
+      - Name : 加药装置二桶计量泵
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运行
+      - Name : 加药装置排水阀阀开
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : 加药装置一桶低水位
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 低液位
+      - Name : 加药装置二桶低水位
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 低液位
+  - Cmd : 3
+    Offset : 2558
+    Len : 1
+    Data : 
+      - Name : 加药装置电导率
+        Unit : "μs/cm"
+  - Cmd : 3
+    Offset : 2556
+    Len : 2
+    Data : 
+      - Name : 加药装置PH
+  - Cmd : 3
+    Offset : 2559
+    Len : 2
+    Data : 
+      - Name : 软化水水表
+        Unit : "m³"
+  - Cmd : 1
+    Offset : 431
+    Len : 8
+    Data : 
+      - Name : 定压补水3自动运行按钮
+        Options : 
+          - Key : 0
+            Value : 本地
+          - Key : 1
+            Value : 远程
+      - Name : 定压补水3一泵运行信号
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运行
+      - Name : 定压补水3二泵运行信号
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运行
+      - Name : 定压补水3泄压阀开信号
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : 定压补水3一泵故障信号
+        AlertNormalValue : 0
+      - Name : 定压补水3二泵故障信号
+        AlertNormalValue : 0
+      - Name : 定压补水3缺水故障信号
+        AlertNormalValue : 0
+      - Name : 定压补水3压传故障
+        AlertNormalValue : 0
+  - Cmd : 3
+    Offset : 2561
+    Len : 10
+    RType : 'f'
+    Data : 
+      - Name : 定压补水3系统压力
+        Unit : bar
+      - Name : 定压补水3启泵值
+        Unit : bar
+      - Name : 定压补水3停泵值
+        Unit : bar
+      - Name : 定压补水3泄压关
+        Unit : bar
+      - Name : 定压补水3泄压开
+        Unit : bar
+  - Cmd : 1
+    Offset : 431
+    Len : 8
+    Data : 
+      - Name : 定压补水3自动运行按钮
+        Options : 
+          - Key : 0
+            Value : 本地
+          - Key : 1
+            Value : 远程
+      - Name : 定压补水3一泵运行信号
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运行
+      - Name : 定压补水3二泵运行信号
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运行
+      - Name : 定压补水3泄压阀开信号
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : 定压补水3一泵故障信号
+        AlertNormalValue : 0
+      - Name : 定压补水3二泵故障信号
+        AlertNormalValue : 0
+      - Name : 定压补水3缺水故障信号
+        AlertNormalValue : 0
+      - Name : 定压补水3压传故障
+        AlertNormalValue : 0
+  - Cmd : 3
+    Offset : 2561
+    Len : 10
+    RType : 'f'
+    Data : 
+      - Name : 定压补水3系统压力
+        Unit : bar
+      - Name : 定压补水3启泵值
+        Unit : bar
+      - Name : 定压补水3停泵值
+        Unit : bar
+      - Name : 定压补水3泄压关
+        Unit : bar
+      - Name : 定压补水3泄压开
+        Unit : bar
+  - Cmd : 1
+    Offset : 439
+    Len : 8
+    Data : 
+      - Name : 定压补水4自动运行按钮
+        Options : 
+          - Key : 0
+            Value : 本地
+          - Key : 1
+            Value : 远程
+      - Name : 定压补水4一泵运行信号
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运行
+      - Name : 定压补水4二泵运行信号
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运行
+      - Name : 定压补水4泄压阀开信号
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : 定压补水4一泵故障信号
+        AlertNormalValue : 0
+      - Name : 定压补水4二泵故障信号
+        AlertNormalValue : 0
+      - Name : 定压补水4缺水故障信号
+        AlertNormalValue : 0
+      - Name : 定压补水4压传故障
+        AlertNormalValue : 0
+  - Cmd : 3
+    Offset : 2571
+    Len : 10
+    RType : 'f'
+    Data : 
+      - Name : 定压补水4系统压力
+        Unit : bar
+      - Name : 定压补水4启泵值
+        Unit : bar
+      - Name : 定压补水4停泵值
+        Unit : bar
+      - Name : 定压补水4泄压关
+        Unit : bar
+      - Name : 定压补水4泄压开
+        Unit : bar
+  - Cmd : 3
+    Offset : 2581
+    Len : 2
+    RType : 'f'
+    Data : 
+      - Name : 冷却塔补水水表
+        Unit : "m³"

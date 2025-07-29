@@ -1,0 +1,911 @@
+Project:
+  Name : SmartLi3
+  RT_ID : 5156
+  File : "SmartLi 3.0 Modbus对外通讯协议.pdf  一个协议支持一个柜子，每个柜子10块锂电池"
+  DevType : 2
+  ProtocolName : "华为SmartLi3.0"
+  Category : 蓄电池组
+Sample : 
+  - Cmd : 3
+    Offset : 1
+    Len : 4
+    Data : 
+      - Name : "系统模拟量-电池电压"
+        Ratio : 10
+        Unit : V
+      - Name : "系统模拟量-电池电流"
+        Ratio : 10
+        Unit : A
+      - Name : "系统模拟量-SOC"
+        Unit : '%'
+      - Name : "系统模拟量-SOH"
+        Unit : '%'
+  - Cmd : 3
+    Offset : 6
+    Len : 5
+    Data : 
+      - Name : "系统模拟量-电芯最高电压"
+        Ratio : 1000
+        Unit : V
+      - Name : "系统模拟量-电芯最低电压"
+        Ratio : 1000
+        Unit : V
+      - Name : "系统模拟量-电芯最高温度"
+        Ratio : 10
+        Unit : '℃'
+      - Name : "系统模拟量-电芯最低温度"
+        Ratio : 10
+        Unit : '℃'
+      - Name : "系统告警-软件包不存在2"
+        CValue : (pData[4] & 0x1)
+        Value : ($v[5] & 0x1)
+        AlertNormalValue : 0
+      - Name : "系统告警-电池柜数目不符2"
+        CValue : ((pData[4]>>1) & 0x1)
+        Value : (($v[5]>>1) & 0x1)
+        AlertNormalValue : 0
+      - Name : "系统告警-电池柜EPO1"
+        CValue : ((pData[4]>>2) & 0x1)
+        Value : (($v[5]>>2) & 0x1)
+        AlertNormalValue : 0
+      - Name : "系统告警-版本不兼容5"
+        CValue : ((pData[4]>>4) & 0x1)
+        Value : (($v[5]>>4) & 0x1)
+        AlertNormalValue : 0
+      - Name : "系统告警-版本不兼容6"
+        CValue : ((pData[4]>>5) & 0x1)
+        Value : (($v[5]>>5) & 0x1)
+        AlertNormalValue : 0
+      - Name : "系统告警-电池维护提醒1"
+        CValue : ((pData[4]>>6) & 0x1)
+        Value : (($v[5]>>6) & 0x1)
+        AlertNormalValue : 0
+      - Name : "系统告警-模块数目不符5"
+        CValue : ((pData[4]>>7) & 0x1)
+        Value : (($v[5]>>7) & 0x1)
+        AlertNormalValue : 0
+  - Cmd : 3
+    Offset : 14
+    Len : 1
+    Data : 
+      - Name : "系统状态-电池管理系统有转测试告警"
+        CValue : ((pData[0]) & 0x1)
+        Value : (($v[1]) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 有
+      - Name : "系统状态-锂电系统电池放电终止5"
+        CValue : ((pData[0]>>1) & 0x1)
+        Value : (($v[1]>>1) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 有
+      - Name : "系统状态-锂电系统过温"
+        CValue : ((pData[0]>>2) & 0x1)
+        Value : (($v[1]>>2) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 有
+      - Name : "系统状态-锂电系统过温保护"
+        CValue : ((pData[0]>>3) & 0x1)
+        Value : (($v[1]>>3) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 有
+      - Name : "系统状态-锂电系统低温"
+        CValue : ((pData[0]>>4) & 0x1)
+        Value : (($v[1]>>4) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 有
+      - Name : "系统状态-锂电系统过压"
+        CValue : ((pData[0]>>5) & 0x1)
+        Value : (($v[1]>>5) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 有
+      - Name : "系统状态-锂电系统过压保护"
+        CValue : ((pData[0]>>6) & 0x1)
+        Value : (($v[1]>>6) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 有
+      - Name : "系统状态-锂电系统过流"
+        CValue : ((pData[0]>>7) & 0x1)
+        Value : (($v[1]>>7) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 有
+      - Name : "系统状态-锂电系统低压"
+        CValue : ((pData[0]>>8) & 0x1)
+        Value : (($v[1]>>8) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 有
+      - Name : "系统状态-锂电系统SOH异常"
+        CValue : ((pData[0]>>9) & 0x1)
+        Value : (($v[1]>>9) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 有
+      - Name : "系统状态-系统有提示告警"
+        CValue : ((pData[0]>>10) & 0x1)
+        Value : (($v[1]>>10) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 有
+      - Name : "系统状态-系统有次要告警"
+        CValue : ((pData[0]>>11) & 0x1)
+        Value : (($v[1]>>11) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 有
+      - Name : "系统状态-系统有紧急告警"
+        CValue : ((pData[0]>>12) & 0x1)
+        Value : (($v[1]>>12) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 有
+      - Name : "系统状态-系统有重要告警"
+        CValue : ((pData[0]>>13) & 0x1)
+        Value : (($v[1]>>13) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 有
+  - Cmd : 3
+    Offset : 17
+    Len : 1
+    Data : 
+      - Name : 系统模拟量-电池容量
+        Unit : Ah
+  - Cmd : 3
+    Offset : 19
+    Len : 3
+    Data : 
+      - Name : 系统模拟量-累计放电次数
+      - Name : 系统模拟量-累计放电容量
+        CValue : ((pData[1]<<16) | pData[2])/10
+        Value : (($v[2]<<16) | $v[3])/10
+        Unit : Ah
+  - Cmd : 3
+    Offset : 21
+    Len : 2
+    Data :    
+      - Name : 系统模拟量-电池柜在线状态
+      - Name : 系统模拟量-运行状态
+        Options : 
+          - Key : 0
+            Value : 待机
+          - Key : 1
+            Value : 充电
+          - Key : 2
+            Value : 放电
+          - Key : 3
+            Value : 故障
+  - Cmd : 3
+    Offset : 24
+    Len : 1
+    Data :    
+      - Name : 系统模拟量-电池柜数量
+  - Cmd : 3
+    Offset : 26
+    Len : 2
+    Data : 
+      - Name : 系统模拟量-电流
+        CValue : ((pData[0]<<16) | pData[1])/10
+        Value : (($v[1]<<16) | $v[2])/10
+        Unit : A
+  - Cmd : 3
+    Offset : 29
+    Len : 2
+    Data : 
+      - Name : 系统模拟量-端口电压
+      - Name : 系统模拟量-端口电流
+        CValue : ((pData[1]<<16) | pData[2])/10
+        Value : (($v[2]<<16) | $v[3])/10
+        Unit : A
+  - Cmd : 3
+    Offset : 40
+    Len : 12
+    Data : 
+      - Name : "机架模拟量-电池电压"
+        Ratio : 10
+        Unit : V
+      - Name : "机架模拟量-电池电流"
+        Ratio : 10
+        Unit : A
+      - Name : "机架模拟量-SOC"
+        Unit : '%'
+      - Name : "机架模拟量-SOH"
+        Unit : '%'
+      - Name : "机架模拟量-电芯最高电压"
+        Ratio : 1000
+        Unit : V
+      - Name : "机架模拟量-电芯最低电压"
+        Ratio : 1000
+        Unit : V
+      - Name : "机架模拟量-电芯最高温度"
+        Ratio : 10
+        Unit : '℃'
+      - Name : "机架模拟量-电芯最低温度"
+        Ratio : 10
+        Unit : '℃'
+      - Name : "机架模拟量-温度"
+        Ratio : 10
+        Unit : '℃'
+      - Name : "机架模拟量-电池容量"
+        Unit : Ah
+      - Name : "机架模拟量-电池模块数量"
+      - Name : "机架模拟量-累计放电容量"
+        CValue : ((pData[012]<<16) | pData[13])/10
+        Value : (($v[13]<<16) | $v[14])/10
+        Unit : Ah
+      - Name : 机架模拟量-运行状态
+        Offset : 15
+        Options : 
+          - Key : 0
+            Value : 待机
+          - Key : 1
+            Value : 充电
+          - Key : 2
+            Value : 放电
+          - Key : 3
+            Value : 故障
+      - Name : 机架模拟量-电池柜类型
+        Offset : 18
+        Options : 
+          - Key : 0
+            Value : 6C
+          - Key : 1
+            Value : 1C
+  - Cmd : 3
+    Offset : 9100
+    Len : 2
+    Data : 
+      - Name : 机架模拟量-CO传感器1气体浓度
+        Unit : ppm
+      - Name : 机架模拟量-CO传感器2气体浓度
+        Unit : ppm
+  - Cmd : 3
+    Offset : 9104
+    Len : 2
+    Data : 
+      - Name : 机架模拟量-端口电压
+        Ratio : 10
+        Unit : V
+      - Name : 机架模拟量-端口电流
+        Ratio : 10
+        Unit : A
+  - CmdGroupStart : 260
+    CmdGroupStep : 10
+    CmdGroupEnd : 360
+    CmdGroupPrefix : ["电池模块1","电池模块2","电池模块3","电池模块4","电池模块5","电池模块6","电池模块7","电池模块8","电池模块9","电池模块10"]
+    CmdGroupSample:
+      - Cmd : 3
+        Offset : 0
+        Len : 7
+        Data : 
+          - Name : "-电芯最高电压"
+            Ratio : 1000
+            Unit : "V"
+          - Name : "-电芯最低电压"
+            Ratio : 1000
+            Unit : "V"
+          - Name : "-电芯最高温度"
+            Ratio : 10
+            Unit : "℃"
+          - Name : "-电芯最低温度"
+            Ratio : 10
+            Unit : "℃"
+          - Name : "-电压"
+            Ratio : 100
+            Unit : "V"
+          - Name : "SOC"
+            Unit : "%"
+          - Name : "SOH"
+            Unit : "%"
+  - CmdGroupStart : 5200
+    CmdGroupStep : 20
+    CmdGroupEnd : 5220
+    CmdGroupPrefix : ["电池模块1","电池模块2","电池模块3","电池模块4","电池模块5","电池模块6","电池模块7","电池模块8","电池模块9","电池模块10"]
+    CmdGroupSample:
+      - Cmd : 3
+        Offset : 0
+        Len : 7
+        Data : 
+          - Name : "-电芯最高温度[60,125]℃总时间"
+            Value : ($v[1]<<16) + $v[2]
+            CValue : (pData[0]<<16) + pData[1]
+          - Name : "-电芯最高温度[50,60]℃总时间"
+            Value : ($v[3]<<16) + $v[4]
+            CValue : (pData[2]<<16) + pData[3]
+          - Name : "-电芯最高温度[40,50]℃总时间"
+            Value : ($v[5]<<16) + $v[6]
+            CValue : (pData[4]<<16) + pData[5]
+          - Name : "-电芯最高温度[10,40]℃总时间"
+            Value : ($v[7]<<16) + $v[8]
+            CValue : (pData[6]<<16) + pData[7]
+          - Name : "-电芯最高温度[0,10]℃总时间"
+            Value : ($v[9]<<16) + $v[10]
+            CValue : (pData[8]<<16) + pData[9]
+          - Name : "-电芯最高温度[-40,0]℃总时间"
+            Value : ($v[11]<<16) + $v[12]
+            CValue : (pData[10]<<16) + pData[11]
+          - Name : "-电芯过压告警总次数"
+            Offset : 13
+          - Name : "-电芯欠压告警总次数"
+            Offset : 14
+          - Name : "-高温告警(充电)总次数"
+            Offset : 15
+          - Name : "-高温告警(放电)总次数"
+            Offset : 16
+          - Name : "-低温告警(充电)总次数"
+            Offset : 17
+          - Name : "-低温告警(放电)总次数"
+            Offset : 18
+  - Cmd : 3
+    Offset : 2200
+    Len : 1
+    Data : 
+      - Name : 电池柜1-BCB脱扣故障1
+        CValue : (pData[0] & 0x1)
+        Value : ($v[1] & 0x1)
+        AlertNormalValue : 0
+      - Name : 电池柜1-BCB断开4
+        CValue : ((pData[0]>>1) & 0x1)
+        Value : (($v[1]>>1) & 0x1)
+        AlertNormalValue : 0     
+      - Name : 电池柜1-电池控制单元故障1
+        CValue : ((pData[0]>>2) & 0x1)
+        Value : (($v[1]>>2) & 0x1)
+        AlertNormalValue : 0   
+      - Name : 电池柜1-电池过流保护1
+        CValue : ((pData[0]>>3) & 0x1)
+        Value : (($v[1]>>3) & 0x1)
+        AlertNormalValue : 0  
+      - Name : 电池柜1-电池过流保护2
+        CValue : ((pData[0]>>4) & 0x1)
+        Value : (($v[1]>>4) & 0x1)
+        AlertNormalValue : 0
+      - Name : 电池柜1-电池柜EPO1
+        CValue : ((pData[0]>>5) & 0x1)
+        Value : (($v[1]>>5) & 0x1)
+        AlertNormalValue : 0    
+      - Name : 电池柜1-未就绪4
+        CValue : ((pData[0]>>6) & 0x1)
+        Value : (($v[1]>>6) & 0x1)
+        AlertNormalValue : 0   
+      - Name : 电池柜1-电池控制单元故障2
+        CValue : ((pData[0]>>7) & 0x1)
+        Value : (($v[1]>>7) & 0x1)
+        AlertNormalValue : 0 
+      - Name : 电池柜1-电池控制单元故障5
+        CValue : ((pData[0]>>8) & 0x1)
+        Value : (($v[1]>>8) & 0x1)
+        AlertNormalValue : 0 
+      - Name : 电池柜1-电池柜内并机线异常3
+        CValue : ((pData[0]>>9) & 0x1)
+        Value : (($v[1]>>9) & 0x1)
+        AlertNormalValue : 0 
+      - Name : 电池柜1-电池过压保护4
+        CValue : ((pData[0]>>10) & 0x1)
+        Value : (($v[1]>>10) & 0x1)
+        AlertNormalValue : 0 
+      - Name : 电池柜1-电池控制单元故障3
+        CValue : ((pData[0]>>11) & 0x1)
+        Value : (($v[1]>>11) & 0x1)
+        AlertNormalValue : 0 
+      - Name : 电池柜1-电池控制单元故障4
+        CValue : ((pData[0]>>12) & 0x1)
+        Value : (($v[1]>>12) & 0x1)
+        AlertNormalValue : 0 
+      - Name : 电池柜1-信号板异常1
+        CValue : ((pData[0]>>13) & 0x1)
+        Value : (($v[1]>>13) & 0x1)
+        AlertNormalValue : 0 
+      - Name : 电池柜1-电池柜间并机线异常1
+        CValue : ((pData[0]>>14) & 0x1)
+        Value : (($v[1]>>14) & 0x1)
+        AlertNormalValue : 0 
+      - Name : 电池柜1-电池柜间并机线异常2
+        CValue : ((pData[0]>>15) & 0x1)
+        Value : (($v[1]>>15) & 0x1)
+        AlertNormalValue : 0 
+  - Cmd : 3
+    Offset : 2201
+    Len : 1
+    Data : 
+      - Name : 电池柜1-电池柜内并机线异常1
+        CValue : (pData[0] & 0x1)
+        Value : ($v[1] & 0x1)
+        AlertNormalValue : 0
+      - Name : 电池柜1-电池柜内并机线异常2
+        CValue : ((pData[0]>>1) & 0x1)
+        Value : (($v[1]>>1) & 0x1)
+        AlertNormalValue : 0     
+      - Name : 电池柜1-电池控制单元故障9
+        CValue : ((pData[0]>>2) & 0x1)
+        Value : (($v[1]>>2) & 0x1)
+        AlertNormalValue : 0   
+      - Name : 电池柜1-信号板异常2
+        CValue : ((pData[0]>>3) & 0x1)
+        Value : (($v[1]>>3) & 0x1)
+        AlertNormalValue : 0  
+      - Name : 电池柜1-电池柜间并机线告警1
+        CValue : ((pData[0]>>4) & 0x1)
+        Value : (($v[1]>>4) & 0x1)
+        AlertNormalValue : 0
+      - Name : 电池柜1-电池柜间并机线异常3
+        CValue : ((pData[0]>>5) & 0x1)
+        Value : (($v[1]>>5) & 0x1)
+        AlertNormalValue : 0    
+      - Name : 电池柜1-电池柜间并机线告警2
+        CValue : ((pData[0]>>6) & 0x1)
+        Value : (($v[1]>>6) & 0x1)
+        AlertNormalValue : 0   
+      - Name : 电池柜1-版本不兼容1
+        CValue : ((pData[0]>>7) & 0x1)
+        Value : (($v[1]>>7) & 0x1)
+        AlertNormalValue : 0 
+      - Name : 电池柜1-风扇异常14
+        CValue : ((pData[0]>>8) & 0x1)
+        Value : (($v[1]>>8) & 0x1)
+        AlertNormalValue : 0 
+      - Name : 电池柜1-电池过压3
+        CValue : ((pData[0]>>9) & 0x1)
+        Value : (($v[1]>>9) & 0x1)
+        AlertNormalValue : 0 
+      - Name : 电池柜1-电池过流2
+        CValue : ((pData[0]>>10) & 0x1)
+        Value : (($v[1]>>10) & 0x1)
+        AlertNormalValue : 0 
+      - Name : 电池柜1-电池低压5
+        CValue : ((pData[0]>>11) & 0x1)
+        Value : (($v[1]>>11) & 0x1)
+        AlertNormalValue : 0 
+      - Name : 电池柜1-电池过流3
+        CValue : ((pData[0]>>12) & 0x1)
+        Value : (($v[1]>>12) & 0x1)
+        AlertNormalValue : 0 
+      - Name : 电池柜1-电池低压保护2
+        CValue : ((pData[0]>>13) & 0x1)
+        Value : (($v[1]>>13) & 0x1)
+        AlertNormalValue : 0 
+      - Name : 电池柜1-电池低压保护3
+        CValue : ((pData[0]>>14) & 0x1)
+        Value : (($v[1]>>14) & 0x1)
+        AlertNormalValue : 0 
+      - Name : 电池柜1-电池过压保护5
+        CValue : ((pData[0]>>15) & 0x1)
+        Value : (($v[1]>>15) & 0x1)
+        AlertNormalValue : 0 
+  - Cmd : 3
+    Offset : 2202
+    Len : 1
+    Data : 
+      - Name : 电池柜1-电池控制单元故障6
+        CValue : (pData[0] & 0x1)
+        Value : ($v[1] & 0x1)
+        AlertNormalValue : 0
+      - Name : 电池柜1-电池控制单元故障7
+        CValue : ((pData[0]>>1) & 0x1)
+        Value : (($v[1]>>1) & 0x1)
+        AlertNormalValue : 0     
+      - Name : 电池柜1-电池控制单元故障8
+        CValue : ((pData[0]>>2) & 0x1)
+        Value : (($v[1]>>2) & 0x1)
+        AlertNormalValue : 0   
+      - Name : 电池柜1-版本不兼容2
+        CValue : ((pData[0]>>3) & 0x1)
+        Value : (($v[1]>>3) & 0x1)
+        AlertNormalValue : 0  
+      - Name : 电池柜1-版本不兼容3
+        CValue : ((pData[0]>>4) & 0x1)
+        Value : (($v[1]>>4) & 0x1)
+        AlertNormalValue : 0
+      - Name : 电池柜1-版本不兼容4
+        CValue : ((pData[0]>>5) & 0x1)
+        Value : (($v[1]>>5) & 0x1)
+        AlertNormalValue : 0    
+      - Name : 电池柜1-电池控制单元故障10
+        CValue : ((pData[0]>>6) & 0x1)
+        Value : (($v[1]>>6) & 0x1)
+        AlertNormalValue : 0   
+      - Name : 电池柜1-电池控制单元故障11
+        CValue : ((pData[0]>>7) & 0x1)
+        Value : (($v[1]>>7) & 0x1)
+        AlertNormalValue : 0 
+      - Name : 电池柜1-电池保险断2
+        CValue : ((pData[0]>>8) & 0x1)
+        Value : (($v[1]>>8) & 0x1)
+        AlertNormalValue : 0 
+      - Name : 电池柜1-电池控制单元故障19
+        CValue : ((pData[0]>>9) & 0x1)
+        Value : (($v[1]>>9) & 0x1)
+        AlertNormalValue : 0 
+      - Name : 电池柜1-电池配置不支持1
+        CValue : ((pData[0]>>10) & 0x1)
+        Value : (($v[1]>>10) & 0x1)
+        AlertNormalValue : 0 
+      - Name : 电池柜1-CO浓度过高1
+        CValue : ((pData[0]>>11) & 0x1)
+        Value : (($v[1]>>11) & 0x1)
+        AlertNormalValue : 0 
+      - Name : 电池柜1-CO传感器故障1
+        CValue : ((pData[0]>>12) & 0x1)
+        Value : (($v[1]>>12) & 0x1)
+        AlertNormalValue : 0 
+      - Name : 电池柜1-CO传感器故障2
+        CValue : ((pData[0]>>13) & 0x1)
+        Value : (($v[1]>>13) & 0x1)
+        AlertNormalValue : 0 
+  - Cmd : 3
+    Offset : 2248
+    Len : 1
+    Data : 
+      - Name : 电池柜1-电池接反2
+        CValue : (pData[0] & 0x1)
+        Value : ($v[1] & 0x1)
+        AlertNormalValue : 0
+      - Name : 电池柜1-开关断开2
+        CValue : ((pData[0]>>1) & 0x1)
+        Value : (($v[1]>>1) & 0x1)
+        AlertNormalValue : 0     
+      - Name : 电池柜1-电池控制单元告警1
+        CValue : ((pData[0]>>2) & 0x1)
+        Value : (($v[1]>>2) & 0x1)
+        AlertNormalValue : 0   
+      - Name : 电池柜1-版本不兼容47
+        CValue : ((pData[0]>>3) & 0x1)
+        Value : (($v[1]>>3) & 0x1)
+        AlertNormalValue : 0  
+      - Name : 电池柜1-电池控制单元告警2
+        CValue : ((pData[0]>>4) & 0x1)
+        Value : (($v[1]>>4) & 0x1)
+        AlertNormalValue : 0
+      - Name : 电池柜1-电池接地故障3
+        CValue : ((pData[0]>>5) & 0x1)
+        Value : (($v[1]>>5) & 0x1)
+        AlertNormalValue : 0    
+
+      - Name : 电池柜1-电池接触器故障1
+        CValue : ((pData[0]>>7) & 0x1)
+        Value : (($v[1]>>7) & 0x1)
+        AlertNormalValue : 0 
+
+      - Name : 电池柜1-电池控制单元故障14
+        CValue : ((pData[0]>>9) & 0x1)
+        Value : (($v[1]>>9) & 0x1)
+        AlertNormalValue : 0 
+      - Name : 电池柜1-电池控制单元告警3
+        CValue : ((pData[0]>>10) & 0x1)
+        Value : (($v[1]>>10) & 0x1)
+        AlertNormalValue : 0 
+      - Name : 电池柜1-电池控制单元故障15
+        CValue : ((pData[0]>>11) & 0x1)
+        Value : (($v[1]>>11) & 0x1)
+        AlertNormalValue : 0 
+      - Name : 电池柜1-内部温度告警2
+        CValue : ((pData[0]>>12) & 0x1)
+        Value : (($v[1]>>12) & 0x1)
+        AlertNormalValue : 0 
+      - Name : 电池柜1-内部温度告警3
+        CValue : ((pData[0]>>13) & 0x1)
+        Value : (($v[1]>>13) & 0x1)
+        AlertNormalValue : 0 
+      - Name : 电池柜1-内部温度告警4
+        CValue : ((pData[0]>>14) & 0x1)
+        Value : (($v[1]>>14) & 0x1)
+        AlertNormalValue : 0 
+      - Name : 电池柜1-内部温度异常12
+        CValue : ((pData[0]>>15) & 0x1)
+        Value : (($v[1]>>15) & 0x1)
+        AlertNormalValue : 0 
+  - Cmd : 3
+    Offset : 2249
+    Len : 1
+    Data : 
+      - Name : 电池柜1-内部温度异常13
+        CValue : (pData[0] & 0x1)
+        Value : ($v[1] & 0x1)
+        AlertNormalValue : 0
+      - Name : 电池柜1-内部温度异常14
+        CValue : ((pData[0]>>1) & 0x1)
+        Value : (($v[1]>>1) & 0x1)
+        AlertNormalValue : 0     
+      - Name : 电池柜1-烟雾告警1
+        CValue : ((pData[0]>>2) & 0x1)
+        Value : (($v[1]>>2) & 0x1)
+        AlertNormalValue : 0   
+      - Name : 电池柜1-模块数目不符3
+        CValue : ((pData[0]>>3) & 0x1)
+        Value : (($v[1]>>3) & 0x1)
+        AlertNormalValue : 0  
+      - Name : 电池柜1-开关异常告警1
+        CValue : ((pData[0]>>4) & 0x1)
+        Value : (($v[1]>>4) & 0x1)
+        AlertNormalValue : 0
+      - Name : 电池柜1-开关断开1
+        CValue : ((pData[0]>>5) & 0x1)
+        Value : (($v[1]>>5) & 0x1)
+        AlertNormalValue : 0    
+      - Name : 电池柜1-水浸告警2
+        CValue : ((pData[0]>>6) & 0x1)
+        Value : (($v[1]>>6) & 0x1)
+        AlertNormalValue : 0   
+      - Name : 电池柜1-电池控制单元故障16
+        CValue : ((pData[0]>>7) & 0x1)
+        Value : (($v[1]>>7) & 0x1)
+        AlertNormalValue : 0 
+      - Name : 电池柜1-温度传感器异常1
+        CValue : ((pData[0]>>8) & 0x1)
+        Value : (($v[1]>>8) & 0x1)
+        AlertNormalValue : 0 
+      - Name : 电池柜1-温度传感器异常2
+        CValue : ((pData[0]>>9) & 0x1)
+        Value : (($v[1]>>9) & 0x1)
+        AlertNormalValue : 0 
+      - Name : 电池柜1-温度传感器异常3
+        CValue : ((pData[0]>>10) & 0x1)
+        Value : (($v[1]>>10) & 0x1)
+        AlertNormalValue : 0 
+      - Name : 电池柜1-温度传感器异常4
+        CValue : ((pData[0]>>11) & 0x1)
+        Value : (($v[1]>>11) & 0x1)
+        AlertNormalValue : 0 
+      - Name : 电池柜1-温度传感器异常5
+        CValue : ((pData[0]>>12) & 0x1)
+        Value : (($v[1]>>12) & 0x1)
+        AlertNormalValue : 0 
+      - Name : 电池柜1-温度传感器异常6
+        CValue : ((pData[0]>>13) & 0x1)
+        Value : (($v[1]>>13) & 0x1)
+        AlertNormalValue : 0 
+  - Cmd : 3
+    Offset : 2250
+    Len : 1
+    Data : 
+      - Name : 电池柜1-电池控制单元故障17
+        CValue : (pData[0] & 0x1)
+        Value : ($v[1] & 0x1)
+        AlertNormalValue : 0
+      - Name : 电池柜1-灭火气瓶压力异常
+        CValue : ((pData[0]>>1) & 0x1)
+        Value : (($v[1]>>1) & 0x1)
+        AlertNormalValue : 0     
+      - Name : 电池柜1-铜排过温2
+        CValue : ((pData[0]>>2) & 0x1)
+        Value : (($v[1]>>2) & 0x1)
+        AlertNormalValue : 0   
+      - Name : 电池柜1-电池控制单元故障18
+        CValue : ((pData[0]>>3) & 0x1)
+        Value : (($v[1]>>3) & 0x1)
+        AlertNormalValue : 0  
+      - Name : 电池柜1-电池模块接线错误1
+        CValue : ((pData[0]>>4) & 0x1)
+        Value : (($v[1]>>4) & 0x1)
+        AlertNormalValue : 0
+      - Name : 电池柜1-模块数目不符4
+        CValue : ((pData[0]>>5) & 0x1)
+        Value : (($v[1]>>5) & 0x1)
+        AlertNormalValue : 0   
+  - Cmd : 3
+    Offset : 2203
+    Len : 1
+    Data : 
+      - Name : 电池柜1-电池管理模块工作状态
+        Options : 
+          - Key : 0
+            Value : 待机
+          - Key : 1
+            Value : 充电
+          - Key : 0x10
+            Value : 放电
+          - Key : 0x11
+            Value : 故障
+  - CmdGroupStart : 2300
+    CmdGroupStep : 64
+    CmdGroupEnd : 2940
+    CmdGroupPrefix : ["电池模块1","电池模块2","电池模块3","电池模块4","电池模块5","电池模块6","电池模块7","电池模块8","电池模块9","电池模块10"]
+    CmdGroupSample:
+      - Cmd : 3
+        Offset : 0
+        Len : 1
+        Data : 
+          - Name : -电池模块故障1
+            CValue : (pData[0] & 0x1)
+            Value : ($v[1] & 0x1)
+            AlertNormalValue : 0
+          - Name : -电池模块故障2
+            CValue : ((pData[0]>>1) & 0x1)
+            Value : (($v[1]>>1) & 0x1)
+            AlertNormalValue : 0     
+          - Name : -电池模块均衡告警1
+            CValue : ((pData[0]>>2) & 0x1)
+            Value : (($v[1]>>2) & 0x1)
+            AlertNormalValue : 0   
+          - Name : -电池模块均衡告警2
+            CValue : ((pData[0]>>3) & 0x1)
+            Value : (($v[1]>>3) & 0x1)
+            AlertNormalValue : 0  
+          - Name : -电池放电终止5
+            CValue : ((pData[0]>>4) & 0x1)
+            Value : (($v[1]>>4) & 0x1)
+            AlertNormalValue : 0
+          - Name : -电池低温2
+            CValue : ((pData[0]>>5) & 0x1)
+            Value : (($v[1]>>5) & 0x1)
+            AlertNormalValue : 0    
+          - Name : -电池过温2
+            CValue : ((pData[0]>>6) & 0x1)
+            Value : (($v[1]>>6) & 0x1)
+            AlertNormalValue : 0   
+          - Name : -电池过压2
+            CValue : ((pData[0]>>7) & 0x1)
+            Value : (($v[1]>>7) & 0x1)
+            AlertNormalValue : 0 
+          - Name : -电池低压4
+            CValue : ((pData[0]>>11) & 0x1)
+            Value : (($v[1]>>11) & 0x1)
+            AlertNormalValue : 0 
+          - Name : -电池模块故障5
+            CValue : ((pData[0]>>12) & 0x1)
+            Value : (($v[1]>>12) & 0x1)
+            AlertNormalValue : 0 
+          - Name : -电池低温保护1
+            CValue : ((pData[0]>>13) & 0x1)
+            Value : (($v[1]>>13) & 0x1)
+            AlertNormalValue : 0 
+          - Name : -电池低温保护2
+            CValue : ((pData[0]>>14) & 0x1)
+            Value : (($v[1]>>14) & 0x1)
+            AlertNormalValue : 0 
+          - Name : -电池过压保护3
+            CValue : ((pData[0]>>15) & 0x1)
+            Value : (($v[1]>>15) & 0x1)
+            AlertNormalValue : 0 
+      - Cmd : 3
+        Offset : 1
+        Len : 1
+        Data : 
+          - Name : -电池模块故障6
+            CValue : (pData[0] & 0x1)
+            Value : ($v[1] & 0x1)
+            AlertNormalValue : 0
+          - Name : -电池低压保护1
+            CValue : ((pData[0]>>3) & 0x1)
+            Value : (($v[1]>>3) & 0x1)
+            AlertNormalValue : 0  
+          - Name : -电池模块故障7
+            CValue : ((pData[0]>>4) & 0x1)
+            Value : (($v[1]>>4) & 0x1)
+            AlertNormalValue : 0
+          - Name : -电池模块均衡告警3
+            CValue : ((pData[0]>>5) & 0x1)
+            Value : (($v[1]>>5) & 0x1)
+            AlertNormalValue : 0    
+          - Name : -电池放电终止6
+            CValue : ((pData[0]>>6) & 0x1)
+            Value : (($v[1]>>6) & 0x1)
+            AlertNormalValue : 0   
+          - Name : -SOH异常3
+            CValue : ((pData[0]>>7) & 0x1)
+            Value : (($v[1]>>7) & 0x1)
+            AlertNormalValue : 0 
+      - Cmd : 3
+        Offset : 2
+        Len : 1
+        Data : 
+          - Name : -电池模块升级中
+            Options : 
+              - Key : 0
+                Value : 升级中
+              - Key : 1
+                Value : 未升级
+          - Name : -电池模块不在位
+            Options : 
+              - Key : 0
+                Value : 在线
+              - Key : 1
+                Value : 不在线
+  - CmdGroupStart : 3068
+    CmdGroupStep : 2
+    CmdGroupEnd : 3088
+    CmdGroupPrefix : ["电池模块1","电池模块2","电池模块3","电池模块4","电池模块5","电池模块6","电池模块7","电池模块8","电池模块9","电池模块10"]
+    CmdGroupSample:
+      - Cmd : 3
+        Offset : 0
+        Len : 1
+        Data : 
+          - Name : -版本不兼容46
+            CValue : (pData[0] & 0x1)
+            Value : ($v[1] & 0x1)
+            AlertNormalValue : 0
+          - Name : -电池模块故障8
+            CValue : ((pData[0]>>1) & 0x1)
+            Value : (($v[1]>>1) & 0x1)
+            AlertNormalValue : 0     
+          - Name : -电池模块故障9
+            CValue : ((pData[0]>>2) & 0x1)
+            Value : (($v[1]>>2) & 0x1)
+            AlertNormalValue : 0   
+          - Name : -电池模块告警1
+            CValue : ((pData[0]>>3) & 0x1)
+            Value : (($v[1]>>3) & 0x1)
+            AlertNormalValue : 0  
+          - Name : -电池柜内并机线告警1
+            CValue : ((pData[0]>>4) & 0x1)
+            Value : (($v[1]>>4) & 0x1)
+            AlertNormalValue : 0
+          - Name : -电池模块告警2
+            CValue : ((pData[0]>>5) & 0x1)
+            Value : (($v[1]>>5) & 0x1)
+            AlertNormalValue : 0    
+          - Name : -电池模块告警3
+            CValue : ((pData[0]>>6) & 0x1)
+            Value : (($v[1]>>6) & 0x1)
+            AlertNormalValue : 0   
+          - Name : -电池模块告警4
+            CValue : ((pData[0]>>7) & 0x1)
+            Value : (($v[1]>>7) & 0x1)
+            AlertNormalValue : 0 
+          - Name : -电池模块告警5
+            CValue : ((pData[0]>>8) & 0x1)
+            Value : (($v[1]>>8) & 0x1)
+            AlertNormalValue : 0 
+          - Name : -电池模块告警6
+            CValue : ((pData[0]>>9) & 0x1)
+            Value : (($v[1]>>9) & 0x1)
+            AlertNormalValue : 0 
+          - Name : -电池模块告警7
+            CValue : ((pData[0]>>10) & 0x1)
+            Value : (($v[1]>>10) & 0x1)
+            AlertNormalValue : 0 
+          - Name : -电池模块故障10
+            CValue : ((pData[0]>>11) & 0x1)
+            Value : (($v[1]>>11) & 0x1)
+            AlertNormalValue : 0 
+          - Name : -内部温度异常11
+            CValue : ((pData[0]>>12) & 0x1)
+            Value : (($v[1]>>12) & 0x1)
+            AlertNormalValue : 0 
+          - Name : -内部温度告警1
+            CValue : ((pData[0]>>13) & 0x1)
+            Value : (($v[1]>>13) & 0x1)
+            AlertNormalValue : 0 
+          - Name : -电池模块故障11
+            CValue : ((pData[0]>>14) & 0x1)
+            Value : (($v[1]>>14) & 0x1)
+            AlertNormalValue : 0 
+          - Name : -电池模块故障12
+            CValue : ((pData[0]>>15) & 0x1)
+            Value : (($v[1]>>15) & 0x1)
+            AlertNormalValue : 0 

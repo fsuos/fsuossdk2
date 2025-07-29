@@ -111,8 +111,8 @@ $lMemData = substr($memData , $offset, {{ sc.Len }});
             {% else %}
           for($i=1;$i<={{ d.ArrayLength }};$i++){
             $name = sprintf("{{ d.ArrayName }}", {{ d.ArrayStart }} + $i);
-            $kIndex = {{ d.Offset }} + $i;
-            {{ dataArrayStr }}[{% if scPrefix is not none %}{{scPrefix}}.{% endif %}$name] = number_format($v[$kIndex]{% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %}{% if d.Adjust is defined %}{{ d.Adjust }}{% endif %}, 2){% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
+            $kIndex = {% if d.Offset is defined %}{{ d.Offset }}{% else %}0{% endif %} + $i;
+            {{ dataArrayStr }}[{% if scPrefix is not none %}{{scPrefix}}.{% endif %}$name] = number_format($v[$kIndex]{% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %}{% if d.Adjust is defined %}{{ d.Adjust }}{% endif %}, 3){% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
           }
          {% endif %}
         {% elif d.Options is defined %}

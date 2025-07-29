@@ -1,7 +1,10 @@
 Project:
   Name : SL6200TH1CT2 
   RT_ID : 5156
-  File : "SL6200TH1CT2空调-通信协议.xls.xls"
+  File : "SL6200TH1CT2空调-通信协议.xls"
+  DevType : 2
+  Category : 专用空调
+  ProtocolName : SL6200TH1CT2空调
 Sample : 
   - Cmd : 1
     Offset : 256
@@ -171,534 +174,912 @@ Sample :
       - Name : 1#吸气温度故障
         Offset : 1
         AlertNormalValue : 0
+        TeleSignalId : 120830170010
+        UnicomSignalId : 602400101001
       - Name : 2#吸气温度故障
         Offset : 2
         AlertNormalValue : 0
+        TeleSignalId : 120830170020
+        UnicomSignalId : 602400101002
       - Name : 1#室外环温探头故障
         Offset : 3
         AlertNormalValue : 0
+        TeleSignalId : 120830170030
+        UnicomSignalId : 602400101003
       - Name : 1#排气温度故障
         Offset : 4
         AlertNormalValue : 0
+        TeleSignalId : 120830170040
+        UnicomSignalId : 602400101004
       - Name : 2#室外环温探头故障
         Offset : 5
         AlertNormalValue : 0
+        TeleSignalId : 120830170050
+        UnicomSignalId : 602400101005
       - Name : 2#排气温度故障
         Offset : 6
         AlertNormalValue : 0
+        TeleSignalId : 120830170060
+        UnicomSignalId : 602400101006
       - Name : 1#低压压力保护
         Offset : 7
         AlertNormalValue : 0
+        TeleSignalId : 120830170070
+        UnicomSignalId : 602400101007
       - Name : 1#低压压力故障
         Offset : 8
         AlertNormalValue : 0
+        TeleSignalId : 120830170080
+        UnicomSignalId : 602400101008
       - Name : 2#低压压力故障
         Offset : 9
         AlertNormalValue : 0
+        TeleSignalId : 120830170090
+        UnicomSignalId : 602400101009
       - Name : 压差传感器故障
         Offset : 10
         AlertNormalValue : 0
+        TeleSignalId : 120830170100
+        UnicomSignalId : 602400101010
       - Name : 1#高压压力探头故障
         Offset : 11
         AlertNormalValue : 0
+        TeleSignalId : 120830170110
+        UnicomSignalId : 602400101011
       - Name : 2#高压压力探头故障
         Offset : 12
         AlertNormalValue : 0
+        TeleSignalId : 120830170120
+        UnicomSignalId : 602400101012
       - Name : 1#高压压力保护
         Offset : 13
         AlertNormalValue : 0
+        TeleSignalId : 120830170130
+        UnicomSignalId : 602400101013
       - Name : 1#高压锁定
         Offset : 14
         AlertNormalValue : 0
+        TeleSignalId : 120830170140
+        UnicomSignalId : 602400101014
       - Name : 2#高压压力保护
         Offset : 15
         AlertNormalValue : 0
+        TeleSignalId : 120830170150
+        UnicomSignalId : 602400101015
       - Name : 2#高压锁定
         Offset : 16
         AlertNormalValue : 0
+        TeleSignalId : 120830170160
+        UnicomSignalId : 602400101016
       - Name : 水浸传感器告警
         Offset : 17
         AlertNormalValue : 0
+        TeleSignalId : 120830160010
+        TeleSignalName : 专用空调水浸告警
+        UnicomSignalId : 602460601001
+        UnicomSignalName : 水浸告警
       - Name : 失风报警
         Offset : 18
         AlertNormalValue : 0
+        TeleSignalId : 120830170170
+        UnicomSignalId : 602400101017
       - Name : 远程关机
         Offset : 19
         AlertNormalValue : 0
+        UnicomSignalId : 602431C01001
+        UnicomSignalName : 风机故障
+        TeleSignalId : 120830170180
       - Name : 滤网压差报警
         Offset : 20
         AlertNormalValue : 0
+        TeleSignalId : 120830170190
+        UnicomSignalId : 602400101018
       - Name : 加热器过载
         Offset : 21
         AlertNormalValue : 0
+        TeleSignalId : 120830140010
+        TeleSignalName : 加热器过热告警
+        UnicomSignalId : 602432501001
+        UnicomSignalName : 加热器过热告警
       - Name : 压缩机1高压开关
         Offset : 22
         AlertNormalValue : 0
+        TeleSignalId : 120830170200
+        UnicomSignalId : 602400101019
       - Name : 压缩机2高压开关
         Offset : 23
         AlertNormalValue : 0
+        TeleSignalId : 120830170210
+        UnicomSignalId : 602400101020
       - Name : 电源保护
         Offset : 24
         AlertNormalValue : 0
+        TeleSignalId : 120830170220
+        UnicomSignalId : 602415101001
+        UnicomSignalName : 输入电源故障告警
       - Name : 1#风机过载
         Offset : 25
         AlertNormalValue : 0
+        TeleSignalId : 120830010010
+        TeleSignalName : 风机过载告警01
+        UnicomSignalId : 602431901001
+        UnicomSignalName : 风机过载告警01
       - Name : 2#风机过载
         Offset : 26
         AlertNormalValue : 0
+        TeleSignalId : 120830010020
+        TeleSignalName : 风机过载告警02
+        UnicomSignalId : 602431901002
+        UnicomSignalName : 风机过载告警02
       - Name : 3#风机过载
         Offset : 27
         AlertNormalValue : 0
+        TeleSignalId : 120830010030
+        TeleSignalName : 风机过载告警03
+        UnicomSignalId : 602431901003
+        UnicomSignalName : 风机过载告警03
       - Name : 4#风机过载
         Offset : 28
         AlertNormalValue : 0
+        TeleSignalId : 120830010040
+        TeleSignalName : 风机过载告警04
+        UnicomSignalId : 602431901004
+        UnicomSignalName : 风机过载告警04
       - Name : 1#氟泵过热报警
         Offset : 29
         AlertNormalValue : 0
+        TeleSignalId : 120830170230
+        UnicomSignalId : 602400101014
       - Name : 2#氟泵过热报警
         Offset : 30
         AlertNormalValue : 0
+        TeleSignalId : 120830170240
+        UnicomSignalId : 602400101015
       - Name : 1#低压保护锁定
         Offset : 31
         AlertNormalValue : 0
+        TeleSignalId : 120830170250
+        UnicomSignalId : 602400101016
       - Name : 2#低压保护锁定
         Offset : 32
         AlertNormalValue : 0
+        TeleSignalId : 120830170260
+        UnicomSignalId : 602400101017
       - Name : 送风低温告警
         Offset : 33
         AlertNormalValue : 0
+        TeleSignalId : 120830170270
+        UnicomSignalId : 602400101018
       - Name : 送风高温告警
         Offset : 34
         AlertNormalValue : 0
+        TeleSignalId : 120830170280
+        UnicomSignalId : 602400101019
       - Name : 回风高湿告警
         Offset : 35
         AlertNormalValue : 0
+        TeleSignalId : 120830170290
+        UnicomSignalId : 602400101020
       - Name : 回风低湿告警
         Offset : 36
         AlertNormalValue : 0
+        TeleSignalId : 120830170300
+        UnicomSignalId : 602400101021
       - Name : 回风低温告警
         Offset : 37
         AlertNormalValue : 0
+        TeleSignalId : 120830170310
+        UnicomSignalId : 602400101022
       - Name : 回风高温告警
         Offset : 38
         AlertNormalValue : 0
+        TeleSignalId : 120830170320
+        UnicomSignalId : 602400101023
       - Name : 送风机维护故障
         Offset : 39
         AlertNormalValue : 0
+        TeleSignalId : 120830170330
+        UnicomSignalId : 602400101024
       - Name : 加湿器维护故障
         Offset : 40
         AlertNormalValue : 0
+        TeleSignalId : 120830170340
+        UnicomSignalId : 602400101025
       - Name : 1#电加热维护故障
         Offset : 41
         AlertNormalValue : 0
+        TeleSignalId : 120830170350
+        UnicomSignalId : 602400101026
       - Name : 1#压缩机维护故障
         Offset : 42
         AlertNormalValue : 0
+        TeleSignalId : 120830170360
+        UnicomSignalId : 602400101027
       - Name : 水泵维护故障
         Offset : 43
         AlertNormalValue : 0
+        TeleSignalId : 120830170370
+        UnicomSignalId : 602400101028
       - Name : 电源丢失告警
         Offset : 44
         AlertNormalValue : 0
+        TeleSignalId : 120830170380
+        UnicomSignalId : 602400101029
       - Name : 电源过压告警
         Offset : 45
         AlertNormalValue : 0
+        TeleSignalId : 120830170390
+        UnicomSignalId : 602400101030
       - Name : 电源欠压告警
         Offset : 46
         AlertNormalValue : 0
+        TeleSignalId : 120830170400
+        UnicomSignalId : 602400101031
       - Name : 2#低压压力保护
         Offset : 47
         AlertNormalValue : 0
+        TeleSignalId : 120830170410
+        UnicomSignalId : 602400101032
       - Name : 电源缺错相
         Offset : 48
         AlertNormalValue : 0
+        TeleSignalId : 120830170420
+        UnicomSignalId : 602400101033
       - Name : 1#送风机故障
         Offset : 49
         AlertNormalValue : 0
+        TeleSignalId : 120830170430
+        UnicomSignalId : 602431C01001
+        UnicomSignalName : 风机故障
       - Name : 2#送风机故障
         Offset : 50
         AlertNormalValue : 0
+        TeleSignalId : 120830170440
+        UnicomSignalId : 602431C01002
+        UnicomSignalName : 风机故障
       - Name : 3#送风机故障
         Offset : 51
         AlertNormalValue : 0
+        TeleSignalId : 120830170450
+        UnicomSignalId : 602431C01003
+        UnicomSignalName : 风机故障
       - Name : 4#送风机故障
         Offset : 52
         AlertNormalValue : 0
+        TeleSignalId : 120830170460
+        UnicomSignalId : 602431C01004
+        UnicomSignalName : 风机故障
       - Name : 5#送风机故障
         Offset : 53
         AlertNormalValue : 0
+        TeleSignalId : 120830170470
+        UnicomSignalId : 602431C01005
+        UnicomSignalName : 风机故障
       - Name : 6#送风机故障
         Offset : 54
         AlertNormalValue : 0
+        TeleSignalId : 120830170480
+        UnicomSignalId : 602431C01006
+        UnicomSignalName : 风机故障
       - Name : 7#送风机故障
         Offset : 55
         AlertNormalValue : 0
+        TeleSignalId : 120830170490
+        UnicomSignalId : 602431C01007
+        UnicomSignalName : 风机故障
       - Name : 8#送风机故障
         Offset : 56
         AlertNormalValue : 0
+        TeleSignalId : 120830170500
+        UnicomSignalId : 602431C01008
+        UnicomSignalName : 风机故障
       - Name : 低电流告警
         Offset : 57
         AlertNormalValue : 0
+        TeleSignalId : 120830170510
+        UnicomSignalId : 602400101034
       - Name : 所有送风温度探头故障
         Offset : 58
         AlertNormalValue : 0
+        TeleSignalId : 120830170520
+        UnicomSignalId : 602400101035
       - Name : 送风机故障
         Offset : 59
         AlertNormalValue : 0
+        TeleSignalId : 120830170530
+        UnicomSignalId : 602400101036
       - Name : 风机检测通讯故障
         Offset : 60
         AlertNormalValue : 0
+        TeleSignalId : 120830170540
+        UnicomSignalId : 602400101037
       - Name : 1-2#吸气温度支路探头故障
         Offset : 61
         AlertNormalValue : 0
+        TeleSignalId : 120830170550
+        UnicomSignalId : 602400101038
       - Name : 加湿器高电流报警
         Offset : 62
         AlertNormalValue : 0
+        TeleSignalId : 120830170560
+        UnicomSignalId : 602400101039
       - Name : 从机离线
         Offset : 63
         AlertNormalValue : 0
+        TeleSignalId : 120830170570
+        UnicomSignalId : 602400101040
       - Name : 主机离线
         Offset : 64
         AlertNormalValue : 0
+        TeleSignalId : 120830170580
+        UnicomSignalId : 602400101041
       - Name : 送风温度探头故障
         Offset : 65
         AlertNormalValue : 0
+        TeleSignalId : 120830170590
+        UnicomSignalId : 602400101042
       - Name : 送风湿度探头故障
         Offset : 66
         AlertNormalValue : 0
+        TeleSignalId : 120830170600
+        UnicomSignalId : 602400101043
       - Name : 回风温度探头故障
         Offset : 67
         AlertNormalValue : 0
+        TeleSignalId : 120830170610
+        UnicomSignalId : 602400101044
       - Name : 回风湿度探头故障
         Offset : 68
         AlertNormalValue : 0
+        TeleSignalId : 120830170620
+        UnicomSignalId : 602400101045
       - Name : 烟雾传感器报警
         Offset : 69
         AlertNormalValue : 0
+        TeleSignalId : 120830170630
+        UnicomSignalId : 602400101046
       - Name : 1#排气高温
         Offset : 70
         AlertNormalValue : 0
+        TeleSignalId : 120830170640
+        UnicomSignalId : 602400101047
       - Name : 1#排气高温锁定
         Offset : 71
         AlertNormalValue : 0
+        TeleSignalId : 120830170650
+        UnicomSignalId : 602400101048
       - Name : 2#低压压力总管路探头故障
         Offset : 72
         AlertNormalValue : 0
+        TeleSignalId : 120830170660
+        UnicomSignalId : 602400101049
       - Name : 1-2#低压压力支路探头故障
         Offset : 73
         AlertNormalValue : 0
+        TeleSignalId : 120830170670
+        UnicomSignalId : 602400101050
       - Name : 1#低压压力总管路探头故障
         Offset : 74
         AlertNormalValue : 0
+        TeleSignalId : 120830170680
+        UnicomSignalId : 602400101051
       - Name : 2-2#吸气温度支路探头故障
         Offset : 75
         AlertNormalValue : 0
+        TeleSignalId : 120830170690
+        UnicomSignalId : 602400101052
       - Name : 2#排气高温
         Offset : 76
         AlertNormalValue : 0
+        TeleSignalId : 120830170700
+        UnicomSignalId : 602400101053
       - Name : 2#排气高温锁定
         Offset : 77
         AlertNormalValue : 0
+        TeleSignalId : 120830170710
+        UnicomSignalId : 602400101054
       - Name : 回风温度传感器缺失
         Offset : 78
         AlertNormalValue : 0
+        TeleSignalId : 120830170720
+        UnicomSignalId : 602400101055
       - Name : 2-2#低压压力支路探头故障
         Offset : 79
         AlertNormalValue : 0
+        TeleSignalId : 120830170730
+        UnicomSignalId : 602400101056
       - Name : 送风温度传感器缺失
         Offset : 80
         AlertNormalValue : 0
+        TeleSignalId : 120830170740
+        UnicomSignalId : 602400101057
       - Name : 1#SL1008通讯故障
         Offset : 81
         AlertNormalValue : 0
+        TeleSignalId : 120830170750
+        UnicomSignalId : 602400101058
       - Name : 2#SL1008通讯故障
         Offset : 82
         AlertNormalValue : 0
+        TeleSignalId : 120830170760
+        UnicomSignalId : 602400101059
       - Name : 2#电加热维护故障
         Offset : 83
         AlertNormalValue : 0
+        TeleSignalId : 120830170770
+        UnicomSignalId : 602400101060
       - Name : 2#压缩机维护故障
         Offset : 84
         AlertNormalValue : 0
+        TeleSignalId : 120830170780
+        UnicomSignalId : 602400101061
       - Name : 1#外风机维护故障
         Offset : 85
         AlertNormalValue : 0
+        TeleSignalId : 120830170790
+        UnicomSignalId : 602400101062
       - Name : 2#外风机维护故障
         Offset : 86
         AlertNormalValue : 0
+        TeleSignalId : 120830170800
+        UnicomSignalId : 602400101063
       - Name : 地板漏水告警
         Offset : 87
         AlertNormalValue : 0
+        TeleSignalId : 120830160020
+        TeleSignalName : 专用空调水浸告警
+        UnicomSignalId : 602460601002
+        UnicomSignalName : 水浸告警
       - Name : 电表缺失报警
         Offset : 88
         AlertNormalValue : 0
+        TeleSignalId : 120830170810
+        UnicomSignalId : 602400101065
       - Name : 1#压缩机相电流过流
         Offset : 89
         AlertNormalValue : 0
+        TeleSignalId : 120830170820
+        UnicomSignalId : 602400101066
       - Name : 1#输入电流过流
         Offset : 90
         AlertNormalValue : 0
+        TeleSignalId : 120830170830
+        UnicomSignalId : 602400101067
       - Name : 1#输入母线过压
         Offset : 91
         AlertNormalValue : 0
+        TeleSignalId : 120830170840
+        UnicomSignalId : 602400101068
       - Name : 1#输入母线欠压
         Offset : 92
         AlertNormalValue : 0
+        TeleSignalId : 120830170850
+        UnicomSignalId : 602400101069
       - Name : 1#输入过电压
         Offset : 93
         AlertNormalValue : 0
+        TeleSignalId : 120830170860
+        UnicomSignalId : 602400101070
       - Name : 1#输入低电压
         Offset : 94
         AlertNormalValue : 0
+        TeleSignalId : 120830170870
+        UnicomSignalId : 602400101071
       - Name : 1#压缩机配置错误
         Offset : 95
         AlertNormalValue : 0
+        TeleSignalId : 120830170880
+        UnicomSignalId : 602400101072
       - Name : 1#元器件失效或驱动EEPROM失效
         Offset : 96
         AlertNormalValue : 0
+        TeleSignalId : 120830170890
+        UnicomSignalId : 602400101073
       - Name : 1#功率模块高温限流状态
         Offset : 100
         AlertNormalValue : 0
+        TeleSignalId : 120830170900
+        UnicomSignalId : 602400101074
       - Name : 1#PFC-IGBT高温
         Offset : 101
         AlertNormalValue : 0
+        TeleSignalId : 120830170910
+        UnicomSignalId : 602400101075
       - Name : 1#转子失步
         Offset : 102
         AlertNormalValue : 0
+        TeleSignalId : 120830170920
+        UnicomSignalId : 602400101076
       - Name : 1#DC电压低
         Offset : 105
         AlertNormalValue : 0
+        TeleSignalId : 120830170930
+        UnicomSignalId : 602400101077
       - Name : 1#压缩机相电流过流 (中值)
         Offset : 106
         AlertNormalValue : 0
+        TeleSignalId : 120830170940
+        UnicomSignalId : 602400101078
       - Name : 1#压缩机相电流限流超时
         Offset : 107
         AlertNormalValue : 0
+        TeleSignalId : 120830170950
+        UnicomSignalId : 602400101079
       - Name : 1#功率模块高温限频超时
         Offset : 108
         AlertNormalValue : 0
+        TeleSignalId : 120830170960
+        UnicomSignalId : 602400101080
       - Name : 1#AC输入电流限频超时
         Offset : 109
         AlertNormalValue : 0
+        TeleSignalId : 120830170970
+        UnicomSignalId : 602400101081
       - Name : 1#功率模块温度低或传感器开路失效
         Offset : 110
         AlertNormalValue : 0
+        TeleSignalId : 120830170980
+        UnicomSignalId : 602400101082
       - Name : 1#PFC-IGBT温度过低
         Offset : 111
         AlertNormalValue : 0
+        TeleSignalId : 120830170990
+        UnicomSignalId : 602400101083
       - Name : 1#Modbus通讯丢失
         Offset : 112
         AlertNormalValue : 0
+        TeleSignalId : 120830171000
+        UnicomSignalId : 602400101084
       - Name : 1#功率模块温度过高
         Offset : 116
         AlertNormalValue : 0
+        TeleSignalId : 120830171010
+        UnicomSignalId : 602400101085
       - Name : 1#PFC-IGBT温度过高
         Offset : 117
         AlertNormalValue : 0
+        TeleSignalId : 120830171020
+        UnicomSignalId : 602400101086
       - Name : 1#DSP与PFC通讯丢失
         Offset : 118
         AlertNormalValue : 0
+        TeleSignalId : 120830171030
+        UnicomSignalId : 602400101087
       - Name : 1#DSP通讯丢失
         Offset : 119
         AlertNormalValue : 0
+        TeleSignalId : 120830171040
+        UnicomSignalId : 602400101088
       - Name : 1#失效锁定
         Offset : 120
         AlertNormalValue : 0
+        TeleSignalId : 120830171050
+        UnicomSignalId : 602400101089
       - Name : 2#压缩机相电流过流
         Offset : 121
         AlertNormalValue : 0
+        TeleSignalId : 120830171060
+        UnicomSignalId : 602400101090
       - Name : 2#输入电流过流
         Offset : 122
         AlertNormalValue : 0
+        TeleSignalId : 120830171070
+        UnicomSignalId : 602400101091
       - Name : 2#输入母线过压
         Offset : 123
         AlertNormalValue : 0
+        TeleSignalId : 120830171080
+        UnicomSignalId : 602400101092
       - Name : 2#输入母线欠压
         Offset : 124
         AlertNormalValue : 0
+        TeleSignalId : 120830171090
+        UnicomSignalId : 602400101093
       - Name : 2#输入过电压
         Offset : 125
         AlertNormalValue : 0
+        TeleSignalId : 120830171100
+        UnicomSignalId : 602400101094
       - Name : 2#输入低电压
         Offset : 126
         AlertNormalValue : 0
+        TeleSignalId : 120830171110
+        UnicomSignalId : 602400101095
       - Name : 2#压缩机配置错误
         Offset : 127
         AlertNormalValue : 0  
+        TeleSignalId : 120830171120
+        UnicomSignalId : 602400101096
       - Name : 2#元器件失效或驱动EEPROM失效
         Offset : 128
         AlertNormalValue : 0  
+        TeleSignalId : 120830171130
+        UnicomSignalId : 602400101097
       - Name : 2#功率模块高温限流状态
         Offset : 132
         AlertNormalValue : 0 
+        TeleSignalId : 120830171140
+        UnicomSignalId : 602400101098
       - Name : 2#PFC-IGBT高温
         Offset : 133
         AlertNormalValue : 0 
+        TeleSignalId : 120830171150
+        UnicomSignalId : 602400101099
       - Name : 2#转子失步
         Offset : 134
         AlertNormalValue : 0 
+        TeleSignalId : 120830171160
+        UnicomSignalId : 602400101100
       - Name : 2#DC电压低
         Offset : 137
         AlertNormalValue : 0 
+        TeleSignalId : 120830171170
+        UnicomSignalId : 602400101101
       - Name : 2#压缩机相电流过流 (中值)
         Offset : 138
         AlertNormalValue : 0 
+        TeleSignalId : 120830171180
+        UnicomSignalId : 602400101102
       - Name : 2#压缩机相电流限流超时
         Offset : 139
         AlertNormalValue : 0 
+        TeleSignalId : 120830171190
+        UnicomSignalId : 602400101103
       - Name : 2#功率模块高温限频超时
         Offset : 140
         AlertNormalValue : 0 
+        TeleSignalId : 120830171200
+        UnicomSignalId : 602400101104
       - Name : 2#AC输入电流限频超时
         Offset : 141
         AlertNormalValue : 0 
+        TeleSignalId : 120830171210
+        UnicomSignalId : 602400101105
       - Name : 2#功率模块温度低或传感器开路失效
         Offset : 142
         AlertNormalValue : 0 
+        TeleSignalId : 120830171220
+        UnicomSignalId : 602400101106
       - Name : 2#PFC-IGBT温度过低
         Offset : 143
         AlertNormalValue : 0 
+        TeleSignalId : 120830171230
+        UnicomSignalId : 602400101107
       - Name : 2#Modbus通讯丢失
         Offset : 144
         AlertNormalValue : 0 
+        TeleSignalId : 120830171240
+        UnicomSignalId : 602400101108
       - Name : 2#功率模块温度过高
         Offset : 148
         AlertNormalValue : 0 
+        TeleSignalId : 120830171250
+        UnicomSignalId : 602400101109
       - Name : 2#PFC-IGBT温度过高
         Offset : 149
         AlertNormalValue : 0 
+        TeleSignalId : 120830171260
+        UnicomSignalId : 602400101110
       - Name : 2#DSP与PFC通讯丢失
         Offset : 150
         AlertNormalValue : 0 
+        TeleSignalId : 120830171270
+        UnicomSignalId : 602400101111
       - Name : 2#DSP通讯丢失
         Offset : 151
         AlertNormalValue : 0 
+        TeleSignalId : 120830171280
+        UnicomSignalId : 602400101112
       - Name : 2#失效锁定
         Offset : 152
         AlertNormalValue : 0 
+        TeleSignalId : 120830171290
+        UnicomSignalId : 602400101113
       - Name : 供电过压告警
         Offset : 153
         AlertNormalValue : 0 
+        TeleSignalId : 120830171300
+        UnicomSignalId : 602400101114
       - Name : 供电欠压告警
         Offset : 154
         AlertNormalValue : 0 
+        TeleSignalId : 120830171310
+        UnicomSignalId : 602400101115
       - Name : 供电电流过高
         Offset : 155
         AlertNormalValue : 0 
+        TeleSignalId : 120830171320
+        UnicomSignalId : 602400101116
       - Name : 供电电流过低
         Offset : 156
         AlertNormalValue : 0
+        TeleSignalId : 120830171330
+        UnicomSignalId : 602400101117
       - Name : 供电电流过高锁定
         Offset : 157
         AlertNormalValue : 0
+        TeleSignalId : 120830171340
+        UnicomSignalId : 602400101118
       - Name : 供电电流过低锁定
         Offset : 158
         AlertNormalValue : 0
+        TeleSignalId : 120830171350
+        UnicomSignalId : 602400101119
       - Name : 1#变频功率卡温度故障
         Offset : 159
         AlertNormalValue : 0
+        TeleSignalId : 120830171360
+        UnicomSignalId : 602400101120
       - Name : 1#变频接地故障2
         Offset : 160
         AlertNormalValue : 0
+        TeleSignalId : 120830171370
+        UnicomSignalId : 602400101121
       - Name : 1#变频过电流
         Offset : 161
         AlertNormalValue : 0
+        TeleSignalId : 120830171380
+        UnicomSignalId : 602400101122
       - Name : 1#变频器短路
         Offset : 162
         AlertNormalValue : 0
+        TeleSignalId : 120830171390
+        UnicomSignalId : 602400101123
       - Name : 1#变频主电源缺相
         Offset : 163
         AlertNormalValue : 0
+        TeleSignalId : 120830171400
+        UnicomSignalId : 602400101124
       - Name : 1#变频内部故障
         Offset : 164
         AlertNormalValue : 0
+        TeleSignalId : 120830171410
+        UnicomSignalId : 602400101125
       - Name : 1#变频U相缺相
         Offset : 165
         AlertNormalValue : 0
+        TeleSignalId : 120830171420
+        UnicomSignalId : 602400101126
       - Name : 1#变频V相缺相
         Offset : 166
         AlertNormalValue : 0
+        TeleSignalId : 120830171430
+        UnicomSignalId : 602400101127
       - Name : 1#变频W相缺相
         Offset : 167
         AlertNormalValue : 0
+        TeleSignalId : 120830171440
+        UnicomSignalId : 602400101128
       - Name : 1#变频控制电压故障
         Offset : 168
         AlertNormalValue : 0
+        TeleSignalId : 120830171450
+        UnicomSignalId : 602400101129
       - Name : 1#变频制动电阻器短路故障
         Offset : 169
         AlertNormalValue : 0
+        TeleSignalId : 120830171460
+        UnicomSignalId : 602400101130
       - Name : 1#变频接地故障
         Offset : 170
         AlertNormalValue : 0
+        TeleSignalId : 120830171470
+        UnicomSignalId : 602400101131
       - Name : 1#变频制动斩波器短路故障
         Offset : 171
         AlertNormalValue : 0
+        TeleSignalId : 120830171480
+        UnicomSignalId : 602400101132
       - Name : 2#变频功率卡温度故障
         Offset : 173
         AlertNormalValue : 0
+        TeleSignalId : 120830171490
+        UnicomSignalId : 602400101133
       - Name : 2#变频接地故障2
         Offset : 174
         AlertNormalValue : 0
+        TeleSignalId : 120830171500
+        UnicomSignalId : 602400101134
       - Name : 2#变频过电流
         Offset : 175
         AlertNormalValue : 0
+        TeleSignalId : 120830171510
+        UnicomSignalId : 602400101135
       - Name : 2#变频器短路
         Offset : 176
         AlertNormalValue : 0
+        TeleSignalId : 120830171520
+        UnicomSignalId : 602400101136
       - Name : 2#变频主电源缺相
         Offset : 177
         AlertNormalValue : 0
+        TeleSignalId : 120830171530
+        UnicomSignalId : 602400101137
       - Name : 2#变频内部故障
         Offset : 178
         AlertNormalValue : 0
+        TeleSignalId : 120830171540
+        UnicomSignalId : 602400101138
       - Name : 2#变频U相缺相
         Offset : 179
         AlertNormalValue : 0
+        TeleSignalId : 120830171550
+        UnicomSignalId : 602400101139
       - Name : 2#变频V相缺相
         Offset : 180
         AlertNormalValue : 0
+        TeleSignalId : 120830171560
+        UnicomSignalId : 602400101140
       - Name : 2#变频W相缺相
         Offset : 181
         AlertNormalValue : 0
+        TeleSignalId : 120830171570
+        UnicomSignalId : 602400101141
       - Name : 2#变频控制电压故障
         Offset : 182
         AlertNormalValue : 0
+        TeleSignalId : 120830171580
+        UnicomSignalId : 602400101142
       - Name : 2#变频制动电阻器短路故障
         Offset : 183
         AlertNormalValue : 0
+        TeleSignalId : 120830171590
+        UnicomSignalId : 602400101143
       - Name : 2#变频接地故障
         Offset : 184
         AlertNormalValue : 0
+        TeleSignalId : 120830171600
+        UnicomSignalId : 602400101144
       - Name : 2#变频制动斩波器短路故障
         Offset : 185
         AlertNormalValue : 0
+        TeleSignalId : 120830171610
+        UnicomSignalId : 602400101145
       - Name : 1#氟泵缺失
         Offset : 187
         AlertNormalValue : 0
+        TeleSignalId : 120830171620
+        UnicomSignalId : 602400101146
       - Name : 1#氟泵维护故障
         Offset : 188
         AlertNormalValue : 0
+        TeleSignalId : 120830171630
+        UnicomSignalId : 602400101147
       - Name : 2#氟泵缺失
         Offset : 189
         AlertNormalValue : 0
+        TeleSignalId : 120830171640
+        UnicomSignalId : 602400101148
       - Name : 2#氟泵维护故障
         Offset : 190
         AlertNormalValue : 0
+        TeleSignalId : 120830171650
+        UnicomSignalId : 602400101149
       - Name : 送风温度探头3故障
         Offset : 191
         AlertNormalValue : 0
+        TeleSignalId : 120830171660
+        UnicomSignalId : 602400101150
       - Name : 回风温度探头2故障
         Offset : 192
         AlertNormalValue : 0
+        TeleSignalId : 120830171670
+        UnicomSignalId : 602400101151
       - Name : 送风温度探头2故障
         Offset : 193
         AlertNormalValue : 0
+        TeleSignalId : 120830171680
+        UnicomSignalId : 602400101152
       - Name : 压差报警
         Offset : 194
         AlertNormalValue : 0
+        TeleSignalId : 120830171690
+        UnicomSignalId : 602400101153
       - Name : 所有回风温度探头故障
         Offset : 195
         AlertNormalValue : 0
+        TeleSignalId : 120830171700
+        UnicomSignalId : 602400101154
   - Cmd : 1
     Offset : 656
     Len : 3
@@ -706,12 +1087,18 @@ Sample :
       - Name : 加湿器低电流报警
         Offset : 1
         AlertNormalValue : 0
+        TeleSignalId : 120830171710
+        UnicomSignalId : 602400101155
       - Name : 水质软报警
         Offset : 2
         AlertNormalValue : 0
+        TeleSignalId : 120830171720
+        UnicomSignalId : 602400101156
       - Name : 加湿器高水位
         Offset : 3
         AlertNormalValue : 0
+        TeleSignalId : 120830171730
+        UnicomSignalId : 602400101157
   - Cmd : 3
     Offset : 0
     Len : 1
@@ -1370,3 +1757,147 @@ Sample :
       - Name : 2#氟泵频率
         Ratio : 10
         Unit : "Hz"
+
+SET_RET_CODE : |
+  case AC_Control_Code::AC_START: {
+        if(tab_reg[0] == 1) {
+            cmd_result_ = 1;
+        } else {
+            cmd_result_ = 3;
+        }
+        Reset();
+        return false;
+      }
+      case AC_Control_Code::AC_STOP: {
+        if(tab_reg[0] == 0) {
+            cmd_result_ = 1;
+        } else {
+            cmd_result_ = 3;
+        }
+        Reset();
+        return false;
+      } 
+      case AC_Control_Code::AC_SET_TEMPERATURE:
+      case AC_Control_Code::AC_SET_HUMID: {
+        if(tab_reg[0] == last_data_) {
+            cmd_result_ = 1;
+        } else {
+            cmd_result_ = 3;
+        }
+        Reset();
+        return false;
+      }
+      
+SET_DO_CODE : |
+  std::string doId((char*)inBuffer, inBufferSize);
+  if(doId == "601500201001" || doId == "140800280010") {
+      //开机
+      state = AC_Control_Code::AC_START;
+      cmd_result_ = -1;
+      last_data_ = 1;
+      modbus_write_bit(276, 1);
+      if((uint32_t)outBufferSize >= sizeof(int)) {
+          *((int*)outBuffer) = -1;//通知取状态
+          bytesReturned = sizeof(int);
+      }
+  } else if(doId == "601500200001" || doId == "140800300010") {
+      //关机
+      state = AC_Control_Code::AC_STOP;
+      cmd_result_ = -1;
+      last_data_ = 0;
+      modbus_write_bit(276, 0);
+      if((uint32_t)outBufferSize >= sizeof(int)) {
+          *((int*)outBuffer) = -1;//通知取状态
+          bytesReturned = sizeof(int);
+      }
+  }
+
+
+SET_AO_CODE: |
+  if(setting["signal_id"].asString() == "6016A2101001" || setting["signal_id"].asString() == "150800310010") {
+      if(setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
+          int16_t newValue = atoi(setting["SetValue"].asString().c_str())*10;
+          //1#回风温度
+          state = AC_Control_Code::AC_SET_TEMPERATURE;
+          cmd_result_ = -1;
+          OpenPort();
+          modbus_write_register(0, newValue);
+          if((uint32_t)outBufferSize >= sizeof(int)) {
+              *((int*)outBuffer) = -1;//通知取状态
+              bytesReturned = sizeof(int);
+          }                       
+      }
+  } else if(setting["signal_id"].asString() == "6016A2101001" || setting["signal_id"].asString() == "150800340010") {
+      if(setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
+          int16_t newValue = atoi(setting["SetValue"].asString().c_str())*10;
+          //湿度
+          state = AC_Control_Code::AC_SET_HUMID;
+          cmd_result_ = -1;
+          OpenPort();
+          modbus_write_register(1, newValue);
+          if((uint32_t)outBufferSize >= sizeof(int)) {
+              *((int*)outBuffer) = -1;//通知取状态
+              bytesReturned = sizeof(int);
+          }                       
+      }
+  }
+DEVICEIOCONTROL_CODE: |
+    case AC_Control_Code::AC_START: {
+        state = AC_Control_Code::AC_START;
+        cmd_result_ = -1;
+        OpenPort();
+        last_data_ = 1;
+        modbus_write_bit(276, 1);
+        if((uint32_t)outBufferSize >= sizeof(int)) {
+            *((int*)outBuffer) = -1;//通知取状态
+            bytesReturned = sizeof(int);
+        }
+        break;
+    }    
+    case AC_Control_Code::AC_STOP: {
+        state = AC_Control_Code::AC_STOP;
+        cmd_result_ = -1;
+        OpenPort();
+        last_data_ = 0;
+        modbus_write_bit(276, 0);
+        if((uint32_t)outBufferSize >= sizeof(int)) {
+            *((int*)outBuffer) = -1;//通知取状态
+            bytesReturned = sizeof(int);
+        }
+        break;
+    }
+    case AC_Control_Code::AC_SET_TEMPERATURE: {
+        if(inBufferSize == sizeof(uint16_t)) {
+            state = AC_Control_Code::AC_SET_TEMPERATURE;
+            cmd_result_ = -1;
+            OpenPort();
+            last_data_ = 10* (*(uint16_t*)inBuffer);
+            modbus_write_register(0, last_data_);
+            if((uint32_t)outBufferSize >= sizeof(int)) {
+              *((int*)outBuffer) = -1;//通知取状态
+              bytesReturned = sizeof(int);
+          }       
+        }
+        break;
+    }
+    case AC_Control_Code::AC_SET_HUMID: {
+        if(inBufferSize == sizeof(uint16_t)) {
+            state = AC_Control_Code::AC_SET_HUMID;
+            cmd_result_ = -1;
+            OpenPort();
+            last_data_ = 10*(*(uint16_t*)inBuffer);
+            modbus_write_register(1, last_data_);
+            if((uint32_t)outBufferSize >= sizeof(int)) {
+              *((int*)outBuffer) = -1;//通知取状态
+              bytesReturned = sizeof(int);
+          }       
+        }
+        break;
+    } 
+
+
+
+
+
+
+

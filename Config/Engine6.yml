@@ -1,0 +1,451 @@
+Project:
+  Name : Engine6
+  RT_ID : 5156
+  File : "Modbus TCP通讯点表  - 副本.xlsx"
+  DevType : 4
+  ProtocolName : 油机6
+  Category : 柴油发电机组
+Sample : 
+  - Cmd : 4
+    Offset : 502
+    Len : 13
+    Data :
+      - Name : 发电机线电压UL1_L2
+        Unit : V
+      - Name : 发电机线电压UL2_L3
+        Unit : V
+      - Name : 发电机线电压UL3_L1
+        Unit : V
+      - Name : 发电机相电压UL1
+        Unit : V
+      - Name : 发电机相电压UL2
+        Unit : V
+      - Name : 发电机相电压UL3
+        Unit : V
+      - Name : 发电机频率
+        Ratio : 100
+        Unit : Hz
+      - Name : 发电机电压相角L1-L2
+        Ratio  : 10
+      - Name : 发电机电压相角L2-L3
+        Ratio : 10
+      - Name : 发电机电压相角L3-L1
+        Ratio : 10
+      - Name : 发电机电流L1
+        Unit : A
+      - Name : 发电机电流L2
+        Unit : A
+      - Name : 发电机电流L3
+        Unit : A
+  - Cmd : 4
+    Offset : 520
+    Len : 9
+    Data :
+      - Name : 有功总功率
+        Offset : 1
+        Unit : kW
+      - Name : 无功总功率
+        Offset : 5
+        Unit : kVar
+      - Name : 视在总功率
+        Offset : 9
+        Unit : kVA
+  - Cmd : 4
+    Offset : 539
+    Len : 1
+    Data : 
+      - Name : 功率因数
+        Ratio : 100
+  - Cmd : 4
+    Offset : 529
+    Len : 2
+    Data : 
+      - Name : 无功总电能
+        Value : ((($v[1] << 16) | $v[2]) 
+        CValue : (((pData[0] << 16) | pData[1])
+        Unit : kvarh
+  - Cmd : 4
+    Offset : 537
+    Len : 2
+    Data : 
+      - Name : 有功总电能
+        Value : ((($v[1] << 16) | $v[2]) 
+        CValue : (((pData[0] << 16) | pData[1])
+        Unit : kWh
+  - Cmd : 4
+    Offset : 540
+    Len : 10
+    Data :
+      - Name : 母线线电压UL1_L2
+        Unit : V
+      - Name : 母线线电压UL2_L3
+        Unit : V
+      - Name : 母线线电压UL3_L1
+        Unit : V
+      - Name : 母排电压L1-N
+        Unit : V
+      - Name : 母排电压L2-N
+        Unit : V
+      - Name : 母排电压L3-N
+        Unit : V
+      - Name : 母线频率
+        Ratio : 100
+        Unit : Hz
+      - Name : 母排电压相角L1-L2
+        Ratio  : 10
+      - Name : 母排电压相角L2-L3
+        Ratio : 10
+      - Name : 母排电压相角L3-L1
+        Ratio : 10
+  - Cmd : 4
+    Offset : 555
+    Len : 2
+    Data :
+      - Name : 机组运行时间
+        Value : ((($v[1] << 16) | $v[2]) 
+        CValue : (((pData[0] << 16) | pData[1])
+        Unit : 小时
+  - Cmd : 4
+    Offset : 568
+    Len : 1
+    Data :
+      - Name : 电池电压
+        Ratio : 10
+        Unit : V
+  - Cmd : 4
+    Offset : 594
+    Len : 3
+    Data :
+      - Name : 发动机转速
+        Unit : RPM
+      - Name : 冷却水温
+        Ratio : 10
+        Unit : V
+      - Name : 机油压力
+        Ratio : 100
+        Unit : bar
+  - Cmd : 4
+    Offset : 1001
+    Len : 1
+    Data :
+      - Name : 机组逆功率1
+        Value : ($v[1]&0x1)
+        CValue : (pData[0]&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400010
+      - Name : 机组逆功率2
+        Value : (($v[1]>>1)&0x1)
+        CValue : ((pData[0]>>1)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400020
+      - Name : 机组过电流1
+        Value : (($v[1]>>3)&0x1)
+        CValue : ((pData[0]>>3)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400030
+      - Name : 机组过电流2
+        Value : (($v[1]>>4)&0x1)
+        CValue : ((pData[0]>>4)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400040
+      - Name : 机组过电流3
+        Value : (($v[1]>>5)&0x1)
+        CValue : ((pData[0]>>5)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400050
+      - Name : 机组过电流4
+        Value : (($v[1]>>6)&0x1)
+        CValue : ((pData[0]>>6)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400060
+      - Name : 速断电流1
+        Value : (($v[1]>>9)&0x1)
+        CValue : ((pData[0]>>9)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400070
+      - Name : 速断电流2
+        Value : (($v[1]>>10)&0x1)
+        CValue : ((pData[0]>>10)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400080
+      - Name : 机组过电压1
+        Value : (($v[1]>>11)&0x1)
+        CValue : ((pData[0]>>11)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400090
+      - Name : 机组过电压2
+        Value : (($v[1]>>12)&0x1)
+        CValue : ((pData[0]>>12)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400100
+      - Name : 机组过电压1
+        Value : (($v[1]>>13)&0x1)
+        CValue : ((pData[0]>>13)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400110
+      - Name : 机组过电压2
+        Value : (($v[1]>>14)&0x1)
+        CValue : ((pData[0]>>14)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400120
+      - Name : 机组过电压3
+        Value : (($v[1]>>15)&0x1)
+        CValue : ((pData[0]>>15)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400130
+  - Cmd : 4
+    Offset : 1002
+    Len : 1
+    Data :
+      - Name : 机组过频1
+        Value : ($v[1]&0x1)
+        CValue : (pData[0]&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400140
+      - Name : 机组过频2
+        Value : (($v[1]>>1)&0x1)
+        CValue : ((pData[0]>>1)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400150
+      - Name : 机组过频3
+        Value : (($v[1]>>3)&0x1)
+        CValue : ((pData[0]>>3)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400160    
+      - Name : 机组欠频1
+        Value : (($v[1]>>4)&0x1)
+        CValue : ((pData[0]>>4)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400170
+      - Name : 机组欠频2
+        Value : (($v[1]>>5)&0x1)
+        CValue : ((pData[0]>>5)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400180  
+      - Name : 机组欠频3
+        Value : (($v[1]>>6)&0x1)
+        CValue : ((pData[0]>>6)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400190  
+  - Cmd : 4
+    Offset : 1003
+    Len : 1
+    Data :
+      - Name : 机组过载1
+        Value : (($v[1]>>7)&0x1)
+        CValue : ((pData[0]>>7)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400200  
+      - Name : 机组过载2
+        Value : (($v[1]>>8)&0x1)
+        CValue : ((pData[0]>>8)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400210 
+      - Name : 机组过载3
+        Value : (($v[1]>>9)&0x1)
+        CValue : ((pData[0]>>9)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400220
+      - Name : 机组过载4
+        Value : (($v[1]>>10)&0x1)
+        CValue : ((pData[0]>>10)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400230 
+      - Name : 机组过载5
+        Value : (($v[1]>>11)&0x1)
+        CValue : ((pData[0]>>11)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400240 
+      - Name : 机组欠励磁
+        Value : (($v[1]>>14)&0x1)
+        CValue : ((pData[0]>>14)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400250 
+      - Name : 机组过励磁
+        Value : (($v[1]>>15)&0x1)
+        CValue : ((pData[0]>>15)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400260 
+  - Cmd : 4
+    Offset : 1006
+    Len : 1
+    Data :
+      - Name : GB同步失败
+        Value : (($v[1]>>1)&0x1)
+        CValue : ((pData[0]>>1)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400270  
+      - Name : 机组相序错误
+        Value : (($v[1]>>3)&0x1)
+        CValue : ((pData[0]>>3)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400280  
+      - Name : 机组分闸失败
+        Value : (($v[1]>>4)&0x1)
+        CValue : ((pData[0]>>4)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400290  
+      - Name : 机组合闸失败
+        Value : (($v[1]>>5)&0x1)
+        CValue : ((pData[0]>>5)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400300  
+      - Name : 机组开关位置故障
+        Value : (($v[1]>>6)&0x1)
+        CValue : ((pData[0]>>6)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400310
+  - Cmd : 4
+    Offset : 1007
+    Len : 1
+    Data :
+      - Name : 调速失败
+        Value : (($v[1]>>0)&0x1)
+        CValue : ((pData[0]>>0)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400320  
+      - Name : 解列失败
+        Value : (($v[1]>>1)&0x1)
+        CValue : ((pData[0]>>1)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400330  
+      - Name : 调压失败
+        Value : (($v[1]>>2)&0x1)
+        CValue : ((pData[0]>>2)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400340 
+  - Cmd : 4
+    Offset : 1008
+    Len : 1
+    Data :
+      - Name : 进线柜综合故障报警（DI25）
+        Value : (($v[1]>>2)&0x1)
+        CValue : ((pData[0]>>2)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400350  
+      - Name : GCB分闸反馈（DI26）
+        Value : (($v[1]>>3)&0x1)
+        CValue : ((pData[0]>>3)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400360  
+      - Name : GCB合闸反馈（DI27）
+        Value : (($v[1]>>4)&0x1)
+        CValue : ((pData[0]>>4)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400370  
+  - Cmd : 4
+    Offset : 1009
+    Len : 1
+    Data :
+      - Name : 消防停机（DI52）
+        Value : (($v[1]>>9)&0x1)
+        CValue : ((pData[0]>>9)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400380  
+      - Name : 燃油泄漏（DI55）
+        Value : (($v[1]>>12)&0x1)
+        CValue : ((pData[0]>>12)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400390 
+  - Cmd : 4
+    Offset : 1011
+    Len : 1
+    Data :
+      - Name : 低水位报警（DI115）
+        Value : (($v[1]>>9)&0x1)
+        CValue : ((pData[0]>>9)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400400  
+      - Name : 百叶窗打开（DI116）
+        Value : (($v[1]>>10)&0x1)
+        CValue : ((pData[0]>>10)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400410 
+  - Cmd : 4
+    Offset : 1014
+    Len : 1
+    Data :
+      - Name : 运行反馈故障
+        Value : (($v[1]>>12)&0x1)
+        CValue : ((pData[0]>>12)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400420  
+      - Name : 机组频率/电压故障
+        Value : (($v[1]>>14)&0x1)
+        CValue : ((pData[0]>>14)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400430 
+      - Name : 启动失败
+        Value : (($v[1]>>15)&0x1)
+        CValue : ((pData[0]>>15)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400440 
+  - Cmd : 4
+    Offset : 1015
+    Len : 1
+    Data :
+      - Name : 停机失败
+        Value : (($v[1]>>0)&0x1)
+        CValue : ((pData[0]>>0)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400450  
+      - Name : 电池电压低报警
+        Value : (($v[1]>>1)&0x1)
+        CValue : ((pData[0]>>1)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400460 
+      - Name : 电池电压高报警
+        Value : (($v[1]>>2)&0x1)
+        CValue : ((pData[0]>>2)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400470 
+  - Cmd : 4
+    Offset : 1019
+    Len : 1
+    Data :
+      - Name : 发动机运行
+        Value : (($v[1]>>6)&0x1)
+        CValue : ((pData[0]>>6)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400480  
+  - Cmd : 4
+    Offset : 1020
+    Len : 1
+    Data :
+      - Name : 并机控制器手动模式状态
+        Value : (($v[1]>>1)&0x1)
+        CValue : ((pData[0]>>1)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400490  
+      - Name : 并机控制器半自动模式状态
+        Value : (($v[1]>>2)&0x1)
+        CValue : ((pData[0]>>2)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400500  
+      - Name : 并机控制器自动模式状态
+        Value : (($v[1]>>3)&0x1)
+        CValue : ((pData[0]>>3)&0x1)
+  - Cmd : 4
+    Offset : 1021
+    Len : 1
+    Data :
+      - Name : 高水温报警
+        Value : (($v[1]>>4)&0x1)
+        CValue : ((pData[0]>>4)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400510  
+      - Name : 高水温停机
+        Value : (($v[1]>>5)&0x1)
+        CValue : ((pData[0]>>5)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400520 
+      - Name : 低油压报警
+        Value : (($v[1]>>6)&0x1)
+        CValue : ((pData[0]>>6)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400530  
+      - Name : 低油压停机
+        Value : (($v[1]>>7)&0x1)
+        CValue : ((pData[0]>>7)&0x1)
+        AlertNormalValue : 0
+        TeleSignalId : 120300400540   

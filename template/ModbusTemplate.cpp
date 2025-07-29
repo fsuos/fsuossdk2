@@ -101,7 +101,7 @@ void {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}(char* pCData,const 
 {% endfor %}
 {% endif %}
 
-{% macro render_sc_alert(sc, scPrefix=none) -%}
+{% macro render_sc_alert(sc, vendor, scPrefix=none) -%}
   {
   {% if sc.Data is defined %}
         {% set hasAlert = namespace(found=false) %}
@@ -147,9 +147,9 @@ void {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}(char* pCData,const 
                 std::string name = nameBuffer;
                 int kIndex = {{ d.Offset }} + i;
                  {% if d.AlertNormalValue is defined  %}
-                 {% if d.TeleSignalId is defined %}
+                 {% if vendor == 2 and d.TeleSignalId is defined %}
                  CheckThresholdBool(2, "{{ d.TeleSignalId }}", "{{ d.TeleSignalId }}", name, name,  pData[kIndex], signal_index_++); 
-                 {% elif d.UnicomSignalId is defined %}
+                 {% elif vendor == 1 and d.UnicomSignalId is defined %}
                  CheckThresholdBool(2, "{{ d.UnicomSignalId }}", "{{ d.UnicomSignalId }}", name, name,  pData[kIndex], signal_index_++); 
                  {% endif %}
                 {% endif %}
@@ -157,18 +157,18 @@ void {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}(char* pCData,const 
           {% elif d.CValue is defined %}
             {% if d.AlertNormalValue is defined %}
             //if({{ d.CValue }} != 0xFFFF && {{ d.CValue }} != 0x20) 
-            {% if d.TeleSignalId is defined %}
+            {% if vendor == 2 and d.TeleSignalId is defined %}
             CheckThresholdBool(2, "{{ d.TeleSignalId }}", "{{ d.TeleSignalId }}", {% if d.TeleSignalName is defined %}"{{ d.TeleSignalName }}"{%else%}"{{ d.Name }}"{% endif %}, "{{ d.Name }}",  {{ d.CValue }}, signal_index_++); 
-            {% elif d.UnicomSignalId is defined %}
+            {% elif vendor == 21 and d.UnicomSignalId is defined %}
             CheckThresholdBool(2, "{{ d.UnicomSignalId }}", "{{ d.UnicomSignalId }}", {% if d.UnicomSignalName is defined %}"{{ d.UnicomSignalName }}"{%else%}"{{ d.Name }}"{% endif %}, "{{ d.Name }}",  {{ d.CValue }}, signal_index_++); 
             {% endif %}
 
             {% endif %}
           {% elif d.AlertNormalValue is defined %}
             //if(pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] != 0xFFFF && pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] != 0x20) 
-            {% if d.TeleSignalId is defined %}
+            {% if vendor == 2 and  d.TeleSignalId is defined %}
             CheckThresholdBool(2, "{{ d.TeleSignalId }}", "{{ d.TeleSignalId }}", {% if d.TeleSignalName is defined %}"{{ d.TeleSignalName }}"{%else%}"{{ d.Name }}"{% endif %}, "{{ d.Name }}", pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}], signal_index_++); 
-            {% elif d.UnicomSignalId is defined %}
+            {% elif vendor == 1 and d.UnicomSignalId is defined %}
             CheckThresholdBool(2, "{{ d.UnicomSignalId }}", "{{ d.UnicomSignalId }}", {% if d.UnicomSignalName is defined %}"{{ d.UnicomSignalName }}"{%else%}"{{ d.Name }}"{% endif %}, "{{ d.Name }}", pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}], signal_index_++); 
             {% endif %}
           {% endif %}
@@ -307,7 +307,7 @@ void {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}(char* pCData,const 
                     char nameBuffer[48] = {0};
                     snprintf(nameBuffer, 48, "{{ d.ArrayName }}", {{ d.ArrayStart }} + i);
                     std::string name = nameBuffer;
-                    int kIndex = {{ d.Offset }} + i;
+                    int kIndex = {% if d.Offset is defined %}{{ d.Offset }}{% else %}0{% endif %} + i;
                     {{ jsonValueStr }}[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}name] = ((float)pData[kIndex]){% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %};
                 }
             {% endif %}
@@ -435,24 +435,75 @@ void {{ Project.Name }}::RunCheckThreshold()
                     namePrefix = namePrefixArray[index-1].asString();
                     {% endif %}
                     {% for sc in tsc.CmdGroupSample %}
-                    {{ render_sc_alert(sc, "namePrefix") }}
+                    {{ render_sc_alert(sc, 1, "namePrefix") }}
                     {% endfor %}
                     }
                 {% else %}
-                {{ render_sc_alert(tsc, none) }}
+                {{ render_sc_alert(tsc, 1, none) }}
                 {% endif %}
             {% endfor %}
-            break;
             break;
         }
         case 2://电信
         {
              {% if RunCheckThresholdCodeTelecom is defined %}{{ RunCheckThresholdCodeTelecom }}{% endif %}
+             uint8_t* pCData = (uint8_t*)&cData;
+            int offset = 4;
+            {% for tsc in Sample %}
+                {% if tsc.CmdGroupStart is defined %}                
+                    for(int cgIndex = {{ tsc.CmdGroupStart }}, index = 1; cgIndex < {{ tsc.CmdGroupEnd }}; cgIndex+={{ tsc.CmdGroupStep}}, index++){
+                        std::string namePrefix;
+                    {% if tsc.CmdGroupPrefix is string %}
+                    char nameBuffer[48] = {0};
+                    snprintf(nameBuffer, 48, "{{ tsc.CmdGroupPrefix }}", index);
+                    namePrefix = nameBuffer;
+                    {% else %}
+                    Json::Value namePrefixArray;
+                    Json::Reader pReader;//解析
+                    if(!pReader.parse("{{ tsc.CmdGroupPrefix }}", namePrefixArray)) {
+                    continue;
+                    }
+                    namePrefix = namePrefixArray[index-1].asString();
+                    {% endif %}
+                    {% for sc in tsc.CmdGroupSample %}
+                    {{ render_sc_alert(sc, 2, "namePrefix") }}
+                    {% endfor %}
+                    }
+                {% else %}
+                {{ render_sc_alert(tsc, 2, none) }}
+                {% endif %}
+            {% endfor %}
             break;
         }
         case 3://移动
         {
             {% if RunCheckThresholdCodeMobile is defined %}{{ RunCheckThresholdCodeMobile }}{% endif %}
+            uint8_t* pCData = (uint8_t*)&cData;
+            int offset = 4;
+            {% for tsc in Sample %}
+                {% if tsc.CmdGroupStart is defined %}                
+                    for(int cgIndex = {{ tsc.CmdGroupStart }}, index = 1; cgIndex < {{ tsc.CmdGroupEnd }}; cgIndex+={{ tsc.CmdGroupStep}}, index++){
+                        std::string namePrefix;
+                    {% if tsc.CmdGroupPrefix is string %}
+                    char nameBuffer[48] = {0};
+                    snprintf(nameBuffer, 48, "{{ tsc.CmdGroupPrefix }}", index);
+                    namePrefix = nameBuffer;
+                    {% else %}
+                    Json::Value namePrefixArray;
+                    Json::Reader pReader;//解析
+                    if(!pReader.parse("{{ tsc.CmdGroupPrefix }}", namePrefixArray)) {
+                    continue;
+                    }
+                    namePrefix = namePrefixArray[index-1].asString();
+                    {% endif %}
+                    {% for sc in tsc.CmdGroupSample %}
+                    {{ render_sc_alert(sc, 3, "namePrefix") }}
+                    {% endfor %}
+                    }
+                {% else %}
+                {{ render_sc_alert(tsc, 3, none) }}
+                {% endif %}
+            {% endfor %}
             break;
         }
         default:{//默认电信动环的情况
@@ -475,11 +526,11 @@ void {{ Project.Name }}::RunCheckThreshold()
                     namePrefix = namePrefixArray[index-1].asString();
                     {% endif %}
                     {% for sc in tsc.CmdGroupSample %}
-                    {{ render_sc_alert(sc, "namePrefix") }}
+                    {{ render_sc_alert(sc, 0, "namePrefix") }}
                     {% endfor %}
                     }
                 {% else %}
-                {{ render_sc_alert(tsc, none) }}
+                {{ render_sc_alert(tsc, 0, none) }}
                 {% endif %}
             {% endfor %}
             break;
@@ -754,11 +805,9 @@ int {{ Project.Name }}::DeviceIoControl(int ioControlCode, const void* inBuffer,
           return -1;
         }
         if(setting["signal_id"] != Json::nullValue && setting["signal_id"].type()  != Json::nullValue) {
-            if(setting["signal_id"].asString() != "") {
                 {% if SET_AO_CODE is defined %}
                 {{ SET_AO_CODE }}
                 {% endif %}
-            }
         }
     }
     break;

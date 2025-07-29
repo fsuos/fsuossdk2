@@ -1,0 +1,632 @@
+Project:
+  Name : XJBALengJiTongXun
+  RT_ID : 5156
+  File : "新疆二枢纽BA数据MODBUS_TCP协议25.7.8.xls - 冷机通讯"
+  DevType : 4
+  ProtocolName : 新疆二枢纽BA冷机通讯
+  Category : 专用空调
+BlockTemplate: 
+  ValveAction:
+    BlockLength : 4
+    BlockType : 'S'
+    BlockContent :
+      - Name : "%s动作状态-本地/远程"
+        CValue : (pData[1] & 0x1)
+        Value : ($v[2] & 0x1)
+        Options : 
+          - Key : 0
+            Value : 本地
+          - Key : 1
+            Value : 远程
+      - Name : "%s动作状态-开到位"
+        CValue : ((pData[1]>>1) & 0x1)
+        Value : (($v[2]>>1) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 未开到位
+          - Key : 1
+            Value : 开到位
+      - Name : "%s动作状态-关到位"
+        CValue : ((pData[1]>>2) & 0x1)
+        Value : (($v[2]>>2) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 未关到位
+          - Key : 1
+            Value : 关到位
+      - Name : "%s动作状态-开故障"
+        CValue : ((pData[1]>>3) & 0x1)
+        Value : (($v[2]>>3) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 开阀故障
+      - Name : "%s动作状态-关故障"
+        CValue : ((pData[1]>>4) & 0x1)
+        Value : (($v[2]>>4) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 关阀故障
+      - Name : "%s动作状态-故障汇总"
+        CValue : ((pData[1]>>5) & 0x1)
+        Value : (($v[2]>>5) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 故障
+      - Name : "%s动作状态-开过程中"
+        CValue : ((pData[1]>>6) & 0x1)
+        Value : (($v[2]>>6) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无动作
+          - Key : 1
+            Value : 开阀过程中
+      - Name : "%s动作状态-关过程中"
+        CValue : ((pData[1]>>7) & 0x1)
+        Value : (($v[2]>>7) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无动作
+          - Key : 1
+            Value : 关阀过程中
+      - Name : "%s动作状态-中间状态"
+        CValue : ((pData[1]>>8) & 0x1)
+        Value : (($v[2]>>8) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 未处于中间状态
+          - Key : 1
+            Value : 中间状态
+  ValveControl:
+    BlockLength : 4
+    BlockType : 'S'
+    BlockContent :
+      - Name : "%s控制状态-手动/自动"
+        CValue : (pData[1] & 0x1)
+        Value : ($v[2] & 0x1)
+        Options : 
+          - Key : 0
+            Value : 自动
+          - Key : 1
+            Value : 手动
+  SensorStatus:
+    BlockLength : 4
+    BlockType : 'S'
+    BlockContent :
+      - Name : "%s-断线报警使能"
+        CValue : (pData[1] & 0x1)
+        Value : ($v[2] & 0x1)
+        Options : 
+          - Key : 0
+            Value : 未使能
+          - Key : 1
+            Value : 使能
+      - Name : "%s-预警使能"
+        CValue : ((pData[1]>>1) & 0x1)
+        Value : (($v[2]>>1) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 未使能
+          - Key : 1
+            Value : 使能
+      - Name : "%s-报警使能"
+        CValue : ((pData[1]>>2) & 0x1)
+        Value : (($v[2]>>2) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 未使能
+          - Key : 1
+            Value : 使能
+      - Name : "%s-高报警"
+        CValue : ((pData[1]>>3) & 0x1)
+        Value : (($v[2]>>3) & 0x1)
+        AlertNormalValue : 0
+      - Name : "%s-高预警"
+        CValue : ((pData[1]>>4) & 0x1)
+        Value : (($v[2]>>4) & 0x1)
+        AlertNormalValue : 0
+      - Name : "%s-低预警"
+        CValue : ((pData[1]>>5) & 0x1)
+        Value : (($v[2]>>5) & 0x1)
+        AlertNormalValue : 0
+      - Name : "%s-低报警"
+        CValue : ((pData[1]>>6) & 0x1)
+        Value : (($v[2]>>6) & 0x1)
+        AlertNormalValue : 0
+      - Name : "%s-断线报警"
+        CValue : ((pData[1]>>9) & 0x1)
+        Value : (($v[2]>>9) & 0x1)
+        AlertNormalValue : 0
+Sample : 
+  - Cmd : 3
+    Offset : 1910
+    Len : 2
+    RType : 'f'
+    Data : 
+      - Name : 冷机1冷冻水出水温度设定
+        Unit : ”℃“
+  - Cmd : 3
+    Offset : 1914
+    Len : 24
+    RType : 'f'
+    Data : 
+      - Name : 冷机1制冷待机温度设定
+        Unit : ”℃“
+      - Name : 冷机1冷冻水进水温度
+        Unit : ”℃“
+      - Name : 冷机1冷冻水出水温度
+        Unit : ”℃“
+      - Name : 冷机1冷却水进水温度
+        Unit : ”℃“
+      - Name : 冷机1冷却水出水温度
+        Unit : ”℃“
+      - Name : 冷机1压缩机排气温度
+        Unit : ”℃“
+      - Name : 冷机1压缩机供油温度
+        Unit : ”℃“
+      - Name : 冷机1压缩机油箱温度
+        Unit : ”℃“
+      - Name : 冷机1电机绕组温度
+        Unit : ”℃“
+      - Name : 冷机1变频器环境温度
+        Unit : ”℃“
+      - Name : 冷机1冷凝温度
+        Unit : ”℃“
+      - Name : 冷机1蒸发温度
+        Unit : ”℃“
+  - Cmd : 3
+    Offset : 1948
+    Len : 4
+    RType : 'f'
+    Data : 
+      - Name : 冷机1压缩机导叶运行开度
+        Unit : '%'
+      - Name : 冷机1机组负荷
+        Unit : '%'
+  - Cmd : 3
+    Offset : 1966
+    Len : 2
+    RType : 'f'
+    Data : 
+      - Name : 冷机1运行频率
+        Unit : Hz
+  - Cmd : 3
+    Offset : 1984
+    Len : 2
+    RType : 'f'
+    Data : 
+      - Name : 冷机1机组消耗功率
+        Unit : KW
+  - Cmd : 3
+    Offset : 1990
+    Len : 4
+    RType : 'f'
+    Data : 
+      - Name : 冷机1蒸发器端温差
+        Unit : ”℃“
+      - Name : 冷机1冷凝器端温差
+        Unit : ”℃“
+  - Cmd : 3
+    Offset : 1996
+    Len : 2
+    RType : 'f'
+    Data : 
+      - Name : 冷机2冷冻水出水温度设定
+        Unit : ”℃“
+  - Cmd : 3
+    Offset : 2000
+    Len : 24
+    RType : 'f'
+    Data : 
+      - Name : 冷机2制冷待机温度设定
+        Unit : ”℃“
+      - Name : 冷机2冷冻水进水温度
+        Unit : ”℃“
+      - Name : 冷机2冷冻水出水温度
+        Unit : ”℃“
+      - Name : 冷机2冷却水进水温度
+        Unit : ”℃“
+      - Name : 冷机2冷却水出水温度
+        Unit : ”℃“
+      - Name : 冷机2压缩机排气温度
+        Unit : ”℃“
+      - Name : 冷机2压缩机供油温度
+        Unit : ”℃“
+      - Name : 冷机2压缩机油箱温度
+        Unit : ”℃“
+      - Name : 冷机2电机绕组温度
+        Unit : ”℃“
+      - Name : 冷机2变频器环境温度
+        Unit : ”℃“
+      - Name : 冷机2冷凝温度
+        Unit : ”℃“
+      - Name : 冷机2蒸发温度
+        Unit : ”℃“
+  - Cmd : 3
+    Offset : 2034
+    Len : 4
+    RType : 'f'
+    Data : 
+      - Name : 冷机2压缩机导叶运行开度
+        Unit : '%'
+      - Name : 冷机2机组负荷
+        Unit : '%'
+  - Cmd : 3
+    Offset : 2052
+    Len : 2
+    RType : 'f'
+    Data : 
+      - Name : 冷机2运行频率
+        Unit : Hz
+  - Cmd : 3
+    Offset : 2070
+    Len : 2
+    RType : 'f'
+    Data : 
+      - Name : 冷机2机组消耗功率
+        Unit : KW
+  - Cmd : 3
+    Offset : 2076
+    Len : 4
+    RType : 'f'
+    Data : 
+      - Name : 冷机2蒸发器端温差
+        Unit : ”℃“
+      - Name : 冷机2冷凝器端温差
+        Unit : ”℃“
+  - Cmd : 3
+    Offset : 2082
+    Len : 2
+    RType : 'f'
+    Data : 
+      - Name : 冷机3冷冻水出水温度设定
+        Unit : ”℃“
+  - Cmd : 3
+    Offset : 2086
+    Len : 24
+    RType : 'f'
+    Data : 
+      - Name : 冷机3制冷待机温度设定
+        Unit : ”℃“
+      - Name : 冷机3冷冻水进水温度
+        Unit : ”℃“
+      - Name : 冷机3冷冻水出水温度
+        Unit : ”℃“
+      - Name : 冷机3冷却水进水温度
+        Unit : ”℃“
+      - Name : 冷机3冷却水出水温度
+        Unit : ”℃“
+      - Name : 冷机3压缩机排气温度
+        Unit : ”℃“
+      - Name : 冷机3压缩机供油温度
+        Unit : ”℃“
+      - Name : 冷机3压缩机油箱温度
+        Unit : ”℃“
+      - Name : 冷机3电机绕组温度
+        Unit : ”℃“
+      - Name : 冷机3变频器环境温度
+        Unit : ”℃“
+      - Name : 冷机3冷凝温度
+        Unit : ”℃“
+      - Name : 冷机3蒸发温度
+        Unit : ”℃“
+  - Cmd : 3
+    Offset : 2120
+    Len : 4
+    RType : 'f'
+    Data : 
+      - Name : 冷机3压缩机导叶运行开度
+        Unit : '%'
+      - Name : 冷机3机组负荷
+        Unit : '%'
+  - Cmd : 3
+    Offset : 2138
+    Len : 2
+    RType : 'f'
+    Data : 
+      - Name : 冷机2运行频率
+        Unit : Hz
+  - Cmd : 3
+    Offset : 2156
+    Len : 2
+    RType : 'f'
+    Data : 
+      - Name : 冷机2机组消耗功率
+        Unit : KW
+  - Cmd : 3
+    Offset : 2162
+    Len : 4
+    RType : 'f'
+    Data : 
+      - Name : 冷机2蒸发器端温差
+        Unit : ”℃“
+      - Name : 冷机2冷凝器端温差
+        Unit : ”℃“
+
+  - Cmd : 3
+    Offset : 1908
+    Len : 1
+    Data : 
+      - Name : 冷机1运行模式设定
+        Options :
+          - Key : 1
+            Value : 制冷模式
+          - Key : 3
+            Value : 制热模式
+          - Key : 4
+            Value : 蓄冷模式
+          - Key : 5
+            Value : 自由冷却
+          - Key : 6
+            Value : 制冷（地埋管）
+          - Key : 7
+            Value : 热回收模式
+  - Cmd : 3
+    Offset : 1912
+    Len : 1
+    Data : 
+      - Name : 冷机1控制模式设定
+        Options :
+          - Key : 0
+            Value : 本地
+          - Key : 1
+            Value : 远程
+  - Cmd : 3
+    Offset : 1938
+    Len : 1
+    Data : 
+      - Name : 冷机1冷凝压力
+        Unit : Kpag
+  - Cmd : 3
+    Offset : 1940
+    Len : 1
+    Data : 
+      - Name : 冷机1蒸发压力
+        Unit : Kpag
+  - Cmd : 3
+    Offset : 1942
+    Len : 1
+    Data : 
+      - Name : 冷机1压缩机供油压力
+        Unit : Kpag
+  - Cmd : 3
+    Offset : 1944
+    Len : 1
+    Data : 
+      - Name : 冷机1压缩机油箱压力
+        Unit : Kpag
+  - Cmd : 3
+    Offset : 1946
+    Len : 1
+    Data : 
+      - Name : 冷机1压缩机供油－油箱压力差
+        Unit : Kpag
+  - Cmd : 3
+    Offset : 1952
+    Len : 1
+    Data : 
+      - Name : 冷机1机组状态
+        Options :
+          - Key : 0
+            Value : 已停机
+          - Key : 1
+            Value : 正在启动
+          - Key : 2
+            Value : 待机
+          - Key : 3
+            Value : 正在关机
+          - Key : 4
+            Value : 运行
+          - Key : 5
+            Value : 故障
+          - Key : 6
+            Value : 未联网
+  - Cmd : 3
+    Offset : 1986
+    Len : 1
+    Data : 
+      - Name : 冷机1压缩机运行时间
+        Unit : H
+  - Cmd : 3
+    Offset : 1988
+    Len : 1
+    Data : 
+      - Name : 冷机1压缩机开启次数
+        Unit : 次
+  - Cmd : 3
+    Offset : 1994
+    Len : 1
+    Data : 
+      - Name : 冷机2运行模式设定
+        Options :
+          - Key : 1
+            Value : 制冷模式
+          - Key : 3
+            Value : 制热模式
+          - Key : 4
+            Value : 蓄冷模式
+          - Key : 5
+            Value : 自由冷却
+          - Key : 6
+            Value : 制冷（地埋管）
+          - Key : 7
+            Value : 热回收模式
+  - Cmd : 3
+    Offset : 1998
+    Len : 1
+    Data : 
+      - Name : 冷机2控制模式设定
+        Options :
+          - Key : 0
+            Value : 本地
+          - Key : 1
+            Value : 远程
+  - Cmd : 3
+    Offset : 2024
+    Len : 1
+    Data : 
+      - Name : 冷机2冷凝压力
+        Unit : Kpag
+  - Cmd : 3
+    Offset : 2026
+    Len : 1
+    Data : 
+      - Name : 冷机2蒸发压力
+        Unit : Kpag
+  - Cmd : 3
+    Offset : 2028
+    Len : 1
+    Data : 
+      - Name : 冷机2压缩机供油压力
+        Unit : Kpag
+  - Cmd : 3
+    Offset : 2030
+    Len : 1
+    Data : 
+      - Name : 冷机2压缩机油箱压力
+        Unit : Kpag
+  - Cmd : 3
+    Offset : 2032
+    Len : 1
+    Data : 
+      - Name : 冷机2压缩机供油－油箱压力差
+        Unit : Kpag
+  - Cmd : 3
+    Offset : 2038
+    Len : 1
+    Data : 
+      - Name : 冷机2机组状态
+        Options :
+          - Key : 0
+            Value : 已停机
+          - Key : 1
+            Value : 正在启动
+          - Key : 2
+            Value : 待机
+          - Key : 3
+            Value : 正在关机
+          - Key : 4
+            Value : 运行
+          - Key : 5
+            Value : 故障
+          - Key : 6
+            Value : 未联网
+  - Cmd : 3
+    Offset : 2072
+    Len : 1
+    Data : 
+      - Name : 冷机2压缩机运行时间
+        Unit : H
+  - Cmd : 3
+    Offset : 2074
+    Len : 1
+    Data : 
+      - Name : 冷机2压缩机开启次数
+        Unit : 次
+  - Cmd : 3
+    Offset : 2080
+    Len : 1
+    Data : 
+      - Name : 冷机3运行模式设定
+        Options :
+          - Key : 1
+            Value : 制冷模式
+          - Key : 3
+            Value : 制热模式
+          - Key : 4
+            Value : 蓄冷模式
+          - Key : 5
+            Value : 自由冷却
+          - Key : 6
+            Value : 制冷（地埋管）
+          - Key : 7
+            Value : 热回收模式
+  - Cmd : 3
+    Offset : 2084
+    Len : 1
+    Data : 
+      - Name : 冷机3控制模式设定
+        Options :
+          - Key : 0
+            Value : 本地
+          - Key : 1
+            Value : 远程
+  - Cmd : 3
+    Offset : 2110
+    Len : 1
+    Data : 
+      - Name : 冷机3冷凝压力
+        Unit : Kpag
+  - Cmd : 3
+    Offset : 2112
+    Len : 1
+    Data : 
+      - Name : 冷机3蒸发压力
+        Unit : Kpag
+  - Cmd : 3
+    Offset : 2114
+    Len : 1
+    Data : 
+      - Name : 冷机3压缩机供油压力
+        Unit : Kpag
+  - Cmd : 3
+    Offset : 2116
+    Len : 1
+    Data : 
+      - Name : 冷机3压缩机油箱压力
+        Unit : Kpag
+  - Cmd : 3
+    Offset : 2118
+    Len : 1
+    Data : 
+      - Name : 冷机3压缩机供油－油箱压力差
+        Unit : Kpag
+  - Cmd : 3
+    Offset : 2124
+    Len : 1
+    Data : 
+      - Name : 冷机3机组状态
+        Options :
+          - Key : 0
+            Value : 已停机
+          - Key : 1
+            Value : 正在启动
+          - Key : 2
+            Value : 待机
+          - Key : 3
+            Value : 正在关机
+          - Key : 4
+            Value : 运行
+          - Key : 5
+            Value : 故障
+          - Key : 6
+            Value : 未联网
+  - Cmd : 3
+    Offset : 2158
+    Len : 1
+    Data : 
+      - Name : 冷机2压缩机运行时间
+        Unit : H
+  - Cmd : 3
+    Offset : 2160
+    Len : 1
+    Data : 
+      - Name : 冷机2压缩机开启次数
+        Unit : 次
+  - Cmd : 3
+    Offset : 2430
+    Len : 4
+    Data : 
+      - Name : 冷机1今年总功耗
+        CValue : ((pData[0]<<16)|pData[1])
+        Value : (($v[1]<<16)|$v[2])
+        Unit : KWH
+      - Name : 冷机3今年总功耗
+        CValue : ((pData[2]<<16)|pData[3])
+        Value : (($v[3]<<16)|$v[4])
+        Unit : KWH

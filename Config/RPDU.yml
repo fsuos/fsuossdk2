@@ -1,0 +1,445 @@
+#监控设备,机房环境，智能电表，蓄电池组，UPS蓄电池，240V电池组，低压配电，新风设备，开关电源，视频监控，门禁系统，UPS设备，专用空调，油机启动电池，柴油发电机组，ATS转换柜，微模块，传感器，列头柜
+Project:
+  Name : RPDU
+  RT_ID : 5156
+  File : "modbus-RTU协议 rPDU归一化通信协议_modbus_v1.9.xls"
+  DevType : 2
+  ProtocolName : RPDU归一化通信协议
+  Category : 低压配电
+BlockTemplate: 
+  OutputKWH:
+    BlockLength : 4
+    BlockType : 'S'
+    BlockContent :
+      - Name : "输出位%s电能"
+        Unit : kWh
+        CValue : ((pData[0]<<16)|pData[1])/10
+        Value : (($v[1]<<16)|$v[2])/10
+  TempHumid:
+    BlockLength : 4
+    BlockType : 'S'
+    BlockContent :
+      - Name : '温度值%s'
+        CValue : (pData[0] - 40)
+        Value : ($v[1]-40)
+        Unit : '℃'
+      - Name : '湿度值%s'
+        Offset : 1
+        Unit : '%'
+  OutputHighI :
+    BlockLength : 2
+    BlockType : 'C'
+    BlockContent : 
+      - Name : '输出位%s电流过高告警'
+        AlertNormalValue : 0
+  TempAlert :
+    BlockLength : 2
+    BlockType : 'C'
+    BlockContent : 
+      - Name : '温度%s过高告警'
+        AlertNormalValue : 0
+      - Name : '温度%s过低告警'
+        AlertNormalValue : 0
+Sample : 
+  - Cmd : 3
+    Offset : 35
+    Len : 23
+    Data : 
+      - Name : "电压值"
+        Unit : V
+      - Name : "电流值"
+        Ratio : 10
+        Unit : A
+      - Name : "有功功率"
+        Ratio : 1000
+        Unit : kW
+      - Name : "无功功率"
+        Ratio : 1000
+        Unit : kVar
+      - Name : 功率因数
+        Ratio : 1000
+      - Name : 总有功电度
+        CValue : ((pData[5]<<16)|pData[6])/10
+        Value : (($v[6]<<16)|$v[7])/10
+        Unit : kWh
+      - Name : 频率
+        Offset : 8
+        Ratio : 100
+        Unit : Hz
+      - Name : L1相电压值（三相）/L1L2线电压值（三火线）
+        Offset : 9
+        Unit : V
+      - Name : L2相电压值（三相）/L2L3线电压值（三火线）
+        Offset : 10
+        Unit : V
+      - Name : L3相电压值（三相）/L3L1线电压值（三火线）
+        Offset : 11
+        Unit : V
+      - Name : L1相电流值/L1L2线电流值（三火线）
+        Offset : 12
+        Unit : A
+      - Name : L2相电流值/L2L3线电流值（三火线）
+        Offset : 13
+        Unit : A
+      - Name : L3相电流值/L3L1线电流值（三火线）
+        Offset : 14
+        Unit : A
+      - Name : L1相有功功率
+        Offset : 15
+        Unit : kW
+        Ratio : 1000
+      - Name : L2相有功功率
+        Offset : 16
+        Unit : kW
+        Ratio : 1000
+      - Name : L3相有功功率
+        Offset : 17
+        Unit : kW
+        Ratio : 1000
+      - Name : L1相无功功率
+        Offset : 18
+        Unit : kVar
+        Ratio : 1000
+      - Name : L2相无功功率
+        Offset : 19
+        Unit : kVar
+        Ratio : 1000
+      - Name : L3相无功功率
+        Offset : 20
+        Unit : kVar
+        Ratio : 1000
+      - Name : L1相功率因数
+        Offset : 21
+        Unit : kVar
+        Ratio : 1000
+      - Name : L2相功率因数
+        Offset : 22
+        Unit : kVar
+        Ratio : 1000
+      - Name : L3相功率因数
+        Offset : 23
+        Unit : kVar
+        Ratio : 1000
+  - Cmd : 3
+    Offset : 58
+    Len : 48
+    Data :   
+      - ArrayName : "输出位%d电流"
+        ArrayStart : 0
+        ArrayLength : 48
+        Offset : 0
+        Unit : "A"
+        Ratio : 10
+  - Cmd : 3
+    Offset : 106
+    Len : 96
+    Data :
+      - ArrayBlock : OutputKWH
+        ArrayStart : 1
+        ArrayEnd : 48
+  - Cmd : 3
+    Offset : 202
+    Len : 48
+    Data :   
+      - ArrayName : "输出位%d有功功率"
+        ArrayStart : 0
+        ArrayLength : 48
+        Offset : 0
+        Unit : "kW"
+        Ratio : 1000
+  - Cmd : 3
+    Offset : 250
+    Len : 48
+    Data :   
+      - ArrayName : "输出位%d功率因数"
+        ArrayStart : 0
+        ArrayLength : 48
+        Offset : 0
+        Ratio : 1000
+  - Cmd : 3
+    Offset : 298
+    Len : 48
+    Data :   
+      - ArrayName : "输出位%d额定电流"
+        ArrayStart : 0
+        ArrayLength : 48
+        Offset : 0
+        Ratio : 10
+  - Cmd : 3
+    Offset : 346
+    Len : 2
+    Data :  
+      - Name : 相位数
+        Options : 
+          - Key : 1
+            Value : 单相
+          - Key : 2
+            Value : 双火线
+          - Key : 3
+            Value : 三相
+          - Key : 4
+            Value : 三火线
+      - Name : rPDU分类
+        Options : 
+          - Key : 1
+            Value : 主路监测型
+          - Key : 2
+            Value : 开关型
+      # - Name : 漏电流
+      #   Unit : mA
+      # - Name : 整机总负载率
+      #   Unit : '%'
+      # - Name : 总视在功率
+      #   Unit : 'kVAR'
+      #   Ratio : 1000
+      # - Name : L1相视在功率
+      #   Unit : kVA
+      #   Ratio : 1000
+      # - Name : L2相视在功率
+      #   Unit : kVA
+      #   Ratio : 1000
+      # - Name : L3相视在功率
+      #   Unit : kVA
+      #   Ratio : 1000
+      # - Name : L1电压谐波总畸变率
+      #   Unit : '%'
+      # - Name : L2电压谐波总畸变率
+      #   Unit : '%'
+      # - Name : L3电压谐波总畸变率
+      #   Unit : '%'
+      # - Name : L1电流谐波总畸变率
+      #   Unit : '%'
+      # - Name : L2电流谐波总畸变率
+      #   Unit : '%'
+      # - Name : L3电流谐波总畸变率
+      #   Unit : '%'
+      # - Name : 输入N-PE电压
+      #   Unit : 'V'
+  # - Cmd : 3
+  #   Offset : 400
+  #   Len : 2
+  #   Data :  
+  #     - Name : 断路器类型
+  #     - Name : 回路数
+  # - Cmd : 3
+  #   Offset : 402
+  #   Len : 12
+  #   Data :   
+  #     - ArrayName : "回路%d电流"
+  #       ArrayStart : 0
+  #       ArrayLength : 12
+  #       Offset : 0
+  #       Unit : "A"
+  #       Ratio : 10
+  - Cmd : 3
+    Offset : 500
+    Len : 16
+    Data : 
+      - ArrayBlock : TempHumid
+        ArrayStart : 1
+        ArrayEnd : 8
+  # - Cmd : 3
+  #   Offset : 516
+  #   Len : 1
+  #   Data : 
+  #     - Name : 风速值
+  #       Unit : "m/s"
+  - Cmd : 1
+    Offset : 2000
+    Len : 7
+    Data : 
+      - Name : 总报警
+        AlertNormalValue : 0
+      - Name : 单相电流过高告警(单相)/单相电流过高告警（双火线）
+        AlertNormalValue : 0
+      - Name : 断路器开路告警
+        Offset : 4
+        AlertNormalValue : 0
+      - Name : L1相电流过高告警(三相)/L1L2线电流过高告警(三火线)
+        Offset : 5
+        AlertNormalValue : 0
+      - Name : L2相电流过高告警(三相)/L2L3线电流过高告警(三火线)
+        Offset : 6
+        AlertNormalValue : 0
+      - Name : L3相电流过高告警(三相)/L3L1线电流过高告警(三火线)
+        Offset : 7
+        AlertNormalValue : 0
+  - Cmd : 1
+    Offset : 2010
+    Len : 96
+    Data : 
+      - ArrayBlock : OutputHighI
+        ArrayStart : 1
+        ArrayEnd : 48
+  - Cmd : 1
+    Offset : 2106
+    Len : 48
+    Data : 
+      - ArrayName : "输出位%d故障"
+        ArrayStart : 0
+        ArrayLength : 48
+        AlertNormalValue : 0
+  - Cmd : 1
+    Offset : 2154
+    Len : 96
+    Data : 
+      - ArrayBlock : TempAlert
+        ArrayStart : 1
+        ArrayEnd : 48
+  - Cmd : 1
+    Offset : 2186
+    Len : 8
+    Data : 
+      - ArrayName : "门禁%d告警"
+        ArrayStart : 0
+        ArrayLength : 8
+        AlertNormalValue : 0
+  - Cmd : 1
+    Offset : 2194
+    Len : 8
+    Data : 
+      - ArrayName : "红外%d告警"
+        ArrayStart : 0
+        ArrayLength : 8
+        AlertNormalValue : 0
+  - Cmd : 1
+    Offset : 2202
+    Len : 8
+    Data : 
+      - ArrayName : "水浸%d告警"
+        ArrayStart : 0
+        ArrayLength : 8
+        AlertNormalValue : 0
+  - Cmd : 1
+    Offset : 2210
+    Len : 8
+    Data : 
+      - ArrayName : "烟雾%d告警"
+        ArrayStart : 0
+        ArrayLength : 8
+        Offset : 0
+        AlertNormalValue : 0
+  - Cmd : 1
+    Offset : 2218
+    Len : 6
+    Data : 
+      - Name : 风速过高告警
+        AlertNormalValue : 0
+      - Name : 风速过低告警
+        AlertNormalValue : 0
+      - Name : 电流严重告警
+        AlertNormalValue : 0
+      - Name : L1相电流严重告警(三相)/L1L2线电流严重告警(三火线）
+        AlertNormalValue : 0
+      - Name : L2相电流严重告警(三相)/L2L3线电流严重告警(三火线）
+        AlertNormalValue : 0
+      - Name : L3相电流严重告警(三相)/L3L1线电流严重告警(三火线）
+        AlertNormalValue : 0
+  - Cmd : 1
+    Offset : 2224
+    Len : 48
+    Data : 
+      - ArrayName : "输出位%d电流严重告警"
+        ArrayStart : 0
+        ArrayLength : 48
+        AlertNormalValue : 0
+  - Cmd : 1
+    Offset : 2272
+    Len : 12
+    Data : 
+      - Name : 单相电压过高告警(单相)/线电压过高告警（双火线）
+        AlertNormalValue : 0
+      - Name : 单相电压过低告警(单相)/线电压过低告警（双火线）
+        AlertNormalValue : 0
+      - Name : L1相电压过高告警(三相)/L1L2线电压过高告警（三火线）
+        AlertNormalValue : 0
+      - Name : L2相电压过高告警(三相)/L2L3线电压过高告警（三火线）
+        AlertNormalValue : 0
+      - Name : L3相电压过高告警(三相)/L3L1线电压过高告警（三火线）
+        AlertNormalValue : 0
+      - Name : L1相电压过低告警(三相)/L1L2线电压过低告警（三火线）
+        AlertNormalValue : 0
+      - Name : L2相电压过低告警(三相)/L2L3线电压过低告警（三火线）
+        AlertNormalValue : 0
+      - Name : L3相电压过低告警(三相)/L3L1线电压过高告警（三火线）
+        AlertNormalValue : 0
+      - Name : 电流低阈值越限告警
+        AlertNormalValue : 0
+      - Name : L1相电流低阈值越限告警(三相)/L1L2线电流低阈值越限告警(三火线）
+        AlertNormalValue : 0
+      - Name : L2相电流低阈值越限告警(三相)/L2L3线电流低阈值越限告警(三火线）
+        AlertNormalValue : 0
+      - Name : L3相电流低阈值越限告警(三相)/L3L1线电流低阈值越限告警(三火线）
+        AlertNormalValue : 0
+  - Cmd : 1
+    Offset : 2284
+    Len : 48
+    Data : 
+      - ArrayName : "输出位%d电流低阈值越限告警"
+        ArrayStart : 0
+        ArrayLength : 48
+        AlertNormalValue : 0
+  - Cmd : 1
+    Offset : 2332
+    Len : 12
+    Data : 
+      - ArrayName : "回路%d电流上限告警"
+        ArrayStart : 0
+        ArrayLength : 12
+        AlertNormalValue : 0
+  - Cmd : 1
+    Offset : 2344
+    Len : 12
+    Data : 
+      - ArrayName : "回路%d电流低阈值越限告警"
+        ArrayStart : 0
+        ArrayLength : 12
+        AlertNormalValue : 0
+  - Cmd : 1
+    Offset : 2356
+    Len : 12
+    Data : 
+      - ArrayName : "回路%d电流下限告警"
+        ArrayStart : 0
+        ArrayLength : 12
+        AlertNormalValue : 0
+  - Cmd : 1
+    Offset : 2368
+    Len : 12
+    Data : 
+      - ArrayName : "空开%d断开告警"
+        ArrayStart : 0
+        ArrayLength : 12
+        AlertNormalValue : 0
+  # - Cmd : 1
+  #   Offset : 2380
+  #   Len : 14
+  #   Data : 
+  #     - Name : 漏电流越限告警
+  #       AlertNormalValue : 0
+  #     - Name : rPDU故障告警
+  #       AlertNormalValue : 0
+  #     - Name : L1缺相告警
+  #       AlertNormalValue : 0
+  #     - Name : L2缺相告警
+  #       AlertNormalValue : 0
+  #     - Name : L3缺相告警
+  #       AlertNormalValue : 0
+  #     - Name : 检测板1通信异常
+  #       AlertNormalValue : 0
+  #     - Name : 检测板2通信异常
+  #       AlertNormalValue : 0
+  #     - Name : 检测板3通信异常
+  #       AlertNormalValue : 0
+  #     - Name : 检测板4通信异常
+  #       AlertNormalValue : 0
+  #     - Name : 检测板5通信异常
+  #       AlertNormalValue : 0
+  #     - Name : 检测板6通信异常
+  #       AlertNormalValue : 0
+  #     - Name : 防雷告警
+  #       AlertNormalValue : 0
+  #     - Name : 输入频率高告警
+  #       AlertNormalValue : 0
+  #     - Name : 输入频率低告警
+  #       AlertNormalValue : 0

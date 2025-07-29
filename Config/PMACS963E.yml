@@ -1,0 +1,111 @@
+Project:
+  Name : PMACS963E
+  RT_ID : 5156
+  File : "PMC-S963-E_Modbus规约_V1.5_20240204.pdf"
+  DevType : 2
+  ProtocolName : "PMCS963E智能电表"
+  Category : 智能电表
+Sample : 
+  - Cmd : 3
+    Offset : 5505
+    RType : 'f'
+    Len : 64
+    Data : 
+      - Name : A相电压
+        Unit : "V" 
+      - Name : B相电压
+        Unit : "V" 
+      - Name : C相电压
+        Unit : "V" 
+      - Name : 平均相电压
+        Unit : "V" 
+      - Name : AB线电压
+        Unit : "V" 
+      - Name : BC线电压
+        Unit : "V" 
+      - Name : CA线电压
+        Unit : "V" 
+      - Name : 平均线电压
+        Unit : "V" 
+      - Name : A相电流
+        Unit : "A" 
+      - Name : B相电流
+        Unit : "A" 
+      - Name : C相电流
+        Unit : "A" 
+      - Name : 平均相电流
+        Unit : "A" 
+      - Name : A相有功功率
+        Ratio : 1000
+        Unit : "kW" 
+      - Name : B相有功功率
+        Ratio : 1000
+        Unit : "kW" 
+      - Name : C相有功功率
+        Ratio : 1000
+        Unit : "kW" 
+      - Name : 三相相有功功率
+        Ratio : 1000
+        Unit : "kW" 
+      - Name : A相无功功率
+        Ratio : 1000
+        Unit : "kvar" 
+      - Name : B相无功功率
+        Ratio : 1000
+        Unit : "kvar"
+      - Name : C相无功功率
+        Ratio : 1000
+        Unit : "kvar"
+      - Name : 三相无功功率
+        Ratio : 1000
+        Unit : "kvar"
+      - Name : A相视在功率
+        Ratio : 1000
+        Unit : "kVA" 
+      - Name : B相视在功率
+        Ratio : 1000
+        Unit : "kVA"
+      - Name : B相视在功率
+        Ratio : 1000
+        Unit : "kVA"
+      - Name : 三相视在功率
+        Ratio : 1000
+        Unit : "kVA"
+      - Name : A相功率因数
+      - Name : B相功率因数
+      - Name : C相功率因数
+      - Name : 总功率因数
+      - Name : 频率
+        Unit : Hz
+      - Name : 计算中性线电流 Inc
+        Unit : A
+      - Name : 总有功功率实时需量
+        Ratio : 1000
+        Unit : kWH
+      - Name : 总有功功率预测需量
+        Ratio : 1000
+        Unit : kWH
+  - Cmd : 3
+    Offset : 5069
+    Len : 8
+    Data : 
+      - Name : 正向有功电能
+        Value : (($v[1]<<16)+$v[2])/10
+        CValue : ((float)((pData[0]<<16)+pData[1]))/10
+        Unit : "Kwh" 
+      - Name : 反向有功电能
+        Value : (($v[3]<<16)+$v[4])/10
+        CValue : ((float)((pData[2]<<16)+pData[3]))/10
+        Unit : "Kwh" 
+      - Name : 正向无功电能
+        Value : (($v[5]<<16)+$v[6])/10
+        CValue : ((float)((pData[4]<<16)+pData[5]))/10
+        Unit : "Kvarh" 
+      - Name : 反向无功电能
+        Value : (($v[7]<<16)+$v[8])/10
+        CValue : ((float)((pData[6]<<16)+pData[7]))/10
+        Unit : "Kvarh" 
+
+
+
+ 

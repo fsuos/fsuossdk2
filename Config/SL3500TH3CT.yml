@@ -455,32 +455,31 @@ SET_RET_CODE : |
       }
       
 SET_DO_CODE : |
-  if(setting["signal_id"].asString() != "") {
-      if(setting["signal_id"].asString() == "140800280010") {
-          //开机
-          state = AC_Control_Code::AC_START;
-          cmd_result_ = -1;
-          last_data_ = 1;
-          modbus_write_bit(176, 1);
-          if((uint32_t)outBufferSize >= sizeof(int)) {
-              *((int*)outBuffer) = 1;//通知取状态
-              bytesReturned = sizeof(int);
-          }
-      }else if(setting["signal_id"].asString() == "140800300010") {
-          //关机
-          state = AC_Control_Code::AC_STOP;
-          cmd_result_ = -1;
-          last_data_ = 0;
-          modbus_write_bit(176, 0);
-          if((uint32_t)outBufferSize >= sizeof(int)) {
-              *((int*)outBuffer) = 1;//通知取状态
-              bytesReturned = sizeof(int);
-          }
+  std::string doId((char*)inBuffer, inBufferSize);
+  if(doId == "601500201001" || doId == "140800280010") {
+      //开机
+      state = AC_Control_Code::AC_START;
+      cmd_result_ = -1;
+      last_data_ = 1;
+      modbus_write_bit(176, 1);
+      if((uint32_t)outBufferSize >= sizeof(int)) {
+          *((int*)outBuffer) = -1;//通知取状态
+          bytesReturned = sizeof(int);
+      }
+  } else if(doId == "601500200001" || doId == "140800300010") {
+      //关机
+      state = AC_Control_Code::AC_STOP;
+      cmd_result_ = -1;
+      last_data_ = 0;
+      modbus_write_bit(176, 0);
+      if((uint32_t)outBufferSize >= sizeof(int)) {
+          *((int*)outBuffer) = -1;//通知取状态
+          bytesReturned = sizeof(int);
       }
   }
-
+  
 SET_AO_CODE: |
-  if(setting["signal_id"].asString() == "150800310010") {
+  if(setting["signal_id"].asString() == "6016A2101001" || setting["signal_id"].asString() == "150800310010") {
       if(setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
           int16_t newValue = atoi(setting["SetValue"].asString().c_str())*10;
           //1#回风温度
@@ -489,11 +488,11 @@ SET_AO_CODE: |
           OpenPort();
           modbus_write_register(40, newValue);
           if((uint32_t)outBufferSize >= sizeof(int)) {
-              *((int*)outBuffer) = 1;//通知取状态
+              *((int*)outBuffer) = -1;//通知取状态
               bytesReturned = sizeof(int);
           }                       
       }
-  }else if(setting["signal_id"].asString() == "150800340010") {
+  }else if(setting["signal_id"].asString() == "6016A2101001" || setting["signal_id"].asString() == "150800340010") {
       if(setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
           int16_t newValue = atoi(setting["SetValue"].asString().c_str())*10;
           //湿度
@@ -502,12 +501,64 @@ SET_AO_CODE: |
           OpenPort();
           modbus_write_register(39, newValue);
           if((uint32_t)outBufferSize >= sizeof(int)) {
-              *((int*)outBuffer) = 1;//通知取状态
+              *((int*)outBuffer) = -1;//通知取状态
               bytesReturned = sizeof(int);
           }                       
       }
   }
-
+DEVICEIOCONTROL_CODE: |
+    case AC_Control_Code::AC_START: {
+        state = AC_Control_Code::AC_START;
+        cmd_result_ = -1;
+        OpenPort();
+        last_data_ = 1;
+        modbus_write_bit(176, 1);
+        if((uint32_t)outBufferSize >= sizeof(int)) {
+            *((int*)outBuffer) = -1;//通知取状态
+            bytesReturned = sizeof(int);
+        }
+        break;
+    }    
+    case AC_Control_Code::AC_STOP: {
+        state = AC_Control_Code::AC_STOP;
+        cmd_result_ = -1;
+        OpenPort();
+        last_data_ = 0;
+        modbus_write_bit(176, 0);
+        if((uint32_t)outBufferSize >= sizeof(int)) {
+            *((int*)outBuffer) = -1;//通知取状态
+            bytesReturned = sizeof(int);
+        }
+        break;
+    }
+    case AC_Control_Code::AC_SET_TEMPERATURE: {
+        if(inBufferSize == sizeof(uint16_t)) {
+            state = AC_Control_Code::AC_SET_TEMPERATURE;
+            cmd_result_ = -1;
+            OpenPort();
+            last_data_ = 10* (*(uint16_t*)inBuffer);
+            modbus_write_register(40, last_data_);
+            if((uint32_t)outBufferSize >= sizeof(int)) {
+              *((int*)outBuffer) = -1;//通知取状态
+              bytesReturned = sizeof(int);
+          }       
+        }
+        break;
+    }
+    case AC_Control_Code::AC_SET_HUMID: {
+        if(inBufferSize == sizeof(uint16_t)) {
+            state = AC_Control_Code::AC_SET_HUMID;
+            cmd_result_ = -1;
+            OpenPort();
+            last_data_ = 10*(*(uint16_t*)inBuffer);
+            modbus_write_register(39, last_data_);
+            if((uint32_t)outBufferSize >= sizeof(int)) {
+              *((int*)outBuffer) = -1;//通知取状态
+              bytesReturned = sizeof(int);
+          }       
+        }
+        break;
+    } 
 
 
 

@@ -2,6 +2,9 @@ Project:
   Name : AGC150
   RT_ID : 5156
   File : "agc-150-modbus-tables-4189341212-中文.xlsx"
+  DevType : 2
+  ProtocolName : AGC150油机
+  Category : 柴油发电机组
 Sample : 
   - Cmd : 4
     Offset : 501

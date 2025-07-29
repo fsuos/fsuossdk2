@@ -1,0 +1,36 @@
+Project:
+  Name : FKDPC100EJ
+  RT_ID : 5156
+  File : "FK-DPC100-E／J、FK-DPC100X-E／J 粒子计数传感器使用说明书(1).pdf"
+  DevType : 2
+  ProtocolName : 粒子计数传感器
+  Category : 传感器
+Sample:
+  - Cmd : 3
+    Offset : 0x1011
+    Len : 12
+    Data : 
+      - Name : 大于0.3um粒子数
+        CValue : ((pData[0]<<16)|pData[1])
+        Value : (($v[1]<<16)|$v[2])
+        Unit : "个/2.83L"
+      - Name : 大于0.5um粒子数
+        CValue : ((pData[2]<<16)|pData[3])
+        Value : (($v[3]<<16)|$v[4])
+        Unit : "个/2.83L"
+      - Name : 大于1um粒子数
+        CValue : ((pData[4]<<16)|pData[5])
+        Value : (($v[5]<<16)|$v[6])
+        Unit : "个/2.83L"
+      - Name : 大于3um粒子数
+        CValue : ((pData[6]<<16)|pData[7])
+        Value : (($v[7]<<16)|$v[8])
+        Unit : "个/2.83L"
+      - Name : 大于5um粒子数
+        CValue : ((pData[8]<<16)|pData[9])
+        Value : (($v[9]<<16)|$v[10])
+        Unit : "个/2.83L"
+      - Name : 大于10um粒子数
+        CValue : ((pData[10]<<16)|pData[11])
+        Value : (($v[11]<<16)|$v[12])
+        Unit : "个/2.83L"

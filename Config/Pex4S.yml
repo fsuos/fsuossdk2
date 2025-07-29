@@ -1016,11 +1016,13 @@ SET_DO_CODE : |
                       if(setting["signal_id"].asString() == "140800280010"){
                             //开机
                           state = AC_Control_Code::AC_START;
+                          last_data_ = 0x10;
                           modbus_write_register(100, 0x10);
                           return 0;
                       }else if(setting["signal_id"].asString() == "140800300010") {
                             //关机
                           state = AC_Control_Code::AC_STOP;
+                          last_data_ = 0x1F;
                           modbus_write_register(100, 0x1F);
                           return 0;
                       }
@@ -1042,7 +1044,7 @@ SET_AO_CODE: |
                   state = AC_Control_Code::AC_SET_TEMPERATURE;
                   cmd_result_ = -1;
                   last_data_ = newValue;
-                  modbus_write_register(102, newValue);
+                  modbus_write_register(101, newValue);
 
                   return 0;                    
               }
@@ -1053,7 +1055,7 @@ SET_AO_CODE: |
                   state = AC_Control_Code::AC_SET_HUMID;
                   cmd_result_ = -1;
                   last_data_ = newValue;
-                  modbus_write_register(104, newValue);
+                  modbus_write_register(103, newValue);
                   return 0;                       
               }
           }
@@ -1065,7 +1067,7 @@ DEVICEIOCONTROL_CODE: |
         state = AC_Control_Code::AC_START;
         cmd_result_ = -1;
         OpenPort();
-        last_data_ = 1;
+        last_data_ = 0x10;
         modbus_write_register(100, 0x10);
     }
     break;
@@ -1073,7 +1075,7 @@ DEVICEIOCONTROL_CODE: |
         state = AC_Control_Code::AC_STOP;
         cmd_result_ = -1;
         OpenPort();
-        last_data_ = 0;
+        last_data_ = 0x1F;
         modbus_write_register(100, 0x1F);
         break;
     }
@@ -1083,7 +1085,7 @@ DEVICEIOCONTROL_CODE: |
             cmd_result_ = -1;
             OpenPort();
             last_data_ = 10* (*(uint16_t*)inBuffer);
-            modbus_write_register(102, last_data_);
+            modbus_write_register(101, last_data_);
         }
         break;
     }
@@ -1093,7 +1095,7 @@ DEVICEIOCONTROL_CODE: |
             cmd_result_ = -1;
             OpenPort();
             last_data_ = 10*(*(uint16_t*)inBuffer);
-            modbus_write_register(104, last_data_);
+            modbus_write_register(103, last_data_);
         }
         break;
     }

@@ -270,7 +270,7 @@ Sample :
     Len : 72
     Data : 
       - Block : Inline
-        index : 'A'
+        Index : 'A'
   - Cmd : 3
     Offset : 74
     Len : 72

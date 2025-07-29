@@ -1,0 +1,12 @@
+Project:
+  Name : PRSH2
+  RT_ID : 5156
+  File : "3037530675普锐森社氢气变送器（485型）(1).doc"
+Sample : 
+  - Cmd : 3
+    Offset : 0
+    Len : 1
+    Data : 
+      - Name : "氢气浓度值"
+        Ratio : 100
+        Unit : "ppm"

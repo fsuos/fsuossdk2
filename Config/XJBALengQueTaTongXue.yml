@@ -1,0 +1,108 @@
+Project:
+  Name : XJBALengQueTaTongXue
+  RT_ID : 5156
+  File : "新疆二枢纽BA数据MODBUS_TCP协议25.7.8.xls - 冷却塔通讯"
+  DevType : 4
+  ProtocolName : 新疆二枢纽BA冷却塔通讯
+  Category : 专用空调
+Sample : 
+  - CmdGroupStart : 2583
+    CmdGroupStep : 5
+    CmdGroupEnd : 2613
+    CmdGroupPrefix : ["CT1-1","CT1-2","CT1-3","CT1-4","CT1-5","CT1-6"]
+    CmdGroupSample:
+    - Cmd : 3
+      Offset : 0
+      Len : 5
+      Data : 
+        - Name : 风机本地远程
+          Options : 
+            - Key : 0
+              Value : 本地
+            - Key : 1
+              Value : 远程
+        - Name : 风机变频运行
+          Options : 
+            - Key : 0
+              Value : 停止
+            - Key : 1
+              Value : 运行
+        - Name : 风机故障状态
+          AlertNormalValue : 0
+        - Name : 风机工频运行
+          Options : 
+            - Key : 0
+              Value : 停止
+            - Key : 1
+              Value : 运行
+        - Name : 风机工频故障
+          AlertNormalValue : 0
+  - Cmd : 3
+    Offset : 2613
+    Len : 14
+    RType : 'f'
+    Data : 
+      - Name : CT1-1风机频率反馈
+        Unit : HZ
+      - Name : CT1-2风机频率反馈
+        Unit : HZ
+      - Name : CT1-3风机频率反馈
+        Unit : HZ
+      - Name : CT1-4风机频率反馈
+        Unit : HZ
+      - Name : CT1-5风机频率反馈
+        Unit : HZ
+      - Name : CT1-6风机频率反馈
+        Unit : HZ
+      - Name : CT1-累计运行时间
+        Unit : H
+  - CmdGroupStart : 2627
+    CmdGroupStep : 5
+    CmdGroupEnd : 2657
+    CmdGroupPrefix : ["CT2-1","CT2-2","CT2-3","CT2-4","CT2-5","CT2-6"]
+    CmdGroupSample:
+    - Cmd : 3
+      Offset : 0
+      Len : 5
+      Data : 
+        - Name : 风机本地远程
+          Options : 
+            - Key : 0
+              Value : 本地
+            - Key : 1
+              Value : 远程
+        - Name : 风机变频运行
+          Options : 
+            - Key : 0
+              Value : 停止
+            - Key : 1
+              Value : 运行
+        - Name : 风机故障状态
+          AlertNormalValue : 0
+        - Name : 风机工频运行
+          Options : 
+            - Key : 0
+              Value : 停止
+            - Key : 1
+              Value : 运行
+        - Name : 风机工频故障
+          AlertNormalValue : 0
+  - Cmd : 3
+    Offset : 2657
+    Len : 14
+    RType : 'f'
+    Data : 
+      - Name : CT2-1风机频率反馈
+        Unit : HZ
+      - Name : CT2-2风机频率反馈
+        Unit : HZ
+      - Name : CT2-3风机频率反馈
+        Unit : HZ
+      - Name : CT2-4风机频率反馈
+        Unit : HZ
+      - Name : CT2-5风机频率反馈
+        Unit : HZ
+      - Name : CT2-6风机频率反馈
+        Unit : HZ
+      - Name : CT2-累计运行时间
+        Unit : H

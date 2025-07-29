@@ -1,0 +1,25 @@
+Project:
+  Name : SDHDBMU
+  RT_ID : 5156
+  File : "BMU3.0modbus协议20230606(1).docx"
+Sample : 
+  - Cmd : 4
+    Offset : 400
+    Len : 24
+    Data : 
+      - ArrayName : "第一组单体电压%d#"
+        ArrayStart : 1
+        ArrayLength : 24
+        Offset : 0
+        Unit : "V"
+        Ratio : 1000
+  - Cmd : 4
+    Offset : 15400
+    Len : 24
+    Data : 
+      - ArrayName : "第二组单体电压%d#"
+        ArrayStart : 1
+        ArrayLength : 24
+        Offset : 0
+        Unit : "V"
+        Ratio : 1000

@@ -1,0 +1,120 @@
+Project:
+  Name : ThreePhaseMeter
+  RT_ID : 5156
+  File : "三相多功能说明书V1.1(1)(4).pdf"
+  DevType : 2
+  ProtocolName : 三相多功能电表
+  Category : 智能电表
+Sample : 
+  - Cmd : 3
+    Offset : 0x27
+    Len : 2
+    Data :
+      - Name : PT
+      - Name : CT
+  - Cmd : 3
+    Offset : 0
+    Len : 29
+    Type : 'S'
+    Data : 
+      - Name : "A相电压"
+        Ratio : (1/($dataArray["PT"]*0.1))
+        Unit : V
+      - Name : "B相电压"
+        Ratio : (1/($dataArray["PT"]*0.1))
+        Unit : V
+      - Name : "C相电压"
+        Ratio : (1/($dataArray["PT"]*0.1))
+        Unit : V
+      - Name : "A相电流"
+        Ratio : (100/($dataArray["CT"]))
+        Unit : A
+      - Name : "B相电流"
+        Ratio : (100/($dataArray["CT"]))
+        Unit : A
+      - Name : "C相电流"
+        Ratio : (100/($dataArray["CT"]))
+        Unit : A
+      - Name : "N相电流"
+        Ratio : (100/($dataArray["CT"]))
+        Unit : A
+      - Name : "总有功功率"
+        Ratio : (1000/($dataArray["CT"]*$dataArray["PT"]))
+        Unit : kW
+      - Name : "A相有功功率"
+        Ratio : (1000/($dataArray["CT"]*$dataArray["PT"]))
+        Unit : kW
+      - Name : "B相有功功率"
+        Ratio : (1000/($dataArray["CT"]*$dataArray["PT"]))
+        Unit : kW
+      - Name : "C相有功功率"
+        Ratio : (1000/($dataArray["CT"]*$dataArray["PT"]))
+        Unit : kW
+      - Name : "总无功功率"
+        Ratio : (1000/($dataArray["CT"]*$dataArray["PT"]))
+        Unit : kvar
+      - Name : "A相无功功率"
+        Ratio : (1000/($dataArray["CT"]*$dataArray["PT"]))
+        Unit : kvar
+      - Name : "B相无功功率"
+        Ratio : (1000/($dataArray["CT"]*$dataArray["PT"]))
+        Unit : kvar
+      - Name : "C相无功功率"
+        Ratio : (1000/($dataArray["CT"]*$dataArray["PT"]))
+        Unit : kvar
+      - Name : "总视在功率"
+        Ratio : (1000/($dataArray["CT"]*$dataArray["PT"]))
+        Unit : kVA
+      - Name : "A相视在功率"
+        Ratio : (1000/($dataArray["CT"]*$dataArray["PT"]))
+        Unit : kVA
+      - Name : "B相视在功率"
+        Ratio : (1000/($dataArray["CT"]*$dataArray["PT"]))
+        Unit : kVA
+      - Name : "C相视在功率"
+        Ratio : (1000/($dataArray["CT"]*$dataArray["PT"]))
+        Unit : kVA      
+      - Name : "总功率因数"
+        Ratio : 1000
+      - Name : "A相功率因数"
+        Ratio : 1000
+      - Name : "B相功率因数"
+        Ratio : 1000
+      - Name : "C相功率因数"
+        Ratio : 1000
+      - Name : "A-B线电压"
+        Ratio : (1/($dataArray["PT"]*0.1))
+        Unit : V
+      - Name : "B-C线电压"
+        Ratio : (1/($dataArray["PT"]*0.1))
+        Unit : V
+      - Name : "A-C线电压"
+        Ratio : (1/($dataArray["PT"]*0.1))
+        Unit : V      
+      - Name : "A相频率"
+        Ratio : 100
+        Unit : Hz
+      - Name : "B相频率"
+        Ratio : 100
+        Unit : Hz
+      - Name : "C相频率"
+        Ratio : 100
+        Unit : Hz
+  - Cmd : 3
+    Offset : 0x1d
+    Len : 8
+    Type : 'S'
+    Data :
+      - Name : "正向有功电能"
+        Value : ((($v[1] << 32) + $v[2])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        Unit : kWH
+      - Name : "反向有功电能"
+        Value : ((($v[3] << 32) + $v[4])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        Unit : kWH
+      - Name : "正向无功电能"
+        Value : ((($v[5] << 32) + $v[6])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        Unit : kVarh
+      - Name : "反向无功电能"
+        Value : ((($v[7] << 32) + $v[8])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        Unit : kVarh
+      

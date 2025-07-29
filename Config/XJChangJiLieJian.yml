@@ -2,6 +2,9 @@ Project:
   Name : XJChangJiLieJian
   RT_ID : 5156
   File : "新疆昌吉列间地址表.xlsx"
+  Category : 专用空调
+  DevType : 2
+  ProtocolName : 新疆昌吉列间设备
 Sample : 
   - Cmd : 2
     Offset : 1

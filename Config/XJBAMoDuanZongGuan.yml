@@ -1,0 +1,355 @@
+Project:
+  Name : XJBAMoDuanZongGuan
+  RT_ID : 5156
+  File : "新疆二枢纽BA数据MODBUS_TCP协议25.7.8.xls - 末端总管"
+  DevType : 4
+  ProtocolName : 新疆二枢纽BA末端总管
+  Category : 专用空调
+BlockTemplate: 
+  ValveAction:
+    BlockLength : 4
+    BlockType : 'S'
+    BlockContent :
+      - Name : "%s动作状态-本地/远程"
+        CValue : (pData[1] & 0x1)
+        Value : ($v[2] & 0x1)
+        Options : 
+          - Key : 0
+            Value : 本地
+          - Key : 1
+            Value : 远程
+      - Name : "%s动作状态-开到位"
+        CValue : ((pData[1]>>1) & 0x1)
+        Value : (($v[2]>>1) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 未开到位
+          - Key : 1
+            Value : 开到位
+      - Name : "%s动作状态-关到位"
+        CValue : ((pData[1]>>2) & 0x1)
+        Value : (($v[2]>>2) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 未关到位
+          - Key : 1
+            Value : 关到位
+      - Name : "%s动作状态-开故障"
+        CValue : ((pData[1]>>3) & 0x1)
+        Value : (($v[2]>>3) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 开阀故障
+      - Name : "%s动作状态-关故障"
+        CValue : ((pData[1]>>4) & 0x1)
+        Value : (($v[2]>>4) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 关阀故障
+      - Name : "%s动作状态-故障汇总"
+        CValue : ((pData[1]>>5) & 0x1)
+        Value : (($v[2]>>5) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 故障
+      - Name : "%s动作状态-开过程中"
+        CValue : ((pData[1]>>6) & 0x1)
+        Value : (($v[2]>>6) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无动作
+          - Key : 1
+            Value : 开阀过程中
+      - Name : "%s动作状态-关过程中"
+        CValue : ((pData[1]>>7) & 0x1)
+        Value : (($v[2]>>7) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 无动作
+          - Key : 1
+            Value : 关阀过程中
+      - Name : "%s动作状态-中间状态"
+        CValue : ((pData[1]>>8) & 0x1)
+        Value : (($v[2]>>8) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 未处于中间状态
+          - Key : 1
+            Value : 中间状态
+  ValveControl:
+    BlockLength : 4
+    BlockType : 'S'
+    BlockContent :
+      - Name : "%s控制状态-手动/自动"
+        CValue : (pData[1] & 0x1)
+        Value : ($v[2] & 0x1)
+        Options : 
+          - Key : 0
+            Value : 自动
+          - Key : 1
+            Value : 手动
+  SensorStatus:
+    BlockLength : 4
+    BlockType : 'S'
+    BlockContent :
+      - Name : "%s-断线报警使能"
+        CValue : (pData[1] & 0x1)
+        Value : ($v[2] & 0x1)
+        Options : 
+          - Key : 0
+            Value : 未使能
+          - Key : 1
+            Value : 使能
+      - Name : "%s-预警使能"
+        CValue : ((pData[1]>>1) & 0x1)
+        Value : (($v[2]>>1) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 未使能
+          - Key : 1
+            Value : 使能
+      - Name : "%s-报警使能"
+        CValue : ((pData[1]>>2) & 0x1)
+        Value : (($v[2]>>2) & 0x1)
+        Options : 
+          - Key : 0
+            Value : 未使能
+          - Key : 1
+            Value : 使能
+      - Name : "%s-高报警"
+        CValue : ((pData[1]>>3) & 0x1)
+        Value : (($v[2]>>3) & 0x1)
+        AlertNormalValue : 0
+      - Name : "%s-高预警"
+        CValue : ((pData[1]>>4) & 0x1)
+        Value : (($v[2]>>4) & 0x1)
+        AlertNormalValue : 0
+      - Name : "%s-低预警"
+        CValue : ((pData[1]>>5) & 0x1)
+        Value : (($v[2]>>5) & 0x1)
+        AlertNormalValue : 0
+      - Name : "%s-低报警"
+        CValue : ((pData[1]>>6) & 0x1)
+        Value : (($v[2]>>6) & 0x1)
+        AlertNormalValue : 0
+      - Name : "%s-断线报警"
+        CValue : ((pData[1]>>9) & 0x1)
+        Value : (($v[2]>>9) & 0x1)
+        AlertNormalValue : 0
+Sample : 
+  - Cmd : 1
+    Offset : 141
+    Len : 8
+    Data : 
+      - Name : PLC108主电合闸
+        Options : 
+          - Key : 0
+            Value : 分闸
+          - Key : 1
+            Value : 合闸
+      - Name : PLC108备电合闸
+        Options : 
+          - Key : 0
+            Value : 分闸
+          - Key : 1
+            Value : 合闸
+      - Name : "总管电动阀MV1-2本地/远程"
+        Options : 
+          - Key : 0
+            Value : 本地
+          - Key : 1
+            Value : 远程
+      - Name : "总管电动阀MV1-2失调"
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 失调
+      - Name : 总管电动阀MV1-2软手自动
+        Options : 
+          - Key : 0
+            Value : 软自动
+          - Key : 1
+            Value : 软手动
+      - Name : 总管电动阀MV1-1本地/远程
+        Options : 
+          - Key : 0
+            Value : 本地
+          - Key : 1
+            Value : 远程
+      - Name : "总管电动阀MV1-1失调"
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 失调
+      - Name : 总管电动阀MV1-1软手自动
+        Options : 
+          - Key : 0
+            Value : 软自动
+          - Key : 1
+            Value : 软手动
+  - Cmd : 3
+    Offset : 684
+    Len : 76
+    RType : 'f'
+    Data : 
+      - Name : 末端总管A路供水温度
+        Unit : "℃"
+      - Name : 末端总管A路回水温度
+        Unit : "℃"
+      - Name : 末端总管B路供水温度
+        Unit : "℃"
+      - Name : 末端总管B路回水温度
+        Unit : "℃"
+      - Name : 末端支管A1路回水温度
+        Unit : "℃"
+      - Name : 末端支管A2路回水温度
+        Unit : "℃"
+      - Name : 末端支管A3路回水温度
+        Unit : "℃"
+      - Name : 末端支管A4路回水温度
+        Unit : "℃"
+      - Name : 末端支管B1路回水温度
+        Unit : "℃"
+      - Name : 末端支管B2路回水温度
+        Unit : "℃"
+      - Name : 末端支管B3路回水温度
+        Unit : "℃"
+      - Name : 末端支管B4路回水温度
+        Unit : "℃"
+      - Name : 末端支管A1路供水压力
+        Unit : bar
+      - Name : 末端支管A1路回水压力
+        Unit : bar
+      - Name : 末端支管A2路供水压力
+        Unit : bar
+      - Name : 末端支管A2路回水压力
+        Unit : bar
+      - Name : 末端支管A3路供水压力
+        Unit : bar
+      - Name : 末端支管A3路回水压力
+        Unit : bar
+      - Name : 末端支管A4路供水压力
+        Unit : bar
+      - Name : 末端支管A4路回水压力
+        Unit : bar
+      - Name : 末端支管B1路供水压力
+        Unit : bar
+      - Name : 末端支管B1路回水压力
+        Unit : bar
+      - Name : 末端支管B2路供水压力
+        Unit : bar
+      - Name : 末端支管B2路回水压力
+        Unit : bar
+      - Name : 末端支管B3路供水压力
+        Unit : bar
+      - Name : 末端支管B3路回水压力
+        Unit : bar
+      - Name : 末端支管B4路供水压力
+        Unit : bar
+      - Name : 末端支管B4路回水压力
+        Unit : bar
+      - Name : 末端支管A1路供水流量
+        Unit : "m³/h"
+      - Name : 末端支管A2路供水流量
+        Unit : "m³/h"
+      - Name : 末端支管A3路供水流量
+        Unit : "m³/h"
+      - Name : 末端支管A4路供水流量
+        Unit : "m³/h"
+      - Name : 末端支管B1路供水流量
+        Unit : "m³/h"
+      - Name : 末端支管B2路供水流量
+        Unit : "m³/h"
+      - Name : 末端支管B3路供水流量
+        Unit : "m³/h"
+      - Name : 末端支管B4路供水流量
+        Unit : "m³/h"
+      - Name : 总管电动阀MV1-2开度反馈
+        Unit : "%"
+      - Name : 总管电动阀MV1-1开度反馈
+        Unit : "%"
+  - Cmd : 3
+    Offset : 756
+    Len : 72
+    Data : 
+      - Block : SensorStatus
+        index : 末端总管A路供水温度状态
+      - Block : SensorStatus
+        index : 末端总管A路回水温度状态
+      - Block : SensorStatus
+        index : 末端总管B路供水温度状态
+      - Block : SensorStatus
+        index : 末端总管B路回水温度状态
+      - Block : SensorStatus
+        index : 末端支管A1路回水温度状态
+      - Block : SensorStatus
+        index : 末端支管A2路回水温度状态
+      - Block : SensorStatus
+        index : 末端支管A3路回水温度状态
+      - Block : SensorStatus
+        index : 末端支管A4路回水温度状态
+      - Block : SensorStatus
+        index : 末端支管B1路回水温度状态
+      - Block : SensorStatus
+        index : 末端支管B2路回水温度状态
+      - Block : SensorStatus
+        index : 末端支管B3路回水温度状态
+      - Block : SensorStatus
+        index : 末端支管B4路回水温度状态
+      - Block : SensorStatus
+        index : 末端支管A1路供水压力状态
+      - Block : SensorStatus
+        index : 末端支管A1路回水压力状态
+      - Block : SensorStatus
+        index : 末端支管A2路供水压力状态
+      - Block : SensorStatus
+        index : 末端支管A2路回水压力状态
+      - Block : SensorStatus
+        index : 末端支管A3路供水压力状态
+      - Block : SensorStatus
+        index : 末端支管A3路回水压力状态
+      - Block : SensorStatus
+        index : 末端支管A4路供水压力状态
+      - Block : SensorStatus
+        index : 末端支管A4路回水压力状态
+      - Block : SensorStatus
+        index : 末端支管B1路供水压力状态
+      - Block : SensorStatus
+        index : 末端支管B1路回水压力状态
+      - Block : SensorStatus
+        index : 末端支管B2路供水压力状态
+      - Block : SensorStatus
+        index : 末端支管B2路回水压力状态
+      - Block : SensorStatus
+        index : 末端支管B3路供水压力状态
+      - Block : SensorStatus
+        index : 末端支管B3路回水压力状态
+      - Block : SensorStatus
+        index : 末端支管B4路供水压力状态
+      - Block : SensorStatus
+        index : 末端支管B4路回水压力状态
+      - Block : SensorStatus
+        index : 末端支管A1路供水流量状态
+      - Block : SensorStatus
+        index : 末端支管A2路供水流量状态
+      - Block : SensorStatus
+        index : 末端支管A3路供水流量状态
+      - Block : SensorStatus
+        index : 末端支管A4路供水流量状态
+      - Block : SensorStatus
+        index : 末端支管B1路供水流量状态
+      - Block : SensorStatus
+        index : 末端支管B2路供水流量状态
+      - Block : SensorStatus
+        index : 末端支管B3路供水流量状态
+      - Block : SensorStatus
+        index : 末端支管B4路供水流量状态
+

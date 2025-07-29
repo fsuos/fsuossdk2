@@ -23,6 +23,7 @@ BuildDriver () {
       cp ../output/$DSTFILE.so $PACK_PATH$4"/public/SocketPlugins"
     fi
     cd ../..
+    cp DeviceWeb/$DSTFILE.config $PACK_PATH$4/
     cp DeviceWeb/application/helpers/device/$DSTFILE.php $PACK_PATH$4/application/helpers/device/
     cp public/portal/js/rt-data/rt-data-$DSTFILE.js $PACK_PATH$4/public/portal/js/rt-data/
     cp DeviceWeb/application/helpers/ini/telecom/$DSTFILE.yaml $PACK_PATH$4/application/helpers/ini/telecom/
