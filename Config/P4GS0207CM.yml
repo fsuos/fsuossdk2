@@ -1,0 +1,505 @@
+Project:
+  Name : P4GS0207CM
+  RT_ID : 5156
+  File : "P4-GS-0207单机头湿膜新风机控制器  MODBUS_RTU和TCP通讯协议V100 20250726.xlsx"
+  DevType : 2
+  ProtocolName : P4GS0207CM新风控制器
+  Category : 新风设备
+Sample : 
+  - Cmd : 3
+    Offset : 218
+    Len : 3
+    Data : 
+      - Name : 2#设定温度（冷水温度）
+        Ratio : 10
+        Unit : "℃"
+      - Name : 设定温度（室内温度）
+        Ratio : 10
+        Unit : "℃"
+      - Name : 设定压差
+        Unit : Pa
+  - Cmd : 3
+    Offset : 224
+    Len : 1
+    Data : 
+      - Name : 送风频率手动设定
+        Ratio : 10
+        Unit : Hz
+  - Cmd : 3
+    Offset : 225
+    Len : 6
+    Data :
+      - Name : 湿膜后温度
+        Ratio : 10
+        Unit : "℃"
+      - Name : 水箱温度
+        Ratio : 10
+        Unit : "℃"
+      - Name : 新风温度
+        Ratio : 10
+        Unit : "℃"
+      - Name : 核心区温度
+        Ratio : 10
+        Unit : "℃"
+      - Name : 回风温度
+        Ratio : 10
+        Unit : "℃"
+      - Name : 出风温度
+        Ratio : 10
+        Unit : "℃"
+  - Cmd : 3
+    Offset : 233
+    Len : 1
+    Data :
+      - Name : 风压差
+        Unit : Pa
+  - Cmd : 3
+    Offset : 235
+    Len : 5
+    Data : 
+      - Name : 回风湿度
+        Ratio : 100
+        Unit : '%'
+      - Name : 出风湿度
+        Ratio : 100
+        Unit : '%'
+      - Name : 新风湿度
+        Ratio : 100
+        Unit : '%'
+      - Name : 核心区湿度
+        Ratio : 100
+        Unit : '%'
+      - Name : 机组状态
+        Options :
+          - Key : 0
+            Value : 待机
+          - Key : 1
+            Value : 停机中
+          - Key : 2
+            Value : 启动中
+          - Key : 3
+            Value : 运行中
+          - Key : 4
+            Value : 故障
+  - Cmd : 3
+    Offset : 240
+    Len : 1
+    Data : 
+      - Name : 送风机
+        CValue : pData[0]&0x1
+        Value : $v[1]&0x1
+        Options :
+          - Key : 1
+            Value : 运行
+          - Key : 0
+            Value : 停止
+      - Name : 1#压缩机
+        CValue : (pData[0]>>1)&0x1
+        Value : ($v[1]>>1)&0x1
+        Options :
+          - Key : 1
+            Value : 运行
+          - Key : 0
+            Value : 停止
+      - Name : 2#压缩机
+        CValue : (pData[0]>>2)&0x1
+        Value : ($v[1]>>2)&0x1
+        Options :
+          - Key : 1
+            Value : 运行
+          - Key : 0
+            Value : 停止
+      - Name : 3#压缩机
+        CValue : (pData[0]>>3)&0x1
+        Value : ($v[1]>>3)&0x1
+        Options :
+          - Key : 1
+            Value : 运行
+          - Key : 0
+            Value : 停止
+      - Name : 排风机 
+        CValue : (pData[0]>>4)&0x1
+        Value : ($v[1]>>4)&0x1
+        Options :
+          - Key : 1
+            Value : 运行
+          - Key : 0
+            Value : 停止
+      - Name : 故障输出 
+        CValue : (pData[0]>>5)&0x1
+        Value : ($v[1]>>5)&0x1
+        Options :
+          - Key : 1
+            Value : 故障
+          - Key : 0
+            Value : 无故障
+      - Name : 湿膜旁通阀 
+        CValue : (pData[0]>>6)&0x1
+        Value : ($v[1]>>6)&0x1
+        Options :
+          - Key : 1
+            Value : 运行
+          - Key : 0
+            Value : 停止
+      - Name : 冷却风机/冷却泵 
+        CValue : (pData[0]>>7)&0x1
+        Value : ($v[1]>>7)&0x1
+        Options :
+          - Key : 1
+            Value : 运行
+          - Key : 0
+            Value : 停止
+      - Name : 湿膜泵
+        CValue : (pData[0]>>8)&0x1
+        Value : ($v[1]>>8)&0x1
+        Options :
+          - Key : 1
+            Value : 运行
+          - Key : 0
+            Value : 停止
+      - Name : 补水阀
+        CValue : (pData[0]>>9)&0x1
+        Value : ($v[1]>>9)&0x1
+        Options :
+          - Key : 1
+            Value : 运行
+          - Key : 0
+            Value : 停止
+      - Name : 排水阀
+        CValue : (pData[0]>>10)&0x1
+        Value : ($v[1]>>10)&0x1
+        Options :
+          - Key : 1
+            Value : 运行
+          - Key : 0
+            Value : 停止
+  - Cmd : 3
+    Offset : 244
+    Len : 1
+    Data : 
+      - Name : 送风机过载
+        CValue : pData[0]&0x1
+        Value : $v[1]&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170010
+        UnicomSignalId : 602400101001
+      - Name : 压缩机1过载
+        CValue : (pData[0]>>1)&0x1
+        Value : ($v[1]>>1)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170020
+        UnicomSignalId : 602400101002
+      - Name : 压缩机1低压
+        CValue : (pData[0]>>2)&0x1
+        Value : ($v[1]>>2)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170030
+        UnicomSignalId : 602400101003
+      - Name : 压缩机1高压
+        CValue : (pData[0]>>3)&0x1
+        Value : ($v[1]>>3)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170040
+        UnicomSignalId : 602400101004
+      - Name : 压缩机2过载
+        CValue : (pData[0]>>4)&0x1
+        Value : ($v[1]>>4)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170050
+        UnicomSignalId : 602400101005
+      - Name : 压缩机2低压
+        CValue : (pData[0]>>5)&0x1
+        Value : ($v[1]>>5)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170060
+        UnicomSignalId : 602400101006
+      - Name : 压缩机2高压
+        CValue : (pData[0]>>6)&0x1
+        Value : ($v[1]>>6)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170070
+        UnicomSignalId : 602400101007
+      - Name : 压缩机3过载
+        CValue : (pData[0]>>7)&0x1
+        Value : ($v[1]>>7)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170080
+        UnicomSignalId : 602400101008
+      - Name : 压缩机3低压
+        CValue : (pData[0]>>8)&0x1
+        Value : ($v[1]>>8)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170090
+        UnicomSignalId : 602400101009
+      - Name : 压缩机3高压
+        CValue : (pData[0]>>9)&0x1
+        Value : ($v[1]>>9)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170100
+        UnicomSignalId : 602400101010
+      - Name : 冷冻水流不足
+        CValue : (pData[0]>>10)&0x1
+        Value : ($v[1]>>10)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170110
+        UnicomSignalId : 602400101011
+      - Name : 电热超温
+        CValue : (pData[0]>>11)&0x1
+        Value : ($v[1]>>11)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170120
+        UnicomSignalId : 602400101012
+      - Name : 2#冷凝风机
+        CValue : (pData[0]>>12)&0x1
+        Value : ($v[1]>>12)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170130
+        UnicomSignalId : 602400101013
+      - Name : 1#系统维护
+        CValue : (pData[0]>>13)&0x1
+        Value : ($v[1]>>13)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170140
+        UnicomSignalId : 602400101014
+      - Name : 2#系统维护
+        CValue : (pData[0]>>14)&0x1
+        Value : ($v[1]>>14)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170150
+        UnicomSignalId : 602400101015
+      - Name : 3#系统维护
+        CValue : (pData[0]>>15)&0x1
+        Value : ($v[1]>>15)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170160
+        UnicomSignalId : 602400101016
+  - Cmd : 3
+    Offset : 245
+    Len : 1
+    Data : 
+      - Name : 风速传感器
+        CValue : pData[0]&0x1
+        Value : $v[1]&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170170
+        UnicomSignalId : 602400101017
+      - Name : 风压传感器
+        CValue : (pData[0]>>1)&0x1
+        Value : ($v[1]>>1)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170180
+        UnicomSignalId : 602400101018
+      - Name : 压缩机1机内保护
+        CValue : (pData[0]>>2)&0x1
+        Value : ($v[1]>>2)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170190
+        UnicomSignalId : 602400101019
+      - Name : 压缩机2机内保护
+        CValue : (pData[0]>>3)&0x1
+        Value : ($v[1]>>3)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170200
+        UnicomSignalId : 602400101020
+      - Name : 1#冷凝风机过载/冷却过载
+        CValue : (pData[0]>>4)&0x1
+        Value : ($v[1]>>4)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170210
+        UnicomSignalId : 602400101021
+      - Name : 风量过低
+        CValue : (pData[0]>>5)&0x1
+        Value : ($v[1]>>5)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170220
+        UnicomSignalId : 602400101022
+      - Name : 送风压差
+        CValue : (pData[0]>>6)&0x1
+        Value : ($v[1]>>6)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170230
+        UnicomSignalId : 602400101023
+      - Name : 风压过低
+        CValue : (pData[0]>>7)&0x1
+        Value : ($v[1]>>7)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170240
+        UnicomSignalId : 602400101024
+      - Name : 风压过高
+        CValue : (pData[0]>>8)&0x1
+        Value : ($v[1]>>8)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170250
+        UnicomSignalId : 602400101025
+      - Name : 出温过高
+        CValue : (pData[0]>>9)&0x1
+        Value : ($v[1]>>9)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170260
+        UnicomSignalId : 602400101026
+      - Name : 3#冷凝风机过载
+        CValue : (pData[0]>>10)&0x1
+        Value : ($v[1]>>10)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170270
+        UnicomSignalId : 602400101027
+      - Name : 出温过低
+        CValue : (pData[0]>>11)&0x1
+        Value : ($v[1]>>11)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170280
+        UnicomSignalId : 602400101028
+      - Name : 相序保护
+        CValue : (pData[0]>>12)&0x1
+        Value : ($v[1]>>12)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170290
+        UnicomSignalId : 602400101029
+      - Name : 外部连锁
+        CValue : (pData[0]>>13)&0x1
+        Value : ($v[1]>>13)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170300
+        UnicomSignalId : 602400101030
+      - Name : 回风温度传感器故障
+        CValue : (pData[0]>>14)&0x1
+        Value : ($v[1]>>14)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170310
+        UnicomSignalId : 602400101031
+      - Name : 出风温度传感器故障
+        CValue : (pData[0]>>15)&0x1
+        Value : ($v[1]>>15)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170320
+        UnicomSignalId : 602400101032
+  - Cmd : 3
+    Offset : 246
+    Len : 1
+    Data : 
+      - Name : 核心区温度传感器故障
+        CValue : pData[0]&0x1
+        Value : $v[1]&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170330
+        UnicomSignalId : 602400101033
+      - Name : 新风温度传感器故障
+        CValue : (pData[0]>>1)&0x1
+        Value : ($v[1]>>1)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170340
+        UnicomSignalId : 602400101034
+      - Name : 湿膜后温度传感器故障
+        CValue : (pData[0]>>2)&0x1
+        Value : ($v[1]>>2)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170350
+        UnicomSignalId : 602400101035
+      - Name : 水箱温度传感器故障
+        CValue : (pData[0]>>3)&0x1
+        Value : ($v[1]>>3)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170360
+        UnicomSignalId : 602400101036
+      - Name : 湿膜泵过载
+        CValue : (pData[0]>>4)&0x1
+        Value : ($v[1]>>4)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170370
+        UnicomSignalId : 602400101037
+      - Name : 排风机过载
+        CValue : (pData[0]>>5)&0x1
+        Value : ($v[1]>>5)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170380
+        UnicomSignalId : 602400101038
+      - Name : 高低液位动作异常
+        CValue : (pData[0]>>6)&0x1
+        Value : ($v[1]>>6)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170390
+        UnicomSignalId : 602400101039
+      - Name : 高液位开关异常或补液失败
+        CValue : (pData[0]>>7)&0x1
+        Value : ($v[1]>>7)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170400
+        UnicomSignalId : 602400101040
+      - Name : 漏水故障
+        CValue : (pData[0]>>8)&0x1
+        Value : ($v[1]>>8)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170410
+        UnicomSignalId : 602400101041
+      - Name : 新风滤网压差故障
+        CValue : (pData[0]>>9)&0x1
+        Value : ($v[1]>>9)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170420
+        UnicomSignalId : 602400101042
+      - Name : 回风滤网压差故障
+        CValue : (pData[0]>>10)&0x1
+        Value : ($v[1]>>10)&0x1
+        AlertNormalValue : 0
+        TeleSignalId : 120830170430
+        UnicomSignalId : 602400101043
+SET_RET_CODE : |
+  case AC_Control_Code::AC_START: {
+        if(tab_reg[0] == last_data_) {
+            cmd_result_ = 1;
+        } else {
+            cmd_result_ = 3;
+        }
+        Reset();
+        return false;
+      }
+      case AC_Control_Code::AC_STOP: {
+        if(tab_reg[0] == last_data_) {
+            cmd_result_ = 1;
+        } else {
+            cmd_result_ = 3;
+        }
+        Reset();
+        return false;
+      } 
+      case AC_Control_Code::AC_SET_TEMPERATURE:
+      case AC_Control_Code::AC_SET_HUMID: {
+        if(tab_reg[0] == last_data_) {
+            cmd_result_ = 1;
+        } else {
+            cmd_result_ = 3;
+        }
+        Reset();
+        return false;
+      }
+      
+SET_DO_CODE : |
+  std::string doId((char*)inBuffer, inBufferSize);
+  if(doId == "601500201001" || doId == "140800280010") {
+      //开机
+      state = AC_Control_Code::AC_START;
+      cmd_result_ = -1;
+      last_data_ = 1;
+          modbus_write_register(205, last_data_);
+      return 0;
+  } else if(doId == "601500200001" || doId == "140800300010") {
+      //关机
+      state = AC_Control_Code::AC_STOP;
+      cmd_result_ = -1;
+      last_data_ = 0;
+      modbus_write_register(205, last_data_);
+      return 0;
+  }
+
+SET_AO_CODE: |  
+    if(setting["signal_id"].asString() == "6016A2101001" || setting["signal_id"].asString() == "150800310010") {
+        if(setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
+            int16_t newValue = atoi(setting["SetValue"].asString().c_str())*10;
+            //送风温度
+            state = AC_Control_Code::AC_SET_TEMPERATURE;
+            cmd_result_ = -1;
+            last_data_ = newValue;
+            modbus_write_register(219, last_data_);
+            return 0;                    
+        }
+    }

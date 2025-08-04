@@ -215,307 +215,307 @@ BlockTemplate:
         Value : (($v[17] >> 6)&0x1)
         CValue : ((pData[16] >> 6)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-整流模块市电频率异常'
         Index : index
         Value : (($v[17] >> 7)&0x1)
         CValue : ((pData[16] >> 7)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-整流模块电池电压预告警'
         Index : index
         Value : (($v[17] >> 8)&0x1)
         CValue : ((pData[16] >> 8)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-整流模块电池电压高'
         Index : index
         Value : (($v[17] >> 9)&0x1)
         CValue : ((pData[16] >> 9)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-整流模块电池电压低'
         Index : index
         Value : (($v[17] >> 10)&0x1)
         CValue : ((pData[16] >> 10)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-整流模块负组电池充电器故障'
         Index : index
         Value : (($v[17] >> 11)&0x1)
         CValue : ((pData[16] >> 11)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-整流模块正组电池充电器故障'
         Index : index
         Value : (($v[17] >> 12)&0x1)
         CValue : ((pData[16] >> 12)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-整流模块电池无'
         Index : index
         Value : (($v[17] >> 13)&0x1)
         CValue : ((pData[16] >> 13)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-整流模块电池反'
         Index : index
         Value : (($v[17] >> 14)&0x1)
         CValue : ((pData[16] >> 14)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-整流模块输入缺零'
         Index : index
         Value : (($v[17] >> 15)&0x1)
         CValue : ((pData[16] >> 15)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-整流模块软启动失败'
         Index : index
         Value : (($v[16] >> 0)&0x1)
         CValue : ((pData[15] >> 0)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-整流模块输入电压相序反'
         Index : index
         Value : (($v[16] >> 1)&0x1)
         CValue : ((pData[15] >> 1)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-整流模块正负母线压差大'
         Index : index
         Value : (($v[16] >> 2)&0x1)
         CValue : ((pData[15] >> 2)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-整流模块母线电压欠压'
         Index : index
         Value : (($v[16] >> 3)&0x1)
         CValue : ((pData[15] >> 3)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-整流模块母线电压过压'
         Index : index
         Value : (($v[16] >> 4)&0x1)
         CValue : ((pData[15] >> 4)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-整流模块风扇电源故障'
         Index : index
         Value : (($v[16] >> 5)&0x1)
         CValue : ((pData[15] >> 5)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-整流模块风扇故障'
         Index : index
         Value : (($v[16] >> 6)&0x1)
         CValue : ((pData[15] >> 6)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-整流模块电池充电晶闸管故障'
         Index : index
         Value : (($v[16] >> 7)&0x1)
         CValue : ((pData[15] >> 7)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-整流模块电池放电晶闸管故障'
         Index : index
         Value : (($v[16] >> 8)&0x1)
         CValue : ((pData[15] >> 8)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-整流模块输入晶闸管故障'
         Index : index
         Value : (($v[16] >> 9)&0x1)
         CValue : ((pData[15] >> 9)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-整流模块辅助电源2故障'
         Index : index
         Value : (($v[16] >> 10)&0x1)
         CValue : ((pData[15] >> 10)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-整流模块辅助电源1故障'
         Index : index
         Value : (($v[16] >> 11)&0x1)
         CValue : ((pData[15] >> 11)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-整流模块整流过流故障'
         Index : index
         Value : (($v[16] >> 12)&0x1)
         CValue : ((pData[15] >> 12)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-整流模块逆变模块过温'
         Index : index
         Value : (($v[16] >> 13)&0x1)
         CValue : ((pData[15] >> 13)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-整流模块整流模块过温'
         Index : index
         Value : (($v[16] >> 14)&0x1)
         CValue : ((pData[15] >> 14)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-整流模块整流器故障'
         Index : index
         Value : (($v[16] >> 15)&0x1)
         CValue : ((pData[15] >> 15)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-逆变模块BUS电压异常'
         Index : index
         Value : (($v[19] >> 7)&0x1)
         CValue : ((pData[18] >> 7)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-逆变模块回馈保护'
         Index : index
         Value : (($v[19] >> 8)&0x1)
         CValue : ((pData[18] >> 8)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-逆变模块旁路过流'
         Index : index
         Value : (($v[19] >> 9)&0x1)
         CValue : ((pData[18] >> 9)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-逆变模块逆变直流分量过大'
         Index : index
         Value : (($v[19] >> 10)&0x1)
         CValue : ((pData[18] >> 10)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-逆变模块并机过载'
         Index : index
         Value : (($v[19] >> 11)&0x1)
         CValue : ((pData[18] >> 11)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-逆变模块过载'
         Index : index
         Value : (($v[19] >> 12)&0x1)
         CValue : ((pData[18] >> 12)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-逆变模块开机无效'
         Index : index
         Value : (($v[19] >> 13)&0x1)
         CValue : ((pData[18] >> 13)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-逆变模块上电初始化故障'
         Index : index
         Value : (($v[19] >> 14)&0x1)
         CValue : ((pData[18] >> 14)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-逆变模块LBS超跟踪'
         Index : index
         Value : (($v[19] >> 15)&0x1)
         CValue : ((pData[18] >> 15)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-逆变模块并机继电器故障'
         Index : index
         Value : (($v[18] >> 0)&0x1)
         CValue : ((pData[17] >> 0)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-逆变模块并机连线故障'
         Index : index
         Value : (($v[18] >> 1)&0x1)
         CValue : ((pData[17] >> 1)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-逆变模块熔丝断'
         Index : index
         Value : (($v[18] >> 2)&0x1)
         CValue : ((pData[17] >> 2)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-逆变模块IGBT过流'
         Index : index
         Value : (($v[18] >> 3)&0x1)
         CValue : ((pData[17] >> 3)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-逆变模块旁路超保护'
         Index : index
         Value : (($v[18] >> 4)&0x1)
         CValue : ((pData[17] >> 4)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-逆变模块旁路超跟踪'
         Index : index
         Value : (($v[18] >> 5)&0x1)
         CValue : ((pData[17] >> 5)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-逆变模块不同步'
         Index : index
         Value : (($v[18] >> 6)&0x1)
         CValue : ((pData[17] >> 6)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-逆变模块旁路反序'
         Index : index
         Value : (($v[18] >> 7)&0x1)
         CValue : ((pData[17] >> 7)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-逆变模块并机均流故障'
         Index : index
         Value : (($v[18] >> 8)&0x1)
         CValue : ((pData[17] >> 8)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-逆变模块CAN通信故障'
         Index : index
         Value : (($v[18] >> 9)&0x1)
         CValue : ((pData[17] >> 9)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-逆变模块旁路晶闸管断路故障'
         Index : index
         Value : (($v[18] >> 10)&0x1)
         CValue : ((pData[17] >> 10)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-逆变模块旁路晶闸管短路故障'
         Index : index
         Value : (($v[18] >> 11)&0x1)
         CValue : ((pData[17] >> 11)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-逆变模块逆变晶闸管断路故障'
         Index : index
         Value : (($v[18] >> 12)&0x1)
         CValue : ((pData[17] >> 12)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-逆变模块逆变晶闸管短路故障'
         Index : index
         Value : (($v[18] >> 13)&0x1)
         CValue : ((pData[17] >> 13)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-逆变模块逆变桥臂直通'
         Index : index
         Value : (($v[18] >> 14)&0x1)
         CValue : ((pData[17] >> 14)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-逆变模块逆变器故障'
         Index : index
         Value : (($v[18] >> 15)&0x1)
         CValue : ((pData[17] >> 15)&0x1)
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : '模块%s-（整流）正母线电压'
         Offset : 20
         Unit : "V"
@@ -734,114 +734,114 @@ Sample :
     Data : 
       - Name : 整流器故障
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 逆变器故障
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 辅助电源故障
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 风扇故障
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 输入晶闸管故障
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 逆变晶闸管故障
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 旁路晶闸管故障
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 熔丝断
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 母线电压异常
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 初始化故障
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 充电器故障
         Offset : 12
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 并机故障
         Offset : 13
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 开机无效
         Offset : 14
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 逆变直流分量过大
         Offset : 15
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 输入电压相序反
         Offset : 16
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 输入缺零
         Offset : 17
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 旁路反序
         Offset : 18
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 电池反
         Offset : 19
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 电池无
         Offset : 20
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 回馈保护
         Offset : 21
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 过载
         Offset : 24
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 并机过载
         Offset : 25
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 电池电压低
         Offset : 26
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 电池电压高
         Offset : 27
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 电池欠压预告警
         Offset : 28
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 市电频率异常
         Offset : 29
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 市电电压异常
         Offset : 30
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 旁路超跟踪
         Offset : 31
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 旁路超保护
         Offset : 32
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 旁路过流
         Offset : 33
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
   - Cmd : 4
     Offset : 1
     Len : 40

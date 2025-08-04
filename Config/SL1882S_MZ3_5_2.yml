@@ -9,112 +9,112 @@ Sample :
     Data : 
       - Name : "进风温度故障"
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TelePSignalId : 12006
+        TelePSignalName : SIGNAME_12006
       - Name : "进风湿度故障"
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TelePSignalId : 12006
+        TelePSignalName : SIGNAME_12006
       - Name : "1#出风温度故障"
         Offset : 5
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TelePSignalId : 12006
+        TelePSignalName : SIGNAME_12006
       - Name : "2#出风温度故障"
         Offset : 6
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TelePSignalId : 12006
+        TelePSignalName : SIGNAME_12006
       - Name : "漏水报警"
         Offset : 13
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TelePSignalId : 12006
+        TelePSignalName : SIGNAME_12006
       - Name : "电源故障报警"
         Offset : 14
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TelePSignalId : 12006
+        TelePSignalName : SIGNAME_12006
       - Name : "滤网报警"
         Offset : 15
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TelePSignalId : 12006
+        TelePSignalName : SIGNAME_12006
       - Name : "1#风机故障"
         Offset : 16
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TelePSignalId : 12006
+        TelePSignalName : SIGNAME_12006
       - Name : "2#风机故障"
         Offset : 17
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TelePSignalId : 12006
+        TelePSignalName : SIGNAME_12006
       - Name : "进风高湿报警"
         Offset : 31
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TelePSignalId : 12006
+        TelePSignalName : SIGNAME_12006
       - Name : "进风低湿报警"
         Offset : 32
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TelePSignalId : 12006
+        TelePSignalName : SIGNAME_12006
       - Name : "进风高温报警"
         Offset : 33
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TelePSignalId : 12006
+        TelePSignalName : SIGNAME_12006
       - Name : "进风低温报警"
         Offset : 34
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TelePSignalId : 12006
+        TelePSignalName : SIGNAME_12006
       - Name : "出风高温报警"
         Offset : 35
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TelePSignalId : 12006
+        TelePSignalName : SIGNAME_12006
       - Name : "出风低温报警"
         Offset : 36
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TelePSignalId : 12006
+        TelePSignalName : SIGNAME_12006
       - Name : "消防报警"
         Offset : 39
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TelePSignalId : 12006
+        TelePSignalName : SIGNAME_12006
       - Name : "1#气管温度故障"
         Offset : 47
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TelePSignalId : 12006
+        TelePSignalName : SIGNAME_12006
       - Name : "1#进风温度故障"
         Offset : 48
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TelePSignalId : 12006
+        TelePSignalName : SIGNAME_12006
       - Name : "2#进风温度故障"
         Offset : 49
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TelePSignalId : 12006
+        TelePSignalName : SIGNAME_12006
       - Name : "1#液管温度故障"
         Offset : 51
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TelePSignalId : 12006
+        TelePSignalName : SIGNAME_12006
       - Name : "2#气管温度故障"
         Offset : 53
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TelePSignalId : 12006
+        TelePSignalName : SIGNAME_12006
       - Name : "2#液管温度故障"
         Offset : 54
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TelePSignalId : 12006
+        TelePSignalName : SIGNAME_12006
   - Cmd : 3
     Offset : 731
     Len : 1

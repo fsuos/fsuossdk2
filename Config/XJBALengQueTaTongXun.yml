@@ -1,5 +1,5 @@
 Project:
-  Name : XJBALengQueTaTongXue
+  Name : XJBALengQueTaTongXun
   RT_ID : 5156
   File : "新疆二枢纽BA数据MODBUS_TCP协议25.7.8.xls - 冷却塔通讯"
   DevType : 4
@@ -29,6 +29,7 @@ Sample :
               Value : 运行
         - Name : 风机故障状态
           AlertNormalValue : 0
+          TeleSignalId : 12083017
         - Name : 风机工频运行
           Options : 
             - Key : 0
@@ -37,6 +38,7 @@ Sample :
               Value : 运行
         - Name : 风机工频故障
           AlertNormalValue : 0
+          TeleSignalId : 12083017
   - Cmd : 3
     Offset : 2613
     Len : 14
@@ -79,6 +81,7 @@ Sample :
               Value : 运行
         - Name : 风机故障状态
           AlertNormalValue : 0
+          TeleSignalId : 12083017
         - Name : 风机工频运行
           Options : 
             - Key : 0
@@ -87,6 +90,7 @@ Sample :
               Value : 运行
         - Name : 风机工频故障
           AlertNormalValue : 0
+          TeleSignalId : 12083017
   - Cmd : 3
     Offset : 2657
     Len : 14

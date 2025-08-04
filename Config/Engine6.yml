@@ -6,7 +6,7 @@ Project:
   ProtocolName : 油机6
   Category : 柴油发电机组
 Sample : 
-  - Cmd : 4
+  - Cmd : 3
     Offset : 502
     Len : 13
     Data :
@@ -37,7 +37,7 @@ Sample :
         Unit : A
       - Name : 发电机电流L3
         Unit : A
-  - Cmd : 4
+  - Cmd : 3
     Offset : 520
     Len : 9
     Data :
@@ -50,13 +50,13 @@ Sample :
       - Name : 视在总功率
         Offset : 9
         Unit : kVA
-  - Cmd : 4
+  - Cmd : 3
     Offset : 539
     Len : 1
     Data : 
       - Name : 功率因数
         Ratio : 100
-  - Cmd : 4
+  - Cmd : 3
     Offset : 529
     Len : 2
     Data : 
@@ -64,7 +64,7 @@ Sample :
         Value : ((($v[1] << 16) | $v[2]) 
         CValue : (((pData[0] << 16) | pData[1])
         Unit : kvarh
-  - Cmd : 4
+  - Cmd : 3
     Offset : 537
     Len : 2
     Data : 
@@ -72,7 +72,7 @@ Sample :
         Value : ((($v[1] << 16) | $v[2]) 
         CValue : (((pData[0] << 16) | pData[1])
         Unit : kWh
-  - Cmd : 4
+  - Cmd : 3
     Offset : 540
     Len : 10
     Data :
@@ -97,7 +97,7 @@ Sample :
         Ratio : 10
       - Name : 母排电压相角L3-L1
         Ratio : 10
-  - Cmd : 4
+  - Cmd : 3
     Offset : 555
     Len : 2
     Data :
@@ -105,14 +105,14 @@ Sample :
         Value : ((($v[1] << 16) | $v[2]) 
         CValue : (((pData[0] << 16) | pData[1])
         Unit : 小时
-  - Cmd : 4
+  - Cmd : 3
     Offset : 568
     Len : 1
     Data :
       - Name : 电池电压
         Ratio : 10
         Unit : V
-  - Cmd : 4
+  - Cmd : 3
     Offset : 594
     Len : 3
     Data :
@@ -124,7 +124,7 @@ Sample :
       - Name : 机油压力
         Ratio : 100
         Unit : bar
-  - Cmd : 4
+  - Cmd : 3
     Offset : 1001
     Len : 1
     Data :
@@ -193,7 +193,7 @@ Sample :
         CValue : ((pData[0]>>15)&0x1)
         AlertNormalValue : 0
         TeleSignalId : 120300400130
-  - Cmd : 4
+  - Cmd : 3
     Offset : 1002
     Len : 1
     Data :
@@ -227,7 +227,7 @@ Sample :
         CValue : ((pData[0]>>6)&0x1)
         AlertNormalValue : 0
         TeleSignalId : 120300400190  
-  - Cmd : 4
+  - Cmd : 3
     Offset : 1003
     Len : 1
     Data :
@@ -266,7 +266,7 @@ Sample :
         CValue : ((pData[0]>>15)&0x1)
         AlertNormalValue : 0
         TeleSignalId : 120300400260 
-  - Cmd : 4
+  - Cmd : 3
     Offset : 1006
     Len : 1
     Data :
@@ -295,7 +295,7 @@ Sample :
         CValue : ((pData[0]>>6)&0x1)
         AlertNormalValue : 0
         TeleSignalId : 120300400310
-  - Cmd : 4
+  - Cmd : 3
     Offset : 1007
     Len : 1
     Data :
@@ -314,7 +314,7 @@ Sample :
         CValue : ((pData[0]>>2)&0x1)
         AlertNormalValue : 0
         TeleSignalId : 120300400340 
-  - Cmd : 4
+  - Cmd : 3
     Offset : 1008
     Len : 1
     Data :
@@ -333,7 +333,7 @@ Sample :
         CValue : ((pData[0]>>4)&0x1)
         AlertNormalValue : 0
         TeleSignalId : 120300400370  
-  - Cmd : 4
+  - Cmd : 3
     Offset : 1009
     Len : 1
     Data :
@@ -347,7 +347,7 @@ Sample :
         CValue : ((pData[0]>>12)&0x1)
         AlertNormalValue : 0
         TeleSignalId : 120300400390 
-  - Cmd : 4
+  - Cmd : 3
     Offset : 1011
     Len : 1
     Data :
@@ -361,7 +361,7 @@ Sample :
         CValue : ((pData[0]>>10)&0x1)
         AlertNormalValue : 0
         TeleSignalId : 120300400410 
-  - Cmd : 4
+  - Cmd : 3
     Offset : 1014
     Len : 1
     Data :
@@ -380,7 +380,7 @@ Sample :
         CValue : ((pData[0]>>15)&0x1)
         AlertNormalValue : 0
         TeleSignalId : 120300400440 
-  - Cmd : 4
+  - Cmd : 3
     Offset : 1015
     Len : 1
     Data :
@@ -399,7 +399,7 @@ Sample :
         CValue : ((pData[0]>>2)&0x1)
         AlertNormalValue : 0
         TeleSignalId : 120300400470 
-  - Cmd : 4
+  - Cmd : 3
     Offset : 1019
     Len : 1
     Data :
@@ -408,7 +408,7 @@ Sample :
         CValue : ((pData[0]>>6)&0x1)
         AlertNormalValue : 0
         TeleSignalId : 120300400480  
-  - Cmd : 4
+  - Cmd : 3
     Offset : 1020
     Len : 1
     Data :
@@ -425,7 +425,7 @@ Sample :
       - Name : 并机控制器自动模式状态
         Value : (($v[1]>>3)&0x1)
         CValue : ((pData[0]>>3)&0x1)
-  - Cmd : 4
+  - Cmd : 3
     Offset : 1021
     Len : 1
     Data :

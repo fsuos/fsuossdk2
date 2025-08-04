@@ -56,251 +56,251 @@ Sample:
     Data : 
       - Name : 板换2进口压力传感器故障
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 板换2出口压力传感器故障
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 室外风机1驱动故障
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 室外风机2驱动故障
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 冷凝高水位告警
         Offset : 6
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 系统排水故障告警
         Offset : 7
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 漏水告警
         Offset : 9
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 高温告警
         Offset : 10
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 低温告警
         Offset : 11
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 高湿告警
         Offset : 12
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 低湿告警
         Offset : 13
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 压缩机1高压
         Offset : 14
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 压缩机1高压锁定
         Offset : 15
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 压缩机2高压
         Offset : 16
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 压缩机2高压锁定
         Offset : 17
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 压缩机1低压
         Offset : 18
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 压缩机1低压锁定
         Offset : 19
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 压缩机2低压
         Offset : 20
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 压缩机2低压锁定
         Offset : 21
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 压缩机1排气
         Offset : 22
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 压缩机1排气锁定
         Offset : 23
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 压缩机2排气
         Offset : 24
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 压缩机2排气锁定
         Offset : 25
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 室内风机故障
         Offset : 26
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 气流丢失告警
         Offset : 28
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 滤网脏堵告警
         Offset : 29
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 加湿器故障
         Offset : 30
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 电加热过载
         Offset : 31
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 送风温感故障
         Offset : 33
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 回风温感故障
         Offset : 34
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 回风湿感故障
         Offset : 35
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 蒸发器1出口温感故障
         Offset : 36
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 蒸发器2出口温感故障
         Offset : 37
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 蒸发器1出口压感故障
         Offset : 38
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 蒸发器2出口压感故障
         Offset : 39
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 板换1进口温感故障
         Offset : 40
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 板换1进口温感故障
         Offset : 41
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 蒸发器1进口压感故障
         Offset : 42
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 蒸发器2进口压感故障
         Offset : 43
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 室外风机1通信故障
         Offset : 47
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 室外风机2通信故障
         Offset : 48
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
   - Cmd : 1
     Offset : 133
     Len : 23
     Data : 
       - Name : 烟火告警
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 室内电源故障
         Offset : 3
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 组网故障
         Offset : 4
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 送风温度2传感器故障
         Offset : 5
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 冷凝器1出口压感故障
         Offset : 6
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 冷凝器2出口压感故障
         Offset : 7
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 冷凝器1出口温感故障
         Offset : 8
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 冷凝器2出口温感故障
         Offset : 9
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 室外风机过载
         Offset : 11
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 室外温感故障
         Offset : 12
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 冷凝器2出口温感故障
         Offset : 13
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 冷凝器2进口温感故障
         Offset : 14
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 加湿大电流告警
         Offset : 15
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 加湿小电流告警
         Offset : 16
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 加湿水阀故障告警
         Offset : 17
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 室内风机运行超时
         Offset : 18
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 压缩机1运行超时
         Offset : 19
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 压缩机2运行超时
         Offset : 20
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 电加热1运行超时
         Offset : 21
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 电加热2运行超时
         Offset : 22
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 加湿运行超时
         Offset : 23
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
   - Cmd : 4
     Offset : 1
     Len : 2

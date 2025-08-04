@@ -2,6 +2,9 @@ Project:
   Name : HaiWuCSAF
   RT_ID : 5156
   File : "海悟风冷水冷变频机房空调Modbus通讯协议规格书-Ver18(2023.11.30) （CSA变频、CSF）.docx"
+  DevType : 2
+  ProtocolName : 海悟风冷水冷变频机房空调
+  Category : 专用空调
   TabView : true
   TabGroup : 
     - 室内机组状态
@@ -70,59 +73,59 @@ Sample :
       - Name : "电源故障/A路电源故障"
         Offset : 17
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "相序错误"
         Offset : 18
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "缺相错误"
         Offset : 19
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "电加热保护"
         Offset : 20
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "加湿器报警"
         Offset : 21
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "烟雾报警"
         Offset : 22
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "水浸报警"
         Offset : 23
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "湿膜低水位报警"
         Offset : 24
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "湿膜水位开关故障"
         Offset : 25
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "EEPROM故障"
         Offset : 26
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "本地联网通讯故障"
         Offset : 29
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "扩展板通讯故障"
         Offset : 30
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "远程内温探头故障"
         Offset : 31
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "滤网堵塞报警"
         Offset : 32
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
 
   - Cmd : 1
     Offset : 8033
@@ -132,35 +135,35 @@ Sample :
       - Name : "风机1故障/转速反馈故障"
         Offset : 1
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "风机2故障/转速反馈故障"
         Offset : 2
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "风机3故障/转速反馈故障"
         Offset : 3
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "风机4故障/转速反馈故障"
         Offset : 4
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "风机5故障/转速反馈故障"
         Offset : 5
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "风机6故障/转速反馈故障"
         Offset : 6
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "风机7故障/转速反馈故障"
         Offset : 7
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "风机8故障/转速反馈故障"
         Offset : 8
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
 
   - Cmd : 1
     Offset : 8041
@@ -170,35 +173,35 @@ Sample :
       - Name : "风机过载故障"
         Offset : 1
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "气流丢失故障"
         Offset : 2
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "高温报警"
         Offset : 3
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "低温报警"
         Offset : 4
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "高湿报警"
         Offset : 5
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "低湿报警"
         Offset : 6
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "送风高温报警"
         Offset : 7
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "送风低温报警"
         Offset : 8
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
   - Cmd : 1
     Offset : 8049
     Len : 3
@@ -207,15 +210,15 @@ Sample :
       - Name : "回风温度探头1故障"
         Offset : 1
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "回风温度探头2故障"
         Offset : 2
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "回风温度探头3故障"
         Offset : 3
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
   - Cmd : 1
     Offset : 8052
     Len : 4
@@ -224,19 +227,19 @@ Sample :
       - Name : "回风湿度探头故障"
         Offset : 1
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "送风温度1探头故障"
         Offset : 2
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "送风温度2探头故障"
         Offset : 3
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "送风温度3探头故障"
         Offset : 4
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
 
   - Cmd : 1
     Offset : 8056
@@ -246,75 +249,75 @@ Sample :
       - Name : "送风湿度探头故障"
         Offset : 1
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "系统排水故障"
         Offset : 2
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "风压差传感器故障"
         Offset : 3
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "加湿器运行时间超限"
         Offset : 4
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "冷凝水高水位保护"
         Offset : 5
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "滤网维护"
         Offset : 7
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "智能电表通讯故障"
         Offset : 8
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "风机9故障/转速反馈故障"
         Offset : 10
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "风机10故障/转速反馈故障"
         Offset : 11
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "风机11故障/转速反馈故障"
         Offset : 12
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "风机12故障/转速反馈故障"
         Offset : 13
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "风机13故障/转速反馈故障"
         Offset : 14
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "风机14故障/转速反馈故障"
         Offset : 15
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "风机15故障/转速反馈故障"
         Offset : 16
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "风机16故障/转速反馈故障"
         Offset : 17
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "B路电源故障"
         Offset : 18
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "内机与电源板通讯故障"
         Offset : 19
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "内机与ATS通讯故障"
         Offset : 20
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
   - Cmd : 3
     Offset : 8001
     Len : 38
@@ -497,59 +500,59 @@ Sample :
       - Name : "系统高压保护"
         Offset : 1
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "系统低压保护"
         Offset : 1
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "高压开关故障"
         Offset : 3
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "低压开关故障"
         Offset : 4
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "内管温探头故障"
         Offset : 5
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "排气温度探头故障"
         Offset : 6
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "系统变频驱动故障"
         Offset : 7
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "系统变频驱动通讯故障"
         Offset : 8
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "系统压力传感器故障"
         Offset : 9
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "系统吸气温感故障"
         Offset : 10
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "压缩机故障"
         Offset : 12
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "排气高温保护(锁定)"
         Offset : 13
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "盘管冻结报警"
         Offset : 18
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "冷媒泄漏/不足报警"
         Offset : 20
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "压缩机控制"
         Offset : 31
         Options : 
@@ -587,59 +590,59 @@ Sample :
       - Name : "系统高压保护"
         Offset : 1
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "系统低压保护"
         Offset : 2
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "高压开关故障"
         Offset : 3
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "低压开关故障"
         Offset : 4
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "内管温探头故障"
         Offset : 5
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "排气温度探头故障"
         Offset : 6
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "系统变频驱动故障"
         Offset : 7
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "系统变频驱动通讯故障"
         Offset : 8
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "系统压力传感器故障"
         Offset : 9
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "系统吸气温感故障"
         Offset : 10
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "压缩机故障"
         Offset : 12
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "排气高温保护（锁定）"
         Offset : 13
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "盘管冻结报警"
         Offset : 18
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "冷媒泄漏/不足报警"
         Offset : 20
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "压缩机控制"
         Offset : 31
         Options : 
@@ -681,91 +684,91 @@ Sample :
       - Name : "外风机驱动1通讯故障"
         Offset : 4
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "室外温度传感器故障"
         Offset : 5
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "压力传感器故障"
         Offset : 6
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "系统高压保护(锁定)"
         Offset : 7
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "系统低压保护(锁定)"
         Offset : 8
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "机架：液管温感故障/非机架（水冷）出水温度过高告警"
         Offset : 9
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "机架:外管温温感1故障/非机架（水冷）出水温度过低告警"
         Offset : 10
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "机架:外管网温感2故障/非机架（水冷）：冷却水低流量保护"
         Offset : 11
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "变频驱动故障/外风机1故障"
         Offset : 12
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "风机过热保护/外风机2故障"
         Offset : 13
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "机架：压缩机过流保护/非机架：进水温度传感器故障"
         Offset : 14
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "出水温度传感器故障"
         Offset : 15
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "非机架（水冷）：进水温度过高告警"
         Offset : 17
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "非机架（水冷）：进水温度过低告警"
         Offset : 18
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "非机架（水冷）：冷却水防冻保护"
         Offset : 20
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "外机与扩展板通讯故障"
         Offset : 24
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "喷淋水泵进口压力传感器故障"
         Offset : 25
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "喷淋水泵出口压力传感器故障"
         Offset : 26
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "喷淋水泵故障"
         Offset : 27
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "喷淋水泵进水压力过低告警"
         Offset : 28
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "外风机驱动2通讯故障"
         Offset : 29
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "与室内机通讯故障"
         Offset : 32
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
   - Cmd : 3
     Offset :  8501
     Len : 6
@@ -804,91 +807,91 @@ Sample :
       - Name : "外风机驱动1通讯故障"
         Offset : 4
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "室外温度传感器故障"
         Offset : 5
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "压力传感器故障"
         Offset : 6
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "系统高压保护(锁定)"
         Offset : 7
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "系统低压保护(锁定)"
         Offset : 8
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "机架：液管温感故障/非机架（水冷）出水温度过高告警"
         Offset : 9
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "机架:外管温温感1故障/非机架（水冷）出水温度过低告警"
         Offset : 10
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "机架:外管网温感2故障/非机架（水冷）：冷却水低流量保护"
         Offset : 11
-        TeleSignalId : 12017
+        TelePSignalId : 12017
         AlertNormalValue : 0
       - Name : "变频驱动故障/外风机1故障"
         Offset : 12
-        TeleSignalId : 12017
+        TelePSignalId : 12017
         AlertNormalValue : 0
       - Name : "风机过热保护/外风机2故障"
         Offset : 13
-        TeleSignalId : 12017
+        TelePSignalId : 12017
         AlertNormalValue : 0
       - Name : "机架：压缩机过流保护/非机架：进水温度传感器故障"
         Offset : 14
-        TeleSignalId : 12017
+        TelePSignalId : 12017
         AlertNormalValue : 0
       - Name : "出水温度传感器故障"
         Offset : 15
-        TeleSignalId : 12017
+        TelePSignalId : 12017
         AlertNormalValue : 0
       - Name : "非机架（水冷）：进水温度过高告警"
         Offset : 17
-        TeleSignalId : 12017
+        TelePSignalId : 12017
         AlertNormalValue : 0
       - Name : "非机架（水冷）：进水温度过低告警"
         Offset : 18
-        TeleSignalId : 12017
+        TelePSignalId : 12017
         AlertNormalValue : 0
       - Name : "非机架（水冷）：冷却水防冻保护"
         Offset : 20
-        TeleSignalId : 12017
+        TelePSignalId : 12017
         AlertNormalValue : 0
       - Name : "外机与扩展板通讯故障"
         Offset : 24
-        TeleSignalId : 12017
+        TelePSignalId : 12017
         AlertNormalValue : 0
       - Name : "喷淋水泵进口压力传感器故障"
         Offset : 25
-        TeleSignalId : 12017
+        TelePSignalId : 12017
         AlertNormalValue : 0
       - Name : "喷淋水泵出口压力传感器故障"
         Offset : 26
-        TeleSignalId : 12017
+        TelePSignalId : 12017
         AlertNormalValue : 0
       - Name : "喷淋水泵故障"
         Offset : 27
-        TeleSignalId : 12017
+        TelePSignalId : 12017
         AlertNormalValue : 0
       - Name : "喷淋水泵进水压力过低告警"
         Offset : 28
-        TeleSignalId : 12017
+        TelePSignalId : 12017
         AlertNormalValue : 0
       - Name : "外风机驱动2通讯故障"
         Offset : 29
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : "与室内机通讯故障"
         Offset : 32
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
   - Cmd : 3
     Offset :  8509
     Len : 6
@@ -982,47 +985,47 @@ Sample :
       - Name : 泵柜环温传感器故障
         Offset : 2
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 氟泵入口压力传感器故障
         Offset : 3
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 氟泵出口压力传感器故障
         Offset : 4
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 泵柜相序保护
         Offset : 5
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 泵柜驱动器故障
         Offset : 6
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 泵柜驱动器通讯故障
         Offset : 7
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 氟泵高扬程锁定告警
         Offset : 11
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 氟泵低扬程锁定告警
         Offset : 12
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 氟泵过温锁定告警
         Offset : 13
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 氟泵入口温度传感器故障
         Offset : 14
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 与室内机通讯故障
         Offset : 32
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
   - Cmd : 3
     Offset :  8205
     Len : 2
@@ -1040,47 +1043,47 @@ Sample :
       - Name : 泵柜环温传感器故障
         Offset : 2
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 氟泵入口压力传感器故障
         Offset : 3
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 氟泵出口压力传感器故障
         Offset : 4
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 泵柜相序保护
         Offset : 5
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 泵柜驱动器故障
         Offset : 6
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 泵柜驱动器通讯故障
         Offset : 7
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 氟泵高扬程锁定告警
         Offset : 11
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 氟泵低扬程锁定告警
         Offset : 12
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 氟泵过温锁定告警
         Offset : 13
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 氟泵入口温度传感器故障
         Offset : 14
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
       - Name : 与室内机通讯故障
         Offset : 32
         AlertNormalValue : 0
-        TeleSignalId : 12017
+        TelePSignalId : 12017
   - Cmd : 3
     Offset :  8221
     Len : 2

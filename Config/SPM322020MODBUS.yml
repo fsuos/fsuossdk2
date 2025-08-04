@@ -14,15 +14,36 @@ Sample :
     Len : 2
     Data : 
       - Name : "A相电压"
+        Ratio : 100
+        Unit : V
       - Name : "B相电压"
+        Ratio : 100
+        Unit : V
       - Name : "C相电压"
+        Ratio : 100
+        Unit : V
       - Name : "AB线电压"
+        Ratio : 100
+        Unit : V
       - Name : "BC线电压"
+        Ratio : 100
+        Unit : V
       - Name : "CA线电压"
+        Ratio : 100
+        Unit : V
       - Name : "A相电流"
+        Ratio : 1000
+        Unit : A
       - Name : "B相电流"
-      - Name : "C 相电流"
+        Ratio : 1000
+        Unit : A
+      - Name : "C相电流"
+        Ratio : 1000
+        Unit : A
       - Name : "零序电流"
+        Ratio : 1000
+        Unit : A
+        
       - Name : "总有功功率"
       - Name : "总无功功率"
       - Name : "总功率因数"

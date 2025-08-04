@@ -177,7 +177,7 @@ Sample :
     Data :
       - Name : 电池异常
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 电池供电
         Options :
           - Key : 0
@@ -186,22 +186,22 @@ Sample :
             Value : 电池供电态
       - Name : 电池电量低
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 电池耗尽
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 市电异常
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 输出异常
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 输出过载
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 旁路异常
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 旁路供电
         Options : 
           - Key : 0
@@ -222,7 +222,7 @@ Sample :
             Value : 动作
       - Name : UPS其他故障
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 蜂鸣器状态
         Options : 
           - Key : 0
@@ -249,7 +249,7 @@ Sample :
             Value : 模块化
       - Name : 输入防雷器状态
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 输出空开状态
         Options : 
           - Key : 0
@@ -258,7 +258,7 @@ Sample :
             Value : 闭合
       - Name : UPS状态
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
   - Cmd : 2
     Offset : 5032
     Len : 8
@@ -266,19 +266,19 @@ Sample :
     Data :
       - Name : 逆变旁路失同步
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 辅助电源故障
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 整流器故障
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 逆变器故障
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 充电器故障
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 电池开关状态
         Options : 
           - Key : 0
@@ -304,28 +304,28 @@ Sample :
     Data :
       - Name : 市电过压
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 市电欠压
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 市电频率过频
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 市电频率欠频
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 市电缺相
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 市电电压不平衡
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 市电相序异常
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 市电掉电
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
   - Cmd : 2
     Offset : 5117
     Len : 4
@@ -333,16 +333,16 @@ Sample :
     Data :
       - Name : 电池过压
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 电池回路异常
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 电池极性接反
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 电池温度异常
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
   - Cmd : 2
     Offset : 5132
     Len : 8
@@ -350,28 +350,28 @@ Sample :
     Data :
       - Name : 旁路过压
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 旁路欠压
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 旁路频率过频
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 旁路频率欠频
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 旁路缺相
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 旁路相序异常
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 旁路掉电
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 旁路过载保护
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
   - Cmd : 2
     Offset : 5148
     Len : 12
@@ -379,40 +379,40 @@ Sample :
     Data :
       - Name : 逆变过压
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 逆变欠压
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 逆变过载保护
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 输出回路异常
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : ECO故障
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 主权故障
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 并机通讯故障
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 并机线异常
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 逆变过频故障
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 逆变欠频故障
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 输出短路故障
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 并机系统EPO故障
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
   - Cmd : 2
     Offset : 5164
     Len : 13
@@ -420,43 +420,43 @@ Sample :
     Data :
       - Name : 市电保险丝异常
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 电池保险丝异常
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 输出保险丝异常
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 功率模块风机异常
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 旁路风机异常
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 整流器过温保护
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 充电器过温保护
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 逆变器过温保护
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 母线电容更换预告警
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 旁路风机更换预告警
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 功率模块风机更换预告警
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : BSC 同步线异常
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
       - Name : 温控器失效故障
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
   - Cmd : 2
     Offset : 5196
     Len : 1
@@ -464,7 +464,7 @@ Sample :
     Data :
       - Name : 其他故障
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
   - Cmd : 2
     Offset : 5200
     Len : 25
@@ -475,7 +475,7 @@ Sample :
         ArrayLength : 25
         Offset : 0
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
   - Cmd : 2
     Offset : 5232
     Len : 25
@@ -486,7 +486,7 @@ Sample :
         ArrayLength : 25
         Offset : 0
         AlertNormalValue : 0
-        TeleSignalId : 08049
+        TelePSignalId : 08049
   - Cmd : 4
     Offset : 5000
     Len : 45

@@ -16,7 +16,7 @@
 #include <boost/shared_ptr.hpp>
 #include <boost/asio.hpp>
 #include "boost/asio/deadline_timer.hpp"
-
+#include <boost/thread/mutex.hpp>
 
 using boost::asio::ip::udp;
 /*
@@ -52,10 +52,30 @@ protected:
     uint16_t mtu_len);
     
     uint8_t Send_Read_Property_Request_Address(
+        BACNET_OBJECT_TYPE object_type,
+        uint32_t object_instance,
+        BACNET_PROPERTY_ID object_property,
+        uint32_t array_index = BACNET_ARRAY_ALL);
+    
+
+    uint8_t Send_Write_Property_Request(
+        BACNET_OBJECT_TYPE object_type,
+        uint32_t object_instance,
+        BACNET_PROPERTY_ID object_property,
+        const BACNET_APPLICATION_DATA_VALUE *object_value,
+        uint8_t priority,
+        uint32_t array_index);
+
+
+uint8_t Send_Write_Property_Request_Data(
     BACNET_OBJECT_TYPE object_type,
     uint32_t object_instance,
     BACNET_PROPERTY_ID object_property,
-    uint32_t array_index = BACNET_ARRAY_ALL);
+    const uint8_t *application_data,
+    int application_data_len,
+    uint8_t priority,
+    uint32_t array_index);
+
     
     void npdu_encode_npdu_data(
     BACNET_NPDU_DATA *npdu_data,
@@ -129,6 +149,8 @@ protected:
 
     //udp socket
     boost::asio::io_service io_context_;
+    
+    boost::mutex socket_mutex_;
     udp::socket socket_;
 	
 	udp::endpoint remote_endpoint_;

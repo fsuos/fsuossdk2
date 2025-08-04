@@ -23,6 +23,11 @@ public:
     int DeviceIoControl(int ioControlCode, void* inBuffer, int inBufferSize, void* outBuffer, int outBufferSize, int& bytesReturned) override;
     bool process_data(tcp::socket::native_handle_type fd, uint8_t *buffer, int size);
 private:
+{% if BlockTemplate is defined %}
+{% for key,blockDef in BlockTemplate.items() %}
+void _{{ Project.Name|lower }}_{{ key }}_alert(char* pCData,const char* prefix, int iIndex, const char* index {% if blockDef.HasIndex1 is defined  %}, const char* index1{% endif %} {% if blockDef.HasIndex2 is defined %}, const char* index2{% endif %}, int vendor);
+{% endfor %}
+{% endif %}
     {% if InitSetting is defined %}
     {% for s in InitSetting %}
     {% if s.Type == "int" %}

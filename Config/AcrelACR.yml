@@ -2,6 +2,9 @@ Project:
   Name : AcrelACR
   RT_ID : 5156
   File : "085 ACR系列谐波仪表中文版V1.1 16.7.1.pdf"
+  DevType : 2
+  ProtocolName : ACR系列谐波仪表
+  Category : 智能电表
 Sample : 
   - Cmd : 3
     Offset : 6
