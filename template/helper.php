@@ -7,9 +7,15 @@
         {% if sc.RType is defined %}
         $tMemData = substr($memData , $offset, 2*{{ sc.Len }});
         $lMemData = '';
+        {% if sc.RType == "f" or sc.RType == "I" or sc.RType == "i" %}
         for($i=0;$i<strlen($tMemData);$i+=4){
           $lMemData .= $tMemData[$i+2].$tMemData[$i+3].$tMemData[$i].$tMemData[$i+1];
         }
+        {% else %}
+        for($i=0;$i<strlen($tMemData);$i+=2){
+          $lMemData .= $tMemData[$i+1].$tMemData[$i];
+        }
+        {% endif %}
         $v = unpack("{{sc.RType}}*" , $lMemData);
         {% elif sc.Type is defined %}        
 $v = unpack("{{sc.Type}}*" , substr($memData , $offset, 2*{{ sc.Len }}));
@@ -63,8 +69,9 @@ $lMemData = substr($memData , $offset, {{ sc.Len }});
           {% endif %}
         {% endif %}
       {% elif d.Block is defined %}
-      $lMemData = substr($memData, $offset, {{ BlockTemplate[d.Block]["BlockLength"] }});
-      _{{ Project.Name|lower }}_{{ d.Block }}({{ dataArrayStr }}, $lMemData, {% if d.Prefix is defined %}"{{d.Prefix}}"{%else%}""{%endif%}, {% if d.index is defined %} "{{ d.index }}" {% if d.index1 is defined %},"{{d.index1}}"{% endif %}{% if d.index2 is defined %},"{{d.index2}}"{% endif %} {% else %}$index{% endif %});
+      $tMemData = substr($lMemData, $lOffset, {{ BlockTemplate[d.Block]["BlockLength"] }});
+      _{{ Project.Name|lower }}_{{ d.Block }}({{ dataArrayStr }}, $tMemData, {% if d.Prefix is defined %}"{{d.Prefix}}"{%else%}""{%endif%}, {% if d.index is defined %} "{{ d.index }}" {% if d.index1 is defined %},"{{d.index1}}"{% endif %}{% if d.index2 is defined %},"{{d.index2}}"{% endif %} {% else %}$index{% endif %});
+      $lOffset += {{ BlockTemplate[d.Block]["BlockLength"] }};
       {% else %}
 	    {% if d.Value is defined %}
         {% if d.AlertNormalValue is defined %}
@@ -167,19 +174,22 @@ function _{{ Project.Name|lower }}_ShowAlert(&$dataArray, $label, $value, $vsVal
 function _{{ Project.Name|lower }}_{{ key }}(&$dataArray, $memData, $prefix, $index {% if blockDef.HasIndex1 is defined  %},$index1{% endif %} {% if blockDef.HasIndex2 is defined %},$index2{% endif %})
 {
     $offset = 0;
-    {% if blockDef.BlockType is defined %}
-      {% if blockDef.BlockRType is defined %}
-        {% if blockDef.BlockRType == 1 %}
-        $lMemData = '';
-        for($i=0;$i<strlen($memData);$i+=4){
-          $lMemData .= $memData[$i+2].$memData[$i+3].$memData[$i].$memData[$i+1];
-        }
-        $v = unpack("{{blockDef.BlockType}}*" , $lMemData);
-        {% elif blockDef.BlockRType == 2 %}
-        {% endif %}
+    {% if blockDef.BlockRType is defined %}
+      {% if blockDef.BlockRType == 'f' or blockDef.BlockRType == 'I' or blockDef.BlockRType == 'i' %}
+      $lMemData = '';
+      for($i=0;$i<strlen($memData);$i+=4){
+        $lMemData .= $memData[$i+2].$memData[$i+3].$memData[$i].$memData[$i+1];
+      }
+      $v = unpack("{{blockDef.BlockRType}}*" , $lMemData);
       {% else %}
-      $v = unpack("{{blockDef.BlockType}}*" , $memData);
+      $lMemData = '';
+      for($i=0;$i<strlen($memData);$i+=2){
+        $lMemData .= $memData[$i+1].$memData[$i];
+      }
+      $v = unpack("{{blockDef.BlockRType}}*" , $lMemData);
       {% endif %}
+    {% elif blockDef.BlockType is defined %}
+    $v = unpack("{{blockDef.BlockType}}*" , $memData);
     {% else %}
     $v = unpack("S*" , $memData);
     {% endif %}

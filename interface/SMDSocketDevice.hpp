@@ -29,10 +29,6 @@ public:
 
     virtual void OnConnected(tcp::socket::native_handle_type fd);
     virtual bool RefreshStatus();
-    virtual int DeviceIoControl(int ioControlCode, void* inBuffer, int inBufferSize, void* outBuffer, int outBufferSize, int& bytesReturned)
-    {
-        return 0;
-    }
 
     virtual int StartSocket(const std::string& ip, uint16_t port) final;
     virtual int CloseSocket(int fd) final;

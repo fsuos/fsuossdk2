@@ -20,12 +20,12 @@ public:
     void RunCheckThreshold() override;
     bool RefreshStatus() override;
     float Get_Value(uint32_t data_id, const std::string& var_name) const;
-    int DeviceIoControl(int ioControlCode, void* inBuffer, int inBufferSize, void* outBuffer, int outBufferSize, int& bytesReturned) override;
+    int DeviceIoControl(int ioControlCode, const void* inBuffer, int inBufferSize, void* outBuffer, int outBufferSize, int& bytesReturned) override;
     bool process_data(tcp::socket::native_handle_type fd, uint8_t *buffer, int size);
 private:
 {% if BlockTemplate is defined %}
 {% for key,blockDef in BlockTemplate.items() %}
-void _{{ Project.Name|lower }}_{{ key }}_alert(char* pCData,const char* prefix, int iIndex, const char* index {% if blockDef.HasIndex1 is defined  %}, const char* index1{% endif %} {% if blockDef.HasIndex2 is defined %}, const char* index2{% endif %}, int vendor);
+int _{{ Project.Name|lower }}_{{ key }}_alert(char* pCData,const char* prefix, int iIndex, const char* index {% if blockDef.HasIndex1 is defined  %}, const char* index1{% endif %} {% if blockDef.HasIndex2 is defined %}, const char* index2{% endif %});
 {% endfor %}
 {% endif %}
     {% if InitSetting is defined %}

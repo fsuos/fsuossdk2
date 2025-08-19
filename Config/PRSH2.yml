@@ -2,11 +2,15 @@ Project:
   Name : PRSH2
   RT_ID : 5156
   File : "3037530675普锐森社氢气变送器（485型）(1).doc"
+  DevType : 2
+  ProtocolName : 普锐森社氢气变送器
+  Category : 传感器
 Sample : 
   - Cmd : 3
     Offset : 0
     Len : 1
     Data : 
       - Name : "氢气浓度值"
-        Ratio : 100
         Unit : "ppm"
+RunCheckThresholdCodePTelecom : |
+  CheckThreshold("value", "氢气浓度值",  cData.r3_0[0], 1);

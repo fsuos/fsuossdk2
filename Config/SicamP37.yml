@@ -1,0 +1,317 @@
+Project:
+  Name : SicamP37
+  RT_ID : 5156
+  File : "P30_31_32_35_36_37系列Modbus协议_20210207+.xlsx"
+  DevType : 2
+  ProtocolName : "西门子P37"
+  Category : 智能电表
+Sample : 
+  - Cmd : 3
+    Offset : 2
+    Len : 4
+    Type : 'S'
+    Data : 
+      - Name : PT
+        Value : (($v[1]<<16) | $v[2])/10000
+        CValue : ((pData[0]<<16) | pData[1])/10000
+        Default : 1
+      - Name : CT
+        Value : (($v[3]<<16) | $v[4])/10000
+        CValue : ((pData[2]<<16) | pData[3])/10000
+        Default : 10000
+  - Cmd : 3
+    Offset : 0x1000
+    Len : 13
+    Type : 'S'
+    Data : 
+      - Name : A相电压
+        Ratio : 100
+        Unit : V
+      - Name : B相电压
+        Ratio : 100
+        Unit : V
+      - Name : C相电压
+        Ratio : 100
+        Unit : V
+      - Name : 平均相电压
+        Ratio : 100
+        Unit : V
+      - Name : AB线电压
+        Ratio : 100
+        Unit : V
+      - Name : BC线电压
+        Ratio : 100
+        Unit : V
+      - Name : CA线电压
+        Ratio : 100
+        Unit : V
+      - Name : 平均线电压
+        Ratio : 100
+        Unit : V
+      - Name : A相电流
+        Ratio : (1000/floatval($dataArray["CT"]))
+        CRatio : (1000/ jsonValue["CT"].asFloat() )
+        Unit : A
+      - Name : B相电流
+        Ratio : (1000/floatval($dataArray["CT"]))
+        CRatio : (1000/ jsonValue["CT"].asFloat() )
+        Unit : A
+      - Name : C相电流
+        Ratio : (1000/floatval($dataArray["CT"]))
+        CRatio : (1000/ jsonValue["CT"].asFloat() )
+        Unit : A
+      - Name : 平均电流
+        Ratio : (1000/floatval($dataArray["CT"]))
+        CRatio : (1000/ jsonValue["CT"].asFloat() )
+        Unit : A
+      - Name : 零线电流
+        Ratio : (1000/floatval($dataArray["CT"]))
+        CRatio : (1000/ jsonValue["CT"].asFloat() )
+        Unit : A
+  - Cmd : 3
+    Offset : 0x100D
+    Len : 16
+    Type : 's'
+    Data : 
+      - Name : A相有功功率
+        Ratio : (1000/floatval($dataArray["CT"]))
+        CRatio : (1000/ jsonValue["CT"].asFloat() )
+        Unit : kW
+      - Name : B相有功功率
+        Ratio : (1000/floatval($dataArray["CT"]))
+        CRatio : (1000/ jsonValue["CT"].asFloat() )
+        Unit : kW
+      - Name : C相有功功率
+        Ratio : (1000/floatval($dataArray["CT"]))
+        CRatio : (1000/ jsonValue["CT"].asFloat() )
+        Unit : kW
+      - Name : 总有功功率
+        Ratio : (1000/floatval($dataArray["CT"]))
+        CRatio : (1000/ jsonValue["CT"].asFloat() )
+        Unit : kW
+      - Name : A相无功功率
+        Ratio : (1000/floatval($dataArray["CT"]))
+        CRatio : (1000/ jsonValue["CT"].asFloat() )
+        Unit : kVar
+      - Name : B相无功功率
+        Ratio : (1000/floatval($dataArray["CT"]))
+        CRatio : (1000/ jsonValue["CT"].asFloat() )
+        Unit : kVar
+      - Name : C相无功功率
+        Ratio : (1000/floatval($dataArray["CT"]))
+        CRatio : (1000/ jsonValue["CT"].asFloat() )
+        Unit : kVar
+      - Name : 总无功功率
+        Ratio : (1000/floatval($dataArray["CT"]))
+        CRatio : (1000/ jsonValue["CT"].asFloat() )
+        Unit : kVar
+      - Name : A相视在功率
+        Ratio : (1000/floatval($dataArray["CT"]))
+        CRatio : (1000/ jsonValue["CT"].asFloat() )
+        Unit : kVA
+      - Name : B相视在功率
+        Ratio : (1000/floatval($dataArray["CT"]))
+        CRatio : (1000/ jsonValue["CT"].asFloat() )
+        Unit : kVA
+      - Name : C相视在功率
+        Ratio : (1000/floatval($dataArray["CT"]))
+        CRatio : (1000/ jsonValue["CT"].asFloat() )
+        Unit : kVA
+      - Name : 总视在功率
+        Ratio : (1000/floatval($dataArray["CT"]))
+        CRatio : (1000/ jsonValue["CT"].asFloat() )
+        Unit : kVA
+      - Name : A相功率因数
+        Ratio : 1000
+      - Name : B相功率因数
+        Ratio : 1000
+      - Name : C相功率因数
+        Ratio : 1000
+      - Name : 总功率因数
+        Ratio : 1000
+  - Cmd : 3
+    Offset : 0x101D
+    Len : 1
+    Type : 'S'
+    Data : 
+      - Name : 频率
+        Ratio : 100
+        Unit : Hz
+  - Cmd : 3
+    Offset : 0x1023
+    Len : 1
+    Type : 'S'
+    Data : 
+      - Name : A相相角
+        Ratio : 10
+      - Name : B相相角
+        Ratio : 10
+      - Name : C相相角
+        Ratio : 10
+  - Cmd : 3
+    Offset : 0x2000
+    Len : 16
+    Type : 'S'
+    Data : 
+      - Name : A相正向有功电能
+        Value : $dataArray["CT"]*(($v[1] << 16) + $v[2])/10000
+        CValue : (float)((pData[0]<<16) + pData[1])/10000 * jsonValue["CT"].asFloat()
+        Unit : kWh
+      - Name : B相正向有功电能
+        Value : $dataArray["CT"]*(($v[3] << 16) + $v[4])/10000
+        CValue : (float)((pData[2]<<16) + pData[3])/10000 * jsonValue["CT"].asFloat()
+        Unit : kWh
+      - Name : C相正向有功电能
+        Value : $dataArray["CT"]*(($v[5] << 16) + $v[6])/10000
+        CValue : (float)((pData[4]<<16) + pData[5])/10000 * jsonValue["CT"].asFloat()
+        Unit : kWh
+      - Name : 正向有功总电能
+        Value : $dataArray["CT"]*(($v[7] << 16) + $v[8])/10000
+        CValue : (float)((pData[6]<<16) + pData[7])/10000 * jsonValue["CT"].asFloat()
+        Unit : kWh
+      - Name : A相正向无功电能
+        Value : $dataArray["CT"]*(($v[9] << 16) + $v[10])/10000
+        CValue : (float)((pData[8]<<16) + pData[9])/10000 * jsonValue["CT"].asFloat()
+        Unit : kWh
+      - Name : B相正向无功电能
+        Value : $dataArray["CT"]*(($v[11] << 16) + $v[12])/10000
+        CValue : (float)((pData[10]<<16) + pData[11])/10000 * jsonValue["CT"].asFloat()
+        Unit : kWh
+      - Name : C相正向无功电能
+        Value : $dataArray["CT"]*(($v[13] << 16) + $v[14])/10000
+        CValue :  (float)((pData[12]<<16) + pData[13])/10000 * jsonValue["CT"].asFloat()
+        Unit : kWh
+      - Name : 正向无功总电能
+        Value : $dataArray["CT"]*(($v[15] << 16) + $v[16])/10000
+        CValue :  (float)((pData[14]<<16) + pData[15])/10000 * jsonValue["CT"].asFloat()
+        Unit : kWh
+RunCheckThresholdCodeTelecom : |
+  {
+      float fValue = cData.r3_4096[0];
+      fValue /= 100;
+      if(levelMap_["110200010010"]){            
+            CheckThresholdBool(levelMap_["110200010010"] , "110200010010", "110200010010", "001#低压配电屏A相电压过高", boost::lexical_cast<std::string>(fValue),  fValue > valueMap_["110200010010"], 1);
+      }
+      if(levelMap_["110200020010"]){
+            CheckThresholdBool(levelMap_["110200020010"] , "110200020010", "110200020010", "001#低压配电屏A相电压过低", boost::lexical_cast<std::string>(fValue),  fValue < valueMap_["110200020010"], 1);
+      }
+      if(levelMap_["110200030010"]){
+            CheckThresholdBool(levelMap_["110200030010"] , "110200030010", "110200030010", "001#低压配电屏A相电压超高", boost::lexical_cast<std::string>(fValue),  fValue > valueMap_["110200030010"], 1);
+      }
+      if(levelMap_["110200040010"]){
+            CheckThresholdBool(levelMap_["110200040010"] , "110200040010", "110200040010", "001#低压配电屏A相电压超低", boost::lexical_cast<std::string>(fValue),  fValue < valueMap_["110200040010"], 1);
+      }
+  }
+  {
+      float fValue = cData.r3_4096[1];
+      fValue /= 100;
+      if(levelMap_["110200060010"]){            
+            CheckThresholdBool(levelMap_["110200060010"] , "110200060010", "110200060010", "001#低压配电屏B相电压过高", boost::lexical_cast<std::string>(fValue),  fValue > valueMap_["110200060010"], 1);
+      }
+      if(levelMap_["110200070010"]){
+            CheckThresholdBool(levelMap_["110200070010"] , "110200070010", "110200070010", "001#低压配电屏B相电压过低", boost::lexical_cast<std::string>(fValue),  fValue < valueMap_["110200070010"], 1);
+      }
+      if(levelMap_["110200080010"]){
+            CheckThresholdBool(levelMap_["110200080010"] , "110200080010", "110200080010", "001#低压配电屏B相电压超高", boost::lexical_cast<std::string>(fValue),  fValue > valueMap_["110200080010"], 1);
+      }
+      if(levelMap_["110200090010"]){
+            CheckThresholdBool(levelMap_["110200090010"] , "110200090010", "110200090010", "001#低压配电屏B相电压超低", boost::lexical_cast<std::string>(fValue),  fValue < valueMap_["110200090010"], 1);
+      }
+  }
+  {
+      float fValue = cData.r3_4096[2];
+      fValue /= 100;
+      if(levelMap_["110200110010"]){            
+            CheckThresholdBool(levelMap_["110200110010"] , "110200110010", "110200110010", "001#低压配电屏C相电压过高", boost::lexical_cast<std::string>(fValue),  fValue > valueMap_["110200110010"], 1);
+      }
+      if(levelMap_["110200120010"]){
+            CheckThresholdBool(levelMap_["110200120010"] , "110200120010", "110200120010", "001#低压配电屏C相电压过低", boost::lexical_cast<std::string>(fValue),  fValue < valueMap_["110200120010"], 1);
+      }
+      if(levelMap_["110200130010"]){
+            CheckThresholdBool(levelMap_["110200130010"] , "110200130010", "110200130010", "001#低压配电屏C相电压超高", boost::lexical_cast<std::string>(fValue),  fValue > valueMap_["110200130010"], 1);
+      }
+      if(levelMap_["110200140010"]){
+            CheckThresholdBool(levelMap_["110200140010"] , "110200140010", "110200140010", "001#低压配电屏C相电压超低", boost::lexical_cast<std::string>(fValue),  fValue < valueMap_["110200140010"], 1);
+      }
+  }
+  {
+      float fValue = cData.r3_4096[4];
+      fValue /= 100;
+      if(levelMap_["110200240010"]){            
+            CheckThresholdBool(levelMap_["110200240010"] , "110200240010", "110200240010", "001#低压配电屏线电压Uab过高", boost::lexical_cast<std::string>(fValue),  fValue > valueMap_["110200240010"], 1);
+      }
+      if(levelMap_["110200250010"]){
+            CheckThresholdBool(levelMap_["110200250010"] , "110200250010", "110200250010", "001#低压配电屏线电压Uab过低", boost::lexical_cast<std::string>(fValue),  fValue < valueMap_["110200250010"], 1);
+      }
+      if(levelMap_["110200260010"]){
+            CheckThresholdBool(levelMap_["110200260010"] , "110200260010", "110200260010", "001#低压配电屏线电压Uab超高", boost::lexical_cast<std::string>(fValue),  fValue > valueMap_["110200260010"], 1);
+      }
+      if(levelMap_["110200270010"]){
+            CheckThresholdBool(levelMap_["110200270010"] , "110200270010", "110200270010", "001#低压配电屏线电压Uab过低", boost::lexical_cast<std::string>(fValue),  fValue < valueMap_["110200270010"], 1);
+      }
+  }
+  {
+      float fValue = cData.r3_4096[5];
+      fValue /= 100;
+      if(levelMap_["110200290010"]){            
+            CheckThresholdBool(levelMap_["110200290010"] , "110200290010", "110200290010", "001#低压配电屏线电压Ubc过高", boost::lexical_cast<std::string>(fValue),  fValue > valueMap_["110200290010"], 1);
+      }
+      if(levelMap_["110200300010"]){
+            CheckThresholdBool(levelMap_["110200300010"] , "110200300010", "110200300010", "001#低压配电屏线电压Ubc过低", boost::lexical_cast<std::string>(fValue),  fValue < valueMap_["110200300010"], 1);
+      }
+      if(levelMap_["110200310010"]){
+            CheckThresholdBool(levelMap_["110200310010"] , "110200310010", "110200310010", "001#低压配电屏线电压Ubc超高", boost::lexical_cast<std::string>(fValue),  fValue > valueMap_["110200310010"], 1);
+      }
+      if(levelMap_["110200320010"]){
+            CheckThresholdBool(levelMap_["110200320010"] , "110200320010", "110200320010", "001#低压配电屏线电压Ubc过低", boost::lexical_cast<std::string>(fValue),  fValue < valueMap_["110200320010"], 1);
+      }
+  }
+  {
+      float fValue = cData.r3_4096[6];
+      fValue /= 100;
+      if(levelMap_["110200340010"]){            
+            CheckThresholdBool(levelMap_["110200340010"] , "110200340010", "110200340010", "001#低压配电屏线电压Uca过高", boost::lexical_cast<std::string>(fValue),  fValue > valueMap_["110200340010"], 1);
+      }
+      if(levelMap_["110200350010"]){
+            CheckThresholdBool(levelMap_["110200350010"] , "110200350010", "110200350010", "001#低压配电屏线电压Uca过低", boost::lexical_cast<std::string>(fValue),  fValue < valueMap_["110200350010"], 1);
+      }
+      if(levelMap_["110200360010"]){
+            CheckThresholdBool(levelMap_["110200360010"] , "110200360010", "110200360010", "001#低压配电屏线电压Uca超高", boost::lexical_cast<std::string>(fValue),  fValue > valueMap_["110200360010"], 1);
+      }
+      if(levelMap_["110200370010"]){
+            CheckThresholdBool(levelMap_["110200370010"] , "110200370010", "110200370010", "001#低压配电屏线电压Uca过低", boost::lexical_cast<std::string>(fValue),  fValue < valueMap_["110200370010"], 1);
+      }
+  }
+  {
+    float fValue = ((float)cData.r3_4096[8]) * (((cData.r3_2[1]<<16)|cData.r3_2[0])/10000 ) /1000;
+    if(levelMap_["110200160010"]){            
+          CheckThresholdBool(levelMap_["110200160010"] , "110200160010", "110200160010", "001#低压配电屏相电流Ia过大", boost::lexical_cast<std::string>(fValue),  fValue > valueMap_["110200160010"], 1);
+    }
+  }
+  {
+    float fValue = ((float)cData.r3_4096[9]) * (((cData.r3_2[1]<<16)|cData.r3_2[0])/10000 ) /1000;
+    if(levelMap_["110200180010"]){            
+          CheckThresholdBool(levelMap_["110200180010"] , "110200180010", "110200180010", "001#低压配电屏相电流Ib过大", boost::lexical_cast<std::string>(fValue),  fValue > valueMap_["110200180010"], 1);
+    }
+  }
+  {
+    float fValue = ((float)cData.r3_4096[10]) * (((cData.r3_2[1]<<16)|cData.r3_2[0])/10000 ) /1000;
+    if(levelMap_["110200200010"]){            
+          CheckThresholdBool(levelMap_["110200200010"] , "110200200010", "110200200010", "001#低压配电屏相电流Ic过大", boost::lexical_cast<std::string>(fValue),  fValue > valueMap_["110200200010"], 1);
+    }
+  }
+  {
+    if(levelMap_["120200220010"]){
+          float ua = cData.r3_4096[0];
+          ua /= 100;
+          float ub = cData.r3_4096[1];
+          ub /= 100;
+          float uc = cData.r3_4096[2];
+          uc /= 100;
+          std::stringstream ss;
+          ss<<"UA:"<<ua<<" "<<"UB:"<<ub<<" UC:"<<uc;
+          CheckThresholdBool(levelMap_["120200220010"] , "120200220010", "120200220010", "001#交流输入停电告警", ss.str(),  (ua < 150) || (ub < 150) || (uc < 150) , 1);
+    }
+  }
+
+      

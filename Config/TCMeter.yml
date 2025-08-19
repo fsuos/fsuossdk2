@@ -2,6 +2,9 @@ Project:
   Name : TCMeter
   RT_ID : 5156
   File : "数显仪表485通讯使用说明V6.4.docx"
+  DevType : 2
+  ProcotolName : "数显仪表TCMeter"
+  Category : 智能电表
 Sample : 
   - Cmd : 3
     Offset : 59

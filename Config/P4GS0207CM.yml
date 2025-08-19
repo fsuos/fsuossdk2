@@ -2,12 +2,12 @@ Project:
   Name : P4GS0207CM
   RT_ID : 5156
   File : "P4-GS-0207单机头湿膜新风机控制器  MODBUS_RTU和TCP通讯协议V100 20250726.xlsx"
-  DevType : 2
+  DevType : 4
   ProtocolName : P4GS0207CM新风控制器
   Category : 新风设备
 Sample : 
   - Cmd : 3
-    Offset : 218
+    Offset : 219
     Len : 3
     Data : 
       - Name : 2#设定温度（冷水温度）
@@ -19,14 +19,14 @@ Sample :
       - Name : 设定压差
         Unit : Pa
   - Cmd : 3
-    Offset : 224
+    Offset : 225
     Len : 1
     Data : 
       - Name : 送风频率手动设定
         Ratio : 10
         Unit : Hz
   - Cmd : 3
-    Offset : 225
+    Offset : 226
     Len : 6
     Data :
       - Name : 湿膜后温度
@@ -48,26 +48,26 @@ Sample :
         Ratio : 10
         Unit : "℃"
   - Cmd : 3
-    Offset : 233
+    Offset : 234
     Len : 1
     Data :
       - Name : 风压差
         Unit : Pa
   - Cmd : 3
-    Offset : 235
+    Offset : 236
     Len : 5
     Data : 
       - Name : 回风湿度
-        Ratio : 100
+        Ratio : 10
         Unit : '%'
       - Name : 出风湿度
-        Ratio : 100
+        Ratio : 10
         Unit : '%'
       - Name : 新风湿度
-        Ratio : 100
+        Ratio : 10
         Unit : '%'
       - Name : 核心区湿度
-        Ratio : 100
+        Ratio : 10
         Unit : '%'
       - Name : 机组状态
         Options :
@@ -82,8 +82,9 @@ Sample :
           - Key : 4
             Value : 故障
   - Cmd : 3
-    Offset : 240
+    Offset : 241
     Len : 1
+    RType : 'S'
     Data : 
       - Name : 送风机
         CValue : pData[0]&0x1
@@ -174,8 +175,9 @@ Sample :
           - Key : 0
             Value : 停止
   - Cmd : 3
-    Offset : 244
+    Offset : 245
     Len : 1
+    RType : 'S'
     Data : 
       - Name : 送风机过载
         CValue : pData[0]&0x1
@@ -274,8 +276,9 @@ Sample :
         TeleSignalId : 120830170160
         UnicomSignalId : 602400101016
   - Cmd : 3
-    Offset : 245
+    Offset : 246
     Len : 1
+    RType : 'S'
     Data : 
       - Name : 风速传感器
         CValue : pData[0]&0x1
@@ -374,8 +377,9 @@ Sample :
         TeleSignalId : 120830170320
         UnicomSignalId : 602400101032
   - Cmd : 3
-    Offset : 246
+    Offset : 247
     Len : 1
+    RType : 'S'
     Data : 
       - Name : 核心区温度传感器故障
         CValue : pData[0]&0x1
@@ -474,20 +478,48 @@ SET_RET_CODE : |
       }
       
 SET_DO_CODE : |
-  std::string doId((char*)inBuffer, inBufferSize);
-  if(doId == "601500201001" || doId == "140800280010") {
+  if(setting["signal_id"].asString() == "140800280010") {
       //开机
-      state = AC_Control_Code::AC_START;
-      cmd_result_ = -1;
       last_data_ = 1;
-          modbus_write_register(205, last_data_);
+      modbus_t* tCtx = modbus_new_tcp(ip_.c_str(), port_);
+      int nRet = modbus_connect(tCtx);
+      if(-1 == nRet)
+      {
+          //printf("connect failed\n");
+          modbus_close(tCtx);
+          modbus_free(tCtx);
+          return -2;
+      }
+      modbus_set_slave(tCtx, addr_);
+      if( 1 == modbus_write_register(tCtx, 205, last_data_))
+      {
+        cmd_result_ = 1;
+      }else{
+        cmd_result_ = 2;
+      }
+      modbus_close(tCtx);
+      modbus_free(tCtx);
       return 0;
-  } else if(doId == "601500200001" || doId == "140800300010") {
+  }else if(setting["signal_id"].asString() == "140800300010") {
       //关机
-      state = AC_Control_Code::AC_STOP;
-      cmd_result_ = -1;
       last_data_ = 0;
-      modbus_write_register(205, last_data_);
+      modbus_t* tCtx = modbus_new_tcp(ip_.c_str(), port_);
+      int nRet = modbus_connect(tCtx);
+      if(-1 == nRet)
+      {
+          //printf("connect failed\n");
+          modbus_close(tCtx);
+          modbus_free(tCtx);
+          return -2;
+      }
+      if(1 == modbus_write_register(tCtx, 205, last_data_))
+      {
+        cmd_result_ = 1;
+      }else{
+        cmd_result_ = 2;
+      }
+      modbus_close(tCtx);
+      modbus_free(tCtx);
       return 0;
   }
 
@@ -496,10 +528,26 @@ SET_AO_CODE: |
         if(setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
             int16_t newValue = atoi(setting["SetValue"].asString().c_str())*10;
             //送风温度
-            state = AC_Control_Code::AC_SET_TEMPERATURE;
-            cmd_result_ = -1;
+            //state = AC_Control_Code::AC_SET_TEMPERATURE;
+            //cmd_result_ = -1;
             last_data_ = newValue;
-            modbus_write_register(219, last_data_);
+            modbus_t* tCtx = modbus_new_tcp(ip_.c_str(), port_);
+            int nRet = modbus_connect(tCtx);
+            if(-1 == nRet)
+            {
+                //printf("connect failed\n");
+                modbus_close(tCtx);
+                modbus_free(tCtx);
+                return -2;
+            }
+            if(1 == modbus_write_register(tCtx, 220, last_data_))
+            {
+              cmd_result_ = 1;
+            }else{
+              cmd_result_ = 2;
+            }
+            modbus_close(tCtx);
+            modbus_free(tCtx);
             return 0;                    
         }
     }

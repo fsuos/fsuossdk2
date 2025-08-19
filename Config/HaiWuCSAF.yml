@@ -1128,14 +1128,14 @@ SET_DO_CODE : |
       if(setting["signal_id"].asString() == "140800280010") {
           //开机
           state = AC_Control_Code::AC_START;
-          cmd_result_ = -1;
+          cmd_result_ = 1;
           last_data_ = 1;
           modbus_write_register(3509, last_data_);
           return 0;
       }else if(setting["signal_id"].asString() == "140800300010") {
           //关机
           state = AC_Control_Code::AC_STOP;
-          cmd_result_ = -1;
+          cmd_result_ = 1;
           last_data_ = 0;
           modbus_write_register(3509, last_data_);
           return 0;

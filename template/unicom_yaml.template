@@ -1,0 +1,4 @@
+AI :
+  {% for a in UnicomAI %}
+  {{ a }} : {{ UnicomAI[a] }}
+  {% endfor %}

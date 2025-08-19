@@ -23,13 +23,17 @@ bool {{ Project.Name }}::RefreshStatus()
         int v{{ sc.Cmd }}addr[] = { {{ sc.Offset|join(",")}} };
         for(int i=0; i< {{ sc.Offset|length }};i++)
         {
+            boost::mutex::scoped_lock spLock(socket_mutex_);
+	    {% if sc.Ip is defined %}
+	    remote_endpoint_.address(boost::asio::ip::address_v4::from_string("{{ sc.Ip }}"));
+	    {% endif %}
             int r =  Send_Read_Property_Request_Address((BACNET_OBJECT_TYPE){{ sc.Cmd }}, v{{ sc.Cmd }}addr[i], PROP_PRESENT_VALUE);
             if(r){
                 int len = Receive();
                 if(len)
                 {
                     {% if sc.Cmd == 3 or sc.Cmd == 4 or sc.Cmd == 5 %}
-                    cData.v{{ sc.Cmd }}[i] = appValue.type.Boolean;
+                    cData.v{{ sc.Cmd }}[i] = appValue.type.Enumerated;
                     {% elif sc.Cmd == 0 or sc.Cmd == 1 or sc.Cmd == 2 %}
                     cData.v{{ sc.Cmd }}[i] = appValue.type.Real;
                     {% elif sc.Cmd == 19 %}

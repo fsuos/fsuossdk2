@@ -193,10 +193,10 @@ void {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}(char* pCData,const 
         for(int i=1;int i<={{ d.ArrayLength }};int i++){
           $name = $prefix.sprintf("{{ d.ArrayName }}", {{ d.ArrayStart }} + $i);
           int kIndex = {{ d.Offset }} + i;
-          jsonValue[name] = ((float)pData[$kIndex-1]){% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %};
+          jsonValue[name] = ((float)pData[$kIndex-1]){% if d.CRatio is defined %}/{{ d.CRatio }}{% elif d.Ratio is defined %}/{{ d.Ratio }}{% endif %};
         }
         {% else %}
-          jsonValue[name] = ((float)pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}]){% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %};
+          jsonValue[name] = ((float)pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}]){% if d.CRatio is defined %}/{{ d.CRatio }}{% elif d.Ratio is defined %}/{{ d.Ratio }}{% endif %};
         {% endif %}
         }
       {% endif %}
@@ -424,7 +424,7 @@ void {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}(char* pCData,const 
                     snprintf(nameBuffer, 48, "{{ d.ArrayName }}", {{ d.ArrayStart }} + i);
                     std::string name = nameBuffer;
                     int kIndex = {% if d.Offset is defined %}{{ d.Offset }}{% else %}0{% endif %} + i;
-                    {{ jsonValueStr }}[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}name] = ((float)pData[kIndex]){% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %};
+                    {{ jsonValueStr }}[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}name] = ((float)pData[kIndex]){% if d.CRatio is defined %}/{{ d.CRatio }}{% elif d.Ratio is defined %}/{{ d.Ratio }}{% endif %};
                 }
             {% endif %}
         {% elif d.Options is defined %}
@@ -450,7 +450,7 @@ void {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}(char* pCData,const 
             {{ jsonValueStr }}["AlertArray"]["{{ d.Name }}"] = (pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] != {{ d.AlertNormalValue }});
         
 	    {% else %}
-        {{ jsonValueStr }}[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}"{{ d.Name }}"] = ((float)pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}]){% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %};
+        {{ jsonValueStr }}[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}"{{ d.Name }}"] = ((float)pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}]){% if d.CRatio is defined %}/{{ d.CRatio }}{% elif d.Ratio is defined %}/{{ d.Ratio }}{% endif %};
 	    {% endif %}
       
         {% if d.Alias is defined %}
@@ -623,6 +623,7 @@ void {{ Project.Name }}::RunCheckThreshold()
             break;
         }
         default:{//默认电信动环的情况
+            {% if RunCheckThresholdCodePTelecom is defined %}{{ RunCheckThresholdCodePTelecom }}{% endif %}
             uint8_t* pCData = (uint8_t*)&cData;
             int offset = 4;
             {% for tsc in Sample %}

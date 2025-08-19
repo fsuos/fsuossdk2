@@ -2,6 +2,9 @@ Project:
   Name : EVOCyberMateDX
   RT_ID : 5156
   File : "EVO-CyberMate-DX-Modbus 通信协议.pdf"
+  DevType : 2
+  Category : 专用空调
+  ProtocolName : EvoCyberMateDx空调
 Sample : 
   - Cmd : 3
     Offset : 0x0100
@@ -72,7 +75,7 @@ Sample :
     Len : 2
     Data :
       - Name : "加湿电流检测"
-        Unit : mA"
+        Unit : "mA"
         Ratio : 1
         Offset : 1
       - Name : "电压检测"
