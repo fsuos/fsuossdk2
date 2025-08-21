@@ -2,6 +2,9 @@ Project:
   Name : MA01C
   RT_ID : 5156
   File : "MA01C智能电源监测系统通信协议V5.0.51.pdf"
+  DevType : 2
+  Category : "开关电源"
+  ProtocolName : "MA01C"
 BlockTemplate :
   Inline :
     BlockLength : 60
@@ -270,7 +273,7 @@ Sample :
     Len : 72
     Data : 
       - Block : Inline
-        Index : 'A'
+        index : 'A'
   - Cmd : 3
     Offset : 74
     Len : 72

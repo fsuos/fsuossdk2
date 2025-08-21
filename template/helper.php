@@ -74,9 +74,7 @@ $lMemData = substr($memData , $offset, {{ sc.Len }});
       $lOffset += {{ BlockTemplate[d.Block]["BlockLength"] }};
       {% else %}
 	    {% if d.Value is defined %}
-        {% if d.AlertNormalValue is defined %}
-        _{{ Project.Name|lower }}_ShowAlert({{ dataArrayStr }}, {% if scPrefix is not none %}{{scPrefix}}.{% endif %}"{{ d.Name }}", {{ d.Value }}, {{ d.AlertNormalValue }});
-        {% elif d.Options is defined %}
+         {% if d.Options is defined %}
         switch({{ d.Value }}){
         {% for item in d.Options %}
           case {{ item.Key }}:
@@ -88,10 +86,13 @@ $lMemData = substr($memData , $offset, {{ sc.Len }});
             break;
         }
         {% else %}
+        {% if d.AlertNormalValue is defined %}
+        _{{ Project.Name|lower }}_ShowAlert({{ dataArrayStr }}, {% if scPrefix is not none %}{{scPrefix}}.{% endif %}"{{ d.Name }}", {{ d.Value }}, {{ d.AlertNormalValue }});       
+        {% else %}
         {{ dataArrayStr }}[{% if scPrefix is not none %}{{scPrefix}}.{% endif %}"{{ d.Name }}"] = ({{ d.Value }}){% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
         {% endif %}
-        {% elif d.ArrayName is defined %}
-
+        {% endif %}
+      {% elif d.ArrayName is defined %}
             {% if d.Transform is defined and d.ArrayLength is defined and d.Transform == "bits" %}
                 $lMemData = [];
                 for($j=0;$j<{{ d.ArrayLength }};$j++)
@@ -119,10 +120,16 @@ $lMemData = substr($memData , $offset, {{ sc.Len }});
           for($i=1;$i<={{ d.ArrayLength }};$i++){
             $name = sprintf("{{ d.ArrayName }}", {{ d.ArrayStart }} + $i);
             $kIndex = {% if d.Offset is defined %}{{ d.Offset }}{% else %}0{% endif %} + $i;
+            {% if d.AlertNormalValue is defined %}
+            _{{ Project.Name|lower }}_ShowAlert({{ dataArrayStr }}, {% if scPrefix is not none %}{{scPrefix}}.{% endif %}"$name", $v[$kIndex]{% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %}{% if d.Adjust is defined %}{{ d.Adjust }}{% endif %}, {{ d.AlertNormalValue }});  
+            {% else %}
             {{ dataArrayStr }}[{% if scPrefix is not none %}{{scPrefix}}.{% endif %}$name] = number_format($v[$kIndex]{% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %}{% if d.Adjust is defined %}{{ d.Adjust }}{% endif %}, 3){% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
+            {% endif %}
           }
-         {% endif %}
-        {% elif d.Options is defined %}
+          {% endif %}
+    {% elif d.AlertNormalValue is defined %}
+        _{{ Project.Name|lower }}_ShowAlert({{ dataArrayStr }}, {% if scPrefix is not none %}{{scPrefix}}.{% endif %}"{{ d.Name }}", $v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}]{% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %}{% if d.Adjust is defined %}{{ d.Adjust }}{% endif %}, {{ d.AlertNormalValue }});       
+    {% elif d.Options is defined %}
         switch($v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}]){
         {% for item in d.Options %}
           case {{ item.Key }}:
@@ -262,13 +269,17 @@ function _{{ Project.Name|lower }}_{{ key }}(&$dataArray, $memData, $prefix, $in
               $dataArray[$name] = "无效值";
               break;
           }
-          {% elif d.AlertNormalValue is defined %}
+          {% elif d.ArrayName is not defined and d.AlertNormalValue is defined %}
           _{{ Project.Name|lower }}_ShowAlert($dataArray, $name, $v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}], {{ d.AlertNormalValue }});
         {% elif d.ArrayName is defined %}
         for($i=1;$i<={{ d.ArrayLength }};$i++){
           $name = $prefix.sprintf("{{ d.ArrayName }}", {{ d.ArrayStart }} + $i);
           $kIndex = {{ d.Offset }} + $i;
+          {% if d.AlertNormalValue is defined %}
+          _{{ Project.Name|lower }}_ShowAlert($dataArray, $name, $v[$kIndex], {{ d.AlertNormalValue }});
+          {% else %}
           $dataArray[$name] = number_format($v[$kIndex]{% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %}{% if d.Adjust is defined %}{{ d.Adjust }}{% endif %}, 2){% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
+          {% endif %}
         }
         {% else %}
           $dataArray[$name] = number_format($v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}]{% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %}{% if d.Adjust is defined %}{{ d.Adjust }}{% endif %}, 2){% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
