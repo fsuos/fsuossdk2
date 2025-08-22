@@ -4,10 +4,35 @@
 #include <boost/lexical_cast.hpp>
 {% if BlockTemplate is defined %}
 {% for key,blockDef in BlockTemplate.items() %}
-void {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}_alert(char* pCData,const char* prefix, int iIndex, const char* index {% if blockDef.HasIndex1 is defined  %}, const char* index1{% endif %} {% if blockDef.HasIndex2 is defined %}, const char* index2{% endif %}, int vendor)
+int {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}_alert(char* pCData,const char* prefix, int iIndex, const char* index {% if blockDef.HasIndex1 is defined  %}, const char* index1{% endif %} {% if blockDef.HasIndex2 is defined %}, const char* index2{% endif %})
 {
           int offset = 0;
-    {% if blockDef.BlockType is defined %}
+    {% if blockDef.BlockRType is defined %}
+        {% if blockDef.BlockRType == 'f' %}
+        float pData[{{ (blockDef.BlockLength/4)|int }}];
+        memcpy(pData, pCData, {{blockDef.BlockLength}}); 
+        {% elif blockDef.BlockRType == 'S' %}
+        uint16_t pData[{{ (blockDef.BlockLength/2)|int }}];
+        memcpy(pData, pCData, {{blockDef.BlockLength}});
+        for(int i=0; i< {{ (blockDef.BlockLength/2)|int }}; i++){
+            pData[i] = ntohs(pData[i]);
+        }
+        memcpy(pData, pCData, {{blockDef.BlockLength}});
+        {% elif blockDef.BlockRType == 's' %}
+        int16_t pData[{{ sc.Len }}];
+        memcpy(pData, pCData, {{blockDef.BlockLength}});
+        for(int i=0; i< {{ (blockDef.BlockLength/2)|int }}; i++){
+            pData[i] = ntohs(pData[i]);
+        }
+        memcpy(pData, pCData, {{blockDef.BlockLength}});
+        {% elif blockDef.BlockRType == "I" %}
+        uint32_t pData[{{ (sc.Len*2/4)|int }}];
+        memcpy(pData, pCData, {{blockDef.BlockLength}});
+        {% elif blockDef.BlockRType == "i" %}
+        int32_t pData[{{ (sc.Len*2/4)|int }}];
+        memcpy(pData, pCData, {{blockDef.BlockLength}});
+        {% endif %}
+    {% elif blockDef.BlockType is defined %}
         {% if blockDef.BlockType == 'f' %}
         float pData[{{ (blockDef.BlockLength/4)|int }}];     
         {% elif blockDef.BlockType == 'S' %}
@@ -43,41 +68,41 @@ void {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}_alert(char* pCData,
         {% if d.CValue is defined %}
           {% if d.AlertNormalValue is defined %}            
             {% if  d.TeleSignalId is defined %}
-            if(vendor == 2){
+            if(b_mode_ == 2){
                 
                 {% if d.TeleSignalId|string|length == 12 %}
                     CheckThresholdBool(2, "{{ d.TeleSignalId }}", "{{ d.TeleSignalId }}", {% if d.TeleSignalName is defined %}"{{ d.TeleSignalName }}"{%else%}name{% endif %}, name,  {{ d.CValue }} != {{ d.AlertNormalValue }}, signal_index_++); 
                 {% else %}
                 {
                     std::stringstream ss;
-                    ss<<"{{ d.TeleSignalId }}" << std::setw(3)<<signal_index_<<"0";
+                    ss<<"{{ d.TeleSignalId }}" << std::setw(3)<<std::setfill('0')<<signal_index_<<"0";
                     CheckThresholdBool(2, ss.str(), ss.str(), {% if d.TeleSignalName is defined %}"{{ d.TeleSignalName }}"{%else%}name{% endif %}, name, {{ d.CValue }} != {{ d.AlertNormalValue }}, signal_index_++); 
                 }
                 {% endif %}
             }
             {% endif %}
             {% if d.UnicomSignalId is defined %}
-            if(vendor == 1){
+            if(b_mode_ == 1){
             CheckThresholdBool(2, "{{ d.UnicomSignalId }}", "{{ d.UnicomSignalId }}", {% if d.TeleSignalName is defined %}"{{ d.UnicomSignalName }}"{%else%}name{% endif %}, name,  {{ d.CValue }} != {{ d.AlertNormalValue }}, signal_index_++); 
             }
             {% endif %}
           {% endif %}
         {% elif d.AlertNormalValue is defined %}
           {% if d.TeleSignalId is defined %}
-            if(vendor == 2){
+            if(b_mode_ == 2){
                  {% if d.TeleSignalId|string|length == 12 %}
                     CheckThresholdBool(2, "{{ d.TeleSignalId }}", "{{ d.TeleSignalId }}", {% if d.TeleSignalName is defined %}"{{ d.TeleSignalName }}"{%else%}name{% endif %}, name,  pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}], signal_index_++); 
                  {% else %}
                  {
                     std::stringstream ss;
-                    ss<<"{{ d.TeleSignalId }}" << std::setw(3)<<signal_index_<<"0";
+                    ss<<"{{ d.TeleSignalId }}" << std::setw(3)<<std::setfill('0')<<signal_index_<<"0";
                     CheckThresholdBool(2, ss.str(), ss.str(), name, name,  pData[kIndex], signal_index_++);
                  }
                  {% endif %}
             }
             {% endif %}
             {% if d.UnicomSignalId is defined %}
-                 if(vendor == 1){
+                 if(b_mode_ == 1){
                  CheckThresholdBool(2, "{{ d.UnicomSignalId }}", "{{ d.UnicomSignalId }}", {% if d.TeleSignalName is defined %}"{{ d.TeleSignalName }}"{%else%}name{% endif %}, name,  pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}], signal_index_++); 
                  }
             {% endif %}
@@ -95,7 +120,7 @@ void {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}_alert(char* pCData,
                  {% else %}
                  {
                     std::stringstream ss;
-                    ss<<"{{ d.TeleSignalId }}" << std::setw(3)<<signal_index_<<"0";
+                    ss<<"{{ d.TeleSignalId }}" << std::setw(3)<<std::setfill('0')<<signal_index_<<"0";
                     CheckThresholdBool(2, ss.str(), ss.str(), name, name,  pData[kIndex], signal_index_++);
                  }
                  {% endif %}
@@ -112,7 +137,9 @@ void {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}_alert(char* pCData,
         }
       {% endif %}
     {% endfor %}
+    return {{blockDef.BlockLength}};
 }
+
 void {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}(char* pCData,const char* prefix, int iIndex, const char* index {% if blockDef.HasIndex1 is defined  %}, const char* index1{% endif %} {% if blockDef.HasIndex2 is defined %}, const char* index2{% endif %})
 {
           int offset = 0;
@@ -247,10 +274,11 @@ void {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}(char* pCData,const 
         uint8_t pData[{{ sc.Len }}];
         memcpy(pData, pCData + offset, {{sc.Len}});
         {% endif %}
-        
+        int lOffset = 0, usedLen = 0;
 	    {% for d in sc.Data %}
           {% if d.Block is defined %}
-          _{{ Project.Name|lower }}_{{ d.Block }}_alert((char*)pData, {% if d.Prefix is defined %}"{{d.Prefix}}"{%else%}""{%endif%}, 0, "{{ d.index }}" {% if d.index1 is defined %},"{{d.index1}}"{% endif %}{% if d.index2 is defined %},"{{d.index2}}"{% endif %}, b_mode_);
+          usedLen = _{{ Project.Name|lower }}_{{ d.Block }}_alert((char*)pData + lOffset, {% if d.Prefix is defined %}"{{d.Prefix}}"{%else%}""{%endif%}, 0, "{{ d.index }}" {% if d.index1 is defined %},"{{d.index1}}"{% endif %}{% if d.index2 is defined %},"{{d.index2}}"{% endif %});
+          lOffset += usedLen;
           {% elif d.ArrayName is defined %}
           for(int i=0;i<{{ d.ArrayLength }};i++){
                 char nameBuffer[48] = {0};
