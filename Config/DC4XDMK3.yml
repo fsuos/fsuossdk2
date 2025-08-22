@@ -1,0 +1,402 @@
+Project:
+  Name : DC4XDMK3
+  RT_ID : 5156
+  File : "DC4xD MK3 MODBUS中文通讯协议V1.2-20231124.pdf"
+  DevType : 2
+  Category : 柴油发电机组
+  ProtocolName : "重庆新颜达DC4xD发电机"
+Sample :
+  - Cmd : 3
+    Offset : 0x1000
+    Len : 2
+    Data :
+      - Name : 转速值
+        Unit : RPM
+      - Name : 电瓶电压
+        Ratio : 10
+        Unit : V
+  - Cmd : 3
+    Offset : 0x1009
+    Len : 35
+    Data :
+      - Name : 发电频率值
+        Ratio : 10
+        Unit : Hz
+      - Name : 发电相电压L1
+        Unit : V
+      - Name : 发电相电压L2
+        Unit : V
+      - Name : 发电相电压L3
+        Unit : V
+      - Name : 发电线电压L1L2
+        Unit : V
+      - Name : 发电线电压L2L3
+        Unit : V
+      - Name : 发电线电压L3L1
+        Unit : V
+      - Name : 发电相电流L1
+        Ratio : 10
+        Unit : A
+      - Name : 发电相电流L2
+        Ratio : 10
+        Unit : A
+      - Name : 发电相电流L3
+        Ratio : 10
+        Unit : A
+      - Name : 总发电电流SUM
+        Ratio : 10
+        Unit : A
+      - Name : 视在功率S1
+        Ratio : 10
+        Unit : kVA
+      - Name : 视在功率S2
+        Ratio : 10
+        Unit : kVA
+      - Name : 视在功率S3
+        Ratio : 10
+        Unit : kVA
+      - Name : 总视在功率SUM
+        Ratio : 10
+        Unit : kVA
+      - Name : 有功功率P1
+        Ratio : 10
+        Unit : kW
+      - Name : 有功功率P2
+        Ratio : 10
+        Unit : kW
+      - Name : 有功功率P3
+        Ratio : 10
+        Unit : kW
+      - Name : 总有功功率SUM
+        Ratio : 10
+        Unit : kW
+      - Name : 无功功率Q1
+        Ratio : 10
+        Unit : kVar
+      - Name : 无功功率Q2
+        Ratio : 10
+        Unit : kVar
+      - Name : 无功功率Q3
+        Ratio : 10
+        Unit : kVar
+      - Name : 无有功功率SUM
+        Ratio : 10
+        Unit : kVar
+      - Name : 功率因数PF1
+        Raito : 100
+      - Name : 功率因数PF2
+        Raito : 100
+      - Name : 功率因数PF3
+        Raito : 100
+      - Name : 总功率因数
+        Raito : 100
+      - Name : 市电频率
+        Ratio : 10
+        Unit : Hz
+      - Name : 市电相电压L1
+        Unit : V
+      - Name : 市电相电压L2
+        Unit : V
+      - Name : 市电相电压L3
+        Unit : V
+      - Name : 市电线电压L1L2
+        Unit : V
+      - Name : 市电线电压L2L3
+        Unit : V
+      - Name : 市电线电压L3L1
+        Unit : V
+      - Name : 机站后备电池电压
+        Unit : V
+        Ratio : 10
+  - Cmd : 3
+    Offset : 0x102C
+    Len : 2
+    Data :
+      - Name : 保养日期
+        Value : (($v[1]>>9)&0x7F)."年".(($v[1]>>5)&0x1F)."月".($v[1]&0x1F)."日"
+        CValue : 0
+      - Name : 保养倒计时
+        Unit : H
+  - Cmd : 3
+    Offset : 0x1034
+    Len : 4
+    Data :
+      - Name : 本次运行时间
+        Unit : H
+      - Name : 累计起动次数
+        Unit : 次
+      - Name : 累计运行时间
+        Value : ($v[3]<<16) + $v[4]
+        CValue : ((pData[2]<<16)+pData[3])
+        Unit : H
+  - Cmd : 3
+    Offset : 0x1038
+    Len : 6
+    Data : 
+      - Name : 动态负载率
+        Unit : "%"
+      - Name : 本次负载率
+        Unit : "%"
+      - Name : 累计负载率
+        Unit : "%"
+      - Name : 本次发电量
+        Value : ($v[4]<<16) + $v[5]
+        CValue : ((pData[3]<<16)+pData[4])
+        Unit : kWh
+      - Name : 累计发电量
+        Value : ($v[6]<<16) + $v[7]
+        CValue : ((pData[5]<<16)+pData[6])
+        Unit : kWh
+  - Cmd : 3
+    Offset : 0x103F
+    Len : 3
+    Data : 
+      - Name : 当前档位状态
+        Options :
+          - Key : 0x33
+            Value : 停车档
+          - Key : 0x66
+            Value : 手动档
+          - Key : 0x99
+            Value : 自动档
+          - Key : 0xCC
+            Value : 测试档
+      - Name : 当前 ATS 状态
+        Options :
+          - Key : 0
+            Value : 市电合闸
+          - Key : 0x66
+            Value : 空档
+          - Key : 0x99
+            Value : 发电合闸
+      - Name : 当前运行状态
+        Options :
+          - Key : 0
+            Value : 停机怠速
+          - Key : 1
+            Value : 停机输出中
+          - Key : 2
+            Value : 等待停稳          
+          - Key : 3
+            Value : 取消起动          
+          - Key : 4
+            Value : 起动间歇中
+          - Key : 5
+            Value : 故障中
+          - Key : 6
+            Value : 待机中
+          - Key : 7
+            Value : 预热中
+          - Key : 8
+            Value : 预供油中
+          - Key : 9
+            Value : 起动延迟
+          - Key : 0xa
+            Value : 准备起动
+          - Key : 0xb
+            Value : 起动中
+          - Key : 0xc
+            Value : 安全延迟
+          - Key : 0xD
+            Value : 起动怠速运行
+          - Key : 0xE
+            Value : 升速运行
+          - Key : 0xF
+            Value : 升温运行
+          - Key : 0x10
+            Value : 建压升压
+          - Key : 0x11
+            Value : 高速运行
+          - Key : 0x12
+            Value : 额定运行
+          - Key : 0x13
+            Value : 返回主用
+          - Key : 0x14
+            Value : 冷机运行
+          - Key : 0x15
+            Value : 返回发电
+          - Key : 0x16
+            Value : 等待散热后报警
+          - Key : 0x17
+            Value : ATS动作中
+  - Cmd : 3
+    Offset : 0x1042
+    Len : 1
+    Data : 
+      - Name : 当前LED状态-发电正常指示
+        Value : $v[1]&0x1
+        CValue : pData[0]&0x1
+      - Name :  当前LED状态-发电合闸指示
+        Value : ($v[1]>>1)&0x1
+        CValue : (pData[0]>>1)&0x1
+      - Name :  当前LED状态-市电正常指示
+        Value : ($v[1]>>2)&0x1
+        CValue : (pData[0]>>2)&0x1
+      - Name :  当前LED状态-市电合闸指示
+        Value : ($v[1]>>3)&0x1
+        CValue : (pData[0]>>3)&0x1
+  - Cmd : 3
+    Offset : 0x1043
+    Len : 1
+    Data :       
+      - Name : 超速报警
+        Offset : 1
+        AlertAbnormalValue : 1
+      - Name : 低速报警
+        Offset : 1
+        AlertAbnormalValue : 2
+      - Name : 低油压传感器报警
+        Offset : 1
+        AlertAbnormalValue : 3
+      - Name : 低油压开关报警
+        Offset : 1
+        AlertAbnormalValue : 4
+      - Name : 高水温传感器报警
+        Offset : 1
+        AlertAbnormalValue : 5
+      - Name : 高水温开关报警
+        Offset : 1
+        AlertAbnormalValue : 6
+      - Name : 高油温传感器报警
+        Offset : 1
+        AlertAbnormalValue : 7
+      - Name : 高油温开关报警
+        Offset : 1
+        AlertAbnormalValue : 8
+      - Name : 高缸温传感器报警
+        Offset : 1
+        AlertAbnormalValue : 9
+      - Name : 高缸温开关报警
+        Offset : 1
+        AlertAbnormalValue : 0xA
+      - Name : 低燃油位传感器报警
+        Offset : 1
+        AlertAbnormalValue : 0xD
+      - Name : 低燃油位开关报警
+        Offset : 1
+        AlertAbnormalValue : 0xE
+      - Name : 低机油位开关报警
+        Offset : 1
+        AlertAbnormalValue : 0xF
+      - Name : 即时停车报警
+        Offset : 1
+        AlertAbnormalValue : 0x11
+      - Name : 转速信号消失报警
+        Offset : 1
+        AlertAbnormalValue : 0x13
+      - Name : 油压传感器开路报警
+        Offset : 1
+        AlertAbnormalValue : 0x14
+      - Name : 水温传感器开路报警
+        Offset : 1
+        AlertAbnormalValue : 0x15
+      - Name : 油温传感器开路报警
+        Offset : 1
+        AlertAbnormalValue : 0x16
+      - Name : 缸温传感器开路报警
+        Offset : 1
+        AlertAbnormalValue : 0x17
+      - Name : 油位传感器开路报警
+        Offset : 1
+        AlertAbnormalValue : 0x19
+      - Name : 超频报警
+        Offset : 1
+        AlertAbnormalValue : 0x1A
+      - Name : 低频报警
+        Offset : 1
+        AlertAbnormalValue : 0x1B
+      - Name : 过压报警
+        Offset : 1
+        AlertAbnormalValue : 0x1C
+      - Name : 低压报警
+        Offset : 1
+        AlertAbnormalValue : 0x1D
+      - Name : 过流报警
+        Offset : 1
+        AlertAbnormalValue : 0x1E
+      - Name : 电流不平衡报警
+        Offset : 1
+        AlertAbnormalValue : 0x1F
+      - Name : 保养计时到报警
+        Offset : 1
+        AlertAbnormalValue : 0x27
+      - Name : 低水位开关报警
+        Offset : 1
+        AlertAbnormalValue : 0x2C
+      - Name : 百叶窗打开状态报警
+        Offset : 1
+        AlertAbnormalValue : 0x2D
+      - Name : 急停报警
+        Offset : 1
+        AlertAbnormalValue : 0x2E
+      - Name : 起动失败
+        Offset : 1
+        AlertAbnormalValue : 0x2F
+      - Name : 停机失败-转速
+        Offset : 1
+        AlertAbnormalValue : 0x30
+      - Name : 停机失败-频率
+        Offset : 1
+        AlertAbnormalValue : 0x31
+      - Name : 停机失败-油压
+        Offset : 1
+        AlertAbnormalValue : 0x32
+      - Name : 停机失败-油压开关
+        Offset : 1
+        AlertAbnormalValue : 0x33
+  - Cmd : 3
+    Offset : 0x1045
+    Len : 3
+    Data :       
+      - Name : 保养计时到警告
+        Value : ($v[1] >> 6) & 0x1
+        CValue : (pData[0]>>6) & 0x1
+        AlertNormalValue : 0
+      - Name : 电瓶电压过压警告
+        Value : ($v[1] >> 12) & 0x1
+        CValue : (pData[0]>>12) & 0x1
+        AlertNormalValue : 0
+      - Name : 电瓶电压低压警告
+        Value : ($v[1] >> 13) & 0x1
+        CValue : (pData[0]>>13) & 0x1
+        AlertNormalValue : 0
+      - Name : 即时停车警告
+        Value : ($v[2] >> 0) & 0x1
+        CValue : (pData[1]>>0) & 0x1
+        AlertNormalValue : 0
+      - Name : 转速信号丢失警告
+        Value : ($v[2] >> 2) & 0x1
+        CValue : (pData[1]>>2) & 0x1
+        AlertNormalValue : 0
+      - Name : 油压传感器开路警告
+        Value : ($v[2] >> 3) & 0x1
+        CValue : (pData[1]>>3) & 0x1
+        AlertNormalValue : 0
+      - Name : 水温传感器开路警告
+        Value : ($v[2] >> 4) & 0x1
+        CValue : (pData[1]>>4) & 0x1
+        AlertNormalValue : 0
+      - Name : 油温传感器开路警告
+        Value : ($v[2] >> 5) & 0x1
+        CValue : (pData[1]>>5) & 0x1
+        AlertNormalValue : 0
+      - Name : 缸温传感器开路警告
+        Value : ($v[2] >> 6) & 0x1
+        CValue : (pData[1]>>6) & 0x1
+        AlertNormalValue : 0
+      - Name : 油位传感器开路警告
+        Value : ($v[2] >> 8) & 0x1
+        CValue : (pData[1]>>8) & 0x1
+        AlertNormalValue : 0
+      - Name : 低燃油位传感器警告
+        Value : ($v[3] >> 13) & 0x1
+        CValue : (pData[2]>>13) & 0x1
+        AlertNormalValue : 0
+      - Name : 低燃油位开关警告
+        Value : ($v[3] >> 14) & 0x1
+        CValue : (pData[2]>>14) & 0x1
+        AlertNormalValue : 0
+      - Name : 低机油位开关警告
+        Value : ($v[3] >> 15) & 0x1
+        CValue : (pData[2]>>15) & 0x1
+        AlertNormalValue : 0

@@ -88,6 +88,8 @@ $lMemData = substr($memData , $offset, {{ sc.Len }});
         {% else %}
         {% if d.AlertNormalValue is defined %}
         _{{ Project.Name|lower }}_ShowAlert({{ dataArrayStr }}, {% if scPrefix is not none %}{{scPrefix}}.{% endif %}"{{ d.Name }}", {{ d.Value }}, {{ d.AlertNormalValue }});       
+        {% elif d.AlertAbnormalValue is defined %}
+        _{{ Project.Name|lower }}_ShowNormal({{ dataArrayStr }}, {% if scPrefix is not none %}{{scPrefix}}.{% endif %}"{{ d.Name }}", {{ d.Value }}, {{ d.AlertAbnormalValue }});       
         {% else %}
         {{ dataArrayStr }}[{% if scPrefix is not none %}{{scPrefix}}.{% endif %}"{{ d.Name }}"] = ({{ d.Value }}){% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
         {% endif %}
@@ -122,6 +124,8 @@ $lMemData = substr($memData , $offset, {{ sc.Len }});
             $kIndex = {% if d.Offset is defined %}{{ d.Offset }}{% else %}0{% endif %} + $i;
             {% if d.AlertNormalValue is defined %}
             _{{ Project.Name|lower }}_ShowAlert({{ dataArrayStr }}, {% if scPrefix is not none %}{{scPrefix}}.{% endif %}"$name", $v[$kIndex]{% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %}{% if d.Adjust is defined %}{{ d.Adjust }}{% endif %}, {{ d.AlertNormalValue }});  
+            {% elif d.AlertAbnormalValue is defined %}
+            _{{ Project.Name|lower }}_ShowNormal({{ dataArrayStr }}, {% if scPrefix is not none %}{{scPrefix}}.{% endif %}"$name", $v[$kIndex]{% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %}{% if d.Adjust is defined %}{{ d.Adjust }}{% endif %}, {{ d.AlertAbnormalValue }});  
             {% else %}
             {{ dataArrayStr }}[{% if scPrefix is not none %}{{scPrefix}}.{% endif %}$name] = number_format($v[$kIndex]{% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %}{% if d.Adjust is defined %}{{ d.Adjust }}{% endif %}, 3){% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
             {% endif %}
@@ -129,6 +133,8 @@ $lMemData = substr($memData , $offset, {{ sc.Len }});
           {% endif %}
     {% elif d.AlertNormalValue is defined %}
         _{{ Project.Name|lower }}_ShowAlert({{ dataArrayStr }}, {% if scPrefix is not none %}{{scPrefix}}.{% endif %}"{{ d.Name }}", $v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}]{% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %}{% if d.Adjust is defined %}{{ d.Adjust }}{% endif %}, {{ d.AlertNormalValue }});       
+    {% elif d.AlertAbnormalValue is defined %}
+        _{{ Project.Name|lower }}_ShowNormal({{ dataArrayStr }}, {% if scPrefix is not none %}{{scPrefix}}.{% endif %}"{{ d.Name }}", $v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}]{% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %}{% if d.Adjust is defined %}{{ d.Adjust }}{% endif %}, {{ d.AlertAbnormalValue }});       
     {% elif d.Options is defined %}
         switch($v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}]){
         {% for item in d.Options %}
@@ -145,7 +151,9 @@ $lMemData = substr($memData , $offset, {{ sc.Len }});
         }
         {% elif d.AlertNormalValue is defined %}
         _{{ Project.Name|lower }}_ShowAlert({{ dataArrayStr }}, {% if scPrefix is not none %}{{scPrefix}}.{% endif %}"{{ d.Name }}", $v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}], {{ d.AlertNormalValue }});
-	    {% else %}
+        {% elif d.AlertAbnormalValue is defined %}
+        _{{ Project.Name|lower }}_ShowNormal({{ dataArrayStr }}, {% if scPrefix is not none %}{{scPrefix}}.{% endif %}"{{ d.Name }}", $v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}], {{ d.AlertAbnormalValue }});
+	   {% else %}
         {{ dataArrayStr }}[{% if scPrefix is not none %}{{scPrefix}}.{% endif %}"{{ d.Name }}"] = number_format($v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}]{% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %}{% if d.Adjust is defined %}{{ d.Adjust }}{% endif %}, 2){% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
 	    {% endif %}
       
@@ -166,6 +174,16 @@ $lMemData = substr($memData , $offset, {{ sc.Len }});
 	    {% endif %}
 {%- endmacro %}
 <?php
+function _{{ Project.Name|lower }}_ShowNormal(&$dataArray, $label, $value, $vsValue)
+{
+    // if($value == 0xFFFF || $value == 0x20){
+    //   $dataArray[$label] = "无效值";
+    // }else{
+      $dataArray[$label] = $value == $vsValue ? '告警' : '正常';
+      $dataArray['AlertArray'][$label] = $value == $vsValue;
+    //}
+}
+
 function _{{ Project.Name|lower }}_ShowAlert(&$dataArray, $label, $value, $vsValue)
 {
     // if($value == 0xFFFF || $value == 0x20){
@@ -243,6 +261,8 @@ function _{{ Project.Name|lower }}_{{ key }}(&$dataArray, $memData, $prefix, $in
         {% if d.Value is defined %}
           {% if d.AlertNormalValue is defined %}
           _{{ Project.Name|lower }}_ShowAlert($dataArray, $name, {{ d.Value }}, {{ d.AlertNormalValue }});
+          {% elif d.AlertAbnormalValue is defined %}
+          _{{ Project.Name|lower }}_ShowNormal($dataArray, $name, {{ d.Value }}, {{ d.AlertAbnormalValue }});
           {% elif d.Options is defined %}
           
           switch({{ d.Value }}){
@@ -271,12 +291,16 @@ function _{{ Project.Name|lower }}_{{ key }}(&$dataArray, $memData, $prefix, $in
           }
           {% elif d.ArrayName is not defined and d.AlertNormalValue is defined %}
           _{{ Project.Name|lower }}_ShowAlert($dataArray, $name, $v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}], {{ d.AlertNormalValue }});
-        {% elif d.ArrayName is defined %}
+          {% elif d.ArrayName is not defined and d.AlertAbnormalValue is defined %}
+          _{{ Project.Name|lower }}_ShowNormal($dataArray, $name, $v[{% if d.Offset is defined %}{{ d.Offset }}{% else %}{{ loop.index }}{% endif %}], {{ d.AlertAbnormalValue }});
+       {% elif d.ArrayName is defined %}
         for($i=1;$i<={{ d.ArrayLength }};$i++){
           $name = $prefix.sprintf("{{ d.ArrayName }}", {{ d.ArrayStart }} + $i);
           $kIndex = {{ d.Offset }} + $i;
           {% if d.AlertNormalValue is defined %}
           _{{ Project.Name|lower }}_ShowAlert($dataArray, $name, $v[$kIndex], {{ d.AlertNormalValue }});
+          {% elif d.AlertAbnormalValue is defined %}
+          _{{ Project.Name|lower }}_ShowNormal($dataArray, $name, $v[$kIndex], {{ d.AlertAbnormalValue }});
           {% else %}
           $dataArray[$name] = number_format($v[$kIndex]{% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %}{% if d.Adjust is defined %}{{ d.Adjust }}{% endif %}, 2){% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
           {% endif %}
