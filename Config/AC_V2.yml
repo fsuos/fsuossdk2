@@ -1,0 +1,173 @@
+Project:
+  Name : AC_V2
+  RT_ID : 5156
+  File : "空调协议（modbus）V2(4).pdf"
+  DevType : 2
+  Category : 精密空调
+  ProtocolName : "空调协议V2"
+Sample:
+  - Cmd : 1
+    Offset : 34
+    Len : 24
+    Data :
+      - Name : 制冷状态
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 开启
+      - Name : 加热器状态
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 开启
+      - Name : 内风机状态
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 开启
+      - Name : 外风机状态
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 开启
+      - Name : 应急风机状态
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 开启
+      - Name : 预留开关量1输出
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 开启
+      - Name : 预留开关量2输出
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 开启
+      - Name : 监控关机
+        Options : 
+          - Key : 0
+            Value : 运行
+          - Key : 1
+            Value : 关机
+      - Name : 柜内传感器故障
+        AlertNormalValue : 0
+      - Name : 蒸发器温度传感
+        AlertNormalValue : 0
+      - Name : 冷凝器温度传感
+        AlertNormalValue : 0
+      - Name : 柜外温度传感器
+        AlertNormalValue : 0
+      - Name : 湿度传感器故障
+        AlertNormalValue : 0
+      - Name : 湿度过高告警
+        AlertNormalValue : 0
+      - Name : 内风机告警
+        AlertNormalValue : 0
+      - Name : 外风机告警
+        AlertNormalValue : 0
+      - Name : 冷凝器高压告警
+        AlertNormalValue : 0
+      - Name : 蒸发器冻结告警
+        AlertNormalValue : 0
+      - Name : 制冷告警（压缩机&制冷系统告警）
+        AlertNormalValue : 0
+      - Name : 高温告警
+        AlertNormalValue : 0
+      - Name : 低温告警
+        AlertNormalValue : 0
+      - Name : 加热器告警
+        AlertNormalValue : 0
+      - Name : 过电压告警
+        AlertNormalValue : 0
+      - Name : 欠电压告警
+        AlertNormalValue : 0
+  - Cmd : 3
+    Offset : 0
+    Len : 11
+    Data :
+      - Name : 柜内温度
+        Unit : ℃
+        Ratio : 10
+      - Name : 蒸发器温度
+        Unit : ℃
+        Ratio : 10
+      - Name : 冷凝器温度
+        Unit : ℃
+        Ratio : 10
+      - Name : 柜外温度
+        Unit : ℃
+        Ratio : 10
+      - Name : 交流电压
+        Unit : V
+      - Name : 直流电压
+        Unit : V
+      - Name : 内风机转速
+        Unit : 转/分
+      - Name : 外风机转速
+        Unit : 转/分
+      - Name : 湿度值
+        Ratio : 10
+        Unit : "%"
+      - Name : 出风温度
+        Unit : ℃
+        Ratio : 10
+      - Name : 工作电流
+        Unit : A
+  - Cmd : 3
+    Offset : 13
+    Len : 13
+    Data :
+      - Name : 制冷开启温度
+        Unit : ℃
+        Ratio : 10
+      - Name : 制冷停止温度
+        Unit : ℃
+        Ratio : 10
+      - Name : 加热开启温度
+        Unit : ℃
+        Ratio : 10
+      - Name : 加热停止温度
+        Unit : ℃
+        Ratio : 10
+      - Name : 柜内温度高温告警点
+        Unit : ℃
+        Ratio : 10
+      - Name : 柜内温度低温告警点
+        Unit : ℃
+        Ratio : 10
+      - Name : 冷凝器温度高温保护点
+        Unit : ℃
+        Ratio : 10
+      - Name : 蒸发器温度冻结保护点
+        Unit : ℃
+        Ratio : 10
+      - Name : 除湿开启湿度
+        Ratio : 10
+        Unit : "%"
+      - Name : 除湿停止湿度
+        Ratio : 10
+        Unit : "%"
+      - Name : 湿度告警限值
+        Ratio : 10
+        Unit : "%"
+      - Name : 湿度校正值
+      - Name : 模式控制
+        Options : 
+          - Key : 0
+            Value : 待机（送风）
+          - Key : 1
+            Value : 制冷
+          - Key : 2
+            Value : 加热
+          - Key : 3
+            Value : 除湿
+            

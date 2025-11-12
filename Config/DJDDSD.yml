@@ -1,0 +1,320 @@
+Project:
+  Name : DJDDSD
+  RT_ID : 5156
+  File : "导轨式安装电能表用户手册V1.4-23.10.16 (1).pdf"
+  DevType : 2
+  Category : "智能电表"
+  ProtocolName : "DJDDSD三相电表"
+InitSetting :
+  - Name : ct
+    Default : 1
+    Type : int
+Sample : 
+  - Cmd : 3
+    Offset : 0
+    Len : 60
+    RType : 'f'
+    Data :
+     - Name : A相电压
+       Unit : V
+     - Name : B相电压
+       Unit : V
+     - Name : C相电压
+       Unit : V
+     - Name : AB线电压
+       Unit : V
+     - Name : BC线电压
+       Unit : V
+     - Name : CA线电压
+       Unit : V
+     - Name : A相电流
+       Unit : A
+     - Name : B相电流
+       Unit : A       
+     - Name : C相电流
+       Unit : A
+     - Name : A相有功功率
+       Unit : kW
+     - Name : B相有功功率
+       Unit : kW
+     - Name : C相有功功率
+       Unit : kW
+     - Name : 总有功功率
+       Unit : kW
+     - Name : A相无功功率
+       Unit : kvar
+     - Name : B相无功功率
+       Unit : kvar
+     - Name : C相无功功率
+       Unit : kvar
+     - Name : 总无功功率
+       Unit : kvar
+     - Name : A相视在功率
+       Unit : kVA
+     - Name : B相视在功率
+       Unit : kVA
+     - Name : C相视在功率
+       Unit : kVA
+     - Name : 总视在功率
+       Unit : kVA
+     - Name : A相功率因数
+     - Name : B相功率因数
+     - Name : C相功率因数
+     - Name : 合相功率因数
+     - Name : 频率
+       Unit : Hz
+     - Name : 正向有功电能
+       Unit : kWh
+     - Name : 反向有功电能
+       Unit : kWh
+     - Name : 正向无功电能
+       Unit : kvarh
+     - Name : 负向无功电能
+       Unit : kvarh
+  - Cmd : 3
+    Offset : 0x100
+    Len : 2
+    Data : 
+      - Name : 年
+        Value : (2000 + (($v[1] >> 8) & 0xFF))
+        CValue : ( 2000 + ( (pData[0] >> 8) & 0xFF) )
+      - Name : 月
+        Value : ( ($v[1]) & 0xFF)
+        CValue :  ((pData[0]) & 0xFF)
+      - Name : 日
+        Value : ( ($v[2]>>8) & 0xFF)
+        CValue : ( (pData[1]>>8) & 0xFF)
+  - Cmd : 3
+    Offset : 0x118
+    Len : 2
+    Type : S
+    Data :
+      - Name : 总正向有功电能
+        Value : (($v[1] << 16) | ($v[2]))*0.01*$ct
+        CValue : ((pData[0] << 16) | (pData[1]))*0.01*ct_
+        Unit : kWh
+  - Cmd : 3
+    Offset : 0x126
+    Len : 2
+    Type : S
+    Data :
+      - Name : 本月的正向有功电能总
+        Value : (($v[1] << 16) | ($v[2]))*0.01*$ct
+        CValue : ((pData[0] << 16) | (pData[1]))*0.01*ct_
+        Unit : kWh
+  - Cmd : 3
+    Offset : 0x134
+    Len : 2
+    Type : S
+    Data :
+      - Name : 上一月的正向有功电能总
+        Value : (($v[1] << 16) | ($v[2]))*0.01*$ct
+        CValue : ((pData[0] << 16) | (pData[1]))*0.01*ct_
+        Unit : kWh
+  - Cmd : 3
+    Offset : 0x142
+    Len : 2
+    Type : S
+    Data :
+      - Name : 上二月的正向有功电能总
+        Value : (($v[1] << 16) | ($v[2]))*0.01*$ct
+        CValue : ((pData[0] << 16) | (pData[1]))*0.01*ct_
+        Unit : kWh
+  - Cmd : 3
+    Offset : 0x150
+    Len : 2
+    Type : S
+    Data :
+      - Name : 上三月的正向有功电能总
+        Value : (($v[1] << 16) | ($v[2]))*0.01*$ct
+        CValue : ((pData[0] << 16) | (pData[1]))*0.01*ct_
+        Unit : kWh
+  - Cmd : 3
+    Offset : 0x15E
+    Len : 2
+    Type : S
+    Data :
+      - Name : 上四月的正向有功电能总
+        Value : (($v[1] << 16) | ($v[2]))*0.01*$ct
+        CValue : ((pData[0] << 16) | (pData[1]))*0.01*ct_
+        Unit : kWh
+  - Cmd : 3
+    Offset : 0x16C
+    Len : 2
+    Type : S
+    Data :
+      - Name : 上五月的正向有功电能总
+        Value : (($v[1] << 16) | ($v[2]))*0.01*$ct
+        CValue : ((pData[0] << 16) | (pData[1]))*0.01*ct_
+        Unit : kWh
+  - Cmd : 3
+    Offset : 0x17A
+    Len : 2
+    Type : S
+    Data :
+      - Name : 上六月的正向有功电能总
+        Value : (($v[1] << 16) | ($v[2]))*0.01*$ct
+        CValue : ((pData[0] << 16) | (pData[1]))*0.01*ct_
+        Unit : kWh
+  - Cmd : 3
+    Offset : 0x188
+    Len : 2
+    Type : S
+    Data :
+      - Name : 上七月的正向有功电能总
+        Value : (($v[1] << 16) | ($v[2]))*0.01*$ct
+        CValue : ((pData[0] << 16) | (pData[1]))*0.01*ct_
+        Unit : kWh
+  - Cmd : 3
+    Offset : 0x196
+    Len : 2
+    Type : S
+    Data :
+      - Name : 上八月的正向有功电能总
+        Value : (($v[1] << 16) | ($v[2]))*0.01*$ct
+        CValue : ((pData[0] << 16) | (pData[1]))*0.01*ct_
+        Unit : kWh
+  - Cmd : 3
+    Offset : 0x1A4
+    Len : 2
+    Type : S
+    Data :
+      - Name : 上九月的正向有功电能总
+        Value : (($v[1] << 16) | ($v[2]))*0.01*$ct
+        CValue : ((pData[0] << 16) | (pData[1]))*0.01*ct_
+        Unit : kWh
+  - Cmd : 3
+    Offset : 0x1B2
+    Len : 2
+    Type : S
+    Data :
+      - Name : 上十月的正向有功电能总
+        Value : (($v[1] << 16) | ($v[2]))*0.01*$ct
+        CValue : ((pData[0] << 16) | (pData[1]))*0.01*ct_
+        Unit : kWh
+  - Cmd : 3
+    Offset : 0x1C0
+    Len : 2
+    Type : S
+    Data :
+      - Name : 上十一月的正向有功电能总
+        Value : (($v[1] << 16) | ($v[2]))*0.01*$ct
+        CValue : ((pData[0] << 16) | (pData[1]))*0.01*ct_
+        Unit : kWh
+  - Cmd : 3
+    Offset : 0x1CE
+    Len : 2
+    Type : S
+    Data :
+      - Name : 总反向有功电能
+        Value : (($v[1] << 16) | ($v[2]))*0.01*$ct
+        CValue : ((pData[0] << 16) | (pData[1]))*0.01*ct_
+        Unit : kWh
+  - Cmd : 3
+    Offset : 0x1DC
+    Len : 2
+    Type : S
+    Data :
+      - Name : 本月的反向有功电能总
+        Value : (($v[1] << 16) | ($v[2]))*0.01*$ct
+        CValue : ((pData[0] << 16) | (pData[1]))*0.01*ct_
+        Unit : kWh
+  - Cmd : 3
+    Offset : 0x1EA
+    Len : 2
+    Type : S
+    Data :
+      - Name : 上一月的反向有功电能总
+        Value : (($v[1] << 16) | ($v[2]))*0.01*$ct
+        CValue : ((pData[0] << 16) | (pData[1]))*0.01*ct_
+        Unit : kWh
+  - Cmd : 3
+    Offset : 0x1F8
+    Len : 2
+    Type : S
+    Data :
+      - Name : 上二月的反向有功电能总
+        Value : (($v[1] << 16) | ($v[2]))*0.01*$ct
+        CValue : ((pData[0] << 16) | (pData[1]))*0.01*ct_
+        Unit : kWh
+  - Cmd : 3
+    Offset : 0x206
+    Len : 2
+    Type : S
+    Data :
+      - Name : 上三月的反向有功电能总
+        Value : (($v[1] << 16) | ($v[2]))*0.01*$ct
+        CValue : ((pData[0] << 16) | (pData[1]))*0.01*ct_
+        Unit : kWh
+  - Cmd : 3
+    Offset : 0x214
+    Len : 2
+    Type : S
+    Data :
+      - Name : 上四月的反向有功电能总
+        Value : (($v[1] << 16) | ($v[2]))*0.01*$ct
+        CValue : ((pData[0] << 16) | (pData[1]))*0.01*ct_
+        Unit : kWh
+  - Cmd : 3
+    Offset : 0x222
+    Len : 2
+    Type : S
+    Data :
+      - Name : 上五月的反向有功电能总
+        Value : (($v[1] << 16) | ($v[2]))*0.01*$ct
+        CValue : ((pData[0] << 16) | (pData[1]))*0.01*ct_
+        Unit : kWh
+  - Cmd : 3
+    Offset : 0x230
+    Len : 2
+    Type : S
+    Data :
+      - Name : 上六月的反向有功电能总
+        Value : (($v[1] << 16) | ($v[2]))*0.01*$ct
+        CValue : ((pData[0] << 16) | (pData[1]))*0.01*ct_
+        Unit : kWh
+  - Cmd : 3
+    Offset : 0x23E
+    Len : 2
+    Type : S
+    Data :
+      - Name : 上七月的反向有功电能总
+        Value : (($v[1] << 16) | ($v[2]))*0.01*$ct
+        CValue : ((pData[0] << 16) | (pData[1]))*0.01*ct_
+        Unit : kWh
+  - Cmd : 3
+    Offset : 0x24C
+    Len : 2
+    Type : S
+    Data :
+      - Name : 上八月的反向有功电能总
+        Value : (($v[1] << 16) | ($v[2]))*0.01*$ct
+        CValue : ((pData[0] << 16) | (pData[1]))*0.01*ct_
+        Unit : kWh
+  - Cmd : 3
+    Offset : 0x25A
+    Len : 2
+    Type : S
+    Data :
+      - Name : 上九月的反向有功电能总
+        Value : (($v[1] << 16) | ($v[2]))*0.01*$ct
+        CValue : ((pData[0] << 16) | (pData[1]))*0.01*ct_
+        Unit : kWh
+  - Cmd : 3
+    Offset : 0x268
+    Len : 2
+    Type : S
+    Data :
+      - Name : 上十月的反向有功电能总
+        Value : (($v[1] << 16) | ($v[2]))*0.01*$ct
+        CValue : ((pData[0] << 16) | (pData[1]))*0.01*ct_
+        Unit : kWh
+  - Cmd : 3
+    Offset : 0x276
+    Len : 2
+    Type : S
+    Data :
+      - Name : 上十一月的反向有功电能总
+        Value : (($v[1] << 16) | ($v[2]))*0.01*$ct
+        CValue : ((pData[0] << 16) | (pData[1]))*0.01*ct_
+        Unit : kWh

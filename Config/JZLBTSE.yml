@@ -3,6 +3,9 @@ Project:
   RT_ID : 5156
   BaudRate : 57600
   File : "Modbus协议说明(2).xlsx  远程放电MODBUS RTU协议.docx"
+  DevType : 2
+  Category : 蓄电池
+  ProtocolName : "JZLBTSE蓄电池监测"
 Sample :
   - Cmd : 4
     Offset : 0x31
@@ -104,37 +107,37 @@ Sample :
       - Name : 单体最小温度
         Ratio : 10
       - Name : 告警码-电池组电压告警
-        Value : (($v[23]) & 0x1)
-        AlertNormalValue : 0
-      - Name : 告警码-单体电池电压告警
         Value : (($v[23]>>1) & 0x1)
         AlertNormalValue : 0
-      - Name : 告警码-单体电池内阻值告警
+      - Name : 告警码-单体电池电压告警
         Value : (($v[23]>>2) & 0x1)
         AlertNormalValue : 0
-      - Name : 告警码-单体极柱温度告警
+      - Name : 告警码-单体电池内阻值告警
         Value : (($v[23]>>3) & 0x1)
         AlertNormalValue : 0
-      - Name : 告警码-单体剩余容量告警
+      - Name : 告警码-单体极柱温度告警
         Value : (($v[23]>>4) & 0x1)
         AlertNormalValue : 0
-      - Name : 告警码-闭接触器K1告警
+      - Name : 告警码-单体剩余容量告警
         Value : (($v[23]>>5) & 0x1)
         AlertNormalValue : 0
-      - Name : 告警码-核容装置通讯告警
+      - Name : 告警码-闭接触器K1告警
         Value : (($v[23]>>6) & 0x1)
         AlertNormalValue : 0
-      - Name : 告警码-核容装置过温告警
+      - Name : 告警码-核容装置通讯告警
         Value : (($v[23]>>7) & 0x1)
         AlertNormalValue : 0
-      - Name : 告警码-核容装置二极管D1
+      - Name : 告警码-核容装置过温告警
         Value : (($v[23]>>8) & 0x1)
         AlertNormalValue : 0
-      - Name : 告警码-外部输入干接点告警
+      - Name : 告警码-核容装置二极管D1
         Value : (($v[23]>>9) & 0x1)
         AlertNormalValue : 0
-      - Name : 告警码-核容装置总告警
+      - Name : 告警码-外部输入干接点告警
         Value : (($v[23]>>10) & 0x1)
+        AlertNormalValue : 0
+      - Name : 告警码-核容装置总告警
+        Value : (($v[23]>>11) & 0x1)
         AlertNormalValue : 0
       - Name : 系统是否出错
         Offset : 24
@@ -227,8 +230,7 @@ Sample :
         ArrayStart : 0
         ArrayLength : 120
         Offset : 0
-        Ratio : 1000
-        Unit : "AH"
+        Unit : "%"
   - Cmd : 4
     Offset : 0x0900
     Len : 120
@@ -282,8 +284,7 @@ Sample :
         ArrayStart : 0
         ArrayLength : 120
         Offset : 0
-        Ratio : 1000
-        Unit : "AH"
+        Unit : "%"
   - Cmd : 4
     Offset : 0x0400
     Len : 120

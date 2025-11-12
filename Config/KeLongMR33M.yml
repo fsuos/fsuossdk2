@@ -2,6 +2,9 @@ Project:
   Name : KeLongMR33M
   RT_ID : 5156
   File : "科华UPS-MR33-M 系列（400K-600K) 北向监控Modbus通信协议(南湖七楼).pdf"
+  DevType : 2
+  Category : UPS
+  ProtocolName : 客户UPS-MR33M
 InitSetting :
   - Name : count
     Type : int

@@ -1,0 +1,182 @@
+Project:
+  Name : MULTISM18
+  RT_ID : 5156
+  File : "2021.8.12  M-18 操作说明书V1.4 full function version【设置密码默认1000】.pdf"
+  DevType : 2
+  Category : "智能电表"
+  ProtocolName : "MULTISM18三相电表"
+Sample : 
+  - Cmd : 4
+    Offset : 0
+    Len : 44
+    RType : 'f'
+    Data :
+     - Name : L1相电压
+       Unit : V
+     - Name : L2相电压
+       Unit : V
+     - Name : L3相电压
+       Unit : V
+     - Name : L1电流
+       Unit : A
+     - Name : L2电流
+       Unit : A       
+     - Name : L3电流
+       Unit : A
+     - Name : L1有功功率
+       Ratio : 1000
+       Unit : kW
+     - Name : L2有功功率
+       Ratio : 1000
+       Unit : kW
+     - Name : L3有功功率
+       Ratio : 1000
+       Unit : kW
+     - Name : L1视在功率
+       Ratio : 1000
+       Unit : kVA
+     - Name : L2视在功率
+       Ratio : 1000
+       Unit : kVA
+     - Name : L3视在功率
+       Ratio : 1000
+       Unit : kVA
+     - Name : L1无功功率
+       Ratio : 1000
+       Unit : kvar
+     - Name : L2无功功率
+       Ratio : 1000
+       Unit : kvar
+     - Name : L3无功功率
+       Ratio : 1000
+       Unit : kvar
+     - Name : L1功率因数
+     - Name : L2功率因数
+     - Name : L3功率因数
+     - Name : L1电压电流夹角
+     - Name : L2电压电流夹角
+     - Name : L3电压电流夹角
+     - Name : 三相相电压平均值
+       Unit : V
+  - Cmd : 4
+    Offset : 46
+    Len : 4
+    RType : 'f'
+    Data :
+     - Name : 三相电流平均值
+       Unit : A
+     - Name : 三相电流和
+       Unit : A
+  - Cmd : 4
+    Offset : 52
+    Len : 2
+    RType : 'f'
+    Data :
+     - Name : 总有功功率
+       Unit : kW
+       Ratio : 1000
+  - Cmd : 4
+    Offset : 56
+    Len : 2
+    RType : 'f'
+    Data :
+     - Name : 总视在功率
+       Unit : kVA
+       Ratio : 1000
+  - Cmd : 4
+    Offset : 60
+    Len : 4
+    RType : 'f'
+    Data :
+     - Name : 总无功功率
+       Ratio : 1000
+       Unit : kvar
+     - Name : 总功率因数
+  - Cmd : 4
+    Offset : 66
+    Len : 2
+    RType : 'f'
+    Data :       
+     - Name : 总电压电流夹角
+  - Cmd : 4
+    Offset : 70
+    Len : 12
+    RType : 'f'
+    Data :     
+     - Name : 频率
+       Unit : Hz
+     - Name : 正向有功电量
+       Unit : kWh
+     - Name : 反向有功电量
+       Unit : kWh
+     - Name : 正向无功电量
+       Unit : kvarh
+     - Name : 反向无功电量
+       Unit : kvarh
+     - Name : 视在电量
+       Unit : kVAh
+  - Cmd : 4
+    Offset : 200
+    Len : 8
+    RType : 'f'
+    Data :
+     - Name : L1-2线电压
+       Unit : V
+     - Name : L2-3线电压
+       Unit : V
+     - Name : L3-1线电压
+       Unit : V
+     - Name : 三相线电压平均值
+       Unit : V
+  - Cmd : 4
+    Offset : 224
+    Len : 2
+    RType : 'f'
+    Data :
+     - Name : 零线电流
+       Unit : A
+  - Cmd : 4
+    Offset : 342
+    Len : 40
+    RType : 'f'
+    Data :
+      - Name : 总有功电量
+        Unit : kWh
+      - Name : 总无功电量
+        Unit : kVArh
+      - Name : L1正向有功电量
+        Unit : kWh
+      - Name : L2正向有功电量
+        Unit : kWh
+      - Name : L3正向有功电量
+        Unit : kWh
+      - Name : L1反向有功电量
+        Unit : kWh
+      - Name : L2反向有功电量
+        Unit : kWh
+      - Name : L3反向有功电量
+        Unit : kWh
+      - Name : L1总有功电量
+        Unit : kWh
+      - Name : L2总有功电量
+        Unit : kWh
+      - Name : L3总有功电量
+        Unit : kWh
+      - Name : L1正向无功电量
+        Unit : kVArh
+      - Name : L2正向无功电量
+        Unit : kVArh
+      - Name : L3正向无功电量
+        Unit : kVArh
+      - Name : L1反向无功电量
+        Unit : kVArh
+      - Name : L2反向无功电量
+        Unit : kVArh
+      - Name : L3反向无功电量
+        Unit : kVArh
+      - Name : L1总无功电量
+        Unit : kVArh
+      - Name : L2总无功电量
+        Unit : kVArh
+      - Name : L3总无功电量
+        Unit : kVArh

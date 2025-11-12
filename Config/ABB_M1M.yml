@@ -1,0 +1,190 @@
+Project:
+  Name : ABB_M1M
+  RT_ID : 5156
+  File : "M1M Modbus Manual V1.1_ZH.pdf"
+  DevType : 2
+  ProtocolName : ABB_M1M电力智能监控仪表
+  Category : 智能电表
+Sample : 
+  - Cmd : 3
+    Offset : 0x5000
+    Len : 20
+    Data : 
+      - Name : "输入有功电量"
+        Value : (($v[1] << 48) | ($v[2] << 32) | ($v[3] << 16) | $v[4])/100
+        CValue : ((pData[0] << 48) | (pData[1] << 32) | (pData[2] << 16) | pData[3])/100
+        Unit : kWh
+      - Name : "输出有功电量"
+        Value : (($v[5] << 48) | ($v[6] << 32) | ($v[7] << 16) | $v[8])/100
+        CValue : ((pData[4] << 48) | (pData[5] << 32) | (pData[6] << 16) | pData[7])/100
+        Ratio : 100
+        Unit : kWh
+      - Name : "输入无功电量"
+        Value : (($v[9] << 48) | ($v[10] << 32) | ($v[11] << 16) | $v[12])/100
+        CValue : ((pData[8] << 48) | (pData[9] << 32) | (pData[10] << 16) | pData[11])/100
+        Ratio : 100
+        Unit : kVarh
+      - Name : "输出无功电量"
+        Value : (($v[13] << 48) | ($v[14] << 32) | ($v[15] << 16) | $v[16])/100
+        CValue : ((pData[12] << 48) | (pData[13] << 32) | (pData[14] << 16) | pData[15])/100
+        Ratio : 100
+        Unit : kVarh
+      - Name : "输入视在电量"
+        Value : (($v[17] << 48) | ($v[18] << 32) | ($v[19] << 16) | $v[20])/100
+        CValue : ((pData[16] << 48) | (pData[17] << 32) | (pData[18] << 16) | pData[19])/100
+        Ratio : 100
+        Unit : kVA
+  - Cmd : 3
+    Offset : 0x5B00
+    Len : 48
+    Data : 
+      - Name : 三相系统平均线电压
+        Value : (($v[1] << 16) | $v[2])/10
+        CValue : ((pData[0]<<16) | pData[1])/10
+        Unit : V
+      - Name : L1相电压
+        Value : (($v[3] << 16) | $v[4])/10
+        CValue : ((pData[2]<<16) | pData[3])/10
+        Unit : V      
+      - Name : L2相电压
+        Value : (($v[5] << 16) | $v[6])/10
+        CValue : ((pData[4]<<16) | pData[5])/10
+        Unit : V
+      - Name : L3相电压
+        Value : (($v[7] << 16) | $v[8])/10
+        CValue : ((pData[6]<<16) | pData[7])/10
+        Unit : V
+      - Name : L1与L2线电压
+        Value : (($v[9] << 16) | $v[10])/10
+        CValue : ((pData[8]<<16) | pData[9])/10
+        Unit : V      
+      - Name : L2与L3线电压
+        Value : (($v[11] << 16) | $v[12])/10
+        CValue : ((pData[10]<<16) | pData[11])/10
+        Unit : V
+      - Name : L3与L1线电压
+        Value : (($v[13] << 16) | $v[14])/10
+        CValue : ((pData[12]<<16) | pData[13])/10
+        Unit : V
+      - Name : 三相系统平均线电流
+        Value : (($v[15] << 16) | $v[16])/100
+        CValue : ((pData[14]<<16) | pData[15])/100
+        Unit : A
+      - Name : L1线的线电流
+        Value : (($v[17] << 16) | $v[18])/100
+        CValue : ((pData[16]<<16) | pData[17])/100
+        Unit : A
+      - Name : L2线的线电流
+        Value : (($v[19] << 16) | $v[20])/100
+        CValue : ((pData[18]<<16) | pData[19])/100
+        Unit : A
+      - Name : L3线的线电流
+        Value : (($v[21] << 16) | $v[22])/100
+        CValue : ((pData[20]<<16) | pData[21])/100
+        Unit : A
+      - Name : N线的线电流
+        Value : (($v[23] << 16) | $v[24])/100
+        CValue : ((pData[22]<<16) | pData[23])/100
+        Unit : A
+      - Name : 总有功功率
+        Value : (($v[25] << 16) | $v[26])/100/1000
+        CValue : ((pData[24]<<16) | pData[25])/100/1000
+        Unit : kW
+      - Name : L1相有功功率
+        Value : (($v[27] << 16) | $v[28])/100/1000
+        CValue : ((pData[26]<<16) | pData[27])/100/1000
+        Unit : kW
+      - Name : L2相有功功率
+        Value : (($v[29] << 16) | $v[30])/100/1000
+        CValue : ((pData[28]<<16) | pData[29])/100/1000
+        Unit : kW
+      - Name : L3相有功功率
+        Value : (($v[31] << 16) | $v[32])/100/1000
+        CValue : ((pData[30]<<16) | pData[31])/100/1000
+        Unit : kW
+      - Name : 总无功功率
+        Value : (($v[33] << 16) | $v[34])/100/1000
+        CValue : ((pData[32]<<16) | pData[33])/100/1000
+        Unit : kVAR
+      - Name : L1相无功功率
+        Value : (($v[35] << 16) | $v[36])/100/1000
+        CValue : ((pData[34]<<16) | pData[35])/100/1000
+        Unit : kVAR
+      - Name : L2相无功功率
+        Value : (($v[37] << 16) | $v[38])/100/1000
+        CValue : ((pData[36]<<16) | pData[37])/100/1000
+        Unit : kVAR
+      - Name : L3相无功功率
+        Value : (($v[39] << 16) | $v[40])/100/1000
+        CValue : ((pData[38]<<16) | pData[39])/100/1000
+        Unit : kVAR
+      - Name : 总视在功率
+        Value : (($v[41] << 16) | $v[42])/100/1000
+        CValue : ((pData[40]<<16) | pData[41])/100/1000
+        Unit : kVA
+      - Name : L1相视在功率
+        Value : (($v[43] << 16) | $v[44])/100/1000
+        CValue : ((pData[42]<<16) | pData[43])/100/1000
+        Unit : kVA
+      - Name : L2相视在功率
+        Value : (($v[45] << 16) | $v[46])/100/1000
+        CValue : ((pData[44]<<16) | pData[45])/100/1000
+        Unit : kVA
+      - Name : L3相视在功率
+        Value : (($v[47] << 16) | $v[48])/100/1000
+        CValue : ((pData[46]<<16) | pData[47])/100/1000
+        Unit : kVA
+  - Cmd : 3
+    Offset : 0x5B32
+    Len : 19
+    Data : 
+      - Name : 频率
+        Ratio : 100
+        Unit : Hz
+      - Name : 总功率角
+        Ratio : 10
+        Unit : "°"
+      - Name : L1功率角
+        Ratio : 10
+        Unit : "°"
+      - Name : L2功率角
+        Ratio : 10
+        Unit : "°"
+      - Name : L3功率角
+        Ratio : 10
+        Unit : "°"
+      - Name : L1电压相位角
+        Ratio : 10
+        Unit : "°"
+      - Name : L2电压相位角
+        Ratio : 10
+        Unit : "°"
+      - Name : L3电压相位角
+        Ratio : 10
+        Unit : "°"
+      - Name : L1电流相位角
+        Ratio : 10
+        Unit : "°"
+      - Name : L2电流相位角
+        Ratio : 10
+        Unit : "°"
+      - Name : L3电流相位角
+        Ratio : 10
+        Unit : "°"
+      - Name : 总的功率因数
+        Unit : 1000
+      - Name : L1相功率的功率因数
+        Unit : 1000
+      - Name : L2相功率的功率因数
+        Unit : 1000
+      - Name : L3相功率的功率因数
+        Unit : 1000
+      - Name : 总位移系数
+        Unit : 1000
+      - Name : L1相位移系数
+        Unit : 1000
+      - Name : L2相位移系数
+        Unit : 1000
+      - Name : L3相位移系数
+        Unit : 1000
+      

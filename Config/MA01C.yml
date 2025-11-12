@@ -1191,7 +1191,7 @@ Sample :
         Value : ($v[8] & 0x1)
         AlertNormalValue : 0    
       - Name : "B路进线电压欠频"
-        Value : (($v[8]]>>1) & 0x1)
+        Value : (($v[8]>>1) & 0x1)
         AlertNormalValue : 0    
       - Name : "A路进线零地电压越限"
         Value : (($v[8]>>2) & 0x1)

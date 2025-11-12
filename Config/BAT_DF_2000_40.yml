@@ -1,0 +1,106 @@
+Project:
+  Name : BAT_DF_2000_40
+  RT_ID : 5156
+  File : "(客户版)PBMS2000-MODBUS通讯协议V1.03_201113"
+  DevType : 2
+  ProtocolName : PBMS2000
+  Category : 蓄电池
+Sample:
+  - Cmd : 3
+    Offset : 0
+    Len : 21
+    Data : 
+      - Name : "组体电压"
+        Unit : "V"
+        Value : ($v[1] + $v[2] * 65536)/100
+      - Name : "组充电/放电电流"
+        Unit : "A"
+        Value : ($v[3] + $v[4] * 65536)/100
+      - Name : "组SOC"
+        Unit : "%"
+        Type : 'S'
+        Ratio : 10
+        Offset : 5
+      - Name : "电池组状态"
+        Offset : 8
+        Options : 
+          - Key : 0
+            Value : 浮充
+          - Key : 1
+            Value : 均充
+          - Key : 2
+            Value : 放电
+          - Key : 3
+            Value : 静置
+          - Key : 4
+            Value : 异常
+      - Name : "组体告警信息"
+        Offset : 10
+  - Cmd : 3
+    Offset : 1400
+    Len : 40
+    Type : 'S'
+    Data : 
+      - ArrayName : "%d#电池电压"
+        ArrayStart : 0
+        ArrayLength : 40
+        Offset : 0
+        Unit : "V"
+        Ratio : 1000
+  - Cmd : 3
+    Offset : 1600
+    Len : 40
+    Type : 's'
+    Data : 
+      - ArrayName : "%d#电池温度"
+        ArrayStart : 0
+        ArrayLength : 40
+        Offset : 0
+        Unit : "℃"
+        Ratio : 10
+
+  - Cmd : 3
+    Offset : 1800
+    Len : 80
+    Type : 'I'
+    Data : 
+      - ArrayName : "%d#电池内阻"
+        ArrayStart : 0
+        ArrayLength : 40
+        Offset : 0
+        Unit : "mΩ"
+        Ratio : 1000
+
+  - Cmd : 3
+    Offset : 2200
+    Len : 40
+    Type : 's'
+    Data : 
+      - ArrayName : "%d#电池的SOC"
+        ArrayStart : 0
+        ArrayLength : 40
+        Offset : 0
+        Unit : "%"
+        Ratio : 1
+
+  - Cmd : 3
+    Offset : 2400
+    Len : 40
+    Type : 's'
+    Data : 
+      - ArrayName : "%d#电池的SOH"
+        ArrayStart : 0
+        ArrayLength : 40
+        Offset : 0
+        Unit : "%"
+        Ratio : 1
+  
+  - Cmd : 3
+    Offset : 2800
+    Len : 40
+    Data : 
+      - ArrayName : "%d#电池告警状态"
+        ArrayStart : 0
+        ArrayLength : 40
+        Offset : 0
+        AlertNormalValue : 0

@@ -2,6 +2,9 @@ Project:
   Name : PMAC910
   RT_ID : 5156
   File : "PMAC910_MODBUS通讯协议V1.9_20150526.doc"
+  DevType : 2
+  Category : 智能电表
+  ProtocolName : PMAC910
 Sample : 
   - Cmd : 3
     Offset : 0

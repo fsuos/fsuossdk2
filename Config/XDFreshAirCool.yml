@@ -1,0 +1,389 @@
+Project:
+  Name : XDFreshAirCool
+  RT_ID : 5156
+  File : "XD新风冷源模块MODBUS+RTU+协议规范表 (1).xlsx"
+  DevType : 2
+  Category : "新风空调"
+  ProtocolName : "XD新风冷源模块"
+Sample : 
+  - Cmd : 3
+    Offset : 80
+    Len : 1
+    Data :
+      - Name : "室内平均温度"
+        Ratio : 10
+        Unit : "°C"
+  - Cmd : 3
+    Offset : 66
+    Len : 1
+    Data :
+      - Name : "室内平均湿度"
+        Ratio : 10
+        Unit : "%"
+  - Cmd : 3
+    Offset : 170
+    Len : 6
+    Data :
+      - Name : "室内温度1"
+        Ratio : 10
+        Unit : "°C"
+      - Name : "室内湿度1"
+        Ratio : 10
+        Unit : "%"
+      - Name : "室内温度2"
+        Ratio : 10
+        Unit : "°C"
+      - Name : "室内湿度2"
+        Ratio : 10
+        Unit : "%"
+      - Name : "室内温度3"
+        Ratio : 10
+        Unit : "°C"
+      - Name : "室内湿度3"
+        Ratio : 10
+        Unit : "%"
+  - Cmd : 3
+    Offset : 102
+    Len : 4
+    Data :
+      - Name : "送风温度"
+        Ratio : 10
+        Unit : "°C"
+      - Name : "送风湿度"
+        Ratio : 10
+        Unit : "%"
+      - Name : "室外温度"
+        Ratio : 10
+        Unit : "°C"
+      - Name : "室外湿度"
+        Ratio : 10
+        Unit : "%"
+  - Cmd : 3
+    Offset : 120
+    Len : 2
+    Data :
+      - Name : "水箱水温"
+        Ratio : 100
+        Unit : "°C"
+      - Name : "混风温度"
+        Ratio : 10
+        Unit : "%"
+  - Cmd : 3
+    Offset : 144
+    Len : 1
+    Data :
+      - Name : "电表电能"
+        Ratio : 10
+  - Cmd : 3
+    Offset : 50393
+    Len : 1
+    Data :
+      - Name : "温度设定"
+        Ratio : 10
+  
+  - Cmd : 1
+    Offset : 1
+    Len : 2
+    Data :
+      - Name : "开机"
+      - Name : "关机"
+  - Cmd : 1
+    Offset : 90
+    Len : 4
+    Data :
+      - Name : "自动模式"
+      - Name : "新风模式"
+      - Name : "新风湿膜模式"
+      - Name : "湿膜模式"
+  - Cmd : 3
+    Offset : 3002
+    Len : 1
+    Data :
+      - Name : "机组状态"
+        Options : 
+          - Key : 0
+            Value : 关机
+          - Key : 1
+            Value : 自动模式
+          - Key : 2
+            Value : 新风模式
+          - Key : 3
+            Value : 新风湿膜模式
+          - Key : 4
+            Value : 湿膜模式
+  - Cmd : 1
+    Offset : 140
+    Len : 4
+    Data : 
+      - Name : 送风机
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 启动
+      - Name : 新风阀
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 启动
+      - Name : 回风阀1
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 启动
+      - Name : 回风阀2
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 启动
+  - Cmd : 1
+    Offset : 24576
+    Len : 8
+    Data : 
+      - Name : 排风机
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 启动
+      - Name : 压缩机
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 启动
+      - Name : 进水阀
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 启动
+      - Name : 排水阀
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 启动
+      - Name : 空调输出
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 启动
+      - Name : 湿膜制冷
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 启动
+      - Name : 故障
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 启动
+      - Name : 排风阀
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 启动
+  - Cmd : 1
+    Offset : 22
+    Len : 5
+    Data : 
+      - Name : 相序告警
+        AlertNormalValue : 0
+      - Name : 风压告警
+        AlertNormalValue : 0
+      - Name : 消防烟雾告警
+        AlertNormalValue : 0
+      - Name : 高水位告警
+        AlertNormalValue : 0
+      - Name : 低水位告警
+        AlertNormalValue : 0
+  - Cmd : 1
+    Offset : 28
+    Len : 1
+    Data : 
+      - Name : 漏水保护
+        AlertNormalValue : 0
+  - Cmd : 1
+    Offset : 30
+    Len : 1
+    Data : 
+      - Name : 超高水位保护
+        AlertNormalValue : 0
+  - Cmd : 1
+    Offset : 510
+    Len : 6
+    Data : 
+      - Name : 室内1号温湿度传感器故障
+        AlertNormalValue : 0
+      - Name : 室内2号温湿度传感器故障
+        AlertNormalValue : 0
+      - Name : 室内3号温湿度传感器故障
+        AlertNormalValue : 0
+      - Name : 送风温湿度传感器故障
+        AlertNormalValue : 0
+      - Name : 新风温湿度传感器故障
+        AlertNormalValue : 0
+      - Name : 水箱温度传感器故障
+        AlertNormalValue : 0
+  - Cmd : 1
+    Offset : 180
+    Len : 1
+    Data : 
+      - Name : 故障复位
+        AlertNormalValue : 0
+SET_RET_CODE : |
+    case 201:
+    {
+        cmd_result_ = 1;
+        return false;
+    }
+    case 120:{
+        modbus_write_bit(90, 0);
+        state = 201;
+        return true;
+      }
+    case 122:{
+        modbus_write_bit(91, 0);
+        state = 201;
+        return true;
+      }
+    case 124:
+    {
+        modbus_write_bit(92, 0);
+        state = 201;
+        return true;
+      }
+    case 126:
+    {
+        modbus_write_bit(93, 0);
+        state = 201;
+        return true;
+      }
+    case 128:
+    {
+        modbus_write_bit(180, 0);
+        state = 201;
+        return true;
+      }
+    case AC_Control_Code::AC_START: {
+        modbus_write_bit(1, 0);
+        state = 201;
+        return true;
+      }
+      case AC_Control_Code::AC_STOP: {
+        modbus_write_bit(2, 0);
+        state = 201;
+        return true;
+      } 
+      case AC_Control_Code::AC_SET_TEMPERATURE:
+      case AC_Control_Code::AC_SET_HUMID: {
+        if(tab_reg[0] == last_data_) {
+            cmd_result_ = 1;
+        } else {
+            cmd_result_ = -2;
+        }
+        Reset();
+        return false;
+      }
+      
+SET_DO_CODE : |
+  switch(b_mode_)
+  {
+      case 1://联通
+      {
+            //320是SET_DO
+          std::string doId((char*)inBuffer, inBufferSize);
+          if(doId == "601500201001" || doId == "140800280010") {
+              //开机
+              state = AC_Control_Code::AC_START;
+              modbus_write_bit(1, 1);
+              return 0;
+          } else if(doId == "601500200001" || doId == "140800300010") {
+              //关机
+              state = AC_Control_Code::AC_STOP;
+              modbus_write_bit(2, 1);
+              return 0;
+          }
+          break;
+      }
+      case 2://电信
+      {
+          std::string doStr((char*)inBuffer, inBufferSize);
+          Json::Value setting;//
+          Json::Reader reader;//解析
+          if(!reader.parse(doStr, setting)) {
+            return -1;
+          }
+          if(setting.type() == Json::objectValue) {
+              if(setting["signal_id"] != Json::nullValue && setting["signal_id"].type()  != Json::nullValue) {
+                  if(setting["signal_id"].asString() != "") {
+                      if(setting["signal_id"].asString() == "140800280010"){
+                          //开机
+                          state = AC_Control_Code::AC_START;
+                          modbus_write_bit(1, 1);
+                          return 0;
+                      }else if(setting["signal_id"].asString() == "140800300010") {
+                          //关机
+                          state = AC_Control_Code::AC_STOP;
+                          modbus_write_bit(2, 1);
+                          return 0;
+                      }else if(setting["signal_id"].asString() == "140800300020") {
+                          //自动模式
+                          state = 120;
+                          modbus_write_bit(90, 1);
+                          return 0;
+                      }else if(setting["signal_id"].asString() == "140800300030") {
+                          //新风模式
+                          state = 122;
+                          modbus_write_bit(91, 1);
+                          return 0;
+                      }else if(setting["signal_id"].asString() == "140800300040") {
+                          //新风湿膜模式
+                          state = 124;
+                          modbus_write_bit(92, 1);
+                          return 0;
+                      }else if(setting["signal_id"].asString() == "140800300050") {
+                          //湿膜模式
+                          state = 126;
+                          modbus_write_bit(93, 1);
+                          return 0;
+                      }else if(setting["signal_id"].asString() == "140800300060") {
+                          //故障复位
+                          state = 128;
+                          modbus_write_bit(180, 1);
+                          return 0;
+                      }
+                  }
+              }
+          }
+          break;
+      }
+  }
+
+
+SET_AO_CODE: |
+  if(setting["signal_id"] != Json::nullValue && setting["signal_id"].type()  != Json::nullValue) {
+      if(setting["signal_id"].asString() != "") {
+          if(setting["signal_id"].asString() == "6016A2101001" || setting["signal_id"].asString() == "150800310010") {
+              if(setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
+                  int16_t newValue = atoi(setting["SetValue"].asString().c_str())*10;
+                  //送风温度
+                  state = AC_Control_Code::AC_SET_TEMPERATURE;
+                  cmd_result_ = -1;
+                  last_data_ = newValue;
+                  modbus_write_register(50393, newValue);
+
+                  return 0;                    
+              }
+          }
+
+      }
+  }

@@ -1,0 +1,2269 @@
+Project:
+  Name : TMController20250701
+  RT_ID : 5156
+  File : "TM气悬浮标准室内主控互备后台监控协议V1.1-新疆项目20250701.xlsx 121.12.50.13"
+  DevType : 4
+  Category : 精密空调
+  ProtocolName : TM气悬浮空调
+Sample : 
+  - Cmd : 4
+    Offset : 0
+    Len : 4
+    Data : 
+      - Name : "冷却塔水盘温度(外机)"
+        Offset : 1
+        Ratio : 10
+        Unit : "℃"
+      - Name : "压缩机吸气温度(外机)"
+        Offset : 2
+        Ratio : 10
+        Unit : "℃"
+      - Name : "压缩机排气温度(外机)"
+        Offset : 3
+        Ratio : 10
+        Unit : "℃"
+      - Name : "冷却塔出水温度(外机)"
+        Offset : 4
+        Ratio : 10
+        Unit : "℃"
+  - Cmd : 4
+    Offset : 7
+    Len : 11
+    Data : 
+      - Name : "压缩机吸气口压力(外机)"
+        Offset : 1
+        Ratio : 10
+        Unit : "bar"
+      - Name : "压缩机排气口压力(外机)"
+        Offset : 2
+        Ratio : 10
+        Unit : "bar"
+      - Name : "冷却塔出液压力(外机)"
+        Offset : 4
+        Ratio : 10
+        Unit : "bar"
+      - Name : "氟泵1进口压力(外机)"
+        Offset : 5
+        Ratio : 10
+        Unit : "bar"
+      - Name : "氟泵2进口压力(外机)"
+        Offset : 6
+        Ratio : 10
+        Unit : "bar"
+      - Name : "氟泵3进口压力(外机)"
+        Offset : 7
+        Ratio : 10
+        Unit : "bar"
+      - Name : "氟泵4进口压力(外机)"
+        Offset : 8
+        Ratio : 10
+        Unit : "bar"
+      - Name : "制冷剂泄漏仪(外机)"
+        Offset : 11
+        Unit : "ppm"
+  - Cmd : 4
+    Offset : 21
+    Len : 10
+    Data : 
+      - Name : "压缩机转速(外机)"
+        Offset : 1
+        Unit : "RPM"
+      - Name : "冷却阀开度(外机)"
+        Offset : 2
+        Unit : "%"
+      - Name : "氟泵1扬程(外机)"        
+        Offset : 3
+        Ratio : 10
+        Unit : "Bar"
+      - Name : "氟泵1转速(外机)"
+        Offset : 4
+        Ratio : 10
+        Unit : "%"
+      - Name : "氟泵2扬程(外机)"
+        Offset : 5
+        Ratio : 10
+        Unit : "Bar"
+      - Name : "氟泵2转速(外机)"
+        Offset : 6
+        Ratio : 10
+        Unit : "%"
+      - Name : "冷凝风机转速(外机)"
+        Offset : 7
+        Ratio : 10
+        Unit : "%"
+      - Name : "环境温度(外机)"
+        Offset : 8
+        Ratio : 10
+        Unit : "℃"
+      - Name : "环境湿度(外机)"
+        Offset : 9
+        Ratio : 10
+        Unit : "%"
+      - Name : "环境湿球温度(外机)"
+        Offset : 10
+        Ratio : 10
+        Unit : "℃"
+  - Cmd : 4
+    Offset : 35
+    Len : 1
+    Data : 
+      - Name : "压缩机过热度(外机)"
+        Offset : 1
+        Ratio : 10
+        Unit : "℃"
+  - Cmd : 4
+    Offset : 40
+    Len : 1
+    Data : 
+      - Name : "系统可用(外机)"
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 系统可用
+          - Key : 1
+            Value : 系统不可用
+  - Cmd : 4
+    Offset : 43
+    Len : 8
+    Data : 
+      - Name : "压缩机运行状态"
+        Value : (($v[1]) & 0x1)
+        CValue : ((pData[0]) & 0x1)
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 启动
+      - Name : "喷淋泵运行状态"
+        Value : (($v[1]>>2) & 0x1)
+        CValue : ((pData[0]>>2) & 0x1)
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 启动
+      - Name : "1#泵运行状态"
+        Value : (($v[1]>>3) & 0x1)
+        CValue : ((pData[0]>>3) & 0x1)
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 启动
+      - Name : "2#泵运行状态"
+        Value : (($v[1]>>4) & 0x1)
+        CValue : ((pData[0]>>4) & 0x1)
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 启动
+      - Name : "塔风机运行状态"
+        Value : (($v[1]>>5) & 0x1)
+        CValue : ((pData[0]>>5) & 0x1)
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 启动
+      - Name : "电伴热运行状态"
+        Value : (($v[1]>>6) & 0x1)
+        CValue : ((pData[0]>>6) & 0x1)
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 启动
+      - Name : "气管电动阀运行状态"
+        Value : (($v[1]>>7) & 0x1)
+        CValue : ((pData[0]>>7) & 0x1)
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 启动
+      - Name : "液管电磁阀运行状态"
+        Value : (($v[1]>>8) & 0x1)
+        CValue : ((pData[0]>>8) & 0x1)
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 启动
+      - Name : "运行状态"
+        Value : (($v[1]>>11) & 0x1)
+        CValue : ((pData[0]>>11) & 0x1)
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 启动
+      - Name : "气管阀故障"
+        Value : (($v[3]) & 0x1)
+        CValue : ((pData[2]) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "液管阀故障"
+        Value : (($v[3]>>1) & 0x1)
+        CValue : ((pData[2]>>1) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "制冷剂泄漏仪故障"
+        Value : (($v[3]>>2) & 0x1)
+        CValue : ((pData[2]>>2) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "制冷剂泄漏高"
+        Value : (($v[3]>>3) & 0x1)
+        CValue : ((pData[2]>>3) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "触摸屏通讯离线"
+        Value : (($v[3]>>5) & 0x1)
+        CValue : ((pData[2]>>5) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "储液罐低液位"
+        Value : (($v[3]>>6) & 0x1)
+        CValue : ((pData[2]>>6) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "压缩机电机温度1故障"
+        Value : (($v[3]>>7) & 0x1)
+        CValue : ((pData[2]>>7) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "压缩机电机温度2故障"
+        Value : (($v[3]>>8) & 0x1)
+        CValue : ((pData[2]>>8) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "压缩机电机高温告警"
+        Value : (($v[3]>>9) & 0x1)
+        CValue : ((pData[2]>>9) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "压缩机电机高温停机"
+        Value : (($v[3]>>10) & 0x1)
+        CValue : ((pData[2]>>10) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "压缩机吸气温度故障"
+        Value : (($v[3]>>11) & 0x1)
+        CValue : ((pData[2]>>11) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "压缩机排气温度故障"
+        Value : (($v[3]>>12) & 0x1)
+        CValue : ((pData[2]>>12) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "压缩机吸气高温"
+        Value : (($v[3]>>13) & 0x1)
+        CValue : ((pData[2]>>13) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "压缩机吸气低温"
+        Value : (($v[3]>>14) & 0x1)
+        CValue : ((pData[2]>>14) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "压缩机排气高温"
+        Value : (($v[3]>>15) & 0x1)
+        CValue : ((pData[2]>>15) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "压缩机排气低温"
+        Value : (($v[4]) & 0x1)
+        CValue : ((pData[3]) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "压缩机吸气压力故障"
+        Value : (($v[4]>>1) & 0x1)
+        CValue : ((pData[3]>>1) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "压缩机排气压力故障"
+        Value : (($v[4]>>2) & 0x1)
+        CValue : ((pData[4]>>2) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "轴承排气压力故障"
+        Value : (($v[4]>>3) & 0x1)
+        CValue : ((pData[3]>>3) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "压缩机吸气高压"
+        Value : (($v[4]>>4) & 0x1)
+        CValue : ((pData[3]>>4) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "压缩机吸气低压"
+        Value : (($v[4]>>5) & 0x1)
+        CValue : ((pData[3]>>5) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "压缩机排气高压"
+        Value : (($v[4]>>6) & 0x1)
+        CValue : ((pData[3]>>6) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "压缩机排气低压"
+        Value : (($v[4]>>7) & 0x1)
+        CValue : ((pData[3]>>7) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "轴承排气高压"
+        Value : (($v[4]>>8) & 0x1)
+        CValue : ((pData[3]>>8) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "轴承排气低压"
+        Value : (($v[4]>>9) & 0x1)
+        CValue : ((pData[3]>>9) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "压缩机高压比"
+        Value : (($v[4]>>10) & 0x1)
+        CValue : ((pData[3]>>10) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "压缩机驱动离线"
+        Value : (($v[4]>>11) & 0x1)
+        CValue : ((pData[3]>>11) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "压缩机高电流告警"
+        Value : (($v[4]>>12) & 0x1)
+        CValue : ((pData[3]>>12) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "压缩机高电流停机"
+        Value : (($v[4]>>13) & 0x1)
+        CValue : ((pData[3]>>13) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "压缩机驱动故障"
+        Value : (($v[4]>>14) & 0x1)
+        CValue : ((pData[3]>>14) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "压缩机急停"
+        Value : (($v[4]>>15) & 0x1)
+        CValue : ((pData[3]>>15) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "震动传感器故障"
+        Value : (($v[5]) & 0x1)
+        CValue : ((pData[4]) & 0x1)
+        Offset : 5
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "压缩机高震动"
+        Value : (($v[5]>>1) & 0x1)
+        CValue : ((pData[4]>>1) & 0x1)
+        Offset : 5
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "供气罐压力故障"
+        Value : (($v[5]>>2) & 0x1)
+        CValue : ((pData[4]>>2) & 0x1)
+        Offset : 5
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "供气罐高压告警"
+        Value : (($v[5]>>3) & 0x1)
+        CValue : ((pData[4]>>3) & 0x1)
+        Offset : 5
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "供气罐高压停机"
+        Value : (($v[5]>>4) & 0x1)
+        CValue : ((pData[4]>>4) & 0x1)
+        Offset : 5
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "压缩机供气高压差"
+        Value : (($v[5]>>5) & 0x1)
+        CValue : ((pData[4]>>5) & 0x1)
+        Offset : 5
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "压缩机供气低压差"
+        Value : (($v[5]>>6) & 0x1)
+        CValue : ((pData[4]>>6) & 0x1)
+        Offset : 5
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "供气罐出口压力故障"
+        Value : (($v[5]>>7) & 0x1)
+        CValue : ((pData[4]>>7) & 0x1)
+        Offset : 5
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "供气罐液位故障"
+        Value : (($v[5]>>8) & 0x1)
+        CValue : ((pData[4]>>8) & 0x1)
+        Offset : 5
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "供气罐低液位"
+        Value : (($v[5]>>9) & 0x1)
+        CValue : ((pData[4]>>9) & 0x1)
+        Offset : 5
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "供气罐高液位"
+        Value : (($v[5]>>10) & 0x1)
+        CValue : ((pData[4]>>10) & 0x1)
+        Offset : 5
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "供气齿轮泵故障"
+        Value : (($v[5]>>11) & 0x1)
+        CValue : ((pData[4]>>11) & 0x1)
+        Offset : 5
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "供气电加热故障"
+        Value : (($v[5]>>12) & 0x1)
+        CValue : ((pData[4]>>12) & 0x1)
+        Offset : 5
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "冷却塔水盘水温故障"
+        Value : (($v[5]>>13) & 0x1)
+        CValue : ((pData[4]>>13) & 0x1)
+        Offset : 5
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "冷却塔水盘高水温"
+        Value : (($v[5]>>14) & 0x1)
+        CValue : ((pData[4]>>14) & 0x1)
+        Offset : 5
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "冷却塔水盘低水温"
+        Value : (($v[5]>>15) & 0x1)
+        CValue : ((pData[4]>>15) & 0x1)
+        Offset : 5
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "冷却塔出口温度故障"
+        Value : (($v[6]) & 0x1)
+        CValue : ((pData[5]) & 0x1)
+        Offset : 6
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "冷却塔出口高温"
+        Value : (($v[6]>>1) & 0x1)
+        CValue : ((pData[5]>>1) & 0x1)
+        Offset : 6
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "冷却塔出口低温"
+        Value : (($v[6]>>2) & 0x1)
+        CValue : ((pData[5]>>2) & 0x1)
+        Offset : 6
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "冷却塔出口压力故障"
+        Value : (($v[6]>>3) & 0x1)
+        CValue : ((pData[5]>>3) & 0x1)
+        Offset : 6
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "冷却塔出口高压"
+        Value : (($v[6]>>4) & 0x1)
+        CValue : ((pData[5]>>4) & 0x1)
+        Offset : 6
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "冷却塔出口低压"
+        Value : (($v[6]>>5) & 0x1)
+        CValue : ((pData[5]>>5) & 0x1)
+        Offset : 6
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "冷却塔喷淋泵故障"
+        Value : (($v[6]>>6) & 0x1)
+        CValue : ((pData[5]>>6) & 0x1)
+        Offset : 6
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "冷凝风机驱动通讯故障"
+        Value : (($v[6]>>7) & 0x1)
+        CValue : ((pData[5]>>7) & 0x1)
+        Offset : 6
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "冷凝风机驱动故障"
+        Value : (($v[6]>>8) & 0x1)
+        CValue : ((pData[5]>>8) & 0x1)
+        Offset : 6
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "冷却塔上回风温湿度离线"
+        Value : (($v[6]>>9) & 0x1)
+        CValue : ((pData[5]>>9) & 0x1)
+        Offset : 6
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "冷却塔侧回风温湿度离线"
+        Value : (($v[6]>>10) & 0x1)
+        CValue : ((pData[5]>>10) & 0x1)
+        Offset : 6
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "泵1驱动离线"
+        Value : (($v[6]>>11) & 0x1)
+        CValue : ((pData[5]>>11) & 0x1)
+        Offset : 6
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "泵2驱动离线"
+        Value : (($v[6]>>12) & 0x1)
+        CValue : ((pData[5]>>12) & 0x1)
+        Offset : 6
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "泵1进口压力故障"
+        Value : (($v[6]>>13) & 0x1)
+        CValue : ((pData[5]>>13) & 0x1)
+        Offset : 6
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "泵2进口压力故障"
+        Value : (($v[6]>>14) & 0x1)
+        CValue : ((pData[5]>>14) & 0x1)
+        Offset : 6
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "泵1出口压力故障"
+        Value : (($v[6]>>15) & 0x1)
+        CValue : ((pData[5]>>15) & 0x1)
+        Offset : 6
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "泵2出口压力故障"
+        Value : (($v[7]) & 0x1)
+        CValue : ((pData[6]) & 0x1)
+        Offset : 7
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "泵1驱动故障"
+        Value : (($v[7]>>1) & 0x1)
+        CValue : ((pData[6]>>1) & 0x1)
+        Offset : 7
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "泵2驱动故障"
+        Value : (($v[7]>>2) & 0x1)
+        CValue : ((pData[6]>>2) & 0x1)
+        Offset : 7
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "泵1高扬程"
+        Value : (($v[7]>>3) & 0x1)
+        CValue : ((pData[6]>>3) & 0x1)
+        Offset : 7
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "泵1低扬程"
+        Value : (($v[7]>>4) & 0x1)
+        CValue : ((pData[6]>>4) & 0x1)
+        Offset : 7
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "泵2高扬程"
+        Value : (($v[7]>>5) & 0x1)
+        CValue : ((pData[6]>>5) & 0x1)
+        Offset : 7
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "泵2低扬程"
+        Value : (($v[7]>>6) & 0x1)
+        CValue : ((pData[6]>>6) & 0x1)
+        Offset : 7
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "冷却塔水槽低水位"
+        Value : (($v[7]>>7) & 0x1)
+        CValue : ((pData[6]>>7) & 0x1)
+        Offset : 7
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "主控通讯离线"
+        Value : (($v[7]>>8) & 0x1)
+        CValue : ((pData[6]>>8) & 0x1)
+        Offset : 7
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "冷却塔水槽高水位"
+        Value : (($v[7]>>9) & 0x1)
+        CValue : ((pData[6]>>9) & 0x1)
+        Offset : 7
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "制冷剂泄漏仪通信故障"
+        Value : (($v[7]>>10) & 0x1)
+        CValue : ((pData[6]>>10) & 0x1)
+        Offset : 7
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "电源丢失"
+        Value : (($v[7]>>12) & 0x1)
+        CValue : ((pData[6]>>12) & 0x1)
+        Offset : 7
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "变送器1通信故障"
+        Value : (($v[7]>>13) & 0x1)
+        CValue : ((pData[6]>>13) & 0x1)
+        Offset : 7
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+  - Cmd : 4
+    Offset : 100
+    Len : 8
+    Data : 
+      - Name : "回风温度1测量值"
+        Offset : 1
+        Ratio : 10
+        Unit : "℃"
+      - Name : "回风温度2测量值"
+        Offset : 2
+        Ratio : 10
+        Unit : "℃"
+      - Name : "回风温度3测量值"
+        Offset : 3
+        Ratio : 10
+        Unit : "℃"
+      - Name : "送风温度1测量值"
+        Offset : 4
+        Ratio : 10
+        Unit : "℃"
+      - Name : "送风温度2测量值"
+        Offset : 5
+        Ratio : 10
+        Unit : "℃"
+      - Name : "送风温度3测量值"
+        Offset : 6
+        Ratio : 10
+        Unit : "℃"
+      - Name : "回风湿度测量值"
+        Offset : 7
+        Ratio : 10
+        Unit : "%RH"
+      - Name : "实际送风湿度"
+        Offset : 8
+        Ratio : 10
+        Unit : "%RH"
+  - Cmd : 4
+    Offset : 108
+    Len : 5
+    Data : 
+      - Name : "送风高湿"
+        Value : (($v[1]) & 0x1)
+        CValue : ((pData[0]) & 0x1)
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "送风低湿"
+        Value : (($v[1]>>1) & 0x1)
+        CValue : ((pData[0]>>1) & 0x1)
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "电源故障(CR)"
+        Value : (($v[1]>>3) & 0x1)
+        CValue : ((pData[0]>>3) & 0x1)
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "监控离线"
+        Value : (($v[1]>>5) & 0x1)
+        CValue : ((pData[0]>>5) & 0x1)
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "送风低温"
+        Value : (($v[1]>>8) & 0x1)
+        CValue : ((pData[0]>>8) & 0x1)
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "送风高温"
+        Value : (($v[1]>>9) & 0x1)
+        CValue : ((pData[0]>>9) & 0x1)
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "回风高温"
+        Value : (($v[1]>>10) & 0x1)
+        CValue : ((pData[0]>>10) & 0x1)
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "回风高湿"
+        Value : (($v[1]>>11) & 0x1)
+        CValue : ((pData[0]>>11) & 0x1)
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "回风低湿"
+        Value : (($v[1]>>12) & 0x1)
+        CValue : ((pData[0]>>12) & 0x1)
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "回风低温"
+        Value : (($v[1]>>13) & 0x1)
+        CValue : ((pData[0]>>13) & 0x1)
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "送风温度2故障(CR)"
+        Value : (($v[1]>>14) & 0x1)
+        CValue : ((pData[0]>>14) & 0x1)
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "回温1故障"
+        Value : (($v[1]>>15) & 0x1)
+        CValue : ((pData[0]>>15) & 0x1)
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "回湿故障"
+        Value : (($v[2]) & 0x1)
+        CValue : ((pData[1]) & 0x1)
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "送风温度1故障"
+        Value : (($v[2]>>1) & 0x1)
+        CValue : ((pData[1]>>1) & 0x1)
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "风机故障"
+        Value : (($v[2]>>4) & 0x1)
+        CValue : ((pData[1]>>4) & 0x1)
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "地板溢水"
+        Value : (($v[2]>>7) & 0x1)
+        CValue : ((pData[1]>>7) & 0x1)
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "远程关机"
+        Value : (($v[2]>>8) & 0x1)
+        CValue : ((pData[1]>>8) & 0x1)
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "气流丢失"
+        Value : (($v[2]>>9) & 0x1)
+        CValue : ((pData[1]>>9) & 0x1)
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "电源丢失"
+        Value : (($v[2]>>10) & 0x1)
+        CValue : ((pData[1]>>10) & 0x1)
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "过滤网堵"
+        Value : (($v[2]>>11) & 0x1)
+        CValue : ((pData[1]>>11) & 0x1)
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "送风温度3故障"
+        Value : (($v[2]>>12) & 0x1)
+        CValue : ((pData[1]>>12) & 0x1)
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "烟感告警"
+        Value : (($v[2]>>13) & 0x1)
+        CValue : ((pData[1]>>13) & 0x1)
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "送湿故障(CM)"
+        Value : (($v[2]>>14) & 0x1)
+        CValue : ((pData[1]>>14) & 0x1)
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "空调关机"
+        Value : (($v[3]) & 0x1)
+        CValue : ((pData[2]) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "显示通信故障"
+        Value : (($v[3]>>1) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "DI模块通信故障(CR)"
+        Value : (($v[3]>>4) & 0x1)
+        CValue : ((pData[2]>>4) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "电源模块全部故障(CR)"
+        Value : (($v[3]>>5) & 0x1)
+        CValue : ((pData[2]>>5) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "冷凝水泵故障（CR）"
+        Value : (($v[3]>>6) & 0x1)
+        CValue : ((pData[2]>>6) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "冷凝高水位（CR）"
+        Value : (($v[3]>>7) & 0x1)
+        CValue : ((pData[2]>>7) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "吸气温度2故障（CM）"
+        Value : (($v[3]>>8) & 0x1)
+        CValue : ((pData[2]>>8) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "低压压力2故障（CM）"
+        Value : (($v[3]>>9) & 0x1)
+        CValue : ((pData[2]>>9) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "吸气温度1故障"
+        Value : (($v[3]>>10) & 0x1)
+        CValue : ((pData[2]>>10) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "吸气压力1故障"
+        Value : (($v[3]>>11) & 0x1)
+        CValue : ((pData[2]>>11) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "回风温度2故障(CR)"
+        Value : (($v[3]>>12) & 0x1)
+        CValue : ((pData[2]>>12) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "回风温度3故障(CR)"
+        Value : (($v[3]>>13) & 0x1)
+        CValue : ((pData[2]>>13) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "风机维护告警"
+        Value : (($v[3]>>14) & 0x1)
+        CValue : ((pData[2]>>14) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "制冷"
+        Value : (($v[4]) & 0x1)
+        CValue : ((pData[3]) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 启动
+      - Name : "内风机"
+        Value : (($v[4]>>3) & 0x1)
+        CValue : ((pData[3]>>3) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 启动
+      - Name : "低载标志"
+        Value : (($v[4]>>7) & 0x1)
+        CValue : ((pData[3]>>7) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 启动
+      - Name : "机组运行状态"
+        Offset : 5
+        Options : 
+          - Key : 0
+            Value : 开机
+          - Key : 1
+            Value : 关机
+  - Cmd : 4
+    Offset : 113
+    Len : 10
+    Data : 
+      - Name : "风机转速"
+        Offset : 1
+        Unit : "%"
+      - Name : "EEV1开度"
+        Offset : 2    
+        Unit : "%"
+      - Name : "EEV1实际过热度"
+        Offset : 3     
+        Ratio : 10
+        Unit : "℃"
+      - Name : "风机1"
+        Value : (($v[4]) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "风机2"
+        Value : (($v[4]>>1) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "风机3(CR)"
+        Value : (($v[4]>>2) & 0x1)
+        CValue : ((pData[3]>>2) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "风机4(CR)"
+        Value : (($v[4]>>3) & 0x1)
+        CValue : ((pData[3]>>3) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "风机5(CR)"
+        Value : (($v[4]>>4) & 0x1)
+        CValue : ((pData[3]>>4) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "风机6(CR)"
+        Value : (($v[4]>>5) & 0x1)
+        CValue : ((pData[3]>>5) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "风机7(CR)"
+        Value : (($v[4]>>6) & 0x1)
+        CValue : ((pData[3]>>6) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "风机8(CR)"
+        Value : (($v[4]>>7) & 0x1)
+        CValue : ((pData[3]>>7) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "风机9(CR)"
+        Value : (($v[4]>>8) & 0x1)
+        CValue : ((pData[3]>>8) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "风机10(CR)"
+        Value : (($v[4]>>9) & 0x1)
+        CValue : ((pData[3]>>9) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "风机11(CR)"
+        Value : (($v[4]>>10) & 0x1)
+        CValue : ((pData[3]>>10) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "风机12(CR)"
+        Value : (($v[4]>>11) & 0x1)
+        CValue : ((pData[3]>>11) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "吸气温度1"
+        Offset : 5
+        Ratio : 10
+        Unit : "℃"
+      - Name : "吸气压力1"
+        Offset : 6
+        Ratio : 10
+        Unit : "Bar"
+      - Name : "吸气温度2"        
+        Offset : 7
+        Ratio : 10
+        Unit : "℃"
+      - Name : "吸气压力2"
+        Offset : 8
+        Ratio : 10
+        Unit : "Bar"
+      - Name : "EEV2开度"
+        Offset : 9
+        Unit : "%"
+      - Name : "EEV2实际过热度"
+        Offset : 10
+        Ratio : 10
+        Unit : "℃"
+  - Cmd : 4
+    Offset : 400
+    Len : 7
+    Data : 
+      - Name : "电源故障1"
+        Value : (($v[1]>>4) & 0x1)
+        CValue : ((pData[0]>>4) & 0x1)
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "电源故障2"
+        Value : (($v[1]>>5) & 0x1)
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "制冷剂泄漏-一般"
+        Value : (($v[1]>>6) & 0x1)
+        CValue : ((pData[0]>>6) & 0x1)
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "制冷剂泄漏-严重"
+        Value : (($v[1]>>7) & 0x1)
+        CValue : ((pData[0]>>7) & 0x1)
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "制冷剂泄漏仪1离线"
+        Value : (($v[1]>>8) & 0x1)
+        CValue : ((pData[0]>>8) & 0x1)
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "制冷剂泄漏仪2离线"
+        Value : (($v[1]>>9) & 0x1)
+        CValue : ((pData[0]>>9) & 0x1)
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "电源丢失"
+        Value : (($v[1]>>10) & 0x1)
+        CValue : ((pData[0]>>10) & 0x1)
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "热管A0X离线"
+        Value : (($v[2]) & 0x1)
+        CValue : ((pData[1]) & 0x1)
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "热管B0X离线"
+        Value : (($v[2]>>1) & 0x1)
+        CValue : ((pData[1]>>1) & 0x1)
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "热管C0X离线"
+        Value : (($v[2]>>2) & 0x1)
+        CValue : ((pData[1]>>2) & 0x1)
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "热管D0X离线"
+        Value : (($v[2]>>3) & 0x1)
+        CValue : ((pData[1]>>3) & 0x1)
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "热管E0X离线"
+        Value : (($v[2]>>4) & 0x1)
+        CValue : ((pData[1]>>4) & 0x1)
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "热管F0X离线"
+        Value : (($v[2]>>5) & 0x1)
+        CValue : ((pData[1]>>5) & 0x1)
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "热管G0X离线"
+        Value : (($v[2]>>6) & 0x1)
+        CValue : ((pData[1]>>6) & 0x1)
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "热管H0X离线"
+        Value : (($v[2]>>7) & 0x1)
+        CValue : ((pData[1]>>7) & 0x1)
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "热管I0X离线"
+        Value : (($v[2]>>8) & 0x1)
+        CValue : ((pData[1]>>8) & 0x1)
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "热管J0X离线"
+        Value : (($v[2]>>9) & 0x1)
+        CValue : ((pData[1]>>9) & 0x1)
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "N#室外主机离线"
+        Value : (($v[2]>>10) & 0x1)
+        CValue : ((pData[1]>>10) & 0x1)
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "热管N01离线"
+        Value : (($v[3]) & 0x1)
+        CValue : ((pData[2]) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "热管N02离线"
+        Value : (($v[3]>>1) & 0x1)
+        CValue : ((pData[2]>>1) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "热管N03离线"
+        Value : (($v[3]>>2) & 0x1)
+        CValue : ((pData[2]>>2) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "热管N04离线"
+        Value : (($v[3]>>3) & 0x1)
+        CValue : ((pData[2]>>3) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "热管N05离线"
+        Value : (($v[3]>>4) & 0x1)
+        CValue : ((pData[2]>>4) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "热管N06离线"
+        Value : (($v[3]>>5) & 0x1)
+        CValue : ((pData[2]>>5) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "热管N01离线"
+        Value : (($v[3]>>6) & 0x1)
+        CValue : ((pData[2]>>6) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "热管N02离线"
+        Value : (($v[3]>>7) & 0x1)
+        CValue : ((pData[2]>>7) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "热管N03离线"
+        Value : (($v[3]>>8) & 0x1)
+        CValue : ((pData[2]>>8) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "热管N04离线"
+        Value : (($v[3]>>9) & 0x1)
+        CValue : ((pData[2]>>9) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "热管N05离线"
+        Value : (($v[3]>>10) & 0x1)
+        CValue : ((pData[2]>>10) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "热管N06离线"
+        Value : (($v[3]>>11) & 0x1)
+        CValue : ((pData[2]>>11) & 0x1)
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "1#室内主控离线"
+        Value : (($v[4]) & 0x1)
+        CValue : ((pData[3]) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "2#室内主控离线"
+        Value : (($v[4]>>1) & 0x1)
+        CValue : ((pData[3]>>1) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "3#室内主控离线"
+        Value : (($v[4]>>2) & 0x1)
+        CValue : ((pData[3]>>2) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "4#室内主控离线"
+        Value : (($v[4]>>3) & 0x1)
+        CValue : ((pData[3]>>3) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "5#室内主控离线"
+        Value : (($v[4]>>4) & 0x1)
+        CValue : ((pData[3]>>4) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "6#室内主控离线"
+        Value : (($v[4]>>5) & 0x1)
+        CValue : ((pData[3]>>5) & 0x1)
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 正常
+          - Key : 1
+            Value : 告警
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警 
+      - Name : "告警状态5"
+        Offset : 5
+      - Name : "制冷剂泄漏仪1"
+        Offset : 6
+        Unit : "ppm"
+      - Name : "制冷剂泄漏仪2"
+        Offset : 7
+        Unit : "ppm"
+  - Cmd : 3
+    Offset : 0
+    Len : 2
+    Data : 
+      - Name : "系统开关机"
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 关机
+          - Key : 1
+            Value : 开机
+      - Name : "系统温度设定"
+        Offset : 2
+        Ratio : 10
+        Unit : "℃"
+
+
+
+
+
+

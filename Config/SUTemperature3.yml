@@ -1,0 +1,21 @@
+Project:
+  Name : SUTemperature3
+  RT_ID : 5156
+  File : "群里截图"
+  DevType : 2
+  Category : 传感器
+  ProtocolName : SUTemperature3
+Sample : 
+  - Cmd : 4
+    Offset : 0x400
+    Len : 3
+    Data :
+      - Name : AO1温度值
+        Ratio : 10
+        Unit : ℃
+      - Name : AO2温度值
+        Ratio : 10
+        Unit : ℃
+      - Name : AO3温度值
+        Ratio : 10
+        Unit : ℃

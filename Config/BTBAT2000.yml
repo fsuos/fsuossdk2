@@ -1,0 +1,65 @@
+Project:
+  Name : BTBAT2000
+  RT_ID : 5156
+  File : "BYBAT2000电池仪协议文本.doc"
+  DevType : 2
+  ProtocolName : BYBAT2000
+  Category : 蓄电池
+Sample :
+  - Cmd : 3
+    Offset : 896
+    Len : 52
+    RType : 'f'
+    Data :
+      - Name : 第1节单体电压
+        Unit : V
+      - Name : 第2节单体电压
+        Unit : V
+      - Name : 第3节单体电压
+        Unit : V
+      - Name : 第4节单体电压
+        Unit : V
+      - Name : 第5节单体电压
+        Unit : V
+      - Name : 第6节单体电压
+        Unit : V
+      - Name : 第7节单体电压
+        Unit : V
+      - Name : 第8节单体电压
+        Unit : V
+      - Name : 第9节单体电压
+        Unit : V
+      - Name : 第10节单体电压
+        Unit : V
+      - Name : 第11节单体电压
+        Unit : V
+      - Name : 第12节单体电压
+        Unit : V
+      - Name : 第13节单体电压
+        Unit : V
+      - Name : 第14节单体电压
+        Unit : V
+      - Name : 第15节单体电压
+        Unit : V
+      - Name : 第16节单体电压
+        Unit : V
+      - Name : 第17节单体电压
+        Unit : V
+      - Name : 第18节单体电压
+        Unit : V
+      - Name : 第19节单体电压
+        Unit : V
+      - Name : 第20节单体电压
+        Unit : V
+      - Name : 第21节单体电压
+        Unit : V
+      - Name : 第22节单体电压
+        Unit : V
+      - Name : 第23节单体电压
+        Unit : V
+      - Name : 第24节单体电压
+        Unit : V
+      - Name : 充放电电流
+        Unit : A
+      - Name : 电池组电压
+        Unit : V

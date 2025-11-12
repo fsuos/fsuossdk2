@@ -1,0 +1,90 @@
+Project:
+  Name : DTS541S
+  RT_ID : 5156
+  File : "DTS541 交流多回路智能电能表(2_4_8回路,导轨式)用户手册.doc"
+  DevType : 2
+  Category : 智能电表
+  ProtocolName : DTS541S单回路版本智能电表
+InitSetting:
+  - Name : index
+    Default : 1
+    Type : int
+BlockTemplate: 
+  ChannelInfo:
+    BlockLength : 80
+    BlockType : 'f'
+    BlockContent :
+      - Name : "回路号"
+      - Name : "A相电流"
+        Unit : A
+      - Name : "B相电流"
+        Unit : A
+      - Name : "C相电流"
+        Unit : A
+      - Name : "零序电流"
+        Unit : A
+      - Name : "A相有功功率"
+        Unit : kW
+      - Name : "B相有功功率"
+        Unit : kW
+      - Name : "C相有功功率"
+        Unit : kW
+      - Name : "总有功功率"
+        Unit : kW
+      - Name : "A相无功功率"
+        Unit : kVar
+      - Name : "B相无功功率"
+        Unit : kVar
+      - Name : "C相无功功率"
+        Unit : kVar
+      - Name : "总无功功率"
+        Unit : kVar
+      - Name : "总功率因数"
+      - Name : "总有功电能"
+        Unit : kWh
+      - Name : "总无功电能"
+        Unit : kVarh
+      - Name : "正向有功电能"
+        Unit : kWh
+      - Name : "反向有功电能"
+        Unit : kWh
+      - Name : "正向无功电能"
+        Unit : kVarh
+      - Name : "反向无功电能"
+        Unit : kVarh
+Sample :
+  - Cmd : 3
+    Offset : 4000
+    Len : 40
+    Data : 
+      - Block : ChannelInfo
+        index : 1
+  - Cmd : 3
+    Offset : 4480
+    Len : 8
+    Type : 'f'
+    Data : 
+      - Name : A相电压
+      - Name : B相电压
+      - Name : C相电压
+      - Name : 频率
+  - Cmd : 3
+    Offset : 4500
+    Len : 13
+    Data : 
+      - Name : PT
+      - Name : 第1回路CT额定电流
+      - Name : 第2回路CT额定电流
+      - Name : 第3回路CT额定电流
+      - Name : 第4回路CT额定电流
+      - Name : 第5回路CT额定电流
+      - Name : 第6回路CT额定电流
+      - Name : 第7回路CT额定电流
+      - Name : 第8回路CT额定电流
+      - Name : 第9回路CT额定电流
+      - Name : 第10回路CT额定电流
+      - Name : 第11回路CT额定电流
+      - Name : 第12回路CT额定电流
+Patch : |
+    RefreshState: modbus_read_registers(4000 + (index_-1)*40, 40)
+    

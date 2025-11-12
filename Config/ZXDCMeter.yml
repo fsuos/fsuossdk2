@@ -10,8 +10,7 @@ BlockTemplate:
       - Name : "%s组-序号"
   OutputC:
     BlockLength : 28
-    BlockType : 'f'
-    BlockRType : 1
+    BlockRType : 'f'
     BlockContent : 
       - Name : "%s组-开关规格"
       - Name : "%s组-电压"

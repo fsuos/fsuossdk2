@@ -2,6 +2,9 @@ Project:
   Name : Pex4S
   RT_ID : 5156
   File : "Pex4S  modbus协议.pdf"
+  DevType : 2
+  Category : 专用空调
+  ProtocolName : PEX4S空调
 Sample : 
   - Cmd : 3
     Offset : 20
@@ -1095,7 +1098,7 @@ DEVICEIOCONTROL_CODE: |
             cmd_result_ = -1;
             OpenPort();
             last_data_ = 10*(*(uint16_t*)inBuffer);
-            modbus_write_register(103, last_data_);
+            modbus_write_register(104, last_data_);
         }
         break;
     }

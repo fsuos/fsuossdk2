@@ -2,6 +2,9 @@ Project:
   Name : SGC420MKII
   RT_ID : 5156
   File : "SGC_420_Mk_II_Modbus_tables_4189341402B_CN(1).xlsx"
+  DevType : 2
+  Category : 柴油发电机
+  ProtocolName : SGC420MKII
 Sample : 
   - Cmd : 3
     Offset : 1

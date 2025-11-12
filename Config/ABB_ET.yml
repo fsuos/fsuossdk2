@@ -1,0 +1,143 @@
+Project:
+  Name : ABB_ET
+  RT_ID : 5156
+  File : "数显表产品通讯协议 v1.1.pdf"
+  DevType : 2
+  ProtocolName : ABB_ET系列电力智能监控仪表
+  Category : 智能电表
+Sample : 
+  - Cmd : 3
+    Offset : 100
+    Len : 14
+    Data : 
+      - Name : 线电压Uab
+        Ratio : 100
+        Unit : V
+      - Name : 线电压Ubc
+        Ratio : 100
+        Unit : V
+      - Name : 线电压Uca
+        Ratio : 100
+        Unit : V
+      - Name : 线电压平均值ULLAvg
+        Ratio : 100
+        Unit : V
+      - Name : 相电压Uan
+        Ratio : 100
+        Unit : V
+      - Name : 相电压Ubn
+        Ratio : 100
+        Unit : V
+      - Name : 相电压Ucn
+        Ratio : 100
+        Unit : V
+      - Name : 相电压平均值ULNAvg
+        Ratio : 100
+        Unit : V
+      - Name : 电流Ia
+        Ratio : 1000
+        Unit : A
+      - Name : 电流Ib
+        Ratio : 1000
+        Unit : A
+      - Name : 电流Ic
+        Ratio : 1000
+        Unit : A
+      - Name : 三相电流平均值IAvg
+        Ratio : 1000
+        Unit : A
+      - Name : 零序电流In
+        Ratio : 1000
+        Unit : A
+      - Name : 系统频率
+        Ratio : 100
+        Unit : Hz
+  - Cmd : 3
+    Offset : 115
+    Len : 19
+    Data : 
+      - Name : 总功率因数
+      - Name : 总有功功率
+        Ratio : 1000
+        Unit : kW
+      - Name : 总无功功率
+        Ratio : 1000
+        Unit : kVar
+      - Name : 总视在功率
+        Ratio : 1000
+        Unit : kVA
+      - Name : A相功率因数
+      - Name : B相功率因数
+      - Name : C相功率因数
+      - Name : A相有功功率
+        Ratio : 1000
+        Unit : kW
+      - Name : B相有功功率
+        Ratio : 1000
+        Unit : kW
+      - Name : C相有功功率
+        Ratio : 1000
+        Unit : kW
+      - Name : A相无功功率
+        Ratio : 1000
+        Unit : kVar
+      - Name : B相无功功率
+        Ratio : 1000
+        Unit : kVar
+      - Name : C相无功功率
+        Ratio : 1000
+        Unit : kVar
+      - Name : A相视在功率
+        Ratio : 1000
+        Unit : kVA
+      - Name : B相视在功率
+        Ratio : 1000
+        Unit : kVA
+      - Name : C相视在功率
+        Ratio : 1000
+        Unit : kVA
+      - Name : A相电流信号频率
+        Ratio : 100
+        Unit : Hz
+      - Name : B相电流信号频率
+        Ratio : 100
+        Unit : Hz
+      - Name : C相电流信号频率
+        Ratio : 100
+        Unit : Hz
+  - Cmd : 3
+    Offset : 200
+    Len : 16
+    Data : 
+      - Name : 总有功绝对值电能累计值
+        Value : (($v[1] << 16) | $v[2])/10
+        CValue : ((pData[0] << 16) | pData[1])/10
+        Unit : kWh
+      - Name : 总无功绝对值电能累计值
+        Value : (($v[3] << 16) | $v[4])/10
+        CValue : ((pData[2] << 16) | pData[3])/10
+        Unit : kVarh
+      - Name : A相有功绝对值电能累计值
+        Value : (($v[5] << 16) | $v[6])/10
+        CValue : ((pData[4] << 16) | pData[5])/10
+        Unit : kWh
+      - Name : B相有功绝对值电能累计值
+        Value : (($v[7] << 16) | $v[8])/10
+        CValue : ((pData[6] << 16) | pData[7])/10
+        Unit : kWh
+      - Name : C相有功绝对值电能累计值
+        Value : (($v[9] << 16) | $v[10])/10
+        CValue : ((pData[8] << 16) | pData[9])/10
+        Unit : kWh
+      - Name : A相无功绝对值电能累计值
+        Value : (($v[11] << 16) | $v[12])/10
+        CValue : ((pData[10] << 16) | pData[11])/10
+        Unit : kVarh
+      - Name : B相无功绝对值电能累计值
+        Value : (($v[13] << 16) | $v[14])/10
+        CValue : ((pData[12] << 16) | pData[13])/10
+        Unit : kVarh
+      - Name : C相无功绝对值电能累计值
+        Value : (($v[15] << 16) | $v[16])/10
+        CValue : ((pData[14] << 16) | pData[15])/10
+        Unit : kVarh

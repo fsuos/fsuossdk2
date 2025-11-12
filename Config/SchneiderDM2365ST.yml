@@ -1,0 +1,120 @@
+Project:
+  Name : SchneiderDM2365ST
+  RT_ID : 5156
+  File : "DM2365ST Register List Ver1.1(1).xls"
+  DevType : 2
+  Category : "智能电表"
+  ProtocolName : "Schneider DM2365ST"
+Sample : 
+  - Cmd : 3
+    Offset : 1006
+    Len : 12
+    RType : 'f'
+    Data : 
+      - Name : 电压A-N
+        Unit : V
+      - Name : 电压B-N
+        Unit : V
+      - Name : 电压C-N
+        Unit : V
+      - Name : 电压A-B
+        Unit : V
+      - Name : 电压B-C
+        Unit : V
+      - Name : 电压C-A
+        Unit : V
+  - Cmd : 3
+    Offset : 1018
+    Len : 6
+    RType : 'f'
+    Data : 
+      - Name : 电流A
+        Unit : A
+      - Name : 电流B
+        Unit : A
+      - Name : 电流C
+        Unit : A
+  - Cmd : 3
+    Offset : 1024
+    Len : 32
+    RType : 'f'
+    Data : 
+      - Name : A相有功功率
+        Unit : kW
+      - Name : B相有功功率
+        Unit : kW
+      - Name : C相有功功率
+        Unit : kW
+      - Name : 总有功功率
+        Unit : kW
+      - Name : A相无功功率
+        Unit : kVAR
+      - Name : B相无功功率
+        Unit : kVAR
+      - Name : C相无功功率
+        Unit : kVAR
+      - Name : 总无功功率
+        Unit : kVAR
+      - Name : A相视在功率
+        Unit : kVA
+      - Name : B相视在功率
+        Unit : kVA
+      - Name : C相视在功率
+        Unit : kVA
+      - Name : 总视在功率
+        Unit : kVA
+      - Name : A相功率因素
+      - Name : B相功率因素
+      - Name : C相功率因素
+      - Name : 总功率因素
+  - Cmd : 3
+    Offset : 1056
+    Len : 2
+    RType : 'f'
+    Data : 
+      - Name : 频率
+        Unit : Hz
+  - Cmd : 3
+    Offset : 1060
+    Len : 10
+    RType : 'f'
+    Data : 
+      - Name : 有功电能输出
+        Unit : kWh
+      - Name : 有功电能输入
+        Unit : kWh
+      - Name : 无功电能输出
+        Unit : kVARh
+      - Name : 无功电能输入
+        Unit : kVARh
+      - Name : 视在电能
+        Unit : kVAh
+  - Cmd : 3
+    Offset : 1078
+    Len : 10
+    RType : 'f'
+    Data : 
+      - Name : L1有功电能输出
+        Unit : kWh
+      - Name : L2有功电能输出
+        Unit : kWh
+      - Name : L3有功电能输出
+        Unit : kWh
+      - Name : L1有功电能输入
+        Unit : kWh
+      - Name : L2有功电能输入
+        Unit : kWh
+      - Name : L3有功电能输入
+        Unit : kWh
+      - Name : L1无功电能输出
+        Unit : kVARh
+      - Name : L2无功电能输出
+        Unit : kVARh
+      - Name : L2无功电能输出
+        Unit : kVARh
+      - Name : L1无功电能输入
+        Unit : kVARh
+      - Name : L2无功电能输入
+        Unit : kVARh
+      - Name : L3无功电能输入
+        Unit : kVARh
