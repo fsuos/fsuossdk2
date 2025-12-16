@@ -1,5 +1,23 @@
 <?php
+function _{{ Project.Name|lower }}_ShowNormal(&$dataArray, $label, $value, $vsValue)
+{
+    // if($value == 0xFFFF || $value == 0x20){
+    //   $dataArray[$label] = "无效值";
+    // }else{
+      $dataArray[$label] = $value == $vsValue ? '告警' : '正常';
+      $dataArray['AlertArray'][$label] = $value == $vsValue;
+    //}
+}
 
+function _{{ Project.Name|lower }}_ShowAlert(&$dataArray, $label, $value, $vsValue)
+{
+    // if($value == 0xFFFF || $value == 0x20){
+    //   $dataArray[$label] = "无效值";
+    // }else{
+      $dataArray[$label] = $value == $vsValue ? '正常' : '告警';
+      $dataArray['AlertArray'][$label] = $value != $vsValue;
+    //}
+}
 
 function Get_{{ Project.Name|lower }}_RtData($memData, &$dataArray, $extraPara = false)
 {
@@ -13,24 +31,51 @@ function Get_{{ Project.Name|lower }}_RtData($memData, &$dataArray, $extraPara =
         {% for sc in Sample %}
         {% if sc.Cmd == 3 or sc.Cmd == 4 or sc.Cmd == 5 %}
         $v = unpack('C*', substr($memData, $offset, {{ sc.Offset|length }}));
-        $signalList = array("{{ sc.Data|join('","') }}");
-        foreach($signalList as $index=>$signal){
-                $dataArray[$signal] = $v[$index+1];
-        }
+        {% for d in sc.Data %}
+        {% if d.Name is defined %}           
+            {% if d.AlertNormalValue is defined %}
+            _{{ Project.Name|lower }}_ShowAlert($dataArray, "{{ d.Name }}", $v[{{ loop.index }}], {{ d.AlertNormalValue }});       
+            {% elif d.AlertAbnormalValue is defined %}
+            _{{ Project.Name|lower }}_ShowNormal($dataArray, "{{ d.Name }}", $v[{{ loop.index }}], {{ d.AlertAbnormalValue }});       
+            {% else %}
+             $dataArray["{{ d.Name }}"] = $v[{{ loop.index }}]{% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
+            {% endif %}
+        {% else %}
+            $dataArray["{{ d }}"] = $v[{{ loop.index }}];
+        {% endif %}
+        {% endfor %}
         $offset += {{ sc.Offset|length }};
         {% elif sc.Cmd == 0 or sc.Cmd == 1 or sc.Cmd == 2 %}
         $v = unpack('f*', substr($memData, $offset, 4*{{ sc.Offset|length }}));
-        $signalList = array("{{ sc.Data|join('","') }}");
-        foreach($signalList as $index=>$signal){
-                $dataArray[$signal] = number_format($v[$index+1], 3);
-        }
+        {% for d in sc.Data %}
+        {% if d.Name is defined %}
+            {% if d.AlertNormalValue is defined %}
+            _{{ Project.Name|lower }}_ShowAlert($dataArray, "{{ d.Name }}", $v[{{ loop.index }}], {{ d.AlertNormalValue }});       
+            {% elif d.AlertAbnormalValue is defined %}
+            _{{ Project.Name|lower }}_ShowNormal($dataArray, "{{ d.Name }}", $v[{{ loop.index }}], {{ d.AlertAbnormalValue }});       
+            {% else %}
+             $dataArray["{{ d.Name }}"] = number_format($v[{{ loop.index }}], 3){% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
+            {% endif %}
+        {% else %}
+            $dataArray["{{ d }}"] = number_format($v[{{ loop.index }}], 3);
+        {% endif %}
+        {% endfor %}
         $offset += 4*{{ sc.Offset|length }};
         {% elif sc.Cmd == 19 %}
         $v = unpack('I*', substr($memData, $offset, 4*{{ sc.Offset|length }}));
-        $signalList = array("{{ sc.Data|join('","') }}");
-        foreach($signalList as $index=>$signal){
-                $dataArray[$signal] = $v[$index+1];
-        }
+        {% for d in sc.Data %}
+        {% if d.Name is defined %}
+            {% if d.AlertNormalValue is defined %}
+            _{{ Project.Name|lower }}_ShowAlert($dataArray, "{{ d.Name }}", $v[{{ loop.index }}], {{ d.AlertNormalValue }});       
+            {% elif d.AlertAbnormalValue is defined %}
+            _{{ Project.Name|lower }}_ShowNormal($dataArray, "{{ d.Name }}", $v[{{ loop.index }}], {{ d.AlertAbnormalValue }});       
+            {% else %}
+             $dataArray["{{ d.Name }}"] = $v[{{ loop.index }}]{% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
+            {% endif %}
+        {% else %}
+            $dataArray["{{ d }}"] = $v[{{ loop.index }}];
+        {% endif %}
+        {% endfor %}
         $offset += 4*{{ sc.Offset|length }};
         {% endif %}
         {% endfor %}

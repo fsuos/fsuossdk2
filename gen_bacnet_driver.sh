@@ -17,5 +17,5 @@ j2 --customize customization.py template/bacnethelper.php Config/$1.yml -o Devic
 j2 --customize customization.py template/bacnetview.php Config/$1.yml -o DeviceWeb/application/views/portal/DevicePage/$LDriver.php
 j2 --customize customization.py template/rt_data-template.js  Config/$1.yml -o public/portal/js/rt-data/rt_data-$LDriver.js
 # Generate AI
-j2 --customize customization.py template/unicom_yaml.template Config/$1.yml -o DeviceWeb/application/helpers/ini/unicom/$LDriver.yaml
+#j2 --customize customization.py template/unicom_yaml.template Config/$1.yml -o DeviceWeb/application/helpers/ini/unicom/$LDriver.yaml
 #export vendor=Telecom && j2 --customize customization.py template/yaml.template Config/$1.yml -o DeviceWeb/application/helpers/ini/telecom/$LDriver.yaml

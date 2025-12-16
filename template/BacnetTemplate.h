@@ -17,7 +17,7 @@ public:
         ~{{ Project.Name }}();
         bool RefreshStatus() override;
         bool process_data(tcp::socket::native_handle_type fd, uint8_t *buffer, int size);
-	
+	void RunCheckThreshold() override;
 };
 
 

@@ -63,17 +63,18 @@ Sample :
     Len : 2
     Data :
       - Name : "水箱水温"
-        Ratio : 100
-        Unit : "°C"
-      - Name : "混风温度"
         Ratio : 10
-        Unit : "%"
+        Unit : "°C"
+      - Name : "回风温度"
+        Ratio : 10
+        Unit : "°C"
   - Cmd : 3
     Offset : 144
     Len : 1
     Data :
       - Name : "电表电能"
-        Ratio : 10
+        Ratio : 100
+        Unit : kWh
   - Cmd : 3
     Offset : 50393
     Len : 1
@@ -141,7 +142,7 @@ Sample :
             Value : 启动
   - Cmd : 1
     Offset : 24576
-    Len : 8
+    Len : 6
     Data : 
       - Name : 排风机
         Options : 
@@ -179,6 +180,10 @@ Sample :
             Value : 停止
           - Key : 1
             Value : 启动
+  - Cmd : 1
+    Offset : 24584
+    Len : 2
+    Data : 
       - Name : 故障
         Options : 
           - Key : 0
@@ -197,48 +202,65 @@ Sample :
     Data : 
       - Name : 相序告警
         AlertNormalValue : 0
+        TeleSignalId : 150800310010        
       - Name : 风压告警
         AlertNormalValue : 0
+        TeleSignalId : 150800320010
       - Name : 消防烟雾告警
         AlertNormalValue : 0
+        TeleSignalId : 150800330010
       - Name : 高水位告警
         AlertNormalValue : 0
+        TeleSignalId : 150800340010
       - Name : 低水位告警
         AlertNormalValue : 0
+        TeleSignalId : 150800350010
   - Cmd : 1
     Offset : 28
     Len : 1
     Data : 
       - Name : 漏水保护
         AlertNormalValue : 0
+        TeleSignalId : 150800360010
   - Cmd : 1
-    Offset : 30
-    Len : 1
+    Offset : 29
+    Len : 2
     Data : 
+      - Name : 滤网堵塞告警
+        AlertNormalValue : 0
+        TeleSignalId : 150800380010
       - Name : 超高水位保护
         AlertNormalValue : 0
+        TeleSignalId : 150800370010 
   - Cmd : 1
     Offset : 510
     Len : 6
     Data : 
       - Name : 室内1号温湿度传感器故障
         AlertNormalValue : 0
+        TeleSignalId : 150800390010
       - Name : 室内2号温湿度传感器故障
         AlertNormalValue : 0
+        TeleSignalId : 150800400010
       - Name : 室内3号温湿度传感器故障
         AlertNormalValue : 0
+        TeleSignalId : 150800410010
       - Name : 送风温湿度传感器故障
         AlertNormalValue : 0
+        TeleSignalId : 150800420010
       - Name : 新风温湿度传感器故障
         AlertNormalValue : 0
+        TeleSignalId : 150800430010
       - Name : 水箱温度传感器故障
         AlertNormalValue : 0
+        TeleSignalId : 130800440010
   - Cmd : 1
     Offset : 180
     Len : 1
     Data : 
       - Name : 故障复位
         AlertNormalValue : 0
+        TeleSignalId : 130800450010
 SET_RET_CODE : |
     case 201:
     {
@@ -320,6 +342,7 @@ SET_DO_CODE : |
           Json::Value setting;//
           Json::Reader reader;//解析
           if(!reader.parse(doStr, setting)) {
+            std::cout<<"Parse doStr failed:"<<doStr<<std::endl;
             return -1;
           }
           if(setting.type() == Json::objectValue) {

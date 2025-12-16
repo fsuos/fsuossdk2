@@ -1045,7 +1045,6 @@ Sample :
             Value : 正常
           - Key : 1
             Value : 告警
-      - Name : "电源丢失"
       - Name : "回湿故障"
         Value : (($v[2]) & 0x1)
         CValue : ((pData[1]) & 0x1)

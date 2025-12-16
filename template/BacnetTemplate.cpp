@@ -61,7 +61,58 @@ bool {{ Project.Name }}::process_data(tcp::socket::native_handle_type fd, uint8_
         return false;
 }
 
-
+void {{ Project.Name }}::RunCheckThreshold()
+{
+    switch(b_mode_)
+    {
+        case 1://联通
+        {
+            {% for sc in Sample %}
+            {% for d in sc.Data %}
+            {% if d.AlertNormalValue is defined or d.AlertAbnormalValue is defined %}
+             {% if d.UnicomSignalId is defined %}
+                {% if d.AlertNormalValue is defined %}
+                CheckThresholdBool(2, "{{ d.UnicomSignalId }}", "{{ d.UnicomSignalId }}", {% if d.UnicomSignalName is defined %}"{{ d.UnicomSignalName }}"{%else%}"{{d.Name}}"{% endif %}, "{{d.Name}}",  (cData.v{{ sc.Cmd }}[{{ loop.index-1 }}]) != {{ d.AlertNormalValue }}, signal_index_++); 
+                {% elif d.AlertAbnormalValue is defined %}
+                CheckThresholdBool(2, "{{ d.UnicomSignalId }}", "{{ d.UnicomSignalId }}", {% if d.UnicomSignalName is defined %}"{{ d.UnicomSignalName }}"{%else%}"{{d.Name}}"{% endif %}, "{{d.Name}}",  (cData.v{{ sc.Cmd }}[{{ loop.index-1 }}]) == {{ d.AlertAbnormalValue }}, signal_index_++); 
+                {% endif %}
+             {% endif %}
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+            break;
+        }
+        case 2://电信
+        {
+            {% for sc in Sample %}
+            {% for d in sc.Data %}
+            {% if d.AlertNormalValue is defined or d.AlertAbnormalValue is defined %}            
+                {% if  d.TeleSignalId is defined %}
+                    {% if d.TeleSignalId|string|length == 12 %}
+                        {% if d.AlertNormalValue is defined %}
+                        CheckThresholdBool(2, "{{ d.TeleSignalId }}", "{{ d.TeleSignalId }}", {% if d.TeleSignalName is defined %}"{{ d.TeleSignalName }}"{%else%}"{{d.Name}}"{% endif %}, "{{d.Name}}",  (cData.v{{ sc.Cmd }}[{{ loop.index-1 }}]) != {{ d.AlertNormalValue }}, signal_index_++); 
+                        {% elif d.AlertAbnormalValue is defined %}
+                        CheckThresholdBool(2, "{{ d.TeleSignalId }}", "{{ d.TeleSignalId }}", {% if d.TeleSignalName is defined %}"{{ d.TeleSignalName }}"{%else%}"{{d.Name}}"{% endif %}, "{{d.Name}}",  (cData.v{{ sc.Cmd }}[{{ loop.index-1 }}]) == {{ d.AlertAbnormalValue }}, signal_index_++); 
+                        {% endif %}
+                    {% else %}
+                    {
+                        std::stringstream ss;
+                        ss<<"{{ d.TeleSignalId }}" << std::setw(3)<<std::setfill('0')<<signal_index_<<"0";
+                        {% if d.AlertNormalValue is defined %}
+                        CheckThresholdBool(2, ss.str(), ss.str(), {% if d.TeleSignalName is defined %}"{{ d.TeleSignalName }}"{%else%}"{{d.Name}}"{% endif %}, "{{d.Name}}", (cData.v{{ sc.Cmd }}[{{ loop.index-1 }}]) != {{ d.AlertNormalValue }}, signal_index_++); 
+                        {% elif d.AlertAbnormalValue is defined %}
+                        CheckThresholdBool(2, ss.str(), ss.str(), {% if d.TeleSignalName is defined %}"{{ d.TeleSignalName }}"{%else%}"{{d.Name}}"{% endif %}, "{{d.Name}}", (cData.v{{ sc.Cmd }}[{{ loop.index-1 }}]) == {{ d.AlertAbnormalValue }}, signal_index_++); 
+                        {% endif %}
+                    }
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+            break;
+        }
+    }    
+}
 #ifdef USE_SEPERATE_DRIVER
 
 extern "C"

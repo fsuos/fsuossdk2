@@ -65,73 +65,8 @@ int {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}_alert(char* pCData,c
         snprintf(nameBuffer, 48, "{{ d.Name }}", {% if d.Index is defined %}{{ d.Index }}{% else %}index{% endif %});
         {% endif %}
         std::string name = nameBuffer;
-        {% if d.CValue is defined %}
-          {% if d.AlertNormalValue is defined or d.AlertAbnormalValue is defined %}            
-            {% if  d.TeleSignalId is defined %}
-            if(b_mode_ == 2){
-                
-                {% if d.TeleSignalId|string|length == 12 %}
-                    {% if d.AlertNormalValue is defined %}
-                    CheckThresholdBool(2, "{{ d.TeleSignalId }}", "{{ d.TeleSignalId }}", {% if d.TeleSignalName is defined %}"{{ d.TeleSignalName }}"{%else%}name{% endif %}, name,  ({{ d.CValue }}) != {{ d.AlertNormalValue }}, signal_index_++); 
-                    {% elif d.AlertAbnormalValue is defined %}
-                    CheckThresholdBool(2, "{{ d.TeleSignalId }}", "{{ d.TeleSignalId }}", {% if d.TeleSignalName is defined %}"{{ d.TeleSignalName }}"{%else%}name{% endif %}, name,  ({{ d.CValue }}) == {{ d.AlertAbnormalValue }}, signal_index_++); 
-                    {% endif %}
-                {% else %}
-                {
-                    std::stringstream ss;
-                    ss<<"{{ d.TeleSignalId }}" << std::setw(3)<<std::setfill('0')<<signal_index_<<"0";
-                    {% if d.AlertNormalValue is defined %}
-                    CheckThresholdBool(2, ss.str(), ss.str(), {% if d.TeleSignalName is defined %}"{{ d.TeleSignalName }}"{%else%}name{% endif %}, name, ({{ d.CValue }}) != {{ d.AlertNormalValue }}, signal_index_++); 
-                    {% elif d.AlertAbnormalValue is defined %}
-                    CheckThresholdBool(2, ss.str(), ss.str(), {% if d.TeleSignalName is defined %}"{{ d.TeleSignalName }}"{%else%}name{% endif %}, name, ({{ d.CValue }}) == {{ d.AlertAbnormalValue }}, signal_index_++); 
-                    {% endif %}
-                }
-                {% endif %}
-            }
-            {% endif %}
-            {% if d.UnicomSignalId is defined %}
-            if(b_mode_ == 1){
-            {% if d.AlertNormalValue is defined %}
-            CheckThresholdBool(2, "{{ d.UnicomSignalId }}", "{{ d.UnicomSignalId }}", {% if d.TeleSignalName is defined %}"{{ d.UnicomSignalName }}"{%else%}name{% endif %}, name,  ({{ d.CValue }}) != {{ d.AlertNormalValue }}, signal_index_++); 
-            {% elif d.AlertAbnormalValue is defined %}
-            CheckThresholdBool(2, "{{ d.UnicomSignalId }}", "{{ d.UnicomSignalId }}", {% if d.TeleSignalName is defined %}"{{ d.UnicomSignalName }}"{%else%}name{% endif %}, name,  ({{ d.CValue }}) == {{ d.AlertAbnormalValue }}, signal_index_++); 
-            {% endif %}
-            }
-            {% endif %}
-          {% endif %}
-        {% elif d.AlertNormalValue is defined or d.AlertAbnormalValue is defined %}
-          {% if d.TeleSignalId is defined %}
-            if(b_mode_ == 2){
-                 {% if d.TeleSignalId|string|length == 12 %}
-                    {% if d.AlertNormalValue is defined %}
-                    CheckThresholdBool(2, "{{ d.TeleSignalId }}", "{{ d.TeleSignalId }}", {% if d.TeleSignalName is defined %}"{{ d.TeleSignalName }}"{%else%}name{% endif %}, name,  pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] != {{ d.AlertNormalValue }}, signal_index_++); 
-                    {% elif d.AlertAbnormalValue is defined %}
-                    CheckThresholdBool(2, "{{ d.TeleSignalId }}", "{{ d.TeleSignalId }}", {% if d.TeleSignalName is defined %}"{{ d.TeleSignalName }}"{%else%}name{% endif %}, name,  pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] == {{ d.AlertAbnormalValue }}, signal_index_++); 
-                    {% endif %}
-                 {% else %}
-                 {
-                    std::stringstream ss;
-                    ss<<"{{ d.TeleSignalId }}" << std::setw(3)<<std::setfill('0')<<signal_index_<<"0";
-                    {% if d.AlertNormalValue is defined %}
-                    CheckThresholdBool(2, ss.str(), ss.str(), name, name,  pData[kIndex] != {{ d.AlertNormalValue }}, signal_index_++);
-                    {% elif d.AlertAbnormalValue is defined %}
-                    CheckThresholdBool(2, ss.str(), ss.str(), name, name,  pData[kIndex] == {{ d.AlertAbnormalValue }}, signal_index_++);
-                    {% endif %}
-                 }
-                 {% endif %}
-            }
-            {% endif %}
-            {% if d.UnicomSignalId is defined %}
-                 if(b_mode_ == 1){
-                {% if d.AlertNormalValue is defined %}
-                 CheckThresholdBool(2, "{{ d.UnicomSignalId }}", "{{ d.UnicomSignalId }}", {% if d.TeleSignalName is defined %}"{{ d.TeleSignalName }}"{%else%}name{% endif %}, name,  pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] != {{ d.AlertNormalValue }}, signal_index_++); 
-                {% elif d.AlertAbnormalValue is defined %}
-                 CheckThresholdBool(2, "{{ d.UnicomSignalId }}", "{{ d.UnicomSignalId }}", {% if d.TeleSignalName is defined %}"{{ d.TeleSignalName }}"{%else%}name{% endif %}, name,  pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] != {{ d.AlertAbnormalValue }}, signal_index_++); 
-                 {% endif %}
-                 }
-            {% endif %}
-        {% elif d.ArrayName is defined %}
-        for(int i=0;i<{{ d.ArrayLength }};i++){
+        {% if d.ArrayName is defined %}
+            for(int i=0;i<{{ d.ArrayLength }};i++){
                 char nameBuffer[48] = {0};
                 snprintf(nameBuffer, 48, "{{ d.ArrayName }}", {{ d.ArrayStart }} + i);
                 std::string name = nameBuffer;
@@ -160,18 +95,74 @@ int {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}_alert(char* pCData,c
                 {% endif %}
                  {% if d.UnicomSignalId is defined %}
                  if(b_mode_ == 1){
-                    {% if d.AlertNormalValue is defined %}
-                    CheckThresholdBool(2, "{{ d.UnicomSignalId }}", "{{ d.UnicomSignalId }}", {% if d.TeleSignalName is defined %}"{{ d.UnicomSignalName }}"{%else%}name{% endif %}, name,  pData[kIndex] != {{ d.AlertNormalValue }}, signal_index_++); 
-                    {% elif d.AlertAbnormalValue is defined %}
-                    CheckThresholdBool(2, "{{ d.UnicomSignalId }}", "{{ d.UnicomSignalId }}", {% if d.TeleSignalName is defined %}"{{ d.UnicomSignalName }}"{%else%}name{% endif %}, name,  pData[kIndex] == {{ d.AlertAbnormalValue }}, signal_index_++); 
+                    {% if d.UnicomSignalId|string|length == 12 %}
+                        {% if d.AlertNormalValue is defined %}
+                        CheckThresholdBool(2, "{{ d.UnicomSignalId }}", "{{ d.UnicomSignalId }}", {% if d.UnicomSignalName is defined %}"{{ d.UnicomSignalName }}"{%else%}name{% endif %}, name,  pData[kIndex] != {{ d.AlertNormalValue }}, signal_index_++); 
+                        {% elif d.AlertAbnormalValue is defined %}
+                        CheckThresholdBool(2, "{{ d.UnicomSignalId }}", "{{ d.UnicomSignalId }}", {% if d.UnicomSignalName is defined %}"{{ d.UnicomSignalName }}"{%else%}name{% endif %}, name,  pData[kIndex] == {{ d.AlertAbnormalValue }}, signal_index_++); 
+                        {% endif %}
+                    {% else %}
+                        {
+                            std::stringstream ss;
+                            ss<<"{{ d.UnicomSignalId }}" << std::setw(3)<<std::setfill('0')<<signal_index_;
+                            {% if d.AlertNormalValue is defined %}
+                            CheckThresholdBool(2, ss.str(), ss.str(), {% if d.UnicomSignalId is defined %}"{{ d.UnicomSignalName }}"{%else%}name{% endif %}, name, pData[kIndex] != {{ d.AlertNormalValue }}, signal_index_++); 
+                            {% elif d.AlertAbnormalValue is defined %}
+                            CheckThresholdBool(2, ss.str(), ss.str(), {% if d.UnicomSignalId is defined %}"{{ d.UnicomSignalName }}"{%else%}name{% endif %}, name, pData[kIndex] == {{ d.AlertAbnormalValue }}, signal_index_++); 
+                            {% endif %}
+                        }
                     {% endif %}
                  }
                  {% endif %}
                 {% endif %}
             }
-         {% endif %}
-        }
-      {% endif %}
+         {% else %}
+          {% if d.AlertNormalValue is defined or d.AlertAbnormalValue is defined %}            
+            {% if d.TeleSignalId is defined %}
+            if(b_mode_ == 2){                
+                {% if d.TeleSignalId|string|length == 12 %}
+                    {% if d.AlertNormalValue is defined %}
+                    CheckThresholdBool(2, "{{ d.TeleSignalId }}", "{{ d.TeleSignalId }}", {% if d.TeleSignalName is defined %}"{{ d.TeleSignalName }}"{%else%}name{% endif %}, name,  {% if d.CValue is defined %}({{ d.CValue }}){% else %}pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}]{% endif %}  != {{ d.AlertNormalValue }}, signal_index_++); 
+                    {% elif d.AlertAbnormalValue is defined %}
+                    CheckThresholdBool(2, "{{ d.TeleSignalId }}", "{{ d.TeleSignalId }}", {% if d.TeleSignalName is defined %}"{{ d.TeleSignalName }}"{%else%}name{% endif %}, name,  {% if d.CValue is defined %}({{ d.CValue }}){% else %}pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}]{% endif %} == {{ d.AlertAbnormalValue }}, signal_index_++); 
+                    {% endif %}
+                {% else %}
+                {
+                    std::stringstream ss;
+                    ss<<"{{ d.TeleSignalId }}" << std::setw(3)<<std::setfill('0')<<signal_index_<<"0";
+                    {% if d.AlertNormalValue is defined %}
+                    CheckThresholdBool(2, ss.str(), ss.str(), {% if d.TeleSignalName is defined %}"{{ d.TeleSignalName }}"{%else%}name{% endif %}, name, {% if d.CValue is defined %}({{ d.CValue }}){% else %}pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}]{% endif %} != {{ d.AlertNormalValue }}, signal_index_++); 
+                    {% elif d.AlertAbnormalValue is defined %}
+                    CheckThresholdBool(2, ss.str(), ss.str(), {% if d.TeleSignalName is defined %}"{{ d.TeleSignalName }}"{%else%}name{% endif %}, name, {% if d.CValue is defined %}({{ d.CValue }}){% else %}pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}]{% endif %} == {{ d.AlertAbnormalValue }}, signal_index_++); 
+                    {% endif %}
+                }
+                {% endif %}
+            }
+            {% endif %}
+            {% if d.UnicomSignalId is defined %}
+            if(b_mode_ == 1){
+            {% if d.UnicomSignalId|string|length == 12 %}
+                {% if d.AlertNormalValue is defined %}
+                CheckThresholdBool(2, "{{ d.UnicomSignalId }}", "{{ d.UnicomSignalId }}", {% if d.UnicomSignalName is defined %}"{{ d.UnicomSignalName }}"{%else%}name{% endif %}, name,  {% if d.CValue is defined %}({{ d.CValue }}){% else %}pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}]{% endif %} != {{ d.AlertNormalValue }}, signal_index_++); 
+                {% elif d.AlertAbnormalValue is defined %}
+                CheckThresholdBool(2, "{{ d.UnicomSignalId }}", "{{ d.UnicomSignalId }}", {% if d.UnicomSignalName is defined %}"{{ d.UnicomSignalName }}"{%else%}name{% endif %}, name,  {% if d.CValue is defined %}({{ d.CValue }}){% else %}pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}]{% endif %} == {{ d.AlertAbnormalValue }}, signal_index_++); 
+                {% endif %}
+            {% else %}
+                {
+                    std::stringstream ss;
+                    ss<<"{{ d.UnicomSignalId }}" << std::setw(3)<<std::setfill('0')<<signal_index_;
+                    {% if d.AlertNormalValue is defined %}
+                    CheckThresholdBool(2, ss.str(), ss.str(), {% if d.UnicomSignalId is defined %}"{{ d.UnicomSignalName }}"{%else%}name{% endif %}, name, {% if d.CValue is defined %}({{ d.CValue }}){% else %}pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}]{% endif %} != {{ d.AlertNormalValue }}, signal_index_++); 
+                    {% elif d.AlertAbnormalValue is defined %}
+                    CheckThresholdBool(2, ss.str(), ss.str(), {% if d.UnicomSignalId is defined %}"{{ d.UnicomSignalName }}"{%else%}name{% endif %}, name, {% if d.CValue is defined %}({{ d.CValue }}){% else %}pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}]{% endif %} == {{ d.AlertAbnormalValue }}, signal_index_++); 
+                    {% endif %}
+                }
+            {% endif %}
+            }
+            {% endif %}
+          {% endif %}
+        {% endif %}
+        {% endif %}
     {% endfor %}
     return {{blockDef.BlockLength}};
 }
@@ -327,51 +318,88 @@ void {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}(char* pCData,const 
                 snprintf(nameBuffer, 48, "{{ d.ArrayName }}", {{ d.ArrayStart }} + i);
                 std::string name = nameBuffer;
                 int kIndex = {{ d.Offset }} + i;
-                 {% if d.AlertNormalValue is defined  %}
+                 {% if d.AlertNormalValue is defined or d.AlertAbnormalValue is defined %}
                  {% if vendor == 2 and d.TeleSignalId is defined %}
-                 CheckThresholdBool(2, "{{ d.TeleSignalId }}", "{{ d.TeleSignalId }}", name, name,  pData[kIndex], signal_index_++); 
+                 {% if d.TeleSignalId|string|length == 12 %}
+                    {% if d.AlertNormalValue is defined %}
+                    CheckThresholdBool(2, "{{ d.TeleSignalId }}", "{{ d.TeleSignalId }}", {% if d.TeleSignalName is defined %}"{{ d.TeleSignalName }}"{%else%}name{% endif %}, name, pData[kIndex] != {{ d.AlertNormalValue }}, signal_index_++); 
+                    {% elif d.AlertAbnormalValue is defined %}
+                    CheckThresholdBool(2, "{{ d.TeleSignalId }}", "{{ d.TeleSignalId }}", {% if d.TeleSignalName is defined %}"{{ d.TeleSignalName }}"{%else%}name{% endif %}, name, pData[kIndex] == {{ d.AlertAbnormalValue }}, signal_index_++); 
+                    {% endif %}
+                 {% else %}
+                 {
+                    std::stringstream ss;
+                    ss<<"{{ d.TeleSignalId }}" << std::setw(3)<<std::setfill('0')<<signal_index_<<"0";
+                    {% if d.AlertNormalValue is defined %}
+                    CheckThresholdBool(2, ss.str(), ss.str(), name, name,  pData[kIndex] != {{ d.AlertNormalValue }}, signal_index_++);
+                    {% elif d.AlertAbnormalValue is defined %}
+                    CheckThresholdBool(2, ss.str(), ss.str(), name, name,  pData[kIndex] == {{ d.AlertAbnormalValue }}, signal_index_++);
+                    {% endif %}
+                 }
+                 {% endif %}
                  {% elif vendor == 1 and d.UnicomSignalId is defined %}
-                 CheckThresholdBool(2, "{{ d.UnicomSignalId }}", "{{ d.UnicomSignalId }}", name, name,  pData[kIndex], signal_index_++); 
+                 {% if d.UnicomSignalId|string|length == 12 %}
+                    {% if d.AlertNormalValue is defined %}
+                    CheckThresholdBool(2, "{{ d.UnicomSignalId }}", "{{ d.UnicomSignalId }}", {% if d.UnicomSignalName is defined %}"{{ d.UnicomSignalName }}"{%else%}name{% endif %}, name,  pData[kIndex] != {{ d.AlertNormalValue }}, signal_index_++); 
+                    {% elif d.AlertAbnormalValue is defined %}
+                    CheckThresholdBool(2, "{{ d.UnicomSignalId }}", "{{ d.UnicomSignalId }}", {% if d.UnicomSignalName is defined %}"{{ d.UnicomSignalName }}"{%else%}name{% endif %}, name,  pData[kIndex] == {{ d.AlertAbnormalValue }}, signal_index_++); 
+                    {% endif %}
+                 {% else %}
+                    {
+                        std::stringstream ss;
+                        ss<<"{{ d.UnicomSignalId }}" << std::setw(3)<<std::setfill('0')<<signal_index_;
+                        {% if d.AlertNormalValue is defined %}
+                        CheckThresholdBool(2, ss.str(), ss.str(), {% if d.UnicomSignalId is defined %}"{{ d.UnicomSignalName }}"{%else%}name{% endif %}, name, pData[kIndex] != {{ d.AlertNormalValue }}, signal_index_++); 
+                        {% elif d.AlertAbnormalValue is defined %}
+                        CheckThresholdBool(2, ss.str(), ss.str(), {% if d.UnicomSignalId is defined %}"{{ d.UnicomSignalName }}"{%else%}name{% endif %}, name, pData[kIndex] == {{ d.AlertAbnormalValue }}, signal_index_++); 
+                        {% endif %}
+                    }
+                {% endif %}
                  {% elif vendor == 0 and d.TelePSignalId is defined %}
                  CheckThresholdBool(2, "{{ d.TelePSignalId }}", "{{ d.TelePSignalId }}", name, name,  pData[kIndex], signal_index_++); 
                  {% endif %}
                 {% endif %}
             }
-          {% elif d.CValue is defined %}
-            {% if d.AlertNormalValue is defined %}
-            //if({{ d.CValue }} != 0xFFFF && {{ d.CValue }} != 0x20) 
-                {% if vendor == 2 and d.TeleSignalId is defined %}
-                CheckThresholdBool(2, "{{ d.TeleSignalId }}", "{{ d.TeleSignalId }}", {% if d.TeleSignalName is defined %}"{{ d.TeleSignalName }}"{%else%}"{{ d.Name }}"{% endif %}, "{{ d.Name }}",  {{ d.CValue }} != {{ d.AlertNormalValue }}, signal_index_++); 
-                {% elif vendor == 1 and d.UnicomSignalId is defined %}
-                CheckThresholdBool(2, "{{ d.UnicomSignalId }}", "{{ d.UnicomSignalId }}", {% if d.UnicomSignalName is defined %}"{{ d.UnicomSignalName }}"{%else%}"{{ d.Name }}"{% endif %}, "{{ d.Name }}",  {{ d.CValue }} != {{ d.AlertNormalValue }}, signal_index_++); 
-                {% elif vendor == 0 and d.TelePSignalId is defined %}
-                CheckThresholdBool(2, "{{ d.TelePSignalId }}", "{{ d.TelePSignalId }}", {% if d.TelePSignalName is defined %}"{{ d.TelePSignalName }}"{%else%}"{{ d.Name }}"{% endif %}, "{{ d.Name }}",  {{ d.CValue }} != {{ d.AlertNormalValue }}, signal_index_++); 
-                {% endif %}
-            {% elif d.AlertAbnormalValue is defined %}
-                {% if vendor == 2 and d.TeleSignalId is defined %}
-                CheckThresholdBool(2, "{{ d.TeleSignalId }}", "{{ d.TeleSignalId }}", {% if d.TeleSignalName is defined %}"{{ d.TeleSignalName }}"{%else%}"{{ d.Name }}"{% endif %}, "{{ d.Name }}",  {{ d.CValue }} == {{ d.AlertAbnormalValue }}, signal_index_++); 
-                {% elif vendor == 1 and d.UnicomSignalId is defined %}
-                CheckThresholdBool(2, "{{ d.UnicomSignalId }}", "{{ d.UnicomSignalId }}", {% if d.UnicomSignalName is defined %}"{{ d.UnicomSignalName }}"{%else%}"{{ d.Name }}"{% endif %}, "{{ d.Name }}",  {{ d.CValue }} == {{ d.AlertAbnormalValue }}, signal_index_++); 
-                {% elif vendor == 0 and d.TelePSignalId is defined %}
-                CheckThresholdBool(2, "{{ d.TelePSignalId }}", "{{ d.TelePSignalId }}", {% if d.TelePSignalName is defined %}"{{ d.TelePSignalName }}"{%else%}"{{ d.Name }}"{% endif %}, "{{ d.Name }}",  {{ d.CValue }} == {{ d.AlertAbnormalValue }}, signal_index_++); 
-                {% endif %}
-            {% endif %}
-          {% elif d.AlertNormalValue is defined %}
+          {% elif d.AlertNormalValue is defined or d.AlertAbnormalValue is defined %}
             //if(pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] != 0xFFFF && pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] != 0x20) 
             {% if vendor == 2 and  d.TeleSignalId is defined %}
-            CheckThresholdBool(2, "{{ d.TeleSignalId }}", "{{ d.TeleSignalId }}", {% if d.TeleSignalName is defined %}"{{ d.TeleSignalName }}"{%else%}"{{ d.Name }}"{% endif %}, "{{ d.Name }}", pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] != {{ d.AlertNormalValue }}, signal_index_++); 
+                {% if d.TeleSignalId|string|length == 12 %}
+                    {% if d.AlertNormalValue is defined %}
+                    CheckThresholdBool(2, "{{ d.TeleSignalId }}", "{{ d.TeleSignalId }}", {% if d.TeleSignalName is defined %}"{{ d.TeleSignalName }}"{%else%}"{{ d.Name }}"{% endif %}, "{{ d.Name }}",  {% if d.CValue is defined %}({{ d.CValue }}){% else %}pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}]{% endif %} != {{ d.AlertNormalValue }}, signal_index_++); 
+                    {% elif d.AlertAbnormalValue is defined %}
+                    CheckThresholdBool(2, "{{ d.TeleSignalId }}", "{{ d.TeleSignalId }}", {% if d.TeleSignalName is defined %}"{{ d.TeleSignalName }}"{%else%}"{{ d.Name }}"{% endif %}, "{{ d.Name }}",  {% if d.CValue is defined %}({{ d.CValue }}){% else %}pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}]{% endif %} == {{ d.AlertAbnormalValue }}, signal_index_++); 
+                    {% endif %}
+                {% else %}
+                {
+                    std::stringstream ss;
+                    ss<<"{{ d.TeleSignalId }}" << std::setw(3)<<std::setfill('0')<<signal_index_<<"0";
+                    {% if d.AlertNormalValue is defined %}
+                    CheckThresholdBool(2, ss.str(), ss.str(), {% if d.TeleSignalName is defined %}"{{ d.TeleSignalName }}"{%else%}"{{ d.Name }}"{% endif %}, "{{ d.Name }}", {% if d.CValue is defined %}({{ d.CValue }}){% else %}pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] != {{ d.AlertNormalValue }}{% endif %}, signal_index_++); 
+                    {% elif d.AlertAbnormalValue is defined %}
+                    CheckThresholdBool(2, ss.str(), ss.str(), {% if d.TeleSignalName is defined %}"{{ d.TeleSignalName }}"{%else%}"{{ d.Name }}"{% endif %}, "{{ d.Name }}", {% if d.CValue is defined %}({{ d.CValue }}){% else %}pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] == {{ d.AlertAbnormalValue }}{% endif %}, signal_index_++); 
+                    {% endif %}
+                }
+                {% endif %}
             {% elif vendor == 1 and d.UnicomSignalId is defined %}
-            CheckThresholdBool(2, "{{ d.UnicomSignalId }}", "{{ d.UnicomSignalId }}", {% if d.UnicomSignalName is defined %}"{{ d.UnicomSignalName }}"{%else%}"{{ d.Name }}"{% endif %}, "{{ d.Name }}", pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] != {{ d.AlertNormalValue }}, signal_index_++); 
+                {% if d.UnicomSignalId|string|length == 12 %}
+                    {% if d.AlertNormalValue is defined %}
+                    CheckThresholdBool(2, "{{ d.UnicomSignalId }}", "{{ d.UnicomSignalId }}", {% if d.UnicomSignalName is defined %}"{{ d.UnicomSignalName }}"{%else%}"{{ d.Name }}"{% endif %}, "{{ d.Name }}",  {% if d.CValue is defined %}({{ d.CValue }}){% else %}pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] != {{ d.AlertNormalValue }}{% endif %}, signal_index_++); 
+                    {% elif d.AlertAbnormalValue is defined %}
+                    CheckThresholdBool(2, "{{ d.UnicomSignalId }}", "{{ d.UnicomSignalId }}", {% if d.UnicomSignalName is defined %}"{{ d.UnicomSignalName }}"{%else%}"{{ d.Name }}"{% endif %}, n"{{ d.Name }}"ame,  {% if d.CValue is defined %}({{ d.CValue }}){% else %}pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] != {{ d.AlertNormalValue }}{% endif %}, signal_index_++); 
+                    {% endif %}
+                 {% else %}
+                    {
+                        std::stringstream ss;
+                        ss<<"{{ d.UnicomSignalId }}" << std::setw(3)<<std::setfill('0')<<signal_index_;
+                        {% if d.AlertNormalValue is defined %}
+                        CheckThresholdBool(2, ss.str(), ss.str(), {% if d.UnicomSignalId is defined %}"{{ d.UnicomSignalName }}"{%else%}"{{ d.Name }}"{% endif %}, "{{ d.Name }}", {% if d.CValue is defined %}({{ d.CValue }}){% else %}pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] != {{ d.AlertNormalValue }}{% endif %}, signal_index_++); 
+                        {% elif d.AlertAbnormalValue is defined %}
+                        CheckThresholdBool(2, ss.str(), ss.str(), {% if d.UnicomSignalId is defined %}"{{ d.UnicomSignalName }}"{%else%}"{{ d.Name }}"{% endif %}, "{{ d.Name }}", {% if d.CValue is defined %}({{ d.CValue }}){% else %}pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] != {{ d.AlertNormalValue }}{% endif %}, signal_index_++); 
+                        {% endif %}
+                    }
+                {% endif %}
             {% elif vendor == 0 and d.TelePSignalId is defined %}
             CheckThresholdBool(2, "{{ d.TelePSignalId }}", "{{ d.TelePSignalId }}", {% if d.TelePSignalName is defined %}"{{ d.TelePSignalName }}"{%else%}"{{ d.Name }}"{% endif %}, "{{ d.Name }}",  pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] != {{ d.AlertNormalValue }}, signal_index_++); 
-            {% endif %}
-          {% elif d.AlertAbnormalValue is defined %}
-            {% if vendor == 2 and  d.TeleSignalId is defined %}
-            CheckThresholdBool(2, "{{ d.TeleSignalId }}", "{{ d.TeleSignalId }}", {% if d.TeleSignalName is defined %}"{{ d.TeleSignalName }}"{%else%}"{{ d.Name }}"{% endif %}, "{{ d.Name }}", pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] == {{ d.AlertAbnormalValue }}, signal_index_++); 
-            {% elif vendor == 1 and d.UnicomSignalId is defined %}
-            CheckThresholdBool(2, "{{ d.UnicomSignalId }}", "{{ d.UnicomSignalId }}", {% if d.UnicomSignalName is defined %}"{{ d.UnicomSignalName }}"{%else%}"{{ d.Name }}"{% endif %}, "{{ d.Name }}", pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] == {{ d.AlertAbnormalValue }}, signal_index_++); 
-            {% elif vendor == 0 and d.TelePSignalId is defined %}
-            CheckThresholdBool(2, "{{ d.TelePSignalId }}", "{{ d.TelePSignalId }}", {% if d.TelePSignalName is defined %}"{{ d.TelePSignalName }}"{%else%}"{{ d.Name }}"{% endif %}, "{{ d.Name }}",  pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] == {{ d.AlertAbnormalValue }}, signal_index_++); 
             {% endif %}
           {% endif %}
 	    {% endfor %}
@@ -403,12 +431,17 @@ void {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}(char* pCData,const 
             {% elif sc.Type == "i" %}
             int32_t pData[{{ (sc.Len*2/4)|int }}];
             {% endif %}
+            memcpy(pData, pCData + offset, {{2*sc.Len}});
         {% elif sc.Cmd == 3 or sc.Cmd == 4 %}
         uint16_t pData[{{ sc.Len }}];
+        memcpy(pData, pCData + offset, {{2*sc.Len}});
+         {% elif sc.Cmd == 1 or sc.Cmd == 2 %}
+        uint8_t pData[{{ sc.Len }}];
+        memcpy(pData, pCData + offset, {{sc.Len}});
         {% else %}
         uint8_t pData[{{ sc.Len*2 }}];
-        {% endif %}
         memcpy(pData, pCData + offset, {{2*sc.Len}});
+        {% endif %}
 	    {% for d in sc.Data %}
       
       {% if d.ArrayBlock is defined %}
@@ -981,6 +1014,12 @@ float {{ Project.Name }}::Get_Value(uint32_t data_id, const std::string& var_nam
 
 int {{ Project.Name }}::DeviceIoControl(int ioControlCode, const void* inBuffer, int inBufferSize, void* outBuffer, int outBufferSize, int& bytesReturned)
 {
+    std::cout<<"{{ Project.Name }}::DeviceIoControl "<<ioControlCode<<std::endl;
+    // if(ioControlCode%2 == 0 && state != IDLE)
+    // {
+    //     std::cout<<"{{ Project.Name }}::DeviceIoControl work inprogress"<<std::endl;
+    //     return -1;
+    // }
     switch(ioControlCode) {
     case 206 : {
         //modbus 06命令下发
@@ -1110,8 +1149,7 @@ int {{ Project.Name }}::DeviceIoControl(int ioControlCode, const void* inBuffer,
         }
         break;
     }
-    return 0;
-    //return UniDataDevice<{{ Project.Name }}_Data_t, SPModbus, RT_{{ Project.Name }}>::DeviceIoControl(ioControlCode, inBuffer, inBufferSize, outBuffer, outBufferSize, bytesReturned);
+    return UniDataDevice<{{ Project.Name }}_Data_t, SPModbus, RT_{{ Project.Name }}>::DeviceIoControl(ioControlCode, inBuffer, inBufferSize, outBuffer, outBufferSize, bytesReturned);
 }
 
 

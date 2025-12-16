@@ -8,14 +8,7 @@ Project:
 Sample : 
   - Cmd : 4
     Offset : 0x400
-    Len : 3
+    Len : 1
     Data :
-      - Name : AO1温度值
-        Ratio : 10
-        Unit : ℃
-      - Name : AO2温度值
-        Ratio : 10
-        Unit : ℃
-      - Name : AO3温度值
-        Ratio : 10
+      - Name : 温度值
         Unit : ℃

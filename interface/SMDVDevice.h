@@ -24,7 +24,7 @@ public:
 	SMDVDevice();
 	virtual ~SMDVDevice() {};
 
-	virtual bool Reset() { return true; }
+	virtual bool Reset() ;
 	
 	virtual bool InitV(SMDVDevice *vdevice, unsigned int  data_id, const Json::Value& settingRoot);
 	virtual bool Init(std::weak_ptr<SMDController> controller, unsigned int  data_id, const Json::Value& settingRoot);

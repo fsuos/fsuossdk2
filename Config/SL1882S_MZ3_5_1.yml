@@ -2,6 +2,9 @@ Project:
   Name : SL1882S_MZ3_5_1
   RT_ID : 5156
   File : "单模块热管空调室内机地址表.xls"
+  DevType : 2
+  ProtocolName : 单模块热管空调SL1882S_MZ3_5_1
+  Category : 精密空调
 Sample : 
   - Cmd : 1
     Offset : 0
@@ -9,87 +12,87 @@ Sample :
     Data : 
       - Name : "进风温度故障"
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TeleSignalId : 12083017
+        TeleSignalName : 专用空调其他告警
       - Name : "进风湿度故障"
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TeleSignalId : 12083017
+        TeleSignalName : 专用空调其他告警
       - Name : "1#出风温度故障"
         Offset : 5
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TeleSignalId : 12083017
+        TeleSignalName : 专用空调其他告警
       - Name : "漏水报警"
         Offset : 13
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TeleSignalId : 120830160010
+        TeleSignalName : 专用空调水浸告警
       - Name : "电源故障报警"
         Offset : 14
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TeleSignalId : 12083017
+        TeleSignalName : 专用空调其他告警
       - Name : "滤网报警"
         Offset : 15
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TeleSignalId : 120830030010
+        TeleSignalName : 专用空调空气过滤网脏告警
       - Name : "1#风机故障"
         Offset : 16
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TeleSignalId : 12083017
+        TeleSignalName : 专用空调其他告警
       - Name : "进风高湿报警"
         Offset : 31
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TeleSignalId : 120830040010
+        TeleSignalName : 专用空调湿度过高告警
       - Name : "进风低湿报警"
         Offset : 32
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TeleSignalId : 120830050010
+        TeleSignalName : 专用空调湿度过低告警
       - Name : "进风高温报警"
         Offset : 33
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TeleSignalId : 120830060010
+        TeleSignalName : 专用空调温度过高告警
       - Name : "进风低温报警"
         Offset : 34
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TeleSignalId : 120830070010
+        TeleSignalName : 专用空调温度过低告警
       - Name : "出风高温报警"
         Offset : 35
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TeleSignalId : 12083017
+        TeleSignalName : 专用空调其他告警
       - Name : "出风低温报警"
         Offset : 36
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TeleSignalId : 12083017
+        TeleSignalName : 专用空调其他告警
       - Name : "消防报警"
         Offset : 39
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TeleSignalId : 12083017
+        TeleSignalName : 专用空调其他告警
       - Name : "1#气管温度故障"
         Offset : 47
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TeleSignalId : 12083017
+        TeleSignalName : 专用空调其他告警
       - Name : "1#进风温度故障"
         Offset : 48
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TeleSignalId : 12083017
+        TeleSignalName : 专用空调其他告警
       - Name : "1#液管温度故障"
         Offset : 51
         AlertNormalValue : 0
-        TeleSignalId : 12006
-        TeleSignalName : SIGNAME_12006
+        TeleSignalId : 12083017
+        TeleSignalName : 专用空调其他告警
 
   - Cmd : 3
     Offset : 731

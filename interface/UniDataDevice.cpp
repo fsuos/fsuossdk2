@@ -17,6 +17,7 @@ using bsoncxx::builder::basic::kvp;
 template <typename CDataType, typename PClass, int RT_TYPE> UniDataDevice<CDataType, PClass, RT_TYPE>::UniDataDevice()
 {
     memset(&cData, 0, sizeof(cData));
+    b_mode_ = 1;
 }
 
 template <typename CDataType, typename PClass, int RT_TYPE> UniDataDevice<CDataType, PClass, RT_TYPE>::~UniDataDevice()
@@ -29,9 +30,54 @@ bool UniDataDevice<CDataType, PClass, RT_TYPE>::InitSetting(const Json::Value& s
     cData.data_id = this->data_id_;
     if(settingRoot["appSetting"] != Json::nullValue && settingRoot["appSetting"].type() == Json::objectValue) {
 		if(settingRoot["appSetting"]["b_mode"] != Json::nullValue) {
-			b_mode_ = atof(settingRoot["appSetting"]["b_mode"].asString().c_str());
+			b_mode_ = atoi(settingRoot["appSetting"]["b_mode"].asString().c_str());
+            std::cout<<"InitSetting "<<cData.data_id<<" b_mode_:"<<b_mode_<<std::endl;
 		}
-	}    
+	}
+    if(3 == b_mode_){
+        //移动需要解析额外的配置
+        std::cout<<"here 1"<<std::endl;
+        if(settingRoot["thresholdSetting"] != Json::nullValue) {
+            std::cout<<"here 2"<<std::endl;
+            for(auto it = settingRoot["thresholdSetting"].begin(); it != settingRoot["thresholdSetting"].end(); it++) {
+                const std::string& signalId = it.key().asString();
+                std::cout<<"here "<<signalId<<std::endl;
+                const Json::Value& setting = settingRoot["thresholdSetting"][signalId];
+                if(setting.type() == Json::objectValue) {
+                    if(setting["SignalName"] != Json::nullValue &&
+                        setting["SignalName"].type() != Json::nullValue) { // 读电信配置方案告警等级
+                        // boost::trim(sAlarmLevel);
+                        signalNameMap_[signalId] = setting["SignalName"].asString();
+                    } 
+                    //读移动配置方案告警等级
+                    std::string mobileExtra;//619-007-00-007002;007002;000
+                    if(setting["NMAlarmID"] != Json::nullValue &&
+                        setting["NMAlarmID"].type() != Json::nullValue) { // 读移动配置方案告警阀值
+                        mobileExtra += setting["NMAlarmID"].asString();
+                    }else{
+                        std::cout<<this->data_id_<<" NMAlarmID is missing"<<std::endl;
+                    }
+                    mobileExtra += ";";
+                    if(setting["ID"] != Json::nullValue &&
+                        setting["ID"].type() != Json::nullValue) { // 读移动配置方案告警阀值
+                        mobileExtra += setting["ID"].asString();
+                    }else{
+                        std::cout<<this->data_id_<<" ID is missing"<<std::endl;
+                    }
+                    mobileExtra += ";";
+                    if(setting["SignalNumber"] != Json::nullValue &&
+                        setting["SignalNumber"].type() != Json::nullValue) { // 读电信配置方案告警阀值
+                        mobileExtra += setting["SignalNumber"].asString();
+                    }else{
+                        std::cout<<this->data_id_<<" SignalNumber is missing"<<std::endl;
+                    }
+                    mobileExtra += ";";
+                    std::cout<<"mobile:"<<signalId<<":"<<mobileExtra<<" level:"<<this->levelMap_[signalId]<<" value:"<<this->valueMap_[signalId]<<std::endl;
+                    singalExtraMap_[signalId] = mobileExtra;
+                }
+            }
+        }
+    }
     return PClass::InitSetting(settingRoot);
 }
 
@@ -52,6 +98,52 @@ void UniDataDevice<CDataType, PClass, RT_TYPE>::DoCheck(std::vector<rule_value> 
 {
     this->bSaveHistory |= this->DoBatchCheckThreshold(rvVec);
     //this->SaveDeviceHistory((unsigned char*)&cData, sizeof(cData));
+}
+
+template <typename CDataType, typename PClass, int RT_TYPE>
+bool UniDataDevice<CDataType, PClass, RT_TYPE>::CheckAOReport(const std::string& aoSignalId, const std::string& reportSignalId, float value)
+{
+    bool bChanged = false;
+    if(this->aoMap.find(reportSignalId) == this->aoMap.end()){
+	if(this->aoMap.find(aoSignalId) == this->aoMap.end()){
+	    return false;
+	}
+	this->aoMap[reportSignalId] = this->aoMap[aoSignalId];
+    }
+    SMDVDevice::BAOSetting& aoSetting = this->aoMap[reportSignalId];
+    //std::cout << "CheckAOReport signalId:" << aoSignalId << "last value:" << aoSetting.lastValue << " value:" << value<< std::endl;
+    if(aoSetting.Threshold_valid) {
+        //std::cout << "Threshold:" << aoSetting.Threshold << std::endl;
+        if(value > (aoSetting.lastValue + aoSetting.Threshold) || value < (aoSetting.lastValue - aoSetting.Threshold)) {
+            bChanged = true;
+            //std::cout << "hit" << std::endl;
+        }
+    }
+    if(aoSetting.RelativeVal_valid) {
+        //std::cout << "Threshold:" << aoSetting.RelativeVal << std::endl;
+        if(value > (aoSetting.lastValue * (100 + aoSetting.RelativeVal) / 100) ||
+            value < (aoSetting.lastValue * (100 - aoSetting.RelativeVal) / 100)) {
+            bChanged = true;
+            //std::cout << "hit" << std::endl;
+        }
+    }
+    if(aoSetting.IntervalTime_valid) {
+        //std::cout << "Threshold:" << aoSetting.IntervalTime << std::endl;
+        if(time(NULL) > (aoSetting.lastUploadSecond + 60 * aoSetting.IntervalTime)) {
+            bChanged = true;
+            //std::cout << "hit" << std::endl;
+        }
+    }
+
+    if(bChanged) {
+        //std::cout << "CheckAOReport signalId:" << aoSignalId << " value:" << value << std::endl;
+        aoSetting.lastValue = value;
+        aoSetting.lastUploadSecond = time(NULL);
+        // 调用SMDVDevice
+	SMDVDevice::CheckAOReport(reportSignalId, value);
+        return true;
+    }
+    return false;
 }
 
 template <typename CDataType, typename PClass, int RT_TYPE> void UniDataDevice<CDataType, PClass, RT_TYPE>::RoundDone()
@@ -86,12 +178,13 @@ template <typename CDataType, typename PClass, int RT_TYPE> void UniDataDevice<C
     RunCheckThreshold();
     //std::cout<<"after runcheckthreshold"<<std::endl;
     // 2022-10-18 这个地方可以对联通B接口的AO做统一处理
-    for(auto aoSignal : this->aoVec_) {
+    // 2025-11-1 看起来没法统一处理了
+    /*for(auto aoSignal : this->aoVec_) {
         if(this->aoValueMap_.find(aoSignal) != this->aoValueMap_.end()) {
             this->bSaveHistory = this->CheckAOReport(aoSignal, this->aoValueMap_[aoSignal]) || this->bSaveHistory;
             this->CheckThreshold(aoSignal, "", this->aoValueMap_[aoSignal], 1);
         }
-    }
+    }*/
     int rvSize = this->ruleValueVec.size();
     std::cout<<"rvSize is "<<rvSize<<std::endl;
     //auto rvVec(std::move(this->ruleValueVec));
