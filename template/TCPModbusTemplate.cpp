@@ -458,7 +458,7 @@ bool {{ Project.Name }}::RefreshStatus()
 {
    if(!ip_.empty())
     {
-        if(state != IDLE)
+        if(state != 0)
         {
             boost::posix_time::ptime now = boost::posix_time::second_clock::local_time();
             boost::posix_time::time_duration  diff = now - lastTime;
