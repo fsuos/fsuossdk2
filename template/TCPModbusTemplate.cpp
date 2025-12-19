@@ -470,7 +470,7 @@ bool {{ Project.Name }}::RefreshStatus()
                 return false;
             }
         }
-        //state = 1;
+        state = 1;
         if(nullptr == pCtx){
             pCtx = modbus_new_tcp(ip_.c_str(), port_);
             //std::async( std::launch::async,
@@ -479,6 +479,7 @@ bool {{ Project.Name }}::RefreshStatus()
                 if(-1 == nRet)
                 {
                     //printf("connect failed\n");
+        	    state = 0;
                     modbus_close(pCtx);
                     modbus_free(pCtx);
                     pCtx = nullptr;
@@ -497,6 +498,7 @@ bool {{ Project.Name }}::RefreshStatus()
                             modbus_close(pCtx);
                             modbus_free(pCtx);
                             pCtx = nullptr;
+        	    	    state = 0;
                             return false;
                         }
                         memcpy(cData.{{ "r_%d[cmdgroup_step_]"%(tsc.CmdGroupStart ) }}.{{ "r%d_%d_%d"%(sc.Cmd,tsc.CmdGroupStart,sc.Offset ) }}, regs, sizeof(uint16_t)*{{ sc.Len }});
@@ -506,6 +508,7 @@ bool {{ Project.Name }}::RefreshStatus()
                             modbus_close(pCtx);
                             modbus_free(pCtx);
                             pCtx = nullptr;
+        	            state = 0;
                             return false;
                         }
                         memcpy(cData.{{ "r_%d[cmdgroup_step_]"%(tsc.CmdGroupStart ) }}.{{ "r%d_%d_%d"%(sc.Cmd,tsc.CmdGroupStart,sc.Offset ) }}, regs, sizeof(uint16_t)*{{ sc.Len }});
@@ -515,6 +518,7 @@ bool {{ Project.Name }}::RefreshStatus()
                             modbus_close(pCtx);
                             modbus_free(pCtx);
                             pCtx = nullptr;
+        	            state = 0;
                             return false;
                         }
                         memcpy(cData.{{ "r_%d[cmdgroup_step_]"%(tsc.CmdGroupStart ) }}.{{ "b%d_%d_%d"%(sc.Cmd,tsc.CmdGroupStart,sc.Offset ) }}, bits, {{ sc.Len }});
@@ -524,6 +528,7 @@ bool {{ Project.Name }}::RefreshStatus()
                             modbus_close(pCtx);
                             modbus_free(pCtx);
                             pCtx = nullptr;
+        	            state = 0;
                             return false;
                         }
                         memcpy(cData.{{ "r_%d[cmdgroup_step_]"%(tsc.CmdGroupStart ) }}.{{ "b%d_%d_%d"%(sc.Cmd,tsc.CmdGroupStart,sc.Offset ) }}, bits, {{ sc.Len }});
@@ -536,6 +541,7 @@ bool {{ Project.Name }}::RefreshStatus()
                             modbus_close(pCtx);
                             modbus_free(pCtx);
                             pCtx = nullptr;
+        	            state = 0;
                             return false;
                         }
                         memcpy(cData.r3_{{ tsc.Offset }}, regs, sizeof(uint16_t)*{{ tsc.Len }});
@@ -544,6 +550,7 @@ bool {{ Project.Name }}::RefreshStatus()
                             modbus_close(pCtx);
                             modbus_free(pCtx);
                             pCtx = nullptr;
+        	            state = 0;
                             return false;
                         }
                         memcpy(cData.r4_{{ tsc.Offset }}, regs, sizeof(uint16_t)*{{ tsc.Len }});
@@ -552,6 +559,7 @@ bool {{ Project.Name }}::RefreshStatus()
                             modbus_close(pCtx);
                             modbus_free(pCtx);
                             pCtx = nullptr;
+        	            state = 0;
                             return false;
                         }
                         memcpy(cData.b1_{{ tsc.Offset }}, bits, {{ tsc.Len }});
@@ -560,6 +568,7 @@ bool {{ Project.Name }}::RefreshStatus()
                             modbus_close(pCtx);
                             modbus_free(pCtx);
                             pCtx = nullptr;
+        	            state = 0;
                             return false;
                         }
                         memcpy(cData.b2_{{ tsc.Offset }}, bits, {{ tsc.Len }});
@@ -570,6 +579,7 @@ bool {{ Project.Name }}::RefreshStatus()
                 modbus_free(pCtx);
                 pCtx = nullptr;
                 RoundDone();
+        	state = 0;
                 return false;
             //});
         }        
