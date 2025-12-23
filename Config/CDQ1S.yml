@@ -1,0 +1,197 @@
+Project:
+  Name : CDQ1S
+  RT_ID : 5156
+  File : "CDQ1S通讯规约.docx"
+  DevType : 2
+  Category : ATS转换柜
+  ProtocolName : CDQ1S
+Sample : 
+  - Cmd : 3
+    Offset : 3
+    Len : 21
+    Data : 
+      - Name : 过压电压
+      - Name : 欠压电压
+      - Name : 工作状态 
+        Value : ($v[3]>>8)&0xF
+        CValue : (pData[2]>>8)&0xF
+        Options : 
+          - Key : 0
+            Value : 自动
+          - Key : 1
+            Value : 手动
+          - Key : 2
+            Value : 远程控制
+      - Name : 工作模式
+        Value : ($v[3)&0xF
+        CValue : (pData[2])&0xF
+        Options : 
+          - Key : 0
+            Value : 自复
+          - Key : 1
+            Value : 不自复
+      - Name : 从N到R延时时间
+        Offset : 4
+      - Name : 从R到N延时时间
+        Offset : 5
+      - Name : 从常用到双分时间
+        Offset : 6
+      - Name : 从备用到双分时间
+        Offset : 7
+      - Name : 发电模式 
+        Value : ($v[8]>>8)&0xF
+        CValue : (pData[7]>>8)&0xF
+        Options : 
+          - Key : 0
+            Value : 不发电
+          - Key : 1
+            Value : 发电
+      - Name : 优先选择
+        Value : ($v[8)&0xF
+        CValue : (pData[7])&0xF
+        Options : 
+          - Key : 0
+            Value : 常用优先
+          - Key : 1
+            Value : 备用优先
+      - Name : 开关所处位置 
+        Value : ($v[9]>>8)&0xF
+        CValue : (pData[8]>>8)&0xF
+        Options : 
+          - Key : 0
+            Value : 常用
+          - Key : 1
+            Value : 双分
+          - Key : 2
+            Value : 备用
+      - Name : 报警方式
+        Value : ($v[9)&0xF
+        CValue : (pData[8])&0xF
+        Options : 
+          - Key : 0
+            Value : 不报警
+          - Key : 1
+            Value : 报警
+      - Name : LED亮度选择
+        Value : ($v[10]>>8)&0xF
+        CValue : (pData[9]>>8)&0xF
+      - Name : 频率检测开关
+        Value : ($v[11]>>8)&0xF
+        CValue : (pData[10]>>8)&0xF
+      - Name : 开机显示项目选择
+        Value : ($v[11)&0xF
+        CValue : (pData[10])&0xF
+      - Name : 过压电压返回值
+        Offset : 12
+      - Name : 欠压电压返回值
+        Offset : 13
+      - Name : 过频频率
+        Offset : 14
+      - Name : 欠频频率
+        Offset : 15
+      - Name : 过频频率返回值
+        Offset : 16
+      - Name : 欠频频率返回值
+        Offset : 17
+      - Name : 发电机启动延时时间
+        Offset : 18
+      - Name : 发电机停止延时时间
+        Offset : 19
+      - Name : 常用分闸延时
+        Offset : 20
+      - Name : 备用分闸延时
+        Offset : 21
+  - Cmd : 3
+    Offset : 0x21
+    Len : 14
+    Data : 
+      - Name : 常用AB线电压
+      - Name : 常用BC线电压
+      - Name : 常用CA线电压
+      - Name : 常用A相电压
+      - Name : 常用B相电压
+      - Name : 常用C相电压
+      - Name : 常用频率
+      - Name : 备用AB线电压
+      - Name : 备用BC线电压
+      - Name : 备用CA线电压
+      - Name : 备用A相电压
+      - Name : 备用B相电压
+      - Name : 备用C相电压
+      - Name : 备用频率
+  - Cmd : 3
+    Offset : 0x3A
+    Len : 6
+    Data : 
+      - Name : 常用A相过压
+        Value : ($v[1]>>8)&0xF
+        CValue : (pData[0]>>8)&0xF
+        AlertNormalValue : 0
+        UnicomSignalId : 311415001
+        UnicomSignalName : 主用输入电源中断告警
+      - Name : 常用B相过压
+        Value : ($v[1])&0xF
+        CValue : (pData[0])&0xF
+        AlertNormalValue : 0
+        UnicomSignalId : 311415001
+        UnicomSignalName : 主用输入电源中断告警
+      - Name : 常用C相过压
+        Value : ($v[2]>>8)&0xF
+        CValue : (pData[1]>>8)&0xF
+        AlertNormalValue : 0
+        UnicomSignalId : 311415001
+        UnicomSignalName : 主用输入电源中断告警
+      - Name : 常用A相欠压
+        Value : ($v[2])&0xF
+        CValue : (pData[1])&0xF
+        AlertNormalValue : 0
+        UnicomSignalId : 311415001
+        UnicomSignalName : 主用输入电源中断告警
+      - Name : 常用B相欠压
+        Value : ($v[3]>>8)&0xF
+        CValue : (pData[2]>>8)&0xF
+        AlertNormalValue : 0
+        UnicomSignalId : 311415001
+        UnicomSignalName : 主用输入电源中断告警
+      - Name : 常用B相欠压
+        Value : ($v[3])&0xF
+        CValue : (pData[2])&0xF
+        AlertNormalValue : 0
+        UnicomSignalId : 311415001
+        UnicomSignalName : 主用输入电源中断告警
+      - Name : 备用A相过压
+        Value : ($v[4]>>8)&0xF
+        CValue : (pData[3]>>8)&0xF
+        AlertNormalValue : 0
+        UnicomSignalId : 311415001
+        UnicomSignalName : 主用输入电源中断告警
+      - Name : 备用B相过压
+        Value : ($v[4])&0xF
+        CValue : (pData[3])&0xF
+        AlertNormalValue : 0
+        UnicomSignalId : 311415001
+        UnicomSignalName : 主用输入电源中断告警
+      - Name : 备用C相过压
+        Value : ($v[5]>>8)&0xF
+        CValue : (pData[4]>>8)&0xF
+        AlertNormalValue : 0
+        UnicomSignalId : 311415001
+        UnicomSignalName : 主用输入电源中断告警
+      - Name : 备用A相欠压
+        Value : ($v[5])&0xF
+        CValue : (pData[4])&0xF
+        AlertNormalValue : 0
+        UnicomSignalId : 311415001
+        UnicomSignalName : 主用输入电源中断告警
+      - Name : 备用B相欠压
+        Value : ($v[6]>>8)&0xF
+        CValue : (pData[5]>>8)&0xF
+        AlertNormalValue : 0
+        UnicomSignalId : 311415001
+        UnicomSignalName : 主用输入电源中断告警
+      - Name : 备用B相欠压
+        Value : ($v[6])&0xF
+        CValue : (pData[5])&0xF
+        AlertNormalValue : 0
+        UnicomSignalId : 311415001
+        UnicomSignalName : 主用输入电源中断告警

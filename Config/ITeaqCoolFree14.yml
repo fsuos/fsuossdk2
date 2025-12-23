@@ -1,0 +1,690 @@
+Project:
+  Name : ITeaqCoolFree14
+  RT_ID : 5156
+  File : "艾特网能L04-L03-Cool_Master7000（金鼎）变频（氟泵自然冷）_Modbus_监控协议V1.4.doc"
+  DevType : 2
+  Category : 专用空调
+  ProtocolName : 艾特网能CoolFree14/Master7000
+Sample : 
+  - Cmd : 3
+    Offset : 0
+    Len : 24
+    Type : "s"
+    Data : 
+      - Name : "回风温度测量值"
+        Unit : "℃"
+        Offset : 1
+        Ratio : 10
+        AI : 
+          Unicom : "602130A00001,空调回风温度"
+          Telecom : "130800080010,精密空调回风温度"
+      - Name : "回风湿度测量值"
+        Unit : "%"
+        Offset : 2
+        Ratio : 10
+        AI : 
+          Unicom : "602130C00001,空调回风温度"
+          Telecom : "130800110010,精密空调回风湿度"
+      - Name : "泵柜1侧环境温度"
+        Unit : "℃"
+        Offset : 3
+        Ratio : 10
+      - Name : "泵柜2侧环境温度"
+        Unit : "℃"
+        Offset : 4
+        Ratio : 10
+      - Name : "送风温度测量值"
+        Unit : "℃"
+        Offset : 5
+        Ratio : 10
+      - Name : "送风湿度测量值"
+        Unit : "%"
+        Offset : 6
+        Ratio : 10
+
+      - Name : "高压1告警"
+        AlertNormalValue : 0
+        Value : ($v[8] & 0x1)
+        CValue : (pData[7] & 0x1)
+        UnicomSignalId : 602230E03001
+      - Name : "高压2告警"
+        AlertNormalValue : 0
+        Value : (($v[8] >> 1) & 0x1)
+        CValue : ((pData[7] >> 1) & 0x1)
+        UnicomSignalId : 602230E03002
+      - Name : "高压1锁定"
+        AlertNormalValue : 0
+        Value : (($v[8] >> 2) & 0x1)
+        CValue : ((pData[7] >> 2) & 0x1)
+        UnicomSignalId : 602230E04001
+      - Name : "高压2锁定"
+        AlertNormalValue : 0
+        Value : (($v[8] >> 3) & 0x1)
+        CValue : ((pData[7] >> 3) & 0x1)
+        UnicomSignalId : 602230E04002
+      - Name : "低压1告警"
+        AlertNormalValue : 0
+        Value : (($v[8] >> 4) & 0x1)
+        CValue : ((pData[7] >> 4) & 0x1)
+        UnicomSignalId : 602230D01001
+      - Name : "低压2告警"
+        AlertNormalValue : 0
+        Value : (($v[8] >> 5) & 0x1)
+        CValue : ((pData[7] >> 5) & 0x1)
+        UnicomSignalId : 602230D01002
+      - Name : "低压1锁定"
+        AlertNormalValue : 0
+        Value : (($v[8] >> 6) & 0x1)
+        CValue : ((pData[7] >> 6) & 0x1)
+        UnicomSignalId : 602230D02001
+      - Name : "低压2锁定"
+        AlertNormalValue : 0
+        Value : (($v[8] >> 7) & 0x1)
+        CValue : ((pData[7] >> 7) & 0x1)
+        UnicomSignalId : 602230D02001
+      - Name : "排气1高温告警"
+        AlertNormalValue : 0
+        Value : (($v[8] >> 8) & 0x1)
+        CValue : ((pData[7] >> 8) & 0x1)
+        UnicomSignalId : 602243003001
+      - Name : "排气2高温告警"
+        AlertNormalValue : 0
+        Value : (($v[8] >> 9) & 0x1)
+        CValue : ((pData[7] >> 9) & 0x1)
+        UnicomSignalId : 602243003002
+      - Name : "排气1高温锁定"
+        AlertNormalValue : 0
+        Value : (($v[8] >> 10) & 0x1)
+        CValue : ((pData[7] >> 10) & 0x1)
+        UnicomSignalId : 602243004001
+      - Name : "排气2高温锁定"
+        AlertNormalValue : 0
+        Value : (($v[8] >> 11) & 0x1)
+        CValue : ((pData[7] >> 11) & 0x1)
+        UnicomSignalId : 602243004002
+      - Name : "排气1低过热度告警"
+        AlertNormalValue : 0
+        Value : (($v[8] >> 12) & 0x1)
+        CValue : ((pData[7] >> 12) & 0x1)
+        UnicomSignalId : 602243001001
+      - Name : "排气2低过热度告警"
+        AlertNormalValue : 0
+        Value : (($v[8] >> 13) & 0x1)
+        CValue : ((pData[7] >> 13) & 0x1)
+        UnicomSignalId : 602243001002
+      - Name : "排气1低过热度锁定"
+        AlertNormalValue : 0
+        Value : (($v[8] >> 14) & 0x1)
+        CValue : ((pData[7] >> 14) & 0x1)
+        UnicomSignalId : 602243002001
+      - Name : "排气2低过热度锁定"
+        AlertNormalValue : 0
+        Value : (($v[8] >> 15) & 0x1)
+        CValue : ((pData[7] >> 15) & 0x1)
+        UnicomSignalId : 602243002002
+      
+      - Name : "送风高温告警"
+        AlertNormalValue : 0
+        Value : ($v[9] & 0x1)
+        CValue : (pData[8] & 0x1)
+        UnicomSignalId : 602243003003
+      - Name : "送风低温告警"
+        AlertNormalValue : 0
+        Value : (($v[9] >> 1) & 0x1)
+        CValue : ((pData[8] >> 1) & 0x1)
+        UnicomSignalId : 602243001003
+      - Name : "回风高温告警"
+        AlertNormalValue : 0
+        Value : (($v[9] >> 2) & 0x1)
+        CValue : ((pData[8] >> 2) & 0x1)
+        UnicomSignalId : 602243003004
+      - Name : "回风低温告警"
+        AlertNormalValue : 0
+        Value : (($v[9] >> 3) & 0x1)
+        CValue : ((pData[8] >> 3) & 0x1)
+        UnicomSignalId : 602243001004
+      - Name : "回风高湿告警"
+        AlertNormalValue : 0
+        Value : (($v[9] >> 4) & 0x1)
+        CValue : ((pData[8] >> 4) & 0x1)
+        UnicomSignalId : 602243203001
+      - Name : "回风低湿告警"
+        AlertNormalValue : 0
+        Value : (($v[9] >> 5) & 0x1)
+        CValue : ((pData[8] >> 5) & 0x1)
+        UnicomSignalId : 602243201001
+      - Name : "回风温度传感器故障"
+        AlertNormalValue : 0
+        Value : (($v[9] >> 6) & 0x1)
+        CValue : ((pData[8] >> 6) & 0x1)
+        UnicomSignalId : 602400101001
+      - Name : "回风湿度传感器故障"
+        AlertNormalValue : 0
+        Value : (($v[9] >> 7) & 0x1)
+        CValue : ((pData[8] >> 7) & 0x1)
+        UnicomSignalId : 602400101002
+      - Name : "送风温度故障"
+        AlertNormalValue : 0
+        Value : (($v[9] >> 8) & 0x1)
+        CValue : ((pData[8] >> 8) & 0x1)
+        UnicomSignalId : 602400101003
+      - Name : "送风湿度故障"
+        AlertNormalValue : 0
+        Value : (($v[9] >> 9) & 0x1)
+        CValue : ((pData[8] >> 9) & 0x1)
+        UnicomSignalId : 602400101004
+      - Name : "排气温度1故障"
+        AlertNormalValue : 0
+        Value : (($v[9] >> 10) & 0x1)
+        CValue : ((pData[8] >> 10) & 0x1)
+        UnicomSignalId : 602400101005
+      - Name : "排气温度2故障"
+        AlertNormalValue : 0
+        Value : (($v[9] >> 11) & 0x1)
+        CValue : ((pData[8] >> 11) & 0x1)
+        UnicomSignalId : 602400101006
+      - Name : "高压传感器1故障"
+        AlertNormalValue : 0
+        Value : (($v[9] >> 12) & 0x1)
+        CValue : ((pData[8] >> 12) & 0x1)
+        UnicomSignalId : 602400101007
+      - Name : "高压传感器2故障"
+        AlertNormalValue : 0
+        Value : (($v[9] >> 13) & 0x1)
+        CValue : ((pData[8] >> 13) & 0x1)
+        UnicomSignalId : 602400101008
+      - Name : "吸气温度传感器1故障"
+        AlertNormalValue : 0
+        Value : (($v[9] >> 14) & 0x1)
+        CValue : ((pData[8] >> 14) & 0x1)
+        UnicomSignalId : 602400101009
+      - Name : "吸气温度传感器2故障"
+        AlertNormalValue : 0
+        Value : (($v[9] >> 15) & 0x1)
+        CValue : ((pData[8] >> 15) & 0x1)
+        UnicomSignalId : 602400101010
+
+      - Name : "低压传感器1故障"
+        AlertNormalValue : 0
+        Value : ($v[10] & 0x1)
+        CValue : (pData[9] & 0x1)
+        UnicomSignalId : 602400101011
+      - Name : "低压传感器2故障"
+        AlertNormalValue : 0
+        Value : (($v[10] >> 1) & 0x1)
+        CValue : ((pData[9] >> 1) & 0x1)
+        UnicomSignalId : 602400101012
+      - Name : "内风机故障告警"
+        AlertNormalValue : 0
+        Value : (($v[10] >> 2) & 0x1)
+        CValue : ((pData[9] >> 2) & 0x1)
+        UnicomSignalId : 602400101013
+      - Name : "地板溢水告警"
+        AlertNormalValue : 0
+        Value : (($v[10] >> 3) & 0x1)
+        CValue : ((pData[9] >> 3) & 0x1)
+        UnicomSignalId : 602432C01001
+      - Name : "远程关机告警"
+        AlertNormalValue : 0
+        Value : (($v[10] >> 4) & 0x1)
+        CValue : ((pData[9] >> 4) & 0x1)
+        UnicomSignalId : 602433001001
+      - Name : "电源丢失告警"
+        AlertNormalValue : 0
+        Value : (($v[10] >> 5) & 0x1)
+        CValue : ((pData[9] >> 5) & 0x1)
+        UnicomSignalId : 602415101001
+      - Name : "过滤网堵告警"
+        AlertNormalValue : 0
+        Value : (($v[10] >> 6) & 0x1)
+        CValue : ((pData[9] >> 6) & 0x1)
+        UnicomSignalId : 602432001001
+      - Name : "气流丢失告警"
+        AlertNormalValue : 0
+        Value : (($v[10] >> 7) & 0x1)
+        CValue : ((pData[9] >> 7) & 0x1)
+        UnicomSignalId : 602431F01001
+      - Name : "烟雾传感器告警"
+        AlertNormalValue : 0
+        Value : (($v[10] >> 8) & 0x1)
+        CValue : ((pData[9] >> 8) & 0x1)
+        UnicomSignalId : 602400101014
+      - Name : "电加热故障告警"
+        AlertNormalValue : 0
+        Value : (($v[10] >> 9) & 0x1)
+        CValue : ((pData[9] >> 9) & 0x1)
+        UnicomSignalId : 602432501001
+      - Name : "电源故障告警"
+        AlertNormalValue : 0
+        Value : (($v[10] >> 10) & 0x1)
+        CValue : ((pData[9] >> 10) & 0x1)
+        UnicomSignalId : 602415101002
+      - Name : "电极加湿排水故障"
+        AlertNormalValue : 0
+        Value : (($v[10] >> 11) & 0x1)
+        CValue : ((pData[9] >> 11) & 0x1)
+        UnicomSignalId : 602400101015
+      - Name : "电极加湿大电流"
+        AlertNormalValue : 0
+        Value : (($v[10] >> 12) & 0x1)
+        CValue : ((pData[9] >> 12) & 0x1)
+        UnicomSignalId : 602400101016
+      - Name : "电极加湿小电流"
+        AlertNormalValue : 0
+        Value : (($v[10] >> 13) & 0x1)
+        CValue : ((pData[9] >> 13) & 0x1)
+        UnicomSignalId : 602400101017
+      - Name : "电极加湿需维护"
+        AlertNormalValue : 0
+        Value : (($v[10] >> 14) & 0x1)
+        CValue : ((pData[9] >> 14) & 0x1)
+        UnicomSignalId : 602400101018
+      - Name : "盘管1冻结"
+        AlertNormalValue : 0
+        Value : (($v[10] >> 15) & 0x1)
+        CValue : ((pData[9] >> 15) & 0x1)
+        UnicomSignalId : 602400101019
+
+      - Name : "盘管2冻结"
+        AlertNormalValue : 0
+        Value : ($v[11] & 0x1)
+        CValue : (pData[10] & 0x1)
+        UnicomSignalId : 602400101020
+      - Name : "泵1过温告警"
+        AlertNormalValue : 0
+        Value : (($v[11] >> 1) & 0x1)
+        CValue : ((pData[10] >> 1) & 0x1)
+        UnicomSignalId : 602243003005
+      - Name : "泵2过温告警"
+        AlertNormalValue : 0
+        Value : (($v[11] >> 2) & 0x1)
+        CValue : ((pData[10] >> 2) & 0x1)
+        UnicomSignalId : 602243003006
+      - Name : "泵1过温锁定"
+        AlertNormalValue : 0
+        Value : (($v[11] >> 3) & 0x1)
+        CValue : ((pData[10] >> 3) & 0x1)
+        UnicomSignalId : 602243004005
+      - Name : "泵2过温锁定"
+        AlertNormalValue : 0
+        Value : (($v[11] >> 4) & 0x1)
+        CValue : ((pData[10] >> 4) & 0x1)
+        UnicomSignalId : 602243004006
+      - Name : "泵1环温故障"
+        AlertNormalValue : 0
+        Value : (($v[11] >> 5) & 0x1)
+        CValue : ((pData[10] >> 5) & 0x1)
+        UnicomSignalId : 602415101001
+      - Name : "泵2环温故障"
+        AlertNormalValue : 0
+        Value : (($v[11] >> 6) & 0x1)
+        CValue : ((pData[10] >> 6) & 0x1)
+        UnicomSignalId : 602432001001
+      - Name : "泵1通信故障"
+        AlertNormalValue : 0
+        Value : (($v[11] >> 7) & 0x1)
+        CValue : ((pData[10] >> 7) & 0x1)
+        UnicomSignalId : 602400201001
+      - Name : "泵2通信故障"
+        AlertNormalValue : 0
+        Value : (($v[11] >> 8) & 0x1)
+        CValue : ((pData[10] >> 8) & 0x1)
+        UnicomSignalId : 602400201002
+      - Name : "泵1入口压力传感器故障"
+        AlertNormalValue : 0
+        Value : (($v[11] >> 9) & 0x1)
+        CValue : ((pData[10] >> 9) & 0x1)
+        UnicomSignalId : 602432501001
+      - Name : "泵柜2入口压力传感器故障"
+        AlertNormalValue : 0
+        Value : (($v[11] >> 10) & 0x1)
+        CValue : ((pData[10] >> 10) & 0x1)
+        UnicomSignalId : 602415101002
+      - Name : "泵1出口压力传感器故障"
+        AlertNormalValue : 0
+        Value : (($v[11] >> 11) & 0x1)
+        CValue : ((pData[10] >> 11) & 0x1)
+        UnicomSignalId : 602400101015
+      - Name : "泵2出口压力传感器故障"
+        AlertNormalValue : 0
+        Value : (($v[11] >> 12) & 0x1)
+        CValue : ((pData[10] >> 12) & 0x1)
+        UnicomSignalId : 602400101016
+      - Name : "泵1高扬程告警"
+        AlertNormalValue : 0
+        Value : (($v[11] >> 13) & 0x1)
+        CValue : ((pData[10] >> 13) & 0x1)
+        UnicomSignalId : 602400101017
+      - Name : "泵2高扬程告警"
+        AlertNormalValue : 0
+        Value : (($v[11] >> 14) & 0x1)
+        CValue : ((pData[10] >> 14) & 0x1)
+        UnicomSignalId : 602400101018
+      - Name : "泵1低扬程告警"
+        AlertNormalValue : 0
+        Value : (($v[11] >> 15) & 0x1)
+        CValue : ((pData[10] >> 15) & 0x1)
+        UnicomSignalId : 602400101019
+      
+      - Name : "泵2低扬程告警"
+        AlertNormalValue : 0
+        Value : ($v[12] & 0x1)
+        CValue : (pData[11] & 0x1)
+        UnicomSignalId : 602400101020
+      - Name : "泵1高扬程锁定告警"
+        AlertNormalValue : 0
+        Value : (($v[12] >> 1) & 0x1)
+        CValue : ((pData[11] >> 1) & 0x1)
+        UnicomSignalId : 602400101021
+      - Name : "泵2高扬程锁定告警"
+        AlertNormalValue : 0
+        Value : (($v[12] >> 2) & 0x1)
+        CValue : ((pData[11] >> 2) & 0x1)
+        UnicomSignalId : 602400101022
+      - Name : "泵1低扬程锁定告警"
+        AlertNormalValue : 0
+        Value : (($v[12] >> 3) & 0x1)
+        CValue : ((pData[11] >> 3) & 0x1)
+        UnicomSignalId : 602400101023
+      - Name : "泵2低扬程锁定告警"
+        AlertNormalValue : 0
+        Value : (($v[12] >> 4) & 0x1)
+        CValue : ((pData[11] >> 4) & 0x1)
+        UnicomSignalId : 602400101024
+      - Name : "泵1控制器故障告警"
+        AlertNormalValue : 0
+        Value : (($v[12] >> 5) & 0x1)
+        CValue : ((pData[11] >> 5) & 0x1)
+        UnicomSignalId : 602400101025
+      - Name : "泵2控制器故障告警"
+        AlertNormalValue : 0
+        Value : (($v[12] >> 6) & 0x1)
+        CValue : ((pData[11] >> 6) & 0x1)
+        UnicomSignalId : 602400101026
+      - Name : "冷凝器1压力故障报警"
+        AlertNormalValue : 0
+        Value : (($v[12] >> 7) & 0x1)
+        CValue : ((pData[11] >> 7) & 0x1)
+        UnicomSignalId : 602400101027
+      - Name : "冷凝器2压力故障报警"
+        AlertNormalValue : 0
+        Value : (($v[12] >> 8) & 0x1)
+        CValue : ((pData[11] >> 8) & 0x1)
+        UnicomSignalId : 602400101028
+      - Name : "冷凝器1风机过温报警"
+        AlertNormalValue : 0
+        Value : (($v[12] >> 9) & 0x1)
+        CValue : ((pData[11] >> 9) & 0x1)
+        UnicomSignalId : 602243003007
+      - Name : "冷凝器2风机过温报警"
+        AlertNormalValue : 0
+        Value : (($v[12] >> 10) & 0x1)
+        CValue : ((pData[11] >> 10) & 0x1)
+        UnicomSignalId : 602243003008
+      - Name : "冷凝器1风机过温锁定"
+        AlertNormalValue : 0
+        Value : (($v[12] >> 11) & 0x1)
+        CValue : ((pData[11] >> 11) & 0x1)
+        UnicomSignalId : 602243004007
+      - Name : "冷凝器2风机过温锁定"
+        AlertNormalValue : 0
+        Value : (($v[12] >> 12) & 0x1)
+        CValue : ((pData[11] >> 12) & 0x1)
+        UnicomSignalId : 602243004008
+      - Name : "冷凝器1驱动故障报警"
+        AlertNormalValue : 0
+        Value : (($v[12] >> 13) & 0x1)
+        CValue : ((pData[11] >> 13) & 0x1)
+        UnicomSignalId : 602400101029
+      - Name : "冷凝器2驱动故障报警"
+        AlertNormalValue : 0
+        Value : (($v[12] >> 14) & 0x1)
+        CValue : ((pData[11] >> 14) & 0x1)
+        UnicomSignalId : 602400101030
+      - Name : "冷凝器1通信故障"
+        AlertNormalValue : 0
+        Value : (($v[12] >> 15) & 0x1)
+        CValue : ((pData[11] >> 15) & 0x1)
+        UnicomSignalId : 602400201003
+
+      - Name : "冷凝器2通信故障"
+        AlertNormalValue : 0
+        Value : ($v[13] & 0x1)
+        CValue : (pData[12] & 0x1)
+        UnicomSignalId : 602400201004
+      - Name : "高压1异常告警"
+        AlertNormalValue : 0
+        Value : (($v[13] >> 1) & 0x1)
+        CValue : ((pData[12] >> 1) & 0x1)
+        UnicomSignalId : 602400101031
+      - Name : "高压2异常告警"
+        AlertNormalValue : 0
+        Value : (($v[13] >> 2) & 0x1)
+        CValue : ((pData[12] >> 2) & 0x1)
+        UnicomSignalId : 602400101032
+      - Name : "压缩机1驱动通信故障"
+        AlertNormalValue : 0
+        Value : (($v[13] >> 3) & 0x1)
+        CValue : ((pData[12] >> 3) & 0x1)
+        UnicomSignalId : 602400101033
+      - Name : "压缩机2驱动通信故障"
+        AlertNormalValue : 0
+        Value : (($v[13] >> 4) & 0x1)
+        CValue : ((pData[12] >> 4) & 0x1)
+        UnicomSignalId : 602400201005
+      - Name : "压缩机1驱动故障"
+        AlertNormalValue : 0
+        Value : (($v[13] >> 5) & 0x1)
+        CValue : ((pData[12] >> 5) & 0x1)
+        UnicomSignalId : 602400101034
+      - Name : "压缩机2驱动故障"
+        AlertNormalValue : 0
+        Value : (($v[13] >> 6) & 0x1)
+        CValue : ((pData[12] >> 6) & 0x1)
+        UnicomSignalId : 602400101035
+      - Name : "压缩机1驱动故障锁定"
+        AlertNormalValue : 0
+        Value : (($v[13] >> 7) & 0x1)
+        CValue : ((pData[12] >> 7) & 0x1)
+        UnicomSignalId : 602400101036
+      - Name : "压缩机2驱动故障锁定"
+        AlertNormalValue : 0
+        Value : (($v[13] >> 8) & 0x1)
+        CValue : ((pData[12] >> 8) & 0x1)
+        UnicomSignalId : 602400101037
+      - Name : "压缩机1驱动过欠压告警"
+        AlertNormalValue : 0
+        Value : (($v[13] >> 9) & 0x1)
+        CValue : ((pData[12] >> 9) & 0x1)
+        UnicomSignalId : 602400101038
+      - Name : "压缩机2驱动过欠压"
+        AlertNormalValue : 0
+        Value : (($v[13] >> 10) & 0x1)
+        CValue : ((pData[12] >> 10) & 0x1)
+        UnicomSignalId : 602400101039
+      - Name : "红外加湿高水位"
+        AlertNormalValue : 0
+        Value : (($v[13] >> 11) & 0x1)
+        CValue : ((pData[12] >> 11) & 0x1)
+        UnicomSignalId : 602400101040
+      - Name : "红外加湿故障"
+        AlertNormalValue : 0
+        Value : (($v[13] >> 12) & 0x1)
+        CValue : ((pData[12] >> 12) & 0x1)
+        UnicomSignalId : 602400101041
+      - Name : "远程温湿度通信故障"
+        AlertNormalValue : 0
+        Value : (($v[13] >> 13) & 0x1)
+        CValue : ((pData[12] >> 13) & 0x1)
+        UnicomSignalId : 602400201006
+      - Name : "EEV2通信故障"
+        AlertNormalValue : 0
+        Value : (($v[13] >> 14) & 0x1)
+        CValue : ((pData[12] >> 14) & 0x1)
+        UnicomSignalId : 602400201007
+      - Name : "EEV2硬件故障"
+        AlertNormalValue : 0
+        Value : (($v[13] >> 15) & 0x1)
+        CValue : ((pData[12] >> 15) & 0x1)
+        UnicomSignalId : 602400101042
+
+      - Name : "群控地址重复"
+        AlertNormalValue : 0
+        Value : ($v[14] & 0x1)
+        CValue : (pData[13] & 0x1)
+        UnicomSignalId : 602400101043
+      - Name : "群控从机丢失"
+        AlertNormalValue : 0
+        Value : (($v[14] >> 1) & 0x1)
+        CValue : ((pData[13] >> 1) & 0x1)
+        UnicomSignalId : 602400101044
+      - Name : "群控主机丢失"
+        AlertNormalValue : 0
+        Value : (($v[14] >> 2) & 0x1)
+        CValue : ((pData[13] >> 2) & 0x1)
+        UnicomSignalId : 602400101045
+      - Name : "1号系统制冷剂不足"
+        AlertNormalValue : 0
+        Value : (($v[14] >> 3) & 0x1)
+        CValue : ((pData[13] >> 3) & 0x1)
+        UnicomSignalId : 602400101046
+      - Name : "2号系统制冷剂不足"
+        AlertNormalValue : 0
+        Value : (($v[14] >> 4) & 0x1)
+        CValue : ((pData[13] >> 4) & 0x1)
+        UnicomSignalId : 602400101047
+      - Name : "冷凝器1维护报警"
+        AlertNormalValue : 0
+        Value : (($v[14] >> 5) & 0x1)
+        CValue : ((pData[13] >> 5) & 0x1)
+        UnicomSignalId : 602400101048
+      - Name : "冷凝器2维护报警"
+        AlertNormalValue : 0
+        Value : (($v[14] >> 6) & 0x1)
+        CValue : ((pData[13] >> 6) & 0x1)
+        UnicomSignalId : 602400101049
+      - Name : "压缩机1驱动通信故障锁定"
+        AlertNormalValue : 0
+        Value : (($v[14] >> 7) & 0x1)
+        CValue : ((pData[13] >> 7) & 0x1)
+        UnicomSignalId : 602400201008
+      - Name : "压缩机2驱动通信故障锁定"
+        AlertNormalValue : 0
+        Value : (($v[14] >> 8) & 0x1)
+        CValue : ((pData[13] >> 8) & 0x1)
+        UnicomSignalId : 602400201009
+      - Name : "机组运行状态"
+        Offset : 15
+        Options :
+          - Key : 0
+            Value : 关机
+          - Key : 1
+            Value : 运行
+          - Key : 2
+            Value : 待机
+          - Key : 4
+            Value : 本地关机
+          - Key : 8
+            Value : 远程关机
+          - Key : 16
+            Value : 监控关机
+      - Name : 风机1输出
+        Offset : 16
+        Unit : '%'
+      - Name : 风机2输出
+        Offset : 17
+        Unit : '%'
+      - Name : 系统1制冷模式
+        Offset : 18
+        Options :
+          - Key : 0
+            Value : 空闲模式
+          - Key : 1
+            Value : 压缩机模式
+          - Key : 2
+            Value : 混合模式
+          - Key : 3
+            Value : 泵模式
+          - Key : 5
+            Value : 抽真空
+      - Name : 系统2制冷模式
+        Offset : 19
+        Options :
+          - Key : 0
+            Value : 空闲模式
+          - Key : 1
+            Value : 压缩机模式
+          - Key : 2
+            Value : 混合模式
+          - Key : 3
+            Value : 泵模式
+          - Key : 5
+            Value : 抽真空
+      - Name : 送风温度设定
+        Offset : 20
+        Ratio : 10
+        Unit : "℃"
+      - Name : 回风温度设定
+        Offset : 21
+        Ratio : 10
+        Unit : "℃"
+      - Name : 温度精度设定
+        Offset : 22
+        Ratio : 10
+        Unit : "℃"
+      - Name : 回风湿度设定
+        Unit : "%"
+        Offset : 23
+        Ratio : 10
+      - Name : 湿度精度设定
+        Unit : "%"
+        Offset : 24
+        Ratio : 10
+  - Cmd : 3
+    Offset : 25
+    Len : 12
+    Data : 
+      - Name : 制冷状态
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+      - Name : 加热状态
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+      - Name : 加湿状态
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+      - Name : 除湿状态
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+      - Name : 内风机运行时间
+        Unit : H
+      - Name : 压缩机1运行时间
+        Unit : H
+      - Name : 压缩机2运行时间
+        Unit : H
+      - Name : 泵1运行时间
+        Unit : H
+      - Name : 泵2运行时间
+        Unit : H
+      - Name : 电加热1运行时间
+        Unit : H
+      - Name : 电加热2运行时间
+        Unit : H
+      - Name : 加湿器运行时间
+        Unit : H
+      
+      
+
+      

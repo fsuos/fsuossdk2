@@ -1,0 +1,569 @@
+Project:
+  Name : GreeStationAC
+  RT_ID : 5156
+  File : "格力基站空调.pdf"
+  DevType : 2
+  ProtocolName : 格力基站空调
+  Category : 精密空调
+  Version : 0x20
+  GenCmd : ./gen_pmbus_driver.sh GreeStationAC
+Sample : 
+  - CID1 : 0x60
+    CID2 : 0x42
+    Len : 37
+    Data : 
+      - Name : 主机电源相电压A
+        Offset : 1
+        Type : S
+        Unit : V
+      - Name : 主机电源相电压B
+        Offset : 3
+        Type : S
+        Unit : V
+      - Name : 主机电源相电压C
+        Offset : 5
+        Type : S
+        Unit : V
+      - Name : 主机/压缩机工作电流A相
+        Offset : 6
+        Type : S
+        Unit : A
+      - Name : 主机/压缩机工作电流B相
+        Offset : 9
+        Type : S
+        Unit : A
+      - Name : 主机/压缩机工作电流C相
+        Offset : 11
+        Type : S
+        Unit : A
+      - Name : 送风温度
+        Offset : 13
+        Type : s
+        Unit : "℃"
+      - Name : 回风温度/室内环境温度
+        Offset : 15
+        Type : s
+        Unit : "℃"
+      - Name : 送风湿度
+        Offset : 17
+        Type : S
+        Unit : "%"
+      - Name : 回风湿度/室内环境湿度
+        Offset : 19
+        Type : S
+        Unit : "%"
+      - Name : 压缩机吸气压力
+        Offset : 21
+        Type : S
+        Unit : bar
+      - Name : 压缩机排气压力
+        Offset : 23
+        Type : S
+        Unit : bar
+      - Name : 室外环境温度
+        Offset : 25
+        Type : s
+        Unit : "℃"
+      - Name : 压缩机排气温度
+        Offset : 27
+        Type : s
+        Unit : "℃"
+      - Name : 室外湿度
+        Offset : 29
+        Type : s
+        Unit : "%"
+      - Name : 室内盘管/蒸发器盘管温度
+        Offset : 31
+        Type : s
+        Unit : "℃"
+      - Name : 压缩机运行时间
+        Offset : 33
+        Type : S
+        Unit : "小时"
+      - Name : 机组运行时间
+        Offset : 35
+        Type : S
+        Unit : "小时"
+  - CID1 : 0x60
+    CID2 : 0x43
+    Len : 10
+    Data : 
+      - Name : 空调状态
+        Offset : 1
+        Type : C
+        Options : 
+          - Key : 0
+            Value : 开机
+          - Key : 1
+            Value : 关机
+      - Name : 空调运行模式
+        Offset : 3
+        Type : C
+        Options : 
+          - Key : 0
+            Value : 自动
+          - Key : 1
+            Value : 制冷
+          - Key : 2
+            Value : 除湿
+          - Key : 3
+            Value : 送风
+          - Key : 4
+            Value : 制热
+      - Name : 内风机状态
+        Offset : 4
+        Type : C
+        Options : 
+          - Key : 0
+            Value : 停
+          - Key : 1
+            Value : 低风
+          - Key : 2
+            Value : 中风
+          - Key : 3
+            Value : 高风
+      - Name : 四通阀状态
+        Offset : 5
+        Type : C
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运转
+          - Key : 0x20
+            Value : 无
+      - Name : 压缩机状态
+        Offset : 6
+        Type : C
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运转
+      - Name : 外风机状态
+        Offset : 7
+        Type : C
+        Options : 
+          - Key : 0
+            Value : 停
+          - Key : 1
+            Value : 低风
+          - Key : 2
+            Value : 中风
+          - Key : 3
+            Value : 高风
+      - Name : 摆风状态
+        Offset : 8
+        Type : C
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运转
+          - Key : 0x20
+            Value : 无
+      - Name : 电加热状态
+        Offset : 9
+        Type : C
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运转
+          - Key : 0x20
+            Value : 无
+  - CID1 : 0x60
+    CID2 : 0x44
+    Len : 35
+    Data : 
+      - Name : A相交流电压UA低于下限
+        Type : C
+        Offset : 1
+        AlertAbnormalValue : 1
+        UnicomSignalId : 602415101
+        UnicomSignalName : 输入电源故障告警
+      - Name : A相交流电压UA高于上限
+        Type : C
+        Offset : 1
+        AlertAbnormalValue : 2
+        UnicomSignalId : 602415101
+        UnicomSignalName : 输入电源故障告警
+      - Name : B相交流电压UB低于下限
+        Type : C
+        Offset : 2
+        AlertAbnormalValue : 1
+        UnicomSignalId : 602415101
+        UnicomSignalName : 输入电源故障告警
+      - Name : B相交流电压UB高于上限
+        Type : C
+        Offset : 2
+        AlertAbnormalValue : 2
+        UnicomSignalId : 602415101
+        UnicomSignalName : 输入电源故障告警
+      - Name : C相交流电压UC低于下限
+        Type : C
+        Offset : 3
+        AlertAbnormalValue : 1
+        UnicomSignalId : 602415101
+        UnicomSignalName : 输入电源故障告警
+      - Name : C相交流电压UC高于上限
+        Type : C
+        Offset : 3
+        AlertAbnormalValue : 2
+        UnicomSignalId : 602415101
+        UnicomSignalName : 输入电源故障告警
+      - Name : A相交流电流IA低于下限
+        Type : C
+        Offset : 4
+        AlertAbnormalValue : 1
+        UnicomSignalId : 602415101
+        UnicomSignalName : 输入电源故障告警
+      - Name : A相交流电流IA高于上限
+        Type : C
+        Offset : 4
+        AlertAbnormalValue : 2
+        UnicomSignalId : 602415101
+        UnicomSignalName : 输入电源故障告警
+      - Name : B相交流电流IB低于下限
+        Type : C
+        Offset : 5
+        AlertAbnormalValue : 1
+        UnicomSignalId : 602415101
+        UnicomSignalName : 输入电源故障告警
+      - Name : B相交流电流IB高于上限
+        Type : C
+        Offset : 5
+        AlertAbnormalValue : 2
+        UnicomSignalId : 602415101
+        UnicomSignalName : 输入电源故障告警
+      - Name : C相交流电流IC低于下限
+        Type : C
+        Offset : 6
+        AlertAbnormalValue : 1
+        UnicomSignalId : 602415101
+        UnicomSignalName : 输入电源故障告警
+      - Name : C相交流电流IC高于上限
+        Type : C
+        Offset : 6
+        AlertAbnormalValue : 2
+        UnicomSignalId : 602415101001
+        UnicomSignalName : 输入电源故障告警
+      - Name : 回风温度低于下限
+        Type : C
+        Offset : 7
+        AlertAbnormalValue : 1
+        UnicomSignalId : 602243001001
+        UnicomSignalName : 室内环境温度低
+      - Name : 回风温度高于上限
+        Type : C
+        Offset : 7
+        AlertAbnormalValue : 2
+        UnicomSignalId : 602243003
+        UnicomSignalName : 室内环境温度高
+      - Name : 回风湿度低于下限
+        Type : C
+        Offset : 8
+        AlertAbnormalValue : 1
+        UnicomSignalId : 602243201001
+        UnicomSignalName : 室内环境湿度低
+      - Name : 回风湿度高于上限
+        Type : C
+        Offset : 8
+        AlertAbnormalValue : 2
+        UnicomSignalId : 602243203001
+        UnicomSignalName : 室内环境湿度高
+      - Name : 过滤网保护
+        Type : C
+        Offset : 9
+        AlertAbnormalValue : 0xF0
+        UnicomSignalId : 602432001001
+        UnicomSignalName : 过滤网堵塞告警
+      - Name : 压缩机保护
+        Type : C
+        Offset : 10
+        AlertAbnormalValue : 0xF0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警
+      - Name : 风机保护
+        Type : C
+        Offset : 11
+        AlertAbnormalValue : 0xF0
+        UnicomSignalId : 602431C01001
+        UnicomSignalName : 风机故障
+      - Name : 高压保护
+        Type : C
+        Offset : 13
+        AlertNormalValue : 0
+        UnicomSignalId : 602230E03001
+        UnicomSignalName : 压缩机排气压力高
+      - Name : 低压保护
+        Type : C
+        Offset : 14
+        AlertNormalValue : 0
+        UnicomSignalId : 602230D01001
+        UnicomSignalName : 压缩机吸气压力低
+      - Name : 排气温度保护
+        Type : C
+        Offset : 15
+        AlertNormalValue : 0
+        UnicomSignalId : 602432101001
+        UnicomSignalName : 压缩机过热告警
+      - Name : 内外机通讯故障
+        Type : C
+        Offset : 16
+        AlertNormalValue : 0
+        UnicomSignalId : 602400201001
+        UnicomSignalName : 通信故障告警
+      - Name : 室内环境温度传感器
+        Type : C
+        Offset : 17
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警
+      - Name : 内机盘管进口温度传感器
+        Type : C
+        Offset : 18
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警
+      - Name : 内机盘管中间温度传感器
+        Type : C
+        Offset : 19
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警
+      - Name : 内机盘管出口温度传感器
+        Type : C
+        Offset : 20
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警
+      - Name : 室外环境温度传感器
+        Type : C
+        Offset : 21
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警
+      - Name : 外机盘管温度传感器
+        Type : C
+        Offset : 23
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警
+      - Name : 排气温度传感器
+        Type : C
+        Offset : 24
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警
+      - Name : 相序错误
+        Type : C
+        Offset : 25
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警
+      - Name : 缺相保护
+        Type : C
+        Offset : 26
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警
+      - Name : 室外风机保护
+        Type : C
+        Offset : 27
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警
+      - Name : EEPROM故障
+        Type : C
+        Offset : 28
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警
+      - Name : 消防报警
+        Type : C
+        Offset : 29
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警
+      - Name : 室内湿度传感器
+        Type : C
+        Offset : 30
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警
+      - Name : 室外湿度传感器
+        Type : C
+        Offset : 31
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警
+      - Name : 系统异常
+        Type : C
+        Offset : 32
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警
+      - Name : 水浸告警
+        Type : C
+        Offset : 33
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警
+      - Name : 其他不正常告警
+        Type : C
+        Offset : 34
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警
+      - Name : 外机被盗告警
+        Type : C
+        Offset : 35
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警
+  - CID1 : 0x60
+    CID2 : 0x47
+    Len : 37
+    Data : 
+      - Name : 空调开机温度
+        Offset : 1
+        Type : S
+        Unit : "℃"
+      - Name : 空调关机温度
+        Offset : 3
+        Type : S
+        Unit : "℃"
+      - Name : 回风温度上限
+        Offset : 5
+        Type : S
+        Unit : "℃"
+      - Name : 回风温度下限
+        Offset : 7
+        Type : S
+        Unit : "℃"
+      - Name : 回风湿度上限
+        Offset : 9
+        Type : S
+        Unit : "℃"
+      - Name : 回风湿度下限
+        Offset : 11
+        Type : S
+        Unit : "℃"
+      - Name : 温度设定值
+        Offset : 13
+        Type : S
+        Unit : "℃"
+      - Name : 运行模式设定
+        Offset : 16
+        Type : S
+        Options : 
+          - Key : 0
+            Value : 自动
+          - Key : 1
+            Value : 制冷
+          - Key : 2
+            Value : 除湿
+          - Key : 3
+            Value : 送风
+          - Key : 4
+            Value : 制热
+      - Name : 内风机风速设定
+        Offset : 18
+        Type : S
+        Options : 
+          - Key : 0
+            Value : 停
+          - Key : 1
+            Value : 低风
+          - Key : 2
+            Value : 中风
+          - Key : 3
+            Value : 高风
+      - Name : 摆风功能设定
+        Offset : 20
+        Type : S
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运转
+      - Name : 屏蔽本地操作
+        Offset : 22
+        Type : S
+        Options : 
+          - Key : 0
+            Value : 允许本地操作
+          - Key : 1
+            Value : 屏蔽本地操作
+      - Name : 双机备份切换时间
+        Offset : 24
+        Type : S
+        Options : 
+          - Key : 0
+            Value : 不启用双机备份切换功能
+          - Key : 1
+            Value : 24小时设定有效
+      - Name : 高温同开温度设定
+        Offset : 26
+        Type : S
+      - Name : 制热模式温度设定值
+        Offset : 28
+        Type : S
+      - Name : 制冷温控精度
+        Offset : 30
+        Type : S
+      - Name : 制热温控精度
+        Offset : 30
+        Type : S
+SET_RET_CODE : |
+  case AC_Control_Code::AC_START: 
+      case AC_Control_Code::AC_STOP: {
+        cmd_result_ = 1;
+        Reset();
+        return false;
+      } 
+      case AC_Control_Code::AC_SET_TEMPERATURE:
+      case AC_Control_Code::AC_SET_HUMID: {
+        cmd_result_ = 1;
+        Reset();
+        return false;
+      }
+      
+SET_DO_CODE : |
+  std::string doId((char*)inBuffer, inBufferSize);
+  if(doId == "601500201001" || doId == "140800280010") {
+      //开机
+      state = AC_Control_Code::AC_START;
+      cmd_result_ = -1;
+      char cmd = 0x10;
+      write_pmbus_cmd ( 0x60, 0x45, (const uint8_t*)&cmd, 1);
+      return 0;
+  } else if(doId == "601500200001" || doId == "140800300010") {
+      //关机
+      state = AC_Control_Code::AC_STOP;
+      cmd_result_ = -1;
+      char cmd = 0x1F;
+      write_pmbus_cmd ( 0x60, 0x45, (const uint8_t*)&cmd, 1);
+      return 0;
+  }
+
+SET_AO_CODE: |
+  if(setting["signal_id"].asString() == "150800310010") {
+      if(setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
+          int16_t newValue = atoi(setting["SetValue"].asString().c_str());
+          //送风温度
+          state = AC_Control_Code::AC_SET_TEMPERATURE;
+          cmd_result_ = -1;
+          last_data_ = newValue;
+          uint8_t cmd[3];
+          cmd[0] = 0x86;
+          newValue = htons(newValue);
+          memcpy(cmd+1, &newValue, 2);
+          write_pmbus_cmd ( 0x60, 0x49, (const uint8_t*)cmd, 3);
+          return 0;                    
+      }
+  }
+
+
+      

@@ -1,0 +1,230 @@
+
+Project:
+  Name : GreeBMSAC
+  RT_ID : 5156
+  File : "格力风冷式模块化机房空调BMS(Modbus)通讯协议V2.pdf"
+  DevType : 2
+  ProtocolName : 格力风冷式模块化机房空调
+  Category : 精密空调
+Sample :
+  - Cmd : 3
+    Offset : 1
+    Len : 4
+    Data : 
+      - Name : 设定温度
+        Ratio : 10
+        Unit : "℃"
+      - Name : 设定湿度
+        Unit : "%"
+      - Name : 温度精度设定
+        Ratio : 100
+      - Name : 湿度精度设定
+        Ratio : 100
+  - Cmd : 3
+    Offset : 7
+    Len : 4
+    Data : 
+      - Name : 回风温度波动上限设定
+        Unit : "℃"
+      - Name : 回风温度波动下限设定
+        Unit : "℃"
+      - Name : 回风湿度波动上限设定
+        Unit : "%"
+      - Name : 回风湿度波动下限设定
+        Unit : "%"
+  - Cmd : 3
+    Offset : 13
+    Len : 2
+    Data : 
+      - Name : 机组开/关机设定
+        Options : 
+          - Key : 0x55
+            Value : 关机
+          - Key : 0xAA
+            Value : 开机
+      - Name : 屏蔽触摸屏设定
+        Options : 
+          - Key : 0
+            Value : 不屏蔽
+          - Key : 1
+            Value : 屏蔽
+  - Cmd : 3
+    Offset : 22
+    Len : 15
+    Data : 
+      - Name : 回风温度
+        Ratio : 10
+        Unit : "℃"
+      - Name : 回风湿度
+        Unit : "%"
+      - Name : 送风温度
+        Ratio : 10
+        Unit : "℃"
+      - Name : 送风湿度
+        Unit : "%"
+      - Name : 整机故障
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警
+      - Name : 运行状态
+        Options : 
+          - Key : 0
+            Value : 关机
+          - Key : 1
+            Value : 开机
+      - Name : 运行模式
+        Options : 
+          - Key : 0
+            Value : 关机
+          - Key : 1
+            Value : 制冷
+          - Key : 2
+            Value : 制热
+          - Key : 3
+            Value : 加湿
+          - Key : 4
+            Value : 除湿
+          - Key : 5
+            Value : 送风
+          - Key : 6
+            Value : 制冷（加湿）
+          - Key : 7
+            Value : 制冷（除湿）
+          - Key : 8
+            Value : 制热（加湿）
+          - Key : 9
+            Value : 送风（加湿）
+      - Name : 自动模式
+        Options : 
+          - Key : 0
+            Value : 自动
+          - Key : 1
+            Value : 1
+      - Name : 过滤器堵塞
+        AlertNormalValue : 0
+        UnicomSignalId : 602432001001
+        UnicomSignalName : 过滤网堵塞告警
+      - Name : 地面有水报警
+        AlertNormalValue : 0
+        UnicomSignalId : 602460601001
+        UnicomSignalName : 水浸告警
+      - Name : 冷凝水排水异常报警
+        AlertNormalValue : 0
+        UnicomSignalId : 602432C01001
+        UnicomSignalName : 溢水告警
+      - Name : 内风机
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : 压缩机
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : 电加热
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : 加湿器
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+  - Cmd : 3
+    Offset : 38
+    Len : 6
+    Data : 
+      - Name : 冷凝水高水位报警
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : 内风机故障
+        AlertNormalValue : 0
+        UnicomSignalId : 602431901001
+        UnicomSignalName : 风机过载告警
+      - Name : 压缩机故障
+        AlertNormalValue : 0
+        UnicomSignalId : 602432201001
+        UnicomSignalName : 压缩机过载告警
+      - Name : 电加热故障
+        AlertNormalValue : 0
+        UnicomSignalId : 602432501001
+        UnicomSignalName : 加热器过热告警
+      - Name : 加湿器故障
+        AlertNormalValue : 0
+        UnicomSignalId : 602432301001
+        UnicomSignalName : 加湿器故障告警
+      - Name : 外机故障
+        AlertNormalValue : 0
+        UnicomSignalId : 602431C01001
+        UnicomSignalName : 风机故障
+  - Cmd : 3
+    Offset : 48
+    Len : 4
+    Data : 
+      - Name : 回风温度过高波动超限报警
+        AlertNormalValue : 0
+        UnicomSignalId : 602243003001
+        UnicomSignalName : 室内环境温度高
+      - Name : 回风温度过低波动超限报警
+        AlertNormalValue : 0
+        UnicomSignalId : 602243001001
+        UnicomSignalName : 室内环境温度低
+      - Name : 回风湿度过高波动超限报警
+        AlertNormalValue : 0
+        UnicomSignalId : 602243203001
+        UnicomSignalName : 室内环境湿度高
+      - Name : 回风湿度过低波动超限报警
+        AlertNormalValue : 0
+        UnicomSignalId : 602243201001
+        UnicomSignalName : 室内环境湿度低
+  - Cmd : 3
+    Offset : 54
+    Len : 3
+    Data : 
+      - Name : 温度波动超限
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101
+        UnicomSignalName : 其它故障告警
+      - Name : 电源故障
+        AlertNormalValue : 0
+        UnicomSignalId : 602415101001
+        UnicomSignalName : 输入电源故障告警
+      - Name : 触摸屏通讯故障
+        AlertNormalValue : 0
+        UnicomSignalId : 602400201001
+        UnicomSignalName : 通信故障告警
+  - Cmd : 3
+    Offset : 59
+    Len : 7
+    Data : 
+      - Name : 低风压报警
+        AlertNormalValue : 0
+        UnicomSignalId : 602431F01001
+        UnicomSignalName : 气流丢失告警
+      - Name : 压缩机高压保护
+        AlertNormalValue : 0
+        UnicomSignalId : 602230E03001
+        UnicomSignalName : 压缩机排气压力高
+      - Name : 压缩机低压保护
+        AlertNormalValue : 0
+        UnicomSignalId : 602230D01001
+        UnicomSignalName : 压缩机吸气压力低
+      - Name : 内风机运行时间
+        Unit : 小时
+      - Name : 压缩机运行时间
+        Unit : 小时
+      - Name : 加湿器运行时间
+        Unit : 小时
+      - Name : 电加热运行时间
+        Unit : 小时
+      
+      

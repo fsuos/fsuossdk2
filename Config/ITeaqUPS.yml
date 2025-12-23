@@ -2,8 +2,11 @@ Project:
   Name : ITeaqUPS
   RT_ID : 5156
   File : "UPS MODBUS协议_客户端对外_标准机.pdf"
+  DevType : 2
+  ProtocolName : 艾特网能UPS
+  Category : UPS
 Sample : 
-  - Cmd : 3
+  - Cmd : 4
     Offset : 1
     Len : 55
     Data : 
@@ -193,7 +196,7 @@ Sample :
         Ratio : 10
         Unit : "V"
         Offset : 55
-  - Cmd : 3
+  - Cmd : 4
     Offset : 71
     Len : 1
     Data : 
@@ -228,7 +231,7 @@ Sample :
             Value : UPS重新初始化状态
           - Key : 13
             Value : 联合供电
-  - Cmd : 3
+  - Cmd : 4
     Offset : 81
     Len : 38
     Data :

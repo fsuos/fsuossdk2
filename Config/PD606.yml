@@ -1,0 +1,159 @@
+Project:
+  Name : PD606
+  RT_ID : 5156
+  File : "PD606三相数显式组合、多功能表2024.03.15.pdf"
+  DevType : 2
+  Category : 智能电表
+  ProtocolName : PD606
+Sample : 
+  - Cmd : 3
+    Offset : 3
+    Len : 2
+    Data : 
+      - Name : PT
+      - Name : CT
+  - Cmd : 3
+    Offset : 0x23
+    Len : 2
+    Data : 
+      - Name : 电压小数点位置
+        Value : ($v[1]>>8)
+        CValue : (pData[0]>>8)
+      - Name : 电流小数点位置
+        Value : ($v[1]&0xF)
+        CValue : (pData[0]&0xF)
+      - Name : 功率小数点位置
+        Value : ($v[2]>>8)
+        CValue : (pData[1]&0xF)
+      - Name : 功率符号
+        Value : ($v[2]&0xF)
+        CValue : '(pData[1]&0xF) ? 1 : -1'
+  - Cmd : 3
+    Offset : 0x25
+    Len : 34
+    Data : 
+      - Name : A相电压
+        Value : $v[1]/10000* pow(10, $dataArray["电压小数点位置"])
+        CValue : ((float)pData[0])/10000* pow(10, jsonValue["电压小数点位置"].asFloat())
+        Unit : V
+      - Name : B相电压
+        Value : $v[2]/10000* pow(10, $dataArray["电压小数点位置"])
+        CValue : ((float)pData[1])/10000* pow(10, jsonValue["电压小数点位置"].asFloat())
+        Unit : V
+      - Name : C相电压
+        Value : $v[3]/10000* pow(10, $dataArray["电压小数点位置"])
+        CValue : ((float)pData[2])/10000* pow(10, jsonValue["电压小数点位置"].asFloat())
+        Unit : V
+      - Name : AB线电压
+        Value : $v[4]/10000* pow(10, $dataArray["电压小数点位置"])
+        CValue : ((float)pData[3])/10000* pow(10, jsonValue["电压小数点位置"].asFloat())
+        Unit : V
+      - Name : BC线电压
+        Value : $v[5]/10000* pow(10, $dataArray["电压小数点位置"])
+        CValue : ((float)pData[4])/10000* pow(10, jsonValue["电压小数点位置"].asFloat())
+        Unit : V
+      - Name : CA线电压
+        Value : $v[6]/10000* pow(10, $dataArray["电压小数点位置"])
+        CValue : ((float)pData[5])/10000* pow(10, jsonValue["电压小数点位置"].asFloat())
+        Unit : V
+      - Name : A相电流
+        Value : $v[7]/10000* pow(10, $dataArray["电流小数点位置"])
+        CValue : ((float)pData[6])/10000* pow(10, jsonValue["电流小数点位置"].asFloat())
+        Unit : A
+      - Name : B相电流
+        Value : $v[8]/10000* pow(10, $dataArray["电流小数点位置"])
+        CValue : ((float)pData[7])/10000* pow(10, jsonValue["电流小数点位置"].asFloat())
+        Unit : A
+      - Name : C相电流
+        Value : $v[9]/10000* pow(10, $dataArray["电流小数点位置"])
+        CValue : ((float)pData[8])/10000* pow(10, jsonValue["电流小数点位置"].asInt())
+        Unit : A
+      - Name : A相有功功率
+        Value : $v[10]/10000* pow(10, $dataArray["功率小数点位置"])*$dataArray["功率符号"] *$dataArray["CT"] / 1000
+        CValue : ((float)pData[9])/10000* pow(10, jsonValue["功率小数点位置"].asInt()) * jsonValue["功率符号"].asInt() * jsonValue["CT"].asInt() / 1000
+        Unit : kW
+      - Name : B相有功功率
+        Value : $v[11]/10000* pow(10, $dataArray["功率小数点位置"])*$dataArray["功率符号"] *$dataArray["CT"] / 1000
+        CValue : ((float)pData[10])/10000* pow(10, jsonValue["功率小数点位置"].asInt()) * jsonValue["功率符号"].asInt() * jsonValue["CT"].asInt()/ 1000
+        Unit : kW
+      - Name : C相有功功率
+        Value : $v[12]/10000* pow(10, $dataArray["功率小数点位置"])*$dataArray["功率符号"] *$dataArray["CT"] / 1000
+        CValue : ((float)pData[11])/10000* pow(10, jsonValue["功率小数点位置"].asInt()) * jsonValue["功率符号"].asInt() * jsonValue["CT"].asInt()/ 1000
+        Unit : kW
+      - Name : 总有功功率
+        Value : $v[13]/10000* pow(10, $dataArray["功率小数点位置"])*$dataArray["功率符号"] *$dataArray["CT"] / 1000
+        CValue : ((float)pData[12])/10000* pow(10, jsonValue["功率小数点位置"].asInt()) * jsonValue["功率符号"].asInt() * jsonValue["CT"].asInt()/ 1000
+        Unit : kW
+      - Name : A相无功功率
+        Value : $v[14]/10000* pow(10, $dataArray["功率小数点位置"])*$dataArray["功率符号"] *$dataArray["CT"] / 1000
+        CValue : ((float)pData[13])/10000* pow(10, jsonValue["功率小数点位置"].asInt()) * jsonValue["功率符号"].asInt() * jsonValue["CT"].asInt()/ 1000
+        Unit : kVar
+      - Name : B相无功功率
+        Value : $v[15]/10000* pow(10, $dataArray["功率小数点位置"])*$dataArray["功率符号"] *$dataArray["CT"] / 1000
+        CValue : ((float)pData[14])/10000* pow(10, jsonValue["功率小数点位置"].asInt()) * jsonValue["功率符号"].asInt() * jsonValue["CT"].asInt()/ 1000
+        Unit : kVar
+      - Name : C相无功功率
+        Value : $v[16]/10000* pow(10, $dataArray["功率小数点位置"])*$dataArray["功率符号"] *$dataArray["CT"] / 1000
+        CValue : ((float)pData[15])/10000* pow(10, jsonValue["功率小数点位置"].asInt()) * jsonValue["功率符号"].asInt() * jsonValue["CT"].asInt()/ 1000
+        Unit : kVar
+      - Name : 总无功功率
+        Value : $v[17]/10000* pow(10, $dataArray["功率小数点位置"])*$dataArray["功率符号"] *$dataArray["CT"] / 1000
+        CValue : ((float)pData[16])/10000* pow(10, jsonValue["功率小数点位置"].asInt()) * jsonValue["功率符号"].asInt() * jsonValue["CT"].asInt()/ 1000
+        Unit : kVar
+      - Name : A相功率因数
+        Offset : 18
+        Ratio : 1000
+      - Name : B相功率因数
+        Offset : 19
+        Ratio : 1000
+      - Name : C相功率因数
+        Offset : 20
+        Ratio : 1000
+      - Name : 总功率因数
+        Offset : 21
+        Ratio : 1000
+      - Name : A相视在功率
+        Value : $v[22]/10000* pow(10, $dataArray["功率小数点位置"]) * $dataArray["功率符号"] *$dataArray["CT"] / 1000
+        CValue : ((float)pData[21])/10000* pow(10, jsonValue["功率小数点位置"].asInt())* jsonValue["功率符号"].asInt() * jsonValue["CT"].asInt()/ 1000
+      - Name : B相视在功率
+        Value : $v[23]/10000* pow(10, $dataArray["功率小数点位置"]) * $dataArray["功率符号"] *$dataArray["CT"] / 1000
+        CValue : ((float)pData[22])/10000* pow(10, jsonValue["功率小数点位置"].asInt())* jsonValue["功率符号"].asInt() * jsonValue["CT"].asInt()/ 1000
+      - Name : C相视在功率
+        Value : $v[24]/10000* pow(10, $dataArray["功率小数点位置"]) * $dataArray["功率符号"] *$dataArray["CT"] / 1000
+        CValue : ((float)pData[23])/10000* pow(10, jsonValue["功率小数点位置"].asInt())* jsonValue["功率符号"].asInt() * jsonValue["CT"].asInt()/ 1000
+      - Name : 总视在功率
+        Value : $v[25]/10000* pow(10, $dataArray["功率小数点位置"]) * $dataArray["功率符号"] *$dataArray["CT"] / 1000
+        CValue : ((float)pData[24])/10000* pow(10, jsonValue["功率小数点位置"].asInt())* jsonValue["功率符号"].asInt() * jsonValue["CT"].asInt()/ 1000
+      - Name : 频率
+        Ratio : 100
+        Offset : 26
+        Unit : Hz
+      - Name : 二次侧正向有功电能
+        Value : (($v[27] << 16) | $v[28])/1000
+        CValue : ((pData[26] << 16) | pData[27])/1000
+        Unit : kWh
+      - Name : 二次侧反向有功电能
+        Value : (($v[29] << 16) | $v[30])/1000
+        CValue : ((pData[28] << 16) | pData[29])/1000
+        Unit : kWh
+      - Name : 二次侧正向无功电能
+        Value : (($v[31] << 16) | $v[32])/1000
+        CValue : ((pData[30] << 16) | pData[31])/1000
+        Unit : kVarh
+      - Name : 二次侧反向无功电能
+        Value : (($v[33] << 16) | $v[34])/1000
+        CValue : ((pData[32] << 16) | pData[33])/1000
+        Unit : kVarh
+  - Cmd : 3
+    Offset : 0x47
+    Len : 8
+    RType : 'f'
+    Data : 
+      - Name : 一次侧正向有功电能
+        Unit : kWh
+      - Name : 一次侧反向有功电能
+        Unit : kWh
+      - Name : 一次侧正向无功电能
+        Unit : kVarh
+      - Name : 一次侧反向无功电能
+        Unit : kVarh

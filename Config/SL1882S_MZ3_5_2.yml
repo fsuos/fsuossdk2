@@ -86,8 +86,8 @@ Sample :
       - Name : "消防报警"
         Offset : 39
         AlertNormalValue : 0
-        TelePSignalId : 12006
-        TelePSignalName : SIGNAME_12006
+        TeleSignalId : 12083017
+        TeleSignalName : 专用空调其他告警
       - Name : "1#气管温度故障"
         Offset : 47
         AlertNormalValue : 0
@@ -106,13 +106,13 @@ Sample :
       - Name : "1#液管温度故障"
         Offset : 51
         AlertNormalValue : 0
-        TelePSignalId : 12006
-        TelePSignalName : SIGNAME_12006
+        TeleSignalId : 12083017
+        TeleSignalName : 专用空调其他告警
       - Name : "2#气管温度故障"
         Offset : 53
         AlertNormalValue : 0
-        TelePSignalId : 12006
-        TelePSignalName : SIGNAME_12006
+        TeleSignalId : 12083017
+        TeleSignalName : 专用空调其他告警
       - Name : "2#液管温度故障"
         Offset : 54
         AlertNormalValue : 0

@@ -1,0 +1,64 @@
+Project:
+  Name : HGXY_SPS
+  RT_ID : 5156
+  File : "模拟宏光星宇开关电源数据"
+  DevType : 2
+  ProtocolName : 宏光星宇开关电源
+  Category : 开关电源
+  TestMode : 1
+Sample : 
+  - Cmd : 3
+    Offset : 0
+    Len : 14
+    Data : 
+      - Name : 直流输出电压
+        Default : 53.6
+        Unit : V
+      - Name : 负载电流
+        Default : 2.5
+        Unit : A
+      - Name : 电池电流
+        Default : 0.1
+        Unit : A
+      - Name : 电池温度
+        Default : 16
+        Unit : ℃
+      - Name : 电池组剩余容量百分比
+        Default : 99
+        Unit : "%"
+      - Name : 电池充电过流
+        Default : 0
+        AlertNormalValue : 0
+      - Name : 电池温度过高
+        Default : 0
+        AlertNormalValue : 0
+      - Name : 直流输出电压过低
+        Default : 0
+        AlertNormalValue : 0
+      - Name : 直流输出电压过高
+        Default : 0
+        AlertNormalValue : 0
+      - Name : 交流输入电压过高
+        Default : 0
+        AlertNormalValue : 0
+      - Name : 交流输入电压过低
+        Default : 0
+        AlertNormalValue : 0
+      - Name : 交流输入停电
+        Default : 0
+        AlertNormalValue : 0
+      - Name : 整流模块故障
+        Default : 0
+        AlertNormalValue : 0
+      - Name : 输入断电
+        Default : 0
+        AlertNormalValue : 0
+      - Name : 电源故障
+        Default : 0
+        AlertNormalValue : 0
+      - Name : 电池故障
+        Default : 0
+        AlertNormalValue : 0
+      - Name : 电源或电池保护
+        Default : 0
+        AlertNormalValue : 0

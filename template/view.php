@@ -33,11 +33,11 @@ function _{{ Project.Name|lower }}_{{ key }}(&$signalList, $prefix, $index{% if 
         {% if d.ArrayStart is defined %}
           for($i={{d.ArrayStart}};$i<={{d.ArrayEnd}};$i++)
           {
-            _{{ Project.Name|lower }}_{{ d.ArrayBlock }}($signalList, {% if d.Prefix is defined %}"{{d.Prefix}}"{%else%}""{%endif%}, $index + $i);
+            _{{ Project.Name|lower }}_{{ d.ArrayBlock }}($signalList, $prefix, $index + $i);
           }
         {% endif %}
       {% elif d.Block is defined %}
-      _{{ Project.Name|lower }}_{{ d.Block }}($signalList, {% if d.Prefix is defined %}"{{d.Prefix}}"{%else%}""{%endif%}, {% if d.Prefix is defined %}"{{d.Prefix}}"{%else%}""{%endif%}, $index {% if d.index is defined %}+ {{ d.index }}{% endif %} );
+      _{{ Project.Name|lower }}_{{ d.Block }}($signalList, $prefix, $index {% if d.index is defined %}+ {{ d.index }}{% endif %} );
       {% else %}        
         {% if d.ArrayName is defined %}
         for($i=1;$i<={{ d.ArrayLength }};$i++){

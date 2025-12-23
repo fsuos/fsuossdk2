@@ -525,14 +525,11 @@ Sample :
       - Name : "输入W相电压"
         Ratio : 10
         Unit : "V"
-      - Name : "输入U相电压"
-        Ratio : 10
+      - Name : "输入U相电流"
         Unit : "A"
       - Name : "输入V相电流"
-        Ratio : 10
         Unit : "A"
       - Name : "输入W相电流"
-        Ratio : 10
         Unit : "A"
       - Name : "输出工作方式"
         Options : 
@@ -556,13 +553,13 @@ Sample :
         Ratio : 100
       - Name : 输出U相电压
         Ratio : 10
-        Unit : hz
+        Unit : V
       - Name : 输出V相电压
         Ratio : 10
-        Unit : hz
+        Unit : V
       - Name : 输出W相电压
         Ratio : 10
-        Unit : hz
+        Unit : V
       - Name : 输出U相电流
         Unit : A
       - Name : 输出V相电流
@@ -571,13 +568,22 @@ Sample :
         Unit : A
       - Name : 输出U相有功功率
         Unit : kW
-        Rato : 10
+        Ratio : 10
       - Name : 输出V相有功功率
         Unit : kW
-        Rato : 10
+        Ratio : 10
       - Name : 输出W相有功功率
         Unit : kW
-        Rato : 10
+        Ratio : 10
+      - Name : 输出U相负载率
+        Ratio : 10
+        Unit : '%'
+      - Name : 输出V相负载率
+        Ratio : 10
+        Unit : '%'
+      - Name : 输出W相负载率
+        Ratio : 10
+        Unit : '%'
       - Name : 旁路相数
       - Name : 旁路输入频率
         Unit : Hz

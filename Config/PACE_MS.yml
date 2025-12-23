@@ -1,0 +1,681 @@
+Project:
+  Name : PACE_MS
+  RT_ID : 5156
+  File : "000-PACE RS485 TX MS V1.3-2023.06-15.pdf 本协议统一采用定点数传输数据"
+  DevType : 2
+  ProtocolName : 沛城蓄电池电总
+  Category : 蓄电池
+  Version : 0x25
+  GenCmd : ./gen_pmbus_driver.sh PACE_MS
+Sample : 
+  - CID1 : 0x46
+    CID2 : 0x42
+    Info:  addr_
+    InfoLen : 1
+    Len : 60
+    Data : 
+      - Name : 电池单体个数
+        Offset : 2
+        Type : C
+      - Name : 电池单体电压1
+        Offset : 3
+        Type : S
+        Ratio : 100
+        Unit : V
+      - Name : 电池单体电压2
+        Offset : 5
+        Type : S
+        Ratio : 100
+        Unit : V
+      - Name : 电池单体电压3
+        Offset : 7
+        Type : S
+        Ratio : 100
+        Unit : V
+      - Name : 电池单体电压5
+        Offset : 9
+        Type : S
+        Ratio : 100
+        Unit : V
+      - Name : 电池单体电压7
+        Offset : 11
+        Type : S
+        Ratio : 100
+        Unit : V
+      - Name : 电池单体电压8
+        Offset : 13
+        Type : S
+        Ratio : 100
+        Unit : V
+      - Name : 电池单体电压9
+        Offset : 15
+        Type : S
+        Ratio : 100
+        Unit : V
+      - Name : 电池单体电压10
+        Offset : 17
+        Type : S
+        Ratio : 100
+        Unit : V
+      - Name : 电池单体电压11
+        Offset : 19
+        Type : S
+        Ratio : 100
+        Unit : V
+      - Name : 电池单体电压13
+        Offset : 19
+        Type : S
+        Ratio : 100
+        Unit : V
+      - Name : 电池单体电压14
+        Offset : 21
+        Type : S
+        Ratio : 100
+        Unit : V
+      - Name : 电池单体电压15
+        Offset : 23
+        Type : S
+        Ratio : 100
+        Unit : V
+      - Name : 电池单体电压16
+        Offset : 25
+        Type : S
+        Ratio : 100
+        Unit : V
+      - Name : 监测温度个数
+        Offset : 15
+        Type : C
+      - Name : 温度1
+        Offset : 17
+        Type : S
+        Ratio : 100
+        Unit : "℃"
+      - Name : 温度2
+        Offset : 19
+        Type : S
+        Ratio : 100
+        Unit : "℃"
+      - Name : 电流
+        Offset : 21
+        Type : s
+        Unit : mA
+      - Name : 总电压
+        Offset : 23
+        Type : S
+        Unit : V
+      - Name : 剩余容量
+        Offset : 25
+        Type : S
+        Unit : mAh
+      - Name : 满充容量
+        Offset : 28
+        Type : S
+        Unit : mAh
+      - Name : 充放电循环次数
+        Offset : 30
+        Type : S
+        Unit : mAh
+      - Name : 设计容量
+        Offset : 32
+        Type : S
+        Unit : mAh
+  - CID1 : 0x46
+    CID2 : 0x44
+    Info:  addr_
+    InfoLen : 1
+    Len : 60
+    Data : 
+      - Name : 电池单体电压1告警
+        Offset : 3
+        Type : C
+        AlertNormalValue : 0
+      - Name : 电池单体电压2告警
+        Offset : 4
+        Type : C
+        AlertNormalValue : 0
+      - Name : 电池单体电压3告警
+        Offset : 5
+        Type : C
+        AlertNormalValue : 0
+      - Name : 电池单体电压4告警
+        Offset : 6
+        Type : C
+        AlertNormalValue : 0
+      - Name : 电池单体电压5告警
+        Offset : 7
+        Type : C
+        AlertNormalValue : 0
+      - Name : 电池单体电压6告警
+        Offset : 8
+        Type : C
+        AlertNormalValue : 0
+      - Name : 温度1告警
+        Offset : 10
+        Type : C
+        AlertNormalValue : 0
+      - Name : 温度1告警
+        Offset : 11
+        Type : C
+        AlertNormalValue : 0
+      - Name : 充电电流告警
+        Offset : 12
+        Type : C
+        AlertNormalValue : 0
+      - Name : 总电压告警
+        Offset : 12
+        Type : C
+        AlertNormalValue : 0
+      - Name : 放电电流告警
+        Offset : 12
+        Type : C
+        AlertNormalValue : 0
+      #保护状态1
+      - Name : 单体过压保护
+        Offset : 13
+        Value : ($v[1]) & 0x1
+        CValue : (pData[0]) & 0x1
+        AlertNormalValue : 0
+      - Name : 单体过放保护
+        Offset : 13
+        Value : ($v[1] >> 1) & 0x1
+        CValue : (pData[0] >> 1) & 0x1
+        AlertNormalValue : 0
+      - Name : 总压过压保护
+        Offset : 13
+        Value : ($v[1] >> 2) & 0x1
+        CValue : (pData[0] >> 2) & 0x1
+        AlertNormalValue : 0
+      - Name : 总压过放保护
+        Offset : 13
+        Value : ($v[1] >> 3) & 0x1
+        CValue : (pData[0] >> 3) & 0x1
+        AlertNormalValue : 0
+      - Name : 充电过流保护
+        Offset : 13
+        Value : ($v[1] >> 4) & 0x1
+        CValue : (pData[0] >> 4) & 0x1
+        AlertNormalValue : 0
+      - Name : 放电过流保护
+        Offset : 13
+        Value : ($v[1] >> 5) & 0x1
+        CValue : (pData[0] >> 5) & 0x1
+        AlertNormalValue : 0
+      - Name : 短路
+        Offset : 13
+        Value : ($v[1] >> 6) & 0x1
+        CValue : (pData[0] >> 6) & 0x1
+        AlertNormalValue : 0
+      - Name : 气溶胶告警（灭火器）
+        Offset : 13
+        Value : ($v[1] >> 7) & 0x1
+        CValue : (pData[0] >> 7) & 0x1
+        AlertNormalValue : 0
+      #保护状态2
+      - Name : 充电高温保护（电芯）
+        Offset : 14
+        Value : ($v[1]) & 0x1
+        CValue : (pData[0]) & 0x1
+        AlertNormalValue : 0
+      - Name : 放电高温保护（电芯）
+        Offset : 14
+        Value : ($v[1] >> 1) & 0x1
+        CValue : (pData[0] >> 1) & 0x1
+        AlertNormalValue : 0
+      - Name : 充电低温保护（电芯）
+        Offset : 14
+        Value : ($v[1] >> 2) & 0x1
+        CValue : (pData[0] >> 2) & 0x1
+        AlertNormalValue : 0
+      - Name : 放电低温保护（电芯）
+        Offset : 14
+        Value : ($v[1] >> 3) & 0x1
+        CValue : (pData[0] >> 3) & 0x1
+        AlertNormalValue : 0
+      - Name : MOS高温保护
+        Offset : 14
+        Value : ($v[1] >> 4) & 0x1
+        CValue : (pData[0] >> 4) & 0x1
+        AlertNormalValue : 0
+      - Name : 环境高温保护
+        Offset : 14
+        Value : ($v[1] >> 5) & 0x1
+        CValue : (pData[0] >> 5) & 0x1
+        AlertNormalValue : 0
+      - Name : 环境低温保护
+        Offset : 14
+        Value : ($v[1] >> 6) & 0x1
+        CValue : (pData[0] >> 6) & 0x1
+        AlertNormalValue : 0
+      - Name : Fully（充满）
+        Offset : 14
+        Value : ($v[1] >> 7) & 0x1
+        CValue : (pData[0] >> 7) & 0x1
+        AlertNormalValue : 0
+      #指示状态
+      - Name : 限流指示
+        Offset : 15
+        Value : ($v[1]) & 0x1
+        CValue : (pData[0]) & 0x1
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : CFET指示
+        Offset : 15
+        Value : ($v[1] >> 1) & 0x1
+        CValue : (pData[0] >> 1) & 0x1
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : DFET指示
+        Offset : 15
+        Value : ($v[1] >> 2) & 0x1
+        CValue : (pData[0] >> 2) & 0x1
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      - Name : 使用Pack供电指示
+        Offset : 15
+        Value : ($v[1] >> 3) & 0x1
+        CValue : (pData[0] >> 3) & 0x1
+        Options : 
+          - Key : 0
+            Value : 未使用
+          - Key : 1
+            Value : Pack供电
+      - Name : 充电器反接指示
+        Offset : 15
+        Value : ($v[1] >> 4) & 0x1
+        CValue : (pData[0] >> 4) & 0x1
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 反接
+      - Name : ACin
+        Offset : 15
+        Value : ($v[1] >> 5) & 0x1
+        CValue : (pData[0] >> 5) & 0x1
+        Options : 
+          - Key : 0
+            Value : 无
+          - Key : 1
+            Value : 有
+      - Name : 加热膜指示
+        Offset : 15
+        Value : ($v[1] >> 7) & 0x1
+        CValue : (pData[0] >> 7) & 0x1
+        Options : 
+          - Key : 0
+            Value : 关
+          - Key : 1
+            Value : 开
+      #控制状态
+      - Name : 蜂鸣器告警功能
+        Offset : 16
+        Value : ($v[1]) & 0x1
+        CValue : (pData[0]) & 0x1
+        Options : 
+          - Key : 0
+            Value : 屏蔽
+          - Key : 1
+            Value : 使能
+      - Name : 充电限流功能
+        Offset : 16
+        Value : ($v[1] >> 4) & 0x1
+        CValue : (pData[0] >> 4) & 0x1
+        Options : 
+          - Key : 0
+            Value : 使能
+          - Key : 1
+            Value : 屏蔽
+      - Name : LED告警功能
+        Offset : 16
+        Value : ($v[1] >> 5) & 0x1
+        CValue : (pData[0] >> 5) & 0x1
+        Options : 
+          - Key : 0
+            Value : 使能
+          - Key : 1
+            Value : 屏蔽
+      #故障状态
+      - Name : 充电MOS故障
+        Offset : 17
+        Value : ($v[1]) & 0x1
+        CValue : (pData[0]) & 0x1
+        AlertNormalValue : 0
+      - Name : 放电MOS故障
+        Offset : 17
+        Value : ($v[1] >> 1) & 0x1
+        CValue : (pData[0] >> 1) & 0x1
+        AlertNormalValue : 0
+      - Name : 温度传感器故障（NTC）
+        Offset : 17
+        Value : ($v[1] >> 2) & 0x1
+        CValue : (pData[0] >> 2) & 0x1
+        AlertNormalValue : 0
+      - Name : 电芯故障
+        Offset : 17
+        Value : ($v[1] >> 4) & 0x1
+        CValue : (pData[0] >> 4) & 0x1
+        AlertNormalValue : 0
+      - Name : 采样故障
+        Offset : 17
+        Value : ($v[1] >> 5) & 0x1
+        CValue : (pData[0] >> 5) & 0x1
+        AlertNormalValue : 0
+      - Name : 加热膜故障
+        Offset : 14
+        Value : ($v[1] >> 7) & 0x1
+        CValue : (pData[0] >> 7) & 0x1
+        AlertNormalValue : 0
+      #均衡状态 1
+      - Name : 1串均衡状态
+        Offset : 16
+        Value : ($v[1]) & 0x1
+        CValue : (pData[0]) & 0x1
+        Options : 
+          - Key : 0
+            Value : 不均衡
+          - Key : 1
+            Value : 均衡
+      - Name : 2串均衡状态
+        Offset : 16
+        Value : ($v[1] >> 1) & 0x1
+        CValue : (pData[0] >> 1) & 0x1
+        Options : 
+          - Key : 0
+            Value : 不均衡
+          - Key : 1
+            Value : 均衡
+      - Name : 3串均衡状态
+        Offset : 16
+        Value : ($v[1] >> 2) & 0x1
+        CValue : (pData[0] >> 2) & 0x1
+        Options : 
+          - Key : 0
+            Value : 不均衡
+          - Key : 1
+            Value : 均衡
+      - Name : 4串均衡状态
+        Offset : 16
+        Value : ($v[1] >> 3) & 0x1
+        CValue : (pData[0] >> 3) & 0x1
+        Options : 
+          - Key : 0
+            Value : 不均衡
+          - Key : 1
+            Value : 均衡
+      - Name : 5串均衡状态
+        Offset : 16
+        Value : ($v[1] >> 4) & 0x1
+        CValue : (pData[0] >> 4) & 0x1
+        Options : 
+          - Key : 0
+            Value : 不均衡
+          - Key : 1
+            Value : 均衡
+      - Name : 6串均衡状态
+        Offset : 16
+        Value : ($v[1] >> 5) & 0x1
+        CValue : (pData[0] >> 5) & 0x1
+        Options : 
+          - Key : 0
+            Value : 不均衡
+          - Key : 1
+            Value : 均衡
+      - Name : 7串均衡状态
+        Offset : 16
+        Value : ($v[1] >> 6) & 0x1
+        CValue : (pData[0] >> 6) & 0x1
+        Options : 
+          - Key : 0
+            Value : 不均衡
+          - Key : 1
+            Value : 均衡
+      - Name : 8串均衡状态
+        Offset : 16
+        Value : ($v[1] >> 7) & 0x1
+        CValue : (pData[0] >> 7) & 0x1
+        Options : 
+          - Key : 0
+            Value : 不均衡
+          - Key : 1
+            Value : 均衡
+      #均衡状态 2
+      - Name : 9串均衡状态
+        Offset : 17
+        Value : ($v[1]) & 0x1
+        CValue : (pData[0]) & 0x1
+        Options : 
+          - Key : 0
+            Value : 不均衡
+          - Key : 1
+            Value : 均衡
+      - Name : 10串均衡状态
+        Offset : 17
+        Value : ($v[1] >> 1) & 0x1
+        CValue : (pData[0] >> 1) & 0x1
+        Options : 
+          - Key : 0
+            Value : 不均衡
+          - Key : 1
+            Value : 均衡
+      - Name : 11串均衡状态
+        Offset : 17
+        Value : ($v[1] >> 2) & 0x1
+        CValue : (pData[0] >> 2) & 0x1
+        Options : 
+          - Key : 0
+            Value : 不均衡
+          - Key : 1
+            Value : 均衡
+      - Name : 12串均衡状态
+        Offset : 17
+        Value : ($v[1] >> 3) & 0x1
+        CValue : (pData[0] >> 3) & 0x1
+        Options : 
+          - Key : 0
+            Value : 不均衡
+          - Key : 1
+            Value : 均衡
+      - Name : 13串均衡状态
+        Offset : 17
+        Value : ($v[1] >> 4) & 0x1
+        CValue : (pData[0] >> 4) & 0x1
+        Options : 
+          - Key : 0
+            Value : 不均衡
+          - Key : 1
+            Value : 均衡
+      - Name : 14串均衡状态
+        Offset : 17
+        Value : ($v[1] >> 5) & 0x1
+        CValue : (pData[0] >> 5) & 0x1
+        Options : 
+          - Key : 0
+            Value : 不均衡
+          - Key : 1
+            Value : 均衡
+      - Name : 15串均衡状态
+        Offset : 17
+        Value : ($v[1] >> 6) & 0x1
+        CValue : (pData[0] >> 6) & 0x1
+        Options : 
+          - Key : 0
+            Value : 不均衡
+          - Key : 1
+            Value : 均衡
+      - Name : 16串均衡状态
+        Offset : 17
+        Value : ($v[1] >> 7) & 0x1
+        CValue : (pData[0] >> 7) & 0x1
+        Options : 
+          - Key : 0
+            Value : 不均衡
+          - Key : 1
+            Value : 均衡
+      #告警状态 1
+      - Name : 单体过压告警
+        Offset : 18
+        Value : ($v[1]) & 0x1
+        CValue : (pData[0]) & 0x1
+        AlertNormalValue : 0
+      - Name : 单体低压告警
+        Offset : 18
+        Value : ($v[1] >> 1) & 0x1
+        CValue : (pData[0] >> 1) & 0x1
+        AlertNormalValue : 0
+      - Name : 总压过压告警
+        Offset : 18
+        Value : ($v[1] >> 2) & 0x1
+        CValue : (pData[0] >> 2) & 0x1
+        AlertNormalValue : 0
+      - Name : 总压低压告警
+        Offset : 18
+        Value : ($v[1] >> 3) & 0x1
+        CValue : (pData[0] >> 3) & 0x1
+        AlertNormalValue : 0
+      - Name : 充电过流告警
+        Offset : 18
+        Value : ($v[1] >> 4) & 0x1
+        CValue : (pData[0] >> 4) & 0x1
+        AlertNormalValue : 0
+      - Name : 放电过流告警
+        Offset : 18
+        Value : ($v[1] >> 5) & 0x1
+        CValue : (pData[0] >> 5) & 0x1
+        AlertNormalValue : 0
+      - Name : 总容量低告警
+        Offset : 18
+        Value : ($v[1] >> 6) & 0x1
+        CValue : (pData[0] >> 6) & 0x1
+        AlertNormalValue : 0
+      #告警状态 2
+      - Name : 充电高温告警（电芯）
+        Offset : 19
+        Value : ($v[1]) & 0x1
+        CValue : (pData[0]) & 0x1
+        AlertNormalValue : 0
+      - Name : 放电高温告警（电芯）
+        Offset : 19
+        Value : ($v[1] >> 1) & 0x1
+        CValue : (pData[0] >> 1) & 0x1
+        AlertNormalValue : 0
+      - Name : 充电低温告警（电芯）
+        Offset : 19
+        Value : ($v[1] >> 2) & 0x1
+        CValue : (pData[0] >> 2) & 0x1
+        AlertNormalValue : 0
+      - Name : 放电低温告警（电芯）
+        Offset : 19
+        Value : ($v[1] >> 3) & 0x1
+        CValue : (pData[0] >> 3) & 0x1
+        AlertNormalValue : 0
+      - Name : 环境高温告警
+        Offset : 19
+        Value : ($v[1] >> 4) & 0x1
+        CValue : (pData[0] >> 4) & 0x1
+        AlertNormalValue : 0
+      - Name : 环境低温告警
+        Offset : 19
+        Value : ($v[1] >> 5) & 0x1
+        CValue : (pData[0] >> 5) & 0x1
+        AlertNormalValue : 0
+      - Name : MOS高温告警
+        Offset : 18
+        Value : ($v[1] >> 6) & 0x1
+        CValue : (pData[0] >> 6) & 0x1
+        AlertNormalValue : 0
+      - Name : 低电量告警
+        Offset : 18
+        Value : ($v[1] >> 7) & 0x1
+        CValue : (pData[0] >> 7) & 0x1
+        AlertNormalValue : 0
+      #单体过压保护状态
+      - Name : 单体过压保护状态1
+        Offset : 19
+        Value : ($v[1]) & 0x1
+        CValue : (pData[0]) & 0x1
+        AlertNormalValue : 0
+      - Name : 单体过压保护状态2
+        Offset : 19
+        Value : ($v[1] >> 1) & 0x1
+        CValue : (pData[0] >> 1) & 0x1
+        AlertNormalValue : 0
+      - Name : 单体过压保护状态3
+        Offset : 19
+        Value : ($v[1] >> 2) & 0x1
+        CValue : (pData[0] >> 2) & 0x1
+        AlertNormalValue : 0
+      - Name : 单体过压保护状态4
+        Offset : 19
+        Value : ($v[1] >> 3) & 0x1
+        CValue : (pData[0] >> 3) & 0x1
+        AlertNormalValue : 0
+      - Name : 单体过压保护状态5
+        Offset : 19
+        Value : ($v[1] >> 4) & 0x1
+        CValue : (pData[0] >> 4) & 0x1
+        AlertNormalValue : 0
+      - Name : 单体过压保护状态6
+        Offset : 19
+        Value : ($v[1] >> 5) & 0x1
+        CValue : (pData[0] >> 5) & 0x1
+        AlertNormalValue : 0
+      - Name : 单体过压保护状态7
+        Offset : 19
+        Value : ($v[1] >> 6) & 0x1
+        CValue : (pData[0] >> 6) & 0x1
+        AlertNormalValue : 0
+      - Name : 单体过压保护状态8
+        Offset : 19
+        Value : ($v[1] >> 7) & 0x1
+        CValue : (pData[0] >> 7) & 0x1
+        AlertNormalValue : 0
+      #单体欠压保护状态
+      - Name : 单体过压保护状态9
+        Offset : 20
+        Value : ($v[1]) & 0x1
+        CValue : (pData[0]) & 0x1
+        AlertNormalValue : 0
+      - Name : 单体过压保护状态10
+        Offset : 20
+        Value : ($v[1] >> 1) & 0x1
+        CValue : (pData[0] >> 1) & 0x1
+        AlertNormalValue : 0
+      - Name : 单体过压保护状态11
+        Offset : 20
+        Value : ($v[1] >> 2) & 0x1
+        CValue : (pData[0] >> 2) & 0x1
+        AlertNormalValue : 0
+      - Name : 单体过压保护状态12
+        Offset : 20
+        Value : ($v[1] >> 3) & 0x1
+        CValue : (pData[0] >> 3) & 0x1
+        AlertNormalValue : 0
+      - Name : 单体过压保护状态13
+        Offset : 20
+        Value : ($v[1] >> 4) & 0x1
+        CValue : (pData[0] >> 4) & 0x1
+        AlertNormalValue : 0
+      - Name : 单体过压保护状态14
+        Offset : 20
+        Value : ($v[1] >> 5) & 0x1
+        CValue : (pData[0] >> 5) & 0x1
+        AlertNormalValue : 0
+      - Name : 单体过压保护状态15
+        Offset : 20
+        Value : ($v[1] >> 6) & 0x1
+        CValue : (pData[0] >> 6) & 0x1
+        AlertNormalValue : 0
+      - Name : 单体过压保护状态16
+        Offset : 20
+        Value : ($v[1] >> 7) & 0x1
+        CValue : (pData[0] >> 7) & 0x1
+        AlertNormalValue : 0

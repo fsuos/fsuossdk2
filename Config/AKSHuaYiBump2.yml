@@ -1,7 +1,7 @@
 Project:
-  Name : AKSHuaYiBump
+  Name : AKSHuaYiBump2
   RT_ID : 5156
-  File : "阿克苏项目水氟换热BA  485通讯地址250526(华奕）.xls"
+  File : "阿克苏项目水氟换热系统BA  485通讯地址251202(华奕）.xls "
   DevType : 2
   ProtocolName : 水氟换热系统B
   Category : 精密空调
@@ -140,7 +140,7 @@ Sample :
       - Name : 排水阀4阀开
   - Cmd : 3
     Offset : 47
-    Len : 46
+    Len : 44
     RType : 'f'
     Data :
       - Name : 盘管1出口压力
@@ -161,7 +161,6 @@ Sample :
       - Name : 水泵频率4反馈
       - Name : AI预留1
       - Name : AI预留2
-      - Name : AI预留3
       - Name : 蓄水箱液位
       - Name : 室外温度
       - Name : 室外湿度

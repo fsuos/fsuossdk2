@@ -448,7 +448,7 @@ Sample:
                 Value : 故障停机
               - Key : 5
                 Value : 轮值停机
-          - Name : " 运行状态"
+          - Name : "运行状态"
             Options : 
               - Key : 0
                 Value : 待机

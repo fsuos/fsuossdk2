@@ -1,0 +1,737 @@
+Project:
+  Name : AMC100
+  RT_ID : 5156
+  File : "2503安科瑞AMC100监控转发协议.xls"
+  DevType : 2
+  Category : "列头柜"
+  ProtocolName : "安可瑞AMC100"
+BlockTemplate :
+  Inline :
+    BlockLength : 104
+    BlockRType : 'f'
+    BlockContent : 
+      - Name : "%s面进线-A相电压"
+        Unit : "V"
+      - Name : "%s面进线-B相电压"
+        Unit : "V"
+      - Name : "%s面进线-C相电压"
+        Unit : "V"
+      - Name : "%s面进线-AB线电压"
+        Unit : "V"
+      - Name : "%s面进线-BC线电压"
+        Unit : "V"
+      - Name : "%s面进线-CA线电压"
+        Unit : "V"
+      - Name : "%s面进线-频率"
+        Unit : "Hz"
+      - Name : "%s面进线-A相电流"
+        Unit : "A"
+      - Name : "%s面进线-B相电流"
+        Unit : "A"
+      - Name : "%s面进线-C相电流"
+        Unit : "A"
+      - Name : "%s面进线-A相有功功率"
+        Unit : "kW"
+      - Name : "%s面进线-B相有功功率"
+        Unit : "kW"
+      - Name : "%s面进线-C相有功功率"
+        Unit : "kW"
+      - Name : "%s面进线-总有功功率"
+        Unit : "kW"
+      - Name : "%s面进线-A相无功功率"
+        Unit : "kVAr"
+      - Name : "%s面进线-B相无功功率"
+        Unit : "kVAr"
+      - Name : "%s面进线-C相无功功率"
+        Unit : "kVAr"
+      - Name : "%s面进线-总无功功率"
+        Unit : "kVAr"
+      - Name : "%s面进线-A相视在功率"
+        Unit : "kVA"
+      - Name : "%s面进线-B相视在功率"
+        Unit : "kVA"
+      - Name : "%s面进线-C相视在功率"
+        Unit : "kVA"
+      - Name : "%s面进线-总无视在功率"
+        Unit : "kVA"
+      - Name : "%s面进线-A相功率因数"
+      - Name : "%s面进线-B相功率因数"
+      - Name : "%s面进线-C相功率因数"
+      - Name : "%s面进线-合相功率因数"
+  InlineE :
+    BlockLength : 32
+    BlockType : 'S'
+    BlockContent : 
+      - Name : "%s面进线-A相有功电能"
+        Unit : "kWh"
+        Value : (($v[1] << 16 ) + $v[2])/10
+        CValue : ((pData[0] << 16) + pData[1])/100
+      - Name : "%s面进线-B相有功电能"
+        Unit : "kWh"
+        Value : (($v[3] << 16 ) + $v[4])/10
+        CValue : ((pData[2] << 16) + pData[3])/100
+      - Name : "%s面进线-C相有功电能"
+        Unit : "kWh"
+        Value : (($v[5] << 16 ) + $v[6])/10
+        CValue : ((pData[4] << 16) + pData[5])/100
+      - Name : "%s面进线-总有功电能"
+        Unit : "kWh"
+        Value : (($v[7] << 16 ) + $v[8])/10
+        CValue : ((pData[6] << 16) + pData[7])/100
+      - Name : "%s面进线-A相无功电能"
+        Unit : "kWh"
+        Value : (($v[9] << 16 ) + $v[10])/10
+        CValue : ((pData[8] << 16) + pData[9])/100
+      - Name : "%s面进线-B相无功电能"
+        Unit : "kWh"
+        Value : (($v[11] << 16 ) + $v[12])/10
+        CValue : ((pData[10] << 16) + pData[11])/100
+      - Name : "%s面进线-C相无功电能"
+        Unit : "kWh"
+        Value : (($v[13] << 16 ) + $v[14])/10
+        CValue : ((pData[12] << 16) + pData[13])/100
+      - Name : "%s面进线-总无功电能"
+        Unit : "kWh"
+        Value : (($v[15] << 16 ) + $v[16])/10
+        CValue : ((pData[14] << 16) + pData[15])/100
+  InlineS :
+    BlockLength : 32
+    BlockRType : 'f'
+    BlockContent : 
+      - Name : "%s面进线-零地电压"
+      - Name : "%s面进线-漏电"
+      - Name : "%s面进线-零线电流"
+      - Name : "%s面进线-电压不平衡"
+      - Name : "%s面进线-电流不平衡"
+      - Name : "%s面进线-A相负载百分比1"
+      - Name : "%s面进线-B相负载百分比2"
+      - Name : "%s面进线-C相负载百分比3"
+  Outline1 : 
+    BlockLength : 24
+    BlockRType : 'f'
+    BlockContent : 
+      - Name : "面出线%s路回路数据-电压"
+        Unit : V
+      - Name : "面出线%s路回路数据-电流"
+        Unit : A
+      - Name : "面出线%s路回路数据-有功功率"
+        Unit : kW
+      - Name : "面出线%s路回路数据-无功功率"
+        Unit : kvar
+      - Name : "面出线%s路回路数据-视在功率"
+        Unit : kVA
+      - Name : "面出线%s路回路数据-功率因数"
+  Outline2 :
+    BlockLength : 8
+    BlockType : 'S'
+    BlockContent : 
+      - Name : "面出线%s路回路数据-有功电能"
+        Ratio : 100
+        Unit : kwh
+      - Name : "面出线%s路回路数据-无功电能"
+        Ratio : 100
+        Unit : kvarh
+  Outline3 :
+    BlockLength : 4
+    BlockType : 'S'
+    BlockContent : 
+      - Name : "面出线%s路回路数据-总电流谐波含量"
+        Raito : 100
+        Unit : "%"
+      - Name : "面出线%s路回路数据-负荷百分比"
+        Unit : "%"
+  Outline : 
+    BlockLength : 36
+    BlockContent : 
+      - Block : Outline1
+      - Block : Outline2
+      - Block : Outline3
+  OutlineKwh :
+    BlockLength : 4
+    BlockContent :
+      - Name : "面出线-有功电能%s"
+        Value : (($v[1] << 16) | $v[2])
+        CValue : ((pData[0] << 16 ) | pData[1])
+        Unit : "kwh"
+Sample : 
+  - Cmd : 3
+    Offset : 0x0100
+    Len : 84
+    Data : 
+      - Block : Inline
+        index : 'A'
+      - Block : InlineE
+        index : 'A'
+      - Block : InlineS
+        index : 'A'
+  - Cmd : 3
+    Offset : 0x0154
+    Len : 84
+    Data : 
+      - Block : Inline
+        index : 'B'
+      - Block : InlineE
+        index : 'B'
+      - Block : InlineS
+        index : 'B'
+  - Cmd : 3
+    Offset : 0x01A8
+    Len : 4
+    Data : 
+      - Name : 柜内温度
+        Unit : '℃'
+      - Name : 柜内湿度
+        Unit : '%'
+  - Cmd : 3
+    Offset : 0x01B2
+    Len : 2
+    Data : 
+      - Name : A面进线报警状态-C相缺相
+        Value : ($v[2] & 0x1)
+        CValue : (pData[1] & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201001
+      - Name : A面进线报警状态-B相缺相
+        Value : (($v[2]>>1) & 0x1)
+        CValue : ((pData[1]>>1) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201002
+      - Name : A面进线报警状态-A相缺相
+        Value : (($v[2]>>2) & 0x1)
+        CValue : ((pData[1]>>2) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201003
+      - Name : A面进线报警状态-C相欠压
+        Value : (($v[2]>>3) & 0x1)
+        CValue : ((pData[1]>>3) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201004
+      - Name : A面进线报警状态-B相欠压
+        Value : (($v[2]>>4) & 0x1)
+        CValue : ((pData[1]>>4) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201005
+      - Name : A面进线报警状态-A相欠压
+        Value : (($v[2]>>5) & 0x1)
+        CValue : ((pData[1]>>5) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201006
+      - Name : A面进线报警状态-C相过压
+        Value : (($v[2]>>6) & 0x1)
+        CValue : ((pData[1]>>6) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201007
+      - Name : A面进线报警状态-B相过压
+        Value : (($v[2]>>7) & 0x1)
+        CValue : ((pData[1]>>7) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201008
+      - Name : A面进线报警状态-A相过压
+        Value : (($v[2]>>8) & 0x1)
+        CValue : ((pData[1]>>8) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201009
+      - Name : A面进线报警状态-C相欠电流二级
+        Value : (($v[2]>>9) & 0x1)
+        CValue : ((pData[1]>>9) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201010
+      - Name : A面进线报警状态-B相欠电流二级
+        Value : (($v[2]>>10) & 0x1)
+        CValue : ((pData[1]>>10) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201011
+      - Name : A面进线报警状态-A相欠电流二级
+        Value : (($v[2]>>11) & 0x1)
+        CValue : ((pData[1]>>11) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201012
+      - Name : A面进线报警状态-C相欠电流一级
+        Value : (($v[2]>>12) & 0x1)
+        CValue : ((pData[1]>>12) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201013
+      - Name : A面进线报警状态-B相欠电流一级
+        Value : (($v[2]>>13) & 0x1)
+        CValue : ((pData[1]>>13) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201014
+      - Name : A面进线报警状态-A相欠电流一级
+        Value : (($v[2]>>14) & 0x1)
+        CValue : ((pData[1]>>14) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201015
+      - Name : A面进线报警状态-C相过电流一级
+        Value : (($v[2]>>15) & 0x1)
+        CValue : ((pData[1]>>15) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201016
+      - Name : A面进线报警状态-B相过电流一级
+        Value : (($v[1]) & 0x1)
+        CValue : ((pData[0]) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201017
+      - Name : A面进线报警状态-A相过电流一级
+        Value : (($v[1]>>1) & 0x1)
+        CValue : ((pData[0]>>1) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201018
+      - Name : A面进线报警状态-C相过电流二级
+        Value : (($v[1]>>2) & 0x1)
+        CValue : ((pData[0]>>2) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201019
+      - Name : A面进线报警状态-B相过电流二级
+        Value : (($v[1]>>3) & 0x1)
+        CValue : ((pData[0]>>3) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201020
+      - Name : A面进线报警状态-A相过电流二级
+        Value : (($v[1]>>4) & 0x1)
+        CValue : ((pData[0]>>4) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201021
+      - Name : A面进线报警状态-C相功率过载
+        Value : (($v[1]>>5) & 0x1)
+        CValue : ((pData[0]>>5) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201022
+      - Name : A面进线报警状态-B相功率过载
+        Value : (($v[1]>>6) & 0x1)
+        CValue : ((pData[0]>>6) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201023
+      - Name : A面进线报警状态-A相功率过载
+        Value : (($v[1]>>7) & 0x1)
+        CValue : ((pData[0]>>7) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201024
+      - Name : A面进线报警状态-电压不平衡
+        Value : (($v[1]>>8) & 0x1)
+        CValue : ((pData[0]>>8) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201025
+      - Name : A面进线报警状态-电流不平衡
+        Value : (($v[1]>>9) & 0x1)
+        CValue : ((pData[0]>>9) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201026
+      - Name : A面进线报警状态-欠频率
+        Value : (($v[1]>>10) & 0x1)
+        CValue : ((pData[0]>>10) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201027
+      - Name : A面进线报警状态-过频率
+        Value : (($v[1]>>11) & 0x1)
+        CValue : ((pData[0]>>11) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201028
+      - Name : A面进线报警状态-零地电压高
+        Value : (($v[1]>>12) & 0x1)
+        CValue : ((pData[0]>>12) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201029
+      - Name : A面进线报警状态-零序电流高
+        Value : (($v[1]>>13) & 0x1)
+        CValue : ((pData[0]>>13) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201030
+      - Name : A面进线报警状态-漏电流高
+        Value : (($v[1]>>14) & 0x1)
+        CValue : ((pData[0]>>14) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201031
+      - Name : A面进线报警状态-接线错误
+        Value : (($v[1]>>15) & 0x1)
+        CValue : ((pData[0]>>15) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201032
+  - Cmd : 3
+    Offset : 0x01B4
+    Len : 2
+    Data : 
+      - Name : B面进线报警状态-C相缺相
+        Value : ($v[2] & 0x1)
+        CValue : (pData[1] & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201033
+      - Name : B面进线报警状态-B相缺相
+        Value : (($v[2]>>1) & 0x1)
+        CValue : ((pData[1]>>1) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201034
+      - Name : B面进线报警状态-A相缺相
+        Value : (($v[2]>>2) & 0x1)
+        CValue : ((pData[1]>>2) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201035
+      - Name : B面进线报警状态-C相欠压
+        Value : (($v[2]>>3) & 0x1)
+        CValue : ((pData[1]>>3) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201036
+      - Name : B面进线报警状态-B相欠压
+        Value : (($v[2]>>4) & 0x1)
+        CValue : ((pData[1]>>4) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201037
+      - Name : B面进线报警状态-A相欠压
+        Value : (($v[2]>>5) & 0x1)
+        CValue : ((pData[1]>>5) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201038
+      - Name : B面进线报警状态-C相过压
+        Value : (($v[2]>>6) & 0x1)
+        CValue : ((pData[1]>>6) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201039
+      - Name : B面进线报警状态-B相过压
+        Value : (($v[2]>>7) & 0x1)
+        CValue : ((pData[1]>>7) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201040
+      - Name : B面进线报警状态-A相过压
+        Value : (($v[2]>>8) & 0x1)
+        CValue : ((pData[1]>>8) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201041
+      - Name : B面进线报警状态-C相欠电流二级
+        Value : (($v[2]>>9) & 0x1)
+        CValue : ((pData[1]>>9) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201042
+      - Name : B面进线报警状态-B相欠电流二级
+        Value : (($v[2]>>10) & 0x1)
+        CValue : ((pData[1]>>10) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201043
+      - Name : B面进线报警状态-A相欠电流二级
+        Value : (($v[2]>>11) & 0x1)
+        CValue : ((pData[1]>>11) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201044
+      - Name : B面进线报警状态-C相欠电流一级
+        Value : (($v[2]>>12) & 0x1)
+        CValue : ((pData[1]>>12) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201045
+      - Name : B面进线报警状态-B相欠电流一级
+        Value : (($v[2]>>13) & 0x1)
+        CValue : ((pData[1]>>13) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201046
+      - Name : B面进线报警状态-A相欠电流一级
+        Value : (($v[2]>>14) & 0x1)
+        CValue : ((pData[1]>>14) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201047
+      - Name : B面进线报警状态-C相过电流一级
+        Value : (($v[2]>>15) & 0x1)
+        CValue : ((pData[1]>>15) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201048
+      - Name : B面进线报警状态-B相过电流一级
+        Value : (($v[1]) & 0x1)
+        CValue : ((pData[0]) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201049
+      - Name : B面进线报警状态-A相过电流一级
+        Value : (($v[1]>>1) & 0x1)
+        CValue : ((pData[0]>>1) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201050
+      - Name : B面进线报警状态-C相过电流二级
+        Value : (($v[1]>>2) & 0x1)
+        CValue : ((pData[0]>>2) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201051
+      - Name : B面进线报警状态-B相过电流二级
+        Value : (($v[1]>>3) & 0x1)
+        CValue : ((pData[0]>>3) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201052
+      - Name : B面进线报警状态-A相过电流二级
+        Value : (($v[1]>>4) & 0x1)
+        CValue : ((pData[0]>>4) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201053
+      - Name : B面进线报警状态-C相功率过载
+        Value : (($v[1]>>5) & 0x1)
+        CValue : ((pData[0]>>5) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201054
+      - Name : B面进线报警状态-B相功率过载
+        Value : (($v[1]>>6) & 0x1)
+        CValue : ((pData[0]>>6) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201055
+      - Name : B面进线报警状态-A相功率过载
+        Value : (($v[1]>>7) & 0x1)
+        CValue : ((pData[0]>>7) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201056
+      - Name : B面进线报警状态-电压不平衡
+        Value : (($v[1]>>8) & 0x1)
+        CValue : ((pData[0]>>8) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201057
+      - Name : B面进线报警状态-电流不平衡
+        Value : (($v[1]>>9) & 0x1)
+        CValue : ((pData[0]>>9) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201058
+      - Name : B面进线报警状态-欠频率
+        Value : (($v[1]>>10) & 0x1)
+        CValue : ((pData[0]>>10) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201059
+      - Name : B面进线报警状态-过频率
+        Value : (($v[1]>>11) & 0x1)
+        CValue : ((pData[0]>>11) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201060
+      - Name : B面进线报警状态-零地电压高
+        Value : (($v[1]>>12) & 0x1)
+        CValue : ((pData[0]>>12) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201061
+      - Name : B面进线报警状态-零序电流高
+        Value : (($v[1]>>13) & 0x1)
+        CValue : ((pData[0]>>13) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201062
+      - Name : B面进线报警状态-漏电流高
+        Value : (($v[1]>>14) & 0x1)
+        CValue : ((pData[0]>>14) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201063
+      - Name : B面进线报警状态-接线错误
+        Value : (($v[1]>>15) & 0x1)
+        CValue : ((pData[0]>>15) & 0x1)
+        AlertNormalValue : 0
+        UnicomSignalId : 406400201064
+  - Cmd : 3
+    Offset : 0x1000
+    Len : 108
+    Data : 
+      - ArrayBlock : Outline
+        Prefix : 'A'
+        ArrayStart : 1
+        ArrayEnd : 3
+  - Cmd : 3
+    Offset : 0x1036
+    Len : 108
+    Data : 
+      - ArrayBlock : Outline
+        Prefix : 'A'
+        ArrayStart : 4
+        ArrayEnd : 6
+  - Cmd : 3
+    Offset : 0x106C
+    Len : 108
+    Data : 
+      - ArrayBlock : Outline
+        Prefix : 'A'
+        ArrayStart : 7
+        ArrayEnd : 9
+  - Cmd : 3
+    Offset : 0x10A2
+    Len : 108
+    Data : 
+      - ArrayBlock : Outline
+        Prefix : 'A'
+        ArrayStart : 10
+        ArrayEnd : 12
+  - Cmd : 3
+    Offset : 0x10D8
+    Len : 108
+    Data : 
+      - ArrayBlock : Outline
+        Prefix : 'A'
+        ArrayStart : 13
+        ArrayEnd : 15
+  - Cmd : 3
+    Offset : 0x110E
+    Len : 108
+    Data : 
+      - ArrayBlock : Outline
+        Prefix : 'A'
+        ArrayStart : 16
+        ArrayEnd : 18
+  - Cmd : 3
+    Offset : 0x1144
+    Len : 108
+    Data : 
+      - ArrayBlock : Outline
+        Prefix : 'A'
+        ArrayStart : 19
+        ArrayEnd : 21
+  - Cmd : 3
+    Offset : 0x117A
+    Len : 108
+    Data : 
+      - ArrayBlock : Outline
+        Prefix : 'A'
+        ArrayStart : 22
+        ArrayEnd : 24
+  - Cmd : 3
+    Offset : 0x2000
+    Len : 108
+    Data : 
+      - ArrayBlock : Outline
+        Prefix : 'B'
+        ArrayStart : 1
+        ArrayEnd : 3
+  - Cmd : 3
+    Offset : 0x2036
+    Len : 108
+    Data : 
+      - ArrayBlock : Outline
+        Prefix : 'B'
+        ArrayStart : 4
+        ArrayEnd : 6
+  - Cmd : 3
+    Offset : 0x206C
+    Len : 108
+    Data : 
+      - ArrayBlock : Outline
+        Prefix : 'B'
+        ArrayStart : 7
+        ArrayEnd : 9
+  - Cmd : 3
+    Offset : 0x20A2
+    Len : 108
+    Data : 
+      - ArrayBlock : Outline
+        Prefix : 'B'
+        ArrayStart : 10
+        ArrayEnd : 12
+  - Cmd : 3
+    Offset : 0x20D8
+    Len : 108
+    Data : 
+      - ArrayBlock : Outline
+        Prefix : 'B'
+        ArrayStart : 13
+        ArrayEnd : 15
+  - Cmd : 3
+    Offset : 0x210E
+    Len : 108
+    Data : 
+      - ArrayBlock : Outline
+        Prefix : 'B'
+        ArrayStart : 16
+        ArrayEnd : 18
+  - Cmd : 3
+    Offset : 0x2144
+    Len : 108
+    Data : 
+      - ArrayBlock : Outline
+        Prefix : 'B'
+        ArrayStart : 19
+        ArrayEnd : 21
+  - Cmd : 3
+    Offset : 0x217A
+    Len : 108
+    Data : 
+      - ArrayBlock : Outline
+        Prefix : 'B'
+        ArrayStart : 22
+        ArrayEnd : 24
+  - Cmd : 3
+    Offset : 0x4000
+    Len : 24
+    Data : 
+      - ArrayName : "A面出线-第%d路报警及开关状态"
+        ArrayStart : 1
+        ArrayLength : 24
+        Offset : 1
+        AlertNormalValue : 0
+        UnicomSignalId : 406400101
+  - Cmd : 3
+    Offset : 0x4200
+    Len : 24
+    Data : 
+      - ArrayName : "B面出线-第%d路报警及开关状态"
+        ArrayStart : 1
+        ArrayLength : 24
+        Offset : 1
+        AlertNormalValue : 0
+        UnicomSignalId : 406400101
+  - Cmd : 3
+    Offset : 0x4300
+    Len : 24
+    Data : 
+      - ArrayBlock : OutlineKwh
+        Prefix : 'A'
+        ArrayStart : 1
+        ArrayEnd : 24
+  - Cmd : 3
+    Offset : 0x4700
+    Len : 24
+    Data : 
+      - ArrayBlock : OutlineKwh
+        Prefix : 'B'
+        ArrayStart : 1
+        ArrayEnd : 24
+  - Cmd : 3
+    Offset : 0x6000
+    Len : 48
+    RType : 'f'
+    Data : 
+      - ArrayName : "A面出线-电流%d"
+        ArrayStart : 1
+        ArrayLength : 24
+        Offset : 1
+  - Cmd : 3
+    Offset : 0x6300
+    Len : 48
+    RType : 'f'
+    Data : 
+      - ArrayName : "B面出线-电流%d"
+        ArrayStart : 1
+        ArrayLength : 24
+        Offset : 1
+  - Cmd : 3
+    Offset : 0x2C00
+    Len : 24
+    Type : 's'
+    Data : 
+      - ArrayName : "A面出线-第%d路温度"
+        ArrayStart : 1
+        ArrayLength : 24
+        Offset : 1
+        Unit : '℃'
+        Ratio : 10
+  - Cmd : 3
+    Offset : 0x2D00
+    Len : 24
+    Type : 's'
+    Data : 
+      - ArrayName : "B面出线-第%d路温度"
+        ArrayStart : 1
+        ArrayLength : 24
+        Offset : 1
+        Unit : '℃'
+        Ratio : 10
+  - Cmd : 3
+    Offset : 0x2900
+    Len : 48
+    RType : 'f'
+    Data : 
+      - ArrayName : "A面出线-第%d路开关量电压"
+        ArrayStart : 1
+        ArrayLength : 24
+        Offset : 1
+        Unit : V
+  - Cmd : 3
+    Offset : 0x2B00
+    Len : 48
+    RType : 'f'
+    Data : 
+      - ArrayName : "B面出线-第%d路开关量电压"
+        ArrayStart : 1
+        ArrayLength : 24
+        Offset : 1
+        Unit : V
+        

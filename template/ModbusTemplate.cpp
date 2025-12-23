@@ -57,20 +57,13 @@ int {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}_alert(char* pCData,c
       _{{ Project.Name|lower }}_{{ d.Block }}_alert(pData + offset , prefix, iIndex, {% if d.index is defined %}"{{ d.index }}"{% if d.index1 is defined %},"{{d.index1}}"{% endif %}{% if d.index2 is defined %},"{{d.index2}}"{% endif %}{% else %}index{% endif %});
       offset += {{ BlockTemplate[d.Block]["BlockLength"] }};
       {% else %}
-        {
-        char nameBuffer[48] = {0};
-        {% if d.CIndex is defined %}
-        snprintf(nameBuffer, 48, "{{ d.Name }}", {{ d.CIndex }});
-        {% else %}
-        snprintf(nameBuffer, 48, "{{ d.Name }}", {% if d.Index is defined %}{{ d.Index }}{% else %}index{% endif %});
-        {% endif %}
-        std::string name = nameBuffer;
+        
         {% if d.ArrayName is defined %}
             for(int i=0;i<{{ d.ArrayLength }};i++){
                 char nameBuffer[48] = {0};
-                snprintf(nameBuffer, 48, "{{ d.ArrayName }}", {{ d.ArrayStart }} + i);
+                snprintf(nameBuffer, 48, "%s{{ d.ArrayName }}", prefix, {{ d.Offset }} + {{ d.ArrayStart }} + i);
                 std::string name = nameBuffer;
-                int kIndex = {{ d.Offset }} + i;
+                int kIndex = i;
                  {% if d.AlertNormalValue is defined or d.AlertAbnormalValue is defined %}
                  {% if d.TeleSignalId is defined %}
                  if(b_mode_ == 2){
@@ -106,9 +99,9 @@ int {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}_alert(char* pCData,c
                             std::stringstream ss;
                             ss<<"{{ d.UnicomSignalId }}" << std::setw(3)<<std::setfill('0')<<signal_index_;
                             {% if d.AlertNormalValue is defined %}
-                            CheckThresholdBool(2, ss.str(), ss.str(), {% if d.UnicomSignalId is defined %}"{{ d.UnicomSignalName }}"{%else%}name{% endif %}, name, pData[kIndex] != {{ d.AlertNormalValue }}, signal_index_++); 
+                            CheckThresholdBool(2, ss.str(), ss.str(), {% if d.UnicomSignalName is defined %}"{{ d.UnicomSignalName }}"{%else%}name{% endif %}, name, pData[kIndex] != {{ d.AlertNormalValue }}, signal_index_++); 
                             {% elif d.AlertAbnormalValue is defined %}
-                            CheckThresholdBool(2, ss.str(), ss.str(), {% if d.UnicomSignalId is defined %}"{{ d.UnicomSignalName }}"{%else%}name{% endif %}, name, pData[kIndex] == {{ d.AlertAbnormalValue }}, signal_index_++); 
+                            CheckThresholdBool(2, ss.str(), ss.str(), {% if d.UnicomSignalName is defined %}"{{ d.UnicomSignalName }}"{%else%}name{% endif %}, name, pData[kIndex] == {{ d.AlertAbnormalValue }}, signal_index_++); 
                             {% endif %}
                         }
                     {% endif %}
@@ -117,6 +110,14 @@ int {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}_alert(char* pCData,c
                 {% endif %}
             }
          {% else %}
+          {
+            char nameBuffer[48] = {0};
+            {% if d.CIndex is defined %}
+            snprintf(nameBuffer, 48, "%s{{ d.Name }}", prefix, {{ d.CIndex }});
+            {% else %}
+            snprintf(nameBuffer, 48, "%s{{ d.Name }}", prefix, {% if d.Index is defined %}{{ d.Index }}{% else %}index{% endif %});
+            {% endif %}
+            std::string name = nameBuffer;
           {% if d.AlertNormalValue is defined or d.AlertAbnormalValue is defined %}            
             {% if d.TeleSignalId is defined %}
             if(b_mode_ == 2){                
@@ -152,15 +153,16 @@ int {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}_alert(char* pCData,c
                     std::stringstream ss;
                     ss<<"{{ d.UnicomSignalId }}" << std::setw(3)<<std::setfill('0')<<signal_index_;
                     {% if d.AlertNormalValue is defined %}
-                    CheckThresholdBool(2, ss.str(), ss.str(), {% if d.UnicomSignalId is defined %}"{{ d.UnicomSignalName }}"{%else%}name{% endif %}, name, {% if d.CValue is defined %}({{ d.CValue }}){% else %}pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}]{% endif %} != {{ d.AlertNormalValue }}, signal_index_++); 
+                    CheckThresholdBool(2, ss.str(), ss.str(), {% if d.UnicomSignalName is defined %}"{{ d.UnicomSignalName }}"{%else%}name{% endif %}, name, {% if d.CValue is defined %}({{ d.CValue }}){% else %}pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}]{% endif %} != {{ d.AlertNormalValue }}, signal_index_++); 
                     {% elif d.AlertAbnormalValue is defined %}
-                    CheckThresholdBool(2, ss.str(), ss.str(), {% if d.UnicomSignalId is defined %}"{{ d.UnicomSignalName }}"{%else%}name{% endif %}, name, {% if d.CValue is defined %}({{ d.CValue }}){% else %}pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}]{% endif %} == {{ d.AlertAbnormalValue }}, signal_index_++); 
+                    CheckThresholdBool(2, ss.str(), ss.str(), {% if d.UnicomSignalName is defined %}"{{ d.UnicomSignalName }}"{%else%}name{% endif %}, name, {% if d.CValue is defined %}({{ d.CValue }}){% else %}pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}]{% endif %} == {{ d.AlertAbnormalValue }}, signal_index_++); 
                     {% endif %}
                 }
             {% endif %}
             }
             {% endif %}
           {% endif %}
+                  }
         {% endif %}
         {% endif %}
     {% endfor %}
@@ -198,9 +200,9 @@ void {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}(char* pCData,const 
         {
         char nameBuffer[48] = {0};
         {% if d.CIndex is defined %}
-        snprintf(nameBuffer, 48, "{{ d.Name }}", {{ d.CIndex }});
+        snprintf(nameBuffer, 48, "%s{{ d.Name }}", prefix, {{ d.CIndex }});
         {% else %}
-        snprintf(nameBuffer, 48, "{{ d.Name }}", {% if d.Index is defined %}{{ d.Index }}{% else %}index{% endif %});
+        snprintf(nameBuffer, 48, "%s{{ d.Name }}", prefix, {% if d.Index is defined %}{{ d.Index }}{% else %}index{% endif %});
         {% endif %}
         std::string name = nameBuffer;
         {% if d.CValue is defined %}
@@ -251,8 +253,8 @@ void {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}(char* pCData,const 
           jsonValue["AlertArray"][name] = (pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] == {{ d.AlertAbnormalValue }});
         {% elif d.ArrayName is defined %}
         for(int i=1;int i<={{ d.ArrayLength }};int i++){
-          $name = $prefix.sprintf("{{ d.ArrayName }}", {{ d.ArrayStart }} + $i);
-          int kIndex = {{ d.Offset }} + i;
+          $name = $prefix.sprintf("{{ d.ArrayName }}", {{ d.Offset }} + {{ d.ArrayStart }} + $i);
+          int kIndex =  i;
           jsonValue[name] = ((float)pData[$kIndex-1]){% if d.CRatio is defined %}/{{ d.CRatio }}{% elif d.Ratio is defined %}/{{ d.Ratio }}{% endif %};
         }
         {% else %}
@@ -317,7 +319,7 @@ void {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}(char* pCData,const 
                 char nameBuffer[48] = {0};
                 snprintf(nameBuffer, 48, "{{ d.ArrayName }}", {{ d.ArrayStart }} + i);
                 std::string name = nameBuffer;
-                int kIndex = {{ d.Offset }} + i;
+                int kIndex = {{ d.Offset }} + i - 1;
                  {% if d.AlertNormalValue is defined or d.AlertAbnormalValue is defined %}
                  {% if vendor == 2 and d.TeleSignalId is defined %}
                  {% if d.TeleSignalId|string|length == 12 %}
@@ -349,9 +351,9 @@ void {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}(char* pCData,const 
                         std::stringstream ss;
                         ss<<"{{ d.UnicomSignalId }}" << std::setw(3)<<std::setfill('0')<<signal_index_;
                         {% if d.AlertNormalValue is defined %}
-                        CheckThresholdBool(2, ss.str(), ss.str(), {% if d.UnicomSignalId is defined %}"{{ d.UnicomSignalName }}"{%else%}name{% endif %}, name, pData[kIndex] != {{ d.AlertNormalValue }}, signal_index_++); 
+                        CheckThresholdBool(2, ss.str(), ss.str(), {% if d.UnicomSignalName is defined %}"{{ d.UnicomSignalName }}"{%else%}name{% endif %}, name, pData[kIndex] != {{ d.AlertNormalValue }}, signal_index_++); 
                         {% elif d.AlertAbnormalValue is defined %}
-                        CheckThresholdBool(2, ss.str(), ss.str(), {% if d.UnicomSignalId is defined %}"{{ d.UnicomSignalName }}"{%else%}name{% endif %}, name, pData[kIndex] == {{ d.AlertAbnormalValue }}, signal_index_++); 
+                        CheckThresholdBool(2, ss.str(), ss.str(), {% if d.UnicomSignalName is defined %}"{{ d.UnicomSignalName }}"{%else%}name{% endif %}, name, pData[kIndex] == {{ d.AlertAbnormalValue }}, signal_index_++); 
                         {% endif %}
                     }
                 {% endif %}
@@ -392,9 +394,9 @@ void {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}(char* pCData,const 
                         std::stringstream ss;
                         ss<<"{{ d.UnicomSignalId }}" << std::setw(3)<<std::setfill('0')<<signal_index_;
                         {% if d.AlertNormalValue is defined %}
-                        CheckThresholdBool(2, ss.str(), ss.str(), {% if d.UnicomSignalId is defined %}"{{ d.UnicomSignalName }}"{%else%}"{{ d.Name }}"{% endif %}, "{{ d.Name }}", {% if d.CValue is defined %}({{ d.CValue }}){% else %}pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] != {{ d.AlertNormalValue }}{% endif %}, signal_index_++); 
+                        CheckThresholdBool(2, ss.str(), ss.str(), {% if d.UnicomSignalName is defined %}"{{ d.UnicomSignalName }}"{%else%}"{{ d.Name }}"{% endif %}, "{{ d.Name }}", {% if d.CValue is defined %}({{ d.CValue }}){% else %}pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] != {{ d.AlertNormalValue }}{% endif %}, signal_index_++); 
                         {% elif d.AlertAbnormalValue is defined %}
-                        CheckThresholdBool(2, ss.str(), ss.str(), {% if d.UnicomSignalId is defined %}"{{ d.UnicomSignalName }}"{%else%}"{{ d.Name }}"{% endif %}, "{{ d.Name }}", {% if d.CValue is defined %}({{ d.CValue }}){% else %}pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] != {{ d.AlertNormalValue }}{% endif %}, signal_index_++); 
+                        CheckThresholdBool(2, ss.str(), ss.str(), {% if d.UnicomSignalName is defined %}"{{ d.UnicomSignalName }}"{%else%}"{{ d.Name }}"{% endif %}, "{{ d.Name }}", {% if d.CValue is defined %}({{ d.CValue }}){% else %}pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] != {{ d.AlertNormalValue }}{% endif %}, signal_index_++); 
                         {% endif %}
                     }
                 {% endif %}
@@ -545,7 +547,7 @@ void {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}(char* pCData,const 
                     char nameBuffer[48] = {0};
                     snprintf(nameBuffer, 48, "{{ d.ArrayName }}", {{ d.ArrayStart }} + i);
                     std::string name = nameBuffer;
-                    int kIndex = {% if d.Offset is defined %}{{ d.Offset }}{% else %}0{% endif %} + i;
+                    int kIndex =  i;
                     {{ jsonValueStr }}[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}name] = ((float)pData[kIndex]){% if d.CRatio is defined %}/{{ d.CRatio }}{% elif d.Ratio is defined %}/{{ d.Ratio }}{% endif %};
                 }
             {% endif %}

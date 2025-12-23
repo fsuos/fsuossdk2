@@ -1,0 +1,65 @@
+Project:
+  Name : HuaWeiLiBattery
+  RT_ID : 5156
+  File : "锂电池Modbus通信协议.pdf"
+  DevType : 2
+  ProtocolName : 华为锂电池
+  Category : 蓄电池
+Sample : 
+  - Cmd : 3
+    Offset : 0
+    Len : 4
+    Data : 
+      - Name : 母排电压
+        Ratio : 100
+        Unit : V
+      - Name : 电池电压
+        Ratio : 100
+        Unit : V 
+      - Name : 电池电流
+        Ratio : 100
+        Unit : A
+      - Name : 电池SOC
+        Unit : '%'
+  - Cmd : 3
+    Offset : 5
+    Len : 4
+    Data : 
+      - Name : 电芯最高温度
+        Unit : "°C"
+      - Name : 电芯最低温度
+        Unit : "°C"
+      - Name : 模块模式上报
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 休眠
+          - Key : 1
+            Value : 低功耗
+          - Key : 2
+            Value : 充电
+          - Key : 3
+            Value : 放电
+          - Key : 4
+            Value : 待机
+          - Key : 0xFFFF
+            Value : 未知
+  - Cmd : 3
+    Offset : 0x12
+    Len : 16
+    Data : 
+      - ArrayName : "电芯%d温度"
+        ArrayStart : 0
+        ArrayLength : 16
+        Offset : 0
+        Unit : "°C"
+  - Cmd : 3
+    Offset : 0x22
+    Len : 16
+    Data : 
+      - ArrayName : "电芯%d电压"
+        ArrayStart : 0
+        ArrayLength : 16
+        Ratio : 1000
+        Offset : 0
+        Unit : "V"

@@ -1,0 +1,347 @@
+Project:
+  Name : HZJK01B
+  RT_ID : 5156
+  File : "HZ-JK01B监控模块 Modbus 通信规约 V1.0.pdf"
+  DevType : 2
+  ProtocolName : HZJK01B直流电源系统监控模块
+  Category : 开关电源
+Sample : 
+  - Cmd : 3
+    Offset : 0
+    Len : 9
+    Data : 
+      - Name : 电池电压
+        Ratio : 10
+        Unit : V
+      - Name : 控母电压
+        Ratio : 10
+        Unit : V
+      - Name : 电池电流
+        Value : '(( ( ($v[3] >> 15) & 0x1) ? -1 : 1) * ($v[3]&0x7fff) /100)'
+        CValue : '(( ( (pData[2] >> 15) & 0x1) ? -1 : 1) * (pData[2]&0x7fff) /100)'
+        Unit : A
+      - Name : 负载电流
+        Ratio : 100
+        Unit : A
+      - Name : 正地电阻
+        Ratio : 10
+        Unit : K
+      - Name : 负地电阻
+        Ratio : 10
+        Unit : K
+      - Name : 正地电压
+        Ratio : 10
+        Unit : V
+      - Name : 负地电压
+        Ratio : 10
+        Unit : V
+      - Name : 环境温度
+        Value : '(( ( ($v[9] >> 15) & 0x1) ? -1 : 1) * ($v[9]&0x7fff))'
+        CValue : '(( ( (pData[8] >> 15) & 0x1) ? -1 : 1) * (pData[8]&0x7fff))'
+        Unit : "℃"
+      - Name : 硅链温度
+        Value : '(( ( ($v[9] >> 15) & 0x1) ? -1 : 1) * ($v[9]&0x7fff))'
+        CValue : '(( ( (pData[8] >> 15) & 0x1) ? -1 : 1) * (pData[8]&0x7fff))'
+        Unit : "℃"
+  - Cmd : 3
+    Offset : 11
+    Len : 4
+    Data : 
+      - Name : 电池组过压
+        Value : (($v[1]) & 0x1) 
+        CValue : (pData[0] & 0x1)
+        AlertNormalValue : 0
+      - Name : 电池组欠压
+        Value : ((($v[1]) >> 1) & 0x1) 
+        CValue : (((pData[0]) >> 1) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 控母过压 
+        Value : ((($v[1]) >> 2) & 0x1) 
+        CValue : (((pData[0]) >> 2) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 控母欠压
+        Value : ((($v[1]) >> 3) & 0x1) 
+        CValue : (((pData[0]) >> 3) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 绝缘异常
+        Value : ((($v[1]) >> 4) & 0x1) 
+        CValue : (((pData[0]) >> 4) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 环境过温
+        Value : ((($v[1]) >> 5) & 0x1) 
+        CValue : (((pData[0]) >> 5) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 硅链过温
+        Value : ((($v[1]) >> 6) & 0x1) 
+        CValue : (((pData[0]) >> 6) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 单体电池异常
+        Value : ((($v[1]) >> 7) & 0x1) 
+        CValue : (((pData[0]) >> 7) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 电池组充电状态
+        Value : ((($v[1]) >> 8) & 0x1) 
+        CValue : (((pData[0]) >> 8) & 0x1) 
+        Options :
+          - Key : 0
+            Value : 浮充
+          - Key : 1
+            Value : 均充
+
+      - Name : 0#充电模块通信
+        Value : (($v[2]) & 0x1) 
+        CValue : (pData[1] & 0x1)
+        AlertNormalValue : 0
+      - Name : 1#充电模块通信
+        Value : ((($v[2]) >> 1) & 0x1) 
+        CValue : (((pData[1]) >> 1) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 2#充电模块通信 
+        Value : ((($v[2]) >> 2) & 0x1) 
+        CValue : (((pData[1]) >> 2) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 通信模块通信
+        Value : ((($v[2]) >> 3) & 0x1) 
+        CValue : (((pData[1]) >> 3) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 电池巡检通信
+        Value : ((($v[2]) >> 4) & 0x1) 
+        CValue : (((pData[1]) >> 4) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 0#支路检测通信
+        Value : ((($v[2]) >> 5) & 0x1) 
+        CValue : (((pData[1]) >> 5) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 1#支路检测通信
+        Value : ((($v[2]) >> 6) & 0x1) 
+        CValue : (((pData[1]) >> 6) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 0#充电模块故障
+        Value : ((($v[2]) >> 8) & 0x1) 
+        CValue : (((pData[1]) >> 8) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 1#充电模块故障
+        Value : ((($v[2]) >> 9) & 0x1) 
+        CValue : (((pData[1]) >> 9) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 2#充电模块故障
+        Value : ((($v[2]) >> 10) & 0x1) 
+        CValue : (((pData[1]) >> 10) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 通信模块故障
+        Value : ((($v[2]) >> 11) & 0x1) 
+        CValue : (((pData[1]) >> 11) & 0x1) 
+        AlertNormalValue : 0
+
+      - Name : 1#支路绝缘故障
+        Value : (($v[3]) & 0x1) 
+        CValue : (pData[2] & 0x1)
+        AlertNormalValue : 0
+      - Name : 2#支路绝缘故障
+        Value : ((($v[3]) >> 1) & 0x1) 
+        CValue : (((pData[2]) >> 1) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 3#支路绝缘故障
+        Value : ((($v[3]) >> 2) & 0x1) 
+        CValue : (((pData[2]) >> 2) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 4#支路绝缘故障
+        Value : ((($v[3]) >> 3) & 0x1) 
+        CValue : (((pData[2]) >> 3) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 5#支路绝缘故障
+        Value : ((($v[3]) >> 4) & 0x1) 
+        CValue : (((pData[2]) >> 4) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 6#支路绝缘故障
+        Value : ((($v[3]) >> 5) & 0x1) 
+        CValue : (((pData[2]) >> 5) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 7#支路绝缘故障
+        Value : ((($v[3]) >> 6) & 0x1) 
+        CValue : (((pData[2]) >> 6) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 8#支路绝缘故障
+        Value : ((($v[3]) >> 7) & 0x1) 
+        CValue : (((pData[2]) >> 7) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 9#支路绝缘故障
+        Value : ((($v[3]) >> 8) & 0x1) 
+        CValue : (((pData[2]) >> 8) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 10#支路绝缘故障
+        Value : ((($v[3]) >> 9) & 0x1) 
+        CValue : (((pData[2]) >> 9) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 11#支路绝缘故障
+        Value : ((($v[3]) >> 10) & 0x1) 
+        CValue : (((pData[2]) >> 10) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 12#支路绝缘故障
+        Value : ((($v[3]) >> 11) & 0x1) 
+        CValue : (((pData[2]) >> 11) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 13#支路绝缘故障
+        Value : ((($v[3]) >> 12) & 0x1) 
+        CValue : (((pData[2]) >> 12) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 14#支路绝缘故障
+        Value : ((($v[3]) >> 13) & 0x1) 
+        CValue : (((pData[2]) >> 13) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 15#支路绝缘故障
+        Value : ((($v[3]) >> 14) & 0x1) 
+        CValue : (((pData[2]) >> 14) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 16#支路绝缘故障
+        Value : ((($v[3]) >> 15) & 0x1) 
+        CValue : (((pData[2]) >> 15) & 0x1) 
+        AlertNormalValue : 0
+
+      - Name : 17#支路绝缘故障
+        Value : (($v[4]) & 0x1) 
+        CValue : (pData[3] & 0x1)
+        AlertNormalValue : 0
+      - Name : 18#支路绝缘故障
+        Value : ((($v[4]) >> 1) & 0x1) 
+        CValue : (((pData[3]) >> 1) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 19#支路绝缘故障
+        Value : ((($v[4]) >> 2) & 0x1) 
+        CValue : (((pData[3]) >> 2) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 20#支路绝缘故障
+        Value : ((($v[4]) >> 3) & 0x1) 
+        CValue : (((pData[3]) >> 3) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 21#支路绝缘故障
+        Value : ((($v[4]) >> 4) & 0x1) 
+        CValue : (((pData[3]) >> 4) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 22#支路绝缘故障
+        Value : ((($v[4]) >> 5) & 0x1) 
+        CValue : (((pData[3]) >> 5) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 23#支路绝缘故障
+        Value : ((($v[4]) >> 6) & 0x1) 
+        CValue : (((pData[3]) >> 6) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 24#支路绝缘故障
+        Value : ((($v[4]) >> 7) & 0x1) 
+        CValue : (((pData[3]) >> 7) & 0x1) 
+        AlertNormalValue : 0
+  - Cmd : 3
+    Offset : 15
+    Len : 18
+    Type : 'S'
+    Data : 
+      - ArrayName : "%d#单体电池电压"
+        ArrayStart : 0
+        ArrayLength : 18
+        Offset : 0
+        Unit : "V"
+        Ratio : 100  
+  - Cmd : 3
+    Offset : 33
+    Len : 2
+    Data :
+      - Name : 1#开关跳闸
+        Value : (($v[1]) & 0x1) 
+        CValue : (pData[0] & 0x1)
+        AlertNormalValue : 0
+      - Name : 2#开关跳闸
+        Value : ((($v[1]) >> 1) & 0x1) 
+        CValue : (((pData[0]) >> 1) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 3#开关跳闸
+        Value : ((($v[1]) >> 2) & 0x1) 
+        CValue : (((pData[0]) >> 2) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 4#开关跳闸
+        Value : ((($v[1]) >> 3) & 0x1) 
+        CValue : (((pData[0]) >> 3) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 5#开关跳闸
+        Value : ((($v[1]) >> 4) & 0x1) 
+        CValue : (((pData[0]) >> 4) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 6#开关跳闸
+        Value : ((($v[1]) >> 5) & 0x1) 
+        CValue : (((pData[0]) >> 5) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 7#开关跳闸
+        Value : ((($v[1]) >> 6) & 0x1) 
+        CValue : (((pData[0]) >> 6) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 8#开关跳闸
+        Value : ((($v[1]) >> 7) & 0x1) 
+        CValue : (((pData[0]) >> 7) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 9#开关跳闸
+        Value : ((($v[1]) >> 8) & 0x1) 
+        CValue : (((pData[0]) >> 8) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 10#开关跳闸
+        Value : ((($v[1]) >> 9) & 0x1) 
+        CValue : (((pData[0]) >> 9) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 11#开关跳闸
+        Value : ((($v[1]) >> 10) & 0x1) 
+        CValue : (((pData[0]) >> 10) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 12#开关跳闸
+        Value : ((($v[1]) >> 11) & 0x1) 
+        CValue : (((pData[0]) >> 11) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 13#开关跳闸
+        Value : ((($v[1]) >> 12) & 0x1) 
+        CValue : (((pData[0]) >> 12) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 14#开关跳闸
+        Value : ((($v[1]) >> 13) & 0x1) 
+        CValue : (((pData[0]) >> 13) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 15#开关跳闸
+        Value : ((($v[1]) >> 14) & 0x1) 
+        CValue : (((pData[0]) >> 14) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 16#开关跳闸
+        Value : ((($v[1]) >> 15) & 0x1) 
+        CValue : (((pData[0]) >> 15) & 0x1) 
+        AlertNormalValue : 0
+
+      - Name : 17#开关跳闸
+        Value : (($v[2]) & 0x1) 
+        CValue : (pData[1] & 0x1)
+        AlertNormalValue : 0
+      - Name : 18#开关跳闸
+        Value : ((($v[2]) >> 1) & 0x1) 
+        CValue : (((pData[1]) >> 1) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 19#开关跳闸
+        Value : ((($v[2]) >> 2) & 0x1) 
+        CValue : (((pData[1]) >> 2) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 20#开关跳闸
+        Value : ((($v[2]) >> 3) & 0x1) 
+        CValue : (((pData[1]) >> 3) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 21#开关跳闸
+        Value : ((($v[2]) >> 4) & 0x1) 
+        CValue : (((pData[1]) >> 4) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 22#开关跳闸
+        Value : ((($v[2]) >> 5) & 0x1) 
+        CValue : (((pData[1]) >> 5) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 23#开关跳闸
+        Value : ((($v[2]) >> 6) & 0x1) 
+        CValue : (((pData[1]) >> 6) & 0x1) 
+        AlertNormalValue : 0
+      - Name : 24#开关跳闸
+        Value : ((($v[2]) >> 7) & 0x1) 
+        CValue : (((pData[1]) >> 7) & 0x1) 
+        AlertNormalValue : 0
+        
+
+        

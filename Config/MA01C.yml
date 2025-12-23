@@ -7,110 +7,145 @@ Project:
   ProtocolName : "MA01C"
 BlockTemplate :
   Inline :
-    BlockLength : 60
+    BlockLength : 140
     BlockType : 'S'
     BlockContent : 
       - Name : "%s路进线-频率"
         Unit : "Hz"
-        Value : ($v[1] << 16 + $v[2])/100
+        Value : (($v[1] << 16) + $v[2])/100
+        CValue : ((pData[0] << 16) + pData[1])/100
       - Name : "%s路进线-A相电压"
         Unit : "V"
-        Value : ($v[3] << 16 + $v[4])/100
+        Value : (($v[3] << 16) + $v[4])/100
+        CValue : ((pData[2] << 16) + pData[3])/100
       - Name : "%s路进线-B相电压"
         Unit : "V"
-        Value : ($v[5] << 16 + $v[6])/100
+        Value : (($v[5] << 16) + $v[6])/100
+        CValue : ((pData[4] << 16) + pData[5])/100
       - Name : "%s路进线-C相电压"
         Unit : "V"
-        Value : ($v[7] << 16 + $v[8])/100
+        Value : (($v[7] << 16) + $v[8])/100
+        CValue : ((pData[6] << 16) + pData[7])/100
       - Name : "%s路进线-AB线电压"
         Unit : "V"
-        Value : ($v[9] << 16 + $v[10])/100
+        Value : (($v[9] << 16) + $v[10])/100
+        CValue : ((pData[8] << 16) + pData[9])/100
       - Name : "%s路进线-BC线电压"
         Unit : "V"
-        Value : ($v[11] << 16 + $v[12])/100
+        Value : (($v[11] << 16) + $v[12])/100
+        CValue : ((pData[10] << 16) + pData[11])/100
       - Name : "%s路进线-CA线电压"
         Unit : "V"
-        Value : ($v[13] << 16 + $v[14])/100
+        Value : (($v[13] << 16) + $v[14])/100
+        CValue : ((pData[12] << 16) + pData[13])/100
       - Name : "%s路进线-A相电流"
         Unit : "A"
-        Value : ($v[15] << 16 + $v[16])/100
+        Value : (($v[15] << 16) + $v[16])/100
+        CValue : ((pData[14] << 16) + pData[15])/100
       - Name : "%s路进线-B相电流"
         Unit : "A"
-        Value : ($v[17] << 16 + $v[18])/100
+        Value : (($v[17] << 16) + $v[18])/100
+        CValue : ((pData[16] << 16) + pData[17])/100
       - Name : "%s路进线-C相电流"
         Unit : "A"
-        Value : ($v[19] << 16 + $v[20])/100
+        Value : (($v[19] << 16) + $v[20])/100
+        CValue : ((pData[18] << 16) + pData[19])/100
       - Name : "%s路进线-A相有功功率"
         Unit : "kW"
-        Value : ($v[21] << 16 + $v[22])/1000
+        Value : (($v[21] << 16) + $v[22])/1000
+        CValue : ((pData[20] << 16) + pData[21])/100
       - Name : "%s路进线-B相有功功率"
         Unit : "kW"
-        Value : ($v[23] << 16 + $v[24])/1000
+        Value : (($v[23] << 16 ) + $v[24])/1000
+        CValue : ((pData[22] << 16) + pData[23])/100
       - Name : "%s路进线-C相有功功率"
         Unit : "kW"
-        Value : ($v[25] << 16 + $v[26])/1000
+        Value : (($v[25] << 16 ) + $v[26])/1000
+        CValue : ((pData[24] << 16) + pData[25])/100
       - Name : "%s路进线-合相有功功率"
         Unit : "kW"
-        Value : ($v[27] << 16 + $v[28])/1000
+        Value : (($v[27] << 16 ) + $v[28])/1000
+        CValue : ((pData[26] << 16) + pData[27])/100
       - Name : "%s路进线-A相无功功率"
         Unit : "kVAR"
-        Value : ($v[29] << 16 + $v[30])/1000
+        Value : (($v[29] << 16 ) + $v[30])/1000
+        CValue : ((pData[28] << 16) + pData[29])/100
       - Name : "%s路进线-B相无功功率"
         Unit : "kVAR"
-        Value : ($v[31] << 16 + $v[32])/1000
+        Value : (($v[31] << 16 ) + $v[32])/1000
+        CValue : ((pData[30] << 16) + pData[31])/100
       - Name : "%s路进线-C相无功功率"
         Unit : "kVAR"
-        Value : ($v[33] << 16 + $v[34])/1000
+        Value : (($v[33] << 16 ) + $v[34])/1000
+        CValue : ((pData[32] << 16) + pData[33])/100
       - Name : "%s路进线-合相无功功率"
         Unit : "kVAR"
-        Value : ($v[35] << 16 + $v[36])/10000
+        Value : (($v[35] << 16 ) + $v[36])/10000
+        CValue : ((pData[34] << 16) + pData[35])/100
       - Name : "%s路进线-A相功率因数"
-        Value : ($v[37] << 16 + $v[38])/10000
+        Value : (($v[37] << 16 ) + $v[38])/10000
+        CValue : ((pData[36] << 16) + pData[37])/100
       - Name : "%s路进线-B相功率因数"
-        Value : ($v[39] << 16 + $v[40])/10000
+        Value : (($v[39] << 16 ) + $v[40])/10000
+        CValue : ((pData[38] << 16) + pData[39])/100
       - Name : "%s路进线-C相功率因数"
-        Value : ($v[41] << 16 + $v[42])/10000
+        Value : (($v[41] << 16 ) + $v[42])/10000
+        CValue : ((pData[40] << 16) + pData[41])/100
       - Name : "%s路进线-合相功率因数"
-        Value : ($v[43] << 16 + $v[44])/10000
+        Value : (($v[43] << 16 ) + $v[44])/10000
+        CValue : ((pData[42] << 16) + pData[43])/100
       - Name : "%s路进线-A相有功电能"
         Unit : "kWh"
-        Value : ($v[45] << 16 + $v[46])/10
+        Value : (($v[45] << 16 ) + $v[46])/10
+        CValue : ((pData[44] << 16) + pData[45])/100
       - Name : "%s路进线-B相有功电能"
         Unit : "kWh"
-        Value : ($v[47] << 16 + $v[48])/10
+        Value : (($v[47] << 16 ) + $v[48])/10
+        CValue : ((pData[46] << 16) + pData[47])/100
       - Name : "%s路进线-C相有功电能"
         Unit : "kWh"
-        Value : ($v[49] << 16 + $v[50])/10
+        Value : (($v[49] << 16 ) + $v[50])/10
+        CValue : ((pData[48] << 16) + pData[49])/100
       - Name : "%s路进线-合相有功电能"
         Unit : "kWh"
-        Value : ($v[51] << 16 + $v[52])/10
+        Value : (($v[51] << 16 ) + $v[52])/10
+        CValue : ((pData[50] << 16) + pData[51])/100
       - Name : "%s路进线-A相电压谐波含量"
         Unit : "%"
-        Value : ($v[53] << 16 + $v[54])/100
+        Value : (($v[53] << 16 ) + $v[54])/100
+        CValue : ((pData[52] << 16) + pData[53])/100
       - Name : "%s路进线-B相电压谐波含量"
         Unit : "%"
-        Value : ($v[55] << 16 + $v[56])/100
+        Value : (($v[55] << 16 ) + $v[56])/100
+        CValue : ((pData[54] << 16) + pData[55])/100
       - Name : "%s路进线-C相电压谐波含量"
         Unit : "%"
-        Value : ($v[57] << 16 + $v[58])/100
+        Value : (($v[57] << 16 ) + $v[58])/100
+        CValue : ((pData[56] << 16) + pData[57])/100
       - Name : "%s路进线-A相电流谐波含量"
         Unit : "%"
-        Value : ($v[59] << 16 + $v[60])/100
+        Value : (($v[59] << 16 ) + $v[60])/100
+        CValue : ((pData[58] << 16) + pData[59])/100
       - Name : "%s路进线-B相电流谐波含量"
         Unit : "%"
-        Value : ($v[61] << 16 + $v[62])/100
+        Value : (($v[61] << 16 ) + $v[62])/100
+        CValue : ((pData[60] << 16) + pData[61])/100
       - Name : "%s路进线-C相电流谐波含量"
         Unit : "%"
-        Value : ($v[63] << 16 + $v[64])/100
+        Value : (($v[63] << 16 ) + $v[64])/100
+        CValue : ((pData[62] << 16) + pData[63])/100
       - Name : "%s路进线-A相电流负载比"
         Unit : "%"
-        Value : ($v[65] << 16 + $v[66])/100
+        Value : (($v[65] << 16 ) + $v[66])/100
+        CValue : ((pData[64] << 16) + pData[65])/100
       - Name : "%s路进线-B相电流负载比"
         Unit : "%"
-        Value : ($v[67] << 16 + $v[68])/100
+        Value : (($v[67] << 16 ) + $v[68])/100
+        CValue : ((pData[66] << 16) + pData[67])/100
       - Name : "%s路进线-C相电流负载比"
         Unit : "%"
-        Value : ($v[69] << 16 + $v[70])/100
+        Value : (($v[69] << 16 ) + $v[70])/100
+        CValue : ((pData[68] << 16) + pData[69])/100
   Feeder :
     BlockLength : 72
     BlockType : 'S'
@@ -120,77 +155,95 @@ BlockTemplate :
       - Name : "%s电压"
         Index : index
         Unit : "V"
-        Value : ($v[1] << 16 + $v[2])/100
+        Value : (($v[1] << 16 ) + $v[2])/100
+        CValue : ((pData[0] << 16) + pData[1])/100
       - Name : "%s电压"
         Index : index1
         Unit : "V"
-        Value : ($v[3] << 16 + $v[4])/100
+        Value : (($v[3] << 16 ) + $v[4])/100
+        CValue : ((pData[2] << 16) + pData[3])/100
       - Name : "%s电压"
         Index : index2
         Unit : "V"
-        Value : ($v[5] << 16 + $v[6])/100
+        Value : (($v[5] << 16 ) + $v[6])/100
+        CValue : ((pData[4] << 16) + pData[5])/100
       - Name : "%s电流"
         Index : index
         Unit : "A"
-        Value : ($v[7] << 16 + $v[8])/100
+        Value : (($v[7] << 16 ) + $v[8])/100
+        CValue : ((pData[6] << 16) + pData[7])/100
       - Name : "%s电流"
         Index : index1
         Unit : "A"
-        Value : ($v[9] << 16 + $v[10])/100
+        Value : (($v[9] << 16 ) + $v[10])/100
+        CValue : ((pData[8] << 16) + pData[9])/100
       - Name : "%s电流"
         Index : index2
         Unit : "A"
-        Value : ($v[11] << 16 + $v[12])/100
+        Value : (($v[11] << 16 ) + $v[12])/100
+        CValue : ((pData[10] << 16) + pData[11])/100
       - Name : "%s功率因数"
         Index : index
-        Value : ($v[13] << 16 + $v[14])/10000
+        Value : (($v[13] << 16 ) + $v[14])/10000
+        CValue : ((pData[12] << 16) + pData[13])/100
       - Name : "%s功率因数"
         Index : index1
-        Value : ($v[15] << 16 + $v[16])/10000
+        Value : (($v[15] << 16 ) + $v[16])/10000
+        CValue : ((pData[14] << 16) + pData[15])/100
       - Name : "%s功率因数"
         Index : index2
-        Value : ($v[17] << 16 + $v[18])/10000
-      - Name : "%有功功率"
+        Value : (($v[17] << 16 ) + $v[18])/10000
+        CValue : ((pData[16] << 16) + pData[17])/100
+      - Name : "%s有功功率"
         Index : index
         Unit : "kW"
-        Value : ($v[19] << 16 + $v[20])/1000
-      - Name : "%有功功率"
+        Value : (($v[19] << 16 ) + $v[20])/1000
+        CValue : ((pData[18] << 16) + pData[19])/100
+      - Name : "%s有功功率"
         Unit : "kW"
         Index : index1
-        Value : ($v[21] << 16 + $v[22])/1000
-      - Name : "%有功功率"
+        Value : (($v[21] << 16 ) + $v[22])/1000
+        CValue : ((pData[20] << 16) + pData[21])/100
+      - Name : "%s有功功率"
         Unit : "kW"
         Index : index2
-        Value : ($v[23] << 16 + $v[24])/1000
-      - Name : "%有功电能"
+        Value : (($v[23] << 16 ) + $v[24])/1000
+        CValue : ((pData[22] << 16) + pData[23])/100
+      - Name : "%s有功电能"
         Index : index
         Unit : "kWh"
-        Value : ($v[25] << 16 + $v[26])/10
-      - Name : "%有功电能"
+        Value : (($v[25] << 16 ) + $v[26])/10
+        CValue : ((pData[24] << 16) + pData[25])/100
+      - Name : "%s有功电能"
         Unit : "kWh"
         Index : index1
-        Value : ($v[27] << 16 + $v[28])/10
-      - Name : "%有功电能"
+        Value : (($v[27] << 16 ) + $v[28])/10
+        CValue : ((pData[26] << 16) + pData[27])/100
+      - Name : "%s有功电能"
         Unit : "kWh"
         Index : index2
-        Value : ($v[29] << 16 + $v[30])/10
-      - Name : "%电流负载比"
+        Value : (($v[29] << 16 ) + $v[30])/10
+        CValue : ((pData[28] << 16) + pData[29])/100
+      - Name : "%s电流负载比"
         Index : index
         Unit : "%"
-        Value : ($v[31] << 16 + $v[32])/10
-      - Name : "%电流负载比"
+        Value : (($v[31] << 16 ) + $v[32])/10
+        CValue : ((pData[30] << 16) + pData[31])/100
+      - Name : "%s电流负载比"
         Unit : "%"
         Index : index1
-        Value : ($v[33] << 16 + $v[34])/10
-      - Name : "%电流负载比"
+        Value : (($v[33] << 16 ) + $v[34])/10
+        CValue : ((pData[32] << 16) + pData[33])/100
+      - Name : "%s电流负载比"
         Unit : "%"
         Index : index2
-        Value : ($v[35] << 16 + $v[36])/10
+        Value : (($v[35] << 16 ) + $v[36])/10
+        CValue : ((pData[34] << 16) + pData[35])/100
   ASwitchStatus :
     BlockLength : 2
     BlockType : 'S'
     BlockContent : 
-      - Name : "A%开关状态"
+      - Name : "A%s开关状态"
         Index : index
         Options : 
           - Key : 0
@@ -206,7 +259,7 @@ BlockTemplate :
     BlockLength : 2
     BlockType : 'S'
     BlockContent : 
-      - Name : "B%开关状态"
+      - Name : "B%s开关状态"
         Index : index
         Options : 
           - Key : 0
@@ -222,61 +275,61 @@ BlockTemplate :
     BlockLength : 2
     BlockType : 'S'
     BlockContent : 
-      - Name : '节点%d温度'
+      - Name : '节点%s温度'
         Unit : '%'
         Ratio : 10
   FeederSwitchAlert : 
     BlockLength : 1
     BlockType : 'C'
     BlockContent :
-      - Name : '%d开关告警'
+      - Name : '%s开关告警'
         AlertNormalValue : 0
   FeederCurrentHAlert : 
     BlockLength : 1
     BlockType : 'C'
     BlockContent :
-      - Name : '%d电流越上线'
+      - Name : '%s电流越上线'
         AlertNormalValue : 0
   FeederCurrentHHAlert : 
     BlockLength : 1
     BlockType : 'C'
     BlockContent :
-      - Name : '%d电流越上上线'
+      - Name : '%s电流越上上线'
         AlertNormalValue : 0
   FeederSwitchOpenAlert : 
     BlockLength : 1
     BlockType : 'C'
     BlockContent :
-      - Name : '%d开关分闸'
+      - Name : '%s开关分闸'
         AlertNormalValue : 0
   NodeTempAlert :
     BlockLength : 1
     BlockType : 'C'
     BlockContent :
-      - Name : '节点%d温度越限'
+      - Name : '节点%s温度越限'
         AlertNormalValue : 0
   FeederCurrentLAlert : 
     BlockLength : 1
     BlockType : 'C'
     BlockContent :
-      - Name : '%电流越下限'
+      - Name : '%s电流越下限'
         AlertNormalValue : 0
   FeederCurrentLLAlert : 
     BlockLength : 1
     BlockType : 'C'
     BlockContent :
-      - Name : '%电流越下下限'
+      - Name : '%s电流越下下限'
         AlertNormalValue : 0
 Sample : 
   - Cmd : 3
     Offset : 4
-    Len : 72
+    Len : 70
     Data : 
       - Block : Inline
         index : 'A'
   - Cmd : 3
     Offset : 74
-    Len : 72
+    Len : 70
     Data : 
       - Block : Inline
         index : 'B'
@@ -670,40 +723,52 @@ Sample :
     Data : 
       - Name : "A路进线-A相视在功率"
         Unit : "kW"
-        Value : ($v[1] << 16  + $v[2])/1000
+        Value : (($v[1] << 16 )  + $v[2])/1000
+        CValue : ((pData[0] << 16) + pData[1])/100
       - Name : "A路进线-B相视在功率"
         Unit : "kW"
-        Value : ($v[3] << 16  + $v[4])/1000
+        Value : (($v[3] << 16 )  + $v[4])/1000
+        CValue : ((pData[2] << 16) + pData[3])/100
       - Name : "A路进线-C相视在功率"
         Unit : "kW"
-        Value : ($v[5] << 16  + $v[6])/1000
+        Value : (($v[5] << 16 )  + $v[6])/1000
+        CValue : ((pData[4] << 16) + pData[5])/100
       - Name : "A路进线-合相视在功率"
         Unit : "kW"
-        Value : ($v[7] << 16  + $v[8])/1000
+        Value : (($v[7] << 16 )  + $v[8])/1000
+        CValue : ((pData[6] << 16) + pData[7])/100
       - Name : "A路进线-零地电压"
         Unit : "V"
-        Value : ($v[9] << 16  + $v[10])/100
+        Value : (($v[9] << 16 )  + $v[10])/100
+        CValue : ((pData[8] << 16) + pData[9])/100
       - Name : "A路进线-中性电流"
         Unit : "A"
-        Value : ($v[11] << 16  + $v[12])/100
+        Value : (($v[11] << 16 )  + $v[12])/100
+        CValue : ((pData[10] << 16) + pData[11])/100
       - Name : "B路进线-A相视在功率"
         Unit : "kW"
-        Value : ($v[13] << 16  + $v[14])/1000
+        Value : (($v[13] << 16 )  + $v[14])/1000
+        CValue : ((pData[12] << 16) + pData[13])/100
       - Name : "B路进线-B相视在功率"
         Unit : "kW"
-        Value : ($v[15] << 16  + $v[16])/1000
+        Value : (($v[15] << 16 )  + $v[16])/1000
+        CValue : ((pData[14] << 16) + pData[15])/100
       - Name : "B路进线-C相视在功率"
         Unit : "kW"
-        Value : ($v[17] << 16  + $v[18])/1000
+        Value : (($v[17] << 16 )  + $v[18])/1000
+        CValue : ((pData[16] << 16) + pData[17])/100
       - Name : "B路进线-合相视在功率"
         Unit : "kW"
-        Value : ($v[19] << 16  + $v[20])/1000
+        Value : (($v[19] << 16 )  + $v[20])/1000
+        CValue : ((pData[18] << 16) + pData[19])/100
       - Name : "B路进线-零地电压"
         Unit : "V"
-        Value : ($v[21] << 16  + $v[22])/100
+        Value : (($v[21] << 16 )  + $v[22])/100
+        CValue : ((pData[20] << 16) + pData[21])/100
       - Name : "B路进线-中性电流"
         Unit : "A"
-        Value : ($v[23] << 16  + $v[24])/100
+        Value : (($v[23] << 16 )  + $v[24])/100
+        CValue : ((pData[22] << 16) + pData[23])/100
   - Cmd : 3
     Offset : 4092
     Len : 9
@@ -836,39 +901,39 @@ Sample :
       - Name : A路进线-电流不平衡度
         Unit : '%'
         Ratio : 10
-  - Cmd : 3
-    Offset : 4267
-    Len : 49
-    Data : 
-      - Name : "温湿度模块1-湿度"
-        Unit : '%'
-        Ratio : 10
-      - ArrayBlock : TempNode
-        Prefix : '温湿度模块1-'
-        ArrayStart : 1
-        ArrayEnd : 48
-  - Cmd : 3
-    Offset : 4316
-    Len : 49
-    Data : 
-      - Name : "温湿度模块2-湿度"
-        Unit : '%'
-        Ratio : 10
-      - ArrayBlock : TempNode
-        Prefix : '温湿度模块2-'
-        ArrayStart : 49
-        ArrayEnd : 96
-  - Cmd : 3
-    Offset : 4365
-    Len : 49
-    Data : 
-      - Name : "温湿度模块3-湿度"
-        Unit : '%'
-        Ratio : 10
-      - ArrayBlock : TempNode
-        Prefix : '温湿度模块3-'
-        ArrayStart : 97
-        ArrayEnd : 144
+  # - Cmd : 3
+  #   Offset : 4267
+  #   Len : 49
+  #   Data : 
+  #     - Name : "温湿度模块1-湿度"
+  #       Unit : '%'
+  #       Ratio : 10
+  #     - ArrayBlock : TempNode
+  #       Prefix : '温湿度模块1-'
+  #       ArrayStart : 1
+  #       ArrayEnd : 48
+  # - Cmd : 3
+  #   Offset : 4316
+  #   Len : 49
+  #   Data : 
+  #     - Name : "温湿度模块2-湿度"
+  #       Unit : '%'
+  #       Ratio : 10
+  #     - ArrayBlock : TempNode
+  #       Prefix : '温湿度模块2-'
+  #       ArrayStart : 49
+  #       ArrayEnd : 96
+  # - Cmd : 3
+  #   Offset : 4365
+  #   Len : 49
+  #   Data : 
+  #     - Name : "温湿度模块3-湿度"
+  #       Unit : '%'
+  #       Ratio : 10
+  #     - ArrayBlock : TempNode
+  #       Prefix : '温湿度模块3-'
+  #       ArrayStart : 97
+  #       ArrayEnd : 144
   - Cmd : 3
     Offset : 7424
     Len : 27
@@ -996,220 +1061,289 @@ Sample :
     Data :
       - Name : "A路进线总开关开关告警"
         Value : ($v[1] & 0x1)
+        CValue : (pData[0] & 0x1)
         AlertNormalValue : 0    
       - Name : "A路进线防雷器失效告警"
         Value : (($v[1]>>1) & 0x1)
+        CValue : ((pData[0]>>1) & 0x1)
         AlertNormalValue : 0    
       - Name : "B路进线总开关开关告警"
         Value : (($v[1]>>2) & 0x1)
+        CValue : ((pData[0]>>2) & 0x1)
         AlertNormalValue : 0    
       - Name : "B路进线防雷器失效告警"
         Value : (($v[1]>>3) & 0x1)
+        CValue : ((pData[0]>>3) & 0x1)
         AlertNormalValue : 0    
       - Name : "A路进线旁路开关开关告警"
         Value : (($v[1]>>8) & 0x1)
+        CValue : ((pData[0]>>8) & 0x1)
         AlertNormalValue : 0    
       - Name : "A路进线防雷器开关开关告警"
         Value : (($v[1]>>9) & 0x1)
+        CValue : ((pData[0]>>9) & 0x1)
         AlertNormalValue : 0    
       - Name : "B路进线旁路开关开关告警"
         Value : (($v[1]>>10) & 0x1)
+        CValue : ((pData[0]>>10) & 0x1)
         AlertNormalValue : 0    
       - Name : "B路进线防雷器开关开关告警"
         Value : (($v[1]>>11) & 0x1)
+        CValue : ((pData[0]>>11) & 0x1)
         AlertNormalValue : 0    
 
       - Name : "A路进线A相电流越上限"
         Value : ($v[2] & 0x1)
+        CValue : ((pData[1]) & 0x1)
         AlertNormalValue : 0    
       - Name : "A路进线B相电流越上限"
         Value : (($v[2]>>1) & 0x1)
+        CValue : ((pData[1]>>1) & 0x1)
         AlertNormalValue : 0    
       - Name : "A路进线C相电流越上限"
         Value : (($v[2]>>2) & 0x1)
+        CValue : ((pData[1]>>2) & 0x1)
         AlertNormalValue : 0    
       - Name : "B路进线A相电流越上限"
         Value : (($v[2]>>3) & 0x1)
+        CValue : ((pData[1]>>3) & 0x1)
         AlertNormalValue : 0    
       - Name : "B路进线B相电流越上限"
         Value : (($v[2]>>4) & 0x1)
+        CValue : ((pData[1]>>4) & 0x1)
         AlertNormalValue : 0    
       - Name : "B路进线C相电流越上限"
         Value : (($v[2]>>5) & 0x1)
+        CValue : ((pData[1]>>5) & 0x1)
         AlertNormalValue : 0    
       - Name : "A路进线A相功率过载"
         Value : (($v[2]>>9) & 0x1)
+        CValue : ((pData[1]>>9) & 0x1)
         AlertNormalValue : 0    
       - Name : "A路进线B相功率过载"
         Value : (($v[2]>>10) & 0x1)
+        CValue : ((pData[1]>>10) & 0x1)
         AlertNormalValue : 0    
       - Name : "A路进线C相功率过载"
         Value : (($v[2]>>11) & 0x1)
+        CValue : ((pData[1]>>11) & 0x1)
         AlertNormalValue : 0    
       - Name : "B路进线A相功率过载"
         Value : (($v[2]>>12) & 0x1)
+        CValue : ((pData[1]>>12) & 0x1)
         AlertNormalValue : 0    
       - Name : "B路进线B相功率过载"
         Value : (($v[2]>>13) & 0x1)
+        CValue : ((pData[1]>>13) & 0x1)
         AlertNormalValue : 0    
       - Name : "B路进线C相功率过载"
         Value : (($v[2]>>14) & 0x1)
+        CValue : ((pData[1]>>14) & 0x1)
         AlertNormalValue : 0    
-      
       - Name : "A路进线A相电流越上上限"
         Value : ($v[3] & 0x1)
+        CValue : ((pData[2]) & 0x1)
         AlertNormalValue : 0    
       - Name : "A路进线B相电流越上上限"
         Value : (($v[3]>>1) & 0x1)
+        CValue : ((pData[2]>>1) & 0x1)
         AlertNormalValue : 0    
       - Name : "A路进线C相电流越上上限"
         Value : (($v[3]>>2) & 0x1)
+        CValue : ((pData[2]>>2) & 0x1)
         AlertNormalValue : 0    
       - Name : "B路进线A相电流越上上限"
         Value : (($v[3]>>3) & 0x1)
+        CValue : ((pData[2]>>3) & 0x1)
         AlertNormalValue : 0    
       - Name : "B路进线B相电流越上上限"
         Value : (($v[3]>>4) & 0x1)
+        CValue : ((pData[2]>>4) & 0x1)
         AlertNormalValue : 0    
       - Name : "B路进线C相电流越上上限"
         Value : (($v[3]>>5) & 0x1)
+        CValue : ((pData[2]>>5) & 0x1)
         AlertNormalValue : 0    
 
       - Name : "A路进线A相电压过压"
         Value : ($v[4] & 0x1)
+        CValue : ((pData[3]) & 0x1)
         AlertNormalValue : 0    
       - Name : "A路进线B相电压过压"
         Value : (($v[4]>>1) & 0x1)
+        CValue : ((pData[3]>>1) & 0x1)
         AlertNormalValue : 0    
       - Name : "A路进线C相电压过压"
         Value : (($v[4]>>2) & 0x1)
+        CValue : ((pData[3]>>2) & 0x1)
         AlertNormalValue : 0    
       - Name : "B路进线A相电压过压"
         Value : (($v[4]>>3) & 0x1)
+        CValue : ((pData[3]>>3) & 0x1)
         AlertNormalValue : 0    
       - Name : "B路进线B相电压过压"
         Value : (($v[4]>>4) & 0x1)
+        CValue : ((pData[3]>>4) & 0x1)
         AlertNormalValue : 0    
       - Name : "B路进线C相电压过压"
         Value : (($v[4]>>5) & 0x1)
+        CValue : ((pData[3]>>5) & 0x1)
         AlertNormalValue : 0    
       - Name : "A路进线A相电压谐波越限"
         Value : (($v[4]>>9) & 0x1)
+        CValue : ((pData[3]>>9) & 0x1)
         AlertNormalValue : 0    
       - Name : "A路进线B相电压谐波越限"
         Value : (($v[4]>>10) & 0x1)
+        CValue : ((pData[3]>>10) & 0x1)
         AlertNormalValue : 0    
       - Name : "A路进线C相电压谐波越限"
         Value : (($v[4]>>11) & 0x1)
+        CValue : ((pData[3]>>11) & 0x1)
         AlertNormalValue : 0    
       - Name : "B路进线A相电压谐波越限"
         Value : (($v[4]>>12) & 0x1)
+        CValue : ((pData[3]>>12) & 0x1)
         AlertNormalValue : 0    
       - Name : "B路进线B相电压谐波越限"
         Value : (($v[4]>>13) & 0x1)
+        CValue : ((pData[3]>>13) & 0x1)
         AlertNormalValue : 0    
       - Name : "B路进线C相电压谐波越限"
         Value : (($v[4]>>14) & 0x1)
+        CValue : ((pData[3]>>14) & 0x1)
         AlertNormalValue : 0   
 
       - Name : "A路进线A相电压欠压"
         Value : ($v[5] & 0x1)
+        CValue : ((pData[4]) & 0x1)
         AlertNormalValue : 0    
       - Name : "A路进线B相电压欠压"
         Value : (($v[5]>>1) & 0x1)
+        CValue : ((pData[4]>>1) & 0x1)
         AlertNormalValue : 0    
       - Name : "A路进线C相电压欠压"
         Value : (($v[5]>>2) & 0x1)
+        CValue : ((pData[4]>>2) & 0x1)
         AlertNormalValue : 0    
       - Name : "B路进线A相电压欠压"
         Value : (($v[5]>>3) & 0x1)
+        CValue : ((pData[4]>>3) & 0x1)
         AlertNormalValue : 0    
       - Name : "B路进线B相电压欠压"
         Value : (($v[5]>>4) & 0x1)
+        CValue : ((pData[4]>>4) & 0x1)
         AlertNormalValue : 0    
       - Name : "B路进线C相电压欠压"
         Value : (($v[5]>>5) & 0x1)
+        CValue : ((pData[4]>>5) & 0x1)
         AlertNormalValue : 0    
       - Name : "A路进线A相电流谐波越限"
         Value : (($v[5]>>9) & 0x1)
+        CValue : ((pData[4]>>9) & 0x1)
         AlertNormalValue : 0    
       - Name : "A路进线B相电流谐波越限"
         Value : (($v[5]>>10) & 0x1)
+        CValue : ((pData[4]>>10) & 0x1)
         AlertNormalValue : 0    
       - Name : "A路进线C相电流谐波越限"
         Value : (($v[5]>>11) & 0x1)
+        CValue : ((pData[4]>>11) & 0x1)
         AlertNormalValue : 0    
       - Name : "B路进线A相电流谐波越限"
         Value : (($v[5]>>12) & 0x1)
+        CValue : ((pData[4]>>12) & 0x1)
         AlertNormalValue : 0    
       - Name : "B路进线B相电流谐波越限"
         Value : (($v[5]>>13) & 0x1)
+        CValue : ((pData[4]>>13) & 0x1)
         AlertNormalValue : 0    
       - Name : "B路进线C相电流谐波越限"
         Value : (($v[5]>>14) & 0x1)
+        CValue : ((pData[4]>>14) & 0x1)
         AlertNormalValue : 0     
       
       - Name : "A路进线A相电压缺相"
         Value : ($v[6] & 0x1)
+        CValue : ((pData[5]) & 0x1)
         AlertNormalValue : 0    
       - Name : "A路进线B相电压缺相"
         Value : (($v[6]>>1) & 0x1)
+        CValue : ((pData[5]>>1) & 0x1)
         AlertNormalValue : 0    
       - Name : "A路进线C相电压缺相"
         Value : (($v[6]>>2) & 0x1)
+        CValue : ((pData[5]>>2) & 0x1)
         AlertNormalValue : 0    
       - Name : "B路进线A相电压缺相"
         Value : (($v[6]>>3) & 0x1)
+        CValue : ((pData[5]>>3) & 0x1)
         AlertNormalValue : 0    
       - Name : "B路进线B相电压缺相"
         Value : (($v[6]>>4) & 0x1)
+        CValue : ((pData[5]>>4) & 0x1)
         AlertNormalValue : 0    
       - Name : "B路进线C相电压缺相"
         Value : (($v[6]>>5) & 0x1)
+        CValue : ((pData[5]>>5) & 0x1)
         AlertNormalValue : 0    
 
       - Name : "A路进线电压过频"
         Value : ($v[7] & 0x1)
+        CValue : ((pData[6]) & 0x1)
         AlertNormalValue : 0    
       - Name : "B路进线电压过频"
         Value : (($v[7]>>1) & 0x1)
+        CValue : ((pData[6]>>1) & 0x1)
         AlertNormalValue : 0    
       - Name : "A路三相电压不平衡度越限"
         Value : (($v[7]>>2) & 0x1)
+        CValue : ((pData[6]>>2) & 0x1)
         AlertNormalValue : 0    
       - Name : "B路三相电压不平衡度越限"
         Value : (($v[7]>>3) & 0x1)
+        CValue : ((pData[6]>>3) & 0x1)
         AlertNormalValue : 0    
       - Name : "A路三相电流不平衡度越限"
         Value : (($v[7]>>4) & 0x1)
+        CValue : ((pData[6]>>4) & 0x1)
         AlertNormalValue : 0    
       - Name : "B路三相电流不平衡度越限"
         Value : (($v[7]>>5) & 0x1)
+        CValue : ((pData[6]>>5) & 0x1)
         AlertNormalValue : 0    
       
       - Name : "A路进线电压欠频"
         Value : ($v[8] & 0x1)
+        CValue : ((pData[7]) & 0x1)
         AlertNormalValue : 0    
       - Name : "B路进线电压欠频"
         Value : (($v[8]>>1) & 0x1)
+        CValue : ((pData[7]>>1) & 0x1)
         AlertNormalValue : 0    
       - Name : "A路进线零地电压越限"
         Value : (($v[8]>>2) & 0x1)
+        CValue : ((pData[7]>>2) & 0x1)
         AlertNormalValue : 0    
       - Name : "B路进线零地电压越限"
         Value : (($v[8]>>3) & 0x1)
+        CValue : ((pData[7]>>3) & 0x1)
         AlertNormalValue : 0    
       - Name : "A路进线中性电流越限"
         Value : (($v[8]>>4) & 0x1)
+        CValue : ((pData[7]>>4) & 0x1)
         AlertNormalValue : 0    
       - Name : "B路进线中性电流越限"
         Value : (($v[8]>>5) & 0x1)
+        CValue : ((pData[7]>>5) & 0x1)
         AlertNormalValue : 0    
       - Name : "温湿度传感器温度越限"
         Value : (($v[8]>>7) & 0x1)
+        CValue : ((pData[7]>>7) & 0x1)
         AlertNormalValue : 0    
       - Name : "温湿度传感器湿度越限"
         Value : (($v[8]>>10) & 0x1)
+        CValue : ((pData[7]>>10) & 0x1)
         AlertNormalValue : 0    
   - Cmd : 3
     Offset : 0x1D23
@@ -1246,161 +1380,331 @@ Sample :
     Data :
       - Name : "A路进线总开关开关分闸"
         Value : ($v[1] & 0x1)
+        CValue : ((pData[0]) & 0x1)
         AlertNormalValue : 0    
       - Name : "A路进线防雷器失效分闸"
         Value : (($v[1]>>1) & 0x1)
-  - Cmd : 3
-    Offset : 0x1D2D
-    Len : 9
-    Transform : "bits"
-    Data :
-      - ArrayBlock : NodeTempAlert
-        ArrayStart : 1
-        ArrayEnd : 144
-  - Cmd : 3
-    Offset : 0x1D36
-    Len : 1
-    Data :
-      - Name : "电量模块(1#)通信故障"
-        Value : ($v[1] & 0x1)
-        AlertNormalValue : 0    
-      - Name : "电量模块(2#)通信故障"
-        Value : (($v[1]>>1) & 0x1)
-        AlertNormalValue : 0    
-      - Name : "电量模块(3#)通信故障"
-        Value : (($v[1]>>2) & 0x1)
-        AlertNormalValue : 0    
-      - Name : "电量模块(4#)通信故障"
-        Value : (($v[1]>>3) & 0x1)
-        AlertNormalValue : 0    
-      - Name : "电量模块(5#)通信故障"
-        Value : (($v[1]>>4) & 0x1)
-        AlertNormalValue : 0    
-      - Name : "电量模块(6#)通信故障"
-        Value : (($v[1]>>5) & 0x1)
-        AlertNormalValue : 0    
-      - Name : "开关模块(11#)通信故障"
-        Value : (($v[1]>>6) & 0x1)
-        AlertNormalValue : 0    
-      - Name : "开关模块(12#)通信故障"
-        Value : (($v[1]>>7) & 0x1)
-        AlertNormalValue : 0    
-      - Name : "开关模块(13#)通信故障"
-        Value : (($v[1]>>8) & 0x1)
-        AlertNormalValue : 0    
-      - Name : "开关模块(14#)通信故障"
-        Value : (($v[1]>>9) & 0x1)
-        AlertNormalValue : 0    
-      - Name : "开关模块(15#)通信故障"
-        Value : (($v[1]>>10) & 0x1)
-        AlertNormalValue : 0    
-      - Name : "开关模块(16#)通信故障"
-        Value : (($v[1]>>11) & 0x1)
-        AlertNormalValue : 0    
-      - Name : "温度模块(31#)通信故障"
-        Value : (($v[1]>>12) & 0x1)
-        AlertNormalValue : 0    
-      - Name : "温度模块(32#)通信故障"
-        Value : (($v[1]>>13) & 0x1)
-        AlertNormalValue : 0    
-      - Name : "温度模块(33#)通信故障"
-        Value : (($v[1]>>14) & 0x1)
-        AlertNormalValue : 0    
-  - Cmd : 3
-    Offset : 0x1D38
-    Len : 9
-    Transform : "bits"
-    Data :
-      - ArrayBlock : FeederCurrentLAlert
-        ArrayStart : 1
-        ArrayEnd : 24
-        Prefix : '馈线A'
-      - ArrayBlock : FeederCurrentLAlert
-        ArrayStart : 1
-        ArrayEnd : 24
-        Prefix : '馈线B'
-      - ArrayBlock : FeederCurrentLAlert
-        ArrayStart : 25
-        ArrayEnd : 48
-        Prefix : '馈线A'
-      - ArrayBlock : FeederCurrentLAlert
-        ArrayStart : 25
-        ArrayEnd : 48
-        Prefix : '馈线B'
-      - ArrayBlock : FeederCurrentLAlert
-        ArrayStart : 49
-        ArrayEnd : 72
-        Prefix : '馈线A'
-      - ArrayBlock : FeederCurrentLAlert
-        ArrayStart : 49
-        ArrayEnd : 72
-        Prefix : '馈线B'
-  - Cmd : 3
-    Offset : 0x1D41
-    Len : 9
-    Transform : "bits"
-    Data :
-      - ArrayBlock : FeederCurrentLLAlert
-        ArrayStart : 1
-        ArrayEnd : 24
-        Prefix : '馈线A'
-      - ArrayBlock : FeederCurrentLLAlert
-        ArrayStart : 1
-        ArrayEnd : 24
-        Prefix : '馈线B'
-      - ArrayBlock : FeederCurrentLLAlert
-        ArrayStart : 25
-        ArrayEnd : 48
-        Prefix : '馈线A'
-      - ArrayBlock : FeederCurrentLLAlert
-        ArrayStart : 25
-        ArrayEnd : 48
-        Prefix : '馈线B'
-      - ArrayBlock : FeederCurrentLLAlert
-        ArrayStart : 49
-        ArrayEnd : 72
-        Prefix : '馈线A'
-      - ArrayBlock : FeederCurrentLLAlert
-        ArrayStart : 49
-        ArrayEnd : 72
-        Prefix : '馈线B'
-  - Cmd : 3
-    Offset : 0x1D4A
-    Len : 2
-    Data :
-      - Name : "A路进线A相电流越下限"
-        Value : ($v[1] & 0x1)
-        AlertNormalValue : 0    
-      - Name : "A路进线B相电流越下限"
-        Value : (($v[1]>>1) & 0x1)
-        AlertNormalValue : 0    
-      - Name : "A路进线C相电流越下限"
-        Value : (($v[1]>>2) & 0x1)
-        AlertNormalValue : 0    
-      - Name : "B路进线A相电流越下限"
-        Value : (($v[1]>>3) & 0x1)
-        AlertNormalValue : 0    
-      - Name : "B路进线B相电流越下限"
-        Value : (($v[1]>>4) & 0x1)
-        AlertNormalValue : 0    
-      - Name : "B路进线C相电流越下限"
-        Value : (($v[1]>>5) & 0x1)
-        AlertNormalValue : 0    
-      - Name : "A路进线A相电流越下下限"
-        Value : ($v[2] & 0x1)
-        AlertNormalValue : 0    
-      - Name : "A路进线B相电流越下下限"
-        Value : (($v[2]>>1) & 0x1)
-        AlertNormalValue : 0    
-      - Name : "A路进线C相电流越下下限"
-        Value : (($v[2]>>2) & 0x1)
-        AlertNormalValue : 0    
-      - Name : "B路进线A相电流越下下限"
-        Value : (($v[2]>>3) & 0x1)
-        AlertNormalValue : 0    
-      - Name : "B路进线B相电流越下下限"
-        Value : (($v[2]>>4) & 0x1)
-        AlertNormalValue : 0    
-      - Name : "B路进线C相电流越下下限"
-        Value : (($v[2]>>5) & 0x1)
-        AlertNormalValue : 0    
+        CValue : ((pData[0]>>1) & 0x1)
+  # - Cmd : 3
+  #   Offset : 0x1D2D
+  #   Len : 9
+  #   Transform : "bits"
+  #   Data :
+  #     - ArrayBlock : NodeTempAlert
+  #       ArrayStart : 1
+  #       ArrayEnd : 144
+  # - Cmd : 3
+  #   Offset : 0x1D36
+  #   Len : 1
+  #   Data :
+  #     - Name : "电量模块(1#)通信故障"
+  #       Value : ($v[1] & 0x1)
+  #       AlertNormalValue : 0    
+  #     - Name : "电量模块(2#)通信故障"
+  #       Value : (($v[1]>>1) & 0x1)
+  #       AlertNormalValue : 0    
+  #     - Name : "电量模块(3#)通信故障"
+  #       Value : (($v[1]>>2) & 0x1)
+  #       AlertNormalValue : 0    
+  #     - Name : "电量模块(4#)通信故障"
+  #       Value : (($v[1]>>3) & 0x1)
+  #       AlertNormalValue : 0    
+  #     - Name : "电量模块(5#)通信故障"
+  #       Value : (($v[1]>>4) & 0x1)
+  #       AlertNormalValue : 0    
+  #     - Name : "电量模块(6#)通信故障"
+  #       Value : (($v[1]>>5) & 0x1)
+  #       AlertNormalValue : 0    
+  #     - Name : "开关模块(11#)通信故障"
+  #       Value : (($v[1]>>6) & 0x1)
+  #       AlertNormalValue : 0    
+  #     - Name : "开关模块(12#)通信故障"
+  #       Value : (($v[1]>>7) & 0x1)
+  #       AlertNormalValue : 0    
+  #     - Name : "开关模块(13#)通信故障"
+  #       Value : (($v[1]>>8) & 0x1)
+  #       AlertNormalValue : 0    
+  #     - Name : "开关模块(14#)通信故障"
+  #       Value : (($v[1]>>9) & 0x1)
+  #       AlertNormalValue : 0    
+  #     - Name : "开关模块(15#)通信故障"
+  #       Value : (($v[1]>>10) & 0x1)
+  #       AlertNormalValue : 0    
+  #     - Name : "开关模块(16#)通信故障"
+  #       Value : (($v[1]>>11) & 0x1)
+  #       AlertNormalValue : 0    
+  #     - Name : "温度模块(31#)通信故障"
+  #       Value : (($v[1]>>12) & 0x1)
+  #       AlertNormalValue : 0    
+  #     - Name : "温度模块(32#)通信故障"
+  #       Value : (($v[1]>>13) & 0x1)
+  #       AlertNormalValue : 0    
+  #     - Name : "温度模块(33#)通信故障"
+  #       Value : (($v[1]>>14) & 0x1)
+  #       AlertNormalValue : 0    
+  # - Cmd : 3
+  #   Offset : 0x1D38
+  #   Len : 9
+  #   Transform : "bits"
+  #   Data :
+  #     - ArrayBlock : FeederCurrentLAlert
+  #       ArrayStart : 1
+  #       ArrayEnd : 24
+  #       Prefix : '馈线A'
+  #     - ArrayBlock : FeederCurrentLAlert
+  #       ArrayStart : 1
+  #       ArrayEnd : 24
+  #       Prefix : '馈线B'
+  #     - ArrayBlock : FeederCurrentLAlert
+  #       ArrayStart : 25
+  #       ArrayEnd : 48
+  #       Prefix : '馈线A'
+  #     - ArrayBlock : FeederCurrentLAlert
+  #       ArrayStart : 25
+  #       ArrayEnd : 48
+  #       Prefix : '馈线B'
+  #     - ArrayBlock : FeederCurrentLAlert
+  #       ArrayStart : 49
+  #       ArrayEnd : 72
+  #       Prefix : '馈线A'
+  #     - ArrayBlock : FeederCurrentLAlert
+  #       ArrayStart : 49
+  #       ArrayEnd : 72
+  #       Prefix : '馈线B'
+  # - Cmd : 3
+  #   Offset : 0x1D41
+  #   Len : 9
+  #   Transform : "bits"
+  #   Data :
+  #     - ArrayBlock : FeederCurrentLLAlert
+  #       ArrayStart : 1
+  #       ArrayEnd : 24
+  #       Prefix : '馈线A'
+  #     - ArrayBlock : FeederCurrentLLAlert
+  #       ArrayStart : 1
+  #       ArrayEnd : 24
+  #       Prefix : '馈线B'
+  #     - ArrayBlock : FeederCurrentLLAlert
+  #       ArrayStart : 25
+  #       ArrayEnd : 48
+  #       Prefix : '馈线A'
+  #     - ArrayBlock : FeederCurrentLLAlert
+  #       ArrayStart : 25
+  #       ArrayEnd : 48
+  #       Prefix : '馈线B'
+  #     - ArrayBlock : FeederCurrentLLAlert
+  #       ArrayStart : 49
+  #       ArrayEnd : 72
+  #       Prefix : '馈线A'
+  #     - ArrayBlock : FeederCurrentLLAlert
+  #       ArrayStart : 49
+  #       ArrayEnd : 72
+  #       Prefix : '馈线B'
+  # - Cmd : 3
+  #   Offset : 0x1D4A
+  #   Len : 2
+  #   Data :
+  #     - Name : "A路进线A相电流越下限"
+  #       Value : ($v[1] & 0x1)
+  #       AlertNormalValue : 0    
+  #     - Name : "A路进线B相电流越下限"
+  #       Value : (($v[1]>>1) & 0x1)
+  #       AlertNormalValue : 0    
+  #     - Name : "A路进线C相电流越下限"
+  #       Value : (($v[1]>>2) & 0x1)
+  #       AlertNormalValue : 0    
+  #     - Name : "B路进线A相电流越下限"
+  #       Value : (($v[1]>>3) & 0x1)
+  #       AlertNormalValue : 0    
+  #     - Name : "B路进线B相电流越下限"
+  #       Value : (($v[1]>>4) & 0x1)
+  #       AlertNormalValue : 0    
+  #     - Name : "B路进线C相电流越下限"
+  #       Value : (($v[1]>>5) & 0x1)
+  #       AlertNormalValue : 0    
+  #     - Name : "A路进线A相电流越下下限"
+  #       Value : ($v[2] & 0x1)
+  #       AlertNormalValue : 0    
+  #     - Name : "A路进线B相电流越下下限"
+  #       Value : (($v[2]>>1) & 0x1)
+  #       AlertNormalValue : 0    
+  #     - Name : "A路进线C相电流越下下限"
+  #       Value : (($v[2]>>2) & 0x1)
+  #       AlertNormalValue : 0    
+  #     - Name : "B路进线A相电流越下下限"
+  #       Value : (($v[2]>>3) & 0x1)
+  #       AlertNormalValue : 0    
+  #     - Name : "B路进线B相电流越下下限"
+  #       Value : (($v[2]>>4) & 0x1)
+  #       AlertNormalValue : 0    
+  #     - Name : "B路进线C相电流越下下限"
+  #       Value : (($v[2]>>5) & 0x1)
+  #       AlertNormalValue : 0    
+RunCheckThresholdCodeTelecom : |
+    //A 1-15
+    if(levelMap_["111100340010"]){
+            float v = ((cData.r3_144[0] << 16) + cData.r3_144[1])/100;
+            CheckThresholdBool(levelMap_["111100340010"] , "111100340010", "111100340010", "交流列柜支路电压过低告警", "A路支路1电压过低告警",  v < valueMap_["111100340010"], 1);
+    }
+    if(levelMap_["111100340020"]){
+            float v = ((cData.r3_144[2] << 16) + cData.r3_144[3])/100;
+            CheckThresholdBool(levelMap_["111100340020"] , "111100340020", "111100340020", "交流列柜支路电压过低告警", "A路支路2电压过低告警",  v < valueMap_["111100340020"], 1);
+    }
+    if(levelMap_["111100340030"]){
+            float v = ((cData.r3_144[4] << 16) + cData.r3_144[5])/100;
+            CheckThresholdBool(levelMap_["111100340030"] , "111100340030", "111100340030", "交流列柜支路电压过低告警", "A路支路3电压过低告警",  v < valueMap_["111100340030"], 1);
+    }
+    if(levelMap_["111100340040"]){
+            float v = ((cData.r3_180[0] << 16) + cData.r3_180[1])/100;
+            CheckThresholdBool(levelMap_["111100340040"] , "111100340040", "111100340040", "交流列柜支路电压过低告警", "A路支路4电压过低告警",  v < valueMap_["111100340040"], 1);
+    }
+    if(levelMap_["111100340050"]){
+            float v = ((cData.r3_180[2] << 16) + cData.r3_180[3])/100;
+            CheckThresholdBool(levelMap_["111100340050"] , "111100340050", "111100340050", "交流列柜支路电压过低告警", "A路支路5电压过低告警",  v < valueMap_["111100340050"], 1);
+    }
+    if(levelMap_["111100340060"]){
+            float v = ((cData.r3_180[4] << 16) + cData.r3_180[5])/100;
+            CheckThresholdBool(levelMap_["111100340060"] , "111100340060", "111100340060", "交流列柜支路电压过低告警", "A路支路6电压过低告警",  v < valueMap_["111100340060"], 1);
+    }
+    if(levelMap_["111100340070"]){
+            float v = ((cData.r3_216[0] << 16) + cData.r3_216[1])/100;
+            CheckThresholdBool(levelMap_["111100340070"] , "111100340070", "111100340070", "交流列柜支路电压过低告警", "A路支路7电压过低告警",  v < valueMap_["111100340070"], 1);
+    }
+    if(levelMap_["111100340080"]){
+            float v = ((cData.r3_216[2] << 16) + cData.r3_216[3])/100;
+            CheckThresholdBool(levelMap_["111100340080"] , "111100340080", "111100340080", "交流列柜支路电压过低告警", "A路支路8电压过低告警",  v < valueMap_["111100340080"], 1);
+    }
+    if(levelMap_["111100340090"]){
+            float v = ((cData.r3_216[4] << 16) + cData.r3_216[5])/100;
+            CheckThresholdBool(levelMap_["111100340090"] , "111100340090", "111100340090", "交流列柜支路电压过低告警", "A路支路9电压过低告警",  v < valueMap_["111100340090"], 1);
+    }
+    if(levelMap_["111100340100"]){
+            float v = ((cData.r3_252[0] << 16) + cData.r3_252[1])/100;
+            CheckThresholdBool(levelMap_["111100340100"] , "111100340100", "111100340100", "交流列柜支路电压过低告警", "A路支路10电压过低告警",  v < valueMap_["111100340100"], 1);
+    }
+    if(levelMap_["111100340110"]){
+            float v = ((cData.r3_252[2] << 16) + cData.r3_252[3])/100;
+            CheckThresholdBool(levelMap_["111100340110"] , "111100340110", "111100340110", "交流列柜支路电压过低告警", "A路支路11电压过低告警",  v < valueMap_["111100340110"], 1);
+    }
+    if(levelMap_["111100340120"]){
+            float v = ((cData.r3_252[4] << 16) + cData.r3_252[5])/100;
+            CheckThresholdBool(levelMap_["111100340120"] , "111100340120", "111100340120", "交流列柜支路电压过低告警", "A路支路12电压过低告警",  v < valueMap_["111100340120"], 1);
+    }
+    if(levelMap_["111100340130"]){
+            float v = ((cData.r3_432[0] << 16) + cData.r3_432[1])/100;
+            CheckThresholdBool(levelMap_["111100340130"] , "111100340130", "111100340130", "交流列柜支路电压过低告警", "A路支路13电压过低告警",  v < valueMap_["111100340130"], 1);
+    }
+    if(levelMap_["111100340140"]){
+            float v = ((cData.r3_432[2] << 16) + cData.r3_432[3])/100;
+            CheckThresholdBool(levelMap_["111100340140"] , "111100340140", "111100340140", "交流列柜支路电压过低告警", "A路支路14电压过低告警",  v < valueMap_["111100340140"], 1);
+    }
+    if(levelMap_["111100340150"]){
+            float v = ((cData.r3_432[4] << 16) + cData.r3_432[5])/100;
+            CheckThresholdBool(levelMap_["111100340150"] , "111100340150", "111100340150", "交流列柜支路电压过低告警", "A路支路15电压过低告警",  v < valueMap_["111100340150"], 1);
+    }
+    //B 1-15
+    if(levelMap_["111100340160"]){
+            float v = ((cData.r3_288[0] << 16) + cData.r3_288[1])/100;
+            CheckThresholdBool(levelMap_["111100340160"] , "111100340160", "111100340160", "交流列柜支路电压过低告警", "B路支路1电压过低告警",  v < valueMap_["111100340160"], 1);
+    }
+    if(levelMap_["111100340170"]){
+            float v = ((cData.r3_288[2] << 16) + cData.r3_288[3])/100;
+            CheckThresholdBool(levelMap_["111100340170"] , "111100340170", "111100340170", "交流列柜支路电压过低告警", "B路支路2电压过低告警",  v < valueMap_["111100340170"], 1);
+    }
+    if(levelMap_["111100340180"]){
+            float v = ((cData.r3_288[4] << 16) + cData.r3_288[5])/100;
+            CheckThresholdBool(levelMap_["111100340180"] , "111100340180", "111100340180", "交流列柜支路电压过低告警", "B路支路3电压过低告警",  v < valueMap_["111100340180"], 1);
+    }
+    if(levelMap_["111100340190"]){
+            float v = ((cData.r3_324[0] << 16) + cData.r3_324[1])/100;
+            CheckThresholdBool(levelMap_["111100340190"] , "111100340190", "111100340190", "交流列柜支路电压过低告警", "B路支路4电压过低告警",  v < valueMap_["111100340190"], 1);
+    }
+    if(levelMap_["111100340200"]){
+            float v = ((cData.r3_324[2] << 16) + cData.r3_324[3])/100;
+            CheckThresholdBool(levelMap_["111100340200"] , "111100340200", "111100340200", "交流列柜支路电压过低告警", "B路支路5电压过低告警",  v < valueMap_["111100340200"], 1);
+    }
+    if(levelMap_["111100340210"]){
+            float v = ((cData.r3_324[4] << 16) + cData.r3_324[5])/100;
+            CheckThresholdBool(levelMap_["111100340210"] , "111100340210", "111100340210", "交流列柜支路电压过低告警", "B路支路6电压过低告警",  v < valueMap_["111100340210"], 1);
+    }
+    if(levelMap_["111100340220"]){
+            float v = ((cData.r3_360[0] << 16) + cData.r3_360[1])/100;
+            CheckThresholdBool(levelMap_["111100340220"] , "111100340220", "111100340220", "交流列柜支路电压过低告警", "B路支路7电压过低告警",  v < valueMap_["111100340220"], 1);
+    }
+    if(levelMap_["111100340230"]){
+            float v = ((cData.r3_360[2] << 16) + cData.r3_360[3])/100;
+            CheckThresholdBool(levelMap_["111100340230"] , "111100340230", "111100340230", "交流列柜支路电压过低告警", "B路支路8电压过低告警",  v < valueMap_["111100340230"], 1);
+    }
+    if(levelMap_["111100340240"]){
+            float v = ((cData.r3_360[4] << 16) + cData.r3_360[5])/100;
+            CheckThresholdBool(levelMap_["111100340240"] , "111100340240", "111100340240", "交流列柜支路电压过低告警", "B路支路9电压过低告警",  v < valueMap_["111100340240"], 1);
+    }
+    if(levelMap_["111100340250"]){
+            float v = ((cData.r3_396[0] << 16) + cData.r3_396[1])/100;
+            CheckThresholdBool(levelMap_["111100340250"] , "111100340250", "111100340250", "交流列柜支路电压过低告警", "B路支路10电压过低告警",  v < valueMap_["111100340250"], 1);
+    }
+    if(levelMap_["111100340260"]){
+            float v = ((cData.r3_396[2] << 16) + cData.r3_396[3])/100;
+            CheckThresholdBool(levelMap_["111100340260"] , "111100340260", "111100340260", "交流列柜支路电压过低告警", "B路支路11电压过低告警",  v < valueMap_["111100340260"], 1);
+    }
+    if(levelMap_["111100340270"]){
+            float v = ((cData.r3_396[4] << 16) + cData.r3_396[5])/100;
+            CheckThresholdBool(levelMap_["111100340270"] , "111100340270", "111100340270", "交流列柜支路电压过低告警", "B路支路12电压过低告警",  v < valueMap_["111100340270"], 1);
+    }
+    if(levelMap_["111100340280"]){
+            float v = ((cData.r3_576[0] << 16) + cData.r3_576[1])/100;
+            CheckThresholdBool(levelMap_["111100340280"] , "111100340280", "111100340280", "交流列柜支路电压过低告警", "B路支路13电压过低告警",  v < valueMap_["111100340280"], 1);
+    }
+    if(levelMap_["111100340290"]){
+            float v = ((cData.r3_576[2] << 16) + cData.r3_576[3])/100;
+            CheckThresholdBool(levelMap_["111100340290"] , "111100340290", "111100340290", "交流列柜支路电压过低告警", "B路支路14电压过低告警",  v < valueMap_["111100340290"], 1);
+    }
+    if(levelMap_["111100340300"]){
+            float v = ((cData.r3_576[4] << 16) + cData.r3_576[5])/100;
+            CheckThresholdBool(levelMap_["111100340300"] , "111100340300", "111100340300", "交流列柜支路电压过低告警", "B路支路15电压过低告警",  v < valueMap_["111100340300"], 1);
+    }
+    //001#I路电源停电告警
+    if(levelMap_["121100110010"]){
+            float v1 = ((cData.r3_4[2] << 16) + cData.r3_4[3])/100;
+            float v2 = ((cData.r3_4[4] << 16) + cData.r3_4[5])/100;
+            float v3 = ((cData.r3_4[6] << 16) + cData.r3_4[7])/100;
+            CheckThresholdBool(levelMap_["121100110010"] , "121100110010", "121100110010", "I路电源停电告警", "001#I路电源停电告警", (v1 < 120) || (v2 < 120) || (v3 < 120), 1);
+    }
+    //A路电源开关状态
+    if(levelMap_["121100130010"]){
+            CheckThresholdBool(levelMap_["121100130010"] , "121100130010", "121100130010", "I路电源开关状态", "A路电源开关状态",  (cData.r3_4092[5] == 1) || (cData.r3_4092[5] == 3), 1);
+    }
+    //001#II路电源停电告警
+    if(levelMap_["121100240010"]){
+            float v1 = ((cData.r3_74[2] << 16) + cData.r3_74[3])/100;
+            float v2 = ((cData.r3_74[4] << 16) + cData.r3_74[5])/100;
+            float v3 = ((cData.r3_74[6] << 16) + cData.r3_74[7])/100;
+            CheckThresholdBool(levelMap_["121100240010"] , "121100240010", "121100240010", "II路电源停电告警", "001#II路电源停电告警", (v1 < 120) || (v2 < 120) || (v3 < 120), 1);
+    }
+    //A路电源开关状态
+    if(levelMap_["121100260010"]){
+            CheckThresholdBool(levelMap_["121100260010"] , "121100260010", "121100260010", "I路电源开关状态", "A路电源开关状态",  (cData.r3_4092[7] == 1) || (cData.r3_4092[7] == 3), 1);
+    }
+    //A路支路1-15支路开关状态
+    for(int i=0;i<15;i++)
+    {
+        std::stringstream ss;
+        ss<<"12110031" << std::setw(3)<<std::setfill('0')<<(i+1)<<"0";
+        std::stringstream sText;
+        sText<<"A路支路"<<(i+1)<<"支路开关状态";
+        if(levelMap_[ss.str()]){
+            CheckThresholdBool(levelMap_[ss.str()] , ss.str(), ss.str(), "支路开关状态", sText.str(),  (cData.r3_4101[i] == 1) || (cData.r3_4101[i] == 3), 1);
+        }
+    }
+    //B路支路1-15支路开关状态
+    for(int i=0;i<15;i++)
+    {
+        std::stringstream ss;
+        ss<<"12110031" << std::setw(3)<<std::setfill('0')<<(15 + i + 1)<<"0";
+        std::stringstream sText;
+        sText<<"B路支路"<<(i+1)<<"支路开关状态";
+        if(levelMap_[ss.str()]){
+            CheckThresholdBool(levelMap_[ss.str()] , ss.str(), ss.str(), "支路开关状态", sText.str(),  (cData.r3_4125[i] == 1) || (cData.r3_4125[i] == 3), 1);
+        }
+    }
+    

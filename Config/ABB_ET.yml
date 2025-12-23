@@ -52,59 +52,59 @@ Sample :
       - Name : 系统频率
         Ratio : 100
         Unit : Hz
-  - Cmd : 3
-    Offset : 115
-    Len : 19
-    Data : 
-      - Name : 总功率因数
-      - Name : 总有功功率
-        Ratio : 1000
-        Unit : kW
-      - Name : 总无功功率
-        Ratio : 1000
-        Unit : kVar
-      - Name : 总视在功率
-        Ratio : 1000
-        Unit : kVA
-      - Name : A相功率因数
-      - Name : B相功率因数
-      - Name : C相功率因数
-      - Name : A相有功功率
-        Ratio : 1000
-        Unit : kW
-      - Name : B相有功功率
-        Ratio : 1000
-        Unit : kW
-      - Name : C相有功功率
-        Ratio : 1000
-        Unit : kW
-      - Name : A相无功功率
-        Ratio : 1000
-        Unit : kVar
-      - Name : B相无功功率
-        Ratio : 1000
-        Unit : kVar
-      - Name : C相无功功率
-        Ratio : 1000
-        Unit : kVar
-      - Name : A相视在功率
-        Ratio : 1000
-        Unit : kVA
-      - Name : B相视在功率
-        Ratio : 1000
-        Unit : kVA
-      - Name : C相视在功率
-        Ratio : 1000
-        Unit : kVA
-      - Name : A相电流信号频率
-        Ratio : 100
-        Unit : Hz
-      - Name : B相电流信号频率
-        Ratio : 100
-        Unit : Hz
-      - Name : C相电流信号频率
-        Ratio : 100
-        Unit : Hz
+  # - Cmd : 3
+  #   Offset : 115
+  #   Len : 19
+  #   Data : 
+  #     - Name : 总功率因数
+  #     - Name : 总有功功率
+  #       Ratio : 1000
+  #       Unit : kW
+  #     - Name : 总无功功率
+  #       Ratio : 1000
+  #       Unit : kVar
+  #     - Name : 总视在功率
+  #       Ratio : 1000
+  #       Unit : kVA
+  #     - Name : A相功率因数
+  #     - Name : B相功率因数
+  #     - Name : C相功率因数
+  #     - Name : A相有功功率
+  #       Ratio : 1000
+  #       Unit : kW
+  #     - Name : B相有功功率
+  #       Ratio : 1000
+  #       Unit : kW
+  #     - Name : C相有功功率
+  #       Ratio : 1000
+  #       Unit : kW
+  #     - Name : A相无功功率
+  #       Ratio : 1000
+  #       Unit : kVar
+  #     - Name : B相无功功率
+  #       Ratio : 1000
+  #       Unit : kVar
+  #     - Name : C相无功功率
+  #       Ratio : 1000
+  #       Unit : kVar
+  #     - Name : A相视在功率
+  #       Ratio : 1000
+  #       Unit : kVA
+  #     - Name : B相视在功率
+  #       Ratio : 1000
+  #       Unit : kVA
+  #     - Name : C相视在功率
+  #       Ratio : 1000
+  #       Unit : kVA
+  #     - Name : A相电流信号频率
+  #       Ratio : 100
+  #       Unit : Hz
+  #     - Name : B相电流信号频率
+  #       Ratio : 100
+  #       Unit : Hz
+  #     - Name : C相电流信号频率
+  #       Ratio : 100
+  #       Unit : Hz
   - Cmd : 3
     Offset : 200
     Len : 16

@@ -2,6 +2,9 @@ Project:
   Name : ITeaqCoolSmart
   RT_ID : 5156
   File : "艾特网能 Cool Smart变频（氟泵自然冷） Modbus 监控协议V0.2.pdf"
+  DevType : 2
+  Category : 专用空调
+  ProtocolName : 艾特网能CoolSmart
 Sample : 
   - Cmd : 3
     Offset : 0

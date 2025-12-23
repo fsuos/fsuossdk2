@@ -52,10 +52,10 @@ Sample :
       - Name : "送风湿度"
         Ratio : 10
         Unit : "%"
-      - Name : "室外温度"
+      - Name : "新风温度"
         Ratio : 10
         Unit : "°C"
-      - Name : "室外湿度"
+      - Name : "新风湿度"
         Ratio : 10
         Unit : "%"
   - Cmd : 3
