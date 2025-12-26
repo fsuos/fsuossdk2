@@ -1,0 +1,693 @@
+Project:
+  Name : SL6100TH3CT
+  RT_ID : 5156
+  File : "SL6100-TH3-CT 地址表20220816.xls"
+  DevType : 2
+  Category : 专用空调
+  ProtocolName : SL6100TH3CT空调
+Sample : 
+  - Cmd : 1
+    Offset : 256
+    Len : 11
+    Data : 
+      - Name : "送风机"
+        Offset : 1
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+      - Name : "电加热1"
+        Offset : 2
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+      - Name : "电加热2"
+        Offset : 3
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+      - Name : "进水阀"
+        Offset : 4
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+      - Name : "加湿器"
+        Offset : 5
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+      - Name : "排水阀"
+        Offset : 6
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+      - Name : "故障输出"
+        Offset : 7
+        Options : 
+          - Key : 0
+            Value : 关闭
+          - Key : 1
+            Value : 开启
+      - Name : "制冷阀输出"
+        Offset : 8
+        Unit : "%"
+      - Name : "变频风机输出"
+        Offset : 9
+        Unit : "%"
+      - Name : "加湿器输出"
+        Offset : 10
+        Unit : "%"
+      - Name : "无极电加热输出"
+        Offset : 11
+        Unit : "%"
+  - Cmd : 3
+    Offset : 760
+    Len : 6
+    Data : 
+      - Name : 回风温度
+        Ratio : 10
+        Unit : ℃
+      - Name : 回风湿度
+        Ratio : 10
+        Unit : "%"
+      - Name : 1#送风温度/备用
+        Offset : 5
+        Ratio : 10
+        Unit : ℃
+      - Name : 送风湿度
+        Offset : 6
+        Ratio : 10
+        Unit : "%"
+  - Cmd : 3
+    Offset : 603
+    Len : 1
+    Data :
+      - Name : 变频送风机
+        Ratio : 10
+  - Cmd : 3
+    Offset : 607
+    Len : 1
+    Data :
+      - Name : 制冷阀
+        Ratio : 10
+  - Cmd : 3
+    Offset : 618
+    Len : 1
+    Data :
+      - Name : 电源频率
+        Ratio : 10
+  - Cmd : 3
+    Offset : 700
+    Len : 10
+    Data : 
+      - Name : "冷冻出水压力"
+        Ratio : 10
+        Unit : "Bar"
+      - Name : "冷冻进水压力"
+        Ratio : 10
+        Unit : "Bar"
+      - Name : "2#送风温度"
+        Ratio : 10
+        Unit : "℃"
+      - Name : "冷冻进水温度"
+        Ratio : 10
+        Unit : "℃"
+      - Name : "冷冻出水温度"
+        Ratio : 10
+        Unit : "℃"
+      - Name : "3#送风温度/送风温度"
+        Ratio : 10
+        Unit : "℃"
+      - Name : "风压压差"
+        Ratio : 10
+      - Name : "地板漏水报警值"
+        Ratio : 10
+      - Name : "加湿电流"
+        Ratio : 10
+      - Name : "电源电压"
+        Ratio : 10
+        Unit : "V"
+  - Cmd : 3
+    Offset : 716
+    Len : 2
+    Data : 
+      - Name : 控制温度
+        Ratio : 10
+      - Name : 当前设置温度
+        Ratio : 10
+  - Cmd : 3
+    Offset : 720
+    Len : 8
+    Data : 
+      - Name : 机组运行时间
+      - Name : 加湿器运行时间
+      - Name : 1#电加热运行时间
+      - Name : 制冷系统运行时间
+      - Name : 2#电加热运行时间
+      - Name : 过滤网运行时间
+        Offset : 8
+  - Cmd : 3
+    Offset : 908
+    Len : 9
+    Data : 
+      - Name : A相电压
+        Ratio : 10
+        Unit : "V"
+      - Name : B相电压
+        Ratio : 10
+        Unit : "V"
+      - Name : C相电压
+        Ratio : 10
+        Unit : "V"
+      - Name : A相电流
+        Ratio : 10
+        Unit : "A"
+      - Name : B相电流
+        Ratio : 10
+        Unit : "A"
+      - Name : C相电流
+        Ratio : 10
+        Unit : "A" 
+      - Name : 电量
+        Value : (($v[8]<16)|$v[9])/100
+        CValue : ((pData[7]<<16) | pData[8])/100
+        Unit : "kWh"
+  - Cmd : 3
+    Offset : 276
+    Len : 1
+    Data : 
+      - Name : 运行状态
+        Options : 
+          - Key : 0
+            Value : 停止
+          - Key : 1
+            Value : 运行
+          - Key : 2
+            Value : 停机中
+          - Key : 3
+            Value : 轮值待机
+          - Key : 4
+            Value : 故障待机
+  - Cmd : 3
+    Offset : 139
+    Len : 1
+    Data : 
+      - Name : 除湿状态
+        Options : 
+          - Key : 0
+            Value : 除湿
+          - Key : 1
+            Value : 除湿
+  - Cmd : 3
+    Offset : 350
+    Len : 8
+    Data : 
+      - ArrayName : "%d#风机转速"
+        ArrayStart : 1
+        ArrayLength : 8
+        Offset : 0
+        Unit : "RPM"
+  - Cmd : 3
+    Offset : 361
+    Len : 8
+    Data : 
+      - ArrayName : "%d#风机转速"
+        ArrayStart : 9
+        ArrayLength : 8
+        Offset : 0
+        Unit : "RPM"
+  - Cmd : 1
+    Offset : 152
+    Len : 9
+    Data : 
+      - Name : 失风报警
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+      - Name : 滤网堵塞
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+      - Name : 火灾报警
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+      - Name : 冷却水流开关
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+      - Name : 电源故障
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+      - Name : 接水盘满溢报警
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+      - Name : 制热保护开关
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+      - Name : 辅助停机报警
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+  - Cmd : 1
+    Offset : 160
+    Len : 1
+    Data : 
+      - Name : 远控
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+  - Cmd : 1
+    Offset : 655
+    Len : 3
+    Data : 
+      - Name : 加湿低电流
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+      - Name : 水质软
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+      - Name : 高水位
+        Options : 
+          - Key : 0
+            Value : 断开
+          - Key : 1
+            Value : 闭合
+  - Cmd : 1
+    Offset : 176
+    Len : 3
+    Data : 
+      - Name : 开关机
+        Options : 
+          - Key : 0
+            Value : 停机
+          - Key : 1
+            Value : 开机
+      - Name : 故障复位
+      - Name : 手动自动切换
+        Options : 
+          - Key : 0
+            Value : 自动
+          - Key : 1
+            Value : 手动
+  - Cmd : 1
+    Offset : 0
+    Len : 118
+    Data : 
+      - Name : 冷冻出水压力故障
+        Offset : 1
+        AlertNormalValue : 0
+      - Name : 2#冷冻回水压力故障
+        Offset : 2
+        AlertNormalValue : 0
+      - Name : 2#送风温度探头故障
+        Offset : 3
+        AlertNormalValue : 0
+      - Name : 冷冻进水温度故障
+        Offset : 4
+        AlertNormalValue : 0
+      - Name : 冷冻出水温度故障
+        Offset : 5
+        AlertNormalValue : 0
+      - Name : 3#送风温度探头故障 
+        Offset : 6
+        AlertNormalValue : 0
+      - Name : 送风温度故障
+        Offset : 11
+        AlertNormalValue : 0
+      - Name : 送风湿度故障
+        Offset : 12
+        AlertNormalValue : 0
+      - Name : 所有送风温度故障
+        Offset : 13
+        AlertNormalValue : 0
+      - Name : 回风温度故障
+        Offset : 14
+        AlertNormalValue : 0
+      - Name : 回风湿度故障
+        Offset : 15
+        AlertNormalValue : 0
+      - Name : 压差报警
+        Offset : 16
+        AlertNormalValue : 0
+      - Name : 失风报警
+        Offset : 17
+        AlertNormalValue : 0
+      - Name : 滤网堵塞
+        Offset : 18
+        AlertNormalValue : 0
+      - Name : 火灾报警
+        Offset : 19
+        AlertNormalValue : 0
+      - Name : 冷冻水流开关故障
+        Offset : 20
+        AlertNormalValue : 0
+      - Name : 电源故障
+        Offset : 21
+        AlertNormalValue : 0
+      - Name : 接水盘满溢报警
+        Offset : 22
+        AlertNormalValue : 0
+      - Name : 制热保护开关故障
+        Offset : 23
+        AlertNormalValue : 0
+      - Name : 辅助停机报警
+        Offset : 24
+        AlertNormalValue : 0     
+      - Name : 地板漏水报警
+        Offset : 26
+        AlertNormalValue : 0      
+      - Name : 冷冻进水温度过高
+        Offset : 33
+        AlertNormalValue : 0
+      - Name : 送风温度过高
+        Offset : 34
+        AlertNormalValue : 0
+      - Name : 高湿告警
+        Offset : 35
+        AlertNormalValue : 0
+      - Name : 低湿告警
+        Offset : 36
+        AlertNormalValue : 0
+      - Name : 低温告警
+        Offset : 37
+        AlertNormalValue : 0
+      - Name : 高温告警
+        Offset : 38
+        AlertNormalValue : 0
+      - Name : 15#送风机故障
+        Offset : 39
+        AlertNormalValue : 0
+      - Name : 16#送风机故障
+        Offset : 40
+        AlertNormalValue : 0      
+      - Name : 掉电告警
+        Offset : 44
+        AlertNormalValue : 0
+      - Name : 电源过压告警
+        Offset : 45
+        AlertNormalValue : 0
+      - Name : 电源欠压告警
+        Offset : 46
+        AlertNormalValue : 0
+      - Name : 电源频率偏离
+        Offset : 47
+        AlertNormalValue : 0
+      - Name : 相序故障
+        Offset : 48
+        AlertNormalValue : 0
+      - Name : 9#送风机故障
+        Offset : 49
+        AlertNormalValue : 0
+      - Name : 10#送风机故障
+        Offset : 50
+        AlertNormalValue : 0
+      - Name : 11#送风机故障
+        Offset : 51
+        AlertNormalValue : 0
+      - Name : 12#送风机故障
+        Offset : 52
+        AlertNormalValue : 0
+      - Name : 13#送风机故障
+        Offset : 53
+        AlertNormalValue : 0
+      - Name : 14#送风机故障
+        Offset : 54
+        AlertNormalValue : 0
+      - Name : 供电过压告警
+        Offset : 55
+        AlertNormalValue : 0
+      - Name : 供电欠压告警
+        Offset : 56
+        AlertNormalValue : 0
+      - Name : 供电电流过高
+        Offset : 57
+        AlertNormalValue : 0
+      - Name : 供电电流过低 
+        Offset : 58
+        AlertNormalValue : 0
+      - Name : 供电电流过高锁定
+        Offset : 59
+        AlertNormalValue : 0
+      - Name : 供电电流过低锁定
+        Offset : 60
+        AlertNormalValue : 0
+      - Name : 电表缺失报警
+        Offset : 61
+        AlertNormalValue : 0
+      - Name : 板屏通讯故障
+        Offset : 62
+        AlertNormalValue : 0
+      - Name : 从机离线
+        Offset : 63
+        AlertNormalValue : 0
+      - Name : 主机离线
+        Offset : 64
+        AlertNormalValue : 0
+      - Name : 1#送风机故障
+        Offset : 65
+        AlertNormalValue : 0
+      - Name : 2#送风机故障
+        Offset : 66
+        AlertNormalValue : 0
+      - Name : 3#送风机故障
+        Offset : 67
+        AlertNormalValue : 0
+      - Name : 4#送风机故障
+        Offset : 68
+        AlertNormalValue : 0
+      - Name : 5#送风机故障
+        Offset : 69
+        AlertNormalValue : 0
+      - Name : 6#送风机故障
+        Offset : 70
+        AlertNormalValue : 0
+      - Name : 7#送风机故障
+        Offset : 71
+        AlertNormalValue : 0
+      - Name : 8#送风机故障
+        Offset : 72
+        AlertNormalValue : 0
+       
+      - Name : 2#SL1001通讯故障 
+        Offset : 74
+        AlertNormalValue : 0
+      - Name : 送风机故障 
+        Offset : 75
+        AlertNormalValue : 0
+      - Name : 1#SL1001通讯故障 
+        Offset : 76
+        AlertNormalValue : 0
+      - Name : 加湿器高电流故障
+        Offset : 77
+        AlertNormalValue : 0
+      - Name : 回风SL180RW缺失
+        Offset : 78
+        AlertNormalValue : 0
+      - Name : 送风SL180WR缺失
+        Offset : 79
+        AlertNormalValue : 0
+      
+      - Name : 机组运行维护提醒
+        Offset : 113
+        AlertNormalValue : 0
+      - Name : 系统运行维护提醒
+        Offset : 114
+        AlertNormalValue : 0
+      - Name : 1#加热运行维护提醒
+        Offset : 115
+        AlertNormalValue : 0
+      - Name : 2#加热运行维护提醒
+        Offset : 116
+        AlertNormalValue : 0
+      - Name : 加湿器运行维护提醒
+        Offset : 117
+        AlertNormalValue : 0
+      - Name : 滤网运行维护提醒
+        Offset : 118
+        AlertNormalValue : 0
+RunCheckThresholdCodeTelecom : |
+  if(levelMap_["120800030010"]){            
+    CheckThresholdBool(levelMap_["120800030010"] , "120800030010", "120800030010", "001#精密空调溢水告警", "001#精密空调溢水告警", cData.b1_0[25], 1);
+  }
+SET_RET_CODE : |
+  case AC_Control_Code::AC_START: {
+        if(tab_reg[0] == 1) {
+            cmd_result_ = 1;
+        } else {
+            cmd_result_ = 3;
+        }
+        Reset();
+        return false;
+      }
+      case AC_Control_Code::AC_STOP: {
+        if(tab_reg[0] == 0) {
+            cmd_result_ = 1;
+        } else {
+            cmd_result_ = 3;
+        }
+        Reset();
+        return false;
+      } 
+      case AC_Control_Code::AC_SET_TEMPERATURE:
+      case AC_Control_Code::AC_SET_HUMID: {
+        if(tab_reg[0] == last_data_) {
+            cmd_result_ = 1;
+        } else {
+            cmd_result_ = 3;
+        }
+        Reset();
+        return false;
+      }
+      
+SET_DO_CODE : |
+  std::string doId((char*)inBuffer, inBufferSize);
+  if(doId == "601500201001" || doId == "140800280010") {
+      //开机
+      state = AC_Control_Code::AC_START;
+      cmd_result_ = -1;
+      last_data_ = 1;
+      modbus_write_bit(176, 1);
+      if((uint32_t)outBufferSize >= sizeof(int)) {
+          *((int*)outBuffer) = -1;//通知取状态
+          bytesReturned = sizeof(int);
+      }
+  } else if(doId == "601500200001" || doId == "140800300010") {
+      //关机
+      state = AC_Control_Code::AC_STOP;
+      cmd_result_ = -1;
+      last_data_ = 0;
+      modbus_write_bit(176, 0);
+      if((uint32_t)outBufferSize >= sizeof(int)) {
+          *((int*)outBuffer) = -1;//通知取状态
+          bytesReturned = sizeof(int);
+      }
+  }
+
+
+SET_AO_CODE: |
+  if(setting["signal_id"].asString() == "6016A2101001" || setting["signal_id"].asString() == "150800310010") {
+      if(setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
+          int16_t newValue = atoi(setting["SetValue"].asString().c_str())*10;
+          //1#回风温度
+          state = AC_Control_Code::AC_SET_TEMPERATURE;
+          cmd_result_ = -1;
+          OpenPort();
+          modbus_write_register(11, newValue);
+          if((uint32_t)outBufferSize >= sizeof(int)) {
+              *((int*)outBuffer) = -1;//通知取状态
+              bytesReturned = sizeof(int);
+          }                       
+      }
+  } else if(setting["signal_id"].asString() == "6016A2101001" || setting["signal_id"].asString() == "150800340010") {
+      if(setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
+          int16_t newValue = atoi(setting["SetValue"].asString().c_str())*10;
+          //湿度
+          state = AC_Control_Code::AC_SET_HUMID;
+          cmd_result_ = -1;
+          OpenPort();
+          modbus_write_register(12, newValue);
+          if((uint32_t)outBufferSize >= sizeof(int)) {
+              *((int*)outBuffer) = -1;//通知取状态
+              bytesReturned = sizeof(int);
+          }                       
+      }
+  }
+DEVICEIOCONTROL_CODE: |
+    case AC_Control_Code::AC_START: {
+        state = AC_Control_Code::AC_START;
+        cmd_result_ = -1;
+        OpenPort();
+        last_data_ = 1;
+        modbus_write_bit(176, 1);
+        if((uint32_t)outBufferSize >= sizeof(int)) {
+            *((int*)outBuffer) = -1;//通知取状态
+            bytesReturned = sizeof(int);
+        }
+        break;
+    }    
+    case AC_Control_Code::AC_STOP: {
+        state = AC_Control_Code::AC_STOP;
+        cmd_result_ = -1;
+        OpenPort();
+        last_data_ = 0;
+        modbus_write_bit(176, 0);
+        if((uint32_t)outBufferSize >= sizeof(int)) {
+            *((int*)outBuffer) = -1;//通知取状态
+            bytesReturned = sizeof(int);
+        }
+        break;
+    }
+    case AC_Control_Code::AC_SET_TEMPERATURE: {
+        if(inBufferSize == sizeof(uint16_t)) {
+            state = AC_Control_Code::AC_SET_TEMPERATURE;
+            cmd_result_ = -1;
+            OpenPort();
+            last_data_ = 10* (*(uint16_t*)inBuffer);
+            modbus_write_register(11, last_data_);
+            if((uint32_t)outBufferSize >= sizeof(int)) {
+              *((int*)outBuffer) = -1;//通知取状态
+              bytesReturned = sizeof(int);
+          }       
+        }
+        break;
+    }
+    case AC_Control_Code::AC_SET_HUMID: {
+        if(inBufferSize == sizeof(uint16_t)) {
+            state = AC_Control_Code::AC_SET_HUMID;
+            cmd_result_ = -1;
+            OpenPort();
+            last_data_ = 10*(*(uint16_t*)inBuffer);
+            modbus_write_register(12, last_data_);
+            if((uint32_t)outBufferSize >= sizeof(int)) {
+              *((int*)outBuffer) = -1;//通知取状态
+              bytesReturned = sizeof(int);
+          }       
+        }
+        break;
+    } 
+
+
+
+
+
+
+

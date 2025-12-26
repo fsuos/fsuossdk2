@@ -141,7 +141,7 @@ Sample :
   - Cmd : 3
     Offset : 47
     Len : 46
-    RType : 'f'
+    Type : 'f'
     Data :
       - Name : 盘管1出口压力
       - Name : 盘管2出口压力

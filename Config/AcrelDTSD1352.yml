@@ -2,6 +2,9 @@ Project:
   Name : AcrelDTSD1352
   RT_ID : 5156
   File : "201 DTSD1352导轨式多功能电能表安装使用说明书 V2.17-3.pdf"
+  DevType : 2
+  Category : 智能电表
+  ProtocolName : 安可瑞DTSD1352
 Sample : 
   - Cmd : 3
     Offset : 0x8D
@@ -15,94 +18,124 @@ Sample :
     Type : 'S'
     Data :
       - Name : "当前组合有功总电能"
-        Value : ((($v[1] << 32) + $v[2])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Value : ((($v[1] << 16) + $v[2])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        CValue : (((pData[0] << 16) + pData[1])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.01)
         Unit : kWH
       - Name : "当前组合有功尖电能"
-        Value : ((($v[3] << 32) + $v[4])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Value : ((($v[3] << 16) + $v[4])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        CValue : (((pData[2] << 16) + pData[3])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.01)
         Unit : kWH
       - Name : "当前组合有功峰电能"
-        Value : ((($v[5] << 32) + $v[6])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Value : ((($v[5] << 16) + $v[6])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        CValue : (((pData[4] << 16) + pData[5])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.01)
         Unit : kWH
       - Name : "当前组合有功平电能"
-        Value : ((($v[7] << 32) + $v[8])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Value : ((($v[7] << 16) + $v[8])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        CValue : (((pData[6] << 16) + pData[7])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.01)
         Unit : kWH
       - Name : "当前组合有功谷电能"
-        Value : ((($v[9] << 32) + $v[10])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Value : ((($v[9] << 16) + $v[10])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        CValue : (((pData[8] << 16) + pData[9])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.01)
         Unit : kWH
       - Name : "当前正向总有功总电能"
-        Value : ((($v[11] << 32) + $v[12])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Value : ((($v[11] << 16) + $v[12])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        CValue : (((pData[10] << 16) + pData[11])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.01)
         Unit : kWH
       - Name : "当前正向有功尖电能"
-        Value : ((($v[13] << 32) + $v[14])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Value : ((($v[13] << 16) + $v[14])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        CValue : (((pData[12] << 16) + pData[13])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.01)
         Unit : kWH
       - Name : "当前正向有功峰电能"
-        Value : ((($v[15] << 32) + $v[16])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Value : ((($v[15] << 16) + $v[16])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        CValue : (((pData[14] << 16) + pData[15])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.01)
         Unit : kWH
       - Name : "当前正向有功平电能"
-        Value : ((($v[17] << 32) + $v[18])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Value : ((($v[17] << 16) + $v[18])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        CValue : (((pData[16] << 16) + pData[17])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.01)
         Unit : kWH
       - Name : "当前正向有功谷电能"
-        Value : ((($v[19] << 32) + $v[20])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Value : ((($v[19] << 16) + $v[20])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        CValue : (((pData[18] << 16) + pData[19])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.01)
         Unit : kWH
       - Name : "当前反向总有功总电能"
-        Value : ((($v[21] << 32) + $v[22])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Value : ((($v[21] << 16) + $v[22])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        CValue : (((pData[20] << 16) + pData[21])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.01)
         Unit : kWH
       - Name : "当前反向有功尖电能"
-        Value : ((($v[23] << 32) + $v[24])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Value : ((($v[23] << 16) + $v[24])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        CValue : (((pData[22] << 16) + pData[23])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.01)
         Unit : kWH
       - Name : "当前反向有功峰电能"
-        Value : ((($v[25] << 32) + $v[26])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Value : ((($v[25] << 16) + $v[26])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        CValue : (((pData[24] << 16) + pData[25])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.01)
         Unit : kWH
       - Name : "当前反向有功平电能"
-        Value : ((($v[27] << 32) + $v[28])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Value : ((($v[27] << 16) + $v[28])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        CValue : (((pData[26] << 16) + pData[27])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.01)
         Unit : kWH
       - Name : "当前反向有功谷电能"
-        Value : ((($v[29] << 32) + $v[30])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Value : ((($v[29] << 16) + $v[30])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        CValue : (((pData[28] << 16) + pData[29])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.01)
         Unit : kWH
       - Name : "当前组合无功总电能"
-        Value : ((($v[31] << 32) + $v[32])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Value : ((($v[31] << 16) + $v[32])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        CValue : (((pData[30] << 16) + pData[31])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.01)
         Unit : kVarh
       - Name : "当前组合无功尖电能"
-        Value : ((($v[33] << 32) + $v[34])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Value : ((($v[33] << 16) + $v[34])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        CValue : (((pData[32] << 16) + pData[33])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.01)
         Unit : kVarh
       - Name : "当前组合无功峰电能"
-        Value : ((($v[35] << 32) + $v[36])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Value : ((($v[35] << 16) + $v[36])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        CValue : (((pData[34] << 16) + pData[35])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.01)
         Unit : kVarh
       - Name : "当前组合无功平电能"
-        Value : ((($v[37] << 32) + $v[38])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Value : ((($v[37] << 16) + $v[38])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        CValue : (((pData[36] << 16) + pData[37])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.01)
         Unit : kVarh
       - Name : "当前组合无功谷电能"
-        Value : ((($v[39] << 32) + $v[40])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Value : ((($v[39] << 16) + $v[40])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        CValue : (((pData[38] << 16) + pData[39])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.01)
         Unit : kVarh
       - Name : "当前正向总无功总电能"
-        Value : ((($v[41] << 32) + $v[42])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Value : ((($v[41] << 16) + $v[42])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        CValue : (((pData[40] << 16) + pData[41])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.01)
         Unit : kVarh
       - Name : "当前正向无功尖电能"
-        Value : ((($v[43] << 32) + $v[44])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Value : ((($v[43] << 16) + $v[44])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        CValue : (((pData[42] << 16) + pData[43])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.01)
         Unit : kVarh
       - Name : "当前正向无功峰电能"
-        Value : ((($v[45] << 32) + $v[46])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Value : ((($v[45] << 16) + $v[46])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        CValue : (((pData[44] << 16) + pData[45])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.01)
         Unit : kVarh
       - Name : "当前正向无功平电能"
-        Value : ((($v[47] << 32) + $v[48])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Value : ((($v[47] << 16) + $v[48])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        CValue : (((pData[46] << 16) + pData[47])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.01)
         Unit : kVarh
       - Name : "当前正向无功谷电能"
-        Value : ((($v[49] << 32) + $v[50])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Value : ((($v[49] << 16) + $v[50])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        CValue : (((pData[48] << 16) + pData[49])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.01)
         Unit : kVarh
       - Name : "当前反向总无功总电能"
-        Value : ((($v[51] << 32) + $v[52])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Value : ((($v[51] << 16) + $v[52])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        CValue : (((pData[50] << 16) + pData[51])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.01)
         Unit : kVarh
       - Name : "当前反向无功尖电能"
-        Value : ((($v[53] << 32) + $v[54])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Value : ((($v[53] << 16) + $v[54])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        CValue : (((pData[52] << 16) + pData[53])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.01)
         Unit : kVarh
       - Name : "当前反向无功峰电能"
-        Value : ((($v[55] << 32) + $v[56])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Value : ((($v[55] << 16) + $v[56])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        CValue : (((pData[54] << 16) + pData[55])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.01)
         Unit : kVarh
       - Name : "当前反向无功平电能"
-        Value : ((($v[57] << 32) + $v[58])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Value : ((($v[57] << 16) + $v[58])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        CValue : (((pData[56] << 16) + pData[57])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.01)
         Unit : kVarh
       - Name : "当前反向无功谷电能"
-        Value : ((($v[59] << 32) + $v[60])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Value : ((($v[59] << 16) + $v[60])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        CValue : (((pData[58] << 16) + pData[59])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.01)
         Unit : kVarh
   - Cmd : 3
     Offset : 0x61
@@ -111,21 +144,27 @@ Sample :
     Data : 
       - Name : "A相电压"
         Ratio : (1/($dataArray["PT"]*0.1))
+        CRatio : (1/(jsonValue["PT"].asInt()*0.1))
         Unit : V
       - Name : "B相电压"
         Ratio : (1/($dataArray["PT"]*0.1))
+        CRatio : (1/(jsonValue["PT"].asInt()*0.1))
         Unit : V
       - Name : "C相电压"
         Ratio : (1/($dataArray["PT"]*0.1))
+        CRatio : (1/(jsonValue["PT"].asInt()*0.1))
         Unit : V
       - Name : "A相电流"
         Ratio : (100/($dataArray["CT"]))
+        CRatio : (1/(jsonValue["PT"].asInt()*0.1))
         Unit : A
       - Name : "B相电流"
         Ratio : (100/($dataArray["CT"]))
+        CRatio : (1/(jsonValue["PT"].asInt()*0.1))
         Unit : A
       - Name : "C相电流"
         Ratio : (100/($dataArray["CT"]))
+        CRatio : (1/(jsonValue["PT"].asInt()*0.1))
         Unit : A
   - Cmd : 3
     Offset : 0x77
@@ -137,12 +176,15 @@ Sample :
         Unit : Hz
       - Name : "A-B线电压"
         Ratio : (1/($dataArray["PT"]*0.1))
+        CRatio : (1/(jsonValue["PT"].asInt()*0.1))
         Unit : V
       - Name : "B-C线电压"
         Ratio : (1/($dataArray["PT"]*0.1))
+        CRatio : (1/(jsonValue["PT"].asInt()*0.1))
         Unit : V
       - Name : "A-C线电压"
         Ratio : (1/($dataArray["PT"]*0.1))
+        CRatio : (1/(jsonValue["PT"].asInt()*0.1))
         Unit : V
   - Cmd : 3
     Offset : 0x87
@@ -150,13 +192,16 @@ Sample :
     Type : 'S'
     Data : 
       - Name : "A相正向有功电能"
-        Value : ((($v[1] << 32) + $v[2])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Value : ((($v[1] << 16) + $v[2])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        CValue : (((pData[0] << 16) + pData[1])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.01)
         Unit : kWH
       - Name : "B相正向有功电能"
-        Value : ((($v[3] << 32) + $v[4])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Value : ((($v[3] << 16) + $v[4])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        CValue : (((pData[2] << 16) + pData[3])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.01)
         Unit : kWH
       - Name : "C相正向有功电能"
-        Value : ((($v[5] << 32) + $v[6])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        Value : ((($v[5] << 16) + $v[6])*$dataArray["CT"]*$dataArray["PT"]*0.01)
+        CValue : (((pData[4] << 16) + pData[5])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.01)
         Unit : kWH
   - Cmd : 3
     Offset : 0x164
@@ -164,40 +209,52 @@ Sample :
     Type : 'S'
     Data : 
       - Name : "A相有功功率"
-        Value : ((($v[1] << 32) + $v[2])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        Value : ((($v[1] << 16) + $v[2])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        CValue : (((pData[0] << 16) + pData[1])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.001)
         Unit : kW
       - Name : "B相有功功率"
-        Value : ((($v[3] << 32) + $v[4])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        Value : ((($v[3] << 16) + $v[4])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        CValue : (((pData[2] << 16) + pData[3])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.001)
         Unit : kW
       - Name : "C相有功功率"
-        Value : ((($v[5] << 32) + $v[6])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        Value : ((($v[5] << 16) + $v[6])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        CValue : (((pData[4] << 16) + pData[5])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.001)
         Unit : kW
       - Name : "总有功功率"
-        Value : ((($v[7] << 32) + $v[8])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        Value : ((($v[7] << 16) + $v[8])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        CValue : (((pData[6] << 16) + pData[7])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.001)
         Unit : kW
       - Name : "A相无功功率"
-        Value : ((($v[9] << 32) + $v[10])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        Value : ((($v[9] << 16) + $v[10])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        CValue : (((pData[8] << 16) + pData[9])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.001)
         Unit : kvar
       - Name : "B相无功功率"
-        Value : ((($v[11] << 32) + $v[12])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        Value : ((($v[11] << 16) + $v[12])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        CValue : (((pData[10] << 16) + pData[11])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.001)
         Unit : kvar
       - Name : "C相无功功率"
-        Value : ((($v[13] << 32) + $v[14])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        Value : ((($v[13] << 16) + $v[14])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        CValue : (((pData[12] << 16) + pData[13])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.001)
         Unit : kvar
       - Name : "总无功功率"
-        Value : ((($v[15] << 32) + $v[16])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        Value : ((($v[15] << 16) + $v[16])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        CValue : (((pData[14] << 16) + pData[15])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.001)
         Unit : kvar
       - Name : "A相视在功率"
-        Value : ((($v[17] << 32) + $v[18])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        Value : ((($v[17] << 16) + $v[18])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        CValue : (((pData[16] << 16) + pData[17])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.001)
         Unit : kVA
       - Name : "B相视在功率"
-        Value : ((($v[19] << 32) + $v[20])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        Value : ((($v[19] << 16) + $v[20])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        CValue : (((pData[18] << 16) + pData[19])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.001)
         Unit : kVA
       - Name : "C相视在功率"
-        Value : ((($v[21] << 32) + $v[22])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        Value : ((($v[21] << 16) + $v[22])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        CValue : (((pData[20] << 16) + pData[21])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.001)
         Unit : kVA
       - Name : "总视在功率"
-        Value : ((($v[23] << 32) + $v[24])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        Value : ((($v[23] << 16) + $v[24])*$dataArray["CT"]*$dataArray["PT"]*0.001)
+        CValue : (((pData[22] << 16) + pData[23])*jsonValue["CT"].asInt()*jsonValue["PT"].asInt()*0.001)
         Unit : kVA
   - Cmd : 3
     Offset : 0x17C

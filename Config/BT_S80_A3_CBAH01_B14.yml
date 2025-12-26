@@ -1,0 +1,283 @@
+Project:
+  Name : BT_S80_A3_CBAH01_B14
+  RT_ID : 5156
+  File : "S80-A3-CBAH01-B14.xlsx"
+  DevType : 4
+  Category : 蓄电池
+  ProtocolName : S80-A3蓄电池
+BlockTemplate :
+  BatteryS :
+    BlockLength : 2
+    BlockType : 'S'
+    BlockContent : 
+      - Name : "电池%s状态-掉线"
+        Value : ($v[1]&0x1)
+        CValue : (pData[0]&0x1)
+        AlertNormalValue : 0
+      - Name : "电池%s状态-过压"
+        Value : (($v[1]>>1)&0x1)
+        CValue : ((pData[0]>>1)&0x1)
+        AlertNormalValue : 0
+      - Name : "电池%s状态-欠压"
+        Value : (($v[1]>>2)&0x1)
+        CValue : ((pData[0]>>2)&0x1)
+        AlertNormalValue : 0
+      - Name : "电池%s状态-电压不均"
+        Value : (($v[1]>>3)&0x1)
+        CValue : ((pData[0]>>3)&0x1)
+        AlertNormalValue : 0
+      - Name : "电池%s状态-内阻过高"
+        Value : (($v[1]>>4)&0x1)
+        CValue : ((pData[0]>>4)&0x1)
+        AlertNormalValue : 0
+      - Name : "电池%s状态-内阻不均"
+        Value : (($v[1]>>5)&0x1)
+        CValue : ((pData[0]>>5)&0x1)
+        AlertNormalValue : 0
+      - Name : "电池%s状态-温度过高"
+        Value : (($v[1]>>6)&0x1)
+        CValue : ((pData[0]>>6)&0x1)
+        AlertNormalValue : 0
+      - Name : "电池%s状态-电池开路预警"
+        Value : (($v[1]>>7)&0x1)
+        CValue : ((pData[0]>>7)&0x1)
+        AlertNormalValue : 0
+      - Name : "电池%s状态-电池自检故障"
+        Value : (($v[1]>>8)&0x1)
+        CValue : ((pData[0]>>8)&0x1)
+        AlertNormalValue : 0
+InitSetting : 
+  - Name : index
+    Type : int
+    Default : 1
+Sample : 
+  - Cmd : 4
+    Offset : 1
+    COffset : (30*(index_-1)) + 1
+    Len : 16
+    Data : 
+      - Name : "电池组状态"
+        Offset : 1
+        Options :
+          - Key : 0
+            Value : 离线
+          - Key : 1
+            Value : 浮充
+          - Key : 2
+            Value : 放电
+          - Key : 3
+            Value : 充电
+      - Name : "电池组告警状态-电池开关状态"
+        Value : ($v[2]&0x1)
+        CValue : (pData[0]&0x1)
+        Options : 
+           - Key : 0
+             Value : 分闸
+           - Key : 1
+             Value : 合闸
+      - Name : "电池组告警状态-电池组充电电流过高"
+        Value : (($v[2]>>1)&0x1)
+        CValue : ((pData[1]>>1)&0x1)
+        AlertNormalValue : 0
+      - Name : "电池组告警状态-电池组放电电流过高"
+        Value : (($v[2]>>2)&0x1)
+        CValue : ((pData[1]>>2)&0x1)
+        AlertNormalValue : 0
+      - Name : "电池组告警状态-电池组剩余时间5分钟报警"
+        Value : (($v[2]>>3)&0x1)
+        CValue : ((pData[1]>>3)&0x1)
+        AlertNormalValue : 0
+      - Name : "电池组告警状态-电池组剩余时间10分钟报警"
+        Value : (($v[2]>>4)&0x1)
+        CValue : ((pData[1]>>4)&0x1)
+        AlertNormalValue : 0
+      - Name : "电池组告警状态-电池组剩余时间20分钟报警"
+        Value : (($v[2]>>5)&0x1)
+        CValue : ((pData[1]>>5)&0x1)
+        AlertNormalValue : 0
+      - Name : "电池组告警状态-电池组热失控预警状态"
+        Value : (($v[2]>>6)&0x1)
+        CValue : ((pData[1]>>6)&0x1)
+        AlertNormalValue : 0
+      - Name : "电池组告警状态-电池告警输出状态"
+        Value : (($v[2]>>7)&0x1)
+        CValue : ((pData[1]>>7)&0x1)
+        AlertNormalValue : 0
+      - Name : "电池组告警状态-环境温度过高"
+        Value : (($v[2]>>8)&0x1)
+        CValue : ((pData[1]>>8)&0x1)
+        AlertNormalValue : 0
+      - Name : "电池组告警状态-环境温度过低"
+        Value : (($v[2]>>9)&0x1)
+        CValue : ((pData[1]>>9)&0x1)
+        AlertNormalValue : 0
+      - Name : "电池组告警状态-组压模块掉线"
+        Value : (($v[2]>>10)&0x1)
+        CValue : ((pData[1]>>10)&0x1)
+        AlertNormalValue : 0
+      - Name : "电池组告警状态-充放电霍尔掉线"
+        Value : (($v[2]>>11)&0x1)
+        CValue : ((pData[1]>>11)&0x1)
+        AlertNormalValue : 0
+      - Name : "电池组告警状态-浮充霍尔掉线"
+        Value : (($v[2]>>12)&0x1)
+        CValue : ((pData[1]>>12)&0x1)
+        AlertNormalValue : 0
+      - Name : "电池组告警状态-环境温度掉线"
+        Value : (($v[2]>>13)&0x1)
+        CValue : ((pData[1]>>13)&0x1)
+        AlertNormalValue : 0
+      - Name : "电池组告警状态-电压不均"
+        Value : (($v[2]>>14)&0x1)
+        CValue : ((pData[1]>>14)&0x1)
+        AlertNormalValue : 0
+      - Name : "电池组告警状态-内阻不均"
+        Value : (($v[2]>>15)&0x1)
+        CValue : ((pData[1]>>15)&0x1)
+        AlertNormalValue : 0
+      - Name : 电池组组压
+        Value : (($v[3]/10)+70)
+        CValue : (((float)pData[2])/10+70)
+        Offset : 3
+        Unit : V
+      - Name : 电池组充放电电流
+        Ratio : 10
+        Offset : 4
+        Unit : A
+      - Name : 电池组浮充电流
+        Offset : 5
+        Unit : A
+      - Name : 电池组剩余容量
+        Offset : 6
+        Ratio : 10
+        Unit : '%'
+      - Name : 电池组剩余放电时间
+        Offset : 7
+        Unit : min
+      - Name : 电池组环境温度1
+        Offset : 8
+        Unit : ℃
+        Ratio : 10
+      - Name : 电池组环境温度2
+        Offset : 9
+        Unit : ℃
+        Ratio : 10
+      - Name : 电池组环境温度3
+        Offset : 10
+        Unit : ℃
+        Ratio : 10
+      - Name : 电池组环境温度4
+        Offset : 11
+        Unit : ℃
+        Ratio : 10
+      - Name : 电池组环境温度5
+        Offset : 12
+        Unit : ℃
+        Ratio : 10
+      - Name : 电池组环境温度6
+        Offset : 13
+        Unit : ℃
+        Ratio : 10
+      - Name : 电池组环境温度7
+        Offset : 14
+        Unit : ℃
+        Ratio : 10
+      - Name : 电池组环境温度8
+        Offset : 15
+        Unit : ℃
+        Ratio : 10
+      - Name : 电池组电池节数
+        Offset : 16
+  - Cmd : 4
+    Offset : 1001
+    COffset : (1001 + 120*(index_-1))
+    Len : 120
+    Data : 
+      - ArrayName : "电池%d电压"
+        ArrayStart : 1
+        ArrayLength : 120
+        Offset : 1
+        Unit : "V"
+        Ratio : 1000
+  - Cmd : 4
+    Offset : 1481
+    COffset : (1481 + 120*(index_-1))
+    Len : 120
+    Data : 
+      - ArrayName : "电池%d内阻"
+        ArrayStart : 1
+        ArrayLength : 120
+        Offset : 1
+        Unit : "mΩ"
+        Ratio : 1000
+  - Cmd : 4
+    Offset : 1961
+    COffset : (1961 + 120*(index_-1))
+    Len : 120
+    Data : 
+      - ArrayName : "电池%d温度"
+        ArrayStart : 1
+        ArrayLength : 120
+        Offset : 1
+        Unit : "℃"
+        Ratio : 10
+  - Cmd : 4
+    Offset : 2441
+    COffset : (2441 + 120*(index_-1))
+    Len : 120
+    Data : 
+      - ArrayBlock : BatteryS
+        ArrayStart : 1
+        ArrayEnd : 120
+  - Cmd : 4
+    Offset : 2921
+    COffset : (2921 + 120*(index_-1))
+    Len : 120
+    Data : 
+      - ArrayName : "电池%dSOC"
+        ArrayStart : 1
+        ArrayLength : 120
+        Offset : 1
+        Unit : "%"
+        Ratio : 10
+  - Cmd : 4
+    Offset : 3401
+    COffset : (3401 + 120*(index_-1))
+    Len : 120
+    Data : 
+      - ArrayName : "电池%dSOH"
+        ArrayStart : 1
+        ArrayLength : 120
+        Offset : 1
+        Unit : "%"
+        Ratio : 10
+RunCheckThresholdCodeTelecom : |
+  {
+  
+      float fValue = cData.r4_1[2];
+      fValue /= 10;
+      fValue += 70;
+      if(levelMap_["110120150010"]){            
+            CheckThresholdBool(levelMap_["110120150010"] , "110120150010", "110120150010", "高压操作电源电池总电压过高", boost::lexical_cast<std::string>(fValue),  fValue > valueMap_["110120150010"], 1);
+      }
+      if(levelMap_["110120160010"]){
+            CheckThresholdBool(levelMap_["110120160010"] , "110120160010", "110120160010", "高压操作电源电池总电压过低", boost::lexical_cast<std::string>(fValue),  fValue < valueMap_["110120160010"], 1);
+      }
+
+      if(levelMap_["120120130010"]){            
+        CheckThresholdBool(levelMap_["120120130010"] , "120120130010", "120120130010", "高压操作电源其他告警", "总电压掉线",  fValue < 120, 1);
+      }
+  }
+  //高压操作电源电池温度过高告警
+  for(int i=0;i<10;i++){
+    std::stringstream ss;
+    ss<<"11020006"<<std::setw(3)<<std::setfill('0')<<(i+1)<<"0";
+    std::stringstream sText;
+    sText<<std::setw(3)<<std::setfill('0')<<(i+1)<<"0"<<"#高压操作电源电池温度过高告警";
+    if(levelMap_[ss.str()]){
+          CheckThresholdBool(levelMap_[ss.str()] , ss.str(), ss.str(), "高压操作电源电池温度过高告警", sText.str(),  ((cData.r4_2441[i] >>6)&0x1), 1);
+    }
+  }
+  if(levelMap_["420120130020"]){            
+    CheckThresholdBool(levelMap_["420120130020"] , "420120130020", "420120130020", "高压操作电源其他告警", "霍尔掉线", ((cData.r4_1[2]>>11)&0x1), 1);
+  }

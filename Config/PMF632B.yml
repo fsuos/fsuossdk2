@@ -1,0 +1,70 @@
+Project:
+  Name : PMF632B
+  RT_ID : 5156
+  File : "PMF632B(K2)三相网络电量测控仪V2.15-20251028.pdf"
+  DevType : 2
+  ProtocolName : PMF632B电量测控仪
+  Category : 智能电表
+Sample :
+  - Cmd : 3
+    Offset : 10
+    RType : 'f'
+    Len : 48
+    Data : 
+      - Name : "Ua"
+        Unit : "V"
+      - Name : "Ub"
+        Unit : "V"
+      - Name : "Uc"
+        Unit : "V"
+      - Name : "Uab"
+        Unit : "V"
+      - Name : "Ubc"
+        Unit : "V"
+      - Name : "Uca"
+        Unit : "V"
+      - Name : "Ia"
+        Unit : "A"
+      - Name : "Ib"
+        Unit : "A"
+      - Name : "Ic"
+        Unit : "A"
+      - Name : "Pa"
+        Ratio : 1000
+        Unit : "kW"
+      - Name : "Pb"
+        Ratio : 1000
+        Unit : "kW"
+      - Name : "Pc"
+        Ratio : 1000
+        Unit : "kW"
+      - Name : "P总"
+        Ratio : 1000
+        Unit : "kW"
+      - Name : "Qa"
+        Ratio : 1000
+        Unit : "kVar"
+      - Name : "Qb"
+        Ratio : 1000
+        Unit : "kVar"
+      - Name : "Qc"
+        Ratio : 1000
+        Unit : "kVar"
+      - Name : "Q总"
+        Ratio : 1000
+        Unit : "kVar"
+      - Name : "S总"
+        Ratio : 1000
+        Unit : "kVA"
+      - Name : "功率因数"
+        Dot : 3
+      - Name : "电压频率"
+        Unit : Hz
+      - Name : 正向有功电能
+        Unit : "kWh"
+      - Name : 反向有功电能
+        Unit : "kWh"
+      - Name : 感性无功电能
+        Unit : "kvarh"
+      - Name : 容性无功电能
+        Unit : "kvarh"

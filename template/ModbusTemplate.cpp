@@ -363,7 +363,6 @@ void {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}(char* pCData,const 
                 {% endif %}
             }
           {% elif d.AlertNormalValue is defined or d.AlertAbnormalValue is defined %}
-            //if(pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] != 0xFFFF && pData[{% if d.Offset is defined %}{{ d.Offset-1 }}{% else %}{{ loop.index-1 }}{% endif %}] != 0x20) 
             {% if vendor == 2 and  d.TeleSignalId is defined %}
                 {% if d.TeleSignalId|string|length == 12 %}
                     {% if d.AlertNormalValue is defined %}
@@ -807,13 +806,13 @@ bool {{ Project.Name }}::RefreshStatus()
         SendDelayData({{tsc.Delay}});
         {% endif %}
         {% if tsc.Cmd == 3 %}
-        modbus_read_registers({{ tsc.Offset }}, {{ tsc.Len }});
+        modbus_read_registers({% if tsc.COffset is defined %}{{ tsc.COffset }}{% else %}{{ tsc.Offset }}{% endif %}, {{ tsc.Len }});
         {% elif tsc.Cmd == 4 %}
-        modbus_read_input_registers({{ tsc.Offset }}, {{ tsc.Len }});
+        modbus_read_input_registers({% if tsc.COffset is defined %}{{ tsc.COffset }}{% else %}{{ tsc.Offset }}{% endif %}, {{ tsc.Len }});
         {% elif tsc.Cmd == 1 %}
-        modbus_read_bits({{ tsc.Offset }}, {{ tsc.Len }});
+        modbus_read_bits({% if tsc.COffset is defined %}{{ tsc.COffset }}{% else %}{{ tsc.Offset }}{% endif %}, {{ tsc.Len }});
         {% elif tsc.Cmd == 2 %}
-        modbus_read_input_bits({{ tsc.Offset }}, {{ tsc.Len }});
+        modbus_read_input_bits({% if tsc.COffset is defined %}{{ tsc.COffset }}{% else %}{{ tsc.Offset }}{% endif %}, {{ tsc.Len }});
         {% endif %}
         {% break %}
     {% endif %}

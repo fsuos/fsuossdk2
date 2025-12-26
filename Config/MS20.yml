@@ -175,6 +175,30 @@ Sample :
         Offset : 5
       - Name : "总有功功率"
         Value : (($v[9]<<16) + $v[8])
+  - Cmd : 3
+    Offset : 8
+    Len : 1
+    Data : 
+      - Name : 回风温度设定目标值
+        Ratio : 10
+        Unit : ℃
+  - Cmd : 3
+    Offset : 13
+    Len : 1
+    Data : 
+      - Name : 回风湿度设定目标值
+        Ratio : 10
+        Unit : '%'
+  - Cmd : 1
+    Offset : 14
+    Len : 1
+    Data : 
+      - Name : 开关机
+        Options : 
+          - Key : 0
+            Value : 关机
+          - Key : 1
+            Value : 开机
   - Cmd : 2
     Offset : 1
     Len : 11
@@ -183,46 +207,90 @@ Sample :
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 电源相序故障
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 地面漏水报警
         AlertNormalValue : 0
         UnicomSignalId : 601460601001
         UnicomSignalName : 水浸
+        TeleSignalId : 120800150010
+        TeleSignalName : 精密空调水浸告警
+        TelePSignalId : 12016
+        TelePSignalName : 水浸告警
       - Name : 联锁风阀已开
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : UPS模式模式输入
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 远程干接点联锁开关机
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 掉电报警
         AlertNormalValue : 0
         UnicomSignalId : 601415101001
         UnicomSignalName : 输入电源故障告警
+        TeleSignalId : 120800020010
+        TeleSignalName : 精密空调交流输入异常告警
+        TelePSignalId : 12018
+        TelePSignalName : 交流输入异常告警
       - Name : 电压超高报警
         AlertNormalValue : 0
         UnicomSignalId : 601210404001
         UnicomSignalName : 相电压过高
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 电压超低报警
         AlertNormalValue : 0
         UnicomSignalId : 601210402001
         UnicomSignalName : 相电压过低
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : COWORK组网数量超限
         AlertNormalValue : 0
-        UnicomSignalId : 601415101001
-        UnicomSignalName : 输入电源故障告警
+        UnicomSignalId : 601400101
+        UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : COWORK组网机型不一致
         AlertNormalValue : 0
-        UnicomSignalId : 601415101001
-        UnicomSignalName : 输入电源故障告警
+        UnicomSignalId : 601400101
+        UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
   - Cmd : 2
     Offset : 16
     Len : 5
@@ -231,22 +299,42 @@ Sample :
         AlertNormalValue : 0
         UnicomSignalId : 601230A04001
         UnicomSignalName : 回风温度过高
+        TeleSignalId : 120800090010
+        TeleSignalName : 精密空调回风温度高告警
+        TelePSignalId : 12006
+        TelePSignalName : 温度过高告警
       - Name : 回风温度超低报警
         AlertNormalValue : 0
         UnicomSignalId : 601230A02001
         UnicomSignalName : 回风温度过低
+        TeleSignalId : 120800100010
+        TeleSignalName : 精密空调回风温度低告警
+        TelePSignalId : 12005
+        TelePSignalName : 湿度过低告警
       - Name : 回风湿度超高报警
         AlertNormalValue : 0
         UnicomSignalId : 601230C04001
         UnicomSignalName : 回风湿度过高
+        TeleSignalId : 120800120010
+        TeleSignalName : 精密空调回风湿度高告警
+        TelePSignalId : 12004
+        TelePSignalName : 湿度过高告警
       - Name : 回风湿度超低报警
         AlertNormalValue : 0
         UnicomSignalId : 601230C02001
         UnicomSignalName : 回风湿度过低
+        TeleSignalId : 120800130010
+        TeleSignalName : 精密空调回风湿度低告警
+        TelePSignalId : 12005
+        TelePSignalName : 湿度过低告警
       - Name : 回风温湿度板通讯掉线
         AlertNormalValue : 0
         UnicomSignalId : 601400201
         UnicomSignalName : 通信故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
   - Cmd : 2
     Offset : 31
     Len : 6
@@ -255,26 +343,50 @@ Sample :
         AlertNormalValue : 0
         UnicomSignalId : 601400201
         UnicomSignalName : 通信故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 送风温度超高报警
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 送风温度超低报警
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 送风湿度超高报警
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 送风湿度超低报警
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 送风温湿度板通讯掉线
         AlertNormalValue : 0
         UnicomSignalId : 601400201
         UnicomSignalName : 通信故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
   - Cmd : 2
     Offset : 48
     Len : 4
@@ -283,18 +395,34 @@ Sample :
         AlertNormalValue : 0
         UnicomSignalId : 601431F01001
         UnicomSignalName : 气流丢失
+        TeleSignalId : 120800250010
+        TeleSignalName : 精密空调气流丢失告警
+        TelePSignalId : 12002
+        TelePSignalName : 气流丢失告警
       - Name : 过滤网堵
         AlertNormalValue : 0
         UnicomSignalId : 601432001001
         UnicomSignalName : 过滤网堵塞
+        TeleSignalId : 120800260010
+        TeleSignalName : 精密空调过滤网脏告警
+        TelePSignalId : 12003
+        TelePSignalName : 空气过滤网脏告警
       - Name : AC风机过载
         AlertNormalValue : 0
         UnicomSignalId : 601431901001
         UnicomSignalName : 风机过载
+        TeleSignalId : 120800240010
+        TeleSignalName : 精密空调风机过载告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : EC风机故障
         AlertNormalValue : 0
         UnicomSignalId : 601431901002
         UnicomSignalName : 风机过载
+        TeleSignalId : 120800240020
+        TeleSignalName : 精密空调风机过载告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
   - Cmd : 2
     Offset : 64
     Len : 60
@@ -303,229 +431,413 @@ Sample :
         AlertNormalValue : 0
         UnicomSignalId : 601432201001
         UnicomSignalName : 压缩机过载告警
+        TeleSignalId : 120800210010
+        TeleSignalName : 精密空调压缩机过载告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 1#压缩机高压
         AlertNormalValue : 0
         UnicomSignalId : 601230E03001
         UnicomSignalName : 压缩机排气压力高
+        TeleSignalId : 120800170010
+        TeleSignalName : 精密空调压缩机高压告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 1#压缩机低压
         AlertNormalValue : 0
         UnicomSignalId : 601230D01001
         UnicomSignalName : 压缩机吸气压力低
+        TeleSignalId : 120800180010
+        TeleSignalName : 精密空调压缩机低压告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 1#排气温度超高限
         Offset : 5
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 1#排气温度超低限
         Offset : 6
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 1#制冷剂不足报警
         Offset : 7
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 1#扩展板通讯掉线
         Offset : 9
         AlertNormalValue : 0
         UnicomSignalId : 601400201
         UnicomSignalName : 通信故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 1#吸气温度A温度传感器故障
         Offset : 10
         AlertNormalValue : 0
         UnicomSignalId : 601460201001
         UnicomSignalName : 温度传感器故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 1#吸气温度B温度传感器故障
         Offset : 11
         AlertNormalValue : 0
         UnicomSignalId : 601460201002
         UnicomSignalName : 温度传感器故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 1#排气温度传感器故障
         Offset : 12
         AlertNormalValue : 0
         UnicomSignalId : 601460201003
         UnicomSignalName : 温度传感器故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 1#低压传感器故障
         Offset : 13
         AlertNormalValue : 0
         UnicomSignalId : 601460101
         UnicomSignalName : 传感器故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 1#高压传感器故障
         Offset : 14
         AlertNormalValue : 0
         UnicomSignalId : 601460101
         UnicomSignalName : 传感器故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 2#压缩机过载
         Offset : 17
         AlertNormalValue : 0
         UnicomSignalId : 601432201001
         UnicomSignalName : 压缩机过载告警
+        TeleSignalId : 120800210020
+        TeleSignalName : 精密空调压缩机过载告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 2#压缩机高压
         Offset : 18
         AlertNormalValue : 0
         UnicomSignalId : 601230E03002
         UnicomSignalName : 压缩机排气压力高
+        TeleSignalId : 120800170020
+        TeleSignalName : 精密空调压缩机高压告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 2#压缩机低压
         Offset : 19
         AlertNormalValue : 0
         UnicomSignalId : 601230D01002
         UnicomSignalName : 压缩机吸气压力低
+        TeleSignalId : 120800180010
+        TeleSignalName : 精密空调压缩机低压告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 2#排气温度超高限
         Offset : 21
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 2#排气温度超低限
         Offset : 22
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 2#制冷剂不足报警
         Offset : 23
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 2#扩展板通讯掉线
         Offset : 25
         AlertNormalValue : 0
         UnicomSignalId : 601400201
         UnicomSignalName : 通信故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 2#吸气温度A温度传感器故障
         Offset : 26
         AlertNormalValue : 0
         UnicomSignalId : 601460201004
         UnicomSignalName : 温度传感器故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 2#吸气温度B温度传感器故障
         Offset : 27
         AlertNormalValue : 0
         UnicomSignalId : 601460201005
         UnicomSignalName : 温度传感器故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 2#排气温度传感器故障
         Offset : 28
         AlertNormalValue : 0
         UnicomSignalId : 601460201006
         UnicomSignalName : 温度传感器故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 2#低压传感器故障
         Offset : 29
         AlertNormalValue : 0
         UnicomSignalId : 601460101
         UnicomSignalName : 传感器故障告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
       - Name : 2#高压传感器故障
         Offset : 30
         AlertNormalValue : 0
         UnicomSignalId : 601460101
         UnicomSignalName : 传感器故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 3#压缩机过载
         Offset : 33
         AlertNormalValue : 0
         UnicomSignalId : 601432201003
         UnicomSignalName : 压缩机过载告警
+        TeleSignalId : 120800210030
+        TeleSignalName : 精密空调压缩机过载告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 3#压缩机高压
         Offset : 34
         AlertNormalValue : 0
         UnicomSignalId : 601230E03003
         UnicomSignalName : 压缩机排气压力高
+        TeleSignalId : 120800170030
+        TeleSignalName : 精密空调压缩机高压告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 3#压缩机低压
         Offset : 35
         AlertNormalValue : 0
         UnicomSignalId : 601230D01003
         UnicomSignalName : 压缩机吸气压力低
+        TeleSignalId : 120800180010
+        TeleSignalName : 精密空调压缩机低压告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 3#排气温度超高限
         Offset : 37
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 3#排气温度超低限
         Offset : 38
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 3#制冷剂不足报警
         Offset : 39
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 3#扩展板通讯掉线
         Offset : 41
         AlertNormalValue : 0
         UnicomSignalId : 601400201
         UnicomSignalName : 通信故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 3#吸气温度A温度传感器故障
         Offset : 42
         AlertNormalValue : 0
         UnicomSignalId : 601460201006
         UnicomSignalName : 温度传感器故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 3#吸气温度B温度传感器故障
         Offset : 43
         AlertNormalValue : 0
         UnicomSignalId : 601460201007
         UnicomSignalName : 温度传感器故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 3#排气温度传感器故障
         Offset : 44
         AlertNormalValue : 0
         UnicomSignalId : 601460201006
         UnicomSignalName : 温度传感器故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 3#低压传感器故障
         Offset : 45
         AlertNormalValue : 0
         UnicomSignalId : 601460101
         UnicomSignalName : 传感器故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 3#高压传感器故障
         Offset : 46
         AlertNormalValue : 0
         UnicomSignalId : 601460101
         UnicomSignalName : 传感器故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 加热过热报警
         Offset : 49
         AlertNormalValue : 0
         UnicomSignalId : 601433301001
         UnicomSignalName : 加热器告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 电极加湿电源（外接加湿器）故障
         Offset : 50
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 导电率低报警
         Offset : 53
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 高水位报警
         Offset : 54
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12015
+        TelePSignalName : 溢水告警
       - Name : 液位开关故障报警
         Offset : 55
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 进水故障报警
         Offset : 56
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 排水故障报警
         Offset : 57
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 水浓度高报警
         Offset : 58
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 更换电极加湿罐子报警
         Offset : 59
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 加湿板通讯掉线
         Offset : 60
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
   - Cmd : 2
     Offset : 188
     Len : 118
@@ -538,31 +850,55 @@ Sample :
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 1#变频驱动器一般故障
         Offset : 3
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 1#变频驱动器死机故障
         Offset : 4
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 2#压缩机过载输入
         Offset : 5
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 2#压缩机高压开关输入
         Offset : 6
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 2#压缩机低压开关输入
         Offset : 7
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 2#压缩机属性
         Offset : 17
         AlertNormalValue : 0
@@ -571,51 +907,91 @@ Sample :
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 2#变频驱动器一般故障
         Offset : 19
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 2#变频驱动器死机故障
         Offset : 20
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 3#压缩机过载输入
         Offset : 21
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 3#压缩机高压开关输入
         Offset : 22
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 3#压缩机低压开关输入
         Offset : 23
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 3#压缩机属性
         Offset : 33
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 3#压缩机变频驱动通讯故障
         Offset : 34
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 3#变频驱动器一般故障
         Offset : 35
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 3#变频驱动器死机故障
         Offset : 36
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 加热过热输入
         Offset : 37
         AlertNormalValue : 0
@@ -633,192 +1009,481 @@ Sample :
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 1#变频压机欠压
         Offset : 54
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 1#变频压机过压
         Offset : 55
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 1#变频压机过载
         Offset : 56
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 1#变频压机过热
         Offset : 57
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 1#电子膨胀阀错误
         Offset : 58
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 1#变频压机启动失败
         Offset : 59
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 1#变频压机通信丢失
         Offset : 60
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 2#变频压机过流
         Offset : 69
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 2#变频压机欠压
         Offset : 70
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 2#变频压机过压
         Offset : 71
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 2#变频压机过载
         Offset : 72
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 2#变频压机过热
         Offset : 73
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 2#电子膨胀阀错误
         Offset : 74
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 2#变频压机启动失败
         Offset : 75
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 2#变频压机通信丢失
         Offset : 76
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 3#变频压机过流
         Offset : 85
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 3#变频压机欠压
         Offset : 86
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 3#变频压机过压
         Offset : 87
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 3#变频压机过载
         Offset : 88
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 3#变频压机过热
         Offset : 89
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 3#电子膨胀阀错误
         Offset : 90
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 3#变频压机启动失败
         Offset : 91
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : 3#变频压机通信丢失
         Offset : 92
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : A路冷冻水流量开关报警
         Offset : 101
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : B路冷冻水流量开关报警
         Offset : 102
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : A路进水温度超高报警
         Offset : 105
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : A路进水温度超低报警
         Offset : 106
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : B路进水温度超高报警
         Offset : 107
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : B路进水温度超低报警
         Offset : 108
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : A路水阀开度反馈异常报警
         Offset : 109
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : B路水阀开度反馈异常报警
         Offset : 110
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : A路进水温度传感器报警
         Offset : 111
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : A路出水温度传感器报警
         Offset : 112
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : A路探头安装异常报警
         Offset : 113
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : B路进水温度传感器报警
         Offset : 114
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : B路出水温度传感器报警
         Offset : 115
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : B路探头安装异常报警
         Offset : 116
         AlertNormalValue : 0
         UnicomSignalId : 601400101
         UnicomSignalName : 其它故障告警
+        TeleSignalId : 12080027
+        TeleSignalName : 精密空调其他告警
+        TelePSignalId : 12017
+        TelePSignalName : 其他告警
       - Name : A路冷冻水流量开关输入
         Offset : 117
       - Name : B路冷冻水流量开关输入
         Offset : 118
+SET_RET_CODE : |
+  case AC_Control_Code::AC_START: {
+        if(tab_reg[0] == 1) {
+            cmd_result_ = 1;
+        } else {
+            cmd_result_ = 3;
+        }
+        Reset();
+        return false;
+      }
+      case AC_Control_Code::AC_STOP: {
+        if(tab_reg[0] == 0) {
+            cmd_result_ = 1;
+        } else {
+            cmd_result_ = 3;
+        }
+        Reset();
+        return false;
+      } 
+      case AC_Control_Code::AC_SET_TEMPERATURE:
+      case AC_Control_Code::AC_SET_HUMID: {
+        if(tab_reg[0] == last_data_) {
+            cmd_result_ = 1;
+        } else {
+            cmd_result_ = 3;
+        }
+        Reset();
+        return false;
+      }
+      
+SET_DO_CODE : |
+  std::string doId((char*)inBuffer, inBufferSize);
+  if(doId == "601500201001" || doId == "140800280010") {
+      //开机
+      state = AC_Control_Code::AC_START;
+      cmd_result_ = -1;
+      last_data_ = 1;
+      modbus_write_bit(14, 1);
+      if((uint32_t)outBufferSize >= sizeof(int)) {
+          *((int*)outBuffer) = -1;//通知取状态
+          bytesReturned = sizeof(int);
+      }
+  } else if(doId == "601500200001" || doId == "140800300010") {
+      //关机
+      state = AC_Control_Code::AC_STOP;
+      cmd_result_ = -1;
+      last_data_ = 0;
+      modbus_write_bit(14, 0);
+      if((uint32_t)outBufferSize >= sizeof(int)) {
+          *((int*)outBuffer) = -1;//通知取状态
+          bytesReturned = sizeof(int);
+      }
+  }
+
+
+SET_AO_CODE: |
+  if(setting["signal_id"].asString() == "6016A2101001" || setting["signal_id"].asString() == "150800310010") {
+      if(setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
+          int16_t newValue = atoi(setting["SetValue"].asString().c_str())*10;
+          //1#回风温度
+          state = AC_Control_Code::AC_SET_TEMPERATURE;
+          cmd_result_ = -1;
+          OpenPort();
+          modbus_write_register(8, newValue);
+          if((uint32_t)outBufferSize >= sizeof(int)) {
+              *((int*)outBuffer) = -1;//通知取状态
+              bytesReturned = sizeof(int);
+          }                       
+      }
+  } else if(setting["signal_id"].asString() == "6016A2101001" || setting["signal_id"].asString() == "150800340010") {
+      if(setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
+          int16_t newValue = atoi(setting["SetValue"].asString().c_str())*10;
+          //湿度
+          state = AC_Control_Code::AC_SET_HUMID;
+          cmd_result_ = -1;
+          OpenPort();
+          modbus_write_register(11, newValue);
+          if((uint32_t)outBufferSize >= sizeof(int)) {
+              *((int*)outBuffer) = -1;//通知取状态
+              bytesReturned = sizeof(int);
+          }                       
+      }
+  }
+DEVICEIOCONTROL_CODE: |
+    case AC_Control_Code::AC_START: {
+        state = AC_Control_Code::AC_START;
+        cmd_result_ = -1;
+        OpenPort();
+        last_data_ = 1;
+        modbus_write_bit(14, 1);
+        if((uint32_t)outBufferSize >= sizeof(int)) {
+            *((int*)outBuffer) = -1;//通知取状态
+            bytesReturned = sizeof(int);
+        }
+        break;
+    }    
+    case AC_Control_Code::AC_STOP: {
+        state = AC_Control_Code::AC_STOP;
+        cmd_result_ = -1;
+        OpenPort();
+        last_data_ = 0;
+        modbus_write_bit(14, 0);
+        if((uint32_t)outBufferSize >= sizeof(int)) {
+            *((int*)outBuffer) = -1;//通知取状态
+            bytesReturned = sizeof(int);
+        }
+        break;
+    }
+    case AC_Control_Code::AC_SET_TEMPERATURE: {
+        if(inBufferSize == sizeof(uint16_t)) {
+            state = AC_Control_Code::AC_SET_TEMPERATURE;
+            cmd_result_ = -1;
+            OpenPort();
+            last_data_ = 10* (*(uint16_t*)inBuffer);
+            modbus_write_register(8, last_data_);
+            if((uint32_t)outBufferSize >= sizeof(int)) {
+              *((int*)outBuffer) = -1;//通知取状态
+              bytesReturned = sizeof(int);
+          }       
+        }
+        break;
+    }
+    case AC_Control_Code::AC_SET_HUMID: {
+        if(inBufferSize == sizeof(uint16_t)) {
+            state = AC_Control_Code::AC_SET_HUMID;
+            cmd_result_ = -1;
+            OpenPort();
+            last_data_ = 10*(*(uint16_t*)inBuffer);
+            modbus_write_register(11, last_data_);
+            if((uint32_t)outBufferSize >= sizeof(int)) {
+              *((int*)outBuffer) = -1;//通知取状态
+              bytesReturned = sizeof(int);
+          }       
+        }
+        break;
+    } 
+
