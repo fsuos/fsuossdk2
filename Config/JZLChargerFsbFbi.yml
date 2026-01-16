@@ -1,0 +1,30 @@
+Project:
+  Name : JZLChargerFsbFbi
+  RT_ID : 5156
+  BaudRate : 57600
+  File : "在线活化-Modbus协议.docx"
+  DevType : 2
+  Category : 蓄电池
+  ProtocolName : "JZLChargerFsbFbi"
+Sample :
+  - Cmd : 3
+    Offset : 3
+    Len : 2
+    Data :
+      - Name : 放电电压
+        Ratio : 100
+        Unit : "V"
+      - Name : 放电电流
+        Ratio : 10
+        Unit : "A"
+  - Cmd : 3
+    Offset : 5
+    Len : 2
+    Data :
+      - Name : 充电电压
+        Ratio : 10
+        Unit : "V"
+      - Name : 充电电流
+        Ratio : 10
+        Unit : "A" 
+  

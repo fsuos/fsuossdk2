@@ -1,0 +1,428 @@
+Project:
+  Name : GM6650DC
+  RT_ID : 5156
+  File : "GM6650-DC协议.pdf"
+  DevType : 2
+  ProtocolName : GM6650DC柴油发电机
+  Category : 柴油发电机组
+Sample : 
+  - Cmd : 3
+    Offset : 0x1000
+    Len : 27
+    Data : 
+      - Name : "发电C相电压"
+        Unit : "V"
+      - Name : "发电B相电压"
+        Unit : "V"
+      - Name : "发电A相电压"
+        Unit : "V"
+      - Name : 发电AC线电压
+        Unit : "V"
+      - Name : 发电BC线电压
+        Unit : "V"
+      - Name : 发电AB线电压
+        Unit : "V"
+      - Name : 发电C相电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 发电B相电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 发电A相电流
+        Ratio : 10
+        Unit : "A"
+      - Name : 发电C相功率因数
+        Ratio : 100
+      - Name : 发电B相功率因数
+        Ratio : 100
+      - Name : 发电A相功率因数
+        Ratio : 100
+      - Name : 发电频率
+        Ratio : 10
+        Unit : "Hz"
+      - Name : 发电C相视在功率
+        Ratio : 10
+        Unit : "kVA"
+      - Name : 发电B相视在功率
+        Ratio : 10
+        Unit : kVA
+      - Name : 发电A相视在功率
+        Ratio : 10
+        Unit : kVA
+      - Name : 发电C相有功功率
+        Ratio : 10
+        Unit : kW
+      - Name : 发电B相有功功率
+        Ratio : 10
+        Unit : kW
+      - Name : 发电A相有功功率
+        Ratio : 10
+        Unit : kW
+      - Name : 发电C相无功功率
+        Ratio : 10
+        Unit : kVAr
+      - Name : 发电B相无功功率
+        Ratio : 10
+        Unit : kVAr
+      - Name : 发电A相无功功率
+        Ratio : 10
+        Unit : kVAr
+      - Name : 转速
+        Unit : RPM
+      - Name : 油压
+        Ratio : 10
+        Unit : BAR/PSI
+      - Name : 水温
+        Unit : "℃"
+      - Name : 电池电压
+        Ratio : 10
+        Unit : V
+      - Name : 充电励磁电压
+        Ratio : 10
+        Unit : V
+  - Cmd : 3
+    Offset : 0x1021
+    Len : 1
+    Data :   
+      - Name : 油机状态
+        Options : 
+          - Key : 1
+            Value : 备用
+          - Key : 2
+            Value : 手动转换到发电侧
+          - Key : 3
+            Value : 油机停机
+          - Key : 4
+            Value : 油机启动
+          - Key : 5
+            Value : 进入测试状态
+          - Key : 6
+            Value : 进入手动状态
+          - Key : 7
+            Value : 进入自动状态
+          - Key : 8
+            Value : 复位
+  - Cmd : 3
+    Offset : 0x1019
+    Len : 2
+    Data : 
+      - Name : 预报警代码
+        Options : 
+          - Key : 0
+            Value : 没有故障
+          - Key : 1
+            Value : 发电低电压1
+          - Key : 2
+            Value : 发电低电压2
+          - Key : 3
+            Value : 发电高电压1
+          - Key : 4
+            Value : 发电高电压2
+          - Key : 5
+            Value : 发电低频率1
+          - Key : 6
+            Value : 发电低频率2
+          - Key : 7
+            Value : 发电高频率1
+          - Key : 8
+            Value : 发电高频率2
+          - Key : 9
+            Value : 发电过流1
+          - Key : 10
+            Value : 发电过流2
+          - Key : 13
+            Value : 发电超负载1
+          - Key : 14
+            Value : 发电超负载2
+          - Key : 17
+            Value : 相序
+          - Key : 20
+            Value : 超速等级1
+          - Key : 21
+            Value : 超速等级2
+          - Key : 22
+            Value : 低速等级1
+          - Key : 23
+            Value : 低速等级2
+          - Key : 24
+            Value : 启动失败
+          - Key : 25
+            Value : 停机失败
+          - Key : 26
+            Value : 充电失败
+          - Key : 27
+            Value : 发电开关合闸
+          - Key : 28
+            Value : 发电开关分闸
+          - Key : 31
+            Value : 电池高电压
+          - Key : 32
+            Value : 电池低电压
+          - Key : 33
+            Value : 低油压等级值1
+          - Key : 34
+            Value : 低油压等级值2
+          - Key : 35
+            Value : 高温等级值1
+          - Key : 36
+            Value : 高温等级值2
+          - Key : 37
+            Value : 低油位等级值1
+          - Key : 38
+            Value : 低油位等级值2
+          - Key : 44
+            Value : 辅助1低温等级1
+          - Key : 45
+            Value : 辅助1低温等级2
+          - Key : 46
+            Value : 辅助1高温等级1
+          - Key : 47
+            Value : 辅助1高温等级2
+          - Key : 48
+            Value : 辅助2低压等级1
+          - Key : 49
+            Value : 辅助2低压等级2
+          - Key : 50
+            Value : 辅助2高压等级1
+          - Key : 51
+            Value : 辅助2高压等级2
+          - Key : 52
+            Value : 辅助2低温等级1
+          - Key : 53
+            Value : 辅助2低温等级2
+          - Key : 54
+            Value : 辅助2高温等级1
+          - Key : 55
+            Value : 辅助2高温等级2
+          - Key : 56
+            Value : 开关量输入1
+          - Key : 57
+            Value : 开关量输入2
+          - Key : 58
+            Value : 开关量输入3
+          - Key : 59
+            Value : 开关量输入4
+          - Key : 60
+            Value : 开关量输入5
+          - Key : 61
+            Value : 开关量输入6
+          - Key : 62
+            Value : 开关量输入7
+          - Key : 68
+            Value : 速度传感器信号
+          - Key : 69
+            Value : 油压传感器开路
+          - Key : 71
+            Value : 保养
+          - Key : 72
+            Value : ECU数据故障
+          - Key : 73
+            Value : ECU警告
+          - Key : 74
+            Value : ECU停机故障
+          - Key : 76
+            Value : 直流过流
+          - Key : 77
+            Value : 直流超负载
+          - Key : 81
+            Value : 高油位等级值1
+          - Key : 82
+            Value : 高油位等级值2
+      - Name : 预报警代码
+        Options : 
+          - Key : 0
+            Value : 没有故障
+          - Key : 1
+            Value : 发电低电压1
+          - Key : 2
+            Value : 发电低电压2
+          - Key : 3
+            Value : 发电高电压1
+          - Key : 4
+            Value : 发电高电压2
+          - Key : 5
+            Value : 发电低频率1
+          - Key : 6
+            Value : 发电低频率2
+          - Key : 7
+            Value : 发电高频率1
+          - Key : 8
+            Value : 发电高频率2
+          - Key : 9
+            Value : 发电过流1
+          - Key : 10
+            Value : 发电过流2
+          - Key : 13
+            Value : 发电超负载1
+          - Key : 14
+            Value : 发电超负载2
+          - Key : 17
+            Value : 相序
+          - Key : 20
+            Value : 超速等级1
+          - Key : 21
+            Value : 超速等级2
+          - Key : 22
+            Value : 低速等级1
+          - Key : 23
+            Value : 低速等级2
+          - Key : 24
+            Value : 启动失败
+          - Key : 25
+            Value : 停机失败
+          - Key : 26
+            Value : 充电失败
+          - Key : 27
+            Value : 发电开关合闸
+          - Key : 28
+            Value : 发电开关分闸
+          - Key : 31
+            Value : 电池高电压
+          - Key : 32
+            Value : 电池低电压
+          - Key : 33
+            Value : 低油压等级值1
+          - Key : 34
+            Value : 低油压等级值2
+          - Key : 35
+            Value : 高温等级值1
+          - Key : 36
+            Value : 高温等级值2
+          - Key : 37
+            Value : 低油位等级值1
+          - Key : 38
+            Value : 低油位等级值2
+          - Key : 44
+            Value : 辅助1低温等级1
+          - Key : 45
+            Value : 辅助1低温等级2
+          - Key : 46
+            Value : 辅助1高温等级1
+          - Key : 47
+            Value : 辅助1高温等级2
+          - Key : 48
+            Value : 辅助2低压等级1
+          - Key : 49
+            Value : 辅助2低压等级2
+          - Key : 50
+            Value : 辅助2高压等级1
+          - Key : 51
+            Value : 辅助2高压等级2
+          - Key : 52
+            Value : 辅助2低温等级1
+          - Key : 53
+            Value : 辅助2低温等级2
+          - Key : 54
+            Value : 辅助2高温等级1
+          - Key : 55
+            Value : 辅助2高温等级2
+          - Key : 56
+            Value : 开关量输入1
+          - Key : 57
+            Value : 开关量输入2
+          - Key : 58
+            Value : 开关量输入3
+          - Key : 59
+            Value : 开关量输入4
+          - Key : 60
+            Value : 开关量输入5
+          - Key : 61
+            Value : 开关量输入6
+          - Key : 62
+            Value : 开关量输入7
+          - Key : 68
+            Value : 速度传感器信号
+          - Key : 69
+            Value : 油压传感器开路
+          - Key : 71
+            Value : 保养
+          - Key : 72
+            Value : ECU数据故障
+          - Key : 73
+            Value : ECU警告
+          - Key : 74
+            Value : ECU停机故障
+          - Key : 76
+            Value : 直流过流
+          - Key : 77
+            Value : 直流超负载
+          - Key : 81
+            Value : 高油位等级值1
+          - Key : 82
+            Value : 高油位等级值2
+  - Cmd : 3
+    Offset : 0x102B
+    Len : 3
+    Data : 
+      - Name : 直流电压
+        Unit : V
+      - Name : 直流电流
+        Unit : A
+      - Name : 直流功率
+        Unit : KW
+  - Cmd : 3
+    Offset : 0x104E
+    Len : 16
+    Data : 
+      - Name : ECU发动机转速
+      - Name : ECU发动机机油油压
+      - Name : ECU发动机水温
+        Unit : "℃"
+      - Name : ECU发动机机油温度
+        Unit : "℃"
+      - Name : ECU歧管压力
+      - Name : ECU负载率
+      - Name : ECU扭矩
+      - Name : ECU油耗比率
+      - Name : ECU发动机累计运行时间
+      - Name : ECU气门位置
+      - Name : ECU冷却压力
+        Unit : kPa
+      - Name : ECU发动机燃油油压
+        Unit : kPa
+      - Name : ECU发动机进气温度
+        Unit : ℃
+      - Name : ECU发动机燃油温度
+        Unit : ℃
+      - Name : ECU发动机排气温度
+        Unit : ℃
+      - Name : ECU发动机进气压力
+        Unit : kPa
+  - Cmd : 3
+    Offset : 0x10E0
+    Len : 4
+    Data : 
+      - Name : ECU发动机左排气温度
+        Unit : "℃"
+      - Name : ECU发动机右排气温度
+        Unit : "℃"
+      - Name : ECU发动机机油滤压差
+      - Name : ECU发动机燃油滤压差
+  - Cmd : 3
+    Offset : 0x10E5
+    Len : 4
+    Data : 
+      - Name : ECU累积燃气
+        Unit : kg
+      - Name : ECU大气压力
+        Unit : kPa
+      - Name : ECU大气温度
+        Unit : "℃"
+      - Name : ECU歧管温度
+        Unit : "℃"
+RunCheckThresholdCodeTelecom : |
+  if(levelMap_["110300170010"]){
+    CheckThresholdBool(levelMap_["110300170010"] , "110300170010", "110300170010", "启动电池电压过低", "001#启动电池电压过低",  (((float)cData.r3_4096[25])/10) < valueMap_["110300170010"], 1);
+  }
+  if(levelMap_["110300630010"]){
+    CheckThresholdBool(levelMap_["110300630010"] , "110300630010", "110300630010", "固定发动机组水温过高告警", "001#固定发动机组水温过高告警",  cData.r3_4096[24] > valueMap_["110300630010"], 1);
+  }
+  //if(levelMap_["120300220010"]){
+  //  CheckThresholdBool(levelMap_["120300220010"] , "120300220010", "120300220010", "超速停机告警", "001#超速停机告警",  cData.b1_218[0] , 1);
+  //}
+  //if(levelMap_["120300270010"]){
+  //  CheckThresholdBool(levelMap_["120300270010"] , "120300270010", "120300270010", "紧急停机告警", "001#紧急停机告警",  cData.b1_222[0] , 1);
+  //}
+
+
+     

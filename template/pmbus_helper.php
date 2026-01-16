@@ -61,12 +61,47 @@ function Get_{{ Project.Name|lower }}_RtData($memData, &$dataArray, $extraPara =
               $type = '{{ d.Type }}';
               {% endif %}
               $v = unpack($type , strrev(substr($memData , $offset + {{ d.Offset }}, $len)));
-              {% if d.AlertNormalValue is defined %}
-                  _{{ Project.Name|lower }}_ShowAlert($dataArray, "{{ d.Name }}", $v[1], {{ d.AlertNormalValue }});
+              {% if d.Value is defined %}
+                {% if d.Options is defined %}
+                switch({{ d.Value }}){
+                {% for item in d.Options %}
+                  case {{ item.Key }}:
+                    $dataArray["{{ d.Name }}"] = "{{ item.Value }}";
+                    break;
+                {% endfor %}
+                  default:
+                    $dataArray["{{ d.Name }}"] = "无效值";
+                    break;
+                }
+                {% else %}
+                  {% if d.AlertNormalValue is defined %}
+                  _{{ Project.Name|lower }}_ShowAlert($dataArray, {% if scPrefix is not none %}{{scPrefix}}.{% endif %}"{{ d.Name }}", {{ d.Value }}, {{ d.AlertNormalValue }});       
                   {% elif d.AlertAbnormalValue is defined %}
+                  _{{ Project.Name|lower }}_ShowNormal($dataArray, {% if scPrefix is not none %}{{scPrefix}}.{% endif %}"{{ d.Name }}", {{ d.Value }}, {{ d.AlertAbnormalValue }});       
+                  {% else %}
+                  $dataArray[{% if scPrefix is not none %}{{scPrefix}}.{% endif %}"{{ d.Name }}"] = ({{ d.Value }}){% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
+                  {% endif %}
+                {% endif %}
+              {% elif d.Options is defined %}
+              switch($v[1]){
+              {% for item in d.Options %}
+                case {{ item.Key }}:
+                $dataArray["{{ d.Name }}"] = "{{ item.Value }}";
+                {% if item.IsAlert is defined and item.IsAlert %}
+                $dataArray["AlertArray"]["{{ d.Name }}"] = 1;
+                {% endif %}
+                  break;
+              {% endfor %}
+                default:
+                  $dataArray["{{ d.Name }}"] = "无效值";
+                  break;
+              }
+              {% elif d.AlertNormalValue is defined %}
+                  _{{ Project.Name|lower }}_ShowAlert($dataArray, "{{ d.Name }}", $v[1], {{ d.AlertNormalValue }});
+              {% elif d.AlertAbnormalValue is defined %}
                   _{{ Project.Name|lower }}_ShowNormal($dataArray, "{{ d.Name }}", $v[1], {{ d.AlertAbnormalValue }});
               {% else %}
-                  $dataArray["{{ d.Name }}"] = number_format($v[1]{% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %}, 2){% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
+                  $dataArray["{{ d.Name }}"] = {%if d.Invalid is defined %} ({{d.Invalid}} == $v[1]) ? "无效值" : {% endif %} number_format($v[1]{% if d.Ratio is defined %}/{{ d.Ratio }}{% endif %}, {% if d.Dot is defined %}{{ d.Dot }}{% else %}2{% endif %}){% if d.Unit is defined %}."{{ d.Unit }}"{% endif %};
               {% endif %}
             {% endfor %}
             $offset += {{ tsc.Len }};

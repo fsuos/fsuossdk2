@@ -1,12 +1,12 @@
 Project:
-  Name : GreeStationAC
+  Name : TclStationAC
   RT_ID : 5156
-  File : "格力基站空调.pdf"
+  File : "TCL基站空调设备通讯协议QZTT 2219-2020.pdf"
   DevType : 2
-  ProtocolName : 格力基站空调
+  ProtocolName : TCL基站空调
   Category : 精密空调
   Version : 0x20
-  GenCmd : ./gen_pmbus_driver.sh GreeStationAC
+  GenCmd : ./gen_pmbus_driver.sh TclStationAC
 Sample : 
   - CID1 : 0x60
     CID2 : 0x42

@@ -60,8 +60,8 @@ int {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}_alert(char* pCData,c
         
         {% if d.ArrayName is defined %}
             for(int i=0;i<{{ d.ArrayLength }};i++){
-                char nameBuffer[48] = {0};
-                snprintf(nameBuffer, 48, "%s{{ d.ArrayName }}", prefix, {{ d.Offset }} + {{ d.ArrayStart }} + i);
+                char nameBuffer[128] = {0};
+                snprintf(nameBuffer, 128, "%s{{ d.ArrayName }}", prefix, {{ d.Offset }} + {{ d.ArrayStart }} + i);
                 std::string name = nameBuffer;
                 int kIndex = i;
                  {% if d.AlertNormalValue is defined or d.AlertAbnormalValue is defined %}
@@ -111,11 +111,11 @@ int {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}_alert(char* pCData,c
             }
          {% else %}
           {
-            char nameBuffer[48] = {0};
+            char nameBuffer[128] = {0};
             {% if d.CIndex is defined %}
-            snprintf(nameBuffer, 48, "%s{{ d.Name }}", prefix, {{ d.CIndex }});
+            snprintf(nameBuffer, 128, "%s{{ d.Name }}", prefix, {{ d.CIndex }});
             {% else %}
-            snprintf(nameBuffer, 48, "%s{{ d.Name }}", prefix, {% if d.Index is defined %}{{ d.Index }}{% else %}index{% endif %});
+            snprintf(nameBuffer, 128, "%s{{ d.Name }}", prefix, {% if d.Index is defined %}{{ d.Index }}{% else %}index{% endif %});
             {% endif %}
             std::string name = nameBuffer;
           {% if d.AlertNormalValue is defined or d.AlertAbnormalValue is defined %}            
@@ -198,11 +198,11 @@ void {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}(char* pCData,const 
       offset += {{ BlockTemplate[d.Block]["BlockLength"] }};
       {% else %}
         {
-        char nameBuffer[48] = {0};
+        char nameBuffer[128] = {0};
         {% if d.CIndex is defined %}
-        snprintf(nameBuffer, 48, "%s{{ d.Name }}", prefix, {{ d.CIndex }});
+        snprintf(nameBuffer, 128, "%s{{ d.Name }}", prefix, {{ d.CIndex }});
         {% else %}
-        snprintf(nameBuffer, 48, "%s{{ d.Name }}", prefix, {% if d.Index is defined %}{{ d.Index }}{% else %}index{% endif %});
+        snprintf(nameBuffer, 128, "%s{{ d.Name }}", prefix, {% if d.Index is defined %}{{ d.Index }}{% else %}index{% endif %});
         {% endif %}
         std::string name = nameBuffer;
         {% if d.CValue is defined %}
@@ -316,8 +316,8 @@ void {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}(char* pCData,const 
           lOffset += usedLen;
           {% elif d.ArrayName is defined %}
           for(int i=0;i<{{ d.ArrayLength }};i++){
-                char nameBuffer[48] = {0};
-                snprintf(nameBuffer, 48, "{{ d.ArrayName }}", {{ d.ArrayStart }} + i);
+                char nameBuffer[128] = {0};
+                snprintf(nameBuffer, 128, "{{ d.ArrayName }}", {{ d.ArrayStart }} + i);
                 std::string name = nameBuffer;
                 int kIndex = {{ d.Offset }} + i - 1;
                  {% if d.AlertNormalValue is defined or d.AlertAbnormalValue is defined %}
@@ -518,8 +518,8 @@ void {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}(char* pCData,const 
                         lMemData[j] = ((pData)[{{d.Offset}}]>>j)&0x1;
                     }
                     for(int i=1;i<={{ d.ArrayLength }};i++){
-                        char nameBuffer[48] = {0};
-                        snprintf(nameBuffer, 48, "{{ d.ArrayName }}", {{ d.ArrayStart }} + i);
+                        char nameBuffer[128] = {0};
+                        snprintf(nameBuffer, 128, "{{ d.ArrayName }}", {{ d.ArrayStart }} + i);
                         std::string name = nameBuffer;
                         {% if d.Options is defined %}
                         switch(lMemData[i-1]){
@@ -543,8 +543,8 @@ void {{ Project.Name }}::_{{ Project.Name|lower }}_{{ key }}(char* pCData,const 
                 }
             {% else %}
                 for(int i=0;i<{{ d.ArrayLength }};i++){
-                    char nameBuffer[48] = {0};
-                    snprintf(nameBuffer, 48, "{{ d.ArrayName }}", {{ d.ArrayStart }} + i);
+                    char nameBuffer[128] = {0};
+                    snprintf(nameBuffer, 128, "{{ d.ArrayName }}", {{ d.ArrayStart }} + i);
                     std::string name = nameBuffer;
                     int kIndex =  i;
                     {{ jsonValueStr }}[{% if scPrefix is not none %}{{scPrefix}}][{% endif %}name] = ((float)pData[kIndex]){% if d.CRatio is defined %}/{{ d.CRatio }}{% elif d.Ratio is defined %}/{{ d.Ratio }}{% endif %};
@@ -652,6 +652,7 @@ static void copy_to_float(uint16_t* buf, uint8_t *pFloat)
 
 void {{ Project.Name }}::RunCheckThreshold()
 {    
+    {% if RunCheckThresholdCode is defined %}{{ RunCheckThresholdCode }}{% endif %}
     switch(b_mode_)
     {
         case 1://联通
@@ -664,8 +665,8 @@ void {{ Project.Name }}::RunCheckThreshold()
                     for(int cgIndex = {{ tsc.CmdGroupStart }}, index = 1; cgIndex < {{ tsc.CmdGroupEnd }}; cgIndex+={{ tsc.CmdGroupStep}}, index++){
                         std::string namePrefix;
                     {% if tsc.CmdGroupPrefix is string %}
-                    char nameBuffer[48] = {0};
-                    snprintf(nameBuffer, 48, "{{ tsc.CmdGroupPrefix }}", index);
+                    char nameBuffer[128] = {0};
+                    snprintf(nameBuffer, 128, "{{ tsc.CmdGroupPrefix }}", index);
                     namePrefix = nameBuffer;
                     {% else %}
                     Json::Value namePrefixArray;
@@ -695,8 +696,8 @@ void {{ Project.Name }}::RunCheckThreshold()
                     for(int cgIndex = {{ tsc.CmdGroupStart }}, index = 1; cgIndex < {{ tsc.CmdGroupEnd }}; cgIndex+={{ tsc.CmdGroupStep}}, index++){
                         std::string namePrefix;
                     {% if tsc.CmdGroupPrefix is string %}
-                    char nameBuffer[48] = {0};
-                    snprintf(nameBuffer, 48, "{{ tsc.CmdGroupPrefix }}", index);
+                    char nameBuffer[128] = {0};
+                    snprintf(nameBuffer, 128, "{{ tsc.CmdGroupPrefix }}", index);
                     namePrefix = nameBuffer;
                     {% else %}
                     Json::Value namePrefixArray;
@@ -726,8 +727,8 @@ void {{ Project.Name }}::RunCheckThreshold()
                     for(int cgIndex = {{ tsc.CmdGroupStart }}, index = 1; cgIndex < {{ tsc.CmdGroupEnd }}; cgIndex+={{ tsc.CmdGroupStep}}, index++){
                         std::string namePrefix;
                     {% if tsc.CmdGroupPrefix is string %}
-                    char nameBuffer[48] = {0};
-                    snprintf(nameBuffer, 48, "{{ tsc.CmdGroupPrefix }}", index);
+                    char nameBuffer[128] = {0};
+                    snprintf(nameBuffer, 128, "{{ tsc.CmdGroupPrefix }}", index);
                     namePrefix = nameBuffer;
                     {% else %}
                     Json::Value namePrefixArray;
@@ -756,8 +757,8 @@ void {{ Project.Name }}::RunCheckThreshold()
                     for(int cgIndex = {{ tsc.CmdGroupStart }}, index = 1; cgIndex < {{ tsc.CmdGroupEnd }}; cgIndex+={{ tsc.CmdGroupStep}}, index++){
                         std::string namePrefix;
                     {% if tsc.CmdGroupPrefix is string %}
-                    char nameBuffer[48] = {0};
-                    snprintf(nameBuffer, 48, "{{ tsc.CmdGroupPrefix }}", index);
+                    char nameBuffer[128] = {0};
+                    snprintf(nameBuffer, 128, "{{ tsc.CmdGroupPrefix }}", index);
                     namePrefix = nameBuffer;
                     {% else %}
                     Json::Value namePrefixArray;
@@ -997,8 +998,8 @@ float {{ Project.Name }}::Get_Value(uint32_t data_id, const std::string& var_nam
     if( diff.total_seconds() > 60) {
         throw std::out_of_range("数据已超时");
     }
-   {% if Value is defined %}
-   {% for v in Value %}
+   {% if GetValue is defined %}
+   {% for v in GetValue %}
    {% if loop.index == 1 %}
    if(var_name == "{{v.Name}}"){
    {% else %}
@@ -1085,8 +1086,8 @@ int {{ Project.Name }}::DeviceIoControl(int ioControlCode, const void* inBuffer,
                         for(int cgIndex = {{ tsc.CmdGroupStart }}, index = 1; cgIndex < {{ tsc.CmdGroupEnd }}; cgIndex+={{ tsc.CmdGroupStep}}, index++){
                             std::string namePrefix;
                         {% if tsc.CmdGroupPrefix is string %}
-                        char nameBuffer[48] = {0};
-                        snprintf(nameBuffer, 48, "{{ tsc.CmdGroupPrefix }}", index);
+                        char nameBuffer[128] = {0};
+                        snprintf(nameBuffer, 128, "{{ tsc.CmdGroupPrefix }}", index);
                         namePrefix = nameBuffer;
                         {% else %}
                         Json::Value namePrefixArray;

@@ -8,160 +8,175 @@ Project:
 Sample : 
   - Cmd : 3
     Offset : 0x700
-    Len : 96
-    Type : 's'
+    Len : 22
+    Type : 'S'
     Data : 
       - Name : "第1相电流"
         Unit : "A"
-        Value : (($v[1]<<16) + ($v[2]))/1000
-        CValue : ((pData[0]<<16) + (pData[1]))/1000
+        Value : (($v[1]<<16) | ($v[2]))/1000
+        CValue : ((pData[0]<<16) | (pData[1]))/1000
       - Name : "第2相电流"
         Unit : "A"
-        Value : (($v[3]<<16) + ($v[4]))/1000
-        CValue : ((pData[2]<<16) + (pData[3]))/1000
+        Value : (($v[3]<<16) | ($v[4]))/1000
+        CValue : ((pData[2]<<16) | (pData[3]))/1000
       - Name : "第3相电流"
         Unit : "A"
-        Value : (($v[5]<<16) + ($v[6]))/1000
-        CValue : ((pData[4]<<16) + (pData[5]))/1000
+        Value : (($v[5]<<16) | ($v[6]))/1000
+        CValue : ((pData[4]<<16) | (pData[5]))/1000
       - Name : "线电压U12"
         Unit : "V"
-        Value : (($v[9]<<16) + ($v[10]))/10
-        CValue : ((pData[8]<<16) + (pData[9]))/10
+        Value : (($v[9]<<16) | ($v[10]))/10
+        CValue : ((pData[8]<<16) | (pData[9]))/10
       - Name : "线电压U23"
         Unit : "V"
-        Value : (($v[11]<<16) + ($v[12]))/10
-        CValue : ((pData[10]<<16) + (pData[11]))/10
+        Value : (($v[11]<<16) | ($v[12]))/10
+        CValue : ((pData[10]<<16) | (pData[11]))/10
       - Name : "线电压U31"
         Unit : "V"
-        Value : (($v[13]<<16) + ($v[14]))/10
-        CValue : ((pData[12]<<16) + (pData[13]))/10
+        Value : (($v[13]<<16) | ($v[14]))/10
+        CValue : ((pData[12]<<16) | (pData[13]))/10
       - Name : "相电压1"
         Unit : "V"
-        Value : (($v[15]<<16) + ($v[16]))/10
-        CValue : ((pData[14]<<16) + (pData[15]))/10
+        Value : (($v[15]<<16) | ($v[16]))/10
+        CValue : ((pData[14]<<16) | (pData[15]))/10
       - Name : "相电压2"
         Unit : "V"
-        Value : (($v[17]<<16) + ($v[18]))/10
-        CValue : ((pData[16]<<16) + (pData[17]))/10
+        Value : (($v[17]<<16) | ($v[18]))/10
+        CValue : ((pData[16]<<16) | (pData[17]))/10
       - Name : "相电压3"
         Unit : "V"
-        Value : (($v[19]<<16) + ($v[20]))/10
-        Value : ((pData[18]<<16) + (pData[19]))/10
+        Value : (($v[19]<<16) | ($v[20]))/10
+        CValue : ((pData[18]<<16) | (pData[19]))/10
       - Name : "频率"
         Unit : "Hz"
-        Value : (($v[21]<<16) + ($v[22]))/100
-        CValue : ((pData[20]<<16) + (pData[21]))/100
+        Value : (($v[21]<<16) | ($v[22]))/100
+        CValue : ((pData[20]<<16) | (pData[21]))/100
+  - Cmd : 3
+    Offset : 0x716
+    Len : 32
+    Type : 's'
+    Data :   
       - Name : "总有功"
         Unit : "kW"
-        Value : (($v[23]<<16) + ($v[24]))/1000
-        CValue : ((pData[22]<<16) + (pData[23]))/1000
+        Value : (($v[1]<<16) | ($v[2]))/1000
+        CValue : ((pData[0]<<16) | (pData[1]))/1000
       - Name : "总无功"
         Unit : "kVAr"
-        Value : (($v[25]<<16) + ($v[26]))/1000
-        CValue : ((pData[24]<<16) + (pData[25]))/1000
+        Value : (($v[3]<<16) | ($v[4]))/1000
+        CValue : ((pData[2]<<16) | (pData[3]))/1000
       - Name : "总视在功率"
         Unit : "kVA"
-        Value : (($v[27]<<16) + ($v[28]))/1000
-        CValue : ((pData[26]<<16) + (pData[27]))/1000
+        Value : (($v[5]<<16) | ($v[6]))/1000
+        CValue : ((pData[4]<<16) | (pData[5]))/1000
       - Name : "总功率因数"
-        Value : (($v[29]<<16) + ($v[30]))/1000
-        CValue : ((pData[28]<<16) + (pData[29]))/1000
+        Value : (($v[7]<<16) | ($v[8]))/1000
+        CValue : ((pData[6]<<16) | (pData[7]))/1000
       - Name : "1相有功"
         Unit : "kW"
-        Value : (($v[31]<<16) + ($v[32]))/1000
-        CValue : ((pData[30]<<16) + (pData[31]))/1000
+        Value : (($v[9]<<16) | ($v[10]))/1000
+        CValue : ((pData[8]<<16) | (pData[9]))/1000
       - Name : "2相有功"
         Unit : "kW"
-        Value : (($v[33]<<16) + ($v[34]))/1000
-        CValue : ((pData[32]<<16) + (pData[33]))/1000
+        Value : (($v[11]<<16) | ($v[12]))/1000
+        CValue : ((pData[10]<<16) | (pData[11]))/1000
       - Name : "3相有功"
         Unit : "kW"
-        Value : (($v[35]<<16) + ($v[36]))/1000
-        CValue : ((pData[34]<<16) + (pData[35]))/1000
+        Value : (($v[13]<<16) | ($v[14]))/1000
+        CValue : ((pData[12]<<16) | (pData[13]))/1000
       - Name : "1相无功"
         Unit : "kVA"
-        Value : (($v[37]<<16) + ($v[38]))/1000
-        Value : ((pData[36]<<16) + (pData[37]))/1000
+        Value : (($v[15]<<16) | ($v[16]))/1000
+        CValue : ((pData[14]<<16) | (pData[15]))/1000
       - Name : "2相无功"
         Unit : "kVA"
-        Value : (($v[39]<<16) + ($v[40]))/1000
-        CValue : ((pData[38]<<16) + (pData[39]))/1000
+        Value : (($v[17]<<16) | ($v[18]))/1000
+        CValue : ((pData[16]<<16) | (pData[17]))/1000
       - Name : "3相无功"
         Unit : "kVA"
-        Value : (($v[41]<<16) + ($v[42]))/1000
-        CValue : ((pData[40]<<16) + (pData[41]))/1000
+        Value : (($v[19]<<16) | ($v[20]))/1000
+        CValue : ((pData[18]<<16) | (pData[19]))/1000
       - Name : "1相视在功率"
         Unit : "kVAr"
-        Value : (($v[43]<<16) + ($v[44]))/1000
-        CValue : ((pData[42]<<16) + (pData[43]))/1000
+        Value : (($v[21]<<16) | ($v[22]))/1000
+        CValue : ((pData[20]<<16) | (pData[21]))/1000
       - Name : "2相视在功率"
         Unit : "kVAr"
-        Value : (($v[45]<<16) + ($v[46]))/1000
-        Value : ((pData[44]<<16) + (pData[45]))/1000
+        Value : (($v[23]<<16) | ($v[24]))/1000
+        CValue : ((pData[22]<<16) | (pData[23]))/1000
       - Name : "3相视在功率"
         Unit : "kVAr"
-        Value : (($v[47]<<16) + ($v[48]))/1000
-        CValue : ((pData[46]<<16) + (pData[47]))/1000
+        Value : (($v[25]<<16) | ($v[26]))/1000
+        CValue : ((pData[24]<<16) | (pData[25]))/1000
       - Name : "1相功率因数"
-        Value : (($v[49]<<16) + ($v[50]))/1000
-        CValue : ((pData[48]<<16) + (pData[49]))/1000
+        Value : (($v[27]<<16) | ($v[28]))/1000
+        CValue : ((pData[26]<<16) | (pData[27]))/1000
       - Name : "2相功率因数"
-        Value : (($v[51]<<16) + ($v[52]))/1000
-        CValue : ((pData[50]<<16) + (pData[51]))/1000
+        Value : (($v[29]<<16) | ($v[30]))/1000
+        CValue : ((pData[28]<<16) | (pData[29]))/1000
       - Name : "3相功率因数"
-        Value : (($v[53]<<16) + ($v[54]))/1000
-        CValue : ((pData[52]<<16) + (pData[53]))/1000
+        Value : (($v[31]<<16) | ($v[32]))/1000
+        CValue : ((pData[30]<<16) | (pData[31]))/1000
+  - Cmd : 3
+    Offset : 0x736
+    Len : 16
+    Type : 'S'
+    Data :      
       - Name : "第1相平均电流"
         Unit : "A"
-        Value : (($v[55]<<16) + ($v[56]))/1000
-        CValue : ((pData[54]<<16) + (pData[55]))/1000
+        Value : (($v[1]<<16) | ($v[2]))/1000
+        CValue : ((pData[0]<<16) | (pData[1]))/1000
       - Name : "第2相平均电流"
         Unit : "A"
-        Value : (($v[57]<<16) + ($v[58]))/1000
-        CValue : ((pData[56]<<16) + (pData[57]))/1000
+        Value : (($v[3]<<16) | ($v[4]))/1000
+        CValue : ((pData[2]<<16) | (pData[3]))/1000
       - Name : "第3相平均电流"
         Unit : "A"
-        Value : (($v[59]<<16) + ($v[60]))/1000
-        CValue : ((pData[58]<<16) + (pData[59]))/1000
+        Value : (($v[5]<<16) | ($v[6]))/1000
+        CValue : ((pData[4]<<16) | (pData[5]))/1000
       - Name : "总平均有功+"
         Unit : "kW"
-        Value : (($v[61]<<16) + ($v[62]))/1000
-        CValue : ((pData[60]<<16) + (pData[61]))/1000
+        Value : (($v[7]<<16) | ($v[8]))/1000
+        CValue : ((pData[6]<<16) | (pData[7]))/1000
       - Name : "总平均有功-"
         Unit : "kW"
-        Value : (($v[63]<<16) + ($v[64]))/1000
-        CValue : ((pData[62]<<16) + (pData[63]))/1000
+        Value : (($v[9]<<16) | ($v[10]))/1000
+        CValue : ((pData[8]<<16) | (pData[9]))/1000
       - Name : "总平均无功+"
         Unit : "kVA"
-        Value : (($v[65]<<16) + ($v[66]))/1000
-        CValue : ((pData[64]<<16) + (pData[65]))/1000
+        Value : (($v[11]<<16) | ($v[12]))/1000
+        CValue : ((pData[10]<<16) | (pData[11]))/1000
       - Name : "总平均无功-"
         Unit : "kVA"
-        Value : (($v[67]<<16) + ($v[68]))/1000
-        CValue : ((pData[66]<<16) + (pData[67]))/1000
+        Value : (($v[13]<<16) | ($v[14]))/1000
+        CValue : ((pData[12]<<16) | (pData[13]))/1000
       - Name : "总平均视在功率"
         Unit : "kVA"
-        Value : (($v[69]<<16) + ($v[70]))/1000
-        CValue : ((pData[68]<<16) + (pData[69]))/1000
+        Value : (($v[15]<<16) | ($v[16]))/1000
+        CValue : ((pData[14]<<16) | (pData[15]))/1000
+  - Cmd : 3
+    Offset : 0x758
+    Len : 8
+    Type : 'S'
+    Data :  
       - Name : "有功电能+"
         Unit : "kWh"
-        Value : (($v[89]<<16) + ($v[90]))
-        CValue : ((pData[88]<<16) + (pData[89]))
+        Value : (($v[1]<<16) | ($v[2]))
+        CValue : ((pData[0]<<16) | (pData[1]))
       - Name : "有功电能-"
         Unit : "kWh"
-        Value : (($v[91]<<16) + ($v[92]))
-        CValue : ((pData[90]<<16) + (pData[91]))
+        Value : (($v[3]<<16) | ($v[4]))
+        CValue : ((pData[2]<<16) | (pData[3]))
       - Name : "无功电能+"
         Unit : "kVAh"
-        Value : (($v[93]<<16) + ($v[94]))
-        CValue : ((pData[92]<<16) + (pData[93]))
+        Value : (($v[5]<<16) | ($v[6]))
+        CValue : ((pData[4]<<16) | (pData[5]))
       - Name : "无功电能-"
         Unit : "kAVh"
-        Value : (($v[95]<<16) + ($v[96]))
-        CValue : ((pData[94]<<16) + (pData[95]))
+        Value : (($v[7]<<16) | ($v[8]))
+        CValue : ((pData[6]<<16) | (pData[7]))
 RunCheckThresholdCodeTelecom : |
   {
-      float fValue = ((cData.r3_1792[14]<<16) + (cData.r3_1792[15]))/10;
+      float fValue = ((cData.r3_1792[14]<<16) | (cData.r3_1792[15]))/10;
       if(levelMap_["110200010010"]){            
             CheckThresholdBool(levelMap_["110200010010"] , "110200010010", "110200010010", "001#低压配电屏A相电压过高", boost::lexical_cast<std::string>(fValue),  fValue > valueMap_["110200010010"], 1);
       }
@@ -176,7 +191,7 @@ RunCheckThresholdCodeTelecom : |
       }
   }
   {
-      float fValue = ((cData.r3_1792[16]<<16) + (cData.r3_1792[17]))/10;
+      float fValue = ((cData.r3_1792[16]<<16) | (cData.r3_1792[17]))/10;
       if(levelMap_["110200060010"]){            
             CheckThresholdBool(levelMap_["110200060010"] , "110200060010", "110200060010", "001#低压配电屏B相电压过高", boost::lexical_cast<std::string>(fValue),  fValue > valueMap_["110200060010"], 1);
       }
@@ -191,7 +206,7 @@ RunCheckThresholdCodeTelecom : |
       }
   }
   {
-      float fValue = ((cData.r3_1792[18]<<16) + (cData.r3_1792[19]))/10;
+      float fValue = ((cData.r3_1792[18]<<16) | (cData.r3_1792[19]))/10;
       if(levelMap_["110200110010"]){            
             CheckThresholdBool(levelMap_["110200110010"] , "110200110010", "110200110010", "001#低压配电屏C相电压过高", boost::lexical_cast<std::string>(fValue),  fValue > valueMap_["110200110010"], 1);
       }
@@ -206,7 +221,7 @@ RunCheckThresholdCodeTelecom : |
       }
   }
   {
-      float fValue = ((cData.r3_1792[8]<<16) + (cData.r3_1792[9]))/10;
+      float fValue = ((cData.r3_1792[8]<<16) | (cData.r3_1792[9]))/10;
       if(levelMap_["110200240010"]){            
             CheckThresholdBool(levelMap_["110200240010"] , "110200240010", "110200240010", "001#低压配电屏线电压Uab过高", boost::lexical_cast<std::string>(fValue),  fValue > valueMap_["110200240010"], 1);
       }
@@ -221,7 +236,7 @@ RunCheckThresholdCodeTelecom : |
       }
   }
   {
-      float fValue = ((cData.r3_1792[10]<<16) + (cData.r3_1792[11]))/10;
+      float fValue = ((cData.r3_1792[10]<<16) | (cData.r3_1792[11]))/10;
       if(levelMap_["110200290010"]){            
             CheckThresholdBool(levelMap_["110200290010"] , "110200290010", "110200290010", "001#低压配电屏线电压Ubc过高", boost::lexical_cast<std::string>(fValue),  fValue > valueMap_["110200290010"], 1);
       }
@@ -236,7 +251,7 @@ RunCheckThresholdCodeTelecom : |
       }
   }
   {
-      float fValue = ((cData.r3_1792[12]<<16) + (cData.r3_1792[13]))/10;
+      float fValue = ((cData.r3_1792[12]<<16) | (cData.r3_1792[13]))/10;
       if(levelMap_["110200340010"]){            
             CheckThresholdBool(levelMap_["110200340010"] , "110200340010", "110200340010", "001#低压配电屏线电压Uca过高", boost::lexical_cast<std::string>(fValue),  fValue > valueMap_["110200340010"], 1);
       }
@@ -251,19 +266,19 @@ RunCheckThresholdCodeTelecom : |
       }
   }
   {
-    float fValue = ((cData.r3_1792[0]<<16) + (cData.r3_1792[1]))/1000;
+    float fValue = ((cData.r3_1792[0]<<16) | (cData.r3_1792[1]))/1000;
     if(levelMap_["110200160010"]){            
           CheckThresholdBool(levelMap_["110200160010"] , "110200160010", "110200160010", "001#低压配电屏相电流Ia过大", boost::lexical_cast<std::string>(fValue),  fValue > valueMap_["110200160010"], 1);
     }
   }
   {
-    float fValue = ((cData.r3_1792[2]<<16) + (cData.r3_1792[3]))/1000;
+    float fValue = ((cData.r3_1792[2]<<16) | (cData.r3_1792[3]))/1000;
     if(levelMap_["110200180010"]){            
           CheckThresholdBool(levelMap_["110200180010"] , "110200180010", "110200180010", "001#低压配电屏相电流Ib过大", boost::lexical_cast<std::string>(fValue),  fValue > valueMap_["110200180010"], 1);
     }
   }
   {
-    float fValue = ((cData.r3_1792[4]<<16) + (cData.r3_1792[5]))/1000;
+    float fValue = ((cData.r3_1792[4]<<16) | (cData.r3_1792[5]))/1000;
     if(levelMap_["110200200010"]){            
           CheckThresholdBool(levelMap_["110200200010"] , "110200200010", "110200200010", "001#低压配电屏相电流Ic过大", boost::lexical_cast<std::string>(fValue),  fValue > valueMap_["110200200010"], 1);
     }

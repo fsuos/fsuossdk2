@@ -63,7 +63,7 @@ void {{ Project.Name }}::RunCheckThreshold()
             
             uint8_t* pCData = NULL;
             {% for tsc in Sample %}
-              pCData = cData.{{  "r%d_%d"%(tsc.CID1,tsc.CID2) }};
+              pCData = cData.{{  "r%d_%d_%d"%(tsc.CID1,tsc.CID2, tsc.InfoLabel) }};
               {% for d in tsc.Data %}
                 {% if d.UnicomSignalId is defined %}
                 {
@@ -142,7 +142,7 @@ bool {{ Project.Name }}::RefreshStatus()
     SMDSPDevice::RefreshStatus();
     {% for tsc in Sample %}
     
-        state = {{ Project.Name + "_R%d_%d"%(tsc.CID1, tsc.CID2) + ";" }}
+        state = {{ Project.Name + "_R%d_%d_%d"%(tsc.CID1, tsc.CID2, tsc.InfoLabel) + ";" }}
         {% if tsc.Info is defined %}
         uint8_t info[{{ tsc.InfoLen }}] = { {{ tsc.Info }}};
         int infoLen = {{ tsc.InfoLen }};
@@ -160,12 +160,13 @@ bool {{ Project.Name }}::process_payload()
     switch(state){
     {% for tsc in Sample %}
     {% set tscNext = loop.nextitem %}
-      case {{ Project.Name + "_R%d_%d"%(tsc.CID1,tsc.CID2) + ":" }}{	    
-        memcpy(cData.{{ "r%d_%d"%(tsc.CID1,tsc.CID2) }}, pPMBus->data, {{  tsc.Len }});            
+      case {{ Project.Name + "_R%d_%d_%d"%(tsc.CID1,tsc.CID2,tsc.InfoLabel) + ":" }}{	    
+        memcpy(cData.{{ "r%d_%d_%d"%(tsc.CID1,tsc.CID2, tsc.InfoLabel) }}, pPMBus->data, {{  tsc.Len }});            
 	    {% if tscNext is defined %}
+            state = {{ Project.Name + "_R%d_%d_%d"%(tscNext.CID1, tscNext.CID2,tscNext.InfoLabel) + ";" }}
             {% if tscNext.Info is defined %}
             uint8_t info[{{ tscNext.InfoLen }}] = { {{ tscNext.Info }}};
-            int infoLen = {{ tsc.InfoLen }};
+            int infoLen = {{ tscNext.InfoLen }};
             write_pmbus_cmd ( {{tscNext.CID1 }}, {{tscNext.CID2}}, info, infoLen);
             {% else %}
             write_pmbus_cmd ( {{tscNext.CID1 }}, {{tscNext.CID2}});

@@ -106,3 +106,9 @@ Sample :
             Value : 断开
           - Key : 1
             Value : 闭合
+      - Name : 液位1
+        Value : '( $v[2] == 0 ) ? 85 : 79'
+        CValue : '( pData[1] == 0 ) ? 85 : 79'
+      - Name : 液位2
+        Value : '( $v[4] == 0 ) ? 85 : 79'
+        CValue : '( pData[3] == 0 ) ? 85 : 79'

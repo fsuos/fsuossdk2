@@ -8,7 +8,7 @@ Project:
   ProtocolName : 风机节能2
 Sample : 
   - Cmd : 3
-    Offset : 253
+    Offset : 252
     Len : 28
     RType : 'f'
     Data : 
@@ -41,7 +41,7 @@ Sample :
       - Name : 2#水泵频率给定
         Unit : Hz
   - Cmd : 3
-    Offset : 56
+    Offset : 55
     Len : 3
     Data : 
       - Name : 1#风机手自动
@@ -53,6 +53,8 @@ Sample :
       - Name : 1#风机故障
         Value : ($v[1]>>10)&0x1
         CValue : (pData[0]>>10)&0x1
+        AlertNormalValue : 0
+        TelePSignalId : 12017
       - Name : 2#风机手自动
         Value : ($v[1]>>11)&0x1
         CValue : (pData[0]>>11)&0x1
@@ -62,6 +64,8 @@ Sample :
       - Name : 2#风机故障
         Value : ($v[1]>>13)&0x1
         CValue : (pData[0]>>13)&0x1
+        AlertNormalValue : 0
+        TelePSignalId : 12017
       - Name : 1#阀开到位
         Value : ($v[1]>>14)&0x1
         CValue : (pData[0]>>14)&0x1

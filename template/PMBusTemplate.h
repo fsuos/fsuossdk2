@@ -36,7 +36,7 @@ private:
     enum {{ Project.Name }}_Status {
         {{ Project.Name }}_IDLE = 10,
 	{% for tsc in Sample %}
-	{{ Project.Name + "_R%d_%d"%(tsc.CID1,tsc.CID2) + "," }}
+	{{ Project.Name + "_R%d_%d_%d"%(tsc.CID1,tsc.CID2,tsc.InfoLabel)+ "," }}
 	{% endfor %}
         {{ Project.Name }}_END
     };

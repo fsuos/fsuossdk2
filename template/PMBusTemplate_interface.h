@@ -10,7 +10,7 @@
 struct {{ Project.Name }}_Data_t {
     unsigned int data_id;
     {% for tsc in Sample %}
-    uint8_t {{  "r%d_%d[%d];"%(tsc.CID1,tsc.CID2,tsc.Len) }}
+    uint8_t {{  "r%d_%d_%d[%d];"%(tsc.CID1,tsc.CID2,tsc.InfoLabel,tsc.Len) }}
     {% endfor %}
     tele_c_time update_time;
 };

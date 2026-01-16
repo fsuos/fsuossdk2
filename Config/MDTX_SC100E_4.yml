@@ -1,0 +1,1116 @@
+Project:
+  Name : MDTX_SC100E_4
+  RT_ID : 5156
+  File : "SNMP卡RS485接口协议-HVDC-20241108.doc  4模组"
+  DevType : 2
+  ProtocolName : SC100-E后台通信协议
+  Category : 开关电源
+  Version : 0x21
+  GenCmd : ./gen_pmbus_driver.sh MDTX_SC100E_4
+Sample : 
+  - CID1 : 0x40
+    CID2 : 0x42
+    InfoLabel : 0
+    InfoLen : 0
+    Len : 12
+    Data : 
+      - Name : A路市电输入电压
+        Offset : 0
+        Ratio : 100
+        Type : S
+        Unit : V
+      - Name : A路市电输入电流
+        Offset : 2
+        Ratio : 10
+        Type : S
+        Unit : A
+      - Name : A路市电输入频率
+        Offset : 4
+        Ratio : 10
+        Type : S
+        Unit : Hz
+      - Name : B路市电输入电压
+        Offset : 6
+        Ratio : 100
+        Type : S
+        Unit : V
+      - Name : B路市电输入电流
+        Offset : 8
+        Ratio : 10
+        Type : S
+        Unit : A
+      - Name : B路市电输入频率
+        Offset : 10
+        Ratio : 10
+        Type : S
+        Unit : Hz
+  - CID1 : 0x40
+    CID2 : 0x43
+    InfoLabel : 0
+    InfoLen : 0
+    Len : 1
+    Data : 
+      - Name : 支持B路市电
+        Type : C
+        Offset : 0
+        Options :
+          - Key : 0
+            Value : 不支持
+          - Key : 1
+            Value : 支持
+  - CID1 : 0x40
+    CID2 : 0x44
+    InfoLabel : 0
+    InfoLen : 0
+    Len : 4
+    Data : 
+      - Name : A路市电异常主要告警
+        Offset : 0
+        Type : C
+        AlertNormalValue : 0
+      - Name : A路市电异常次要告警
+        Offset : 1
+        Type : C
+        AlertNormalValue : 0
+      - Name : B路市电异常主要告警
+        Offset : 2
+        Type : C
+        AlertNormalValue : 0
+      - Name : B路市电异常次要告警
+        Offset : 3
+        Type : C
+        AlertNormalValue : 0
+  - CID1 : 0x41
+    CID2 : 0x42
+    InfoLabel : 0
+    InfoLen : 0
+    Len : 12
+    Data : 
+      - Name : 整流模块安装数量
+        Offset : 0
+        Type : S
+      - Name : 系统工作模块数量
+        Offset : 2
+        Type : S
+      - Name : 整流模块总输出电流
+        Offset : 4
+        Ratio : 10
+        Type : S
+        Unit : A
+      - Name : 整流模块总利用率
+        Offset : 6
+        Type : S
+        Unit : '%'
+      - Name : 系统环境温度值
+        Offset : 8
+        Type : S
+        Unit : "℃"
+      - Name : 系统充电限流值
+        Offset : 10
+        Ratio : 10
+        Type : S
+        Unit : A
+  - CID1 : 0x41
+    CID2 : 0x44
+    InfoLabel : 0
+    InfoLen : 0
+    Len : 2
+    Data : 
+      - Name : 整流模块通信失败主要告警
+        Offset : 0
+        Type : C
+        AlertNormalValue : 0
+      - Name : 整流模块通信失败次要告警
+        Offset : 1
+        Type : C
+        AlertNormalValue : 0
+  - CID1 : 0x42
+    CID2 : 0x42
+    InfoLabel : 0
+    InfoLen : 0
+    Len : 6
+    Data : 
+      - Name : 负载输出电压
+        Ratio : 100
+        Offset : 0
+        Type : S
+        Unit : V
+      - Name : 负载输出电流
+        Ratio : 10
+        Offset : 2
+        Type : S
+        Unit : A
+      - Name : 负载输出功率
+        Offset : 4
+        Ratio : 1000
+        Type : S
+        Unit : kW
+  - CID1 : 0x42
+    CID2 : 0x44
+    InfoLabel : 0
+    InfoLen : 0
+    Len : 3
+    Data : 
+      - Name : 电池下电主要告警
+        Offset : 0
+        Type : C
+        AlertNormalValue : 0
+      - Name : 负载空开断主要告警
+        Offset : 1
+        Type : C
+        AlertNormalValue : 0
+      - Name : 输入干接点主要告警
+        Offset : 2
+        Type : C
+        AlertNormalValue : 0
+  - CID1 : 0xD0
+    CID2 : 0x42
+    InfoLabel : 0
+    InfoLen : 0
+    Len : 8
+    Data : 
+      - Name : 母排正极对地绝缘电阻
+        Ratio : 10
+        Offset : 0
+        Type : S
+        Unit : K欧
+      - Name : 母排负极对地绝缘电阻
+        Ratio : 10
+        Offset : 2
+        Type : S
+        Unit : K欧
+      - Name : 母排正极对地电压
+        Offset : 4
+        Ratio : 100
+        Type : S
+        Unit : V
+      - Name : 母排负极对地电压
+        Ratio : 100
+        Offset : 6
+        Type : S
+        Unit : V
+  - CID1 : 0xD0
+    CID2 : 0x44
+    InfoLabel : 0
+    InfoLen : 0
+    Len : 5
+    Data : 
+      - Name : 系统控制器故障主要告警
+        Offset : 0
+        Type : C
+        AlertNormalValue : 0
+      - Name : 系统内部通信失效主要告警
+        Offset : 1
+        Type : C
+        AlertNormalValue : 0
+      - Name : 系统内部通信故障次要告警
+        Offset : 2
+        Type : C
+        AlertNormalValue : 0
+      - Name : 系统绝缘电阻低保护主要告警
+        Offset : 3
+        Type : C
+        AlertNormalValue : 0
+      - Name : 系统绝缘电阻低故障次要告警
+        Offset : 4
+        Type : C
+        AlertNormalValue : 0
+  - CID1 : 0x46
+    CID2 : 0x42
+    InfoLabel : 0
+    InfoLen : 0
+    Len : 20
+    Data : 
+      - Name : 电池组额定容量
+        Offset : 0
+        Type : S
+        Unit : AH
+      - Name : 电池组电压值
+        Ratio : 100
+        Offset : 2
+        Type : S
+        Unit : V
+      - Name : 电池组电流值
+        Offset : 4
+        Ratio : 10
+        Type : s
+        Unit : A
+      - Name : 电池组SOC
+        Offset : 6
+        Type : S
+        Unit : '%'
+      - Name : 电池组循环次数
+        Offset : 8
+        Type : S
+      - Name : 电池组已放电时间
+        Offset : 10
+        Type : S
+      - Name : 电池组预估可放电时间
+        Offset : 12
+        Type : S
+      - Name : 电池组内最高温度
+        Offset : 14
+        Type : S
+      - Name : 电池组充电电压请求值
+        Offset : 16
+        Type : S
+      - Name : 电池组SOH值
+        Offset : 18
+        Type : S
+  - CID1 : 0x46
+    CID2 : 0x44
+    InfoLabel : 0
+    InfoLen : 0
+    Len : 12
+    Data : 
+      - Name : 电池组故障主要告警
+        Offset : 0
+        Type : C
+        AlertNormalValue : 0
+      - Name : 电池组不在位次要告警
+        Offset : 1
+        Type : C
+        AlertNormalValue : 0
+      - Name : 电池组放电次要告警
+        Offset : 2
+        Type : C
+        AlertNormalValue : 0
+      - Name : 电池组过流保护主要告警
+        Offset : 3
+        Type : C
+        AlertNormalValue : 0
+      - Name : 电池组过流次要告警
+        Offset : 4
+        Type : C
+        AlertNormalValue : 0
+      - Name : 电池组温度保护主要告警
+        Offset : 5
+        Type : C
+        AlertNormalValue : 0
+      - Name : 电池组过温次要告警
+        Offset : 6
+        Type : C
+        AlertNormalValue : 0
+      - Name : 电池组SOC低主要告警
+        Offset : 7
+        Type : C
+        AlertNormalValue : 0
+      - Name : 电池组SOH低主要告警
+        Offset : 8
+        Type : C
+        AlertNormalValue : 0
+      - Name : 电池组电压低保护主要告警
+        Offset : 9
+        Type : C
+        AlertNormalValue : 0
+      - Name : 电池组电压低次要告警
+        Offset : 10
+        Type : C
+        AlertNormalValue : 0
+      - Name : 电池组熔丝断主要告警
+        Offset : 11
+        Type : C
+        AlertNormalValue : 0
+      # - Name : 电池组电瓶喷射主要告警
+      #   Offset : 12
+      #   Type : C
+      #   AlertNormalValue : 0
+      # - Name : 电池组电瓶泄露主要告警
+      #   Offset : 13
+      #   Type : C
+      #   AlertNormalValue : 0
+  - CID1 : 0xD1
+    CID2 : 0x42
+    InfoLabel : 0
+    InfoLen : 0
+    Len : 32
+    Data : 
+      - Name : 电芯平均电压
+        Offset : 0
+        Type : S
+        Unit : mV
+      - Name : 电芯最大压差
+        Offset : 2
+        Type : S
+        Unit : mV
+      - Name : 电芯最高电压
+        Offset : 4
+        Type : S
+        Unit : mV
+      - Name : 电芯最高电压位置
+        Offset : 6
+        Type : S
+      - Name : 电芯最低电压
+        Offset : 8
+        Type : S
+        Unit : mV
+      - Name : 电芯最低电压位置
+        Offset : 10
+        Type : S
+      - Name : 电芯平均温度
+        Offset : 12
+        Type : S
+        Unit : "℃"
+      - Name : 电芯最大温差
+        Offset : 14
+        Type : S
+        Unit : "℃"
+      - Name : 电芯最高温度
+        Offset : 16
+        Type : S
+        Unit : "℃"
+      - Name : 电芯最高温度位置
+        Offset : 18
+        Type : S
+      - Name : 电芯最低温度
+        Offset : 20
+        Type : S
+        Unit : "℃"
+      - Name : 电芯最低温度位置
+        Offset : 22
+        Type : S
+      - Name : 电池模组数量
+        Offset : 24
+        Type : S
+      - Name : BMS电压传感器个数
+        Offset : 26
+        Type : S
+      - Name : BMS温度传感器个数
+        Offset : 28
+        Type : S
+      - Name : BMS电压传感器个数
+        Offset : 30
+        Type : S
+  - CID1 : 0xD1
+    CID2 : 0x44
+    InfoLabel : 0
+    InfoLen : 0
+    Len : 5
+    Data : 
+      - Name : 单体电芯电压高保护主要告警
+        Offset : 0
+        Type : C
+        AlertNormalValue : 0
+      - Name : 单体电芯电压高次要告警
+        Offset : 1
+        Type : C
+        AlertNormalValue : 0
+      - Name : 单体电芯电压低保护主要告警
+        Offset : 2
+        Type : C
+        AlertNormalValue : 0
+      - Name : 单体电芯电压低次要告警
+        Offset : 3
+        Type : C
+        AlertNormalValue : 0
+      - Name : 单体电芯电压差大主要告警
+        Offset : 4
+        Type : C
+        AlertNormalValue : 0
+  - CID1 : 0xD1
+    CID2 : 0x91
+    InfoLabel : 1
+    InfoLen : 1
+    Info : 1
+    Len : 40
+    Data : 
+      - Name : 模组1第1路电芯电压值
+        Offset : 0
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组1第2路电芯电压值
+        Offset : 2
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组1第3路电芯电压值
+        Offset : 4
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组1第4路电芯电压值
+        Offset : 6
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组1第5路电芯电压值
+        Offset : 8
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组1第6路电芯电压值
+        Offset : 10
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组1第7路电芯电压值
+        Offset : 12
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组1第8路电芯电压值
+        Offset : 14
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组1第9路电芯电压值
+        Offset : 16
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组1第10路电芯电压值
+        Offset : 18
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组1第11路电芯电压值
+        Offset : 20
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组1第12路电芯电压值
+        Offset : 22
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组1第13路电芯电压值
+        Offset : 24
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组1第14路电芯电压值
+        Offset : 26
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组1第15路电芯电压值
+        Offset : 28
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组1第16路电芯电压值
+        Offset : 30
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组1第17路电芯电压值
+        Offset : 32
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组1第18路电芯电压值
+        Offset : 34
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组1第19路电芯电压值
+        Offset : 36
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组1第20路电芯电压值
+        Offset : 38
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+  - CID1 : 0xD1
+    CID2 : 0x91
+    InfoLabel : 2
+    InfoLen : 1
+    Info : 2
+    Len : 40
+    Data : 
+      - Name : 模组2第1路电芯电压值
+        Offset : 0
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组2第2路电芯电压值
+        Offset : 2
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组2第3路电芯电压值
+        Offset : 4
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组2第4路电芯电压值
+        Offset : 6
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组2第5路电芯电压值
+        Offset : 8
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组2第6路电芯电压值
+        Offset : 10
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组2第7路电芯电压值
+        Offset : 12
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组2第8路电芯电压值
+        Offset : 14
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组2第9路电芯电压值
+        Offset : 16
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组2第10路电芯电压值
+        Offset : 18
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组2第11路电芯电压值
+        Offset : 20
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组2第12路电芯电压值
+        Offset : 22
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组2第13路电芯电压值
+        Offset : 24
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组2第14路电芯电压值
+        Offset : 26
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组2第15路电芯电压值
+        Offset : 28
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组2第16路电芯电压值
+        Offset : 30
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组2第17路电芯电压值
+        Offset : 32
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组2第18路电芯电压值
+        Offset : 34
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组2第19路电芯电压值
+        Offset : 36
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组2第20路电芯电压值
+        Offset : 38
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+  - CID1 : 0xD1
+    CID2 : 0x91
+    InfoLabel : 3
+    InfoLen : 1
+    Info : 3
+    Len : 40
+    Data : 
+      - Name : 模组3第1路电芯电压值
+        Offset : 0
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组3第2路电芯电压值
+        Offset : 2
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组3第3路电芯电压值
+        Offset : 4
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组3第4路电芯电压值
+        Offset : 6
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组3第5路电芯电压值
+        Offset : 8
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组3第6路电芯电压值
+        Offset : 10
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组3第7路电芯电压值
+        Offset : 12
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组3第8路电芯电压值
+        Offset : 14
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组3第9路电芯电压值
+        Offset : 16
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组3第10路电芯电压值
+        Offset : 18
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组3第11路电芯电压值
+        Offset : 20
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组3第12路电芯电压值
+        Offset : 22
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组3第13路电芯电压值
+        Offset : 24
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组3第14路电芯电压值
+        Offset : 26
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组3第15路电芯电压值
+        Offset : 28
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组3第16路电芯电压值
+        Offset : 30
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组3第17路电芯电压值
+        Offset : 32
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组3第18路电芯电压值
+        Offset : 34
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组3第19路电芯电压值
+        Offset : 36
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组3第20路电芯电压值
+        Offset : 38
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+  - CID1 : 0xD1
+    CID2 : 0x91
+    InfoLabel : 4
+    InfoLen : 1
+    Info : 4
+    Len : 30
+    Data : 
+      - Name : 模组4第1路电芯电压值
+        Offset : 0
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组4第2路电芯电压值
+        Offset : 2
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组4第3路电芯电压值
+        Offset : 4
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组4第4路电芯电压值
+        Offset : 6
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组4第5路电芯电压值
+        Offset : 8
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组4第6路电芯电压值
+        Offset : 10
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组4第7路电芯电压值
+        Offset : 12
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组4第8路电芯电压值
+        Offset : 14
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组4第9路电芯电压值
+        Offset : 16
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组4第10路电芯电压值
+        Offset : 18
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组4第11路电芯电压值
+        Offset : 20
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组4第12路电芯电压值
+        Offset : 22
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组4第13路电芯电压值
+        Offset : 24
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组4第14路电芯电压值
+        Offset : 26
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+      - Name : 模组4第15路电芯电压值
+        Offset : 28
+        Ratio : 1000
+        Dot : 3
+        Type : S
+        Unit : V
+  - CID1 : 0xD1
+    CID2 : 0x92
+    InfoLabel : 1
+    InfoLen : 1
+    Info : 1
+    Len : 20
+    Data : 
+      - Name : 模组1第1路电芯温度值
+        Offset : 0
+        Type : S
+        Unit : "℃"
+      - Name : 模组1第2路电芯温度值
+        Offset : 2
+        Type : S
+        Unit : "℃"
+      - Name : 模组1第3路电芯温度值
+        Offset : 4
+        Type : S
+        Unit : "℃"
+      - Name : 模组1第4路电芯温度值
+        Offset : 6
+        Type : S
+        Unit : "℃"
+      - Name : 模组1第5路电芯温度值
+        Offset : 8
+        Type : S
+        Unit : "℃"
+      - Name : 模组1第6路电芯温度值
+        Offset : 10
+        Type : S
+        Unit : "℃"
+      - Name : 模组1第7路电芯温度值
+        Offset : 12
+        Type : S
+        Unit : "℃"
+      - Name : 模组1第8路电芯温度值
+        Offset : 14
+        Type : S
+        Unit : "℃"
+      - Name : 模组1第9路电芯温度值
+        Offset : 16
+        Type : S
+        Unit : "℃"
+      - Name : 模组1第10路电芯温度值
+        Offset : 18
+        Type : S
+        Unit : "℃"
+  - CID1 : 0xD1
+    CID2 : 0x92
+    InfoLabel : 2
+    InfoLen : 1
+    Info : 2
+    Len : 20
+    Data : 
+      - Name : 模组2第1路电芯温度值
+        Offset : 0
+        Type : S
+        Unit : "℃"
+      - Name : 模组2第2路电芯温度值
+        Offset : 2
+        Type : S
+        Unit : "℃"
+      - Name : 模组2第3路电芯温度值
+        Offset : 4
+        Type : S
+        Unit : "℃"
+      - Name : 模组2第4路电芯温度值
+        Offset : 6
+        Type : S
+        Unit : "℃"
+      - Name : 模组2第5路电芯温度值
+        Offset : 8
+        Type : S
+        Unit : "℃"
+      - Name : 模组2第6路电芯温度值
+        Offset : 10
+        Type : S
+        Unit : "℃"
+      - Name : 模组2第7路电芯温度值
+        Offset : 12
+        Type : S
+        Unit : "℃"
+      - Name : 模组2第8路电芯温度值
+        Offset : 14
+        Type : S
+        Unit : "℃"
+      - Name : 模组2第9路电芯温度值
+        Offset : 16
+        Type : S
+        Unit : "℃"
+      - Name : 模组2第10路电芯温度值
+        Offset : 18
+        Type : S
+        Unit : "℃"
+  - CID1 : 0xD1
+    CID2 : 0x92
+    InfoLabel : 3
+    InfoLen : 1
+    Info : 3
+    Len : 20
+    Data : 
+      - Name : 模组3第1路电芯温度值
+        Offset : 0
+        Type : S
+        Unit : "℃"
+      - Name : 模组3第2路电芯温度值
+        Offset : 2
+        Type : S
+        Unit : "℃"
+      - Name : 模组3第3路电芯温度值
+        Offset : 4
+        Type : S
+        Unit : "℃"
+      - Name : 模组3第4路电芯温度值
+        Offset : 6
+        Type : S
+        Unit : "℃"
+      - Name : 模组3第5路电芯温度值
+        Offset : 8
+        Type : S
+        Unit : "℃"
+      - Name : 模组3第6路电芯温度值
+        Offset : 10
+        Type : S
+        Unit : "℃"
+      - Name : 模组3第7路电芯温度值
+        Offset : 12
+        Type : S
+        Unit : "℃"
+      - Name : 模组3第8路电芯温度值
+        Offset : 14
+        Type : S
+        Unit : "℃"
+      - Name : 模组3第9路电芯温度值
+        Offset : 16
+        Type : S
+        Unit : "℃"
+      - Name : 模组3第10路电芯温度值
+        Offset : 18
+        Type : S
+        Unit : "℃"
+  - CID1 : 0xD1
+    CID2 : 0x92
+    InfoLabel : 4
+    InfoLen : 1
+    Info : 4
+    Len : 16
+    Data : 
+      - Name : 模组4第1路电芯温度值
+        Offset : 0
+        Type : S
+        Unit : "℃"
+      - Name : 模组4第2路电芯温度值
+        Offset : 2
+        Type : S
+        Unit : "℃"
+      - Name : 模组4第3路电芯温度值
+        Offset : 4
+        Type : S
+        Unit : "℃"
+      - Name : 模组4第4路电芯温度值
+        Offset : 6
+        Type : S
+        Unit : "℃"
+      - Name : 模组4第5路电芯温度值
+        Offset : 8
+        Type : S
+        Unit : "℃"
+      - Name : 模组4第6路电芯温度值
+        Offset : 10
+        Type : S
+        Unit : "℃"
+      - Name : 模组4第7路电芯温度值
+        Offset : 12
+        Type : S
+        Unit : "℃"
+      - Name : 模组4第8路电芯温度值
+        Offset : 14
+        Type : S
+        Unit : "℃"
+RunCheckThresholdCodeTelecom : |      
+    for(int i=0;i<20;i++)
+    {
+        float fValue = (cData.r209_145_1[2*i]<<16) | cData.r209_145_1[2*i+1];
+        fValue /= 1000;
+        std::stringstream ss;
+        ss<<"11220055" << std::setw(3)<<std::setfill('0')<<(i+1)<<"0";
+        std::stringstream sText;
+        sText<<"单体电池"<<(i+1)<<"电压低告警";
+        if(levelMap_[ss.str()]){
+            CheckThresholdBool(levelMap_[ss.str()] , ss.str(), ss.str(), "单体电池电压低告警", sText.str(),  fValue < valueMap_[ss.str()], 1);
+        }
+    }
+    for(int i=0;i<20;i++)
+    {
+        float fValue = (cData.r209_145_2[2*i]<<16) | cData.r209_145_2[2*i+1];
+        fValue /= 1000;
+        std::stringstream ss;
+        ss<<"11220055" << std::setw(3)<<std::setfill('0')<<(20 + i + 1)<<"0";
+        std::stringstream sText;
+        sText<<"单体电池"<<(20 + i + 1)<<"电压低告警";
+        if(levelMap_[ss.str()]){
+            CheckThresholdBool(levelMap_[ss.str()] , ss.str(), ss.str(), "单体电池电压低告警", sText.str(),  fValue < valueMap_[ss.str()], 1);
+        }
+    }
+    for(int i=0;i<20;i++)
+    {
+        float fValue = (cData.r209_145_3[2*i]<<16) | cData.r209_145_3[2*i+1];
+        fValue /= 1000;
+        std::stringstream ss;
+        ss<<"11220055" << std::setw(3)<<std::setfill('0')<<(40 + i + 1)<<"0";
+        std::stringstream sText;
+        sText<<"单体电池"<<(40 + i + 1)<<"电压低告警";
+        if(levelMap_[ss.str()]){
+            CheckThresholdBool(levelMap_[ss.str()] , ss.str(), ss.str(), "单体电池电压低告警", sText.str(),  fValue < valueMap_[ss.str()], 1);
+        }
+    }
+    for(int i=0;i<15;i++)
+    {
+        float fValue = (cData.r209_145_4[2*i]<<16) | cData.r209_145_4[2*i+1];
+        fValue /= 1000;
+        std::stringstream ss;
+        ss<<"11220055" << std::setw(3)<<std::setfill('0')<<(60 + i + 1)<<"0";
+        std::stringstream sText;
+        sText<<"单体电池"<<(60 + i + 1)<<"电压低告警";
+        if(levelMap_[ss.str()]){
+            CheckThresholdBool(levelMap_[ss.str()] , ss.str(), ss.str(), "单体电池电压低告警", sText.str(),  fValue < valueMap_[ss.str()], 1);
+        }
+    }

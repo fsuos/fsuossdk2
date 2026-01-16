@@ -2,6 +2,9 @@ Project:
   Name : CM02N600A0
   RT_ID : 5156
   File : "CM-02N 600节协议A0版（对外公开）电池.xlsx"
+  DevType : 2
+  Category : 蓄电池
+  ProtocolName : "华塑600节A0版"
 Sample:
   - Cmd : 3
     Offset : 10001

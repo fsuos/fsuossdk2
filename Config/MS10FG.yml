@@ -61,7 +61,6 @@ Sample :
         Ratio : 1000
         Unit : kVA
       - Name : 总功率因数
-        Ratio : 1000
       - Name : 电压频率
         Unit : Hz
       - Name : 正向有功电能
@@ -73,11 +72,8 @@ Sample :
       - Name : 容性无功电能
         Unit : kVarh
       - Name : A相功率因数
-        Ratio : 1000
       - Name : B相功率因数
-        Ratio : 1000
       - Name : C相功率因数
-        Ratio : 1000
       - Name : A相视在功率
         Ratio : 1000
         Unit : kVA

@@ -1,0 +1,24 @@
+Project:
+  Name : JDRK_RSSJ_6H
+  RT_ID : 5156
+  File : "带旋钮卡轨壳水浸传感器使用说明书.doc"
+  DevType : 2
+  Category : 机房环境
+  ProtocolName : "建大仁科RSSJ_6H水浸传感器"
+Sample:
+  - Cmd : 3
+    Offset : 0
+    Len : 1
+    Data :
+      - Name : 实时水浸1状态
+        AlertNormalValue : 0
+  - Cmd : 3
+    Offset : 2
+    Len : 1
+    Data :
+      - Name : 实时水浸2状态
+        AlertNormalValue : 1
+RunCheckThresholdCode : | 
+  CheckThreshold("value", "水浸", cData.r3_0[0] == 1, signal_index_);
+
+  

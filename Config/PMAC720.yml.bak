@@ -71,172 +71,153 @@ Sample :
   - Cmd : 3
     Offset : 14
     Len : 1
-    Type : s
     Data :
       - Name : A相有功功率
-        Value : '( $v[1] * floatval($dataArray["CT"]) * floatval($dataArray["PT"]) /10 /1000)'
-        CValue : '( pData[0] * jsonValue["CT"].asFloat() * jsonValue["PT"].asFloat() /10 /1000)'
+        Value : '(( ( ($v[1] >> 15) & 0x1) ? -1 : 1) * ($v[1]&0x7fff) * floatval($dataArray["CT"]) * floatval($dataArray["PT"]) /10 /1000)'
+        CValue : '(( ( (pData[0] >> 15) & 0x1) ? -1 : 1) * (pData[0]&0x7fff) * jsonValue["CT"].asFloat() * jsonValue["PT"].asFloat() /10 /1000)'
         Unit : kW
   - Cmd : 3
     Offset : 16
     Len : 1
-    Type : s
     Data :
       - Name : B相有功功率
-        Value : '(  $v[1] * floatval($dataArray["CT"]) * floatval($dataArray["PT"]) /10 /1000)'
-        CValue : '( pData[0] * jsonValue["CT"].asFloat() * jsonValue["PT"].asFloat() /10 /1000)'
+        Value : '(( ( ($v[1] >> 15) & 0x1) ? -1 : 1) * ($v[1]&0x7fff) * floatval($dataArray["CT"]) * floatval($dataArray["PT"]) /10 /1000)'
+        CValue : '(( ( (pData[0] >> 15) & 0x1) ? -1 : 1) * (pData[0]&0x7fff) * jsonValue["CT"].asFloat() * jsonValue["PT"].asFloat() /10 /1000)'
         Unit : kW
   - Cmd : 3
     Offset : 18
     Len : 1
-    Type : s
     Data :
       - Name : C相有功功率
-        Value : '( $v[1] * floatval($dataArray["CT"]) * floatval($dataArray["PT"]) /10 /1000)'
-        CValue : '(  pData[0] * jsonValue["CT"].asFloat() * jsonValue["PT"].asFloat() /10 /1000)'
+        Value : '(( ( ($v[1] >> 15) & 0x1) ? -1 : 1) * ($v[1]&0x7fff) * floatval($dataArray["CT"]) * floatval($dataArray["PT"]) /10 /1000)'
+        CValue : '(( ( (pData[0] >> 15) & 0x1) ? -1 : 1) * (pData[0]&0x7fff) * jsonValue["CT"].asFloat() * jsonValue["PT"].asFloat() /10 /1000)'
         Unit : kW
   - Cmd : 3
     Offset : 20
     Len : 2
-    Type : S
     Data :
       - Name : 三相有功功率
-        Value : '( (($v[2]<<16) | $v[1]) * floatval($dataArray["CT"]) * floatval($dataArray["PT"]) /10 /1000)'
-        CValue : '( ((pData[1]<<16) | pData[0]) * jsonValue["CT"].asFloat() * jsonValue["PT"].asFloat() /10 /1000)'
+        Value : '(( ( ($v[2] >> 15) & 0x1) ? -1 : 1) * ($v[2]&0x7fff + $v[1]) * floatval($dataArray["CT"]) * floatval($dataArray["PT"]) /10 /1000)'
+        CValue : '(( ( (pData[1] >> 15) & 0x1) ? -1 : 1) * ((pData[1]&0x7fff) + pData[0]) * jsonValue["CT"].asFloat() * jsonValue["PT"].asFloat() /10 /1000)'
         Unit : kW
   - Cmd : 3
     Offset : 22
-    Type : s
     Len : 1
     Data :
       - Name : A相无功功率
-        Value : '( $v[1] * floatval($dataArray["CT"]) * floatval($dataArray["PT"]) /10 /1000)'
-        CValue : '( pData[0] * jsonValue["CT"].asFloat() * jsonValue["PT"].asFloat() /10 /1000)'
+        Value : '(( ( ($v[1] >> 15) & 0x1) ? -1 : 1) * ($v[1]&0x7fff) * floatval($dataArray["CT"]) * floatval($dataArray["PT"]) /10 /1000)'
+        CValue : '(( ( (pData[0] >> 15) & 0x1) ? -1 : 1) * (pData[0]&0x7fff) * jsonValue["CT"].asFloat() * jsonValue["PT"].asFloat() /10 /1000)'
         Unit : kVA
   - Cmd : 3
     Offset : 24
     Len : 1
-    Type : s
     Data :
       - Name : B相无功功率
-        Value : '( $v[1] * floatval($dataArray["CT"]) * floatval($dataArray["PT"]) /10 /1000)'
-        CValue : '( pData[0] * jsonValue["CT"].asFloat() * jsonValue["PT"].asFloat() /10 /1000)'
+        Value : '(( ( ($v[1] >> 15) & 0x1) ? -1 : 1) * ($v[1]&0x7fff) * floatval($dataArray["CT"]) * floatval($dataArray["PT"]) /10 /1000)'
+        CValue : '(( ( (pData[0] >> 15) & 0x1) ? -1 : 1) * (pData[0]&0x7fff) * jsonValue["CT"].asFloat() * jsonValue["PT"].asFloat() /10 /1000)'
         Unit : kVA
   - Cmd : 3
     Offset : 26
-    Type : s
     Len : 1
     Data :
       - Name : C相无功功率
-        Value : '( $v[1] * floatval($dataArray["CT"]) * floatval($dataArray["PT"]) /10 /1000)'
-        CValue : '( pData[0] * jsonValue["CT"].asFloat() * jsonValue["PT"].asFloat() /10 /1000)'
+        Value : '(( ( ($v[1] >> 15) & 0x1) ? -1 : 1) * ($v[1]&0x7fff) * floatval($dataArray["CT"]) * floatval($dataArray["PT"]) /10 /1000)'
+        CValue : '(( ( (pData[0] >> 15) & 0x1) ? -1 : 1) * (pData[0]&0x7fff) * jsonValue["CT"].asFloat() * jsonValue["PT"].asFloat() /10 /1000)'
         Unit : kVA
   - Cmd : 3
     Offset : 28
     Len : 2
-    Type : s
     Data :
       - Name : 三相无功功率
-        Value : '( (($v[2]<<16) | $v[1]) * floatval($dataArray["CT"]) * floatval($dataArray["PT"]) /10 /1000)'
-        CValue : '(  ((pData[1]<<16) | pData[0]) * jsonValue["CT"].asFloat() * jsonValue["PT"].asFloat() /10 /1000)'
+        Value : '(( ( ($v[2] >> 15) & 0x1) ? -1 : 1) * ($v[2]&0x7fff + $v[1]) * floatval($dataArray["CT"]) * floatval($dataArray["PT"]) /10 /1000)'
+        CValue : '(( ( (pData[1] >> 15) & 0x1) ? -1 : 1) * ((pData[1]&0x7fff) + pData[0]) * jsonValue["CT"].asFloat() * jsonValue["PT"].asFloat() /10 /1000)'
         Unit : kVA
   - Cmd : 3
     Offset : 30
     Len : 2
-    Type : S
     Data :
       - Name : A相视在功率
-        Value : '(  (($v[2]<<16) | $v[1])  * floatval($dataArray["CT"]) * floatval($dataArray["PT"]) /10 /1000)'
-        CValue : '(  ((pData[1]<<16) | pData[0]) * jsonValue["CT"].asFloat() * jsonValue["PT"].asFloat() /10 /1000)'
+        Value : '(( ( ($v[2] >> 15) & 0x1) ? -1 : 1) * ($v[2]&0x7fff + $v[1]) * floatval($dataArray["CT"]) * floatval($dataArray["PT"]) /10 /1000)'
+        CValue : '(( ( (pData[1] >> 15) & 0x1) ? -1 : 1) * ((pData[1]&0x7fff) + pData[0]) * jsonValue["CT"].asFloat() * jsonValue["PT"].asFloat() /10 /1000)'
         Unit : kVAr
   - Cmd : 3
     Offset : 32
     Len : 2
-    Type : S
     Data :
       - Name : B相视在功率
-        Value : '(  (($v[2]<<16) | $v[1]) * floatval($dataArray["CT"]) * floatval($dataArray["PT"]) /10 /1000)'
-        CValue : '( ((pData[1]<<16) | pData[0]) * jsonValue["CT"].asFloat() * jsonValue["PT"].asFloat() /10 /1000)'
+        Value : '(( ( ($v[2] >> 15) & 0x1) ? -1 : 1) * ($v[2]&0x7fff + $v[1]) * floatval($dataArray["CT"]) * floatval($dataArray["PT"]) /10 /1000)'
+        CValue : '(( ( (pData[1] >> 15) & 0x1) ? -1 : 1) * ((pData[1]&0x7fff) + pData[0]) * jsonValue["CT"].asFloat() * jsonValue["PT"].asFloat() /10 /1000)'
         Unit : kVAr
   - Cmd : 3
     Offset : 34
     Len : 2
-    Type : S
     Data :
       - Name : C相视在功率
-        Value : '( (($v[2]<<16) | $v[1]) * floatval($dataArray["CT"]) * floatval($dataArray["PT"]) /10 /1000)'
-        CValue : '( ((pData[1]<<16) | pData[0]) * jsonValue["CT"].asFloat() * jsonValue["PT"].asFloat() /10 /1000)'
+        Value : '(( ( ($v[2] >> 15) & 0x1) ? -1 : 1) * ($v[2]&0x7fff + $v[1]) * floatval($dataArray["CT"]) * floatval($dataArray["PT"]) /10 /1000)'
+        CValue : '(( ( (pData[1] >> 15) & 0x1) ? -1 : 1) * ((pData[1]&0x7fff) + pData[0]) * jsonValue["CT"].asFloat() * jsonValue["PT"].asFloat() /10 /1000)'
         Unit : kVAr
   - Cmd : 3
     Offset : 36
-    Type : S
     Len : 2
     Data :
       - Name : 三相视在功率
-        Value : '( (($v[2]<<16) | $v[1]) * floatval($dataArray["CT"]) * floatval($dataArray["PT"]) /10 /1000)'
-        CValue : '( ((pData[1]<<16) | pData[0]) * jsonValue["CT"].asFloat() * jsonValue["PT"].asFloat() /10 /1000)'
+        Value : '(( ( ($v[2] >> 15) & 0x1) ? -1 : 1) * ($v[2]&0x7fff + $v[1]) * floatval($dataArray["CT"]) * floatval($dataArray["PT"]) /10 /1000)'
+        CValue : '(( ( (pData[1] >> 15) & 0x1) ? -1 : 1) * ((pData[1]&0x7fff) + pData[0]) * jsonValue["CT"].asFloat() * jsonValue["PT"].asFloat() /10 /1000)'
         Unit : kVAr
   - Cmd : 3
     Offset : 38
     Len : 5
-    Type : s
     Data : 
       - Name : A相功率因数
         Ratio : 1000
-        Dot : 3
       - Name : B相功率因数
         Ratio : 1000
-        Dot : 3
       - Name : C相功率因数
         Ratio : 1000
-        Dot : 3
       - Name : 功率因数总值
         Ratio : 1000
-        Dot : 3
       - Name : 系统频率
         Ratio : 100
         Unit : Hz
   - Cmd : 3
     Offset : 46
     Len : 8
-    Type : S
     Data : 
       - Name : 有功电度输入
-        Value : (($v[2]<<16)|$v[1])/10
-        CValue : ((float)((pData[1]<<16)|pData[0]))/10
+        Value : (($v[1]<<16)+$v[2])/10
+        CValue : ((float)((pData[0]<<16)+pData[1]))/10
         Unit : kWh
       - Name : 有功电度输出
-        Value : (($v[4]<<16)|$v[3])/10
-        CValue : ((float)((pData[3]<<16)|pData[2]))/10
+        Value : (($v[3]<<16)+$v[4])/10
+        CValue : ((float)((pData[2]<<16)+pData[3]))/10
         Unit : kWh 
       - Name : 有功电度总和
-        Value : (($v[6]<<16)|$v[5])/10
-        CValue : ((float)((pData[5]<<16)|pData[4]))/10
+        Value : (($v[5]<<16)+$v[6])/10
+        CValue : ((float)((pData[4]<<16)+pData[5]))/10
         Unit : kWh
       - Name : 有功电度净值
-        Value : (($v[8]<<16)|$v[7])/10
-        CValue : ((float)((pData[7]<<16)|pData[6]))/10
+        Value : (($v[7]<<16)+$v[8])/10
+        CValue : ((float)((pData[6]<<16)+pData[7]))/10
         Unit : kWh
   - Cmd : 3
     Offset : 54
     Len : 8
-    Type : S
     Data : 
       - Name : 无功电度输入
-        Value : (($v[2]<<16)|$v[1])/10
-        CValue : ((float)((pData[1]<<16)|pData[0]))/10
+        Value : (($v[1]<<16)+$v[2])/10
+        CValue : ((float)((pData[0]<<16)+pData[1]))/10
         Unit : kVAh
       - Name : 无功电度输出
-        Value : (($v[4]<<16)|$v[3])/10
-        CValue : ((float)((pData[3]<<16)|pData[2]))/10
+        Value : (($v[3]<<16)+$v[4])/10
+        CValue : ((float)((pData[2]<<16)+pData[3]))/10
         Unit : kVAh 
       - Name : 无功电度总和
-        Value : (($v[6]<<16)|$v[5])/10
-        CValue : ((float)((pData[5]<<16)|pData[4]))/10
+        Value : (($v[5]<<16)+$v[6])/10
+        CValue : ((float)((pData[4]<<16)+pData[5]))/10
         Unit : kVAh
       - Name : 无功电度净值
-        Value : (($v[8]<<16)|$v[7])/10
-        CValue : ((float)((pData[7]<<16)|pData[6]))/10
+        Value : (($v[7]<<16)+$v[8])/10
+        CValue : ((float)((pData[6]<<16)+pData[7]))/10
         Unit : kVAh
   # - Cmd : 3
   #   Offset : 62

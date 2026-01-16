@@ -1,0 +1,152 @@
+Project:
+  Name : IL4MRS16
+  RT_ID : 5156
+  File : "IL4MRS16modbus.txt"
+  DevType : 2
+  ProtocolName : 第4代MRS16
+  Category : 柴油发电机组
+Sample : 
+  - Cmd : 3
+    Offset : 1000
+    Len : 27
+    Data : 
+      - Name : 转速
+        Unit : rpm
+      - Name : 有功负载
+        Unit : kW
+      - Name : L1有功负载
+        Unit : kW
+      - Name : L2有功负载
+        Unit : kW
+      - Name : L3有功负载
+        Unit : kW
+      - Name : 无功负载
+        Unit : kVAr
+      - Name : L1无功负载
+        Unit : kVAr
+      - Name : L2无功负载
+        Unit : kVAr
+      - Name : L3无功负载
+        Unit : kVAr
+      - Name : 视在负载
+        Unit : kVA
+      - Name : L1视在负载
+        Unit : kVA
+      - Name : L2视在负载
+        Unit : kVA
+      - Name : L3视在负载
+        Unit : kVA
+      - Name : 功率因数
+        Ratio : 100
+      - Name : L1功率因数
+        Ratio : 100
+      - Name : L2功率因数
+        Ratio : 100
+      - Name : L3功率因数
+        Ratio : 100
+      - Name : 发电频率
+        Ratio : 10
+        Unit : Hz
+      - Name : 发电电压L1-N
+        Unit : V
+      - Name : 发电电压L2-N
+        Unit : V
+      - Name : 发电电压L3-N
+        Unit : V
+      - Name : 发电电压L1-L2
+        Unit : V
+      - Name : 发电电压L2-L3
+        Unit : V
+      - Name : 发电电压L3-L1
+        Unit : V
+      - Name : 负载电流L1
+        Unit : A
+      - Name : 负载电流L2
+        Unit : A
+      - Name : 负载电流L3
+        Unit : A
+  - Cmd : 3
+    Offset : 1036
+    Len : 5
+    Data :
+      - Name : 电池电压
+        Ratio : 10
+        Unit : V
+      - Name : "D+"
+        Ratio : 10
+        Unit : V
+      - Name : 油压
+        Invalid : 0x8000
+        Ratio : 10
+        Uint : Bar
+      - Name : 水温
+        Invalid : 0x8000
+        Unit : "°C"
+      - Name : 燃油位
+        Invalid : 0x8000
+        Unit : "%"
+  - Cmd : 3
+    Offset : 1042
+    Len : 3
+    Data : 
+      - Name : GC反馈
+        Value : ($v[1]&0x1)
+        CValue : (pData[0]&0x1)
+      - Name : MCB反馈
+        Value : ($v[1]>>1)&0x1
+        CValue : ((pData[0]>>1)&0x1)
+      - Name : 存取锁
+        Value : ($v[1]>>3)&0x1
+        CValue : ((pData[0]>>3)&0x1)
+      - Name : 远程关
+        Value : ($v[1]>>4)&0x1
+        CValue : ((pData[0]>>4)&0x1)
+      - Name : 禁止停机
+        Value : ($v[1]>>6)&0x1
+        CValue : ((pData[0]>>6)&0x1)
+      - Name : 紧急停机
+        Value : ($v[2]&0x1)
+        CValue : (pData[1]&0x1)
+      - Name : 起动马达1
+        Value : ($v[3]&0x1)
+        CValue : (pData[2]&0x1)
+      - Name : 燃油阀
+        Value : ($v[3]>>1)&0x1
+        CValue : ((pData[2]>>1)&0x1)
+      - Name : GCB合/分
+        Value : ($v[3]>>2)&0x1
+        CValue : ((pData[2]>>2)&0x1)
+      - Name : 预起动
+        Value : ($v[3]>>3)&0x1
+        CValue : ((pData[2]>>3)&0x1)
+      - Name : 可以加载
+        Value : ($v[3]>>4)&0x1
+        CValue : ((pData[2]>>4)&0x1)
+      - Name : DO警告
+        Value : ($v[3]>>5)&0x1
+        CValue : ((pData[2]>>5)&0x1)
+  - Cmd : 1
+    Offset : 218
+    Len : 1
+    Data :
+      - Name : 紧急停机
+        AlertNormalValue : 0
+  - Cmd : 1
+    Offset : 222
+    Len : 1
+    Data :
+      - Name : 超速停机
+        AlertNormalValue : 0
+RunCheckThresholdCodeTelecom : |
+  if(levelMap_["110300170010"]){
+    CheckThresholdBool(levelMap_["110300170010"] , "110300170010", "110300170010", "启动电池电压过低", "001#启动电池电压过低",  (((float)cData.r3_1036[0])/10) < valueMap_["110300170010"], 1);
+  }
+  if(levelMap_["110300630010"]){
+    CheckThresholdBool(levelMap_["110300630010"] , "110300630010", "110300630010", "固定发动机组水温过高告警", "001#固定发动机组水温过高告警",  cData.r3_1036[3] > valueMap_["110300630010"], 1);
+  }
+  if(levelMap_["120300220010"]){
+    CheckThresholdBool(levelMap_["120300220010"] , "120300220010", "120300220010", "超速停机告警", "001#超速停机告警",  cData.b1_218[0] , 1);
+  }
+  if(levelMap_["120300270010"]){
+    CheckThresholdBool(levelMap_["120300270010"] , "120300270010", "120300270010", "紧急停机告警", "001#紧急停机告警",  cData.b1_222[0] , 1);
+  }

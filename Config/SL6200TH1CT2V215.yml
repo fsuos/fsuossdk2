@@ -1,14 +1,15 @@
 Project:
-  Name : SL6200TH1CT2 
+  Name : SL6200TH1CT2V215
   RT_ID : 5156
-  File : "SL6200TH1CT2空调-通信协议.xls"
+  File : "SL6200-TH1-CT2地址表 V2.15.0(1).xls"
   DevType : 2
   Category : 专用空调
-  ProtocolName : SL6200TH1CT2空调
+  ProtocolName : SL6200TH1CT2-V2.15.0空调
 Sample : 
   - Cmd : 1
     Offset : 256
     Len : 12
+    Delay : 300
     Data : 
       - Name : "送风机"
         Offset : 1
@@ -52,7 +53,7 @@ Sample :
             Value : 关闭
           - Key : 1
             Value : 开启
-      - Name : "2#氟泵"
+      - Name : "2#氟泵/制冷电磁阀"
         Offset : 7
         Options : 
           - Key : 0
@@ -80,14 +81,14 @@ Sample :
             Value : 关闭
           - Key : 1
             Value : 开启
-      - Name : "冷凝水泵"
+      - Name : "1#液路阀"
         Offset : 11
         Options : 
           - Key : 0
             Value : 关闭
           - Key : 1
             Value : 开启
-      - Name : "报警输出"
+      - Name : "报警输出/2#液路阀"
         Offset : 12
         Options : 
           - Key : 0
@@ -97,20 +98,21 @@ Sample :
   - Cmd : 3
     Offset : 700
     Len : 14
+    Delay : 300
     Data : 
-      - Name : "1#吸气温度"
+      - Name : "1#-1吸气支路温度"
         Ratio : 10
         Unit : "℃"
-      - Name : "2#吸气温度"
+      - Name : "2#-1吸气支路温度"
         Ratio : 10
         Unit : "℃"
-      - Name : "1#室外环温/3#送风温度（NTC）"
+      - Name : "1#室外环温/3#送风温度（NTC）/进水温度"
         Ratio : 10
         Unit : "℃"
-      - Name : "1#排气温度"
+      - Name : "1#排气温度/2#液管温度"
         Ratio : 10
         Unit : "℃"
-      - Name : "2#室外环温/2#回风温度（NTC）"
+      - Name : "2#室外环温/2#回风温度（NTC）/1#液管温度"
         Ratio : 10
         Unit : "℃"
       - Name : "2#排气温度/2#送风温度（NTC）"
@@ -118,10 +120,10 @@ Sample :
         Unit : "℃"
       - Name : "地板漏水检测值"
         Unit : "KΩ"
-      - Name : "1#低压压力"
+      - Name : "1#-1低压支路压力"
         Ratio : 10
         Unit : "bar"
-      - Name : "2#低压压力"
+      - Name : "2#-1低压支路压力"
         Ratio : 10
         Unit : "bar"
       - Name : "风压差检测"
@@ -138,8 +140,16 @@ Sample :
       - Name : "电源电压"
         Unit : "V"
   - Cmd : 3
+    Offset : 168
+    Len : 1
+    Delay : 300
+    Data :
+      - Name : 电源频率
+        Unit : Hz
+  - Cmd : 3
     Offset : 1500
     Len : 4
+    Delay : 300
     Data : 
       - Name : "1#送风温度"
         Ratio : 10
@@ -156,20 +166,108 @@ Sample :
   - Cmd : 3
     Offset : 715
     Len : 1
+    Delay : 300
     Data : 
       - Name : "露点温度"
         Ratio : 10
         Unit : "℃"
   - Cmd : 3
+    Offset : 8745
+    Len : 4
+    Delay : 300
+    Data : 
+      - Name : 3#回风温度
+        Ratio : 10
+        Unit : "℃"
+      - Name : 4#回风温度
+        Ratio : 10
+        Unit : "℃"
+      - Name : 3#送风温度
+        Ratio : 10
+        Unit : "℃"
+      - Name : 4#送风温度
+        Ratio : 10
+        Unit : "℃"
+  - Cmd : 3
     Offset : 732
     Len : 1
+    Delay : 300
     Data : 
       - Name : "送风温度运算值"
         Ratio : 10
         Unit : "℃"
+  - Cmd : 3
+    Offset : 1504
+    Len : 2
+    Delay : 300
+    Data : 
+      - Name : 1#-2吸气支路温度（NTC）
+        Ratio : 10
+        Unit : "℃"
+      - Name : 1#吸气总管路温度
+        Ratio : 10
+        Unit : "℃"
+  - Cmd : 3
+    Offset : 1508
+    Len : 4
+    Delay : 300
+    Data : 
+      - Name : 1#-2低压支路压力
+        Ratio : 10
+        Unit : Bar
+      - Name : 1#低压总管路压力
+        Ratio : 10
+        Unit : Bar
+      - Name : 2#-2吸气支路温度（NTC）
+        Ratio : 10
+        Unit : "℃"
+      - Name : 2#吸气总管路温度
+        Ratio : 10
+        Unit : "℃"
+  - Cmd : 3
+    Offset : 1514
+    Len : 2
+    Delay : 300
+    Data : 
+      - Name : 2#-2低压支路压力
+        Ratio : 10
+        Unit : Bar
+      - Name : 2#低压总管路压力
+        Ratio : 10
+        Unit : Bar
+  - Cmd : 3
+    Offset : 8730
+    Len : 8
+    Delay : 300
+    Data : 
+      - Name : 4#送风温度
+        Ratio : 10
+        Unit : "℃"
+      - Name : 5#送风温度
+        Ratio : 10
+        Unit : "℃"
+      - Name : 6#送风温度
+        Ratio : 10
+        Unit : "℃"
+      - Name : 7#送风温度
+        Ratio : 10
+        Unit : "℃"
+      - Name : 8#送风温度
+        Ratio : 10
+        Unit : "℃"
+      - Name : 9#送风温度
+        Ratio : 10
+        Unit : "℃"
+      - Name : 10#送风温度
+        Ratio : 10
+        Unit : "℃"
+      - Name : 11#送风温度
+        Ratio : 10
+        Unit : "℃"
   - Cmd : 1
     Offset : 0
-    Len : 195
+    Len : 290
+    Delay : 300
     Data : 
       - Name : 1#吸气温度故障
         Offset : 1
@@ -263,12 +361,6 @@ Sample :
         AlertNormalValue : 0
         TeleSignalId : 120830170170
         UnicomSignalId : 602400101017
-      - Name : 远程关机
-        Offset : 19
-        AlertNormalValue : 0
-        UnicomSignalId : 602431C01001
-        UnicomSignalName : 风机故障
-        TeleSignalId : 120830170180
       - Name : 滤网压差报警
         Offset : 20
         AlertNormalValue : 0
@@ -488,7 +580,7 @@ Sample :
         AlertNormalValue : 0
         TeleSignalId : 120830170530
         UnicomSignalId : 602400101036
-      - Name : 风机检测通讯故障
+      - Name : 1#风机检测通讯故障
         Offset : 60
         AlertNormalValue : 0
         TeleSignalId : 120830170540
@@ -675,6 +767,18 @@ Sample :
         AlertNormalValue : 0
         TeleSignalId : 120830170890
         UnicomSignalId : 602400101073
+      - Name : 1#温度传感器故障
+        Offset : 97
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101155
+      - Name : 1#相电流不平衡
+        Offset : 98
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101156
+      - Name : 1#电机缺相
+        Offset : 99
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101157
       - Name : 1#功率模块高温限流状态
         Offset : 100
         AlertNormalValue : 0
@@ -685,11 +789,19 @@ Sample :
         AlertNormalValue : 0
         TeleSignalId : 120830170910
         UnicomSignalId : 602400101075
-      - Name : 1#转子失步
+      - Name : 1#转子动作异常
         Offset : 102
         AlertNormalValue : 0
         TeleSignalId : 120830170920
         UnicomSignalId : 602400101076
+      - Name : 1#硬件过流保护
+        Offset : 103
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101158
+      - Name : 1#低速过载/启动失败
+        Offset : 104
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101159
       - Name : 1#DC电压低
         Offset : 105
         AlertNormalValue : 0
@@ -795,6 +907,18 @@ Sample :
         AlertNormalValue : 0  
         TeleSignalId : 120830171130
         UnicomSignalId : 602400101097
+      - Name : 2#温度传感器故障
+        Offset : 129
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101160
+      - Name : 2#相电流不平衡
+        Offset : 130
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101161
+      - Name : 2#电机缺相
+        Offset : 131
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101162
       - Name : 2#功率模块高温限流状态
         Offset : 132
         AlertNormalValue : 0 
@@ -1080,28 +1204,310 @@ Sample :
         AlertNormalValue : 0
         TeleSignalId : 120830171700
         UnicomSignalId : 602400101154
-  - Cmd : 1
-    Offset : 656
-    Len : 3
-    Data : 
-      - Name : 加湿器低电流报警
-        Offset : 1
+      - Name : 滤网维护报警
+        Offset : 196
         AlertNormalValue : 0
-        TeleSignalId : 120830171710
-        UnicomSignalId : 602400101155
-      - Name : 水质软报警
-        Offset : 2
+        UnicomSignalId : 602400101164
+      - Name : 1#压缩机启动失败
+        Offset : 197
         AlertNormalValue : 0
-        TeleSignalId : 120830171720
-        UnicomSignalId : 602400101156
-      - Name : 加湿器高水位
-        Offset : 3
+        UnicomSignalId : 602400101165
+      - Name : 2#压缩机启动失败
+        Offset : 198
         AlertNormalValue : 0
-        TeleSignalId : 120830171730
-        UnicomSignalId : 602400101157
+        UnicomSignalId : 602400101166
+      - Name : 9#送风机故障
+        Offset : 199
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101167
+      - Name : 10#送风机故障
+        Offset : 200
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101168
+      - Name : 11#送风机故障
+        Offset : 201
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101169
+      - Name : 12#送风机故障
+        Offset : 202
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101170
+      - Name : 13#送风机故障
+        Offset : 203
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101171
+      - Name : 14#送风机故障
+        Offset : 204
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101172
+      - Name : 15#送风机故障
+        Offset : 205
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101173
+      - Name : 16#送风机故障
+        Offset : 206
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101174
+      - Name : 4#送风温度探头失效
+        Offset : 207
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101175
+      - Name : 5#送风温度探头失效
+        Offset : 208
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101176
+      - Name : 6#送风温度探头失效
+        Offset : 209
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101177
+      - Name : 7#送风温度探头失效
+        Offset : 210
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101178
+      - Name : 8#送风温度探头失效
+        Offset : 211
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101179
+      - Name : 9#送风温度探头失效
+        Offset : 212
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101180
+      - Name : 10#送风温度探头失效
+        Offset : 213
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101181
+      - Name : 11#送风温度探头失效
+        Offset : 214
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101182
+      - Name : 2#风机检测通讯故障
+        Offset : 215
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101183
+      - Name : 温度扩展板通讯离线
+        Offset : 216
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101184
+      - Name : 1#压缩机驱动通讯丢失（丹佛斯）
+        Offset : 217
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101185
+      - Name : 2#压缩机驱动通讯丢失（丹佛斯）
+        Offset : 218
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101186
+      - Name : 1#压缩机驱动故障（丹佛斯）
+        Offset : 219
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101187
+      - Name : 2#压缩机驱动故障（丹佛斯）
+        Offset : 220
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101188
+      - Name : 外温/进水探头设置不合理
+        Offset : 221
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101189
+      - Name : 1#氟泵故障（易驱）
+        Offset : 222
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101190
+      - Name : 2#氟泵故障（易驱）
+        Offset : 223
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101191
+      - Name : 1#氟泵相电流过流报警
+        Offset : 225
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101192
+      - Name : 1#氟泵驱动器短路故障
+        Offset : 226
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101193
+      - Name : 1#氟泵温度传感器故障
+        Offset : 227
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101194
+      - Name : 1#氟泵传感器1报警
+        Offset : 228
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101195
+      - Name : 1#氟泵传感器2报警
+        Offset : 229
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101196
+      - Name : 1#氟泵过热保护
+        Offset : 230
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101197
+      - Name : 1#氟泵直流母线过压
+        Offset : 232
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101198
+      - Name : 1#氟泵直流母线欠压
+        Offset : 233
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101199
+      - Name : 1#氟泵转子动作异常
+        Offset : 234
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101200
+      - Name : 1#氟泵DI1报警
+        Offset : 236
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101201
+      - Name : 1#氟泵DI2报警
+        Offset : 237
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101202
+      - Name : 1#氟泵DI3报警
+        Offset : 238
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101203
+      - Name : 1#氟泵其它故障
+        Offset : 239
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101204
+      - Name : 1#氟泵缺相报警
+        Offset : 240
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101205
+      - Name : 2#氟泵相电流过流报警
+        Offset : 241
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101206
+      - Name : 2#氟泵驱动器短路故障
+        Offset : 242
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101207
+      - Name : 2#氟泵温度传感器故障
+        Offset : 243
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101208
+      - Name : 2#氟泵传感器1报警
+        Offset : 244
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101209
+      - Name : 2#氟泵传感器2报警
+        Offset : 245
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101210
+      - Name : 2#氟泵过热保护
+        Offset : 246
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101211
+      - Name : 2#氟泵直流母线过压
+        Offset : 248
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101212
+      - Name : 2#氟泵直流母线欠压
+        Offset : 249
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101213
+      - Name : 2#氟泵转子动作异常
+        Offset : 250
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101214
+      - Name : 2#氟泵DI1报警
+        Offset : 252
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101215
+      - Name : 2#氟泵DI2报警
+        Offset : 253
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101216
+      - Name : 2#氟泵DI3报警
+        Offset : 254
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101217
+      - Name : 2#氟泵其它故障
+        Offset : 255
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101218
+      - Name : 2#氟泵缺相报警
+        Offset : 256
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101219
+      - Name : 液管1探头故障
+        Offset : 257
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101220
+      - Name : 加湿器报警
+        Offset : 259
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101221
+      - Name : 进水温度探头故障
+        Offset : 260
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101222
+      - Name : 1#氟泵低扬程报警
+        Offset : 261
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101223
+      - Name : 2#氟泵低扬程报警
+        Offset : 262
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101224
+      - Name : 1#氟泵高扬程报警
+        Offset : 263
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101225
+      - Name : 2#氟泵高扬程报警
+        Offset : 264
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101226
+      - Name : 1氟泵#PFC故障
+        Offset : 273
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101227
+      - Name : 1#氟泵交流输入欠压
+        Offset : 274
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101228
+      - Name : 1#氟泵相电流不平衡
+        Offset : 275
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101229
+      - Name : 1#氟泵电机缺相
+        Offset : 276
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101230
+      - Name : 1#氟泵交流输入过压
+        Offset : 283
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101231
+      - Name : 2#氟泵PFC故障
+        Offset : 284
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101232
+      - Name : 2#氟泵交流输入欠压
+        Offset : 285
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101233
+      - Name : 2#氟泵相电流不平衡
+        Offset : 286
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101234
+      - Name : 2#氟泵电机缺相
+        Offset : 287
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101235
+      - Name : 2#氟泵交流输入过压
+        Offset : 288
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101236
+      - Name : 1#氟泵启动失败(SP216)
+        Offset : 289
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101237
+      - Name : 1#氟泵启动失败(SP216)
+        Offset : 290
+        AlertNormalValue : 0
+        UnicomSignalId : 602400101238
   - Cmd : 3
     Offset : 0
     Len : 1
+    Delay : 300
     Data : 
       - Name : 送风温度设定
         Ratio : 10
@@ -1109,6 +1515,7 @@ Sample :
   - Cmd : 3
     Offset : 11
     Len : 1
+    Delay : 300
     Data : 
       - Name : 回风温度设定
         Ratio : 10
@@ -1116,6 +1523,7 @@ Sample :
   - Cmd : 3
     Offset : 1
     Len : 1
+    Delay : 300
     Data : 
       - Name : 湿度设定
         Ratio : 10 
@@ -1123,6 +1531,7 @@ Sample :
   - Cmd : 3
     Offset : 13
     Len : 1
+    Delay : 300
     Data : 
       - Name : 温度控制
         Options : 
@@ -1133,6 +1542,7 @@ Sample :
   - Cmd : 1
     Offset : 276
     Len : 1
+    Delay : 300
     Data : 
       - Name : 开关机
         Options : 
@@ -1140,29 +1550,11 @@ Sample :
             Value : 关机
           - Key : 1
             Value : 开机
-  - Cmd : 1
-    Offset : 281
-    Len : 1
-    Data : 
-      - Name : 手动排水
-        Options : 
-          - Key : 0
-            Value : 不排水
-          - Key : 1
-            Value : 排水
-  - Cmd : 1
-    Offset : 277
-    Len : 1
-    Data : 
-      - Name : 故障状态
-        Options : 
-          - Key : 0
-            Value : 无故障
-          - Key : 1
-            Value : 有故障
+  
   - Cmd : 3
     Offset : 720
     Len : 9
+    Delay : 300
     Data :
       - Name : 送风机运行时间
         Unit : "小时"
@@ -1172,23 +1564,36 @@ Sample :
         Unit : "小时"
       - Name : 1#压缩机运行时间
         Unit : "小时"
-      - Name : 水泵运行时间
-        Unit : "小时"
       - Name : 1#外风机运行时间
+        Offset : 5
         Unit : "小时"
       - Name : 2#外风机运行时间
+        Offset : 6
         Unit : "小时"
       - Name : 2#压缩机运行时间
+        Offset : 7
         Unit : "小时"
       - Name : 2#电加热运行时间
+        Offset : 8
         Unit : "小时"
+      
+  - Cmd : 3
+    Offset : 807
+    Len : 5
+    Delay : 300
+    Data : 
       - Name : 1#氟泵运行时间
         Unit : "小时"
       - Name : 2#氟泵运行时间
         Unit : "小时"
+      - Name : 滤网运行时间
+        Offset : 5
+        Unit : "小时"
+
   - Cmd : 3
     Offset : 276
     Len : 1
+    Delay : 300
     Data : 
       - Name : 机组状态
         Options : 
@@ -1203,6 +1608,7 @@ Sample :
   - Cmd : 3
     Offset : 275
     Len : 1
+    Delay : 300
     Data : 
       - Name : 当前状态
         Options : 
@@ -1231,6 +1637,7 @@ Sample :
   - Cmd : 3
     Offset : 257
     Len : 2
+    Delay : 300
     Data : 
       - Name : 1#压缩机工作状态
         Options : 
@@ -1247,6 +1654,7 @@ Sample :
   - Cmd : 3
     Offset : 274
     Len : 1
+    Delay : 300
     Data : 
       - Name : 1#压缩机工作状态
         Options : 
@@ -1283,6 +1691,7 @@ Sample :
   - Cmd : 3
     Offset : 719
     Len : 1
+    Delay : 300
     Data : 
       - Name : 2#压缩机工作状态
         Options : 
@@ -1319,6 +1728,7 @@ Sample :
   - Cmd : 3
     Offset : 628
     Len : 1
+    Delay : 300
     Data : 
       - Name : "当前控制温度"
         Options : 
@@ -1329,6 +1739,7 @@ Sample :
   - Cmd : 3
     Offset : 259
     Len : 2
+    Delay : 300
     Data : 
       - Name : "1#电加热工作状态"
         Options : 
@@ -1345,6 +1756,7 @@ Sample :
   - Cmd : 3
     Offset : 256
     Len : 1
+    Delay : 300
     Data : 
       - Name : "送风机工作状态"
         Options : 
@@ -1355,6 +1767,7 @@ Sample :
   - Cmd : 3
     Offset : 263
     Len : 1
+    Delay : 300
     Data : 
       - Name : "加湿工作状态"
         Options : 
@@ -1365,6 +1778,7 @@ Sample :
   - Cmd : 3
     Offset : 608
     Len : 4
+    Delay : 300
     Data : 
       - Name : 制冷需求
         Unit : '%'
@@ -1377,6 +1791,7 @@ Sample :
   - Cmd : 3
     Offset : 615
     Len : 3
+    Delay : 300
     Data : 
       - Name : "1#过热度"
         Ratio : 10
@@ -1389,6 +1804,7 @@ Sample :
   - Cmd : 3
     Offset : 770
     Len : 3
+    Delay : 300
     Data : 
       - Name : "2#过热度"
         Ratio : 10
@@ -1401,6 +1817,7 @@ Sample :
   - Cmd : 3
     Offset : 606
     Len : 2
+    Delay : 300
     Data : 
       - Name : "2#压缩机需求转速"
         Ratio : 10
@@ -1411,12 +1828,14 @@ Sample :
   - Cmd : 3
     Offset : 604
     Len : 1
+    Delay : 300
     Data : 
       - Name : "送风机控制转速"
         Unit : "%"
   - Cmd : 3
     Offset : 400
     Len : 4
+    Delay : 300
     Data : 
       - Name : 送风机实际转速1
         Unit : rpm
@@ -1429,6 +1848,7 @@ Sample :
   - Cmd : 3
     Offset : 730
     Len : 2
+    Delay : 300
     Data : 
       - Name : "1#外风机输出"
         Unit : "%"
@@ -1437,18 +1857,21 @@ Sample :
   - Cmd : 3
     Offset : 624
     Len : 1
+    Delay : 300
     Data : 
       - Name : "加湿比例输出"
         Unit : "%"
   - Cmd : 3
     Offset : 712
     Len : 1
+    Delay : 300
     Data : 
       - Name : "加湿电流"
         Unit : "%"
   - Cmd : 3
     Offset : 750
     Len : 1
+    Delay : 300
     Data : 
       - Name : "1#压缩机反馈转速"
         Ratio : 10
@@ -1456,6 +1879,7 @@ Sample :
   - Cmd : 3
     Offset : 754
     Len : 5
+    Delay : 300
     Data : 
       - Name : 1#DC母线电压
         Unit : V
@@ -1470,6 +1894,7 @@ Sample :
   - Cmd : 3
     Offset : 760
     Len : 1
+    Delay : 300
     Data : 
       - Name : "1#功率模块温度"
         Ratio : 10
@@ -1477,6 +1902,7 @@ Sample :
   - Cmd : 3
     Offset : 763
     Len : 1
+    Delay : 300
     Data : 
       - Name : "1#PFC-IGBT模块温度"
         Ratio : 10
@@ -1484,6 +1910,7 @@ Sample :
   - Cmd : 3
     Offset : 2000
     Len : 1
+    Delay : 300
     Data : 
       - Name : "2#压缩机反馈转速"
         Ratio : 10
@@ -1491,6 +1918,7 @@ Sample :
   - Cmd : 3
     Offset : 2004
     Len : 5
+    Delay : 300
     Data : 
       - Name : 2#DC母线电压
         Unit : V
@@ -1505,6 +1933,7 @@ Sample :
   - Cmd : 3
     Offset : 2010
     Len : 1
+    Delay : 300
     Data : 
       - Name : "2#功率模块温度"
         Ratio : 10
@@ -1512,107 +1941,15 @@ Sample :
   - Cmd : 3
     Offset : 2013
     Len : 1
+    Delay : 300
     Data : 
       - Name : "2#PFC-IGBT模块温度"
         Ratio : 10
         Unit : "℃"
-  - Cmd : 1
-    Offset : 512
-    Len : 15
-    Data : 
-      - Name : "输入点状态水浸传感器告警"
-        Options : 
-          - Key : 0
-            Value : 关闭
-          - Key : 1
-            Value : 断开
-      - Name : "输入点状态失风报警"
-        Options : 
-          - Key : 0
-            Value : 关闭
-          - Key : 1
-            Value : 断开
-      - Name : "输入点状态远程关机"
-        Options : 
-          - Key : 0
-            Value : 关闭
-          - Key : 1
-            Value : 断开
-      - Name : "输入点状态滤网压差开关"
-        Options : 
-          - Key : 0
-            Value : 关闭
-          - Key : 1
-            Value : 断开
-      - Name : "输入点状态加热器过载"
-        Options : 
-          - Key : 0
-            Value : 关闭
-          - Key : 1
-            Value : 断开
-      - Name : "输入点状态压缩机1高压开关"
-        Options : 
-          - Key : 0
-            Value : 关闭
-          - Key : 1
-            Value : 断开
-      - Name : "输入点状态压缩机2高压开关"
-        Options : 
-          - Key : 0
-            Value : 关闭
-          - Key : 1
-            Value : 断开
-      - Name : "输入点状态电源保护"
-        Options : 
-          - Key : 0
-            Value : 关闭
-          - Key : 1
-            Value : 断开
-      - Name : "输入点状态1#风机过载"
-        Options : 
-          - Key : 0
-            Value : 关闭
-          - Key : 1
-            Value : 断开
-      - Name : "输入点状态2#风机过载"
-        Options : 
-          - Key : 0
-            Value : 关闭
-          - Key : 1
-            Value : 断开
-      - Name : "输入点状态3#风机过载"
-        Options : 
-          - Key : 0
-            Value : 关闭
-          - Key : 1
-            Value : 断开
-      - Name : "输入点状态4#风机过载"
-        Options : 
-          - Key : 0
-            Value : 关闭
-          - Key : 1
-            Value : 断开
-      - Name : "输入点状态1#氟泵过热报警"
-        Options : 
-          - Key : 0
-            Value : 关闭
-          - Key : 1
-            Value : 断开
-      - Name : "输入点状态2#氟泵过热报警"
-        Options : 
-          - Key : 0
-            Value : 关闭
-          - Key : 1
-            Value : 断开
-      - Name : "输入点状态烟雾传感器告警"
-        Options : 
-          - Key : 0
-            Value : 关闭
-          - Key : 1
-            Value : 断开
   - Cmd : 3
     Offset : 127
     Len : 15
+    Delay : 300
     Data :
       - Name : "常开/常闭定义水浸传感器告警"
         Options : 
@@ -1707,6 +2044,7 @@ Sample :
   - Cmd : 3
     Offset : 1516
     Len : 8
+    Delay : 300
     Data :
       - Name : A相电压
         Ratio : 10
@@ -1733,6 +2071,7 @@ Sample :
   - Cmd : 3
     Offset : 261
     Len : 6
+    Delay : 300
     Data :
       - Name : 1#氟泵工作状态
         Options : 
@@ -1797,9 +2136,9 @@ SET_DO_CODE : |
       last_data_ = 1;
       modbus_write_bit(276, 1);
       if((uint32_t)outBufferSize >= sizeof(int)) {
-              *((int*)outBuffer) = 1;//通知取状态
-              bytesReturned = sizeof(int);
-          }
+          *((int*)outBuffer) = -1;//通知取状态
+          bytesReturned = sizeof(int);
+      }
   } else if(doId == "601500200001" || doId == "140800300010") {
       //关机
       state = AC_Control_Code::AC_STOP;
@@ -1807,9 +2146,9 @@ SET_DO_CODE : |
       last_data_ = 0;
       modbus_write_bit(276, 0);
       if((uint32_t)outBufferSize >= sizeof(int)) {
-              *((int*)outBuffer) = 1;//通知取状态
-              bytesReturned = sizeof(int);
-          }
+          *((int*)outBuffer) = -1;//通知取状态
+          bytesReturned = sizeof(int);
+      }
   }
 
 
@@ -1821,12 +2160,11 @@ SET_AO_CODE: |
           state = AC_Control_Code::AC_SET_TEMPERATURE;
           cmd_result_ = -1;
           OpenPort();
-          modbus_write_register(11, newValue);
+          modbus_write_register(0, newValue);
           if((uint32_t)outBufferSize >= sizeof(int)) {
-              *((int*)outBuffer) = 1;//通知取状态
+              *((int*)outBuffer) = -1;//通知取状态
               bytesReturned = sizeof(int);
-          }
-               
+          }                       
       }
   } else if(setting["signal_id"].asString() == "6016A2101001" || setting["signal_id"].asString() == "150800340010") {
       if(setting["SetValue"] != Json::nullValue && setting["SetValue"].type()  != Json::nullValue) {
@@ -1837,9 +2175,9 @@ SET_AO_CODE: |
           OpenPort();
           modbus_write_register(1, newValue);
           if((uint32_t)outBufferSize >= sizeof(int)) {
-              *((int*)outBuffer) = 1;//通知取状态
+              *((int*)outBuffer) = -1;//通知取状态
               bytesReturned = sizeof(int);
-          }           
+          }                       
       }
   }
 DEVICEIOCONTROL_CODE: |
@@ -1850,9 +2188,9 @@ DEVICEIOCONTROL_CODE: |
         last_data_ = 1;
         modbus_write_bit(276, 1);
         if((uint32_t)outBufferSize >= sizeof(int)) {
-              *((int*)outBuffer) = 1;//通知取状态
-              bytesReturned = sizeof(int);
-          }
+            *((int*)outBuffer) = -1;//通知取状态
+            bytesReturned = sizeof(int);
+        }
         break;
     }    
     case AC_Control_Code::AC_STOP: {
@@ -1862,9 +2200,9 @@ DEVICEIOCONTROL_CODE: |
         last_data_ = 0;
         modbus_write_bit(276, 0);
         if((uint32_t)outBufferSize >= sizeof(int)) {
-              *((int*)outBuffer) = 1;//通知取状态
-              bytesReturned = sizeof(int);
-          }
+            *((int*)outBuffer) = -1;//通知取状态
+            bytesReturned = sizeof(int);
+        }
         break;
     }
     case AC_Control_Code::AC_SET_TEMPERATURE: {
@@ -1873,11 +2211,11 @@ DEVICEIOCONTROL_CODE: |
             cmd_result_ = -1;
             OpenPort();
             last_data_ = 10* (*(uint16_t*)inBuffer);
-            modbus_write_register(11, last_data_);
+            modbus_write_register(0, last_data_);
             if((uint32_t)outBufferSize >= sizeof(int)) {
-              *((int*)outBuffer) = 1;//通知取状态
+              *((int*)outBuffer) = -1;//通知取状态
               bytesReturned = sizeof(int);
-          }
+          }       
         }
         break;
     }
@@ -1887,11 +2225,11 @@ DEVICEIOCONTROL_CODE: |
             cmd_result_ = -1;
             OpenPort();
             last_data_ = 10*(*(uint16_t*)inBuffer);
-            modbus_write_register(1, last_data_);  
+            modbus_write_register(1, last_data_);
             if((uint32_t)outBufferSize >= sizeof(int)) {
-              *((int*)outBuffer) = 1;//通知取状态
+              *((int*)outBuffer) = -1;//通知取状态
               bytesReturned = sizeof(int);
-          }
+          }       
         }
         break;
     } 

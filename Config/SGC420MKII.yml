@@ -168,6 +168,7 @@ Sample :
         Ratio : 10
         Unit : V
       - Name : ECU的电池电压和电池电压
+        Ratio : 10
         Unit : V
       - Name : ECU的发动机转速和转速
         Unit : "RPM"
@@ -197,93 +198,93 @@ Sample :
       - Name : 低油压
         Value : ((($v[1]>>12) & 0xF) > 1)
         CValue : (((pData[0]>>12) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 高冷却液温度
         Value : ((($v[1]>>8) & 0xF) > 1)
         CValue : (((pData[0]>>8) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 燃油液位
         Value : ((($v[1]>>4) & 0xF) > 1)
         CValue : (((pData[0]>>4) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 水位开关
         Value : ((($v[1]) & 0xF) > 1)
         CValue : (((pData[0]) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 欠速
         Value : ((($v[2]>>12) & 0xF) > 1)
         CValue : (((pData[1]>>12) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 超速
         Value : ((($v[2]>>8) & 0xF) > 1)
         CValue : (((pData[1]>>8) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 启动失败
         Value : ((($v[2]>>4) & 0xF) > 1)
         CValue : (((pData[1]>>4) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 停机失败
         Value : ((($v[2]) & 0xF) > 1)
         CValue : (((pData[1]) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 室内场所温度开路
         Value : ((($v[3]>>12) & 0xF) > 1)
         CValue : (((pData[2]>>12) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 室内场所温度高
         Value : ((($v[3]>>8) & 0xF) > 1)
         CValue : (((pData[2]>>8) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 发电机低频
         Value : ((($v[3]>>4) & 0xF) > 1)
         CValue : (((pData[2]>>4) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 发电机高频
         Value : ((($v[3]) & 0xF) > 1)
         CValue : (((pData[2]) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 发电机大电流
         Value : ((($v[4]>>12) & 0xF) > 1)
         CValue : (((pData[3]>>12) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 发电机过载
         Value : ((($v[4]>>8) & 0xF) > 1)
         CValue : (((pData[3]>>8) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 负载不平衡
         Value : ((($v[4]>>4) & 0xF) > 1)
         CValue : (((pData[3]>>4) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 急停
         Value : ((($v[4]) & 0xF) > 1)
         CValue : (((pData[3]) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 充电交流发电机故障
         Value : ((($v[5]>>12) & 0xF) > 1)
         CValue : (((pData[4]>>12) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 机油滤清器保养/滤清器保养
         Value : ((($v[5]>>8) & 0xF) > 1)
         CValue : (((pData[4]>>8) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       # - Name : MIL灯（自动化）
       #   Value : ((($v[5]>>4) & 0xF) > 1)
       #   CValue : (((pData[4]>>4) & 0xF) > 1)
@@ -297,38 +298,38 @@ Sample :
       - Name : 电池低压
         Value : ((($v[6]>>12) & 0xF) > 1)
         CValue : (((pData[5]>>12) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 电池高压
         Value : ((($v[6]>>8) & 0xF) > 1)
         CValue : (((pData[5]>>8) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 发动机温度回路开路
         Value : ((($v[6]>>4) & 0xF) > 1)
         CValue : (((pData[5]>>4) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 逆功功率被检测
         Value : ((($v[6]) & 0xF) > 1)
         CValue : (((pData[5]) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 燃油阈值
         Value : ((($v[7]>>12) & 0xF) > 1)
         CValue : (((pData[6]>>12) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 转速检测失败
         Value : ((($v[7]>>8) & 0xF) > 1)
         CValue : (((pData[6]>>8) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 油压开路
         Value : ((($v[7]>>4) & 0xF) > 1)
         CValue : (((pData[6]>>4) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
   - Cmd : 3
     Offset : 83
     Len : 7
@@ -336,104 +337,104 @@ Sample :
       - Name : 发电机组L1相低压
         Value : ((($v[1]>>12) & 0xF) > 1)
         CValue : (((pData[0]>>12) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 发电机组L1相高压
         Value : ((($v[1]>>8) & 0xF) > 1)
         CValue : (((pData[0]>>8) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 发电机组L2相低压
         Value : ((($v[1]>>4) & 0xF) > 1)
         CValue : (((pData[0]>>4) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 发电机组L2相高压
         Value : ((($v[1]) & 0xF) > 1)
         CValue : (((pData[0]) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 发电机组L3相电压低
         Value : ((($v[2]>>12) & 0xF) > 1)
         CValue : (((pData[1]>>12) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 发电机组L3相高压
         Value : ((($v[2]>>8) & 0xF) > 1)
         CValue : (((pData[1]>>8) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : DG相位反向
         Value : ((($v[2]>>4) & 0xF) > 1)
         CValue : (((pData[1]>>4) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 市电相位反向
         Value : ((($v[2]) & 0xF) > 1)
         CValue : (((pData[1]) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 低负载
         Value : ((($v[3]>>12) & 0xF) > 1)
         CValue : (((pData[2]>>12) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : V型皮带断裂
         Value : ((($v[3]>>8) & 0xF) > 1)
         CValue : (((pData[2]>>8) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 燃油液位-开路
         Value : ((($v[3]>>4) & 0xF) > 1)
         CValue : (((pData[2]>>4) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 检测到高油压
         Value : ((($v[3]) & 0xF) > 1)
         CValue : (((pData[2]) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
      
       - Name : 辅助S4回路故障警报
         Value : ((($v[5]>>12) & 0xF) > 1)
         CValue : (((pData[4]>>12) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 辅助S3回路故障警报
         Value : ((($v[5]>>8) & 0xF) > 1)
         CValue : (((pData[4]>>8) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 辅助S2回路故障警报
         Value : ((($v[5]>>4) & 0xF) > 1)
         CValue : (((pData[4]>>4) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 辅助S1回路开路警报
         Value : ((($v[5]) & 0xF) > 1)
         CValue : (((pData[4]) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 辅助S4短接到电池
         Value : ((($v[6]>>12) & 0xF) > 1)
         CValue : (((pData[5]>>12) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 辅助S3短接到电池
         Value : ((($v[6]>>8) & 0xF) > 1)
         CValue : (((pData[5]>>8) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : AFT激活超时
         Value : ((($v[6]>>4) & 0xF) > 1)
         CValue : (((pData[5]>>4) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 灰分负荷维护
         Value : ((($v[6]) & 0xF) > 1)
         CValue : (((pData[5]) & 0xF) > 1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
   - Cmd : 3
     Offset : 91
     Len : 1
@@ -579,23 +580,23 @@ Sample :
       - Name : 低级报警
         Value : (($v[1] >> 15) & 0x1) 
         CValue : ((pData[0] >> 15) & 0x1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 燃油液位警报
         Value : (($v[1] >> 14) & 0x1) 
         CValue : ((pData[0] >> 14) & 0x1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 温度警报
         Value : (($v[1] >> 13) & 0x1) 
         CValue : ((pData[0] >> 13) & 0x1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
       - Name : 室内温度报警
         Value : (($v[1] >> 12) & 0x1) 
         CValue : ((pData[0] >> 12) & 0x1)
-        AlertNormalValue : 0
-        TelePSignalId : 05024
+        # AlertNormalValue : 0
+        # TelePSignalId : 05024
   - Cmd : 3
     Offset : 501 
     Len : 19
@@ -670,10 +671,29 @@ Sample :
         Ratio : 10
       - Name : "冷却水温度"
         Ratio : 10
-
-
-
-
+RunCheckThresholdCode : | 
+  CheckThreshold("battery_value", "电池电压", ((float)cData.r3_51[5])/10, 1);
+GetValue : 
+  - Name : 发电机L1-N电压
+    Value : ((float)cData.r3_1[0])/10
+  - Name : 发电机L2-N电压
+    Value : ((float)cData.r3_1[1])/10
+  - Name : 发电机L3-N电压
+    Value : ((float)cData.r3_1[2])/10
+  - Name : 发电机L1-L2电压
+    Value : ((float)cData.r3_1[3])/10
+  - Name : 发电机L2-L3电压
+    Value : ((float)cData.r3_1[4])/10
+  - Name : 发电机L3-L1电压
+    Value : ((float)cData.r3_1[5])/10
+  - Name : 发电机频率L1
+    Value : ((float)cData.r3_1[6])/10
+  - Name : 发电机频率L2
+    Value : ((float)cData.r3_1[7])/10
+  - Name : 发电机频率L3
+    Value : ((float)cData.r3_1[8])/10
+  - Name : ECU的电池电压和电池电压
+    Value :  ((float)cData.r3_51[5])/10
 
 
 

@@ -8,7 +8,7 @@ Project:
   ProtocolName : 风机节能
 Sample : 
   - Cmd : 3
-    Offset : 1
+    Offset : 0
     Len : 28
     RType : 'f'
     Data : 
@@ -41,7 +41,7 @@ Sample :
       - Name : 2#水泵频率反馈
         Unit : Hz
   - Cmd : 3
-    Offset : 41
+    Offset : 40
     Len : 16
     RType : 'f'
     Data : 
@@ -60,7 +60,7 @@ Sample :
       - Name : 水箱液位1
       - Name : 水箱液位2
   - Cmd : 3
-    Offset : 56
+    Offset : 55
     Len : 3
     Data : 
       - Name : 1#风机手自动
@@ -72,6 +72,8 @@ Sample :
       - Name : 1#风机故障
         Value : ($v[1]>>10)&0x1
         CValue : (pData[0]>>10)&0x1
+        AlertNormalValue : 0
+        TelePSignalId : 12017
       - Name : 2#风机手自动
         Value : ($v[1]>>11)&0x1
         CValue : (pData[0]>>11)&0x1
@@ -81,6 +83,8 @@ Sample :
       - Name : 2#风机故障
         Value : ($v[1]>>13)&0x1
         CValue : (pData[0]>>13)&0x1
+        AlertNormalValue : 0
+        TelePSignalId : 12017
       - Name : 3#风机手自动
         Value : ($v[1]>>14)&0x1
         CValue : (pData[0]>>14)&0x1
@@ -90,6 +94,8 @@ Sample :
       - Name : 3#风机故障
         Value : ($v[1]>>0)&0x1
         CValue : (pData[0]>>0)&0x1
+        AlertNormalValue : 0
+        TelePSignalId : 12017
       - Name : 4#风机手自动
         Value : ($v[1]>>1)&0x1
         CValue : (pData[0]>>1)&0x1
@@ -99,6 +105,8 @@ Sample :
       - Name : 4#风机故障
         Value : ($v[1]>>3)&0x1
         CValue : (pData[0]>>3)&0x1
+        AlertNormalValue : 0
+        TelePSignalId : 12017
       - Name : 5#风机手自动
         Value : ($v[1]>>4)&0x1
         CValue : (pData[0]>>4)&0x1
@@ -108,6 +116,8 @@ Sample :
       - Name : 5#风机故障
         Value : ($v[1]>>6)&0x1
         CValue : (pData[0]>>6)&0x1
+        AlertNormalValue : 0
+        TelePSignalId : 12017
       - Name : 6#风机手自动
         Value : ($v[1]>>7)&0x1
         CValue : (pData[0]>>7)&0x1
@@ -117,6 +127,8 @@ Sample :
       - Name : 6#风机故障
         Value : ($v[2]>>9)&0x1
         CValue : (pData[1]>>9)&0x1
+        AlertNormalValue : 0
+        TelePSignalId : 12017
       - Name : 7#风机手自动
         Value : ($v[2]>>10)&0x1
         CValue : (pData[1]>>10)&0x1
@@ -125,7 +137,9 @@ Sample :
         CValue : (pData[1]>>11)&0x1
       - Name : 7#风机故障
         Value : ($v[2]>>12)&0x1
-        CValue : (pData[1]>>12)&0x1      
+        CValue : (pData[1]>>12)&0x1
+        AlertNormalValue : 0
+        TelePSignalId : 12017  
       - Name : 8#风机手自动
         Value : ($v[2]>>13)&0x1
         CValue : (pData[1]>>13)&0x1
@@ -135,6 +149,8 @@ Sample :
       - Name : 8#风机故障
         Value : ($v[2]>>15)&0x1
         CValue : (pData[1]>>15)&0x1
+        AlertNormalValue : 0
+        TelePSignalId : 12017
       - Name : 9#风机手自动
         Value : ($v[2]>>0)&0x1
         CValue : (pData[1]>>0)&0x1
@@ -144,6 +160,8 @@ Sample :
       - Name : 9#风机故障
         Value : ($v[2]>>2)&0x1
         CValue : (pData[1]>>2)&0x1
+        AlertNormalValue : 0
+        TelePSignalId : 12017
       - Name : 10#风机手自动
         Value : ($v[2]>>3)&0x1
         CValue : (pData[1]>>3)&0x1
@@ -153,6 +171,8 @@ Sample :
       - Name : 10#风机故障
         Value : ($v[2]>>5)&0x1
         CValue : (pData[1]>>5)&0x1
+        AlertNormalValue : 0
+        TelePSignalId : 12017
       - Name : 11#风机手自动
         Value : ($v[2]>>6)&0x1
         CValue : (pData[1]>>6)&0x1
@@ -162,6 +182,8 @@ Sample :
       - Name : 11#风机故障
         Value : ($v[3]>>8)&0x1
         CValue : (pData[2]>>8)&0x1
+        AlertNormalValue : 0
+        TelePSignalId : 12017
       - Name : 12#风机手自动
         Value : ($v[3]>>9)&0x1
         CValue : (pData[2]>>9)&0x1
@@ -171,6 +193,8 @@ Sample :
       - Name : 12#风机故障
         Value : ($v[3]>>11)&0x1
         CValue : (pData[2]>>11)&0x1
+        AlertNormalValue : 0
+        TelePSignalId : 12017
       - Name : 运行BA控制手/自动
         Value : ($v[3]>>12)&0x1
         CValue : (pData[2]>>12)&0x1

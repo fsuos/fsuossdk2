@@ -1,0 +1,711 @@
+Project:
+  Name : HDS_SBMS
+  RT_ID : 5156
+  File : "B接口电池巡检仪SBMS-8000系列后台协议V1.61.pdf 192.168.1.60:502"
+  DevType : 4
+  Category : 蓄电池组
+  ProtocolName : 海德森SBMS蓄电池
+BlockTemplate : 
+  GroupAlarm :
+    BlockLength : 2
+    BlockContent :
+      - Name : "第%s组电池组告警-组电压过压"
+        Value : ($v[1]&0x1)
+        CValue : (pData[0]&0x1)
+        AlertNormalValue : 0
+      - Name : "第%s组电池组告警-组电压欠压"
+        Value : (($v[1]>>1)&0x1)
+        CValue : ((pData[0]>>1)&0x1)
+        AlertNormalValue : 0
+      - Name : "第%s组电池组告警-充电电流异常"
+        Value : (($v[1]>>2)&0x1)
+        CValue : ((pData[0]>>2)&0x1)
+        AlertNormalValue : 0
+      - Name : "第%s组电池组告警-放电电流异常"
+        Value : (($v[1]>>3)&0x1)
+        CValue : ((pData[0]>>3)&0x1)
+        AlertNormalValue : 0
+      - Name : "第%s组电池组告警-电池开关断开"
+        Value : (($v[1]>>4)&0x1)
+        CValue : ((pData[0]>>4)&0x1)
+        AlertNormalValue : 0
+      - Name : "第%s组电池组告警-电流模块通讯故障"
+        Value : (($v[1]>>5)&0x1)
+        CValue : ((pData[0]>>5)&0x1)
+        AlertNormalValue : 0
+      - Name : "第%s组电池组告警-电池组容量低"
+        Value : (($v[1]>>6)&0x1)
+        CValue : ((pData[0]>>6)&0x1)
+        AlertNormalValue : 0
+      - Name : "第%s组电池组告警-组压模块通讯故障"
+        Value : (($v[1]>>7)&0x1)
+        CValue : ((pData[0]>>7)&0x1)
+        AlertNormalValue : 0
+      - Name : "第%s组电池组告警-剩余时间5分钟报警"
+        Value : (($v[1]>>8)&0x1)
+        CValue : ((pData[0]>>8)&0x1)
+        AlertNormalValue : 0
+      - Name : "第%s组电池组告警-剩余时间10分钟报警"
+        Value : (($v[1]>>9)&0x1)
+        CValue : ((pData[0]>>9)&0x1)
+        AlertNormalValue : 0
+      - Name : "第%s组电池组告警-剩余时间20分钟报警"
+        Value : (($v[1]>>10)&0x1)
+        CValue : ((pData[0]>>10)&0x1)
+        AlertNormalValue : 0
+  BatteryAlarm :
+    BlockLength : 2
+    BlockContent :
+      - Name : "第%s号电池告警-电池电压超上限"
+        Value : ($v[1]&0x1)
+        CValue : (pData[0]&0x1)
+        AlertNormalValue : 0
+      - Name : "第%s号电池告警-电池电压超下限"
+        Value : (($v[1]>>1)&0x1)
+        CValue : ((pData[0]>>1)&0x1)
+        AlertNormalValue : 0
+      - Name : "第%s号电池告警-电池内阻超限"
+        Value : (($v[1]>>2)&0x1)
+        CValue : ((pData[0]>>2)&0x1)
+        AlertNormalValue : 0
+      - Name : "第%s号电池告警-电池温度超上限"
+        Value : (($v[1]>>3)&0x1)
+        CValue : ((pData[0]>>3)&0x1)
+        AlertNormalValue : 0
+      - Name : "第%s号电池告警-电池内阻差异超上限"
+        Value : (($v[1]>>4)&0x1)
+        CValue : ((pData[0]>>4)&0x1)
+        AlertNormalValue : 0
+      - Name : "第%s号电池告警-电压模块通讯故障"
+        Value : (($v[1]>>5)&0x1)
+        CValue : ((pData[0]>>5)&0x1)
+        AlertNormalValue : 0
+      - Name : "第%s号电池告警-电压差异超限"
+        Value : (($v[1]>>7)&0x1)
+        CValue : ((pData[0]>>7)&0x1)
+        AlertNormalValue : 0
+      - Name : "第%s号电池告警-温度差异超限"
+        Value : (($v[1]>>10)&0x1)
+        CValue : ((pData[0]>>10)&0x1)
+        AlertNormalValue : 0
+  GroupStatus : 
+    BlockLength : 2
+    BlockContent :
+      - Name : "第%s号电池组状态及告警-电池组工作状态"
+        Value : ($v[1]&0x7)
+        CValue : (pData[0]&0x7)
+        Options : 
+          - Key : 0
+            Value : 断开状态
+          - Key : 1
+            Value : 浮充状态
+          - Key : 2
+            Value : 均充状态
+          - Key : 3
+            Value : 放电状态
+          - Key : 4
+            Value : 闲置状态
+      - Name : "第%s号电池告警-电池组告警状态"
+        Value : (($v[1]>>3)&0x3)
+        CValue : ((pData[0]>>3)&0x3)
+        AlertNormalValue : 0
+Sample : 
+  - Cmd : 3
+    Offset : 1000
+    Len : 4
+    Data : 
+      - Name : 第1号电池总电压
+        Ratio : 10
+        Unit : V
+      - Name : 第2组电池组总电压
+        Ratio : 10
+        Unit : V
+      - Name : 第3组电池组总电压
+        Ratio : 10
+        Unit : V
+      - Name : 第4组电池组总电压
+        Ratio : 10
+        Unit : V
+  - Cmd : 3
+    Offset : 1004
+    Len : 4
+    Type : s
+    Data : 
+      - Name : 第1组电池组总电流
+        Ratio : 10
+        Unit : A
+      - Name : 第2组电池组总电流
+        Ratio : 10
+        Unit : A
+      - Name : 第3组电池组总电流
+        Ratio : 10
+        Unit : A
+      - Name : 第4组电池组总电流
+        Ratio : 10
+        Unit : A
+  - Cmd : 3
+    Offset : 1008
+    Len : 4
+    Data : 
+      - ArrayBlock : GroupAlarm
+        ArrayStart : 1
+        ArrayEnd : 4
+  - Cmd : 3
+    Offset : 1012
+    Len : 125
+    Data : 
+      - ArrayName : "第%d号电池的电压"
+        ArrayStart : 1
+        ArrayLength : 125
+        Offset : 1
+        Ratio : 1000
+        Unit : V
+  - Cmd : 3
+    Offset : 1137
+    Len : 125
+    Data : 
+      - ArrayName : "第%d号电池的电压"
+        ArrayStart : 126
+        ArrayLength : 125
+        Offset : 1
+        Ratio : 1000
+        Unit : V
+  - Cmd : 3
+    Offset : 1262
+    Len : 125
+    Type : s
+    Data : 
+      - ArrayName : "第%d号电池温度"
+        ArrayStart : 1
+        ArrayLength : 125
+        Offset : 1
+        Ratio : 10
+        Unit : ℃
+  - Cmd : 3
+    Offset : 1387
+    Len : 125
+    Type : s
+    Data : 
+      - ArrayName : "第%d号电池温度"
+        ArrayStart : 126
+        ArrayLength : 125
+        Offset : 1
+        Ratio : 10
+        Unit : ℃
+  - Cmd : 3
+    Offset : 1512
+    Len : 125
+    Data : 
+      - ArrayName : "第%d号电池内阻"
+        ArrayStart : 1
+        ArrayLength : 125
+        Offset : 1
+        Ratio : 1000
+        Unit : "mΩ"
+  - Cmd : 3
+    Offset : 1637
+    Len : 125
+    Data : 
+      - ArrayName : "第%d号电池内阻"
+        ArrayStart : 126
+        ArrayLength : 125
+        Offset : 1
+        Ratio : 1000
+        Unit : "mΩ"
+  - Cmd : 3
+    Offset : 1762
+    Len : 125
+    Data : 
+      - ArrayBlock : BatteryAlarm
+        ArrayStart : 1
+        ArrayEnd : 125
+  - Cmd : 3
+    Offset : 1887
+    Len : 125
+    Data : 
+      - ArrayBlock : BatteryAlarm
+        ArrayStart : 126
+        ArrayEnd : 250
+  - Cmd : 3
+    Offset : 2012
+    Len : 40
+    Data : 
+      - Name : 第1组平均电压
+        Ratio : 1000
+        Unit : V
+      - Name : 第2组平均电压
+        Ratio : 1000
+        Unit : V
+      - Name : 第3组平均电压
+        Ratio : 1000
+        Unit : V
+      - Name : 第4组平均电压
+        Ratio : 1000
+        Unit : V
+      - Name : 第1组最大电压
+        Ratio : 1000
+        Unit : V
+      - Name : 第2组最大电压
+        Ratio : 1000
+        Unit : V
+      - Name : 第3组最大电压
+        Ratio : 1000
+        Unit : V
+      - Name : 第4组最大电压
+        Ratio : 1000
+        Unit : V
+      - Name : 第1组最大电压ID
+        Dot : 0
+      - Name : 第2组最大电压ID
+        Dot : 0
+      - Name : 第3组最大电压ID
+        Dot : 0
+      - Name : 第4组最大电压ID
+        Dot : 0
+      - Name : 第1组最小电压
+        Ratio : 1000
+        Unit : V
+      - Name : 第2组最小电压
+        Ratio : 1000
+        Unit : V
+      - Name : 第3组最小电压
+        Ratio : 1000
+        Unit : V
+      - Name : 第4组最小电压
+        Ratio : 1000
+        Unit : V
+      - Name : 第1组最小电压ID
+        Dot : 0
+      - Name : 第2组最小电压ID
+        Dot : 0
+      - Name : 第3组最小电压ID
+        Dot : 0
+      - Name : 第4组最小电压ID
+        Dot : 0
+      - Name : 第1组平均内阻
+        Ratio : 1000
+        Unit : "mΩ"
+      - Name : 第2组平均内阻
+        Ratio : 1000
+        Unit : "mΩ"
+      - Name : 第3组平均内阻
+        Ratio : 1000
+        Unit : "mΩ"
+      - Name : 第4组平均内阻
+        Ratio : 1000
+        Unit : "mΩ"
+      - Name : 第1组最大内阻
+        Ratio : 1000
+        Unit : "mΩ"
+      - Name : 第2组最大内阻
+        Ratio : 1000
+        Unit : "mΩ"
+      - Name : 第3组最大内阻
+        Ratio : 1000
+        Unit : "mΩ"
+      - Name : 第4组最大内阻
+        Ratio : 1000
+        Unit : "mΩ"
+      - Name : 第1组最大内阻ID
+        Dot : 0
+      - Name : 第2组最大内阻ID
+        Dot : 0
+      - Name : 第3组最大内阻ID
+        Dot : 0
+      - Name : 第4组最大内阻ID
+        Dot : 0
+      - Name : 第1组最小内阻
+        Ratio : 1000
+        Unit : "mΩ"
+      - Name : 第2组最小内阻
+        Ratio : 1000
+        Unit : "mΩ"
+      - Name : 第3组最小内阻
+        Ratio : 1000
+        Unit : "mΩ"
+      - Name : 第4组最小内阻
+        Ratio : 1000
+        Unit : "mΩ"
+      - Name : 第1组最小内阻ID
+        Dot : 0
+      - Name : 第2组最小内阻ID
+        Dot : 0
+      - Name : 第3组最小内阻ID
+        Dot : 0
+      - Name : 第4组最小内阻ID
+        Dot : 0
+  - Cmd : 3
+    Offset : 2052
+    Len : 20
+    Type : s
+    Data : 
+      - Name : 第1组平均温度
+        Ratio : 10
+        Unit : ℃
+      - Name : 第2组平均温度
+        Ratio : 10
+        Unit : ℃
+      - Name : 第3组平均温度
+        Ratio : 10
+        Unit : ℃
+      - Name : 第4组平均温度
+        Ratio : 10
+        Unit : ℃
+      - Name : 第1组最大温度
+        Ratio : 10
+        Unit : ℃
+      - Name : 第2组最大温度
+        Ratio : 10
+        Unit : ℃
+      - Name : 第3组最大温度
+        Ratio : 10
+        Unit : ℃
+      - Name : 第4组最大温度
+        Ratio : 10
+        Unit : ℃
+      - Name : 第1组最大温度ID
+        Dot : 0
+      - Name : 第2组最大温度ID
+        Dot : 0
+      - Name : 第3组最大温度ID
+        Dot : 0
+      - Name : 第4组最大温度ID
+        Dot : 0
+      - Name : 第1组最小温度
+        Ratio : 10
+        Unit : ℃
+      - Name : 第2组最小温度
+        Ratio : 10
+        Unit : ℃
+      - Name : 第3组最小温度
+        Ratio : 10
+        Unit : ℃
+      - Name : 第4组最小温度
+        Ratio : 10
+        Unit : ℃
+      - Name : 第1组最小温度ID
+        Dot : 0
+      - Name : 第2组最小温度ID
+        Dot : 0
+      - Name : 第3组最小温度ID
+        Dot : 0
+      - Name : 第4组最小温度ID
+        Dot : 0
+  - Cmd : 3
+    Offset : 2072
+    Len : 20
+    Data : 
+      - Name : 第1组电池SOC
+        Ratio : 10
+        Unit : "%"
+      - Name : 第2组电池SOC
+        Ratio : 10
+        Unit : "%"
+      - Name : 第3组电池SOC
+        Ratio : 10
+        Unit : "%"
+      - Name : 第4组电池SOC
+        Ratio : 10
+        Unit : "%"
+      - Name : 第1组电池SOH
+        Ratio : 10
+        Unit : "%"
+      - Name : 第2组电池SOH
+        Ratio : 10
+        Unit : "%"
+      - Name : 第3组电池SOH
+        Ratio : 10
+        Unit : "%"
+      - Name : 第4组电池SOH
+        Ratio : 10
+        Unit : "%"
+      - Name : 第1组电池均衡ID1
+      - Name : 第1组电池均衡ID2
+      - Name : 第2组电池均衡ID1
+      - Name : 第2组电池均衡ID2
+      - Name : 第3组电池均衡ID1
+      - Name : 第3组电池均衡ID2
+      - Name : 第4组电池均衡ID1
+      - Name : 第4组电池均衡ID2
+      - Name : 第1组后备时间
+        Unit : Min
+      - Name : 第2组后备时间
+        Unit : Min
+      - Name : 第3组后备时间
+        Unit : Min
+      - Name : 第4组后备时间
+        Unit : Min
+  - Cmd : 3
+    Offset : 3000
+    Len : 5
+    Data : 
+      - Name : 主板硬件版本号
+        Dot : 0
+      - Name : 主板软件版本号
+        Dot : 0
+      - Name : 主板协议版本号
+        Dot : 0
+      - Name : 电压模块版本
+        Dot : 0
+      - Name : 电流模块版本
+        Dot : 0
+  - Cmd : 3
+    Offset : 3005
+    Len : 1
+    Data : 
+      - Name : 系统状态及告警-SBMS 系统告警状态
+        Value : ($v[1]>>1)&0x3
+        CValue : (pData[0]>>1)&0x3
+        AlertNormalValue : 0
+      - Name : 系统状态及告警-当前内阻测试状态
+        Value : ($v[1]>>3)&0x1
+        CValue : (pData[0]>>3)&0x1
+        Options : 
+          - Key : 0
+            Value : 不在内阻测试
+          - Key : 1
+            Value : 内阻测试中
+      - Name : 系统状态及告警-干接点告警状态
+        Value : ($v[1]>>8)&0x3
+        CValue : (pData[0]>>8)&0x3
+  - Cmd : 3
+    Offset : 3006
+    Len : 4
+    Data : 
+      - ArrayBlock : GroupStatus
+        ArrayStart : 1
+        ArrayEnd : 4
+  - Cmd : 3
+    Offset : 8003
+    Len : 17
+    Data : 
+      - Name : 电池组数
+      - Name : 第1组电池节数
+      - Name : 第2组电池节数
+      - Name : 第3组电池节数
+      - Name : 第4组电池节数
+      - Name : 第1组电池类型
+        Options : 
+          - Key : 0
+            Value : 2V
+          - Key : 1
+            Value : 6V
+          - Key : 2
+            Value : 12V
+      - Name : 第2组电池类型
+        Options : 
+          - Key : 0
+            Value : 2V
+          - Key : 1
+            Value : 6V
+          - Key : 2
+            Value : 12V
+      - Name : 第3组电池类型
+        Options : 
+          - Key : 0
+            Value : 2V
+          - Key : 1
+            Value : 6V
+          - Key : 2
+            Value : 12V
+      - Name : 第4组电池类型
+        Options : 
+          - Key : 0
+            Value : 2V
+          - Key : 1
+            Value : 6V
+          - Key : 2
+            Value : 12V
+      - Name : 第1组电池安时数
+        Unit : AH
+      - Name : 第2组电池安时数
+        Unit : AH
+      - Name : 第3组电池安时数
+        Unit : AH
+      - Name : 第4组电池安时数
+        Unit : AH
+      - Name : 第1组电池霍尔量程
+        Unit : A
+      - Name : 第2组电池霍尔量程
+        Unit : A
+      - Name : 第3组电池霍尔量程
+        Unit : A
+      - Name : 第4组电池霍尔量程
+        Unit : A
+  - Cmd : 3
+    Offset : 8026
+    Len : 6
+    Data : 
+      - Name : 网络IP地址
+        Value : (($v[1]>>8)&0xFF).".".($v[1]&0xFF).".".(($v[2]>>8)&0xFF).".".($v[2]&0xFF)
+        CValue : ""
+      - Name : 网络网关
+        Value : (($v[3]>>8)&0xFF).".".($v[3]&0xFF).".".(($v[4]>>8)&0xFF).".".($v[4]&0xFF)
+        CValue : ""
+      - Name : 网络掩码1
+        Value : (($v[5]>>8)&0xFF).".".($v[5]&0xFF).".".(($v[6]>>8)&0xFF).".".($v[6]&0xFF)
+        CValue : ""
+  - Cmd : 3
+    Offset : 8108
+    Len : 12
+    Data : 
+      - Name : 第1组浮充电流率
+        Ratio : 100
+        Unit : C
+      - Name : 第2组浮充电流率
+        Ratio : 100
+        Unit : C
+      - Name : 第3组浮充电流率
+        Ratio : 100
+        Unit : C
+      - Name : 第4组浮充电流率
+        Ratio : 100
+        Unit : C
+      - Name : 第1组最大放电电流率
+        Ratio : 10
+        Unit : C
+      - Name : 第2组最大放电电流率
+        Ratio : 10
+        Unit : C
+      - Name : 第3组最大放电电流率
+        Ratio : 10
+        Unit : C
+      - Name : 第4组最大放电电流率
+        Ratio : 10
+        Unit : C
+      - Name : 第1组最大充电电流率
+        Ratio : 10
+        Unit : C
+      - Name : 第2组最大充电电流率
+        Ratio : 10
+        Unit : C
+      - Name : 第3组最大充电电流率
+        Ratio : 10
+        Unit : C
+      - Name : 第4组最大充电电流率
+        Ratio : 10
+        Unit : C
+  - Cmd : 3
+    Offset : 8144
+    Len : 28
+    Data : 
+      - Name : 第1组电池电压单体报警上限
+        Ratio : 1000
+        Unit : V
+      - Name : 第2组电池电压单体报警上限
+        Ratio : 1000
+        Unit : V
+      - Name : 第3组电池电压单体报警上限
+        Ratio : 1000
+        Unit : V
+      - Name : 第4组电池电压单体报警上限
+        Ratio : 1000
+        Unit : V
+      - Name : 第1组电池电压单体报警下限
+        Ratio : 1000
+        Unit : V
+      - Name : 第2组电池电压单体报警下限
+        Ratio : 1000
+        Unit : V
+      - Name : 第3组电池电压单体报警下限
+        Ratio : 1000
+        Unit : V
+      - Name : 第4组电池电压单体报警下限
+        Ratio : 1000
+        Unit : V
+      - Name : 第1组电池电阻报警上限
+        Ratio : 1000
+        Unit : "mΩ"
+      - Name : 第2组电池电阻报警上限
+        Ratio : 1000
+        Unit : "mΩ"
+      - Name : 第3组电池电阻报警上限
+        Ratio : 1000
+        Unit : "mΩ"
+      - Name : 第4组电池电阻报警上限
+        Ratio : 1000
+        Unit : "mΩ"
+      - Name : 第1组电池电阻差异报警上限
+        Unit : "%"
+      - Name : 第2组电池电阻差异报警上限
+        Unit : "%"
+      - Name : 第3组电池电阻差异报警上限
+        Unit : "%"
+      - Name : 第4组电池电阻差异报警上限
+        Unit : "%"
+      - Name : 第1组电池温度报警上限
+        Ratio : 10
+        Unit : ℃
+      - Name : 第2组电池温度报警上限
+        Ratio : 10
+        Unit : ℃
+      - Name : 第3组电池温度报警上限
+        Ratio : 10
+        Unit : ℃
+      - Name : 第4组电池温度报警上限
+        Ratio : 10
+        Unit : ℃
+      - Name : 第1组电池电压差异报警上限
+        Ratio : 10
+        Unit : "%"
+      - Name : 第2组电池电压差异报警上限
+        Ratio : 10
+        Unit : "%"
+      - Name : 第3组电池电压差异报警上限
+        Ratio : 10
+        Unit : "%"
+      - Name : 第4组电池电压差异报警上限
+        Ratio : 10
+        Unit : "%"
+      - Name : 第1组电池温度差异报警上限
+        Ratio : 10
+        Unit : ℃
+      - Name : 第2组电池温度差异报警上限
+        Ratio : 10
+        Unit : ℃
+      - Name : 第3组电池温度差异报警上限
+        Ratio : 10
+        Unit : ℃
+      - Name : 第4组电池温度差异报警上限
+        Ratio : 10
+        Unit : ℃
+  - Cmd : 3
+    Offset : 20000
+    Len : 4
+    Type : s
+    Data : 
+      - Name : 第1组电池环境温度
+        Ratio : 10
+        Unit : ℃
+      - Name : 第2组电池环境温度
+        Ratio : 10
+        Unit : ℃
+      - Name : 第3组电池环境温度
+        Ratio : 10
+        Unit : ℃
+      - Name : 第4组电池环境温度
+        Ratio : 10
+        Unit : ℃
+  - Cmd : 3
+    Offset : 21000
+    Len : 125
+    Data : 
+      - ArrayName : "第%d号电池内阻初始值"
+        ArrayStart : 1
+        ArrayLength : 125
+        Offset : 1
+        Ratio : 1000
+        Unit : "mΩ"
+  - Cmd : 3
+    Offset : 21125
+    Len : 125
+    Data : 
+      - ArrayName : "第%d号电池内阻初始值"
+        ArrayStart : 126
+        ArrayLength : 125
+        Offset : 1
+        Ratio : 1000
+        Unit : "mΩ"
+
+  
+        

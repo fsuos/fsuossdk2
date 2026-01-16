@@ -2,6 +2,9 @@ Project:
     Name : WRWF120106UPS
     RT_ID : 5156
     File : "WRWF-1201-06 模块化UPS Modbus监控协议.pdf"
+    DevType : 2
+    ProtocolName : WRWF120106UPS
+    Category : UPS设备
 BlockTemplate: 
   ModuleData1 :
     BlockLength : 100
